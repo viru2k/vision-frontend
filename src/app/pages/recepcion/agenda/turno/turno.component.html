@@ -1,0 +1,164 @@
+<div>
+  <div class="row d-flex justify-content-center">
+
+
+      <div class=" col-6 col-xl-4">
+
+          <form [formGroup]="pacienteForm">
+              <h5>Buscar paciente</h5>
+        <hr>
+             <div class="form-group ">
+               <div class="row">
+                 <div class="col-10">
+                   <label  >Documento</label>
+                 </div>  
+                 <div class="col-2">
+                     <a  (click)="buscarPaciente()">
+                       <img  class="pointer float-right"  src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
+                     </a>
+                 </div>
+               </div>
+                   <input  (keyup.enter)="editarPaciente()" class="form-control col-md-12 form-control-sm" formControlName="dni"  />                  
+               <div *ngIf="pacienteForm.controls.dni.errors?.required && pacienteForm.controls.dni.touched" class="error">
+                       * Este campo es requerido
+               </div>
+           </div>
+
+            <div class="form-group ">
+              <div class="row">
+                <div class="col-10">
+                  <label  >Apellido</label>
+                </div>          
+              </div>
+                  <input  (keyup.enter)="editarObraSocial()" class="form-control col-md-12 form-control-sm" formControlName="apellido"  />                  
+              <div *ngIf="pacienteForm.controls.apellido.errors?.required && pacienteForm.controls.apellido.touched" class="error">
+                      * Este campo es requerido
+              </div>
+            </div>
+
+            <div class="form-group ">
+              <div class="row">
+                <div class="col-10">
+                  <label  >Nombre</label>
+                </div>          
+              </div>
+                  <input  class="form-control col-md-12 form-control-sm" formControlName="nombre"  />                  
+              <div *ngIf="pacienteForm.controls.nombre.errors?.required && pacienteForm.controls.nombre.touched" class="error">
+                      * Este campo es requerido
+              </div>
+            </div>
+
+         
+          </form>
+          <p-footer>
+              <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                      <button    class="btn btn-outline-info float-right" type="submit" (click)="actualizarDatos()" >Crear/paciente  paciente</button>
+              </div>
+          </p-footer>
+
+          
+          <form [formGroup]="pacienteForm ">
+            <h5>Agenda</h5>
+      <hr>
+            <div class="form-group ">
+              <div class="row">
+                <div class="col-10">
+                  <label  >Obra social</label>
+                </div>  
+                <div class="col-2">
+                    <a  (click)="editarObraSocial()">
+                      <img class="pointer float-right" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
+                    </a>
+                </div>
+              </div>
+                  <input  (keyup.enter)="editarObraSocial()" class="form-control col-md-12 form-control-sm" formControlName="dni" />                  
+              <div *ngIf="pacienteForm.controls.dni.errors?.required && pacienteForm.controls.dni.touched" class="error">
+                      * Este campo es requerido
+              </div>
+          </div>
+
+          <div class="form-group ">
+              <div class="row">
+                <div class="col-10">
+                  <label  >Médico</label>
+                </div>  
+                <div class="col-2">
+                    <a  (click)="editarObraSocial()">
+                      <img class="pointer float-right" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
+                    </a>
+                </div>
+              </div>
+                  <input  (keyup.enter)="editarObraSocial()" class="form-control col-md-12 form-control-sm" formControlName="dni" />                  
+              <div *ngIf="pacienteForm.controls.dni.errors?.required && pacienteForm.controls.dni.touched" class="error">
+                      * Este campo es requerido
+              </div>
+          </div>
+          <div class="form-group ">
+            <div class="row">
+              <div class="col-7">
+                  <label  >Fecha</label>
+                <p-calendar  [(ngModel)]="date14" [locale]="es" [inline]="true" class=" col-md-12" formControlName="dni"></p-calendar>
+              </div>  
+              <div class="col-5">
+                  <label  >Horario</label>
+                  <p-listbox [options]="cities" [listStyle]="{'max-height':'288px'}"  optionLabel="name" ></p-listbox>
+              </div>        
+            </div>
+          
+
+          </div>
+
+        </form>
+        <p-footer>
+            <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                    <button    class="btn btn-lg btn-success float-right" type="submit" (click)="actualizarDatos()" >Confirmar turno</button>
+            </div>
+        </p-footer>
+      </div>
+
+      
+      <div class="col-6 col-xl-4">
+        <h5>Buscar médico</h5>
+        <hr>
+        <label  >Turnos disponibles</label>
+        <p-table #dt [columns]="cols"  [value]="elementos" selectionMode="single" [resizableColumns]="true"
+        [(selection)]="selectedItem" (onRowSelect)="onRowSelect($event)" [scrollable]="true" scrollHeight="400px" >
+    
+        <ng-template pTemplate="header" let-columns >
+  
+                <tr>
+                    <th  *ngFor="let col of columns" [pSortableColumn]="col.field" pResizableColumn >
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order" ></p-sortIcon>
+                    </th>
+                    
+                </tr>
+                <tr>
+                    <th *ngFor="let col of columns" [ngSwitch]="col.field" >
+                      
+                     
+                        <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'paciente_nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                      
+                        <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'paciente_apellido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" autofocus>
+                     
+                      
+                    </th>
+                  
+                </tr>
+            </ng-template>
+    
+            <ng-template pTemplate="body" let-elementos>
+                        <tr [pSelectableRow]="elementos" 
+                              >
+                                                        
+                            <td>{{elementos.paciente_nombre}}</td>       
+                            <td >{{elementos.paciente_apellido}}</td>      
+                            
+                        </tr>
+            </ng-template> 
+        </p-table>
+      </div>
+    
+
+       
+  </div>
+</div>

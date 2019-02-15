@@ -1,0 +1,191 @@
+
+<div class="p-2">
+    <app-loading *ngIf="loading"> </app-loading> 
+   
+</div>
+
+
+<div class="row animated fadeIn slow" *ngIf="!loading">
+
+        <p-table #dt id="dataTable"  [columns]="cols" [autoLayout]="true" [value]="elementos" selectionMode="single" [resizableColumns]="true"
+         [(selection)]="selectedItem" (onRowSelect)="onRowSelect($event)"  [scrollable]="true" scrollHeight="400px">
+        <ng-template pTemplate="caption">
+                <div class="row">
+                        <div class="col-md-7" style="text-align:left">
+                                <button type="button" class="btn btn-outline-info btn-md" (click)="showDialogToAdd()" >Nuevo</button>
+                                <button type="button" class="btn btn-success btn-md" (click)="generarPdf()" >Nuevo</button>
+                        </div> 
+                <div class="col-md-5" style="text-align:right">                                
+                    <input  class="form-control col-md-12" type="text"  placeholder="Buscar en toda la tabla" (input)="dt.filterGlobal($event.target.value, 'contains')" >
+                </div>
+        </div>
+            </ng-template>
+        <ng-template pTemplate="header" let-columns >
+
+                <tr>
+                    <th  *ngFor="let col of columns" [pSortableColumn]="col.field" pResizableColumn >
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                    </th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th *ngFor="let col of columns" [ngSwitch]="col.field" >
+                        <input class="form-control col-md-12" *ngSwitchCase="'apellido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <input class="form-control col-md-12" *ngSwitchCase="'nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <input class="form-control col-md-12" *ngSwitchCase="'dni'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <input class="form-control col-md-12" *ngSwitchCase="'fecha_nacimiento'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <input class="form-control col-md-12" *ngSwitchCase="'domicilio'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <input class="form-control col-md-12" *ngSwitchCase="'telefono_cel'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+
+                    </th>
+                    <th style="width:4em"></th>
+                </tr>
+            </ng-template>
+     
+            <ng-template pTemplate="body" let-elementos>
+                        <tr [pSelectableRow]="elementos" >
+                            <td>{{elementos.apellido}}</td>
+                            <td>{{elementos.nombre}}</td>
+                            <td>{{elementos.dni}}</td>
+                            <td>{{elementos.fecha_nacimiento | date: 'dd/MM/yyyy'}}</td>
+                            <td>{{elementos.domicilio}}</td>
+                            <td>{{elementos.telefono_cel}}</td>
+                            <!-- <div (click)="imprimirRenglon()"> <td>  <img  src="assets/icons/file-print.svg" alt="Imprimir" height="32" width="32"></td></div> -->
+                            <td  >
+                                        <button pButton icon="fas fa-file 2x" (click)="imprimirRenglon()"></button>
+                                    </td>
+                        </tr>
+                    </ng-template>
+          
+            <ng-template pTemplate="summary" let-rowData>
+                <div style="text-align:left">
+                    <button type="button" class="btn btn-outline-info btn-md" (click)="showDialogToAdd()" >Nuevo</button>
+                   
+                </div>
+            </ng-template>    
+        </p-table>
+       
+    <!--     <p-table id="tabla" [columns]="cols" [value]="pacientes">
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th *ngFor="let col of columns">
+                            {{col.header}}
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                    <tr>
+                        <td *ngFor="let col of columns">
+                                {{rowData[col.field]}}
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table> -->
+       
+   
+
+
+        <p-dialog  [responsive]="true"  header="Editar" maximizable="true" [(visible)]="displayDialog" showEffect="fade" [rtl]="true" [modal]="true" appendTo="body" >
+
+            
+            <form class="col-md-12"  [formGroup]="updateDataForm" (ngSubmit)="actualizarDatos()">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group ">
+                                <label  >Apellido</label>
+                                <input class="form-control col-md-12" formControlName="apellido"   />
+                                <div *ngIf="updateDataForm.controls.apellido.errors?.required && updateDataForm.controls.apellido.touched" class="error">
+                                        * Este campo es requerido
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label  >Nombre</label>
+                                <input class="form-control col-md-12" formControlName="nombre"   />
+                                <div *ngIf="updateDataForm.controls.nombre.errors?.required && updateDataForm.controls.nombre.touched" class="error">
+                                                * Este campo es requerido
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label  >Apellido del esposo</label>
+                                <input class="form-control col-md-12" formControlName="apellido_m"    />
+                                <div *ngIf="updateDataForm.controls.apellido_m.errors?.required && updateDataForm.controls.apellido_m.touched" class="error">
+                                                * Este campo es requerido
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label  >DNI</label>
+                                <input class="form-control col-md-12" formControlName="dni" maxlength="8" minlength="6"  />
+                             
+                                <div *ngIf="updateDataForm.controls.dni.errors?.required
+                                 && updateDataForm.controls.dni.touched
+                                 && updateDataForm.controls.dni.errors?.maxlength " class="error">
+                                                * Este campo es requerido
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label >Domicilio</label>
+                                <input class="form-control col-md-12" formControlName="domicilio"    />
+                                <div *ngIf="updateDataForm.controls.domicilio.errors?.required && updateDataForm.controls.domicilio.touched" class="error">
+                                                * Este campo es requerido
+                                </div>
+                        </div>
+                        <div class="form-group ui-g-12">
+                                <label  >Sexo</label>
+                                <div ><p-radioButton name="groupname" formControlName="sexo"   value="M" label="Masculino"  inputId="opt1"></p-radioButton></div>
+                                <div ><p-radioButton name="groupname"  formControlName="sexo"   value="F" label="Femenino"  inputId="opt2"></p-radioButton></div>
+                        </div>
+                        <div *ngIf="updateDataForm.controls.sexo.errors?.required && updateDataForm.controls.sexo.touched" class="error">
+                                        * Este campo es requerido
+                        </div>
+            </div>
+            <div class="col-md-6">
+                        <div class="form-group">
+                                <label  >E-mail</label>
+                                <input class="form-control col-md-12" formControlName="email"    />
+                                <div *ngIf="updateDataForm.controls.email.errors?.required && updateDataForm.controls.email.touched" class="error">
+                                                * Este campo es requerido
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label  >Fecha de nacimiento</label>
+                                <p-calendar inputStyleClass="form-control col-md-12"  formControlName="fecha_nacimiento"  [locale]="es"  [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2100" ></p-calendar>
+                                <div *ngIf="updateDataForm.controls.fecha_nacimiento.errors?.required && updateDataForm.controls.fecha_nacimiento.touched" class="error">
+                                                * Este campo es requerido
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label  >Ciudad</label>
+                                <input class="form-control col-md-12" formControlName="ciudad"    />
+                                <div *ngIf="updateDataForm.controls.ciudad.errors?.required && updateDataForm.controls.ciudad.touched" class="error">
+                                                * Este campo es requerido
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label  >Tel. celular</label>
+                                <input class="form-control col-md-12" formControlName="telefono_cel"    />
+                                <div *ngIf="updateDataForm.controls.apellido.errors?.required && updateDataForm.controls.apellido.touched" class="error">
+                                                * Este campo es requerido
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label  >Tel. fijo</label>
+                                <input class="form-control col-md-12" formControlName="telefono_fijo"    />
+                                <div *ngIf="updateDataForm.controls.telefono_fijo.errors?.required && updateDataForm.controls.telefono_fijo.touched" class="error">
+                                                * Este campo es requerido
+                                </div>
+                        </div>
+            </div>
+        </div>
+             
+            </form>
+            <p-footer>
+                    <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                            <button *ngIf="!newPopItem" [disabled]="!updateDataForm.valid" [formGroup]="updateDataForm" class="btn btn-primary" type="submit" (click)="actualizarDatos()" >Actualizar</button>
+                            <button *ngIf="newPopItem" [disabled]="!updateDataForm.valid"  [formGroup]="updateDataForm" class="btn btn-primary" type="submit" (click)="nuevoItem()" >Crear</button>
+                    </div>
+                </p-footer>
+       
+         
+        </p-dialog>
+</div>

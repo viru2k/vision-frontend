@@ -1,0 +1,32 @@
+
+    <p-menubar  [model]="general" autoZIndex="false" styleClass="my-navbar  "   >
+            <div class="container-fluid">
+                <div class="row " >
+                                <div class="col-md-2 ">      
+                                </div>
+                                <div class="col-md-2 "> 
+                                </div>
+                                <div class="col-md-2">
+                                        <a class="nav-link naranja " routerLink="facturacion">   <img src="assets/icons/grey/outline_comment_black_18dp.png" width="24px" height="24px"></a>
+                                </div>
+                                <div class="col-md-2">
+                                                <a class="nav-link azul " routerLink="facturacion">  <img src="assets/icons/grey/outline_email_black_18dp.png" width="24px" height="24px">  </a>
+                                </div>
+                               
+                                <div >    
+                                                <p-overlayPanel #op [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'" #op [dismissable]="true">
+                                                                
+                                                                <span>   <a class="nav-link azul " routerLink="facturacion">  Ajustes</a></span>
+                                                                <span>   <a class="nav-link azul " routerLink="facturacion">  Cerrar sesión</a></span>
+                                                    </p-overlayPanel>
+  
+                                                    <span>   <a class="nav-link azul ">  <img src="assets/icons/grey/outline_settings_black_18dp.png" (click)="op.toggle($event,actualTarget)" width="24px" height="24px">  </a></span>
+                                                    
+                                                    <div #actualTarget class="float-right"></div>
+                                </div>
+                                
+                        </div> 
+                </div>
+                
+    
+    </p-menubar> 

@@ -1,0 +1,257 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+.main-div{
+    height: 92vh;
+}
+
+.popup-div-width{
+    width: 90vw;
+}
+
+.navbar{
+    background: #AED581 !important;
+}
+
+.my-navbar{
+    background: #DCEDC8!important;
+}
+
+
+
+:host >>> .my-navbar .ui-menuitem {
+    background: #7e0e0e 
+}
+
+:host >>> ::ng-deep button {
+      margin-right: .25em;
+  }
+
+  
+  .custom-toast .ui-toast-message {
+    color: #ffffff;
+    background: #9FA8DA;
+    background: -webkit-linear-gradient(to right, #7986CB, #7986CB);
+    background: linear-gradient(to right, #7986CB, #7986CB);
+}
+
+.custom-toast .ui-toast-close-icon {
+    color: #ffffff;
+}
+
+a
+{
+    color: #b7b7b7;
+}
+a:link {
+    color: gray;
+}
+
+/* visited link */
+a:visited {
+    color: #FFFFFF;
+}
+
+/* mouse over link */
+a:hover {
+    color: #BDBDBD !important;
+}
+
+/* selected link */
+a:active {
+    color: #BDBDBD !important;
+}
+
+ul li{
+    list-style-type:none;cursor:pointer;
+}
+.active a{color:#757575;}
+
+ul.nav a:hover { color: #BDBDBD !important; }
+
+span {
+    color: #5f5e5e;
+}
+
+
+.fondo-body {
+    background: #fafafa;
+}
+
+
+/*COLORES */
+.error{ color: #D50000 !important; }
+.advertencia { color: #FFC300  !important; }
+.informacion { color: #01579B  !important; }
+.exito { color: #B2FF59  !important; } 
+.gris { color: #616161 !important; }
+.blanco { color: #FFFFFF !important; }
+
+
+/* animacion con un subrayado*/
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after{
+  width: 100%;
+}
+
+
+.modal {
+   
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+/**************** ANIMACIONES ******************/
+
+.image-loading {
+    -webkit-animation: rotation 2s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+    from {
+            -webkit-transform: rotate(0deg);
+    }
+    to {
+            -webkit-transform: rotate(359deg);
+    }
+}
+
+
+/**************** fIN ANIMACIONES ******************/
+
+
+/******************* ICONOS PARA BOTNES *****************/
+
+.aButton{
+    
+    width:32px;
+    height:32px;
+    cursor:pointer;
+    
+}
+
+
+#iconButtonDocument {
+    background-image:url("assets/icons/file-print.svg");
+    background-repeat:no-repeat;
+}
+
+
+.bAgregarGrey{
+    background: url(./assets/icons/grey/outline_add_circle_outline_black_18dp.png) no-repeat;
+    width:16px;
+    height:16px;
+    cursor:pointer;
+    border:none;
+    position:relative;
+}
+
+
+.bImprimirGrey{
+    background: url(./assets/icons/grey/outline_local_printshop_black_18dp.png) no-repeat;
+    width:32px;
+    height:32px;
+    cursor:pointer;
+    border:none;
+    position:relative;
+} 
+
+.bBuscarGrey{
+    background: url(./assets/icons/grey/outline_search_black_18dp.png) no-repeat;
+    width:32px;
+    height:32px;
+    cursor:pointer;
+    border:none;
+    position:relative;
+} 
+
+
+hr.rulerStyleShadow {
+	height: 3px;
+	border: 0;
+	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+
+/***************************ESTADO ATENCION ************************/ 
+.es-pendiente {
+    background-color: #FFF9C4!important;
+    color: #757575   !important;
+} 
+
+.es-atendido {
+    background-color: #AED581 !important;
+    color: #757575 !important;
+}
+
+.es-ausente {
+    background-color: #E57373 !important;
+    color: #757575 !important;
+}
+
+.es-ingresado {
+    background-color: #8C9EFF !important;
+    color: #757575 !important;
+}
+
+.es-espera {
+    background-color: #E1BEE7 !important;
+    color: #757575 !important;
+}
+
+/************ CURSORES ***********************/
+
+
+.auto            { cursor: auto; }
+.deafult         { cursor: default; }
+.none            { cursor: none; }
+.context-menu    { cursor: context-menu; }
+.help            { cursor: help; }
+.pointer         { cursor: pointer; }
+.progress        { cursor: progress; }
+.wait            { cursor: wait; }
+.cell            { cursor: cell; }
+.crosshair       { cursor: crosshair; }
+.text            { cursor: text; }
+.vertical-text   { cursor: vertical-text; }
+.alias           { cursor: alias; }
+.copy            { cursor: copy; }
+.move            { cursor: move; }
+.no-drop         { cursor: no-drop; }
+.not-allowed     { cursor: not-allowed; }
+.all-scroll      { cursor: all-scroll; }
+.col-resize      { cursor: col-resize; }
+.row-resize      { cursor: row-resize; }
+.n-resize        { cursor: n-resize; }
+.e-resize        { cursor: e-resize; }
+.s-resize        { cursor: s-resize; }
+.w-resize        { cursor: w-resize; }
+.ns-resize       { cursor: ns-resize; }
+.ew-resize       { cursor: ew-resize; }
+.ne-resize       { cursor: ne-resize; }
+.nw-resize       { cursor: nw-resize; }
+.se-resize       { cursor: se-resize; }
+.sw-resize       { cursor: sw-resize; }
+.nesw-resize     { cursor: nesw-resize; }
+.nwse-resize     { cursor: nwse-resize; }

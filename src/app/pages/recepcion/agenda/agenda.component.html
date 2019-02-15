@@ -1,0 +1,103 @@
+<div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-6 col-xl-10">
+            <h5>Agenda</h5>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center ">
+        
+       
+        <div class=" row  col-3 col-xl-3">
+            <div class="pr-1 ">
+              <label class="text-secondary ">Fecha: </label>
+            </div>
+            <div>
+                <p-calendar class=" form-control-sm" [(ngModel)]="date2" [locale]="es" dateFormat="dd/mm/yy"></p-calendar>
+            </div>
+            <div>
+                <a  (click)="editarObraSocial()">
+                    <img class="pointer float-right" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
+                  </a>
+            </div>
+          </div>
+
+          <div class=" row  col-3 col-xl-3">
+              <div class="pr-1">
+                  <label class="text-secondary">Filtrar: </label>
+                </div>
+              <div class="pr-2">
+                  <button class="btn btn-outline-info btn-sm"> Medico</button>
+              </div>
+              <div class="pr-2">
+                  <button class="btn btn-outline-success btn-sm"> Obra social</button>
+              </div>
+              <div >
+                  <button class="btn btn-outline-primary btn-sm">Estado</button>
+              </div>
+            </div>
+         
+          <div class="col-3 col-xl-3 float-righ ">
+            
+          </div>
+           
+          <div class="col-1 col-xl-1 float-righ ">
+              <button class="btn btn-outline-success btn-sm "> Actualizar lista</button>             
+          </div>
+      </div>
+      <br>
+     
+    <div class="row d-flex justify-content-center">
+       
+        <div class="col-6 col-xl-10">
+            <hr>
+            <h5>Turnos</h5>
+            <hr>
+          
+      <p-table #dt [columns]="cols"  [value]="elementos" selectionMode="single"  
+      [(selection)]="selectedItem" (onRowSelect)="onRowSelect($event)"  >
+  
+      <ng-template pTemplate="header" let-columns >
+
+              <tr>
+                  <th  *ngFor="let col of columns" [pSortableColumn]="col.field"  [ngStyle]="{'width': col.width}" colspan="col.colspan" >
+                      {{col.header}}
+                      <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order" ></p-sortIcon>
+                  </th>
+                  
+              </tr>
+              <tr>
+                  <th *ngFor="let col of columns" [ngSwitch]="col.field" >
+                    
+                      <input class="form-control col-md-12 form-control-sm " *ngSwitchCase="'fecha_turno'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" autofocus>
+                      <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'grupo_nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                      
+                      <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'agenda_estado'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >
+                      <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'paciente_nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                      <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'paciente_apellido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">   
+                      <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'paciente_dni'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >
+                      <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'accion'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >
+                  </th>
+                
+              </tr>
+          </ng-template>
+  
+          <ng-template pTemplate="body" let-elementos >
+                      <tr [pSelectableRow]="elementos" [ngClass]="colorRow(elementos.agenda_estado)" 
+                            >
+                          <td>{{elementos.fecha_turno | date: ' dd/MM/yyyy hh:mm:ss'}}</td>                                
+                          <td>{{elementos.grupo_nombre}}</td>       
+                          <td >{{elementos.agenda_estado}}</td>      
+                          <td>{{elementos.paciente_nombre}}</td>         
+                          <td>{{elementos.paciente_apellido}}</td>         
+                          <td>{{elementos.paciente_dni}}</td>       
+                          <td >  <button class="btn btn-outline-dark btn-sm  ">editar</button>  </td>                                  
+                      </tr>
+          </ng-template> 
+      </p-table>
+        </div>
+      
+
+         
+    </div>
+</div>
