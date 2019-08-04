@@ -26,7 +26,10 @@ export class PopupPacienteComponent implements OnInit {
   loading: boolean;
   elemento:Paciente = null;
   elementos:Paciente[] = null;
-
+  busquedaForm:FormGroup;
+  busqueda: string = 'paciente.apellido';
+  textoBusqueda:string = "";
+  
   constructor(private miServico:PacienteService, public ref: DynamicDialogRef, public config: DynamicDialogConfig ) {
    console.log("loading");
     this.cols = [
@@ -40,19 +43,22 @@ export class PopupPacienteComponent implements OnInit {
     } 
 
 ngOnInit() {
-
-this.loadList();
+    this.busquedaForm = new FormGroup({'consulta': new FormControl("", Validators.required)});
+//this.loadList();
 }
 
-
+buscar(){
+    this.loadList();
+}
 /** CARGA LA LISTA **/
 
 
 loadList(){
     this.es = calendarioIdioma;
     this.loading = true;
+    console.log(this.busquedaForm.value.consulta);
     try {
-            this.miServico.getItems()    
+            this.miServico.getItems(this.busqueda,this.textoBusqueda)     
             .subscribe(resp => {
             this.elementos = resp;            
             this.loading = false;

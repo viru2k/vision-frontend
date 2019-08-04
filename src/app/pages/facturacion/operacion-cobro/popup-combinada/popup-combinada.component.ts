@@ -1,15 +1,16 @@
-import { PopupCombinadaItemComponent } from './popup-combinada-item/popup-combinada-item.component';
-import { CirugiaCombinadaRegistro } from '../../../../models/cirugia-combinada-registro';
 
-import { AgendaService } from './../../../../services/agenda.service';
+import { PracticaDistribucionService } from './../../../../services/PracticaDistribucionService';
+import { PopupCombinadaItemComponent } from './popup-combinada-item/popup-combinada-item.component';
+
+
 import { Component, OnInit} from '@angular/core';
 import { calendarioIdioma } from '../../../../config/config';
 
 import { PracticaDistribucion } from '../../../../models/practica-distribucion.model';
 import { DynamicDialogConfig, DynamicDialogRef, DialogService, MessageService } from 'primeng/api';
-import { CirugiaCombinadaDatos } from '../../../../models/cirugia-combinada-datos';
-import { PracticaDistribucionService } from '../../../../services/practica-distribucion.service';
+
 import swal from 'sweetalert2';
+import { PracticaDistribucionRegistro } from '../../../../models/practica-distribucion-registro.model';
 
 @Component({
   selector: 'app-popup-combinada',
@@ -26,27 +27,30 @@ export class PopupCombinadaComponent implements OnInit {
   resultSave:boolean;
   // LOADING
   loading: boolean = false;
+  selectedItem:PracticaDistribucionRegistro;
+  item:PracticaDistribucionRegistro=null;
   elemento:PracticaDistribucion = null;
   elementos:PracticaDistribucion[] = [];
-  elementoRegistro:CirugiaCombinadaRegistro = null;
-  elementoDato:CirugiaCombinadaDatos = null;
-  elementosDato:CirugiaCombinadaDatos[] = null;
-  _id:string;
+  elementoRegistro:PracticaDistribucionRegistro = null;
+  _id:string; 
+  totalcalculado:number = 0;
+
   constructor(private miServico:PracticaDistribucionService, public ref: DynamicDialogRef,private messageService: MessageService ,public dialogService: DialogService, public config: DynamicDialogConfig) { 
 
     this.cols = [
-      { field: 'obra_social_nombre', header: 'Obra social' },
-      { field: 'codigo', header: 'Codigo' },
-      { field: 'pmo_descripcion', header: 'Descripcion' },
-      {field: 'porcentaje', header: '%' },
-      { field: 'total', header: 'Total' },      
-
+      { field: 'obra_social_nombre', header: 'Obra social',  width: '20%' },
+      { field: 'codigo', header: 'Codigo',  width: '10%' },
+      { field: 'obra_social_practica_nombre', header: 'Descripcion',  width: '30%' },
+      {field: 'practica_distribucion_valor', header: 'Valor' ,  width: '8%'},
+      {field: 'practica_distribucion_porcentaje', header: '%',  width: '8%' },
+      { field: 'practica_distribucion_total', header: 'Total' ,  width: '8%'},      
+      { field: 'accion', header: 'Acción' ,  width: '10%'},      
    ];
   }
 
   ngOnInit() {
-    console.log(this.config.data);
-    this._id = this.config.data;
+   // console.log(this.config.data.id);
+    this._id = this.config.data.id;
     this.loadList();
   }
 
@@ -58,41 +62,61 @@ export class PopupCombinadaComponent implements OnInit {
      width: '98%',
      height: '90%'
     });
-    ref.onClose.subscribe((PopupCombinadaItemComponent:CirugiaCombinadaRegistro) => {
+    ref.onClose.subscribe((PopupCombinadaItemComponent:PracticaDistribucionRegistro) => {
       if (PopupCombinadaItemComponent) {
         this.elementoRegistro = PopupCombinadaItemComponent;
         console.log(this.elementoRegistro);
+        this.item = new PracticaDistribucionRegistro("0",this._id,this.elementoRegistro.practica_distribucion_id,this.elementoRegistro.porcentaje , this.elementoRegistro.valor, this.elementoRegistro.total,
+        this.elementoRegistro.codigo, this.elementoRegistro.complejidad, this.elementoRegistro.es_habilitada, this.elementoRegistro.obra_social_id, this.elementoRegistro.obra_social_nombre, this.elementoRegistro.pmo_descripcion, this.elementoRegistro.pmo_id);
+       // this.popItem.convenio_os_pmo_id = this.item.convenio_os_pmo_id;
+        
      //   this.elementos.push(this.elementoRegistro);
         this.calcularTotal();
-       
+       this.nuevoItem();
       }
   });
-    
+     
   }
 
   calcularTotal(){
-    this.totalFacturado = this.totalFacturado + this.elemento.practica_distribucion_total;
-
+    var i:number = 0;
+    this.totalFacturado = 0;
+    if(this.elementos){
+      for (let entry of this.elementos) {
+        console.log(entry["practica_distribucion_valor"]);
+        this.totalcalculado = entry["practica_distribucion_total"];
+      this.totalFacturado = this.totalFacturado + +entry["practica_distribucion_total"];
+      }
+  }
   }
 
+
+ 
+ 
   guardarRegistros(){
     this.ref.close(this.elementos);
   }
 
-
   loadList(){
-    this.es = calendarioIdioma;
-    this.loading = true;
     console.log(this._id);
+    
+    this.loading = true;
     try {
-        this.miServico.getItem(this._id)    
+        this.miServico.getItems(this._id)     
         .subscribe(resp => {
-       // this.elementos = resp;                 
+          if (resp[0]) {
+            this.elementos = resp;  
+            console.log(this.elementos);
+              }else{
+                this.elementos =null;
+              }
+                      
             this.loading = false;
             console.log(resp);
+            this.calcularTotal();
         },
         error => { // error path
-            console.log(error);
+            console.log(error.message);
             console.log(error.status);
             this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message, error.status);
          });    
@@ -100,20 +124,17 @@ export class PopupCombinadaComponent implements OnInit {
     this.throwAlert("error","Error al cargar los registros",error,error.status);
     }  
 }
-
- actualizarLista(){
-     this.loadList();
- }
-
-  actualizarDatos(){
-    
+ 
+eliminarRegistro(row){
+  console.log(row);
+          
           try { 
-              this.miServico.putItem(this.popItem, this.popItem.id)
+              this.miServico.delItem(row.id)
               .subscribe(resp => {
               this.elemento = resp;
               console.log(this.elemento);    
               this.loading = false;
-            //  this.loadList();
+              this.loadList();
               this.resultSave = true;
               },   
               error => { // error path
@@ -132,7 +153,7 @@ export class PopupCombinadaComponent implements OnInit {
   nuevoItem(){ 
       
     try { 
-              this.miServico.postItem(this.popItem)
+              this.miServico.postItem(this.item)
               .subscribe(resp => {
               this.elemento = resp;
               console.log(this.elemento);    
@@ -164,53 +185,8 @@ export class PopupCombinadaComponent implements OnInit {
           })
     }
 
-    if(errorNumero =="422"){
-      mensaje ="Los datos que esta tratando de guardar son iguales a los que ya poseia";
-      swal({   
-          type: 'warning',
-          title: 'Atención..',
-          text: mensaje,
-          footer: motivo
-        })
   }
     
-    if((estado== "error")&&(errorNumero!="422")){
-      if(errorNumero =="422"){
-          mensaje ="Los datos que esta tratando de guardar son iguales a los que ya poseia";
-      }
-      if(errorNumero =="400 "){
-          mensaje ="Bad Request ";
-      }
-      if(errorNumero =="404"){
-          mensaje ="No encontrado ";
-      }
-      if(errorNumero =="401"){
-          mensaje ="Sin autorización";
-      }
-      if(errorNumero =="403"){
-          mensaje =" Prohibido : La consulta fue valida, pero el servidor rechazo la accion. El usuario puede no tener los permisos necesarios, o necesite una cuenta para operar ";
-      }
-      if(errorNumero =="405"){
-          mensaje ="Método no permitido";
-      }
-      if(errorNumero =="500"){
-          mensaje ="Error interno en el servidor";
-      }
-      if(errorNumero =="503"){
-          mensaje ="Servidor no disponible";
-      }
-      if(errorNumero =="502"){
-          mensaje ="Bad gateway";
-      }
-      
-        swal({   
-            type: 'error',
-            title: 'Oops...',
-            text: mensaje,
-            footer: motivo
-          })
-    }
 
 
-}
 }

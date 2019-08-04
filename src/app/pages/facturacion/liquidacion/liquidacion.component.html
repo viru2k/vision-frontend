@@ -1,5 +1,5 @@
 
-<div class="p-2">
+<div >
   <app-loading *ngIf="loading"> </app-loading> 
  
 </div>
@@ -74,7 +74,7 @@
       <div class="row animated fadeIn slow" *ngIf="!loading">
 
           <p-table #dt id="dataTable"  [columns]="cols" [autoLayout]="true" [value]="elementos" selectionMode="single" [resizableColumns]="true"
-           [(selection)]="selectedItem" (onRowSelect)="onRowSelect($event)"  [scrollable]="true" scrollHeight="400px">
+           [(selection)]="selectedItem" (onRowSelect)="onRowSelect($event)"  [scrollable]="true" scrollHeight="600px">
           <ng-template pTemplate="header" let-columns >
   
                   <tr>

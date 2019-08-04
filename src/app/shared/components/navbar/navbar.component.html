@@ -1,32 +1,102 @@
 
-    <p-menubar  [model]="general" autoZIndex="false" styleClass="my-navbar  "   >
-            <div class="container-fluid">
-                <div class="row " >
-                                <div class="col-md-2 ">      
-                                </div>
-                                <div class="col-md-2 "> 
-                                </div>
-                                <div class="col-md-2">
-                                        <a class="nav-link naranja " routerLink="facturacion">   <img src="assets/icons/grey/outline_comment_black_18dp.png" width="24px" height="24px"></a>
-                                </div>
-                                <div class="col-md-2">
-                                                <a class="nav-link azul " routerLink="facturacion">  <img src="assets/icons/grey/outline_email_black_18dp.png" width="24px" height="24px">  </a>
+    <p-menubar  [model]="general" *ngIf="loggedIn" autoZIndex="false" styleClass="my-navbar  "  [autoDisplay]="false"  >
+            
+                <div class="flexbox " >
+                        <div class="col-3 float-left" #ab >
+                                <!-- <a class="nav-link naranja ">   <img src="assets/icons/grey/outline_comment_black_18dp.png" (click)="accion($event,cp)"  width="24px" height="24px"></a> -->
+                               <a  class="nav-link azul my-hover">  <img src="assets/icons/grey/outline_comment_black_18dp.png" (click)="accion($event,cp)"    width="24px" height="24px">  </a>
+                              
+                              
+                        </div>     
+                        
+                         <div class="col-6"   appendTo="body" >    
+                                               
+  
+                                                      <a #aa class="nav-link azul my-hover">  <img src="assets/icons/grey/outline_settings_black_18dp.png" (click)="accion($event,op)"    width="24px" height="24px">  </a>
+                                                    
+                                                
                                 </div>
                                
-                                <div >    
-                                                <p-overlayPanel #op [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'" #op [dismissable]="true">
-                                                                
-                                                                <span>   <a class="nav-link azul " routerLink="facturacion">  Ajustes</a></span>
-                                                                <span>   <a class="nav-link azul " routerLink="facturacion">  Cerrar sesión</a></span>
-                                                    </p-overlayPanel>
-  
-                                                    <span>   <a class="nav-link azul ">  <img src="assets/icons/grey/outline_settings_black_18dp.png" (click)="op.toggle($event,actualTarget)" width="24px" height="24px">  </a></span>
+                                <div class="col-3 "> 
+                                                <div class="row">
                                                     
-                                                    <div #actualTarget class="float-right"></div>
-                                </div>
-                                
+                                                        
+                                                        <div class=" float-right pt-2">  <label class="text-info">{{username}}</label></div>
+                                                                
+                                                              
+                                                </div> 
+                                        </div>                                                 
                         </div> 
-                </div>
-                
-    
+  
+            <!--     
+                <div class="col-6 "> 
+                                <div class="row">
+                                    
+                                        <div class="col-4 pt-2"><small><label>Usuario :</label></small></div>
+                                        <div class="col-7 float-right pt-2">  <small><label class="text-info">{{username}}</label></small></div>
+                                                
+                                              
+                                </div> 
+                        </div> -->
+                         
+                        <p-overlayPanel appendTo="#aa" #op [style]="{ 'z-index': '999'}" [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >   
+                                        <span>   <a class="nav-link azul my-hover" (click)="ajustes()" >Ajustes</a></span>
+                                        <button class="btn btn-outline-info" (click)="cerrarSesion()"> Cerrar sesión</button>
+                            </p-overlayPanel> 
+
+                        <p-overlayPanel [style]="{ 'z-index': '999'}" appendTo="body"    #cp  [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >   
+                                        <app-chat-lista></app-chat-lista>
+                              </p-overlayPanel>  
     </p-menubar> 
+
+   
+
+    <div class="wrapper fadeInDown" *ngIf="!loggedIn">
+      <!--   <div id="formContent">
+      <h2 class="active"> Ingresar</h2>
+      <div class="fadeIn first">
+        <img src="assets/img/login-user.jpg" id="icon" alt="User Icon" />
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <input type="text" formControlName="username" class="fadeIn second" name="login" placeholder="Usuario">
+        <input type="password" formControlName="password" class="fadeIn third" name="login" placeholder="Contraseña">
+        <input type="submit" class="fadeIn fourth" value="Ingresar">
+        
+      </form>
+      
+      </div> -->
+      <div class="limiter">
+        <div class="container-login100">
+                <div class="wrap-login100">
+                        <div class="login100-form-title" style="background-image: url(assets/images/bg-01.jpg);">
+                                <span class="login100-form-title-1">
+                                        Bienvenido
+                                </span>
+                        </div>
+
+                        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login100-form validate-form">
+                                <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                                        <span class="label-input100">Usuario</span>
+                                        <input class="input100"  formControlName="username" type="text" name="username" placeholder="Usuario" autofocus>
+                                        <span class="focus-input100"></span>
+                                </div>
+
+                                <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+                                        <span class="label-input100">Contraseña</span>
+                                        <input class="input100" formControlName="password" type="password" name="pass" placeholder="Contraseña">
+                                        <span class="focus-input100"></span>
+                                </div>
+                           
+                            
+
+                                <div class="container-login100-form-btn">
+                                        <button class="login100-form-btn">
+                                                Ingresar
+                                        </button>
+                                </div>
+                        </form>
+                </div>
+        </div>
+</div>
+      
+      </div>

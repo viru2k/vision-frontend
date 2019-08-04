@@ -2,7 +2,6 @@ export class Convenio {
 
     
     public id:string;
-    public unidades:number;
 
     public valor:number;
     public obra_social_id:string;
@@ -15,9 +14,11 @@ export class Convenio {
     public codigo:string;
     public pmo_descripcion:string;
     public complejidad:string;
-    
+    public es_habilitado:string;
+    public es_coseguro:string;
+    public tiene_distribucion:string;
     constructor( id:string,
-         unidades:number,
+
          valor:number,
          obra_social_id:string,
          obra_social_nombre:string,
@@ -28,10 +29,12 @@ export class Convenio {
          pmo_id:string,
          codigo:string,
          pmo_descripcion:string,
-         complejidad:string) {
+         complejidad:string,
+         es_habilitado:string,
+         es_coseguro:string,
+         tiene_distribucion:string) {
         
-         this.id = id;
-         this.unidades= unidades;
+         this.id = id;         
          this.valor=valor;
          this.obra_social_id=obra_social_id;
          this.obra_social_nombre=obra_social_nombre;
@@ -43,5 +46,8 @@ export class Convenio {
          this.codigo=codigo;
          this.pmo_descripcion=pmo_descripcion;
          this.complejidad=complejidad;  
+         this.es_habilitado=es_habilitado;
+         this.es_coseguro = es_coseguro;
+         this.tiene_distribucion = tiene_distribucion;
     }
 }

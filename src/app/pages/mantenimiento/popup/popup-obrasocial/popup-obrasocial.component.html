@@ -16,9 +16,9 @@
               </tr>
               <tr>
                   <th *ngFor="let col of columns" [ngSwitch]="col.field" >
-                      <input class="form-control col-md-12" *ngSwitchCase="'nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" autofocus>
-                      <input class="form-control col-md-12" *ngSwitchCase="'descripcion'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-                      <input class="form-control col-md-12" *ngSwitchCase="'es_habilitada'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                      
+                      <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" autofocus>
+                      <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'descripcion'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                      <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'es_habilitada'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                      
                   </th>
                 
               </tr>

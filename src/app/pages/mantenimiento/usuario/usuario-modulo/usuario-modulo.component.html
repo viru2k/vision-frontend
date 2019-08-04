@@ -1,0 +1,55 @@
+<div >
+  <app-loading *ngIf="loading"> </app-loading> 
+  
+</div>
+
+<div class="row">
+  <div class="col-2 float-left">
+    <button  class=" btn btn-danger btn-sm" (click)="borrarModuloUsuario()">Borrar seleccionado</button>
+  </div> 
+  <div class="col-6">
+ 
+  </div>
+  
+  <div class="col-3">
+    <div class="col-2 float-right"><button  class=" btn btn-outline-success btn-sm" (click)="agregarModuloUsuario()">Agregar registro</button></div>
+  </div>
+</div>
+<hr>
+<div class="flexbox" >
+  <div class="col-4">
+    <p-listbox [options]="usuarios" [(ngModel)]="selectedItemUsuario"  filter="filter"  optionLabel="nombreyapellido" (onChange)=loadListaUsuario($event)   [style]="{'min-width':'300px'}" [listStyle]="{'max-height':'400px'}">
+        <p-header>
+         Usuario
+        </p-header>
+        <ng-template let-usuarios   ui-listbox="btn bt-success">
+            <span >{{usuarios.nombre}}</span>
+      
+        </ng-template>
+      </p-listbox>        
+    </div>
+      <div class="col-4">
+      <p-listbox [options]="modulo" [(ngModel)]="selectedItemModulo"  filter="filter"  optionLabel="modulo_nombre" [style]="{'min-width':'300px'}" [listStyle]="{'max-height':'400px'}">
+          <p-header>
+           Modulos
+          </p-header>
+          <ng-template let-usuarios   ui-listbox="btn bt-success">
+              <span >{{modulo.modulo_nombre}}</span>
+        
+          </ng-template>
+        </p-listbox>        
+      </div>
+    
+      <div class="col-4">
+        <p-listbox [options]="moduloUsuario" [(ngModel)]="selectedItemModuloUsuario"  filter="filter"  optionLabel="modulo_nombre"  [style]="{'min-width':'300px'}" [listStyle]="{'max-height':'400px'}">
+            <p-header>
+              Modulos de usuario {{nombre}}
+            </p-header>
+            <ng-template let-usuarios   ui-listbox="btn bt-success">
+                <span >{{moduloUsuario.modulo_nombre}}</span>
+          
+            </ng-template>
+          </p-listbox>        
+        </div>
+    
+  </div>

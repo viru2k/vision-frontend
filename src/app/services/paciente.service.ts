@@ -17,12 +17,14 @@ export class PacienteService {
 
       constructor(public http: HttpClient) { }
 
-    getItem(id:number){
-      return this.http.get<Paciente>(this.url);
+      getItem(id:string){
+        return this.http.get<Paciente>(this.url+"/"+id);
       }
 
-    getItems(){
-      return this.http.get<Paciente[]>(this.url);
+   
+
+    getItems(consulta:string, valor:string){
+      return this.http.get<Paciente[]>(this.url+"/"+"by/consulta?consulta="+consulta+"&valor="+valor);
       }
 
     putItem(paciente:Paciente, id:string){
@@ -35,5 +37,13 @@ export class PacienteService {
       console.log(paciente); 
       return this.http.post<Paciente>(this.url, paciente);
     }
+
+    getPacienteObraSocialTodas(consulta:string, valor:string, id:string){
+      return this.http.get<Paciente>(this.url+"/by/consulta?consulta="+consulta+"&valor="+valor+"&id="+id);
+      }
+
+    getPacienteObraSocialHabilitada(consulta:string, valor:string, id:string){
+      return this.http.get<Paciente>(this.url+"/by/consulta?consulta="+consulta+"&valor="+valor+"&id="+id);
+      }
 
 }

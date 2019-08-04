@@ -16,7 +16,7 @@ export class PracticaDistribucion {
 
     constructor(id:string, convenio_os_pmo_id:string, 
         practica_distribucion_id:string, practica_distribucion_porcentaje:number, practica_distribucion_valor:number, practica_distribucion_total:number
-        ,pmo_codigo:string,pmo_descripcion:string,registro_descripcion:string,registro_codigo:string) {
+        ,pmo_codigo:string,pmo_descripcion:string,registro_codigo:string) {
         
        
         this.id = id;

@@ -29,7 +29,7 @@ export class DistribucionPracticaComponent implements OnInit {
 
   newPopItem: boolean;
   es:any;
-  // LOADING
+  // LOADING 
   loading: boolean;
   updateDataForm: FormGroup;
   elemento:Convenio = null;
@@ -40,11 +40,11 @@ export class DistribucionPracticaComponent implements OnInit {
   constructor(private miServico:ConvenioService,private messageService: MessageService ,public dialogService: DialogService ) {
   
     this.cols = [
-    { field: 'obra_social_nombre', header: 'Obra social' },
-        {field: 'codigo', header: 'Codigo' },
-        { field: 'pmo_descripcion', header: 'Descripción' },
-        { field: 'complejidad', header: 'Nivel' }, 
-        { field: 'valor', header: 'Valor' }, 
+    { field: 'obra_social_nombre', header: 'Obra social',  width: '30%' },
+        {field: 'codigo', header: 'Codigo' ,  width: '10%'},
+        { field: 'pmo_descripcion', header: 'Descripción',  width: '40%' },
+        { field: 'complejidad', header: 'Nivel' ,  width: '10%'}, 
+        { field: 'valor', header: 'Valor',  width: '10%' }, 
      ];
     }
 
@@ -84,7 +84,7 @@ showDialog(event) {
             id: event.data.id
         },
        header: 'Crear /Modificar registro', 
-       width: '70%'
+       width: '95%'
    });
 
  

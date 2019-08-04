@@ -21,6 +21,8 @@ export class PopupPacienteComponent implements OnInit {
   loading: boolean;
   elemento:Paciente = null;
   elementos:Paciente[] = null;
+  busqueda: string = 'paciente.apellido';
+  textoBusqueda:string = "";
 
   constructor(private miServico:PacienteService, public ref: DynamicDialogRef, public config: DynamicDialogConfig ) {
     this.cols = [
@@ -34,16 +36,18 @@ export class PopupPacienteComponent implements OnInit {
 
 ngOnInit() {
 
-this.loadList();
+
 }
 
-
+buscar(){
+    this.loadList();
+}
 
 loadList(){
     this.es = calendarioIdioma;
     this.loading = true;
     try {
-        this.miServico.getItems()    
+        this.miServico.getItems(this.busqueda,this.textoBusqueda)          
         .subscribe(resp => {
         this.elementos = resp;
             console.log(this.elementos);    

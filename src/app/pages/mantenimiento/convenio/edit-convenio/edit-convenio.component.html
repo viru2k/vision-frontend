@@ -29,7 +29,7 @@
                                       </a>
                                   </div>
                                   </div>
-                              <input  (keyup.enter)="editarPmo()" class="form-control col-md-12" formControlName="codigo"     />
+                              <input  (keyup.enter)="editarPmo()" class="form-control col-md-12 " formControlName="codigo"     />
                               <div *ngIf="updateDataForm.controls.codigo.errors?.required && updateDataForm.controls.codigo.touched" class="error">
                                               * Este campo es requerido
                               </div>
@@ -54,7 +54,18 @@
                                               * Este campo es requerido
                               </div>
                     </div>
+                    <div class="form-group ui-g-12">
+                        <label  >Habilitado</label>
+                        <div class="row">
+                          <div class="col-6"><p-radioButton name="groupname" formControlName="es_habilitado"   value="S" label="Si"  inputId="opt1"></p-radioButton></div>
+                          <div class="col-6"><p-radioButton name="groupname"  formControlName="es_habilitado"   value="N" label="No"  inputId="opt2"></p-radioButton></div>
+                        </div>
+                        <div *ngIf="updateDataForm.controls.es_habilitado.errors?.required && updateDataForm.controls.es_habilitado.touched" class="error">
+                            * Este campo es requerido
+                         </div>
+                </div>
                  </div>
+                 
                     
           </div>
   
@@ -66,4 +77,4 @@
                   </div>
               </p-footer>
      
-       
+        

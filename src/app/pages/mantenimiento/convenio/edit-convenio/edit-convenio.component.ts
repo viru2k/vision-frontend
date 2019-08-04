@@ -29,6 +29,7 @@ export class EditConvenioComponent implements OnInit {
       'pmo_descripcion': new FormControl("", Validators.required),
       'complejidad': new FormControl("", Validators.required),                
       'valor': new FormControl("", Validators.required),
+      'es_habilitado': new FormControl("", Validators.required),
   });
   this.updateDataForm.reset();
   console.log(this.config.data);
@@ -37,7 +38,7 @@ export class EditConvenioComponent implements OnInit {
       this.updateDataForm.patchValue(this.popItem);
       this.newItem = false;
     }else{
-      this.popItem = new Convenio("",0,0,"","","","",0,"","","","","");
+      this.popItem = new Convenio("",0,"","","","",0,"","","","","","","","");
       this.newItem = true;
     }
   }
@@ -80,14 +81,15 @@ editarPmo(){
     this.popItem.complejidad = String(pmo.complejidad);
     this.popItem.pmo_descripcion = pmo.descripcion;
     this.popItem.pmo_id = pmo.id;
+    
     this.updateDataForm.patchValue(this.popItem);
         }
     });
 }
 
-  actualizarDatos(){
-    this.popItem.unidades= this.updateDataForm.value.unidades;
+  actualizarDatos(){    
     this.popItem.valor = this.updateDataForm.value.valor;  
+    this.popItem.es_habilitado = this.updateDataForm.value.es_habilitado;  
     console.log(this.popItem);
     this.ref.close(this.popItem);
   }

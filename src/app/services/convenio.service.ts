@@ -22,6 +22,11 @@ getItems(){
   return this.http.get<Convenio[]>(this.url);
   }
 
+  getItemsByObraSocialAndCoseguro(obra_social_id:string, coseguro_id:string){
+    return this.http.get<Convenio[]>(this.url+"/by/obrasocialandcoseguro?obra_social_id="+obra_social_id+"&coseguro_id="+coseguro_id);
+    }
+  
+
 putItem(val:Convenio, id:string){
 //   console.log(this.url+"/"+id);
   console.log(val); 
@@ -31,6 +36,11 @@ putItem(val:Convenio, id:string){
 postItem(val:Convenio){
   console.log(val); 
   return this.http.post<Convenio>(this.url, val);
+}
+
+getItemsByObraSocial(val:Convenio){
+  console.log(val); 
+  return this.http.post<Convenio[]>(this.url+"/byobrasocial/"+val.id, val);
 }
 
 }

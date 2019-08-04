@@ -1,45 +1,55 @@
+
+import { OperacionCobroDetalle } from './operacion-cobro-detalle.model';
 export class Liquidacion {
 
     
     
     public obra_social_id:string;
     public numero:string;
-    public fecha_desde :Date;
-    public fecha_hasta :Date;
-    public liquidacion_generada_id :string;
-    public liquidacion_id :string;
-    public cant_orden :string;
-    public total :string;
+    public nivel:string;
+    public fecha_desde :string;
+    public fecha_hasta :string;
+    public liquidacion_generada_id :string;    
+    public cant_orden :number;
+    public total :number;
     public usuario_audito :string;
     public estado :string;
-    
-
+    public registros:OperacionCobroDetalle[];
+    public medico_id :string;
+    public honorarios:string;
+    public gastos:string;
     constructor(
         obra_social_id:string,
         numero:string,
-        fecha_desde :Date,
-        fecha_hasta :Date,
+        nivel:string,
+        fecha_desde :string,
+        fecha_hasta :string,
         liquidacion_generada_id :string,
         liquidacion_id :string,
-        cant_orden :string,
-        total :string,
+        cant_orden :number,
+        total :number,
         usuario_audito :string,
-        estado :string
-         
-
+        estado :string,
+        registros:OperacionCobroDetalle[],
+        medico_id:string,
+        honorarios:string,
+        gastos:string
     ) {
         
        
         this.obra_social_id = obra_social_id;
-        this.numero = numero;     
-        this.fecha_desde = fecha_desde;      
+        this.numero = numero;
+        this.nivel=  nivel;
+        this.fecha_desde = fecha_desde;
         this.fecha_hasta = fecha_hasta;
         this.liquidacion_generada_id= liquidacion_generada_id;
-        this.liquidacion_id= liquidacion_id;
         this.cant_orden = cant_orden;
         this.total = total;
-        this.liquidacion_id= liquidacion_id;
         this.usuario_audito= usuario_audito;
-        this.estado= estado;      
+        this.estado= estado;
+        this.registros = registros;
+        this.medico_id = medico_id;
+        this.honorarios = honorarios;
+        this.gastos = gastos;
     }
 }

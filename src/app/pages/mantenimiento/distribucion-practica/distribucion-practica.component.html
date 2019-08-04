@@ -1,5 +1,5 @@
 
-<div class="p-2">
+<div >
     <app-loading *ngIf="loading"> </app-loading> 
    
 </div>
@@ -16,20 +16,20 @@
         </div>
         </div>
         <p-table #dt class="pt-2" [columns]="cols"  [value]="elementos" selectionMode="single" [resizableColumns]="true"
-        [(selection)]="selectedItem" (onRowSelect)="showDialog($event)" [scrollable]="true" scrollHeight="400px" >
+        [(selection)]="selectedItem" (onRowSelect)="showDialog($event)" tableStyleClass="prime-table"  [scrollable]="true" scrollHeight="400px" >
        <ng-template pTemplate="caption">
                <div class="row">
                        <div class="col-md-7" style="text-align:left">                            
                         </div>
                <div class="col-md-5" style="text-align:right">                                
-                   <input  class="form-control col-md-12" type="text"  placeholder="Buscar en toda la tabla" (input)="dt.filterGlobal($event.target.value, 'contains')" >
+                   <input  class="form-control col-md-12 form-control-sm" type="text"  placeholder="Buscar en toda la tabla" (input)="dt.filterGlobal($event.target.value, 'contains')" >
                </div>
        </div>
            </ng-template>
        <ng-template pTemplate="header" let-columns >
 
                <tr>
-                   <th  *ngFor="let col of columns" [pSortableColumn]="col.field"  >
+                   <th  *ngFor="let col of columns" [pSortableColumn]="col.field" [ngStyle]="{'width': col.width}" >
                        {{col.header}}
                        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
                    </th>
@@ -37,23 +37,23 @@
                </tr>
                <tr>
                     <th *ngFor="let col of columns" [ngSwitch]="col.field" >
-                            <input class="form-control col-md-12" *ngSwitchCase="'obra_social_nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-                            <input class="form-control col-md-12" *ngSwitchCase="'codigo'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-                            <input class="form-control col-md-12" *ngSwitchCase="'pmo_descripcion'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                      
-                            <input class="form-control col-md-12"  *ngSwitchCase="'complejidad'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                                  
-                            <input class="form-control col-md-12" *ngSwitchCase="'valor'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                      
+                            <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'obra_social_nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                            <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'codigo'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                            <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'pmo_descripcion'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                      
+                            <input class="form-control col-md-12 form-control-sm"  *ngSwitchCase="'complejidad'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                                  
+                            <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'valor'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                      
                     </th>
                    
                 </tr>
             </ng-template>
      
             <ng-template pTemplate="body" let-elementos>
-                        <tr [pSelectableRow]="elementos" >
-                                <td>{{elementos.obra_social_nombre}}</td>
-                                <td>{{elementos.codigo}}</td>
-                                <td>{{elementos.pmo_descripcion}}</td>                                                    
-                                <td>{{elementos.complejidad}}</td>         
-                                <td> {{elementos.valor}}    </td>                                                     
+                        <tr style="height:20px"  [pSelectableRow]="elementos" >
+                                <td style="width: 30%">{{elementos.obra_social_nombre}}</td>
+                                <td style="width: 10%">{{elementos.codigo}}</td>
+                                <td style="width: 40%">{{elementos.pmo_descripcion}}</td>                                                    
+                                <td style="width: 10%">{{elementos.complejidad}}</td>         
+                                <td style="width: 10%"> {{elementos.valor}}    </td>                                                     
                         </tr>
                     </ng-template>
           

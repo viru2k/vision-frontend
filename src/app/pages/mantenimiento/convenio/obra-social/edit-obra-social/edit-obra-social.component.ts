@@ -27,6 +27,8 @@ export class EditObraSocialComponent implements OnInit {
       'es_habilitada': new FormControl("", Validators.required),
       'descripcion': new FormControl("", Validators.required),                        
       'entidad_nombre': new FormControl("", Validators.required), 
+      'es_coseguro': new FormControl("N"), 
+      'tiene_distribucion': new FormControl("N"), 
   });
   this.updateDataForm.reset();
   console.log(this.config.data);
@@ -35,7 +37,7 @@ export class EditObraSocialComponent implements OnInit {
       this.updateDataForm.patchValue(this.popItem);
       this.newItem = false;
     }else{
-      this.popItem = new ObraSocial("","","","","","");
+      this.popItem = new ObraSocial("","","","","","","N","N");
       this.newItem = true;
     }
   }

@@ -3,7 +3,7 @@ import { MessageService, DialogService, DynamicDialogRef } from 'primeng/api';
 import { ConvenioService } from './../../../../../services/convenio.service';
 import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert2';
-import { CirugiaCombinadaRegistro } from '../../../../../models/cirugia-combinada-registro';
+import { PracticaDistribucionRegistro } from '../../../../../models/practica-distribucion-registro.model';
 
 @Component({
   selector: 'app-popup-combinada-item',
@@ -20,6 +20,7 @@ export class PopupCombinadaItemComponent implements OnInit {
   porcentaje:number = 100;
   valorRenglon:number=0;
   totalcalculado:number = 0;
+  item: PracticaDistribucionRegistro =null;
   constructor(private miServico:ConvenioService ,private messageService: MessageService ,public ref: DynamicDialogRef,public dialogService: DialogService ) {
   
     this.cols = [
@@ -27,8 +28,7 @@ export class PopupCombinadaItemComponent implements OnInit {
         {field: 'codigo', header: 'Codigo' , width: '10%' },
         { field: 'pmo_descripcion', header: 'Descripción',  width: '30%' },
         { field: 'complejidad', header: 'Nivel',  width: '10%' },        
-        { field: 'valor', header: 'Valor' , width: '10%'},
-        { field: '', header: 'Acción' , width: '10%'}
+        { field: 'valor', header: 'Valor' , width: '10%'}        
        
      ];
 
@@ -73,9 +73,10 @@ calcularPorcentaje(){
 
 guardarDato(){
     if(this.selectedItem != null){
-    var item:CirugiaCombinadaRegistro;
-    item = new CirugiaCombinadaRegistro(this.selectedItem.id, this.selectedItem.codigo , this.selectedItem.complejidad, this.selectedItem.es_habilitada, this.selectedItem.obra_social_id, this.selectedItem.obra_social_nombre
-        ,this.selectedItem.pmo_descripcion, this.selectedItem.pmo_id, this.selectedItem.valor, this.totalcalculado, this.porcentaje);
+    var item:PracticaDistribucionRegistro;
+    item = new PracticaDistribucionRegistro("0",this.selectedItem.id, this.selectedItem.id ,this.porcentaje, this.selectedItem.valor, this.totalcalculado,this.selectedItem.codigo, this.selectedItem.complejidad, this.selectedItem.es_habilitada,
+     this.selectedItem.obra_social_id, this.selectedItem.obra_social_nombre, this.selectedItem.pmo_descripcion, this.selectedItem.pmo_id );
+    console.log(item);
     this.ref.close(item);
     }else{
         this.throwAlert("alerta","Error en el tipo de dato seleccionado", "¿Selecciono un registro para combinar?","sin error");

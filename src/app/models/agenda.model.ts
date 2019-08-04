@@ -1,3 +1,5 @@
+
+
 export class Agenda {
 
     
@@ -22,6 +24,7 @@ export class Agenda {
     public paciente_fecha_nacimiento:Date;
     public grupo_nombre:string;
     public agenda_estado:string;
+    public fecha_matricula:Date;
     
     constructor(  id:string,
          fecha_turno:Date,
@@ -43,7 +46,8 @@ export class Agenda {
          paciente_domicilio:string,
          paciente_fecha_nacimiento:Date,
          grupo_nombre:string,
-         agenda_estado:string) {
+         agenda_estado:string,
+         fecha_matricula:Date) {
         
          this.id = id;
          this.fecha_turno= fecha_turno;
@@ -67,6 +71,6 @@ export class Agenda {
          this.paciente_fecha_nacimiento=paciente_fecha_nacimiento; 
          this.grupo_nombre=grupo_nombre; 
          this.agenda_estado=agenda_estado; 
-
+         this.fecha_matricula = fecha_matricula;
     }
 }

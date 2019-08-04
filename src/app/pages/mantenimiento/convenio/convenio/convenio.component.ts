@@ -46,10 +46,12 @@ export class ConvenioComponent implements OnInit {
   
           this.cols = [
             { field: 'obra_social_nombre', header: 'Obra Social',  width: '20%' },
-              {field: 'codigo', header: 'Codigo' , width: '10%' },
+              {field: 'codigo', header: 'Codigo' , width: '7%' },
               { field: 'pmo_descripcion', header: 'Descripción',  width: '30%' },
-              { field: 'complejidad', header: 'Nivel',  width: '10%' },
-              { field: 'valor', header: 'Valor' , width: '10%'}
+              { field: 'complejidad', header: 'Nivel',  width: '7%' },
+              { field: 'es_habilitado', header: 'Hab' , width: '6%'},
+              { field: 'valor', header: 'Valor' , width: '7%'},
+              { field: 'accion', header: 'Accion' , width: '70px'} 
              
            ];         
            
@@ -72,9 +74,9 @@ export class ConvenioComponent implements OnInit {
 
     /** CARGA LA LISTA **/
   
-    l
+    
      showDialogToAdd() {
-          this.popItem = new Convenio("",0,0,"","","","",0,"","","","","");     
+          this.popItem = new Convenio("",0,"","","","",0,"","","","","","","","");     
             let data:any; 
             const ref = this.dialogService.open(EditConvenioComponent, {
             data,
@@ -96,8 +98,8 @@ export class ConvenioComponent implements OnInit {
   
      showDialogToUpdate(event) {
           console.log(event);
-          this.popItem = new Convenio(event.id,event.unidades,event.valor, event.obra_social_id,event.obra_social_nombre,"","",0,event.es_habilitada,
-            event.pmo_id,event.codigo,event.pmo_descripcion,event.complejidad);          
+          this.popItem = new Convenio(event.id,event.valor, event.obra_social_id,event.obra_social_nombre,"","",0,event.es_habilitada,
+            event.pmo_id,event.codigo,event.pmo_descripcion,event.complejidad, event.es_habilitado, event.es_coseguro, event.tiene_distribucion);          
           let data:any; 
           data = this.popItem;
           const ref = this.dialogService.open(EditConvenioComponent, {
@@ -110,10 +112,32 @@ export class ConvenioComponent implements OnInit {
             if (editConvenioComponent) {
             console.log(editConvenioComponent);
             
-           if( this.actualizarDatos()){
+          
             this.throwAlert("success","Se modifico el registro con éxito","","");
+            try { 
+              this.miServico.putItem(this.popItem, this.popItem.id)
+              .subscribe(resp => {
+              this.elemento = resp;
+                 
+              this.loading = false;
+             this.loadList();
+              this.resultSave = true;
+             
+              
+              },   
+              error => { // error path
+                  console.log(error.message);
+                  console.log(error.status);
+                  this.throwAlert("error","Error: "+error.status,"  Error al insertar los registros",error.status);
+                  this.resultSave = false;
+                  
+       });    
+          } catch (error) {
+              this.throwAlert("error","Error al cargar los registros",error,error.status);
+          }
+          return this.resultSave;
            }
-            }
+            
         });
       }
   
@@ -155,10 +179,12 @@ export class ConvenioComponent implements OnInit {
                   this.miServico.putItem(this.popItem, this.popItem.id)
                   .subscribe(resp => {
                   this.elemento = resp;
-                  console.log(this.elemento);    
+                     
                   this.loading = false;
-                //  this.loadList();
+                 
                   this.resultSave = true;
+                  this.showToast('exito',"Registro modificado","Exito al modificar");
+                  
                   },   
                   error => { // error path
                       console.log(error.message);
@@ -196,8 +222,73 @@ export class ConvenioComponent implements OnInit {
               return this.resultSave;
       }
 
+      insertarPracticas(){
+        this.es = calendarioIdioma;
+        this.loading = true;
+        try {
+            this.miServicoOs.insertarCoseguro()    
+            .subscribe(resp => {
+           // this.elementos = resp;       
+           this.showToast('exito',"Registros insertados","Exito al insertar registros");          
+                this.loading = false;
+                this.loadList();
+                console.log(resp);
+            },
+            error => { // error path
+                console.log(error.message);
+                console.log(error.status);
+                this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message, error.status);
+             });    
+        } catch (error) {
+        this.throwAlert("error","Error al cargar los registros",error,error.status);
+        }  
+      }
 
+      ActualizarValores(){
+        this.es = calendarioIdioma;
+        this.loading = true;
+        try {
+            this.miServicoOs.actualizarCoseguro()    
+            .subscribe(resp => {
+              this.showToast('exito',"Registros actualizados","Exito al actualizar");          
+                this.loading = false;
+                this.loadList();
+                console.log(resp);
+            },
+            error => { // error path
+                console.log(error.message);
+                console.log(error.status);
+                this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message, error.status);
+             });    
+        } catch (error) {
+        this.throwAlert("error","Error al cargar los registros",error,error.status);
+        }  
+      }
  
+      ActualizarValoresDistribucion(){
+
+        this.es = calendarioIdioma;
+        this.loading = true;
+        /*
+        try {
+            this.miServicoOs.actualizarCoseguro()    
+            .subscribe(resp => {
+              this.showToast('exito',"Registros actualizados","Exito al actualizar");          
+                this.loading = false;
+                this.loadList();
+                console.log(resp);
+            },
+            error => { // error path
+                console.log(error.message);
+                console.log(error.status);
+                this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message, error.status);
+             });    
+        } catch (error) {
+        this.throwAlert("error","Error al cargar los registros",error,error.status);
+        }  
+        */
+      }
+
       generarPdf(){
         var a:any;
         var doc = new jsPDF('l', 'pt');

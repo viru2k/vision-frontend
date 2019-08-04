@@ -33,9 +33,9 @@ export class PmoComponent implements OnInit {
     constructor(private miServico:PmoService ) {
   
           this.cols = [
-          { field: 'codigo', header: 'Codigo' },
-              {field: 'descripcion', header: 'Descripcion' },
-              { field: 'complejidad', header: 'Nivel' },
+          { field: 'codigo', header: 'Codigo',  width: '30%' },
+              {field: 'descripcion', header: 'Descripcion',  width: '50%' },
+              { field: 'complejidad', header: 'Nivel',  width: '20%' },
            ];
 
            this.columns = [

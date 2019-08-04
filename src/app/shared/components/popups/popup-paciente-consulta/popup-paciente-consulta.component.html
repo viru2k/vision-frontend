@@ -1,0 +1,185 @@
+     
+            <form class="col-12"  [formGroup]="updateDataForm">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group ">
+                                <label  >Apellido</label>
+                                <input class="form-control col-md-12 form-control-sm" formControlName="apellido"  autofocus  />
+                                <div *ngIf="updateDataForm.controls.apellido.errors?.required && updateDataForm.controls.apellido.touched" class="error">
+                                        * Este campo es requerido
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label  >Nombre</label>
+                                <input class="form-control col-md-12 form-control-sm" formControlName="nombre"   />
+                                <div *ngIf="updateDataForm.controls.nombre.errors?.required && updateDataForm.controls.nombre.touched" class="error">
+                                                * Este campo es requerido
+                                </div>
+                        </div>                   
+                        <div class="form-group">
+                                <label  >DNI</label>
+                                <input class="form-control col-md-12 form-control-sm" formControlName="dni" maxlength="8" minlength="6"  />
+                             
+                                <div *ngIf="updateDataForm.controls.dni.errors?.required
+                                 && updateDataForm.controls.dni.touched
+                                 && updateDataForm.controls.dni.errors?.maxlength " class="error">
+                                                * Este campo es requerido
+                                </div>
+                        </div>
+                     
+                        <div class="form-group ui-g-12">
+                                <label  >Sexo</label>
+                                <div class="row">
+                                  <div class="col-6"><p-radioButton name="groupname" formControlName="sexo"   value="M" label="Masculino"  inputId="opt1"></p-radioButton></div>
+                                  <div class="col-6"><p-radioButton name="groupname"  formControlName="sexo"   value="F" label="Femenino"  inputId="opt2"></p-radioButton></div>
+                                </div>
+                                <div *ngIf="updateDataForm.controls.sexo.errors?.required && updateDataForm.controls.sexo.touched" class="error">
+                                    * Este campo es requerido
+                                 </div>
+                        </div>
+                       
+                        <div class="form-group">
+                            <div >
+                            <label  >Fecha de nacimiento</label>
+                          </div>                               
+                            <p-calendar formControlName="fecha_nacimiento" [locale]="es" dateFormat="dd/mm/yy" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2100" ></p-calendar>
+                            <div *ngIf="updateDataForm.controls.fecha_nacimiento.errors?.required && updateDataForm.controls.fecha_nacimiento.touched" class="error">
+                                * Este campo es requerido
+                            </div>
+                    </div>
+            </div>
+  
+            <div class="col-4">
+  
+                             <div class="form-group">
+                                 <label >Domicilio</label>
+                                 <input class="form-control col-md-12 form-control-sm" formControlName="domicilio"    />
+                                 <div *ngIf="updateDataForm.controls.domicilio.errors?.required && updateDataForm.controls.domicilio.touched" class="error">
+                                                 * Este campo es requerido
+                                 </div>
+                           </div>
+  
+                          <div class="form-group">
+                                <label  >Ciudad</label>
+                                <input class="form-control col-md-12 form-control-sm" formControlName="ciudad"    />
+                                <div *ngIf="updateDataForm.controls.ciudad.errors?.required && updateDataForm.controls.ciudad.touched" class="error">
+                                                * Este campo es requerido
+                                </div>
+                        </div>
+                     
+                       
+                       
+                       
+                        <div class="form-group ">
+                          <div >
+                              <label  >Obra social</label>
+                            </div> 
+                          <div class=" input-group input-group-sm mb-3">
+                              <input (keyup.enter)="buscarObraSocial()" placeholder="Buscar obra social" class="form-control col-md-12 form-control-sm" formControlName="obra_social_nombre"   />                  
+                              <div class="input-group-append">
+                                <span class="input-group input-group-text form-control-sm">
+                                  <a  (click)="buscarObraSocial()">
+                                      <img class="pointer float-left" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
+                                  </a>
+                              </span>
+                              </div>
+                          </div>  
+                      </div>
+                     
+                           <div class="form-group ">
+                                  <div >
+                                      <label  >Coseguro</label>
+                                    </div> 
+                                  <div class=" input-group input-group-sm mb-3">
+                                      <input (keyup.enter)="buscarCoseguro()" placeholder="Buscar coseguro" class="form-control col-md-12 form-control-sm" formControlName="coseguro_nombre"   />                  
+                                      <div class="input-group-append">
+                                        <span class="input-group input-group-text form-control-sm">
+                                          <a  (click)="buscarCoseguro()">
+                                              <img class="pointer float-left" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
+                                          </a>
+                                      </span>
+                                      </div>
+                                  </div>  
+                              </div>
+                              <div class="form-group">
+                                  <label  >Número afiliado / ID</label>
+                                  <input class="form-control col-md-12 form-control-sm" formControlName="numero_afiliado"    />
+                                  <div *ngIf="updateDataForm.controls.numero_afiliado.errors?.required && updateDataForm.controls.numero_afiliado.touched" class="error">
+                                                  * Este campo es requerido
+                                  </div>
+                               </div>
+  
+                               <div class="form-group">
+                                  <label  >Barra</label>
+                                  <input class="form-control col-md-12 form-control-sm" formControlName="barra_afiliado"    />
+                                  <div *ngIf="updateDataForm.controls.barra_afiliado.errors?.required && updateDataForm.controls.barra_afiliado.touched" class="error">
+                                                  * Este campo es requerido
+                                  </div>
+                               </div>
+  
+                              
+                  </div>
+                
+  
+            <div class="col-4">
+                  <div class="form-group">
+                          <label  >Plan</label>
+                          <input class="form-control col-md-12 form-control-sm" formControlName="plan"    />
+                          <div *ngIf="updateDataForm.controls.plan.errors?.required && updateDataForm.controls.plan.touched" class="error">
+                                          * Este campo es requerido
+                          </div>
+                       </div>
+  
+                       <div class="form-group ui-g-12">
+                          <label  >Adherente / Grav. - Obligatoria / No grav.</label>
+                          <div class="row">
+                            <div class="col-6"><p-radioButton name="groupad" formControlName="gravado_adherente"   value="A" label="Adherente / Grav."  inputId="opt1"></p-radioButton></div>
+                            <div class="col-6"><p-radioButton name="groupad"  formControlName="gravado_adherente"   value="O" label="Obligatoria / No grav."  inputId="opt2"></p-radioButton></div>
+                          </div>
+                          <div *ngIf="updateDataForm.controls.gravado_adherente.errors?.required && updateDataForm.controls.gravado_adherente.touched" class="error">
+                              * Este campo es requerido
+                           </div>
+                      </div>
+                           <div class="form-group">
+                               <label  >E-mail</label>
+                               <input class="form-control col-md-12 form-control-sm" formControlName="email"    />
+                               <div *ngIf="updateDataForm.controls.email.errors?.required && updateDataForm.controls.email.touched" class="error">
+                                               * Este campo es requerido
+                               </div>
+                            </div>
+                      <div class="form-group ui-g-12">
+                                  <div>
+                                     <label  >Tiene WhatsApp</label>
+                                  </div>
+                          <div class="row">
+                             <div class="col-3"><p-radioButton name="w" formControlName="tiene_whatsapp"   value="true" label="SI"  inputId="optw1"></p-radioButton></div>
+                             <div class="col-3"><p-radioButton name="w"  formControlName="tiene_whatsapp"   value="false" label="NO"  inputId="optw2"></p-radioButton></div>
+                         </div>
+                      </div>       
+  
+                      <div class="form-group">
+                          <label  >Telefono celular</label>
+                          <input class="form-control col-md-12 form-control-sm" formControlName="telefono_cel"    />
+                          <div *ngIf="updateDataForm.controls.telefono_cel.errors?.required && updateDataForm.controls.telefono_cel.touched" class="error">
+                                          * Este campo es requerido
+                          </div>
+                      </div>
+                      <div class="form-group">
+                         <label  >Telefono fijo</label>
+                         <input class="form-control col-md-12 form-control-sm" formControlName="telefono_fijo"    />
+                         <div *ngIf="updateDataForm.controls.telefono_fijo.errors?.required && updateDataForm.controls.telefono_fijo.touched" class="error">
+                                         * Este campo es requerido
+                         </div>
+                     </div>
+                  
+            </div>
+        </div>
+             
+            </form>
+            <p-footer>
+                    <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                            <button *ngIf="!newPopItem" [disabled]="!updateDataForm.valid" [formGroup]="updateDataForm" class="btn btn-primary" type="submit" (click)="guardarDatos()" >Actualizar</button>
+                            
+                    </div>
+                </p-footer>
+       

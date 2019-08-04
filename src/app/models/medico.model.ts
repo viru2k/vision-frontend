@@ -1,3 +1,4 @@
+import { ObraSocial } from 'src/app/models/obra-social.model';
 export class Medico {
 
     
@@ -14,7 +15,9 @@ export class Medico {
     public ing_brutos:string;
     public usuario_id:string;
     public id:string;
-
+    
+    public obra_social:ObraSocial[];
+    public codigo_old:string;
     constructor(
          apellido:string,
          nombre:string,
@@ -27,7 +30,9 @@ export class Medico {
          cuit:string,
          ing_brutos:string,
          usuario_id:string,
-         id:string
+         id:string,
+         obra_social:ObraSocial[],
+         codigo_old:string
 
     ) {
         
@@ -44,5 +49,7 @@ export class Medico {
         this.telefono= telefono;
         this.telefono_cel= telefono_cel;
         this.usuario_id = usuario_id;
+        this.obra_social = obra_social;
+        this.codigo_old = codigo_old;
     }
 }

@@ -33,4 +33,25 @@ postItem(val:Liquidacion){
   return this.http.post<Liquidacion>(this.url, val);
 }
 
+
+getLiquidacionDetalle(){
+  return this.http.get<Liquidacion[]>(this.url+'/detalle');
+  }
+
+    
+  getListadoPreFactura(selected:any){
+    return this.http.post<any[]>(this.url+"/detalle/prefactura",selected);
+    } 
+
+  getListadoPreFacturaCirugia(selected:any){
+    return this.http.post<any[]>(this.url+"/detalle/prefactura/cirugia",selected);
+    } 
+
+  generarTxt(selected:any){
+    return this.http.post<any[]>(URL_SERVICIOS+"multiuploads/texto",selected);
+    } 
+
+    generarTxtCirugia(selected:any){
+      return this.http.post<any[]>(URL_SERVICIOS+"multiuploads/texto/cirugia",selected);
+      } 
 }

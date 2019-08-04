@@ -3,335 +3,401 @@
   <div class="row d-flex justify-content-center">
 
 
-      <div class="col-md-4 col-xl-3">
-        
-          <form >
-              <h5>Agenda</h5>
-              <hr>
-                <div class="form-group ">
-                  <div class="row">
-                    <div class="col-12">
-                        <div class=" clearfix">
-                            <button    class="btn btn-info float-left btn-sm"  (click)="buscarAgenda()" [autofocus]="true">Buscar paciente en agenda</button>
-                        </div>
-                    </div>
-                  </div>  
-              </div>              
-            </form>
+      <div class="col-md-4 col-xl-4">    
+          <div class="row">
+              <h6 >Agenda</h6>
+          </div>
+          <hr class="row">  
+                 
+              <div class="form-group  row pb-2 pt-1">
+                <button    class="btn btn-warning btn-block btn-md"  (click)="buscarAgenda()" >Buscar paciente en agenda</button>
+            </div>       
+              <form  [formGroup]="DateForm" >
+                  <div class="form-group ">
+                     
+                        <div class="row">
+                          <label  >Fecha práctica</label>
+                        </div> 
+                        <div class="row">
+                        <p-calendar formControlName="fechaHoy" [showTime]="true"  (onSelect)="actualizarFecha($event)" tabindex="0"  [disabledDates]="invalidDates" [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+                          <ng-template pTemplate="date" let-date>
+                               <span   style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
+                           </ng-template> 
+                         </p-calendar>
+                        </div>         
+                    </div> 
+                    </form>    
+                       
 
             <form [formGroup]="formMedico">
-                <h5>Médico</h5>
-                <hr>
+                
                   <div class="form-group ">
                     <div class="row">
-                      <div class="col-10">
-                        <label>Grupo médico</label>
-                      </div>  
-                      <div class="col-2">
-                          <a  (click)="buscarGrupoMedico()">
-                            <img class="pointer float-right" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
-                          </a>
+                      <div >
+                        <label>Médico</label>
+                      </div> 
+                      
+                      <div class=" input-group input-group-sm mb-3">
+                          <input  (keyup.enter)="buscarMedico()" class="form-control col-md-12 form-control-sm text-danger" formControlName="apellido"  autofocus />   
+                          <div *ngIf="formMedico.controls.apellido.errors?.required && formMedico.controls.apellido.touched" class="error">
+                              * Este campo es requerido
                       </div>
-                    </div>
-                        <input (keyup.enter)="buscarGrupoMedico()" class="form-control col-md-12 form-control-sm" formControlName="cirugia_grupo_nombre"  />                  
-                    <div *ngIf="formMedico.controls.cirugia_grupo_nombre.errors?.required && formMedico.controls.cirugia_grupo_nombre.touched" class="error">
-                            * Este campo es requerido
+                          <div class="input-group-append">
+                            <span class="input-group input-group-text form-control-sm">
+                              <a  (click)="buscarMedico()">
+                                  <img class="pointer float-left" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
+                              </a>
+                          </span>
+                          </div>
+                      </div> 
                     </div>
                 </div>    
-                <div class="form-group ">
-                  <div class="row">
-                    <div class="col-10">
-                      <label>Médico nombre</label>
-                    </div>                    
-                  </div>                 
-                  <input (keyup.enter)="buscarGrupoMedico()"  class="form-control col-md-12 form-control-sm" formControlName="apellido"  />                  
-                  <div *ngIf="formMedico.controls.apellido.errors?.required && formMedico.controls.apellido.touched" class="error">
-                          * Este campo es requerido
-                  </div>
-              </div>        
-
-                <div class="form-group ">
-                    <div class="row">
-                      <div class="col-10">
-                        <label>Médico apellido</label>
-                      </div>  
-                    
-                    </div>
-                        <input (keyup.enter)="buscarGrupoMedico()"  class="form-control col-md-12 form-control-sm" formControlName="nombre"  />                  
-                    <div *ngIf="formMedico.controls.nombre.errors?.required && formMedico.controls.nombre.touched" class="error">
-                            * Este campo es requerido
-                    </div>
-                  </div>  
+                
                 
               </form>
               <form [formGroup]="formDatosObraSocial">
-                  <h5>Datos de obra social</h5>
-                  <hr>
-                   
+               
+                  <div class="row">
+                      <h6 >Datos de obra social</h6>
+                  </div>
+                  <hr class="row">
                 <div class="form-group ">
                     <div class="row">
-                      <div class="col-10">
-                        <label  >Obra social número</label>
+                      <div >
+                        <label  >Número afiliado</label>
                       </div>          
-                    </div>
-                        <input   class="form-control col-md-12 form-control-sm" formControlName="codigo"  />                  
-                    <div *ngIf="formDatosObraSocial.controls.codigo.errors?.required && formDatosObraSocial.controls.codigo.touched" class="error">
+                        <input   class="form-control col-md-12 form-control-sm" formControlName="numero_afiliado"  />                  
+                    <div *ngIf="formDatosObraSocial.controls.numero_afiliado.errors?.required && formDatosObraSocial.controls.numero_afiliado.touched" class="error">
                             * Este campo es requerido
                     </div>
                   </div>
+                  </div>
       
                   <div class="form-group ">
                       <div class="row">
-                        <div class="col-10">
+                        <div >
                           <label  >Barra</label>
                         </div>          
-                      </div>
-                          <input  class="form-control col-md-12 form-control-sm" formControlName="barra"  />                  
-                      <div *ngIf="formDatosObraSocial.controls.barra.errors?.required && formDatosObraSocial.controls.barra.touched" class="error">
+                     
+                          <input  class="form-control col-md-12 form-control-sm" formControlName="barra_afiliado"  />                  
+                      <div *ngIf="formDatosObraSocial.controls.barra_afiliado.errors?.required && formDatosObraSocial.controls.barra_afiliado.touched" class="error">
                               * Este campo es requerido
                       </div>
+                    </div>
                     </div>
       
                     <div class="form-group ">
                         <div class="row">
-                          <div class="col-10">
+                          <div >
                             <label  >Bono</label>
                           </div>          
-                        </div>
-                            <input  class="form-control col-md-12 form-control-sm" formControlName="bono"  />                  
-                        <div *ngIf="formDatosObraSocial.controls.barra.errors?.required && formDatosObraSocial.controls.barra.touched" class="error">
+                        
+                            <input  class="form-control col-md-12 form-control-sm" formControlName="bono_afiliado"  />                  
+                        <div *ngIf="formDatosObraSocial.controls.bono_afiliado.errors?.required && formDatosObraSocial.controls.bono_afiliado.touched" class="error">
                                 * Este campo es requerido
                         </div> 
                       </div>
+                      </div>
               
                 </form>
-                <p-footer>
-                    <div class="ui-dialog-buttonpane ui-helper-clearfix">
-                            <button  [disabled]="!formDatosObraSocial.valid"  [formGroup]="formObraSocial" class="btn btn-primary" type="submit" (click)="actualizarDatos()" >Crear / Modificar datos de obra social</button>
-                    </div>
-                </p-footer>
       </div>
 
-      <div class="col-md-4 col-xl-3">
-        <form [formGroup]="formPaciente">
-          <h5>Paciente</h5>
-          <hr>
+      <div class="col-md-4 col-xl-4 ">
+       
+        <form class="ml-2" [formGroup]="formPaciente">
+            <div class="row">
+                <h6 >Paciente</h6>
+            </div>
+            <hr class="row">
             <div class="form-group ">
               <div class="row">
-                <div class="col-10">
+                <div >
                   <label  >Documento</label>
                 </div>  
-                <div class="col-2">
-                    <a  (click)="buscarPaciente()">
-                      <img  class="pointer float-right"  src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
-                    </a>
+                <div class=" input-group input-group-sm mb-3">
+                    <input  (keyup.enter)="buscarPaciente()" class="form-control col-md-12 form-control-sm" formControlName="dni"  />   
+                    <div *ngIf="formPaciente.controls.dni.errors?.required && formPaciente.controls.dni.touched" class="error">
+                        * Este campo es requerido
                 </div>
-              </div>
-                  <input  (keyup.enter)="editarPaciente()" class="form-control col-md-12 form-control-sm" formControlName="paciente_dni"  />                  
-              <div *ngIf="formPaciente.controls.paciente_dni.errors?.required && formPaciente.controls.paciente_dni.touched" class="error">
-                      * Este campo es requerido
-              </div>
+                    <div class="input-group-append">
+                      <span class="input-group input-group-text form-control-sm">
+                        <a  (click)="buscarPaciente()">
+                            <img class="pointer float-left" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
+                        </a>
+                    </span>
+                    </div>
+                </div>  
+              </div> 
           </div>
 
           <div class="form-group ">
             <div class="row">
-              <div class="col-10">
+              <div >
                 <label  >Apellido</label>
               </div>          
-            </div>
-                <input  class="form-control col-md-12 form-control-sm" formControlName="paciente_apellido"  />                  
-
+            
+                <input  class="form-control col-md-12 form-control-sm" formControlName="apellido"  />                  
+              </div>
           </div>
 
           <div class="form-group ">
             <div class="row">
-              <div class="col-10">
+              <div>
                 <label  >Nombre</label>
               </div>          
-            </div>
-                <input  class="form-control col-md-12 form-control-sm" formControlName="paciente_nombre"  />                  
+                <input  class="form-control col-md-12 form-control-sm" formControlName="nombre"  /> 
+              </div>                 
           </div>
 
-          <div class="form-group ">
-            <div class="row">
-              <div class="col-10">
-                <label  >Fecha de nacimiento</label>
-              </div>          
-            </div>
-                <input   class="form-control col-md-12 form-control-sm" formControlName="paciente_fecha_nacimiento" [value]="formPaciente.get('paciente_fecha_nacimiento').value|date:'MM/dd/yyyy'"  />                  
-          </div>
+         
 
         
 
-          <div class=" clearfix">
-              <button    class="btn btn-outline-info float-right btn-sm" type="submit" (click)="actualizarDatos()" >Crear -Editar paciente</button>
+          <div class=" form-group row">
+              <button    class="btn btn-outline-info float-right btn-sm" type="submit" (click)="CrearEditarPaciente()" >Editar datos de paciente</button>
           </div>
          
         </form>
+
+      
        
-
-        <form [formGroup]="formFormaDepago">
-            <h5>Formas de pago</h5>
-            <hr>
+        <form class="  ml-2" [formGroup]="formObraSocial">
             <div class="row">
+                <h6 >Obra social</h6>
                 
-              <div class="col-6">
-                  <div class="form-group ">
-                      <div class="row">
-                        <div class="col-10">
-                          <label  >Pago Obra social</label>
-                        </div>          
-                      </div>
-                      <p-dropdown [options]="tipoPago"  formControlName="forma_pago_obra_social" placeholder="Forma de pago" optionLabel="name" [showClear]="true"></p-dropdown>
-                    </div>
-  
-                    
-              </div>
-              <div class="col-6">
-                  <div class="form-group ">
-                      <div class="row">
-                        <div class="col-10">
-                          <label  >Pago coseguro</label>
-                        </div>          
-                      </div>
-                      <p-dropdown [options]="tipoPago"  formControlName="forma_pago_coseguro" placeholder="Forma de pago" optionLabel="name" [showClear]="true"></p-dropdown>
-                    </div>
-  
-                 
-                </div>
             </div>
-            </form>
-        
-      </div>
-      <div class="col-md-4 col-xl-3">
-
-          <form [formGroup]="formObraSocial">
-              <h5>Obra social</h5>
-              <hr>
-                <div class="form-group ">
-                  <div class="row">
-                    <div class="col-10">
-                      <label  >Obra social</label>
-                    </div>  
-                    <div class="col-2">
-                        <a  (click)="buscarObraSocial()">
-                          <img class="pointer float-right" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px" >
-                        </a>
-                    </div>
-                  </div>
-                      <input  (keyup.enter)="buscarObraSocial()" class="form-control col-md-12 form-control-sm" formControlName="obra_social_nombre"  />                  
-                  <div *ngIf="formObraSocial.controls.obra_social_nombre.errors?.required && formObraSocial.controls.obra_social_nombre.touched" class="error">
-                          * Este campo es requerido
-                  </div>
-              </div>
-    
+            <hr class="row">
               <div class="form-group ">
                 <div class="row">
-                  <div class="col-10">
-                    <label  >Coseguro</label>
-                  </div>                          
-                <div class="col-2">
-                    <a  (click)="buscarObraSocialCoseguro()">
-                      <img class="pointer float-right" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px" >
-                    </a>
-                </div>
-              </div>
-                    <input  (keyup.enter)="buscarObraSocialCoseguro()" class="form-control col-md-12 form-control-sm" formControlName="coseguro_nombre"  />                               
-              </div>
-              <div class="form-group ">
-                  <div class="row">
-                    <div class="col-10">
-                      <label  >Práctica</label>
-                    </div>                                           
-                </div>
-                      <input   class="form-control col-md-12 form-control-sm" formControlName="pmo_descripcion"  />                                  
-                </div>
-             
-             
-                  <div class="row">
-                      <div class="col-6">
-                          <div class="form-group ">
-                              <div class="row">
-                                <div class="col-10">
-                                  <label  >Nivel</label>
-                                </div>                                        
-                              </div>
-                                  <input   class="form-control col-md-12 form-control-sm" formControlName="complejidad"  />                                
-                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group ">
-                                <div class="row">
-                                  <div class="col-10">
-                                    <label  >Codigo</label>
-                                  </div>                                           
-                              </div>
-                                    <input   class="form-control col-md-12 form-control-sm" formControlName="codigo"  />                                  
-                              </div>
-                          </div>
-                         
+                  <div >
+                    <label  >Obra social</label>
+                  </div> 
+                  <div class=" input-group input-group-sm mb-3">
+                      <input  (keyup.enter)="buscarObraSocial()" class="form-control col-md-12 form-control-sm" formControlName="nombre"  />   
+                      <div *ngIf="formObraSocial.controls.nombre.errors?.required && formObraSocial.controls.nombre.touched" class="error">
+                          * Este campo es requerido
                   </div>
+                      <div class="input-group-append">
+                        <span class="input-group input-group-text form-control-sm">
+                          <a  (click)="buscarObraSocial()">
+                              <img class="pointer float-left" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
+                          </a>
+                      </span>
+                      </div>
+                  </div>    
+            </div>
+          </div>
 
-                  <div class="form-group ">
-                      <div class="row">
-                        <div class="col-10">
-                          
-                        </div>                                           
-                    </div>
-                        <button class="btn btn-success btn-sm btn-block " (click)="buscarCirugiaCombinada()">Cargar cirugia combinada</button>                             
-                    </div>
+            <div class="form-group ">
               <div class="row">
-                <div class="col-6">
-                  
-                  <div class="form-group ">
-                      <div class="row">
-                        <div class="col-10">
-                          <label  >valor práctica</label>
-                        </div>                                        
-                      </div>
-                          <input  class="form-control col-md-12 form-control-sm" formControlName="valor" (change)="sumar()" />  
-                          <div *ngIf="formObraSocial.controls.valor.errors?.required && formObraSocial.controls.valor.touched" class="error">
-                              * Este campo es requerido
-                      </div>                                 
+                <div >
+                  <label  >Coseguro</label>
+                </div>   
+                <div class=" input-group input-group-sm mb-3">
+                    <input  (keyup.enter)="buscarObraSocialCoseguro()" class="form-control col-md-12 form-control-sm" formControlName="coseguro_nombre"  />   
+                    <div *ngIf="formObraSocial.controls.coseguro_nombre.errors?.required && formObraSocial.controls.coseguro_nombre.touched" class="error">
+                        * Este campo es requerido
+                </div>
+                    <div class="input-group-append">
+                      <span class="input-group input-group-text form-control-sm">
+                        <a  (click)="buscarObraSocialCoseguro()">
+                            <img class="pointer float-left" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
+                        </a>
+                    </span>
                     </div>
-                   
-                </div>
+                </div> 
+            </div>                            
+            </div>
+          </form>
 
-                <div class="col-6">
-                   
-                    <div class="form-group ">
-                        <div class="row">
-                          <div class="col-10">
-                            <label  >valor coseguro</label>
-                          </div>                                        
-                        </div>
-                            <input  class="form-control col-md-12 form-control-sm" formControlName="coseguro_valor" (change)="sumar()" />  
-                            <div *ngIf="formObraSocial.controls.coseguro_valor.errors?.required && formObraSocial.controls.coseguro_valor.touched" class="error">
-                                * Este campo es requerido
-                        </div>                                 
-                      </div>
-                     
-                    <div class="form-group ">
-                        <div class="row">
-                          <div class="col-10">
-                            <label  ></label>
-                          </div>                                        
-                        </div>
-                        <h4><span  class="text-success">TOTAL : {{valTotalFinal |  number : '1.2-2' }}</span> </h4>
-                      </div>
-                </div>
+      </div>
+      <div class="col-md-4 col-xl-4  ">
 
+             
+                 
+
+                  
+        <div >
+            <h6 class="pb-2">Prácticas</h6>
+          <hr>   
+
+        <div class="pt-2 pb-2"  *ngIf="operacionCobroPracticas.length>0" >
+            <button    class="btn btn-block  btn-outline-danger btn-sm " (click)="removePractica()" >Borrar listado</button>
+        </div>
+
+          <div>
+            <p-table  #dt class="pt-2" [columns]="cols" tableStyleClass="prime-table"   [value]="operacionCobroPracticas"  [(selection)]="selectedItem" columnResizeMode="expand" [scrollable]="true" scrollHeight="200px" >               
+
+                <ng-template pTemplate="header" let-columns >
+                  <tr >
+                    <th  *ngFor="let col of columns" [pSortableColumn]="col.field"  [ngStyle]="{'width': col.width}" >
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                    </th>
+                    
+                </tr>             
+                </ng-template>
+       
+
+                      
+              <ng-template pTemplate="body" let-operacionCobroPracticas>
+                      <tr >
+                          <td style="width: 55%">{{operacionCobroPracticas.pmo_descripcion}}</td>                      
+                          <td style="width: 25% ">{{operacionCobroPracticas.valor_facturado |  number : '1.2-2'}}</td>
+                      <td style="width: 20%"  >
+                  <!--       <div class="row"><div ></div>
+                        <div></div>
+                        </div> -->
+                        <div>                    
+                          <button type="button" *ngIf="operacionCobroPracticas.tiene_distribucion =='S' && operacionCobroPracticas.es_coseguro =='N' && operacionCobroPracticas.pmo_nivel == 3"   class="btn btn-outline-success btn-sm mr-2 " (click)="buscarDistribucion(operacionCobroPracticas)"><i class="far fa-eye"></i></button>                        
+                       <!--  <button type="button" class="btn btn-outline-danger btn-sm " (click)="removePractica(operacionCobroPracticas)">X</button> -->
+                        </div>
+                        
+                        
+                      </td>
+                  </tr>
+              </ng-template>
+          </p-table>
+      
+         
+          <div class="pt-2 pb-2">
+              <button    class="btn btn-block btn-success  btn-md" type="submit" (click)="agregarPractica()" >Agregar prestación</button>
+          </div>
+                </div>
                
-              
+              </div>      
+   
+            <div class="form-group ">     
+             <small> Observación         </small>
+                <input type="text" [ngModel]="observacion" (ngModelChange)="observacionChange($event)" class="form-control col-md-12 form-control-sm" placeholder="Observación" > 
+        </div>
+        <div class="pt-2 pb-2">
+          
+      </div>
+            
+            <div class="row">
+              <div class="col-4" *ngIf="tieneDistribucion">
+               <small> <label>Obra social</label></small>
+                <div>
+                  <label class=" text-success ">{{total_obra_social|  number : '1.2-2'}} $</label>
+                </div>
+                           
+                         
+            <!--     <hr>
+                <label>Total obra social</label>
+                <div>
+                    <label class=" text-success ">{{total_obra_social_coseguro |  number : '1.2-2'}} $</label>
+                </div>
+                 -->
+            
+
+              </div>
+              <div class="col-4" *ngIf="tieneDistribucion" >
+                <small><label>Coseguro</label></small>
+                  
+                <div>
+                    <label class=" text-success ">{{total_coseguro |  number : '1.2-2'}} $</label>               
+                </div>   
+                  <!-- 
+                  <label>Categoria coseguro</label>
+                  <div>
+                      <label class=" text-success ">{{categoria_coseguro |  number : '1.2-2'}} $</label>                  
+                  </div>
+                  
+                  <hr>-->
+                
+                   
+                
               </div>
 
-                    <p-footer>
-                        <div class="ui-dialog-buttonpane ui-helper-clearfix">
-                                <button    [formGroup]="formObraSocial" class="btn btn-info btn-lg float-right" type="submit" (click)="confirmarOperacion()" >Realizar operación de cobro</button>
-                        </div>
-                    </p-footer>
-            </form>
+              <div class="col-4" *ngIf="tieneDistribucion && total_categoria!=0">
+               <small> <label>Categ. OS + CO</label></small>
+                <div>
+                    <label class=" text-success ">{{total_categoria |  number : '1.2-2'}} $</label>                                  
+                </div>
+          
+              </div>
+            </div>
 
+            
+
+            <!-- DATOS -->
+            <div class="row">
+              <div class="col-4" *ngIf="tieneDistribucion && total_categoria!=0">               
+                <div>
+                  <label class=" text-success ">{{categoria_obra_social|  number : '1.2-2'}} $</label>
+                </div>
+                           
+       
+
+              </div>
+              <div class="col-4" *ngIf="tieneDistribucion && total_categoria!=0" >
+                
+                <div>
+                    <label class=" text-success ">{{categoria_coseguro |  number : '1.2-2'}} $</label>               
+                </div>   
+               
+              </div>
+
+              <div class="col-4" *ngIf="tieneDistribucion && total_categoria!=0">
+          
+              </div>
+            </div>
+
+
+              <!-- TOTALES -->
+              <div class="row">
+                <div class="col-4" *ngIf="tieneDistribucion && total_categoria!=0">        
+                    <hr class="pr-2 pl-2">
+                  <div>
+                    <label class=" text-info ">{{categoria_obra_social+total_obra_social|  number : '1.2-2'}} $</label>
+                  </div>
+                             
+                  
+  
+                </div>
+                <div class="col-4" *ngIf="tieneDistribucion && total_categoria!=0" >
+                    <hr class="pr-2 pl-2">
+                  <div>
+                      <label class=" text-info ">{{categoria_coseguro+total_coseguro |  number : '1.2-2'}} $</label>               
+                  </div>   
+                 
+                </div>
+  
+                <div class="col-4" *ngIf="tieneDistribucion && total_categoria!=0">
+            
+                </div>
+              </div>
+  
+            <hr>
+            
+            <div class="flexbox-max-height flexbox"><h5 class="text-info ">Totales</h5></div>
+            <div class="flexbox">
+              <div class="flex-sidebar-columnas flexbox-margin-left">
+                  <div class="float-left ">
+                      <div><h6 class="text-success ">Particular</h6></div>
+                      <div><h6 class="text-success " >{{total_efectivo |  number : '1.2-2'}} $</h6></div>
+                  </div>
+              </div>
+              <div class="flex-menubar-columnas-center">
+                <div class="float-center  ">
+                    <div><h6 class="text-info ">Obra social </h6></div>
+                    <div><h6 class="text-info " >{{categoria_obra_social+total_obra_social|  number : '1.2-2'}} $</h6></div>
+                </div>
+            </div>
+              <div class="flex-menubar-columnas flexbox-margin-right">
+                  <div class="float-right">
+                      <div><h6 class="text-danger ">Facturado</h6></div>
+                      <div><h6 class="text-danger " >{{categoria_obra_social+total_obra_social+total_efectivo+categoria_coseguro+total_coseguro  |  number : '1.2-2'}} $</h6></div>
+                  </div>
+              </div>
+            </div>
+          
+            
+            <div class="form-group pt-5">
+                <button    class=" btn btn-info btn-lg btn-block "  (click)="confirmarOperacion()" >Realizar operación de cobro</button>
+          </div>  
+           
         
       </div>
 

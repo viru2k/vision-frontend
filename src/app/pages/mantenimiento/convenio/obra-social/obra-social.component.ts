@@ -37,10 +37,12 @@ export class ObraSocialComponent implements OnInit {
   constructor(private miServico:ObraSocialService,private messageService: MessageService ,public dialogService: DialogService ) {
   
     this.cols = [
-    { field: 'nombre', header: 'Nombre' },
-        {field: 'descripcion', header: 'Descripcion' },
-        { field: 'es_habilitada', header: 'Habilitada' },
-        { field: 'entidad_nombre', header: 'Entidad factura' },
+    { field: 'nombre', header: 'Nombre',  width: '20%' },
+        {field: 'descripcion', header: 'Descripcion' ,  width: '30%'},
+        { field: 'es_habilitada', header: 'Habilitada',  width: '10%' },
+        { field: 'entidad_nombre', header: 'Entidad factura',  width: '20%' },
+        { field: 'tiene_distribucion', header: 'Distribución',  width: '10%' },
+        { field: 'es_coseguro', header: 'Es coseguro',  width: '10%' },
      ];
     }
 
@@ -74,7 +76,7 @@ loadList(){
 }
 
 showDialogToAdd() {
-    this.popItem = new ObraSocial("","","","","","");
+    this.popItem = new ObraSocial("","","","","","","N","N");
       let data:any; 
       const ref = this.dialogService.open(EditObraSocialComponent, {
       data,
@@ -98,7 +100,7 @@ showDialogToAdd() {
 
 showDialogToUpdate(event) {
     console.log(event);
-    this.popItem = new ObraSocial(event.data.id,event.data.nombre, event.data.descripcion, event.data.es_habilitada,event.data.entidad_id,event.data.entidad_nombre);
+    this.popItem = new ObraSocial(event.data.id,event.data.nombre, event.data.descripcion, event.data.es_habilitada,event.data.entidad_id,event.data.entidad_nombre, event.data.tiene_distribucion, event.data.es_coseguro);
     let data:any; 
     data = this.popItem;
     const ref = this.dialogService.open(EditObraSocialComponent, {
@@ -119,15 +121,7 @@ showDialogToUpdate(event) {
   });
 }
 
-onRowSelect(event) {
-    
-    this.newPopItem = false;
-    this.popItem = event.data;
-    this._id = event.data.id;
-    console.log(this.popItem);
-    this.updateDataForm.patchValue(this.popItem);
-    this.displayDialog = true;
-}
+
 
 actualizarDatos(){
           

@@ -1,179 +1,204 @@
+import { PopupPacienteNuevoComponent } from './popup-paciente/popup-paciente.component';
+import { PopupPacienteComponent } from '../../shared/components/popups/popup-paciente/popup-paciente.component';
+
 import { Component, OnInit, PipeTransform } from '@angular/core';
 
 import { PacienteService } from '../../services/paciente.service';
 import {Paciente} from '../../models/paciente.model';
 import { calendarioIdioma } from '../../config/config';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 import {  formatDate } from '@angular/common';
 import swal from 'sweetalert2';
 import * as jsPDF from 'jspdf';
 import 'jspdf-autotable'; 
+import { MessageService, DialogService } from 'primeng/api';
 @Component({
   selector: 'app-paciente',
   templateUrl: './paciente.component.html',
-  styleUrls: ['./paciente.component.css']
+  styleUrls: ['./paciente.component.css'],
+  providers: [MessageService,DialogService]
 })
 
 
 
 export class PacienteComponent implements OnInit {
 
+resultSave:boolean;
 cols: any[];
 selectedItem: Paciente;
 displayDialog: boolean;
 popItem:Paciente;
 newPopItem: boolean;
-es:any;
 // LOADING
 loading: boolean;
-updateDataForm: FormGroup;
+
 elemento:Paciente = null;
 elementos:Paciente[] = null;
 _id:number = 0;
 
 columns: any[];
 rows: any[];
+busqueda: string = 'paciente.apellido';
+  textoBusqueda:string = '';
 
-  constructor(private pacienteService:PacienteService ) {
+  constructor(private miServico:PacienteService, private messageService: MessageService ,public dialogService: DialogService ) {
 
         this.cols = [
-            { field: 'apellido', header: 'Apellido' },
-            {field: 'nombre', header: 'Nombre' },
-            { field: 'dni', header: 'DNI' },
-            { field: 'fecha_nacimiento', header: 'Fecha Nacimiento' },
-            { field: 'domicilio', header: 'Domicilio' },
-            { field: 'telefono_cel', header: 'Telefono celular' },
-            
+            {field: 'apellido', header: 'Apellido',   width: '20%'  },
+        { field: 'nombre', header: 'Nombre' ,  width: '20%' },
+        { field: 'dni', header: 'DNI' ,  width: '10%' },
+        { field: 'fecha_nacimiento', header: 'F. nacimiento' ,  width: '20%'  },
+        { field: 'domicilio', header: 'Domicilio' ,  width: '30%'  },
          ];
 
          
     this.columns = [
-        {title: "Nombre", dataKey: "nombre"},
-        {title: "Apellido", dataKey: "apellido"}, 
-        {title: "DNI", dataKey: "dni"},
-        {title: "Fecha nacimiento", dataKey: "fecha_nacimiento"},
-        {title: "Domicilio", dataKey: "domicilio"},
-        {title: "Celular", dataKey: "telefono_cel"}
+        {title: 'Nombre', dataKey: 'nombre'},
+        {title: 'Apellido', dataKey: 'apellido'}, 
+        {title: 'DNI', dataKey: 'dni'},
+        {title: 'Fecha nacimiento', dataKey: 'fecha_nacimiento'},
+        {title: 'Domicilio', dataKey: 'domicilio'}
     ];
  
         }
 
   ngOnInit() {
-
-    this.updateDataForm = new FormGroup({
-        'nombre': new FormControl("", Validators.required),
-        'apellido': new FormControl("", Validators.required),
-        'apellido_m': new FormControl("Sin otro apellido", Validators.required),
-         'dni': new FormControl("", [ Validators.required, Validators.maxLength(8)]),
-        'domicilio': new FormControl("San Juan", Validators.required),
-        'sexo': new FormControl("", Validators.required),
-        'email': new FormControl("sin_correo@delavision.com.ar", [Validators.required, Validators.email]),
-        'fecha_nacimiento': new FormControl("", Validators.required),
-        'ciudad': new FormControl("San Juan", Validators.required),
-        'telefono_cel': new FormControl("0", Validators.required),
-        'telefono_fijo': new FormControl("0", Validators.required)
-
-        /*const numberPatern = '^[0-9.,]+$';
-        unitPrice: ['', [Validators.required, Validators.pattern(numberPatern)]]  -> validador de numeros*/
-
-    });
-    
-    this.loadList();
-
-
-
+    //this.loadList();
   }
 
+ 
+  
+  showDialogToAdd() {
+                   
+    this.popItem = new Paciente('0','','','','','',new Date(),'','','','sin_correo@delavision.com.ar','','','','','86','86','0','0','0','','','','','','');
+      let data:any; 
+      data = this.popItem;
+      const ref = this.dialogService.open(PopupPacienteNuevoComponent, {
+      data,
+       header: 'Crear /Modificar registro', 
+       width: '95%',
+       height: '90%'
+   });
+
+   ref.onClose.subscribe((PopupPacienteNuevoComponent:Paciente) => {
+       if (PopupPacienteNuevoComponent) {
+       console.log(PopupPacienteNuevoComponent);    
+            this.popItem = PopupPacienteNuevoComponent;
+       if( this.nuevoItem()){
+          this.throwAlert('success','Se creo el registro con éxito','','');
+         } 
+       }
+   });
+
+}
+
+showDialogToUpdate(event) {
+    console.log(event);
+    this.popItem = new Paciente(event.data.id, event.data.dni, event.data.apellido, event.data.nombre, event.data.domicilio, event.data.sexo, event.data.fecha_nacimiento,
+        event.data.ciudad, event.data.telefono_fijo, event.data.telefono_cel, event.data.email, event.data.tiene_whatsapp, event.data.obra_social_id, event.data.obra_social_nombre,
+        event.data.coseguro_nombre, event.data.coseguro_id,event.data.usuario_alta_id, event.data.numero_afiliado, event.data.barra_afiliado,event.data.plan,event.data.tiene_distribucion, event.data.es_coseguro,
+        event.data.coseguro_tiene_distribucion,event.data.coseguro_es_coseguro, event.data.es_habilitada, event.data.gravado_adherente);
+                
+    let data:any; 
+    console.log(this.popItem);
+    data = this.popItem;
+    const ref = this.dialogService.open(PopupPacienteNuevoComponent, {
+     data,
+      header: 'Crear /Modificar registro', 
+      width: '95%',
+      height: '90%'
+  });
+
+  ref.onClose.subscribe((PopupPacienteNuevoComponent:Paciente) => {
+      if (PopupPacienteNuevoComponent) {
+      console.log(PopupPacienteNuevoComponent);
+      this.popItem = PopupPacienteNuevoComponent;
+     if( this.actualizarDatos()){
+      this.throwAlert('success','Se modifico el registro con éxito','','');
+     }
+      }
+  });
+}
 
   /** CARGA LA LISTA **/
 
+  buscar(){
+    this.loadList();
+}
+
   loadList(){
-        this.es = calendarioIdioma;
-        this.loading = true;
-        try {
-            this.pacienteService.getItems()    
-            .subscribe(resp => {
-            this.elementos = resp;
-                console.log(this.elementos);    
-                this.loading = false;
-            },
-            error => { // error path
-                console.log(error.message);
-                console.log(error.status);
-                this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message);
-             });    
-        } catch (error) {
-        this.throwAlert("error","Error al cargar los registros",error);
-        }  
-  }
+    
+    this.loading = true;
+    try {
+        this.miServico.getItems(this.busqueda,this.textoBusqueda)          
+        .subscribe(resp => {
+        this.elementos = resp;                 
+            this.loading = false;
+            console.log(resp);
+        },
+        error => { // error path
+            console.log(error.message);
+            console.log(error.status);
+            this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+         });    
+    } catch (error) {
+    this.throwAlert('error','Error al cargar los registros',error,error.status);
+    }  
+}
  
-   showDialogToAdd() {
-        this.newPopItem = true;
-        this.updateDataForm.reset();
-        this.displayDialog = true;
-    }
 
-   onRowSelect(event) {
-        
-        this.newPopItem = false;
-        this.popItem = event.data;
-        this._id = event.data.id;
+
+
+
+actualizarDatos(){
+          
+    try { 
         console.log(this.popItem);
-        this.popItem.fecha_nacimiento = new  Date (this.popItem.fecha_nacimiento);
-        this.updateDataForm.patchValue(this.popItem);
-        this.displayDialog = true;
+      //  console.log(this.popItem.id);
+        this.miServico.putItem(this.popItem, this.popItem.id)
+        .subscribe(resp => {
+        this.elemento = resp;
+        console.log(this.elemento);    
+        this.loading = false;
+        this.loadList();
+        this.resultSave = true;
+        },   
+        error => { // error path
+            console.log(error.message);
+       //     console.log(error.status);
+            this.throwAlert('error','Error: '+error.status,'  Error al insertar los registros',error.status);
+            this.resultSave = false;
+ });    
+    } catch (error) {
+        this.throwAlert('error','Error al cargar los registros',error,error.status);
     }
+    return this.resultSave;
+}
 
-    actualizarDatos(){
 
-            this.popItem.fecha_nacimiento =   new  Date (formatDate(this.popItem.fecha_nacimiento,'yyyy-MM-dd hh:mm:ss','es-Ar'));
-            console.log( this.updateDataForm.value);
-            try { 
-                this.pacienteService.putItem(this.updateDataForm.value, this.popItem.id)
-                .subscribe(resp => {
-                this.elemento = resp;
-                console.log(this.elemento);    
-                this.loading = false;
-                this.throwAlert("success","Los datos fueron modificados","");
-                this.displayDialog = false;
-                this.loadList();
-                },
-                
-                error => { // error path
-                    console.log(error.message);
-                    console.log(error.status);
-                    this.throwAlert("error","Error: "+error.status+"  Error al insertar los registros",error.message);
-				 });    
-            } catch (error) {
-                this.throwAlert("error","Error al cargar los registros",error);
-            }
+nuevoItem(){ 
+   
+    try { 
+        this.miServico.postItem(this.popItem)
+        .subscribe(resp => {
+        this.elemento = resp;
+        console.log(this.elemento);    
+        this.loading = false;                  
+        this.loadList();
+        this.resultSave = true;
+        },
+        error => { // error path
+            console.log(error.message);
+            console.log(error.status);
+            this.throwAlert('error','Error: '+error.status,  'Error al cargar los registros',error.status);
+            this.resultSave = false;
+          });    
+    } catch (error) {
+        this.throwAlert('error','Error al cargar los registros',error,error.status);
     }
-
-    nuevoItem(){ 
-       
-            this.popItem =  this.updateDataForm.value;
-            this.popItem.fecha_nacimiento =   new  Date (formatDate(this.popItem.fecha_nacimiento,'yyyy-MM-dd hh:mm:ss','es-Ar'));
-            try { 
-                this.pacienteService.postItem(this.updateDataForm.value)
-                .subscribe(resp => {
-                this.elemento = resp;
-                console.log(this.elemento);    
-                this.loading = false;
-                this.throwAlert("success","Se creo el registro con éxito","");
-                this.displayDialog = false;
-                this.loadList();
-                },
-                
-                error => { // error path
-                    console.log(error.message);
-                    console.log(error.status);
-                    this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message);
-				 });    
-            } catch (error) {
-                this.throwAlert("error","Error al cargar los registros",error);
-            }
-            
-    }
+    return this.resultSave;
+        
+}
 
     /** ACCIONES */
 
@@ -182,26 +207,9 @@ rows: any[];
     }
 
     imprimirRenglon(){
-        this.throwAlert("success","Se creo el registro con éxito","");
+      //  this.throwAlert('success','Se creo el registro con éxito','');
     }
 
-    throwAlert(estado:string, mensaje:string, motivo:string){
-        if(estado== "success"){
-            swal({
-                type: 'success',
-                title: 'Exito',
-                text: mensaje
-              })
-        }
-        if(estado== "error"){
-            swal({
-                type: 'error',
-                title: 'Oops...',
-                text: mensaje,
-                footer: motivo
-              })
-        }
-    }
 
     
      
@@ -218,8 +226,69 @@ rows: any[];
                 columnStyles: {text: {columnWidth: 'auto'}}
             }
             );
-        doc.save("table.pdf");    
+        doc.save('table.pdf');    
     }
 
    
+
+    throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string){
+        let tipoerror:string;
+
+        if(estado== 'success'){
+            swal({
+                type: 'success',
+                title: 'Exito',
+                text: mensaje
+              })
+        }
+
+        if(errorNumero =='422'){
+          mensaje ='Los datos que esta tratando de guardar son iguales a los que ya poseia';
+          swal({   
+              type: 'warning',
+              title: 'Atención..',
+              text: mensaje,
+              footer: motivo
+            })
+      }
+        
+        if((estado== 'error')&&(errorNumero!='422')){
+          if(errorNumero =='422'){
+              mensaje ='Los datos que esta tratando de guardar son iguales a los que ya poseia';
+          }
+          if(errorNumero =='400 '){
+              mensaje ='Bad Request ';
+          }
+          if(errorNumero =='404'){
+              mensaje ='No encontrado ';
+          }
+          if(errorNumero =='401'){
+              mensaje ='Sin autorización';
+          }
+          if(errorNumero =='403'){
+              mensaje =' Prohibido : La consulta fue valida, pero el servidor rechazo la accion. El usuario puede no tener los permisos necesarios, o necesite una cuenta para operar ';
+          }
+          if(errorNumero =='405'){
+              mensaje ='Método no permitido';
+          }
+          if(errorNumero =='500'){
+              mensaje ='Error interno en el servidor';
+          }
+          if(errorNumero =='503'){
+              mensaje ='Servidor no disponible';
+          }
+          if(errorNumero =='502'){
+              mensaje ='Bad gateway';
+          }
+          
+            swal({   
+                type: 'error',
+                title: 'Oops...',
+                text: mensaje,
+                footer: motivo
+              })
+        }
+
+
+    }
 }
