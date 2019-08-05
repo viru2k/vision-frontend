@@ -89,7 +89,8 @@ export class OperacionCobroAfectarComponent implements OnInit {
     this.nivel = [
       {label: '1',value: 1},
       {label: '2',value: 2},
-      {label: '3',value:3}
+      {label: '3',value:3},
+      {label: '4',value:4},
       
   ];
           this.cols = [
@@ -99,9 +100,10 @@ export class OperacionCobroAfectarComponent implements OnInit {
             { field: 'apellido', header: 'Apellido',  width: '10%' },
             {field: 'nombre', header: 'Nombre' , width: '10%' },
             { field: 'dni', header: 'DNI/afil.',  width: '7%' },
+            { field: 'gravado_adherente', header: 'G/A',  width: '4%' },
             { field: 'obra_social_nombre', header: 'O.S',  width: '15%' },            
             { field: 'descripcion', header: 'Descrpición',  width: '20%' },
-            { field: 'complejidad', header: 'nivel' , width: '5%'}, 
+            { field: 'complejidad', header: 'nivel' , width: '4%'}, 
             { field: 'codigo', header: 'Codigo' , width: '8%'},
             { field: 'internacion_tipo', header: 'Int' , width: '4%'} ,
             { field: 'medico_nombre', header: 'Médico' , width: '10%'},

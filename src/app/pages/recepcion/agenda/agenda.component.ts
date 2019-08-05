@@ -145,11 +145,17 @@ export class AgendaComponent implements OnInit {
     this.document = document;
     console.log(this.document);
     if((document.doc === 'llamando')){
-      this.loadList();
+    //  this.loadList();
       }
   });
   this.newDoc();
   this.loadList();
+
+  let timer = Observable.timer(180000,180000);//180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
+  timer.subscribe(t=> {
+    console.log('bucando turnos');
+    this.loadList();
+});
  
   } 
 
