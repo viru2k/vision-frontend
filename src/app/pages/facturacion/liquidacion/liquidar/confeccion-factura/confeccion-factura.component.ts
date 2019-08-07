@@ -930,6 +930,8 @@ generarPdfListadoCirugiaTodos() {
   let tmp:any;
   let total_iva:number = 0;
   let total_cantidad:number = 0;
+  let total_gastos:number = 0;
+  let total_honorario:number = 0;
   let total_cantidad_impresion:string = '';
   let fecha_impresion = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');  
   let i = 0;
@@ -938,6 +940,8 @@ generarPdfListadoCirugiaTodos() {
   let userData = JSON.parse(localStorage.getItem('userData'));
   let existe:boolean; // valida si ya esta insertado el codigo
  
+  console.log('listado sin modificar');
+  console.log(this.elementosPreFactura);
   for(i=0;i<this.elementosPreFactura.length;i++){
 
     let practica = this.elementosPreFactura[i]['convenio_os_pmo_id'];
@@ -945,15 +949,21 @@ generarPdfListadoCirugiaTodos() {
     for(j=0;j<this.elementosPreFactura.length;j++){
 
       if(this.elementosPreFactura[j]['convenio_os_pmo_id'] === practica){
-       
+    
         if((this.elementosPreFactura[j]['obra_social_practica_nombre'] === 'HONORARIOS')&&(this.elementosPreFactura[j]['complejidad'] !== 2)){
           if(this.elementosPreFactura[j]['operacion_cobro_distribucion_total'] === null){
             this.elementosPreFactura[i]['operacion_cobro_distribucion_total'] = 0;
           }else{
+            
             if(this.selecteditems[0]['obra_social_nombre']=== 'DOS - OBRA SOCIAL PROVINCIA'){
+              console.log('obra social honorarios');
               this.elementosPreFactura[i]['honorarios'] =  this.elementosPreFactura[j]['operacion_cobro_distribucion_total'];
+             
+              console.log(this.elementosPreFactura[j]['complejidad']+' cirugia '+this.elementosPreFactura[j]['descripcion'] );
             }else{
-              this.elementosPreFactura[i]['honorarios'] =  this.cp.transform((((this.elementosPreFactura[j]['operacion_cobro_distribucion_total'])*20)/80), '', 'symbol-narrow', '1.2-2'); 
+              console.log('coseguro honorarios');
+              let t_hono =  this.cp.transform((((this.elementosPreFactura[j]['operacion_cobro_distribucion_total'])*20)/80), '', '', '1.2-2'); 
+              this.elementosPreFactura[i]['honorarios'] = t_hono;
               
             }
             
@@ -964,12 +974,17 @@ generarPdfListadoCirugiaTodos() {
           if(this.elementosPreFactura[j]['operacion_cobro_distribucion_total'] === null){
             this.elementosPreFactura[i]['operacion_cobro_distribucion_total'] = 0;
           }else{
-            console.log(this.selecteditems[0]['obra_social_id']);
-            if(this.selecteditems[0]['obra_social_nombre'] == 'DOS - OBRA SOCIAL PROVINCIA'){
-             console.log('obra social');
+           // console.log(this.selecteditems[0]['obra_social_id']);
+            if(this.selecteditems[0]['obra_social_nombre'] === 'DOS - OBRA SOCIAL PROVINCIA'){
+         //    console.log('obra social');
+         console.log('obra social gastos');
+            this.elementosPreFactura[i]['categoria'] =  this.cp.transform(0, '', '', '1.2-2');  
              this.elementosPreFactura[i]['gastos'] =  this.elementosPreFactura[j]['operacion_cobro_distribucion_total'];
+          //   total_gastos = total_gastos +Number( this.elementosPreFactura[i]['gastos']);
+             console.log(this.elementosPreFactura[j]['complejidad']+' cirugia '+this.elementosPreFactura[j]['descripcion'] );
             }else{
-              console.log('coseguro');
+              console.log('coseguro gastos');
+              this.elementosPreFactura[i]['categoria'] =  this.cp.transform(0, '', '', '1.2-2');
               this.elementosPreFactura[i]['gastos'] =  this.cp.transform((((this.elementosPreFactura[j]['operacion_cobro_distribucion_total'])*20)/80), '', 'symbol-narrow', '1.2-2'); 
               
               
@@ -977,9 +992,15 @@ generarPdfListadoCirugiaTodos() {
           
           }
         }
-        if(this.elementosPreFactura[j]['complejidad'] === 2){         
-            this.elementosPreFactura[i]['gastos'] =  this.elementosPreFactura[j]['valor_facturado'];
-            this.elementosPreFactura[i]['honorarios'] =  '0.00';
+        if(this.elementosPreFactura[j]['complejidad'] === 2){ 
+          
+          // CAMBIO EL VALOR FACTURADO POR GASTO PARA QUE DE
+       //     this.elementosPreFactura[i]['gastos'] =  this.elementosPreFactura[j]['valor_facturado'];
+
+       this.elementosPreFactura[i]['gastos'] =  this.elementosPreFactura[j]['valor_facturado'];
+            this.elementosPreFactura[i]['honorarios'] ='0';// this.cp.transform(0, '', '', '1.2-2');  
+            this.elementosPreFactura[i]['categoria'] =  0;//this.cp.transform(0, '', '', '1.2-2'); 
+          //  console.log('categoria 2 '+this.elementosPreFactura[j]['categoria']+' gasto '+this.elementosPreFactura[j]['descripcion'] );        // CAMBIAR A 4 PARA INSUMOS
           }
        
         
@@ -1006,8 +1027,28 @@ generarPdfListadoCirugiaTodos() {
   
   console.log(filteredArr);
   for(i=0;i<filteredArr.length;i++){
+    if(filteredArr[i]['valor_facturado']['complejidad'] === 2){
+      filteredArr[i]['categorizacion'] = 0;
+      
+      total_facturado =total_facturado+ Number(filteredArr[i]['gastos']);
+      filteredArr[i]['valor_facturado']=   this.cp.transform(Number(filteredArr[i]['gastos']), '', 'symbol-narrow', '1.2-2') ;
+    }else{
+      //total_honorario = total_honorario +Number( filteredArr[i]['honorarios']);
+    //total_honorario = total_honorario +Number(filteredArr[i]['operacion_cobro_distribucion_total'])+Number(filteredArr[i]['categorizacion']);
+    total_honorario = total_honorario +Number( filteredArr[i]['honorarios'])+Number( filteredArr[i]['categorizacion']);
+    total_gastos = total_gastos +Number(filteredArr[i]['gastos']);
     total_facturado =total_facturado+ Number(filteredArr[i]['valor_facturado'])+Number(filteredArr[i]['categorizacion']);
+   
     filteredArr[i]['valor_facturado']=   this.cp.transform(Number(filteredArr[i]['valor_facturado'])+Number(filteredArr[i]['categorizacion']), '', 'symbol-narrow', '1.2-2') ;
+    }
+    if(!total_honorario){
+      total_honorario = 0;
+    }
+
+    if(!total_gastos){
+      total_gastos = 0;
+    }
+    console.log(total_gastos);
     total_cantidad = total_cantidad+Number(filteredArr[i]['cantidad']);
     
   }
@@ -1054,8 +1095,8 @@ generarPdfListadoCirugiaTodos() {
     let finalY = doc.autoTable.previous.finalY;
     doc.line(15, finalY+3, pageWidth - 15, finalY+3);
     doc.text(15, finalY+8,'Cantidad : ' +  total_cantidad_impresion); 
-    doc.text(pageWidth-120, finalY+8,  'Importe : ' + this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2')); 
-    doc.text(pageWidth-80, finalY+8, 'IVA : ' +  this.cp.transform(total_iva, '', 'symbol-narrow', '1.2-2')); 
+    doc.text(pageWidth-130, finalY+8,  'Honorarios : ' + this.cp.transform(total_honorario, '', 'symbol-narrow', '1.2-2')); 
+    doc.text(pageWidth-90, finalY+8, 'Gastos : ' +  this.cp.transform(total_gastos, '', 'symbol-narrow', '1.2-2')); 
     doc.text(pageWidth-50, finalY+8, 'Total : ' + this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2')); 
     //doc.text(15, finalY+10, 'en letras : $' + this.numberToWordsPipe.transform(13) ); 
  
