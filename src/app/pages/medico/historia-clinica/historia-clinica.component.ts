@@ -533,6 +533,11 @@ let y:number = 20;
 }
 
 
+
+
+
+
+
 imprimirRecetaEscrita(){
  
   let _fechaEmision = formatDate(new Date(), 'dd/MM/yyyy', 'en');
@@ -656,6 +661,231 @@ let haytexto:boolean= false;
 
 
 
+
+
+imprimirHistoriaClinica(){
+
+  
+  let _fechaEmision = formatDate(new Date(), 'dd/MM/yyyy', 'en');
+  var  doc = new jsPDF();
+  
+  const pageSize = doc.internal.pageSize;
+  const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+let x:number = 10;
+let y:number = 10;
+let haytexto:boolean= false;
+
+  doc.setFontSize(8);
+  
+
+  doc.text('Nombre: '+this.formPaciente.value.paciente_nombre+'      DNI: '+this.formPaciente.value.dni, 10 +x, y);  
+  doc.text('Domicilio: '+this.formPaciente.value.domicilio, 10 +x, 5+y);  
+  doc.text('Obra social: '+this.formPaciente.value.obra_social_nombre, 60+x, 5+y);
+  
+  if( this.formPaciente.value.paciente_obra_social_id == '1'){
+    console.log(this.formPaciente.value.paciente_obra_social_id);
+    
+    if(this.formPaciente.value.plan=== '0'){
+      doc.text('Numero: '+this.formPaciente.value.numero_afiliado+'/'+this.formPaciente.value.barra_afiliado, 10+x, 10+y);
+    }else{
+      doc.text('Numero: '+this.formPaciente.value.numero_afiliado+'/'+this.formPaciente.value.barra_afiliado+'      Plan: '+this.formPaciente.value.plan, 10+x, 10+y);
+    }
+  }else{    
+    if(this.formPaciente.value.plan=== '0'){
+      doc.text('Numero: '+this.formPaciente.value.numero_afiliado, 10+x, 10+y);
+    }else{
+      doc.text('Numero: '+this.formPaciente.value.numero_afiliado+'      Plan: '+this.formPaciente.value.plan, 10+x, 10+y);
+    }
+  }
+
+  doc.line(15+x, 20+y, pageWidth-15, 20+y);
+
+  let i:number;
+  let renglon = 0;
+  let contadorPagina = 0;
+  var pageHeight = 295;
+  for(i=0; i<this.elementos.length; i++){
+    /*** AGREGO CADA RENGLO A LA HISTORIA CLINICA */
+
+    /** si la cantidad de registros llego a 9 agrego nueva pagina */
+    if( pageHeight< (renglon+y)){
+      doc.addPage();
+      renglon = 0;
+      y = 15
+      contadorPagina= 0;
+    }
+    if(contadorPagina>6){
+      doc.addPage();
+      renglon = 0;
+      y = 0
+      contadorPagina= 0;
+    }
+
+    if(this.elementos[i]['FECHA']){
+       doc.text('FECHA: '+formatDate(this.elementos[i]['FECHA'], 'dd/MM/yyyy HH:mm', 'en'), 15+x, 30+y+renglon);
+       renglon = renglon+5;
+    }
+
+    if(this.elementos[i]['MEDICONOM']){
+      doc.text('MEDICO: '+this.elementos[i]['MEDICONOM'], 15+x, 30+y+renglon);
+      renglon = renglon+5;
+   }
+console.log(this.elementos[i]['MC']);
+   if(this.elementos[i]['MC']){
+    doc.text('MC: ', 15+x, 30+y+renglon);
+    renglon = renglon+5;
+    var splitTitle_texto_mc = doc.splitTextToSize(this.elementos[i]['MC'], +150);
+    for (var k = 0; k < splitTitle_texto_mc.length; k++) 
+    {
+      doc.text(15+x, 30+y+renglon, splitTitle_texto_mc[k]);
+      y = y + 5;
+    }
+   
+    renglon = renglon+5;
+  }
+
+  
+  if(this.elementos[i]['AEA']){
+    doc.text('AEA: '+this.elementos[i]['AEA'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  }
+
+  
+  if(this.elementos[i]['APP']){
+    doc.text('APP: '+this.elementos[i]['APP'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  }
+
+  
+  if(this.elementos[i]['AF']){
+    doc.text('AF: '+this.elementos[i]['AF'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  }
+
+  
+  if(this.elementos[i]['SINTOMAS']){
+    doc.text('SINTOMAS: ', 15+x, 30+y+renglon);
+    renglon = renglon+5;
+    var splitTitle_texto_sintomas = doc.splitTextToSize(this.elementos[i]['SINTOMAS'], +150);
+    for (var k = 0; k < splitTitle_texto_sintomas.length; k++) 
+    {
+      doc.text(15+x, 30+y+renglon, splitTitle_texto_sintomas[k]);
+      y = y + 5;
+    }
+  
+  renglon = renglon+5;
+  }
+
+  
+  if(this.elementos[i]['SINTOMAS_SIGNOS']){
+    doc.text('SINTOMAS Y SIGNOS: '+this.elementos[i]['SINTOMAS_SIGNOS'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  }
+
+   
+  if(this.elementos[i]['TRATAMIENT']){
+    doc.text('TRATAMIENTO: '+this.elementos[i]['TRATAMIENT'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  }
+
+   
+  if(this.elementos[i]['DIAGNOSTIC']){
+    doc.text('DIAGNOSTICO: '+this.elementos[i]['DIAGNOSTIC'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  }
+
+   
+  if(this.elementos[i]['BIO']){
+    doc.text('BIO: '+this.elementos[i]['BIO'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  }
+
+   
+  if(this.elementos[i]['COMENTARIO']){
+    doc.text('COMENTARIO: '+this.elementos[i]['COMENTARIO'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  }
+
+   
+  if(this.elementos[i]['OBS_LENTES']){
+    doc.text('OBS LENTES: '+this.elementos[i]['OBS_LENTES'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  }
+
+   
+  if(this.elementos[i]['OBSERVACIO']){
+    doc.text('OBSERVACION: '+this.elementos[i]['OBSERVACIO'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  } 
+
+  if(this.elementos[i]['FO']){
+    doc.text('FO: '+this.elementos[i]['FO'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  } 
+
+  if(this.elementos[i]['estudio_nombre']){
+    doc.text('ESTUDIO: '+this.elementos[i]['estudio_nombre'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  } 
+
+  if(this.elementos[i]['REFRACCION_OD']||this.elementos[i]['REFRACCION_OD']){
+    doc.text('REFRACCION OD: '+this.elementos[i]['REFRACCION_OD']+' '+'REFRACCION OI: '+this.elementos[i]['REFRACCION_OI'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  } 
+
+  if(this.elementos[i]['CICLOPEGIA_OD']||this.elementos[i]['CICLOPEGIA_OI']){
+    doc.text('CICLOPEGIA OD: '+this.elementos[i]['CICLOPEGIA_OD']+' '+'CICLOPEGIA OI: '+this.elementos[i]['CICLOPEGIA_OI'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  } 
+
+
+  if(this.elementos[i]['FONDO_OD']||this.elementos[i]['FONDO_OI']){
+    doc.text('FONDO OD: '+this.elementos[i]['FONDO_OD']+' '+'FONDO OI: '+this.elementos[i]['FONDO_OI'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  } 
+
+  if(this.elementos[i]['PIO_OD']||this.elementos[i]['PIO_OI']){
+    doc.text('PIO OD: '+this.elementos[i]['PIO_OD']+' '+'PIO OI: '+this.elementos[i]['PIO_OI'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  } 
+
+  if(this.elementos[i]['BIO_OD']||this.elementos[i]['BIO_OI']){
+    doc.text('BIO OD: '+this.elementos[i]['BIO_OD']+' '+'BIO OI: '+this.elementos[i]['BIO_OI'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  } 
+
+  
+  if(this.elementos[i]['DIAGNOSTICO_OD']||this.elementos[i]['DIAGNOSTICO_OI']){
+    doc.text('DIAGNOSTICO OD: '+this.elementos[i]['DIAGNOSTICO_OD']+' '+'DIAGNOSTICO OI: '+this.elementos[i]['DIAGNOSTICO_OI'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  } 
+
+
+  
+  if(this.elementos[i]['TRATAMIENTO_QUIRURGICO']){
+    doc.text('TRATAMIENTO QUIRURGICO: '+this.elementos[i]['TRATAMIENTO_QUIRURGICO'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  } 
+
+  if(this.elementos[i]['TRATAMIENTO_MEDICO']){
+    doc.text('TRATAMIENTO MEDICO: '+this.elementos[i]['TRATAMIENTO_MEDICO'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  } 
+
+  if(this.elementos[i]['ESTUDIOSES']){
+    doc.text('FONDO DE OJO: '+this.elementos[i]['ESTUDIOSES'], 15+x, 30+y+renglon);
+    renglon = renglon+5;
+  } 
+
+  
+doc.line(15+x, 30+y+renglon, pageWidth-15, 30+y+renglon);
+contadorPagina++;
+renglon = renglon+5;
+}
+window.open(doc.output('bloburl'));
+  
+
+}
 
 
 imprimirReceta(){
