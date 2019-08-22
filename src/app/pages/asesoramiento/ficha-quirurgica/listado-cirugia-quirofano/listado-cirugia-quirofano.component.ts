@@ -58,7 +58,7 @@ export class ListadoCirugiaQuirofanoComponent implements OnInit {
   constructor(private miServicio:CirugiaService,private medicoService:MedicoService,private messageService: MessageService ,public dialogService: DialogService) {
 
     this.cols = [
-              
+      { field: '', header: '' , width: '4%'} ,
       { field: 'cirugia_ficha_id', header: 'Nº' , width: '6%'} ,
       { field: 'orden', header: 'Orden' , width: '5%'},
       { field: 'fecha_hora', header: 'Hora' , width: '8%'},
@@ -67,20 +67,19 @@ export class ListadoCirugiaQuirofanoComponent implements OnInit {
       { field: 'paciente_dni', header: 'DNI',  width: '8%' },      
       { field: 'obra_social_nombre', header: 'Obra social / Coseguro',  width: '20%' },
       { field: 'cirugia_practica', header: 'Practica',  width: '15%' },
-      { field: 'ojo', header: 'Ojo' , width: '6%'},
-      { field: 'dioptria', header: 'Diop.' , width: '6%'},
+      { field: 'ojo', header: 'Ojo' , width: '5%'},
+      { field: 'dioptria', header: 'Diop.' , width: '5%'},
       { field: 'lente_tipo', header: 'Lente' , width: '10%'},
       { field: 'lote', header: 'Lote' , width: '8%'},
       { field: 'usuario_medico_opera_nombre', header: 'Opera' , width: '12%'} ,
       { field: 'usuario_medico_ayuda_nombre', header: 'Ayuda' , width: '12%'} ,
-      { field: 'usuario_medico_anestesista_nombre', header: 'Anestesista' , width: '12%'} ,
-      { field: '', header: 'Editar' , width: '6%'} ,
+      { field: 'usuario_medico_anestesista_nombre', header: 'Anestesia' , width: '8%'} ,
+      { field: '', header: '' , width: '4%'} ,
    ];
 
 
    this.columns = [
-    {title: 'Cir.', dataKey: 'cirugia_ficha_id'},
-    {title: 'Orden', dataKey: 'orden'}, 
+    {title: 'Cir.', dataKey: 'cirugia_ficha_id'},    
     {title: 'Hora', dataKey: 'hora'}, 
     {title: 'Apellido', dataKey: 'paciente_apellido'}, 
     {title: 'Nombre', dataKey: 'paciente_nombre'}, 
@@ -92,8 +91,7 @@ export class ListadoCirugiaQuirofanoComponent implements OnInit {
     {title: 'Lente', dataKey: 'lente_tipo'},     
     {title: 'Lote', dataKey: 'lote'}, 
     {title: 'Opera', dataKey: 'usuario_medico_opera_nombre'}, 
-    {title: 'Ayuda', dataKey: 'usuario_medico_ayuda_nombre'}, 
-    {title: 'Anestesista', dataKey: 'usuario_medico_anestesista_nombre'}, 
+    {title: 'Ayuda', dataKey: 'usuario_medico_ayuda_nombre'},     
 ];
   
 
@@ -237,6 +235,30 @@ editar(selecteditems:any){
 }
  
 
+eliminar(selecteditems:any){
+  
+
+  this.loading = true;
+  console.log(selecteditems);
+  try { 
+    this.miServicio.destroyCirugiaListado(selecteditems.cirugia_ficha_id)
+    .subscribe(resp => {
+      this.loadList();
+    this.loading = false;
+ 
+    },
+    error => { // error path
+        console.log(error.message);
+        console.log(error.status);
+        this.throwAlert('error','error','Error: '+error.status+'  Error al cargar los registros',error.message);
+   //     this.resultSave = false;
+        this.loading = false;
+      });    
+} catch (error) {
+  this.throwAlert('error','error','Error: '+error.status+'  Error al cargar los registros',error.message);
+}
+}
+
 verHistoriaClinica(selecteditems){
  this.loading = true;
  console.log(this.selecteditem);
@@ -364,6 +386,7 @@ generarPdfListadoMedico() {
  
   doc.setFontSize(9);
   doc.text('Usuario confecciono: '+userData['nombreyapellido'], 60, 20, null, null, 'left');
+  doc.text('Fecha : '+th, 60, 25, null, null, 'left');
   doc.setFontSize(6);
   doc.text('Emitido : '+_fechaEmision, pageWidth/2, 30, null, null, 'center');
  
@@ -374,11 +397,12 @@ generarPdfListadoMedico() {
     {
         margin: {horizontal: 5, vertical: 38},
         bodyStyles: {valign: 'top'},
-        showHead: 'firstPage',
-        styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
+        showHead: 'always',
+        styles: {fontSize: 8,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
        // columnStyles: {text: {cellWidth: 'auto'},minCellWidth:40}
-        columnStyles: {cirugia_ficha_id: {columnWidth: 10}, orden:{columnWidth:10},hora: {columnWidth: 10}, paciente_apellido: {columnWidth: 20},
-        paciente_nombre: {columnWidth: 20},  obra_social_nombre: {columnWidth: 25}, ojo: {columnWidth: 8},  dioptria: {columnWidth: 8}, paciente_dni: {columnWidth: 15}, lote: {columnWidth: 16}}
+        columnStyles: {cirugia_ficha_id: {columnWidth: 10}, hora: {columnWidth: 10}, paciente_apellido: {columnWidth: 20},
+        paciente_nombre: {columnWidth: 20},  obra_social_nombre: {columnWidth: 25}, ojo: {columnWidth: 8},  dioptria: {columnWidth: 8},
+         paciente_dni: {columnWidth: 15}, lote: {columnWidth: 16}}
 
        /*  {title: 'Cir.', dataKey: 'cirugia_ficha_id'},
         {title: 'Orden', dataKey: 'orden'}, 

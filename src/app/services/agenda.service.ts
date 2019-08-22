@@ -178,7 +178,24 @@ getItembyDni(dni:string){
   updateAgendaOperacionCobro( agendaturno:AgendaTurno, id:string){
     return this.http.put<AgendaMedico>(this.url_agenda+"horarios/turno/operacioncobro/actualizar/"+id,agendaturno);
   }
- 
+
+
+  getDiasBloqueados(usuario_id:string){
+      return this.http.get<any>(this.url_agenda+"horarios/bloqueo/dia?usuario_id="+usuario_id);
+    }
+
+  getHorarioBloqueoByMedico(usuario_id:string,fecha:string){
+      return this.http.get<any>(this.url_agenda+"horarios/bloqueo/turno?fecha="+fecha+'&usuario_id='+usuario_id);
+    }   
+
+  deleteAgendaMedicoHorario(id:string){
+      return this.http.get<string>(this.url_agenda+"horarios/cancelar/horario/"+id);
+    }
+
+  deleteAgendaMedico(id:string){
+  console.log(this.url_agenda+"horarios/cancelar/horario/"+id);
+    return this.http.get<string>(this.url_agenda+"horarios/cancelar/agenda/"+id);
+  }
   
 } 
 

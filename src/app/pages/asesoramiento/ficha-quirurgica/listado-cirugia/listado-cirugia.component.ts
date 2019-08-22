@@ -238,6 +238,29 @@ editRow(row){
     }
 }
 
+
+loadListRealizado() {
+  this.loading = true;
+     try {
+         this.miServicio.getListadoQurifanoRealizado()
+         .subscribe(resp => {
+ 
+             this.elementos = resp;
+             console.log(resp);
+             this.loading = false;
+         },
+         error => { // error path
+             console.log(error);
+             console.log(error.status);
+             this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+             this.loading = false;
+          });
+     } catch (error) {
+     this.throwAlert('error','Error al cargar los registros',error,error.status);
+     }
+ }
+ 
+
 verEstadoCirugia(){
 
 
@@ -282,7 +305,9 @@ asociarOperacionCobro(){
    
 }
 
-rendirCaja(){}
+anularCirugia(){
+  console.log(this.selecteditem);
+}
 
 verLente(selecteditems:any){
   console.log(this.selecteditem);
@@ -438,6 +463,22 @@ verListadoCirugiaAtencion(selecteditems){
 
 }
 
+
+
+colorEstado(estado:string){
+  
+  if((estado === 'SUSPENDIDO')) {
+    return {'text-danger-bold'  :'null' };
+  }
+  if((estado === 'REALIZADO')) {
+      return {'text-success-bold'  :'null' };
+  }
+
+  if((estado === 'PENDIENTE')) {
+    return {'text-warning-bold'  :'null' };
+}
+  
+}
 
 throwAlert(estado: string, mensaje: string, motivo: string, errorNumero: string){
   let tipoerror:string;

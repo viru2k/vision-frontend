@@ -17,9 +17,11 @@
     
     
               <div  class="btn-group ml-2" role="group" aria-label="First group">                 
-                <button    class="btn btn-lg btn-outline-secondary btn-sm float-right mr-2" (click)="imprimirListado()" >Imprimir listado</button>                
-                <button    class="btn btn-lg btn-outline-info btn-sm float-right "  (click)="verListadoCirugiaAtencion()" >Lista de pacientes derivados</button>                
+                <button    class="btn btn-lg btn-info btn-sm float-right ml-2  mr-2 "  (click)="verListadoCirugiaAtencion()" >Lista de pacientes derivados</button>
+                <button    class="btn btn-lg btn-outline-secondary btn-sm float-right mr-2" (click)="loadList()" >Ver listado cirugias</button>                
+                <button    class="btn btn-lg btn-outline-success btn-sm ml-2 float-right "  (click)="loadListRealizado()" >Cirugia realizadas</button>                                
               </div>
+           
             </div>
 
             
@@ -64,7 +66,7 @@
               </ng-template>
             
       <ng-template pTemplate="body" let-elementos  >
-          <tr style="height:20px">
+          <tr style="height:20px" >
                   <td style="width: 6%" >                   
                     <a   class=" p-1 pr-1  my-hover" (click)="accion($event,op1,elementos)"    ><i class="fas fa-pen-square fa-2x icon-color-purple" ></i></a>
                   </td>      
@@ -81,7 +83,7 @@
                   <td style="font-size: 11px;width: 20%">{{elementos.cirugia_practica}}</td>    
                   <td style="font-size: 11px;width: 8%">{{elementos.fecha_derivacion | date: 'dd/MM/yyyy'}}</td>     
                   <td style="font-size: 11px;width: 6%">{{elementos.ojo}}</td>                        
-                  <td style="font-size: 11px;width: 8%">{{elementos.estado}}</td>  
+                  <td [ngClass]="colorEstado(elementos.estado)" style="font-size: 10px;width: 8%">{{elementos.estado}}</td>  
                   <td style="font-size: 11px;width: 15%">{{elementos.medico_deriva}}</td>   
                   
                   <td style="width: 3em">
@@ -99,7 +101,7 @@
   <span>   <a class="nav-link azul my-hover text-warning" (click)="verEstadoCirugia(selecteditems)">Estado de cirugia</a></span>
   <hr>    
   <span>   <a class="nav-link azul my-hover text-info" (click)="asociarOperacionCobro(selecteditems)">Asociar operación de cobro</a></span>    
-  <span>   <a class="nav-link azul my-hover text-info" (click)="rendirCaja(selecteditems)">Rendición de caja</a></span>         
+  <span>   <a class="nav-link azul my-hover text-danger" (click)="anularCirugia(selecteditems)">Anular cirugia</a></span>         
 </p-overlayPanel>  
 
 <p-overlayPanel #op [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >                          

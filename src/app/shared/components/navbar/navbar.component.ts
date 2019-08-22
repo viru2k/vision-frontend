@@ -440,6 +440,7 @@ menuList(){
             items: [
               {label: 'Agenda de medico', 'routerLink': 'agenda/medico'},
               {label: 'Bloquear agenda', 'routerLink': 'agenda/medico/bloquear'},
+              {label: 'Desbloquear agenda', 'routerLink': 'agenda/medico/desbloquear'},
             ]
         },
         {

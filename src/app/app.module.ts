@@ -188,6 +188,7 @@ import { ExcelService } from './services/excel.service';
 import { PopupFichaQuirurgicaOperacionCobroComponent } from './shared/components/popups/popup-ficha-quirurgica-operacion-cobro/popup-ficha-quirurgica-operacion-cobro.component';
 import { ListadoCirugiaEditarComponent } from './pages/medico/asesoramiento/listado-cirugia-editar/listado-cirugia-editar.component';
 import {  PopupListadoCirugiaQuirofanoObservacionEditarComponent } from './shared/components/popups/popup-listado-cirugia-quirofano-observacion-editar/popup-listado-cirugia-quirofano-observacion-editar.component';
+import { AgendaBloqueoEdicionComponent } from './pages/mantenimiento/agenda/agenda-bloqueo-edicion/agenda-bloqueo-edicion.component';
 
 
 
@@ -314,7 +315,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupCobroDistribucionEditarComponent,
     PopupFichaQuirurgicaOperacionCobroComponent,
     ListadoCirugiaEditarComponent,    
-    PopupListadoCirugiaQuirofanoObservacionEditarComponent,
+    PopupListadoCirugiaQuirofanoObservacionEditarComponent, AgendaBloqueoEdicionComponent,
     
   ],
   imports: [

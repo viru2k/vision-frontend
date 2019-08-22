@@ -52,6 +52,7 @@ import { OperacionCobroConsultaGerenciaComponent } from './pages/gerencia/operac
 import { EstudioCargaComponent } from './pages/estudios/estudio-carga/estudio-carga.component';
 import { ListadoCirugiaQuirofanoComponent } from './pages/asesoramiento/ficha-quirurgica/listado-cirugia-quirofano/listado-cirugia-quirofano.component';
 import { ListadoCirugiaEditarComponent } from './pages/medico/asesoramiento/listado-cirugia-editar/listado-cirugia-editar.component';
+import { AgendaBloqueoEdicionComponent } from './pages/mantenimiento/agenda/agenda-bloqueo-edicion/agenda-bloqueo-edicion.component';
 
 export const ROUTES: Routes = [
     /** principal **/
@@ -71,6 +72,7 @@ export const ROUTES: Routes = [
     /** mantenimiento de agenda */
     { path: 'agenda/medico', component: AgendaMedicoComponent, canActivate: [AuthGuard], data: {role: 'medico_control'}  },
     { path: 'agenda/medico/bloquear', component: AgendaBloqueoComponent, canActivate: [AuthGuard], data: {role: 'medico_control'}  },
+    { path: 'agenda/medico/desbloquear', component: AgendaBloqueoEdicionComponent, canActivate: [AuthGuard], data: {role: 'medico_control'}  },
     /** asesoramiento **/
 
     { path: 'asesoramiento/cirugia/ficha', component: FichaQuirurgicaComponent, canActivate: [AuthGuard], data: {role: 'asesoramiento_consulta'}  },

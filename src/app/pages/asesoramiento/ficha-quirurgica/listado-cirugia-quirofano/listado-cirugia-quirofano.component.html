@@ -69,7 +69,7 @@
           
     <ng-template pTemplate="body" let-elementos  >
         <tr style="height:20px">
-                     
+             <td style="width: 4%">   <a   class=" mr-1   my-hover" (click)="eliminar(elementos)"    ><i class="far fa-trash-alt fa-2x icon-color-red" ></i></a>        </td>   
                 <td style="font-size: 9px;width: 6%">{{elementos.cirugia_ficha_id}}</td>
                 <td style="font-size: 9px;width: 5%">{{elementos.orden}}</td>
                 <td style="font-size: 9px;width: 8%">{{elementos.fecha_hora | date: 'HH:mm'}}</td>   
@@ -78,14 +78,15 @@
                 <td style="font-size: 9px;width: 8%">{{elementos.paciente_dni}}</td>                                                   
                 <td style="font-size: 9px;width: 20%">{{elementos.obra_social_nombre}}</td>     
                 <td style="font-size: 9px;width: 15%">{{elementos.cirugia_practica}}</td> 
-                <td style="font-size: 9px;width: 6%">{{elementos.ojo}}</td>     
-                <td style="font-size: 9px;width: 6%">{{elementos.dioptria}}</td>  
+                <td style="font-size: 9px;width: 5%">{{elementos.ojo}}</td>     
+                <td style="font-size: 9px;width: 5%">{{elementos.dioptria}}</td>  
                 <td style="font-size: 9px;width: 10%">{{elementos.lente_tipo}}</td>                        
                 <td style="font-size: 9px;width: 8%">{{elementos.lote}}</td>   
                 <td style="font-size: 9px;width: 12%">{{elementos.usuario_medico_opera_nombre}}</td>    
                 <td style="font-size: 9px;width: 12%">{{elementos.usuario_medico_ayuda_nombre}}</td>  
-                <td style="font-size: 9px;width: 12%">{{elementos.usuario_medico_anestesista_nombre}}</td>   
-                <td style="width: 6%">   <a   class=" p-1 pr-1  my-hover" (click)="editar(elementos)"    ><i class="fas fa-pen-square fa-2x icon-color-purple" ></i></a>        </td>   
+                <td style="font-size: 9px;width: 8%">{{elementos.usuario_medico_anestesista_nombre}}</td>   
+                <td style="width: 4%">   <a   class="    my-hover" (click)="editar(elementos)"    ><i class="far fa-edit fa-2x icon-color-purple" ></i></a>        </td>   
+
 
                 
         </tr>

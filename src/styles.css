@@ -118,6 +118,16 @@
     font-weight: bold !important;
 }
 
+.text-success-bold{
+    color: #689f38!important;
+    font-weight: bold !important;
+}
+
+.text-warning-bold{
+    color: #7E57C2!important;
+    font-weight: bold !important;
+}
+
 .text-white{
     color: #EFEBE9!important;
 }

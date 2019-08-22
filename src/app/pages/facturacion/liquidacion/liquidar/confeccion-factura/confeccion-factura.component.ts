@@ -756,7 +756,7 @@ generarPdfListadoMedico() {
   for(i=0;i<this.elementosPreFactura.length;i++){
     total_cantidad = total_cantidad+Number(this.elementosPreFactura[i]['cantidad']);
     total_facturado =total_facturado+Number(this.elementosPreFactura[i]['valor_facturado']);
-     console.log( this.elementosPreFactura[i]['cantidad']);
+     //console.log( this.elementosPreFactura[i]['cantidad']);
    }
     total_cantidad_impresion = this.dp.transform(total_cantidad, '1.0-0');
   if(this.selecteditems){
@@ -792,7 +792,7 @@ generarPdfListadoMedico() {
     {
         margin: {horizontal: 5, vertical: 38},
         bodyStyles: {valign: 'top'},
-        showHead: 'firstPage',
+        showHead: 'always',
         styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
         columnStyles: {descripcion: {columnWidth: 20}}
     });
@@ -879,7 +879,7 @@ generarPdfListadoTodos() {
     {
         margin: {horizontal: 5, vertical: 38},
         bodyStyles: {valign: 'top'},
-        showHead: 'firstPage',
+        showHead: 'always',
         styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
         columnStyles: {text: {cellWidth: 'auto'}}
     });

@@ -120,6 +120,10 @@ getLenteTipo(){
     return this.http.get<any[]>(this.url+"/listado/quirofano?estado=PENDIENTE&fecha="+fecha_hoy);
   } 
 
+  getListadoQurifanoRealizado(){  
+    return this.http.get<any[]>(this.url+"/listado/quirofano/realizado");
+  } 
+
   updListadoQurifano(fecha_derivacion:any[],id:string){  
     console.log(fecha_derivacion);
     return this.http.put<any>(this.url+"/listado/quirofano/"+id,fecha_derivacion);
@@ -140,5 +144,12 @@ getLenteTipo(){
     console.log(fecha_derivacion);
     return this.http.put<any>(this.url+"/practica/estado/"+id,fecha_derivacion);
   } 
+
+  destroyCirugiaListado(id:string){  
+    
+    return this.http.delete<any>(this.url+"/ficha/listado/"+id);
+  } 
+
+  
 }
 
