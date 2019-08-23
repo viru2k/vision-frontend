@@ -42,6 +42,7 @@
              <div><button    class="btn  btn-outline-success btn-sm "  (click)="generarPdfListado('medico')" >Imprimir resumen por médico</button></div> 
              <div>  <button    class="ml-2 btn  btn  btn-outline-info btn-sm float-right "  (click)="generarPreFactura()" >Imprimir pre-factura</button></div>                          
              <div>  <button    class="ml-2 btn  btn-outline-secondary btn-sm float-right "  (click)="buscarPractica()" >Buscar otros registros</button></div>     
+             <div>  <button    class="ml-2 btn  btn-outline-secondary btn-sm float-right "  (click)="buscarPracticaPaciente()" >Buscar registros por paciente</button></div> 
              
             </div>
     
@@ -84,7 +85,7 @@
                 </ng-template>
               
         <ng-template pTemplate="body" let-elementos  >
-            <tr style="height:20px" >
+            <tr style="height:20px" [ngClass]="colorEstado(elementos.operacion_cobro_observacion)">
                    
                     <td style="width: 6%" >                   
                         <a     (click)="accion($event,op,elementos)"    ><i class="far fa-edit fa-2x icon-color-purple my-hover"></i></a>

@@ -6,9 +6,9 @@ import { calendarioIdioma } from '../../../../../config/config';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {  formatDate } from '@angular/common';
 import swal from 'sweetalert2';
-import * as jsPDF from 'jspdf';
-import 'jspdf-autotable'; 
-//declare var jsPDF: any;
+declare const require: any;
+const jsPDF = require('jspdf');
+require('jspdf-autotable');
 @Component({
   selector: 'app-pmo',
   templateUrl: './pmo.component.html',

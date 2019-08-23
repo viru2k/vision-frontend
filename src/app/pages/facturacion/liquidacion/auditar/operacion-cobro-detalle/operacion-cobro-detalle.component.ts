@@ -10,8 +10,9 @@ import { calendarioIdioma,logo_clinica } from '../../../../../config/config';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import swal from 'sweetalert2';
-import * as jsPDF from 'jspdf';
-import 'jspdf-autotable'; 
+declare const require: any;
+const jsPDF = require('jspdf');
+require('jspdf-autotable');
 
 import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/components/common/api';
@@ -21,6 +22,7 @@ import { formatDate, CurrencyPipe, DecimalPipe } from '@angular/common';
 import {OverlayPanelModule, OverlayPanel} from 'primeng/overlaypanel';
 import { PopupObraSocialComponent } from 'src/app/shared/components/popups/popup-obra-social/popup-obra-social.component';
 import { PopupOperacionCobroRegistroBuscarComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-registro-buscar/popup-operacion-cobro-registro-buscar.component';
+import { PopupOperacionCobroRegistroBuscarTodosComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component';
 
 
 @Component({
@@ -321,6 +323,27 @@ export class OperacionCobroDetalleComponent implements OnInit {
          
          
          
+        }
+    });
+
+  }
+
+
+  
+  
+  buscarPracticaPaciente(){
+    let data:any; 
+    const ref = this.dialogService.open(PopupOperacionCobroRegistroBuscarTodosComponent, {
+    data,
+     header: 'Buscar Practica', 
+     width: '100%',
+     height: '100%'
+    });
+
+    ref.onClose.subscribe((PopupOperacionCobroRegistroBuscarTodosComponent: any) => {
+        if (PopupOperacionCobroRegistroBuscarTodosComponent) {
+         // console.log(PopupOperacionCobroRegistroBuscarComponent);    
+       //   this.buscarPractica();
         }
     });
 

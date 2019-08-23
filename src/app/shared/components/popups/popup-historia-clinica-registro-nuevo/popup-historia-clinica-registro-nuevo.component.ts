@@ -6,8 +6,10 @@ import { HistoriaClinica } from '../../../../models/historia-clinica.model';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import {MultiSelectModule} from 'primeng/multiselect';
 import swal from 'sweetalert2';
-import * as jsPDF from 'jspdf';
-import 'jspdf-autotable'; 
+declare const require: any;
+const jsPDF = require('jspdf');
+require('jspdf-autotable');
+ 
 import { MedicoService } from '../../../../services/medico.service';
 import { formatDate, DecimalPipe } from '@angular/common';
 import { PopupHistoriaClinicaListaConsultaComponent } from '../popup-historia-clinica-lista-consulta/popup-historia-clinica-lista-consulta.component';

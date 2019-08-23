@@ -76,7 +76,14 @@ getOperacionCobroRegistrosBetweenDatesAndMedico(fecha_desde:string,fecha_hasta:s
   getOperacionCobroRegistrosById(fecha_desde:string,fecha_hasta:string,estado_liquidacion:string,user_medico_id:string){
   return this.http.get<OperacionCobroDetalle[]>(this.URL_OPERACION_COBRO+'registros/by/id?fecha_desde='+fecha_desde+'&fecha_hasta='+fecha_hasta+'&estado_liquidacion='+estado_liquidacion+'&user_medico_id='+user_medico_id);
   } 
+
+  getOperacionCobroRegistrosByIdOperacionCobro(id:string){
+    return this.http.get<OperacionCobroDetalle[]>(this.URL_OPERACION_COBRO+'registros/by/operacioncobro?id='+id);
+    } 
   
+  getOperacionCobroRegistrosByPaciente(id:string){
+    return this.http.get<OperacionCobroDetalle[]>(this.URL_OPERACION_COBRO+'registros/by/paciente?id='+id);
+    } 
   getOperacionCobroRegistrosByLiquidacionNumero(id:string){
     return this.http.get<OperacionCobroDetalle[]>(this.URL_OPERACION_COBRO+'registros/by/liquidacion/numero?id='+id);
     } 
@@ -148,10 +155,12 @@ getOperacionCobroRegistrosBetweenDatesAndMedico(fecha_desde:string,fecha_hasta:s
  
 
   
-  actualizarValoresPracticasByConvenio(fecha_desde:string,fecha_hasta:string, estado_liquidacion:string, obra_social_id:string){
-    
-    return this.http.get<any>(URL_SERVICIOS+'operacioncobro/recalcular/by/fecha?fecha_desde='+fecha_desde+'&fecha_hasta='+fecha_hasta+'&estado_liquidacion='+estado_liquidacion+'&obra_social_id'+obra_social_id);
-  }
+  actualizarValoresPracticasByConvenio(selected:any){
+    return this.http.post<any[]>(URL_SERVICIOS+'operacioncobro/recalcular/by/liquidacion', selected);
+    //return this.http.get<any>(URL_SERVICIOS+'operacioncobro/recalcular/by/liquidacion');
+    } 
+
+  
 
    
   desafectarPresentacion(liquidacion_nro:string){

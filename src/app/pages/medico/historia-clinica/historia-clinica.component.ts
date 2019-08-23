@@ -4,8 +4,9 @@ import { DialogService } from 'primeng/components/common/api';
 import { MessageService } from 'primeng/api';
 import { DatePipe, formatDate } from '@angular/common';
 
-import * as jsPDF from 'jspdf';
-import 'jspdf-autotable'; 
+declare const require: any;
+const jsPDF = require('jspdf');
+require('jspdf-autotable');
 import { FormControl, Validators, FormGroup, Form } from '@angular/forms';
 
 

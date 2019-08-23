@@ -48,9 +48,10 @@
                              <div><button    class="btn  btn-outline-success btn-sm "  (click)="generarPdfListado('medico')" >Imprimir resumen por médico</button></div>  
                           
                              <div>  <button    class="ml-2 btn  btn  btn-outline-secondary btn-sm float-right "  (click)="generarPreFactura()" >Imprimir pre-factura</button></div>    
+                             <div>  <button    class="ml-2 btn  btn-outline-danger btn-sm float-right "  (click)="buscarPracticaPaciente()" >Buscar registros por paciente</button></div> 
                             </div>
                     <div class="col-md-5" style="text-align:right">                                
-                        <input  class="form-control col-md-12 form-control-sm" type="text"  placeholder="Buscar en toda la tabla" (input)="dt.filterGlobal($event.target.value, 'contains')"  >
+                        
                     </div>
                  </div>
                 </ng-template>

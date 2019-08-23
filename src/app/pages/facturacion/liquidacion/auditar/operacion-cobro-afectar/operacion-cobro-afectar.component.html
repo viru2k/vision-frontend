@@ -94,6 +94,8 @@
              <div class="pr-2 pl-2">   <button    class="btn  btn-outline-info btn-sm   "  (click)="generarPdfListado('todos')" >Imprimir resumen</button></div>
              <div><button    class="btn  btn-outline-success btn-sm "  (click)="generarPdfListado('medico')" >Imprimir resumen por médico</button></div>  
              <div>  <button    class="ml-2 btn  btn-outline-danger btn-sm float-right "  (click)="buscarPractica()" >Buscar otros registros</button></div> 
+             <div>  <button    class="ml-2 btn  btn-outline-danger btn-sm float-right "  (click)="buscarPracticaPaciente()" >Buscar registros por paciente</button></div> 
+             <div>  <button    class="ml-2 btn  btn  btn-outline-info btn-sm float-right "  (click)="generarPreFactura()" >Imprimir pre-factura</button></div>    
                
              <hr width="1" size="50">
               <div class="row ml-2 ">
@@ -146,7 +148,7 @@
               </ng-template>
             
       <ng-template pTemplate="body" let-elementos  >
-          <tr style="height:20px" [ngClass]="colorRow(elementos.forma_pago)" >
+          <tr style="height:20px" [ngClass]="colorRow(elementos.operacion_cobro_observacion)" >
                  
                   <td style="width: 6%" >                   
                       <a     (click)="accion($event,op,elementos)"    ><i class="far fa-edit fa-2x icon-color-purple my-hover"></i></a>
@@ -165,10 +167,10 @@
                   <td style="width: 10%">{{elementos.medico_nombre}}</td>  
                   <td style="width: 8%">{{elementos.usuario_cobro_nombre}}</td> 
                   <td style="width: 8%">{{elementos.fecha_cobro | date: 'dd/MM/yyyy'}}</td>       
-                  <td style="width: 6%">{{elementos.cantidad}}</td>                                         
-                  <td style="width: 6%">{{elementos.valor_facturado}}</td>    
-                  <td style="width: 6%">{{elementos.distribucion}}</td>    
-                  <td style="font-size: 10px;width: 10%">{{elementos.forma_pago}}</td>    
+                  <td style="width: 6%" [ngClass]="colorRowPago(elementos.forma_pago)">{{elementos.cantidad}}</td>                                         
+                  <td style="width: 6%" [ngClass]="colorRowPago(elementos.forma_pago)">{{elementos.valor_facturado}}</td>    
+                  <td style="width: 6%" [ngClass]="colorRowPago(elementos.forma_pago)">{{elementos.distribucion}}</td>    
+                  <td style="font-size: 10px;width: 10%" [ngClass]="colorRowPago(elementos.forma_pago)">{{elementos.forma_pago}}</td>    
                               
                   <td style="width: 3em">
                           <p-tableCheckbox [value]="elementos"></p-tableCheckbox>

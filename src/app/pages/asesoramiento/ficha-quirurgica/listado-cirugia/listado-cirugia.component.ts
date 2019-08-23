@@ -5,8 +5,9 @@ import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/components/common/api';
 
 import swal from 'sweetalert2';
-import * as jsPDF from 'jspdf';
-import 'jspdf-autotable';
+declare const require: any;
+const jsPDF = require('jspdf');
+require('jspdf-autotable');
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { calendarioIdioma } from './../../../../../../../psicologos-web/src/app/config/config';
@@ -27,7 +28,7 @@ import { HistoriaClinica } from '../../../../models/historia-clinica.model';
 import { PopupDerivarAsesoramientoListadoComponent } from './../../../../shared/components/popups/popup-derivar-asesoramiento-listado/popup-derivar-asesoramiento-listado.component';
 import { PopupListadoCirugiaQuirofanoEditarComponent } from './../../../../shared/components/popups/popup-listado-cirugia-quirofano-editar/popup-listado-cirugia-quirofano-editar.component';
 import { PopupFichaQuirurgicaOperacionCobroComponent } from '../../../../shared/components/popups/popup-ficha-quirurgica-operacion-cobro/popup-ficha-quirurgica-operacion-cobro.component';
-import { ExcelService } from '../../../../../../../puntos-gestion/src/app/services/excel.service';
+//import { ExcelService } from '../../../../../../../puntos-gestion/src/app/services/excel.service';
 
 @Component({
   selector: 'app-listado-cirugia',

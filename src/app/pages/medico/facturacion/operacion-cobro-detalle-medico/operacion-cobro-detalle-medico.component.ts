@@ -10,8 +10,9 @@ import { calendarioIdioma,logo_clinica } from '../../../../config/config';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import swal from 'sweetalert2';
-import * as jsPDF from 'jspdf';
-import 'jspdf-autotable'; 
+declare const require: any;
+const jsPDF = require('jspdf');
+require('jspdf-autotable');
 
 import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/components/common/api';

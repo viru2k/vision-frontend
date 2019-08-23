@@ -93,7 +93,7 @@
                 <ng-template pTemplate="body" let-agendaTurno> 
                      
                 <tr style="height:20px" [ngClass]="colorRow(agendaTurno.estado)" >
-                    <td [ngClass]="colorString(agendaTurno.operacion_cobro_id)" style="width: 5%">{{agendaTurno.operacion_cobro_id}}</td>   
+                        <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 5%"><a class="my-hover" (click)="verDetalle(agendaTurno)">{{agendaTurno.operacion_cobro_id}}</a></td> 
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.paciente_apellido}}</td>                          
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.paciente_nombre}}</td>                             
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 16%">{{agendaTurno.paciente_obra_social_nombre}}</td>  

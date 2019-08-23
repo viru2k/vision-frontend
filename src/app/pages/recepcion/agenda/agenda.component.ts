@@ -16,8 +16,9 @@ import swal from 'sweetalert2';
 import {OverlayPanelModule, OverlayPanel} from 'primeng/overlaypanel';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { PopupPacienteObrasocialComponent } from '../../../shared/components/popups/popup-paciente-obrasocial/popup-paciente-obrasocial.component';
-import * as jsPDF from 'jspdf';
-import 'jspdf-autotable'; 
+declare const require: any;
+const jsPDF = require('jspdf');
+require('jspdf-autotable');
 
 
 import { Document } from 'src/app/models/document';
@@ -26,6 +27,9 @@ import { DocumentService } from './../../../services/document-service.service';
 import { Observable } from 'rxjs/Rx';
 import { Subscription } from 'rxjs';
 import { PopupPacienteConsultaComponent } from '../../../shared/components/popups/popup-paciente-consulta/popup-paciente-consulta.component';
+import { PopupOperacionCobroPresentacionComponent } from '../../../shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component';
+import { Liquidacion } from '../../../models/liquidacion.model';
+import { PopupOperacionCobroDetalleComponent } from '../../../shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component';
 
 @Component({
   selector: 'app-agenda',
@@ -624,6 +628,27 @@ guardarObservacion(){
  this.popItemAgenda.observacion = this.observacion; 
   this.actualizarTurno();
   this.display = false;
+}
+
+
+verDetalle(agendaTurno:any){
+
+  console.log(agendaTurno);
+let liquidacion:Liquidacion;
+liquidacion = new Liquidacion(agendaTurno['operacion_cobro_id'],'','','','','','',0,0,'','',[],'','','');
+  let data:any; 
+  data = liquidacion;
+  const ref = this.dialogService.open(PopupOperacionCobroDetalleComponent, {
+  data,
+   header: 'Ver detalle de presentación', 
+   width: '98%',
+   height: '100%'
+  });
+
+  ref.onClose.subscribe((PopupOperacionCobroDetalleComponent:any) => {
+     
+  });
+
 }
 
 

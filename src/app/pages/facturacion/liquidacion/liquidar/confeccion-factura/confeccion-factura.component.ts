@@ -10,8 +10,9 @@ import { calendarioIdioma, logo_clinica } from '../../../../../config/config';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import swal from 'sweetalert2';
-import * as jsPDF from 'jspdf';
-import 'jspdf-autotable'; 
+declare const require: any;
+const jsPDF = require('jspdf');
+require('jspdf-autotable'); 
 
 import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/components/common/api';
@@ -26,7 +27,7 @@ import { pipe } from '@angular/core/src/render3';
 import { NumberToWordsPipe } from '../../../../../shared/pipes/number-to-words.pipe';
 import { PopupOperacionCobroPresentacionComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component';
 import { PopupPresentacionEditarComponent } from '../../../../../shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component';
-import { ExcelService } from '../../../../../services/excel.service';
+//import { ExcelService } from '../../../../../services/excel.service';
 
 
 @Component({
@@ -66,7 +67,7 @@ export class ConfeccionFacturaComponent implements OnInit {
   selectedImpresion:string ;//= 'Transferencia';
   impresiones:any[];
 
-  constructor(private miServicio:LiquidacionService,private practicaService:PracticaService, private messageService: MessageService ,public dialogService: DialogService,public numberToWordsPipe:NumberToWordsPipe,private cp: CurrencyPipe, private dp: DecimalPipe, private excelService:ExcelService) {
+  constructor(private miServicio:LiquidacionService,private practicaService:PracticaService, private messageService: MessageService ,public dialogService: DialogService,public numberToWordsPipe:NumberToWordsPipe,private cp: CurrencyPipe, private dp: DecimalPipe) {
 
     this.impresiones = [
       {name: 'Presentación todos', code: '1'},
@@ -630,7 +631,7 @@ actualizarRegistros(){
   let th = formatDate(this.fechaHasta, 'dd/MM/yyyy', 'en');
   swal({
     title: '¿Desea actualizar estos  registros?',
-    text: 'Va a actualizar registros entre el periodo  desde '+td+' hasta '+th,
+    text: 'Va a actualizar registros',
     type: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#C5E1A5',
@@ -650,12 +651,13 @@ actualizarRegistros(){
 
 actualizarRegistrosObraSocial(){
 
-  let td = formatDate(this.fechaDesde, 'yyyy-MM-dd HH:mm', 'en');  
-  let th = formatDate(this.fechaHasta, 'yyyy-MM-dd HH:mm', 'en');
-  this.loading = true;
 
+if(this.selecteditems){
+
+  this.loading = true;
+  console.log(this.selecteditems);
   try {
-      this.practicaService.actualizarValoresPracticasByConvenio(td, th, 'PEN',this.DateForm.value.obra_social_id)    
+      this.practicaService.actualizarValoresPracticasByConvenio(this.selecteditems)    
       .subscribe(resp => {
         
           
@@ -671,6 +673,9 @@ actualizarRegistrosObraSocial(){
   } catch (error) {
   this.throwAlert('error','Error al cargar los registros',error,error.status);
   }  
+}else{
+  this.throwAlert('warning','No se selecciono ninguna ficha','','');
+}
 }
 
 
@@ -724,7 +729,7 @@ exportarExcel(){
          console.log(this.elementosPreFactura);     
           this.loading = false;
           const fecha_impresion = formatDate(new Date(), 'dd-MM-yyyy-mm', 'es-Ar');  
-          this.excelService.exportAsExcelFile(  this.elementosPreFactura, 'listado_presentacion'+fecha_impresion);
+          this.miServicio.exportAsExcelFile(  this.elementosPreFactura, 'listado_presentacion'+fecha_impresion);
       },
       error => { // error path
           console.log(error.message);

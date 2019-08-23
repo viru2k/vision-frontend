@@ -10,8 +10,10 @@ import { calendarioIdioma,logo_clinica } from '../../../../../config/config';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import swal from 'sweetalert2';
-import * as jsPDF from 'jspdf';
-import 'jspdf-autotable'; 
+declare const require: any;
+const jsPDF = require('jspdf');
+require('jspdf-autotable');
+ 
 
 import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/components/common/api';
@@ -23,6 +25,7 @@ import { PopupObraSocialComponent } from 'src/app/shared/components/popups/popup
 import { PopupOperacionCobroEditarComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-editar/popup-operacion-cobro-editar.component';
 import { PopupOperacionCobroRegistroBuscarComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-registro-buscar/popup-operacion-cobro-registro-buscar.component';
 import { PopupCobroDistribucionEditarComponent } from '../../../../../shared/components/popups/popup-cobro-distribucion-editar/popup-cobro-distribucion-editar.component';
+import { PopupOperacionCobroRegistroBuscarTodosComponent } from './../../../../../shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component';
 
 @Component({
   selector: 'app-operacion-cobro-auditar',
@@ -367,9 +370,27 @@ export class OperacionCobroAuditarComponent implements OnInit {
     ref.onClose.subscribe((PopupOperacionCobroRegistroBuscarComponent:ObraSocial) => {
         if (PopupObraSocialComponent) {
           console.log(PopupOperacionCobroRegistroBuscarComponent);    
-         
-         
-         
+        }
+    });
+
+  }
+
+
+  
+  
+  buscarPracticaPaciente(){
+    let data:any; 
+    const ref = this.dialogService.open(PopupOperacionCobroRegistroBuscarTodosComponent, {
+    data,
+     header: 'Buscar Practica', 
+     width: '100%',
+     height: '100%'
+    });
+
+    ref.onClose.subscribe((PopupOperacionCobroRegistroBuscarTodosComponent: any) => {
+        if (PopupOperacionCobroRegistroBuscarTodosComponent) {
+         // console.log(PopupOperacionCobroRegistroBuscarComponent);    
+       //   this.buscarPractica();
         }
     });
 
@@ -449,6 +470,16 @@ deleteRegistro(id:string){
   } catch (error) {
   this.throwAlert('error','Error al cargar los registros',error,error.status);
   }  
+
+  
+
+}
+
+colorEstado(estado:string){
+    
+  if(estado != '-') {
+    return {'es-observacion'  :'null' };
+}
 }
 padLeft(text:string, padChar:string, size:number): string {
   return (String(padChar).repeat(size) + text).substr( (size * -1), size) ;

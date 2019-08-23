@@ -12,8 +12,9 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 import swal from 'sweetalert2';
 import {OverlayPanelModule, OverlayPanel} from 'primeng/overlaypanel';
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import * as jsPDF from 'jspdf';
-import 'jspdf-autotable'; 
+declare const require: any;
+const jsPDF = require('jspdf');
+require('jspdf-autotable');
 import { Document } from 'src/app/models/document';
 import { startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs/Rx';
@@ -21,7 +22,8 @@ import { Subscription } from 'rxjs';
 import { DocumentService } from './../../../../services/document-service.service';
 
 
-import { ExcelService } from './../../../../services/excel.service';
+//import { ExcelService } from './../../../../services/excel.service';
+import { LiquidacionService } from '../../../../services/liquidacion.service';
 
 
 @Component({
@@ -72,7 +74,7 @@ export class AgendaConsultaComponent implements OnInit {
   fechaHasta:Date;
   _fechaHasta:string;
 
-  constructor(private documentService: DocumentService, private miServico:AgendaService, private messageService: MessageService ,public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router ,  private excelService:ExcelService) {
+  constructor(private liquidacionService:LiquidacionService ,private documentService: DocumentService, private miServico:AgendaService, private messageService: MessageService ,public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router ) {
    
     this.cols = [
         {field: 'operacion_cobro_id', header: 'OC', width: '5%' }, 
@@ -263,7 +265,7 @@ export class AgendaConsultaComponent implements OnInit {
    
 exportarExcel(){
 let result = this.elementosFiltrados as any;
-          this.excelService.exportAsExcelFile(  result, 'listado_agenda');
+          this.liquidacionService.exportAsExcelFile(  result, 'listado_agenda');
            
         
 

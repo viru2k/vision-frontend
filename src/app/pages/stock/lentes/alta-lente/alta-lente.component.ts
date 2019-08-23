@@ -6,8 +6,9 @@ import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/components/common/api';
 
 import swal from 'sweetalert2';
-import * as jsPDF from 'jspdf';
-import 'jspdf-autotable';
+declare const require: any;
+const jsPDF = require('jspdf');
+require('jspdf-autotable');
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { calendarioIdioma } from './../../../../../../../psicologos-web/src/app/config/config';

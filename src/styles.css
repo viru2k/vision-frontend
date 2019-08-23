@@ -571,11 +571,19 @@ hr.rulerStyleShadow {
 	box-shadow: 0 10px 10px -10px #8c8b8b inset;
 }
 
+
+.es-observacion {
+    background-color: #90CAF9!important;
+    color: #757575   !important;
+} 
+
 /***************************ESTADO ATENCION ************************/ 
 .es-pendiente {
     background-color: #FFF9C4!important;
     color: #757575   !important;
 } 
+
+
 
 .es-atendido {
     background-color: #AED581 !important;
@@ -620,6 +628,7 @@ hr.rulerStyleShadow {
 
 .es-efectivo {
     color: rgb(85, 139, 47) !important;
+    font-weight: bold !important;
 }
 
 .es-transferencia {
@@ -628,10 +637,12 @@ hr.rulerStyleShadow {
 
 .es-tarjeta-debito {
     color: rgb(245, 127, 23) !important;
+    font-weight: bold !important;
 }
 
 .es-tarjeta-credito {
     color: rgb(245, 127, 23) !important;
+    font-weight: bold !important;
 }
 /************ CURSORES ***********************/
 

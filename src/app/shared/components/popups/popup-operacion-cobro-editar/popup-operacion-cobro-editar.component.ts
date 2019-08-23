@@ -56,6 +56,7 @@ export class PopupOperacionCobroEditarComponent implements OnInit {
     'paciente_id': new FormControl(''),    
     'operacion_cobro_paciente_nombre': new FormControl(''), 
     'operacion_cobro_es_anulado': new FormControl('NO'), 
+    'operacion_cobro_observacion': new FormControl(''), 
 
   });
 

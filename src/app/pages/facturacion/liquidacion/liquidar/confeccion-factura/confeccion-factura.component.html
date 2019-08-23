@@ -12,14 +12,7 @@
           <p-dropdown [options]="impresiones" [(ngModel)]="selectedImpresion" optionLabel="name" ></p-dropdown>
           <button    class="ml-2 btn  btn-secondary btn-sm float-right mr-2 pr-2" (click)="imprimir()" >Imprimir</button> 
               <form  [formGroup]="DateForm">
-    <!--   <button    class="btn  btn-warning btn-sm float-right ml-2"  (click)="generarTxt()" ></button>         
-      <button    class="btn  btn-success btn-sm float-right mr-2 pr-2"  (click)="exportarExcel()" >Exportar a excel</button>                     
-      <button    class="btn  btn-success btn-sm float-right mr-2 pr-2"  (click)="loadRegistro()" >Generar factura</button>
-      <button    class="btn  btn-secondary btn-sm float-right mr-2 pr-2" (click)="loadPresentacionTodos()" >Presentación todos</button>   
-      <button    class="btn  btn-secondary btn-sm float-right mr-2 pr-2" (click)="loadPresentacionMedico()" >Presentación medico</button>   
-      <button    class="btn  btn-secondary btn-sm float-right mr-2 pr-2" (click)="loadPresentacionMedicoACLISA()" >Presentación medico ACLISA</button>         
-      <button    class="btn  btn-secondary btn-sm float-right mr-2 pr-2" (click)="loadPresentacionCirugiaTodos()" >Presentación todos Cirugia</button>   
-      <button    class="btn  btn-secondary btn-sm float-right mr-2 pr-2" (click)="loadPresentacionIva()" >Presentación con IVA</button>     -->
+
               </form>            
       </div>
   </div>
@@ -55,7 +48,7 @@
                     </div>                                          
                       <div class=" ml-2 row">                         
                          <div class="ml-2"><button    class="btn  btn-danger btn-sm float-right  pr-2" (click)="actualizarRegistros()" >Actualizar valores de convenio</button>   </div>                           
-                         <div class="ml-2"><button    class="btn  btn-outline-danger btn-sm float-right  pr-2" (click)="actualizarRegistros()" >Actualizar valores de distribución</button>   </div>                           
+                         <div class="ml-2"><button    class="btn  btn-outline-danger btn-sm float-right  pr-2" (click)="actualizarRegistros()" >Actualizar valores de distribución (D.O.S)</button>   </div>                           
                         </div>     
                            <div class="form-group ">
                

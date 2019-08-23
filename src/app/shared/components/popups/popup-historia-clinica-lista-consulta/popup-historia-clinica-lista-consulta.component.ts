@@ -4,8 +4,9 @@ import { DynamicDialogConfig, MessageService, DynamicDialogRef } from 'primeng/a
 import { DialogService } from 'primeng/components/common/api';
 import { HistoriaClinica } from '../../../../models/historia-clinica.model';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import * as jsPDF from 'jspdf';
-import 'jspdf-autotable'; 
+declare const require: any;
+const jsPDF = require('jspdf');
+require('jspdf-autotable');
 import { PopupEstudiosImagenComponent } from '../popup-estudios-imagen/popup-estudios-imagen.component';
 import { Paciente } from '../../../../models/paciente.model';
 

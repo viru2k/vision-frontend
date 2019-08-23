@@ -9,8 +9,9 @@ import { calendarioIdioma } from '../../config/config';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {  formatDate } from '@angular/common';
 import swal from 'sweetalert2';
-import * as jsPDF from 'jspdf';
-import 'jspdf-autotable'; 
+declare const require: any;
+const jsPDF = require('jspdf');
+require('jspdf-autotable');
 
 
 @Component({
