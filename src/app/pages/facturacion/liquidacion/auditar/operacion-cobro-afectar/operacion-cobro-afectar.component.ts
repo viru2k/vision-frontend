@@ -732,6 +732,8 @@ let total_facturado_coseguro:number = 0;
   let honorarios:string;
   let gastos:string;
 
+/****************************************************   OBRA SOCIAL ******************************************************************************** */
+
 
   doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
   doc.setLineWidth(0.4);
@@ -798,7 +800,7 @@ let total_facturado_coseguro:number = 0;
   /*****  AGREGO UNIDAD DE INTERNACION PARA OBRA SOCIAL */
   
   for(a=0;a<this.selecteditems.length;a++){
-    if((this.selecteditems[a]['obra_social_id'] === 1 )&&(this.selecteditems[a]['codigo'] === '43.01.37' )){
+    if((this.selecteditems[a]['obra_social_id'] === 1 )&&(this.selecteditems[a]['codigo'] === '43.01.07' )){
       console.log('UNIDAD DE INTERNACION'); 
       console.log(this.selecteditems[a]);
       total_facturado  = total_facturado+ Number(this.selecteditems[a]['valor_facturado']);
@@ -832,8 +834,10 @@ let total_facturado_coseguro:number = 0;
   y_gastos_coseguro= 115;
   y_honorarios_coseguro = 80;
   total_facturado_coseguro = 0;
-  doc.addPage();
 
+  /****************************************************   COSEGURO ******************************************************************************** */
+
+  doc.addPage();
   doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
   doc.setLineWidth(0.4);
   doc.setFontSize(9);
@@ -909,7 +913,9 @@ let total_facturado_coseguro:number = 0;
 
    /*****  AGREGO UNIDAD DE INTERNACION E INSUMOS  PARA COSEGURO, DEBE FIGURAR */
    for(a=0;a<this.selecteditems.length;a++){
-    if((this.selecteditems[a]['obra_social_id'] !== 1 )&&(this.selecteditems[a]['codigo'] === '43.01.37' )){
+     let complejidad = Number(this.selecteditems[a]['complejidad']);
+     console.log(complejidad);
+    if((this.selecteditems[a]['obra_social_id'] !== 1 )&&(complejidad === 4 )){
       total_facturado_coseguro  = total_facturado_coseguro+ Number(this.selecteditems[a]['valor_facturado']);
       doc.text(this.selecteditems[a]['codigo'], 10, y_gastos, null, null, 'left');
       doc.text(this.selecteditems[a]['descripcion'], 30, y_gastos, null, null, 'left');      
@@ -917,14 +923,14 @@ let total_facturado_coseguro:number = 0;
       doc.text(this.selecteditems[a]['valor_facturado'], 180, y_gastos, null, null, 'left');
       y_gastos = y_gastos+5;
     }
-    if((this.selecteditems[a]['obra_social_id'] !== 1 )&&(this.selecteditems[a]['codigo'] === 'LIOF05' )){
+    /*if((this.selecteditems[a]['obra_social_id'] !== 1 )&&(this.selecteditems[a]['codigo'] === 'LIOF05' )){
       total_facturado_coseguro  = total_facturado_coseguro+ Number(this.selecteditems[a]['valor_facturado']);
       doc.text(this.selecteditems[a]['codigo'], 10, y_gastos, null, null, 'left');
       doc.text(this.selecteditems[a]['descripcion'], 30, y_gastos, null, null, 'left');      
       doc.text(this.selecteditems[a]['cantidad'], 160, y_gastos, null, null, 'left');
       doc.text(this.selecteditems[a]['valor_facturado'], 180, y_gastos, null, null, 'left');
       y_gastos = y_gastos+5;
-    }
+    }*/
   }
 
   
@@ -936,11 +942,17 @@ let total_facturado_coseguro:number = 0;
   doc.line(10, 203, pageWidth - 10, 203);
   doc.setFontSize(8);
 
+
+/****************************************************   LENTE ******************************************************************************** */
+
   /********************************* AGREGO EL LENTE  */
+
+  
   let total_lente:number = 0;
   let tiene_lente:boolean;
   for(a=0;a<this.selecteditems.length;a++){
-    if((this.selecteditems[a]['obra_social_id'] === 1 )&&(this.selecteditems[a]['codigo'] === 'LIOF05' )){
+    var lente = this.selecteditems[a]['codigo'].substring(0, 4);
+    if((this.selecteditems[a]['obra_social_id'] === 1 )&&(lente === 'LIOF' )){
     tiene_lente = true;
     doc.addPage();
     }

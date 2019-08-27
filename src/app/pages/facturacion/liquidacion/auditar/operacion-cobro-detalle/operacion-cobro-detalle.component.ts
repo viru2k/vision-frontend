@@ -491,18 +491,6 @@ deleteRegistro(id:string){
 }
 
 
-async buscarDistribucion(){
-  let rest;
-  try {
-    
-    rest = await   this.miServicio.getOperacionCobroDistribucionByIdPrefactura(this.selecteditems[0]['operacion_cobro_id'],this.selecteditems[0]['estado_liquidacion'],this.selecteditems[0]['obra_social_id'])    
-      console.log(this.result_distribucion);
-} catch (error) {
-
-}  
-return rest;
-}
-
 async generarPreFactura(){
 
   let td = formatDate(this.fechaDesde, 'dd/MM/yyyy', 'en');  
@@ -543,8 +531,8 @@ let total_facturado_coseguro:number = 0;
         i_coseguro = a;
       }
     }
-// OBTENGO LA OPERACIUON DE COBRO PARA MOSTRAR
-let operacion_cobro_id = this.selecteditems[0]['operacion_cobro_id'];
+    // OBTENGO LA OPERACIUON DE COBRO PARA MOSTRAR
+    let operacion_cobro_id = this.selecteditems[0]['operacion_cobro_id'];
   var doc = new jsPDF();
   
   const pageSize = doc.internal.pageSize;
@@ -559,6 +547,8 @@ let operacion_cobro_id = this.selecteditems[0]['operacion_cobro_id'];
   let honorarios:string;
   let gastos:string;
 
+/****************************************************   OBRA SOCIAL ******************************************************************************** */
+
 
   doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
   doc.setLineWidth(0.4);
@@ -569,7 +559,7 @@ let operacion_cobro_id = this.selecteditems[0]['operacion_cobro_id'];
   doc.setFontSize(6);
   doc.text('Emitido : '+_fechaEmision, pageWidth-40, 18, null, null, 'left');
   doc.text('Nº - O.C : '+operacion_cobro_id, pageWidth-40, 22, null, null, 'left');
-  doc.setFontSize(7);
+  doc.setFontSize(8);
   doc.text('Internación Nro: '+this.selecteditems[i_obra_social]['operacion_cobro_numero_bono'], 10, 30, null, null, 'left');
   doc.text('Obra Social: '+this.selecteditems[i_obra_social]['obra_social_nombre'], 10, 35, null, null, 'left');
   doc.text('Paciente: '+this.selecteditems[i_obra_social]['apellido']+' '+this.selecteditems[0]['nombre'], 10, 40, null, null, 'left');
@@ -625,7 +615,7 @@ let operacion_cobro_id = this.selecteditems[0]['operacion_cobro_id'];
   /*****  AGREGO UNIDAD DE INTERNACION PARA OBRA SOCIAL */
   
   for(a=0;a<this.selecteditems.length;a++){
-    if((this.selecteditems[a]['obra_social_id'] === 1 )&&(this.selecteditems[a]['codigo'] === '43.01.37' )){
+    if((this.selecteditems[a]['obra_social_id'] === 1 )&&(this.selecteditems[a]['codigo'] === '43.01.07' )){
       console.log('UNIDAD DE INTERNACION'); 
       console.log(this.selecteditems[a]);
       total_facturado  = total_facturado+ Number(this.selecteditems[a]['valor_facturado']);
@@ -659,8 +649,10 @@ let operacion_cobro_id = this.selecteditems[0]['operacion_cobro_id'];
   y_gastos_coseguro= 115;
   y_honorarios_coseguro = 80;
   total_facturado_coseguro = 0;
-  doc.addPage();
 
+  /****************************************************   COSEGURO ******************************************************************************** */
+
+  doc.addPage();
   doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
   doc.setLineWidth(0.4);
   doc.setFontSize(9);
@@ -736,7 +728,9 @@ let operacion_cobro_id = this.selecteditems[0]['operacion_cobro_id'];
 
    /*****  AGREGO UNIDAD DE INTERNACION E INSUMOS  PARA COSEGURO, DEBE FIGURAR */
    for(a=0;a<this.selecteditems.length;a++){
-    if((this.selecteditems[a]['obra_social_id'] !== 1 )&&(this.selecteditems[a]['codigo'] === '43.01.37' )){
+     let complejidad = Number(this.selecteditems[a]['complejidad']);
+     console.log(complejidad);
+    if((this.selecteditems[a]['obra_social_id'] !== 1 )&&(complejidad === 4 )){
       total_facturado_coseguro  = total_facturado_coseguro+ Number(this.selecteditems[a]['valor_facturado']);
       doc.text(this.selecteditems[a]['codigo'], 10, y_gastos, null, null, 'left');
       doc.text(this.selecteditems[a]['descripcion'], 30, y_gastos, null, null, 'left');      
@@ -744,14 +738,14 @@ let operacion_cobro_id = this.selecteditems[0]['operacion_cobro_id'];
       doc.text(this.selecteditems[a]['valor_facturado'], 180, y_gastos, null, null, 'left');
       y_gastos = y_gastos+5;
     }
-    if((this.selecteditems[a]['obra_social_id'] !== 1 )&&(this.selecteditems[a]['codigo'] === 'LIOF 05' )){
+    /*if((this.selecteditems[a]['obra_social_id'] !== 1 )&&(this.selecteditems[a]['codigo'] === 'LIOF05' )){
       total_facturado_coseguro  = total_facturado_coseguro+ Number(this.selecteditems[a]['valor_facturado']);
       doc.text(this.selecteditems[a]['codigo'], 10, y_gastos, null, null, 'left');
       doc.text(this.selecteditems[a]['descripcion'], 30, y_gastos, null, null, 'left');      
       doc.text(this.selecteditems[a]['cantidad'], 160, y_gastos, null, null, 'left');
       doc.text(this.selecteditems[a]['valor_facturado'], 180, y_gastos, null, null, 'left');
       y_gastos = y_gastos+5;
-    }
+    }*/
   }
 
   
@@ -763,11 +757,17 @@ let operacion_cobro_id = this.selecteditems[0]['operacion_cobro_id'];
   doc.line(10, 203, pageWidth - 10, 203);
   doc.setFontSize(8);
 
+
+/****************************************************   LENTE ******************************************************************************** */
+
   /********************************* AGREGO EL LENTE  */
+
+  
   let total_lente:number = 0;
   let tiene_lente:boolean;
   for(a=0;a<this.selecteditems.length;a++){
-    if((this.selecteditems[a]['obra_social_id'] === 1 )&&(this.selecteditems[a]['codigo'] === 'LIOF 05' )){
+    var lente = this.selecteditems[a]['codigo'].substring(0, 4);
+    if((this.selecteditems[a]['obra_social_id'] === 1 )&&(lente === 'LIOF' )){
     tiene_lente = true;
     doc.addPage();
     }
@@ -801,7 +801,7 @@ let operacion_cobro_id = this.selecteditems[0]['operacion_cobro_id'];
   
     y_gastos = 80;
   for(a=0;a<this.selecteditems.length;a++){
-    if((this.selecteditems[a]['obra_social_id'] === 1 )&&(this.selecteditems[a]['codigo'] === 'LIOF 05' )){
+    if((this.selecteditems[a]['obra_social_id'] === 1 )&&(this.selecteditems[a]['codigo'] === 'LIOF05' )){
       total_lente  = total_lente+ Number(this.selecteditems[a]['valor_facturado']);
       doc.text(this.selecteditems[a]['codigo'], 10, y_gastos, null, null, 'left');
       doc.text(this.selecteditems[a]['descripcion'], 30, y_gastos, null, null, 'left');      
@@ -842,6 +842,18 @@ let operacion_cobro_id = this.selecteditems[0]['operacion_cobro_id'];
   
   }
 
+}
+
+async buscarDistribucion(){
+  let rest;
+  try {
+    
+    rest = await   this.miServicio.getOperacionCobroDistribucionByIdPrefactura(this.selecteditems[0]['operacion_cobro_id'],this.selecteditems[0]['estado_liquidacion'],this.selecteditems[0]['obra_social_id'])    
+      console.log(this.result_distribucion);
+} catch (error) {
+
+}  
+return rest;
 }
 
 generarPdfListado(filtro:string) {

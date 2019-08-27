@@ -30,9 +30,10 @@ import { ObraSocialService } from 'src/app/services/obra-social.service';
 import { PopupOperacionCobroRegistroEditarComponent } from './../popup-operacion-cobro-registro-editar/popup-operacion-cobro-registro-editar.component';
 import { PopupOperacionCobroEditarComponent } from './../popup-operacion-cobro-editar/popup-operacion-cobro-editar.component';
 import { MedicoObraSocial } from 'src/app/models/medico-obrasocial.model';
-import { PopupMedicoComponent } from './../../../../pages/mantenimiento/popup/popup-medico/popup-medico.component';
+//import { PopupMedicoComponent } from './../../../../pages/mantenimiento/popup/popup-medico/popup-medico.component';
 import { Liquidacion } from '../../../../models/liquidacion.model';
 import { PopupOperacionCobroPresentacionEditarRegistroComponent } from '../popup-operacion-cobro-presentacion-editar-registro/popup-operacion-cobro-presentacion-editar-registro.component';
+import { PopupMedicoComponent } from './../popup-medico/popup-medico.component';
 
 @Component({
   selector: 'app-popup-operacion-cobro-presentacion',

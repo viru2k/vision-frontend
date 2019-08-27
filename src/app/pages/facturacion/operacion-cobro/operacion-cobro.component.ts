@@ -804,13 +804,20 @@ this.throwAlert('warning','error','  Error al cargar los registros','99');
         } catch (error) {
           
         }
-      
+        
         console.log(  this.operacioncobrodistribucion);
         console.log(resp.length);
         if(resp.length === undefined){
       // si el registro no tiene valores
+      console.log('practica pmo  '+  this.tmp_operacionCobroPractica.pmo_nivel);
+      let pmo_nivel = Number(this.tmp_operacionCobroPractica.pmo_nivel);
           console.log('sin asociacion para buscar honorarios');
-          if(this.tmp_operacionCobroPractica.pmo_nivel == '2'){
+          if(pmo_nivel=== 2){
+            console.log('pmo id '+this.popItemCoseguro.id,PopupPracticaPorcentajeComponent.pmo_id);
+          this.obtenerCodigoCoseguro(this.popItemCoseguro.id,PopupPracticaPorcentajeComponent.pmo_id);
+          }
+          if(pmo_nivel=== 4){
+            console.log('pmo id '+this.popItemCoseguro.id,PopupPracticaPorcentajeComponent.pmo_id);
           this.obtenerCodigoCoseguro(this.popItemCoseguro.id,PopupPracticaPorcentajeComponent.pmo_id);
           }
       }else{
@@ -895,9 +902,13 @@ async obtenerCodigoCoseguro(obra_social_id:string, pmo_id:string){
         this.sumarTotales(this.total_obra_social,this.total_coseguro,this.total_categoria);
       
     }else{
-      if(this.tmp_operacionCobroPractica.pmo_nivel != '2'){
-         this.throwAlert('error','Error de distribución',  'La practica no tiene distribución asignada','500');
+      let pmo_nivel_ = Number(this.tmp_operacionCobroPractica.pmo_nivel);
+      console.log('pmo_nivel '+pmo_nivel_);
+      if((pmo_nivel_ !== 2)&&(pmo_nivel_ !== 4)){
+        console.log('pmo_nivel '+pmo_nivel_);
+         this.throwAlert('warning','Error de distribución',  'La practica no tiene distribución asignada','500');
       }
+     
     }
 
      

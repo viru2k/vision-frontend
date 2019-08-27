@@ -184,7 +184,7 @@ import { PopupListadoCirugiaQuirofanoComponent } from './pages/asesoramiento/fic
 import { PopupDerivarAsesoramientoListadoComponent } from './shared/components/popups/popup-derivar-asesoramiento-listado/popup-derivar-asesoramiento-listado.component';
 import { PopupListadoCirugiaQuirofanoEditarComponent } from './shared/components/popups/popup-listado-cirugia-quirofano-editar/popup-listado-cirugia-quirofano-editar.component';
 import { PopupCobroDistribucionEditarComponent } from './shared/components/popups/popup-cobro-distribucion-editar/popup-cobro-distribucion-editar.component';
-//import { ExcelService } from './services/excel.service';
+import { ExcelService } from './services/excel.service';
 import { PopupFichaQuirurgicaOperacionCobroComponent } from './shared/components/popups/popup-ficha-quirurgica-operacion-cobro/popup-ficha-quirurgica-operacion-cobro.component';
 import { ListadoCirugiaEditarComponent } from './pages/medico/asesoramiento/listado-cirugia-editar/listado-cirugia-editar.component';
 import {  PopupListadoCirugiaQuirofanoObservacionEditarComponent } from './shared/components/popups/popup-listado-cirugia-quirofano-observacion-editar/popup-listado-cirugia-quirofano-observacion-editar.component';
@@ -379,7 +379,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupOperacionCobroDetalleComponent,PopupOperacionCobroDetallePacienteComponent,PopupOperacionCobroRegistroBuscarTodosComponent
     
   ],
-  providers: [CurrencyPipe,DecimalPipe,NumberToWordsPipe,PacienteService,PushNotificationService,{ provide: LOCALE_ID, useValue: 'es-Ar' },
+  providers: [CurrencyPipe,DecimalPipe,NumberToWordsPipe,PacienteService,PushNotificationService,ExcelService,{ provide: LOCALE_ID, useValue: 'es-Ar' },
   MultiSelectModule,
  // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
  {
