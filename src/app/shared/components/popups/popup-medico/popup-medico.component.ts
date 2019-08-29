@@ -5,7 +5,7 @@ import { Component, OnInit} from '@angular/core';
 import { calendarioIdioma } from '../../../../config/config';
 import swal from 'sweetalert2';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/api';
-import { MedicoObraSocial } from 'src/app/models/medico-obrasocial.model';
+import { MedicoObraSocial } from './../../../../models/medico-obrasocial.model';
 
 @Component({
   selector: 'app-popup-medico',

@@ -7,48 +7,23 @@
 
 
     
-  <div class="row" role="toolbar" aria-label="Toolbar with button groups">
-      <div  class="input-group input-group-sm "> 
-          <p-dropdown [options]="impresiones" [(ngModel)]="selectedImpresion" optionLabel="name" ></p-dropdown>
-          <button    class="ml-2 btn  btn-secondary btn-sm float-right mr-2 pr-2" (click)="imprimir()" >Imprimir</button> 
-              <form  [formGroup]="DateForm">
-
-              </form>            
-      </div>
-  </div>
-<hr>
   <div class="row mt-2" role="toolbar" aria-label="Toolbar with button groups">
     <div  class="input-group input-group-sm ">
             <form  [formGroup]="DateForm">
             <div class="btn-group mr-1" role="group">
-                    <span class="pr-1 pt-1"><h6>Desde:</h6></span>
-                    <p-calendar [inputStyle]="{'height':'29.1px'}" [styleClass]="form-control" [showTime]="true"   class="mr-2 " formControlName="fecha_desde"  (onSelect)="actualizarFechaDesde($event)" tabindex="0" [disabledDates]="invalidDates" [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
-                      <ng-template pTemplate="date" let-date>
-                              <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
-                          </ng-template> 
-                      </p-calendar>
-                      <span class="pr-1 pt-1"><h6>Hasta:</h6></span>
-                      <p-calendar [inputStyle]="{'height':'29.1px'}"  [showTime]="true"  class="mr-2 " formControlName="fecha_hasta"  (onSelect)="actualizarFechaHasta($event)" tabindex="0" [disabledDates]="invalidDates" [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+                      <span class="pr-1 pt-1"><h6>Fecha liquidación:</h6></span>
+                      <p-calendar [inputStyle]="{'height':'29.1px'}"  [showTime]="true"  class="mr-2 " formControlName="fecha_liquidacion"  (onSelect)="actualizarFechaHasta($event)" tabindex="0" [disabledDates]="invalidDates" [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
                           <ng-template pTemplate="date" let-date>
                               <span  inputStyle="{'height':'29.5px'}"  style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
                           </ng-template> 
                       </p-calendar>       
                         <div class="ml-2 mr-2 row">                         
                           <div class=" input-group input-group-sm mb-3">
-                              <input  (keyup.enter)="buscarObraSocial()" class="form-control col-md-12 form-control-sm" formControlName="obra_social_nombre" placeholder="Obra social" />   
-                            
-                              <div class="input-group-append">
-                                <span class="input-group input-group-text form-control-sm">
-                                  <a  (click)="buscarObraSocial()">
-                                      <img class="pointer float-left" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
-                                  </a>
-                              </span>
-                              </div>
+                              <input   class="form-control col-md-12 form-control-sm" formControlName="liquidacion_nro" placeholder="Liquidación nº" />                                                            
                           </div>    
                     </div>                                          
                       <div class=" ml-2 row">                         
-                         <div class="ml-2"><button    class="btn  btn-danger btn-sm float-right  pr-2" (click)="actualizarRegistros()" >Actualizar valores de convenio</button>   </div>                           
-                         <div class="ml-2"><button    class="btn  btn-outline-danger btn-sm float-right  pr-2" (click)="actualizarRegistros()" >Actualizar valores de distribución (D.O.S)</button>   </div>                           
+                         <div class="ml-2"><button    class="btn  btn-success btn-sm float-right  pr-2" (click)="actualizarRegistros()" >Liquidaciar seleccionados</button>   </div>                                                    
                         </div>     
                            <div class="form-group ">
                
@@ -98,7 +73,7 @@
           <tr style="height:20px"  >
                  
                   <td style="width: 6%" >                   
-                      <a  class="my-hover" (click)="accion($event,op,elementos)"    ><i class="far fa-edit fa-2x icon-color-purple"></i></a>
+                      <a  class="my-hover" (click)="verDetalle(elementos)"    ><i class="far fa-edit fa-2x icon-color-purple"></i></a>
                    
                   </td>
                   <td style="width: 7%">{{elementos.id}}</td>
@@ -128,9 +103,6 @@
 </div>
 
 
-<p-overlayPanel #op [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >                          
-    <span>   <a class="nav-link azul text-info  my-hover" (click)="editarRegistro(selecteditems)">Modificar registro</a></span>
-    <span>   <a class="nav-link azul text-info  my-hover" (click)="desafectarPresentacion(selecteditems)">Desafectar registro</a></span>
-    <span> <hr></span>
+<p-overlayPanel #op [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >                            
     <span>   <a class="nav-link azul text-info my-hover" (click)="verDetalle(selecteditems)">Ver detalle</a></span>
   </p-overlayPanel>  

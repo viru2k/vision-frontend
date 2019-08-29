@@ -192,6 +192,8 @@ import { AgendaBloqueoEdicionComponent } from './pages/mantenimiento/agenda/agen
 import { PopupOperacionCobroDetalleComponent } from './shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component';
 import { PopupOperacionCobroDetallePacienteComponent } from './shared/components/popups/popup-operacion-cobro-detalle-paciente/popup-operacion-cobro-detalle-paciente.component';
 import { PopupOperacionCobroRegistroBuscarTodosComponent } from './shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component';
+import { PopupDetalleOperacionCobroDistribucionComponent } from './shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component';
+import { PopupOperacionCobroDistribucionComponent } from './shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component';
 
 
 
@@ -323,6 +325,8 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupOperacionCobroDetalleComponent,
     PopupOperacionCobroDetallePacienteComponent,
     PopupOperacionCobroRegistroBuscarTodosComponent,
+    PopupDetalleOperacionCobroDistribucionComponent,
+    PopupOperacionCobroDistribucionComponent,
     
   ],
   imports: [
@@ -366,18 +370,22 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupObrasocialComponent,PopupPmoComponent,PopupEntidadFacturaComponent,PopupMedicoComponent,
     PopupPacienteComponent,PopupMedicoGrupoMedicoComponent,PopupMedicoGrupoComponent, EditConvenioComponent,EditObraSocialComponent,
     PopupAgendaComponent,PopupConvenioComponent, PopupCombinadaComponent,PopupPacienteNuevoComponent,
-    PopupCombinadaItemComponent , PopupCombinadaLecturaComponent, PopUpFormaPagoComponent, PopupUsuarioComponent, PopupTurnoUsuarioObraSocialComponent,
-    PopupPacienteObrasocialComponent,PopupPracticaPorcentajeComponent,PopupObraSocialMedicoComponent,PopupObraSocialComponent,PopupMedicoEditComponent,
-    PopupTurnoEditarComponent,PopupOperacionCobroRegistroEditarComponent,
-    PopupFichaQuirurgicaLenteComponent,PopupFichaQuirurgicaMedicoGrupoComponent,PopupDetalleLenteComponent,PopupLenteTipoComponent,
-    PopupFichaQuirurgicaEstadoComponent,PopupFichaQuirurgicaAnesteciaComponent,PopupPacienteEstudioComponent,PopupHistoriaClinicaListaConsultaComponent,
-   PopupHistoriaClinicaRegistroNuevoComponent,PopupLentesComponent,
-    PopupHistoriaClinicaRegistroComponent,PopupHistoriaClinicaRegistroComponent,PopupHistoriaClinicaListaConsultaComponent,PopupDerivarAsesoramientoComponent,
-    PopupAgendaObservacionComponent,PopupOperacionCobroEditarComponent,PopupPacienteConsultaComponent,PopupOperacionCobroRegistroBuscarComponent, PopupEstudiosImagenComponent ,
-    PopupOperacionCobroPresentacionComponent, PopupOperacionCobroPresentacionEditarRegistroComponent, PopupPresentacionEditarComponent,PopupDerivarAsesoramientoListadoComponent,
-    PopupListadoCirugiaQuirofanoEditarComponent,PopupCobroDistribucionEditarComponent,PopupFichaQuirurgicaOperacionCobroComponent,PopupListadoCirugiaQuirofanoObservacionEditarComponent,
-    PopupOperacionCobroDetalleComponent,PopupOperacionCobroDetallePacienteComponent,PopupOperacionCobroRegistroBuscarTodosComponent
-    
+    PopupCombinadaItemComponent , PopupCombinadaLecturaComponent, PopUpFormaPagoComponent , PopupUsuarioComponent ,
+    PopupTurnoUsuarioObraSocialComponent ,PopupPacienteObrasocialComponent , PopupPracticaPorcentajeComponent,
+    PopupObraSocialMedicoComponent,  PopupObraSocialComponent, PopupMedicoEditComponent,
+    PopupTurnoEditarComponent,PopupOperacionCobroRegistroEditarComponent,PopupFichaQuirurgicaLenteComponent,
+    PopupFichaQuirurgicaMedicoGrupoComponent,PopupDetalleLenteComponent,PopupLenteTipoComponent,
+    PopupFichaQuirurgicaEstadoComponent,PopupFichaQuirurgicaAnesteciaComponent,PopupPacienteEstudioComponent,
+    PopupHistoriaClinicaListaConsultaComponent,PopupHistoriaClinicaRegistroNuevoComponent,PopupLentesComponent,
+    PopupHistoriaClinicaRegistroComponent,PopupHistoriaClinicaRegistroComponent,PopupHistoriaClinicaListaConsultaComponent,
+    PopupDerivarAsesoramientoComponent,PopupAgendaObservacionComponent, PopupOperacionCobroEditarComponent,PopupPacienteConsultaComponent,
+    PopupOperacionCobroRegistroBuscarComponent, PopupEstudiosImagenComponent ,PopupOperacionCobroPresentacionComponent,
+    PopupOperacionCobroPresentacionEditarRegistroComponent, PopupPresentacionEditarComponent, PopupDerivarAsesoramientoListadoComponent,
+    PopupListadoCirugiaQuirofanoEditarComponent, PopupCobroDistribucionEditarComponent,PopupFichaQuirurgicaOperacionCobroComponent,
+    PopupListadoCirugiaQuirofanoObservacionEditarComponent,PopupOperacionCobroDetalleComponent, PopupOperacionCobroDetallePacienteComponent,
+    PopupOperacionCobroRegistroBuscarTodosComponent, PopupDetalleOperacionCobroDistribucionComponent, 
+    PopupOperacionCobroDistribucionComponent,
+
   ],
   providers: [CurrencyPipe,DecimalPipe,NumberToWordsPipe,PacienteService,PushNotificationService,ExcelService,{ provide: LOCALE_ID, useValue: 'es-Ar' },
   MultiSelectModule,

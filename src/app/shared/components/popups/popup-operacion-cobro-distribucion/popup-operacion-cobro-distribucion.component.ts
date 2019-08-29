@@ -34,16 +34,17 @@ import { MedicoObraSocial } from 'src/app/models/medico-obrasocial.model';
 import { Liquidacion } from '../../../../models/liquidacion.model';
 import { PopupOperacionCobroPresentacionEditarRegistroComponent } from '../popup-operacion-cobro-presentacion-editar-registro/popup-operacion-cobro-presentacion-editar-registro.component';
 import { PopupMedicoComponent } from './../popup-medico/popup-medico.component';
-import { PopupOperacionCobroDistribucionComponent } from './../popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component';
+import { PopupDetalleOperacionCobroDistribucionComponent } from '../popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component';
 
 @Component({
-  selector: 'app-popup-operacion-cobro-presentacion',
-  templateUrl: './popup-operacion-cobro-presentacion.component.html',
-  styleUrls: ['./popup-operacion-cobro-presentacion.component.css'],
+  selector: 'app-popup-operacion-cobro-distribucion',
+  templateUrl: './popup-operacion-cobro-distribucion.component.html',
+  styleUrls: ['./popup-operacion-cobro-distribucion.component.css'],
   providers: [MessageService,DialogService]
 })
-export class PopupOperacionCobroPresentacionComponent implements OnInit {
+export class PopupOperacionCobroDistribucionComponent implements OnInit {
 
+ 
     
   cantidad_practica:number=0;
   total_facturado:number=0;
@@ -208,23 +209,22 @@ export class PopupOperacionCobroPresentacionComponent implements OnInit {
       this.elementosFiltrados  = event.filteredValue;  
       this.sumarValores(this.elementosFiltrados);
   }
-
-
-
+    
+      
   editarRegistro(){
     let data:any; 
     data = this.selecteditemRegistro;
-    const ref = this.dialogService.open(PopupOperacionCobroDistribucionComponent, {
+    const ref = this.dialogService.open(PopupOperacionCobroRegistroEditarComponent, {
     data,
-     header: 'Editar distribución', 
+     header: 'Editar registro', 
      width: '98%',
      height: '90%'
     });
 
-    ref.onClose.subscribe((PopupOperacionCobroDistribucionComponent:OperacionCobroDetalle) => {
-        if (PopupOperacionCobroDistribucionComponent) {
-          console.log(PopupOperacionCobroDistribucionComponent);    
-          this.popItemOperacionCobro = PopupOperacionCobroDistribucionComponent;
+    ref.onClose.subscribe((PopupOperacionCobroRegistroEditarComponent:OperacionCobroDetalle) => {
+        if (PopupOperacionCobroRegistroEditarComponent) {
+          console.log(PopupOperacionCobroRegistroEditarComponent);    
+          this.popItemOperacionCobro = PopupOperacionCobroRegistroEditarComponent;
         //  this.formObraSocial.patchValue({id: this.popItemObraSocial.id});
          // this.formObraSocial.patchValue({nombre: this.popItemObraSocial.nombre});
          
@@ -234,29 +234,27 @@ export class PopupOperacionCobroPresentacionComponent implements OnInit {
 
 
   
-  verRegistro(){
+  editarOperacionCobro(){
     let data:any; 
     data = this.selecteditemRegistro;
-    const ref = this.dialogService.open(PopupOperacionCobroDistribucionComponent, {
+    const ref = this.dialogService.open(PopupOperacionCobroEditarComponent, {
     data,
-     header: 'Ver distribución', 
+     header: 'Editar registro', 
      width: '98%',
      height: '90%'
     });
-
-    ref.onClose.subscribe((PopupOperacionCobroDistribucionComponent:OperacionCobroDetalle) => {
-        if (PopupOperacionCobroDistribucionComponent) {
-          console.log(PopupOperacionCobroDistribucionComponent);    
-          this.popItemOperacionCobro = PopupOperacionCobroDistribucionComponent;
+    ref.onClose.subscribe((PopupOperacionCobroEditarComponent:OperacionCobroDetalle) => {
+      this.loadRegistro();
+        if (PopupOperacionCobroEditarComponent) {
+          console.log(PopupOperacionCobroEditarComponent);    
+        //  this.popItemOperacionCobro = PopupOperacionCobroEditarComponent;
+         
         //  this.formObraSocial.patchValue({id: this.popItemObraSocial.id});
          // this.formObraSocial.patchValue({nombre: this.popItemObraSocial.nombre});
          
         }
     });
   }
-
-
-  
 
 
   editarPresentacion(){
@@ -434,6 +432,30 @@ deleteRegistro(id:string){
   }  
 }
 
+
+cargarDistribucion(){
+  console.log(this.selecteditems);
+  console.log(this.selecteditemRegistro);
+  let data:any; 
+  data = this.selecteditems;
+  const ref = this.dialogService.open(PopupDetalleOperacionCobroDistribucionComponent, {
+  data,
+   header: 'Agregar distribución a práctica', 
+   width: '70%',
+   height: '60%'
+  });
+  ref.onClose.subscribe((PopupDetalleOperacionCobroDistribucionComponent:any) => {   
+      if (PopupDetalleOperacionCobroDistribucionComponent) {
+        console.log(PopupDetalleOperacionCobroDistribucionComponent);    
+      //  this.popItemOperacionCobro = PopupOperacionCobroEditarComponent;
+       
+      //  this.formObraSocial.patchValue({id: this.popItemObraSocial.id});
+       // this.formObraSocial.patchValue({nombre: this.popItemObraSocial.nombre});
+       
+      }
+  });
+
+}
 
 generarPdfListado(filtro:string) {
   console.log(this.selecteditems);

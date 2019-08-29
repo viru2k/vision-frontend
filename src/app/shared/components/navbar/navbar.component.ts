@@ -414,16 +414,15 @@ menuList(){
           label: 'Liquidación',
           visible:! this.facturacion_control,
           items: [
-            {label: 'Presentación', 'routerLink': 'facturacion/liquidacion/confeccion/factura'},
-            {label: 'Liquidación D.O.S', 'routerLink': 'facturacion/liquidacion/provincia'},
+            {label: 'Presentación', 'routerLink': 'facturacion/liquidacion/presentacion'},
             
             {
               label: 'Liquidación',
               visible:! this.facturacion_control,
               items: [
-              {label: 'Detalle de liquidación', 'routerLink': 'facturacion/liquidacion/detalle'},
+              {label: 'Confeccionar liquidación', 'routerLink': 'facturacion/liquidacion/confeccion'},
               {label: 'Liquidar', 'routerLink': 'facturacion/liquidacion/liquidar'},
-              {label: 'Generar liquidación', 'routerLink': 'facturacion/liquidacion/generada'},
+              {label: 'Contabilidad', 'routerLink': 'facturacion/liquidacion/generada'},
             ]}
           ]
       },

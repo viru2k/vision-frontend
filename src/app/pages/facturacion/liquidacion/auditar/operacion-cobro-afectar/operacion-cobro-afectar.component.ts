@@ -41,6 +41,7 @@ export class OperacionCobroAfectarComponent implements OnInit {
   cantidad_practica:number=0;
   total_facturado:number=0;
   total_original:number=0;
+  total_categoria:number=0;
   cols: any[];
   selectedItem: OperacionCobroDetalle;
   popItem:OperacionCobroDetalle;
@@ -127,6 +128,7 @@ export class OperacionCobroAfectarComponent implements OnInit {
             {title: 'Obra social', dataKey: 'obra_social_nombre'},
             {title: 'Código', dataKey: 'codigo'},
             {title: 'Descripción', dataKey: 'descripcion'},
+            {title: 'Fecha', dataKey: 'fecha_cobro'},
             {title: 'Nivel', dataKey: 'complejidad'},
             {title: 'Cobro', dataKey: 'fecha_cobro'},
             {title: 'Cant', dataKey: 'cantidad'},
@@ -224,10 +226,12 @@ export class OperacionCobroAfectarComponent implements OnInit {
     console.log(vals !== undefined);
     this.total_facturado = 0;
     this.total_original = 0;
+    this.total_categoria = 0;
     this.cantidad_practica = 0;
     for(i=0;i<vals.length;i++){
         this.total_original = this.total_original+ Number(vals[i]['valor_original']);
-        this.total_facturado = this.total_facturado+ Number(vals[i]['valor_facturado']);
+        this.total_facturado = this.total_facturado+ Number(vals[i]['valor_facturado'])+ Number(vals[i]['categorizacion']);
+        this.total_categoria = this.total_categoria+ Number(vals[i]['categorizacion']);
     }
     this.cantidad_practica = vals.length;
     console.log(this.total_facturado);
@@ -474,7 +478,7 @@ afectarOperacionCobro(){
   /***calculo los totales y los sumo */
 for(let i=0;i<this.selecteditems.length;i++){
   
-  this.liquidacion.total = Number(this.liquidacion.total)+Number(this.selecteditems[i]['valor_facturado']);
+  this.liquidacion.total = Number(this.liquidacion.total)+Number(this.selecteditems[i]['valor_facturado'])+Number(this.selecteditems[i]['categorizacion']);
   this.liquidacion.cant_orden =Number(this.liquidacion.cant_orden)+Number(this.selecteditems[i]['cantidad']);
   this.sumarValores(this.liquidacion.total);
 }
@@ -557,6 +561,7 @@ generarPdfListado(filtro:string) {
   let _fechaEmision = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'en');
   let _fechaDesde = formatDate(this.fechaDesde, 'dd/MM/yyyy HH:mm', 'en');
   let _fechaHasta = formatDate(this.fechaHasta, 'dd/MM/yyyy HH:mm', 'en');
+  let fecha_chirugia = formatDate(this.selecteditems[0]['fecha_cobro'], 'dd/MM/yyyy HH:mm', 'en');
   let tfacturado:number = 0;
   let ttransferencia:number = 0;
   let tdebito:number = 0;
@@ -569,6 +574,7 @@ generarPdfListado(filtro:string) {
   let testudio_medico:number = 0;
   let testudio_clinica:number = 0;
   let ttotal_medico:number = 0;
+  let _selecteditems:OperacionCobroDetalle[] = this.selecteditems;
   
   let i = 0;
   for(i=0;i<this.selecteditems.length;i++){
@@ -603,6 +609,10 @@ generarPdfListado(filtro:string) {
       ttotal_medico = Number(ttotal_medico)+Number(tconsulta_medico);
     }
     tfacturado = tfacturado+ Number(this.selecteditems[i]['valor_facturado']);
+    try {
+      _selecteditems[i]['fecha_cobro']  = formatDate(this.selecteditems[i]['fecha_cobro'], 'dd/MM/yyyy HH:mm', 'en');
+    } catch (error) {    
+    }
   }
   //tfacturado = Number(this.cp.transform(tfacturado, '', 'symbol-narrow', '1.2-2'));
   let userData = JSON.parse(localStorage.getItem('userData'));
@@ -625,7 +635,7 @@ generarPdfListado(filtro:string) {
   doc.setFontSize(6);
   doc.text('Emitido : '+_fechaEmision, pageWidth/2, 20, null, null, 'center');
   doc.setFontSize(8);
-
+  doc.text('Fecha de cobro: '+fecha_chirugia, 10, 30, null, null, 'left');
   
   doc.setFontSize(6);
     doc.text(15, 38, 'Tarjeta : ' +this.cp.transform(tcredito, '', 'symbol-narrow', '1.2-2') ); 
@@ -846,6 +856,7 @@ let total_facturado_coseguro:number = 0;
   //doc.text('Facturación de presentaciones', 60, 18, null, null, 'left');
   doc.setFontSize(6);
   doc.text('Emitido : '+_fechaEmision, pageWidth-40, 18, null, null, 'left');
+  doc.text('Nº - O.C : '+operacion_cobro_id, pageWidth-40, 22, null, null, 'left');
   doc.setFontSize(7);
   doc.text('Internación Nro: '+this.selecteditems[i_coseguro]['operacion_cobro_numero_bono'], 10, 30, null, null, 'left');
   doc.text('Obra Social: '+this.selecteditems[i_coseguro]['obra_social_nombre'], 10, 35, null, null, 'left');
@@ -967,6 +978,7 @@ let total_facturado_coseguro:number = 0;
   //doc.text('Facturación de presentaciones', 60, 18, null, null, 'left');
   doc.setFontSize(6);
   doc.text('Emitido : '+_fechaEmision, pageWidth-40, 18, null, null, 'left');
+  doc.text('Nº - O.C : '+operacion_cobro_id, pageWidth-40, 22, null, null, 'left');
   doc.setFontSize(7);
   doc.text('Internación Nro: '+this.selecteditems[i_obra_social]['operacion_cobro_numero_bono'], 10, 30, null, null, 'left');
   doc.text('Obra Social: '+this.selecteditems[i_obra_social]['obra_social_nombre'], 10, 35, null, null, 'left');

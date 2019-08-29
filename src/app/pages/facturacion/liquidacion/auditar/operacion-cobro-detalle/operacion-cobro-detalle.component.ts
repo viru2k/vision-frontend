@@ -128,6 +128,7 @@ export class OperacionCobroDetalleComponent implements OnInit {
             {title: 'Obra social', dataKey: 'obra_social_nombre'},
             {title: 'Código', dataKey: 'codigo'},
             {title: 'Descripción', dataKey: 'descripcion'},
+            {title: 'Fecha', dataKey: 'fecha_cobro'},
             {title: 'Cant', dataKey: 'cantidad'},
             {title: 'Valor', dataKey: 'valor_facturado'},
             {title: 'Dist', dataKey: 'distribucion'},
@@ -661,6 +662,7 @@ let total_facturado_coseguro:number = 0;
   //doc.text('Facturación de presentaciones', 60, 18, null, null, 'left');
   doc.setFontSize(6);
   doc.text('Emitido : '+_fechaEmision, pageWidth-40, 18, null, null, 'left');
+  doc.text('Nº - O.C : '+operacion_cobro_id, pageWidth-40, 22, null, null, 'left');
   doc.setFontSize(7);
   doc.text('Internación Nro: '+this.selecteditems[i_coseguro]['operacion_cobro_numero_bono'], 10, 30, null, null, 'left');
   doc.text('Obra Social: '+this.selecteditems[i_coseguro]['obra_social_nombre'], 10, 35, null, null, 'left');
@@ -782,6 +784,7 @@ let total_facturado_coseguro:number = 0;
   //doc.text('Facturación de presentaciones', 60, 18, null, null, 'left');
   doc.setFontSize(6);
   doc.text('Emitido : '+_fechaEmision, pageWidth-40, 18, null, null, 'left');
+  doc.text('Nº - O.C : '+operacion_cobro_id, pageWidth-40, 22, null, null, 'left');
   doc.setFontSize(7);
   doc.text('Internación Nro: '+this.selecteditems[i_obra_social]['operacion_cobro_numero_bono'], 10, 30, null, null, 'left');
   doc.text('Obra Social: '+this.selecteditems[i_obra_social]['obra_social_nombre'], 10, 35, null, null, 'left');
@@ -861,6 +864,7 @@ generarPdfListado(filtro:string) {
   let _fechaEmision = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'en');
   let _fechaDesde = formatDate(this.fechaDesde, 'dd/MM/yyyy HH:mm', 'en');
   let _fechaHasta = formatDate(this.fechaHasta, 'dd/MM/yyyy HH:mm', 'en');
+  let fecha_chirugia = formatDate(this.selecteditems[0]['fecha_cobro'], 'dd/MM/yyyy HH:mm', 'en');
   let tfacturado:number = 0;
   let ttransferencia:number = 0;
   let tdebito:number = 0;
@@ -873,7 +877,8 @@ generarPdfListado(filtro:string) {
   let testudio_medico:number = 0;
   let testudio_clinica:number = 0;
   let ttotal_medico:number = 0;
-  
+  let _selecteditems:OperacionCobroDetalle[] = this.selecteditems;
+
   let i = 0;
   for(i=0;i<this.selecteditems.length;i++){
     if(this.selecteditems[i]['forma_pago'] === 'TRANSFERENCIA'){
@@ -907,6 +912,11 @@ generarPdfListado(filtro:string) {
       ttotal_medico = Number(ttotal_medico)+Number(tconsulta_medico);
     }
     tfacturado = tfacturado+ Number(this.selecteditems[i]['valor_facturado']);
+    try {
+      _selecteditems[i]['fecha_cobro']  = formatDate(this.selecteditems[i]['fecha_cobro'], 'dd/MM/yyyy HH:mm', 'en');
+    } catch (error) {    
+    }
+    
   }
   //tfacturado = Number(this.cp.transform(tfacturado, '', 'symbol-narrow', '1.2-2'));
   let userData = JSON.parse(localStorage.getItem('userData'));
@@ -916,6 +926,7 @@ generarPdfListado(filtro:string) {
   if(this.selecteditems){
   let _fechaDesde = formatDate(this.fechaDesde, 'dd/MM/yyyy HH:mm', 'en');
   let _fechaHasta = formatDate(this.fechaHasta, 'dd/MM/yyyy HH:mm', 'en');
+  
   var doc = new jsPDF('landscape');  
   /** valores de la pagina**/
   const pageSize = doc.internal.pageSize;
@@ -963,7 +974,7 @@ generarPdfListado(filtro:string) {
   doc.setFontSize(10);
   
   doc.setFontSize(8);
-  doc.autoTable(this.columns, this.selecteditems,
+  doc.autoTable(this.columns, _selecteditems,
     {
         margin: {horizontal: 5, vertical: 42},
         bodyStyles: {valign: 'top'},

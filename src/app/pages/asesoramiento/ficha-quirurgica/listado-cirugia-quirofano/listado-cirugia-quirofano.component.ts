@@ -399,10 +399,10 @@ generarPdfListadoMedico() {
         margin: {horizontal: 5, vertical: 38},
         bodyStyles: {valign: 'top'},
         showHead: 'always',
-        styles: {fontSize: 8,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
+        styles: {fontSize: 9,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
        // columnStyles: {text: {cellWidth: 'auto'},minCellWidth:40}
-        columnStyles: {cirugia_ficha_id: {columnWidth: 10}, hora: {columnWidth: 10}, paciente_apellido: {columnWidth: 20},
-        paciente_nombre: {columnWidth: 20},  obra_social_nombre: {columnWidth: 25}, ojo: {columnWidth: 8},  dioptria: {columnWidth: 8},
+        columnStyles: {cirugia_ficha_id: {columnWidth: 10}, hora: {columnWidth: 12}, paciente_apellido: {columnWidth: 20},
+        paciente_nombre: {columnWidth: 20},  obra_social_nombre: {columnWidth: 25}, ojo: {columnWidth: 10},  dioptria: {columnWidth: 10},
          paciente_dni: {columnWidth: 15}, lote: {columnWidth: 16}}
 
        /*  {title: 'Cir.', dataKey: 'cirugia_ficha_id'},

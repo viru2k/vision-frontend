@@ -89,9 +89,9 @@ export const ROUTES: Routes = [
     { path: 'liquidacion/operacioncobro/detalle', component: OperacionCobroDetalleComponent, canActivate: [AuthGuard], data: {role: 'facturacion_consulta'}  },
     { path: 'liquidacion/operacioncobro/auditar', component: OperacionCobroAuditarComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     { path: 'liquidacion/operacioncobro/afectar', component: OperacionCobroAfectarComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
-    { path: 'facturacion/liquidacion/detalle', component: LiquidacionDetalleComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
+    { path: 'facturacion/liquidacion/confeccion', component: ConfeccionFacturaComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     { path: 'facturacion/liquidacion/provincia', component: LiquidacionProvinciaComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
-    { path: 'facturacion/liquidacion/confeccion/factura', component: ConfeccionFacturaComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
+    { path: 'facturacion/liquidacion/presentacion', component:LiquidacionDetalleComponent , canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     /** recepcion **/
     { path: 'recepcion/agenda', component: AgendaComponent , canActivate: [AuthGuard], data: {role: 'recepcion_consulta'} },
     { path: 'recepcion/turnos', component: TurnoComponent , canActivate: [AuthGuard], data: {role: 'recepcion_consulta'} },

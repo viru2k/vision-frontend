@@ -1,6 +1,6 @@
 
-
-
+ 
+  
 //export const URL_SERVICIOS = 'http://localhost/api-vision/public/api/';
 //export const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 //export const URL_ARCHIVO = 'http://localhost/api-vision/public/';

@@ -28,6 +28,8 @@ import { NumberToWordsPipe } from '../../../../../shared/pipes/number-to-words.p
 import { PopupOperacionCobroPresentacionComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component';
 import { PopupPresentacionEditarComponent } from '../../../../../shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component';
 //import { ExcelService } from '../../../../../services/excel.service';
+import { PopupDetalleOperacionCobroDistribucionComponent } from '../../../../../shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component';
+import { PopupOperacionCobroDistribucionComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component';
 
 
 @Component({
@@ -69,16 +71,7 @@ export class ConfeccionFacturaComponent implements OnInit {
 
   constructor(private miServicio:LiquidacionService,private practicaService:PracticaService, private messageService: MessageService ,public dialogService: DialogService,public numberToWordsPipe:NumberToWordsPipe,private cp: CurrencyPipe, private dp: DecimalPipe) {
 
-    this.impresiones = [
-      {name: 'Presentación todos', code: '1'},
-      {name: 'Presentación a médico', code: '2'},
-      {name: 'Presentación medico ACLISA', code: '3'},        
-      {name: 'Presentación DOS Cirugia', code: '4'},        
-      {name: 'Presentación con IVA', code: '5'},
-      {name: 'exportarExcel', code: '6'},
-      {name: 'txt práctica y estudios DOS', code: '7'},
-      {name: 'txt cirugia DOS', code: '8'},
-  ];
+   
 
     this.cols = [
       { field: 'accion', header: 'Accion' , width: '6%'} ,
@@ -157,10 +150,8 @@ this.columnsListadoCirugiaTodos = [
   
 
 this.DateForm = new FormGroup({
-    'fecha_desde': new FormControl('', Validators.required), 
-    'fecha_hasta': new FormControl('', Validators.required), 
-    'presentacion_nro': new FormControl(''), 
-    'obra_social_nombre': new FormControl('') ,
+    'fecha_liquidacion': new FormControl(''), 
+    'liquidacion_nro': new FormControl('') ,
     'obra_social_id': new FormControl('') 
     });
 
@@ -168,7 +159,7 @@ this.DateForm = new FormGroup({
    }
 
   ngOnInit() {
-    this.selectedImpresion =  this.impresiones[0];
+    
     this.es = calendarioIdioma;
     this.fechaDesde = new Date();        
     this.fechaHasta = new Date();
@@ -277,25 +268,24 @@ this.DateForm = new FormGroup({
 
     }
 
-    verDetalle(){
-
+    verDetalle(elementos:Liquidacion){
+      if(elementos){
+        this.selecteditemRegistro = elementos;
+      }
       let data:any; 
       data =  this.selecteditemRegistro;
-      const ref = this.dialogService.open(PopupOperacionCobroPresentacionComponent, {
+      const ref = this.dialogService.open(PopupOperacionCobroDistribucionComponent, {
       data,
-       header: 'Ver detalle de presentación', 
+       header: 'Ver detalle para distribuir', 
        width: '98%',
        height: '100%'
       });
   
-      ref.onClose.subscribe((PopupOperacionCobroPresentacionComponent:ObraSocial) => {
-          if (PopupOperacionCobroPresentacionComponent) {
-            console.log(PopupOperacionCobroPresentacionComponent);                        
-        //            
-           
+      ref.onClose.subscribe((PopupOperacionCobroDistribucionComponent : any) => {
+          if (PopupOperacionCobroDistribucionComponent) {
+            console.log(PopupOperacionCobroDistribucionComponent);
           }
       });
-  
     }
 
 
@@ -304,7 +294,7 @@ this.DateForm = new FormGroup({
     this.loading = true;
   
     try {
-        this.miServicio.getLiquidacionDetalle()    
+        this.miServicio.getLiquidacionDetalle()
         .subscribe(resp => {
           if (resp[0]) {
             this.elementos = resp;

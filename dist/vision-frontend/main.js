@@ -301,6 +301,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_150__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component */ "./src/app/shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component.ts");
 /* harmony import */ var _shared_components_popups_popup_operacion_cobro_detalle_paciente_popup_operacion_cobro_detalle_paciente_component__WEBPACK_IMPORTED_MODULE_151__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-detalle-paciente/popup-operacion-cobro-detalle-paciente.component */ "./src/app/shared/components/popups/popup-operacion-cobro-detalle-paciente/popup-operacion-cobro-detalle-paciente.component.ts");
 /* harmony import */ var _shared_components_popups_popup_operacion_cobro_registro_buscar_todos_popup_operacion_cobro_registro_buscar_todos_component__WEBPACK_IMPORTED_MODULE_152__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component */ "./src/app/shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component.ts");
+/* harmony import */ var _shared_components_popups_popup_detalle_operacion_cobro_distribucion_popup_detalle_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_153__ = __webpack_require__(/*! ./shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component */ "./src/app/shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_distribucion_popup_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_154__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component */ "./src/app/shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -371,6 +373,8 @@ Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["registerLocaleData"])(_angu
 
 
 /** PRACTICA - CIRUGIA **/
+
+
 
 
 
@@ -588,6 +592,8 @@ var AppModule = /** @class */ (function () {
                 _shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_150__["PopupOperacionCobroDetalleComponent"],
                 _shared_components_popups_popup_operacion_cobro_detalle_paciente_popup_operacion_cobro_detalle_paciente_component__WEBPACK_IMPORTED_MODULE_151__["PopupOperacionCobroDetallePacienteComponent"],
                 _shared_components_popups_popup_operacion_cobro_registro_buscar_todos_popup_operacion_cobro_registro_buscar_todos_component__WEBPACK_IMPORTED_MODULE_152__["PopupOperacionCobroRegistroBuscarTodosComponent"],
+                _shared_components_popups_popup_detalle_operacion_cobro_distribucion_popup_detalle_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_153__["PopupDetalleOperacionCobroDistribucionComponent"],
+                _shared_components_popups_popup_operacion_cobro_distribucion_popup_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_154__["PopupOperacionCobroDistribucionComponent"],
             ],
             imports: [
                 ng2_pdf_viewer__WEBPACK_IMPORTED_MODULE_10__["PdfViewerModule"],
@@ -629,17 +635,21 @@ var AppModule = /** @class */ (function () {
                 _pages_mantenimiento_popup_popup_obrasocial_popup_obrasocial_component__WEBPACK_IMPORTED_MODULE_57__["PopupObrasocialComponent"], _pages_mantenimiento_popup_popup_pmo_popup_pmo_component__WEBPACK_IMPORTED_MODULE_58__["PopupPmoComponent"], _pages_mantenimiento_popup_popup_entidad_factura_popup_entidad_factura_component__WEBPACK_IMPORTED_MODULE_59__["PopupEntidadFacturaComponent"], _shared_components_popups_popup_medico_popup_medico_component__WEBPACK_IMPORTED_MODULE_44__["PopupMedicoComponent"],
                 _shared_components_popups_popup_paciente_popup_paciente_component__WEBPACK_IMPORTED_MODULE_79__["PopupPacienteComponent"], _pages_mantenimiento_popup_popup_medico_grupo_medico_popup_medico_grupo_medico_component__WEBPACK_IMPORTED_MODULE_60__["PopupMedicoGrupoMedicoComponent"], _pages_mantenimiento_popup_popup_medico_grupo_popup_medico_grupo_component__WEBPACK_IMPORTED_MODULE_61__["PopupMedicoGrupoComponent"], _pages_mantenimiento_convenio_edit_convenio_edit_convenio_component__WEBPACK_IMPORTED_MODULE_65__["EditConvenioComponent"], _pages_mantenimiento_convenio_obra_social_edit_obra_social_edit_obra_social_component__WEBPACK_IMPORTED_MODULE_72__["EditObraSocialComponent"],
                 _shared_components_popups_popup_agenda_popup_agenda_component__WEBPACK_IMPORTED_MODULE_67__["PopupAgendaComponent"], _shared_components_popups_popup_convenio_popup_convenio_component__WEBPACK_IMPORTED_MODULE_68__["PopupConvenioComponent"], _pages_facturacion_operacion_cobro_popup_combinada_popup_combinada_component__WEBPACK_IMPORTED_MODULE_70__["PopupCombinadaComponent"], _pages_paciente_popup_paciente_popup_paciente_component__WEBPACK_IMPORTED_MODULE_80__["PopupPacienteNuevoComponent"],
-                _pages_facturacion_operacion_cobro_popup_combinada_popup_combinada_item_popup_combinada_item_component__WEBPACK_IMPORTED_MODULE_71__["PopupCombinadaItemComponent"], _pages_facturacion_operacion_cobro_popup_combinada_lectura_popup_combinada_lectura_component__WEBPACK_IMPORTED_MODULE_74__["PopupCombinadaLecturaComponent"], _shared_components_popups_popup_forma_pago_popup_forma_pago_component__WEBPACK_IMPORTED_MODULE_75__["PopUpFormaPagoComponent"], _shared_components_popups_popup_usuario_popup_usuario_component__WEBPACK_IMPORTED_MODULE_77__["PopupUsuarioComponent"], _pages_recepcion_agenda_turno_popup_turno_usuario_obra_social_popup_turno_usuario_obra_social_component__WEBPACK_IMPORTED_MODULE_78__["PopupTurnoUsuarioObraSocialComponent"],
-                _shared_components_popups_popup_paciente_obrasocial_popup_paciente_obrasocial_component__WEBPACK_IMPORTED_MODULE_82__["PopupPacienteObrasocialComponent"], _shared_components_popups_popup_practica_porcentaje_popup_practica_porcentaje_component__WEBPACK_IMPORTED_MODULE_83__["PopupPracticaPorcentajeComponent"], _pages_medico_popup_obra_social_medico_popup_obra_social_medico_component__WEBPACK_IMPORTED_MODULE_84__["PopupObraSocialMedicoComponent"], _shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_85__["PopupObraSocialComponent"], _pages_medico_popup_medico_edit_popup_medico_edit_component__WEBPACK_IMPORTED_MODULE_2__["PopupMedicoEditComponent"],
-                _shared_components_popups_popup_turno_editar_popup_turno_editar_component__WEBPACK_IMPORTED_MODULE_90__["PopupTurnoEditarComponent"], _shared_components_popups_popup_operacion_cobro_registro_editar_popup_operacion_cobro_registro_editar_component__WEBPACK_IMPORTED_MODULE_93__["PopupOperacionCobroRegistroEditarComponent"],
-                _shared_components_popups_popup_ficha_quirurgica_lente_popup_ficha_quirurgica_lente_component__WEBPACK_IMPORTED_MODULE_112__["PopupFichaQuirurgicaLenteComponent"], _shared_components_popups_popup_ficha_quirurgica_medico_grupo_popup_ficha_quirurgica_medico_grupo_component__WEBPACK_IMPORTED_MODULE_113__["PopupFichaQuirurgicaMedicoGrupoComponent"], _pages_stock_lentes_popup_popup_detalle_lente_popup_detalle_lente_component__WEBPACK_IMPORTED_MODULE_98__["PopupDetalleLenteComponent"], _shared_components_popups_popup_lente_tipo_popup_lente_tipo_component__WEBPACK_IMPORTED_MODULE_117__["PopupLenteTipoComponent"],
-                _shared_components_popups_popup_ficha_quirurgica_estado_popup_ficha_quirurgica_estado_component__WEBPACK_IMPORTED_MODULE_114__["PopupFichaQuirurgicaEstadoComponent"], _shared_components_popups_popup_ficha_quirurgica_anestecia_popup_ficha_quirurgica_anestecia_component__WEBPACK_IMPORTED_MODULE_115__["PopupFichaQuirurgicaAnesteciaComponent"], _shared_components_popups_popup_paciente_estudio_popup_paciente_estudio_component__WEBPACK_IMPORTED_MODULE_116__["PopupPacienteEstudioComponent"], _shared_components_popups_popup_historia_clinica_lista_consulta_popup_historia_clinica_lista_consulta_component__WEBPACK_IMPORTED_MODULE_118__["PopupHistoriaClinicaListaConsultaComponent"],
-                _shared_components_popups_popup_historia_clinica_registro_nuevo_popup_historia_clinica_registro_nuevo_component__WEBPACK_IMPORTED_MODULE_121__["PopupHistoriaClinicaRegistroNuevoComponent"], _shared_components_popups_popup_lentes_popup_lentes_component__WEBPACK_IMPORTED_MODULE_107__["PopupLentesComponent"],
-                _shared_components_popups_popup_historia_clinica_registro_popup_historia_clinica_registro_component__WEBPACK_IMPORTED_MODULE_120__["PopupHistoriaClinicaRegistroComponent"], _shared_components_popups_popup_historia_clinica_registro_popup_historia_clinica_registro_component__WEBPACK_IMPORTED_MODULE_120__["PopupHistoriaClinicaRegistroComponent"], _shared_components_popups_popup_historia_clinica_lista_consulta_popup_historia_clinica_lista_consulta_component__WEBPACK_IMPORTED_MODULE_118__["PopupHistoriaClinicaListaConsultaComponent"], _shared_components_popups_popup_derivar_asesoramiento_popup_derivar_asesoramiento_component__WEBPACK_IMPORTED_MODULE_122__["PopupDerivarAsesoramientoComponent"],
-                _shared_components_popups_popup_agenda_observacion_popup_agenda_observacion_component__WEBPACK_IMPORTED_MODULE_124__["PopupAgendaObservacionComponent"], _shared_components_popups_popup_operacion_cobro_editar_popup_operacion_cobro_editar_component__WEBPACK_IMPORTED_MODULE_125__["PopupOperacionCobroEditarComponent"], _shared_components_popups_popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_126__["PopupPacienteConsultaComponent"], _shared_components_popups_popup_operacion_cobro_registro_buscar_popup_operacion_cobro_registro_buscar_component__WEBPACK_IMPORTED_MODULE_128__["PopupOperacionCobroRegistroBuscarComponent"], _shared_components_popups_popup_estudios_imagen_popup_estudios_imagen_component__WEBPACK_IMPORTED_MODULE_136__["PopupEstudiosImagenComponent"],
-                _shared_components_popups_popup_operacion_cobro_presentacion_popup_operacion_cobro_presentacion_component__WEBPACK_IMPORTED_MODULE_137__["PopupOperacionCobroPresentacionComponent"], _shared_components_popups_popup_operacion_cobro_presentacion_editar_registro_popup_operacion_cobro_presentacion_editar_registro_component__WEBPACK_IMPORTED_MODULE_138__["PopupOperacionCobroPresentacionEditarRegistroComponent"], _shared_components_popups_popup_presentacion_editar_popup_presentacion_editar_component__WEBPACK_IMPORTED_MODULE_139__["PopupPresentacionEditarComponent"], _shared_components_popups_popup_derivar_asesoramiento_listado_popup_derivar_asesoramiento_listado_component__WEBPACK_IMPORTED_MODULE_142__["PopupDerivarAsesoramientoListadoComponent"],
-                _shared_components_popups_popup_listado_cirugia_quirofano_editar_popup_listado_cirugia_quirofano_editar_component__WEBPACK_IMPORTED_MODULE_143__["PopupListadoCirugiaQuirofanoEditarComponent"], _shared_components_popups_popup_cobro_distribucion_editar_popup_cobro_distribucion_editar_component__WEBPACK_IMPORTED_MODULE_144__["PopupCobroDistribucionEditarComponent"], _shared_components_popups_popup_ficha_quirurgica_operacion_cobro_popup_ficha_quirurgica_operacion_cobro_component__WEBPACK_IMPORTED_MODULE_146__["PopupFichaQuirurgicaOperacionCobroComponent"], _shared_components_popups_popup_listado_cirugia_quirofano_observacion_editar_popup_listado_cirugia_quirofano_observacion_editar_component__WEBPACK_IMPORTED_MODULE_148__["PopupListadoCirugiaQuirofanoObservacionEditarComponent"],
-                _shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_150__["PopupOperacionCobroDetalleComponent"], _shared_components_popups_popup_operacion_cobro_detalle_paciente_popup_operacion_cobro_detalle_paciente_component__WEBPACK_IMPORTED_MODULE_151__["PopupOperacionCobroDetallePacienteComponent"], _shared_components_popups_popup_operacion_cobro_registro_buscar_todos_popup_operacion_cobro_registro_buscar_todos_component__WEBPACK_IMPORTED_MODULE_152__["PopupOperacionCobroRegistroBuscarTodosComponent"]
+                _pages_facturacion_operacion_cobro_popup_combinada_popup_combinada_item_popup_combinada_item_component__WEBPACK_IMPORTED_MODULE_71__["PopupCombinadaItemComponent"], _pages_facturacion_operacion_cobro_popup_combinada_lectura_popup_combinada_lectura_component__WEBPACK_IMPORTED_MODULE_74__["PopupCombinadaLecturaComponent"], _shared_components_popups_popup_forma_pago_popup_forma_pago_component__WEBPACK_IMPORTED_MODULE_75__["PopUpFormaPagoComponent"], _shared_components_popups_popup_usuario_popup_usuario_component__WEBPACK_IMPORTED_MODULE_77__["PopupUsuarioComponent"],
+                _pages_recepcion_agenda_turno_popup_turno_usuario_obra_social_popup_turno_usuario_obra_social_component__WEBPACK_IMPORTED_MODULE_78__["PopupTurnoUsuarioObraSocialComponent"], _shared_components_popups_popup_paciente_obrasocial_popup_paciente_obrasocial_component__WEBPACK_IMPORTED_MODULE_82__["PopupPacienteObrasocialComponent"], _shared_components_popups_popup_practica_porcentaje_popup_practica_porcentaje_component__WEBPACK_IMPORTED_MODULE_83__["PopupPracticaPorcentajeComponent"],
+                _pages_medico_popup_obra_social_medico_popup_obra_social_medico_component__WEBPACK_IMPORTED_MODULE_84__["PopupObraSocialMedicoComponent"], _shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_85__["PopupObraSocialComponent"], _pages_medico_popup_medico_edit_popup_medico_edit_component__WEBPACK_IMPORTED_MODULE_2__["PopupMedicoEditComponent"],
+                _shared_components_popups_popup_turno_editar_popup_turno_editar_component__WEBPACK_IMPORTED_MODULE_90__["PopupTurnoEditarComponent"], _shared_components_popups_popup_operacion_cobro_registro_editar_popup_operacion_cobro_registro_editar_component__WEBPACK_IMPORTED_MODULE_93__["PopupOperacionCobroRegistroEditarComponent"], _shared_components_popups_popup_ficha_quirurgica_lente_popup_ficha_quirurgica_lente_component__WEBPACK_IMPORTED_MODULE_112__["PopupFichaQuirurgicaLenteComponent"],
+                _shared_components_popups_popup_ficha_quirurgica_medico_grupo_popup_ficha_quirurgica_medico_grupo_component__WEBPACK_IMPORTED_MODULE_113__["PopupFichaQuirurgicaMedicoGrupoComponent"], _pages_stock_lentes_popup_popup_detalle_lente_popup_detalle_lente_component__WEBPACK_IMPORTED_MODULE_98__["PopupDetalleLenteComponent"], _shared_components_popups_popup_lente_tipo_popup_lente_tipo_component__WEBPACK_IMPORTED_MODULE_117__["PopupLenteTipoComponent"],
+                _shared_components_popups_popup_ficha_quirurgica_estado_popup_ficha_quirurgica_estado_component__WEBPACK_IMPORTED_MODULE_114__["PopupFichaQuirurgicaEstadoComponent"], _shared_components_popups_popup_ficha_quirurgica_anestecia_popup_ficha_quirurgica_anestecia_component__WEBPACK_IMPORTED_MODULE_115__["PopupFichaQuirurgicaAnesteciaComponent"], _shared_components_popups_popup_paciente_estudio_popup_paciente_estudio_component__WEBPACK_IMPORTED_MODULE_116__["PopupPacienteEstudioComponent"],
+                _shared_components_popups_popup_historia_clinica_lista_consulta_popup_historia_clinica_lista_consulta_component__WEBPACK_IMPORTED_MODULE_118__["PopupHistoriaClinicaListaConsultaComponent"], _shared_components_popups_popup_historia_clinica_registro_nuevo_popup_historia_clinica_registro_nuevo_component__WEBPACK_IMPORTED_MODULE_121__["PopupHistoriaClinicaRegistroNuevoComponent"], _shared_components_popups_popup_lentes_popup_lentes_component__WEBPACK_IMPORTED_MODULE_107__["PopupLentesComponent"],
+                _shared_components_popups_popup_historia_clinica_registro_popup_historia_clinica_registro_component__WEBPACK_IMPORTED_MODULE_120__["PopupHistoriaClinicaRegistroComponent"], _shared_components_popups_popup_historia_clinica_registro_popup_historia_clinica_registro_component__WEBPACK_IMPORTED_MODULE_120__["PopupHistoriaClinicaRegistroComponent"], _shared_components_popups_popup_historia_clinica_lista_consulta_popup_historia_clinica_lista_consulta_component__WEBPACK_IMPORTED_MODULE_118__["PopupHistoriaClinicaListaConsultaComponent"],
+                _shared_components_popups_popup_derivar_asesoramiento_popup_derivar_asesoramiento_component__WEBPACK_IMPORTED_MODULE_122__["PopupDerivarAsesoramientoComponent"], _shared_components_popups_popup_agenda_observacion_popup_agenda_observacion_component__WEBPACK_IMPORTED_MODULE_124__["PopupAgendaObservacionComponent"], _shared_components_popups_popup_operacion_cobro_editar_popup_operacion_cobro_editar_component__WEBPACK_IMPORTED_MODULE_125__["PopupOperacionCobroEditarComponent"], _shared_components_popups_popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_126__["PopupPacienteConsultaComponent"],
+                _shared_components_popups_popup_operacion_cobro_registro_buscar_popup_operacion_cobro_registro_buscar_component__WEBPACK_IMPORTED_MODULE_128__["PopupOperacionCobroRegistroBuscarComponent"], _shared_components_popups_popup_estudios_imagen_popup_estudios_imagen_component__WEBPACK_IMPORTED_MODULE_136__["PopupEstudiosImagenComponent"], _shared_components_popups_popup_operacion_cobro_presentacion_popup_operacion_cobro_presentacion_component__WEBPACK_IMPORTED_MODULE_137__["PopupOperacionCobroPresentacionComponent"],
+                _shared_components_popups_popup_operacion_cobro_presentacion_editar_registro_popup_operacion_cobro_presentacion_editar_registro_component__WEBPACK_IMPORTED_MODULE_138__["PopupOperacionCobroPresentacionEditarRegistroComponent"], _shared_components_popups_popup_presentacion_editar_popup_presentacion_editar_component__WEBPACK_IMPORTED_MODULE_139__["PopupPresentacionEditarComponent"], _shared_components_popups_popup_derivar_asesoramiento_listado_popup_derivar_asesoramiento_listado_component__WEBPACK_IMPORTED_MODULE_142__["PopupDerivarAsesoramientoListadoComponent"],
+                _shared_components_popups_popup_listado_cirugia_quirofano_editar_popup_listado_cirugia_quirofano_editar_component__WEBPACK_IMPORTED_MODULE_143__["PopupListadoCirugiaQuirofanoEditarComponent"], _shared_components_popups_popup_cobro_distribucion_editar_popup_cobro_distribucion_editar_component__WEBPACK_IMPORTED_MODULE_144__["PopupCobroDistribucionEditarComponent"], _shared_components_popups_popup_ficha_quirurgica_operacion_cobro_popup_ficha_quirurgica_operacion_cobro_component__WEBPACK_IMPORTED_MODULE_146__["PopupFichaQuirurgicaOperacionCobroComponent"],
+                _shared_components_popups_popup_listado_cirugia_quirofano_observacion_editar_popup_listado_cirugia_quirofano_observacion_editar_component__WEBPACK_IMPORTED_MODULE_148__["PopupListadoCirugiaQuirofanoObservacionEditarComponent"], _shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_150__["PopupOperacionCobroDetalleComponent"], _shared_components_popups_popup_operacion_cobro_detalle_paciente_popup_operacion_cobro_detalle_paciente_component__WEBPACK_IMPORTED_MODULE_151__["PopupOperacionCobroDetallePacienteComponent"],
+                _shared_components_popups_popup_operacion_cobro_registro_buscar_todos_popup_operacion_cobro_registro_buscar_todos_component__WEBPACK_IMPORTED_MODULE_152__["PopupOperacionCobroRegistroBuscarTodosComponent"], _shared_components_popups_popup_detalle_operacion_cobro_distribucion_popup_detalle_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_153__["PopupDetalleOperacionCobroDistribucionComponent"],
+                _shared_components_popups_popup_operacion_cobro_distribucion_popup_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_154__["PopupOperacionCobroDistribucionComponent"],
             ],
             providers: [_angular_common__WEBPACK_IMPORTED_MODULE_8__["CurrencyPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["DecimalPipe"], _shared_pipes_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_131__["NumberToWordsPipe"], _services_paciente_service__WEBPACK_IMPORTED_MODULE_48__["PacienteService"], _services_push_notification_service__WEBPACK_IMPORTED_MODULE_135__["PushNotificationService"], _services_excel_service__WEBPACK_IMPORTED_MODULE_145__["ExcelService"], { provide: _angular_core__WEBPACK_IMPORTED_MODULE_4__["LOCALE_ID"], useValue: 'es-Ar' },
                 primeng_multiselect__WEBPACK_IMPORTED_MODULE_16__["MultiSelectModule"],
@@ -792,9 +802,9 @@ var ROUTES = [
     { path: 'liquidacion/operacioncobro/detalle', component: _pages_facturacion_liquidacion_auditar_operacion_cobro_detalle_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_19__["OperacionCobroDetalleComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'facturacion_consulta' } },
     { path: 'liquidacion/operacioncobro/auditar', component: _pages_facturacion_liquidacion_auditar_operacion_cobro_auditar_operacion_cobro_auditar_component__WEBPACK_IMPORTED_MODULE_1__["OperacionCobroAuditarComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'facturacion_control' } },
     { path: 'liquidacion/operacioncobro/afectar', component: _pages_facturacion_liquidacion_auditar_operacion_cobro_afectar_operacion_cobro_afectar_component__WEBPACK_IMPORTED_MODULE_20__["OperacionCobroAfectarComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'facturacion_control' } },
-    { path: 'facturacion/liquidacion/detalle', component: _pages_facturacion_liquidacion_liquidar_liquidacion_detalle_liquidacion_detalle_component__WEBPACK_IMPORTED_MODULE_30__["LiquidacionDetalleComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'facturacion_control' } },
+    { path: 'facturacion/liquidacion/confeccion', component: _pages_facturacion_liquidacion_liquidar_confeccion_factura_confeccion_factura_component__WEBPACK_IMPORTED_MODULE_32__["ConfeccionFacturaComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'facturacion_control' } },
     { path: 'facturacion/liquidacion/provincia', component: _pages_facturacion_liquidacion_provincia_liquidacion_provincia_liquidacion_provincia_component__WEBPACK_IMPORTED_MODULE_31__["LiquidacionProvinciaComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'facturacion_control' } },
-    { path: 'facturacion/liquidacion/confeccion/factura', component: _pages_facturacion_liquidacion_liquidar_confeccion_factura_confeccion_factura_component__WEBPACK_IMPORTED_MODULE_32__["ConfeccionFacturaComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'facturacion_control' } },
+    { path: 'facturacion/liquidacion/presentacion', component: _pages_facturacion_liquidacion_liquidar_liquidacion_detalle_liquidacion_detalle_component__WEBPACK_IMPORTED_MODULE_30__["LiquidacionDetalleComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'facturacion_control' } },
     /** recepcion **/
     { path: 'recepcion/agenda', component: _pages_recepcion_agenda_agenda_component__WEBPACK_IMPORTED_MODULE_17__["AgendaComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'recepcion_consulta' } },
     { path: 'recepcion/turnos', component: _pages_recepcion_agenda_turno_turno_component__WEBPACK_IMPORTED_MODULE_4__["TurnoComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'recepcion_consulta' } },
@@ -3569,7 +3579,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n \n</div>\n<p-toast (life)=\"100\" styleClass=\"custom-toast\" [style]=\"{marginTop: '100px'}\"></p-toast>\n\n<div class=\"row\" >\n    \n  <div class=\"row \" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n      <div  class=\"input-group input-group-sm \">\n              <form  [formGroup]=\"DateForm\">\n              <div class=\"btn-group \" role=\"group\">\n                      <span class=\"pr-1 pt-1\"><h6>Desde:</h6></span>\n          <p-calendar [inputStyle]=\"{'height':'29.1px'}\" [styleClass]=\"form-control\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_desde\"  (onSelect)=\"actualizarFechaDesde($event)\" tabindex=\"0\"  [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n             <ng-template pTemplate=\"date\" let-date>\n                  <span    style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n              </ng-template> \n            </p-calendar>\n            <span class=\"pr-1 pt-1\"><h6>Hasta:</h6></span>\n            <p-calendar [inputStyle]=\"{'height':'29.1px'}\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_hasta\"  (onSelect)=\"actualizarFechaHasta($event)\" tabindex=\"0\"  [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n              <ng-template pTemplate=\"date\" let-date>\n                   <span  inputStyle=\"{'height':'29.5px'}\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n               </ng-template> \n             </p-calendar>               \n                        \n            \n                <span class=\"pr-1 pt-1\"><h6>Periodo:</h6></span>       \n              <p-calendar [inputStyle]=\"{'height':'29.1px'}\" [styleClass]=\"form-control\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"numero\"  (onSelect)=\"actualizarFechaPeriodo($event)\" tabindex=\"0\"  [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                <ng-template pTemplate=\"date\" let-date>\n                     <span    style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                 </ng-template>  \n               </p-calendar>       \n           \n\n            <div class=\"col-1 input-group input-group-sm \">           \n                <input  placeholder=\"Nivel\" class=\"form-control col-md-12 form-control-sm\" formControlName=\"nivel\"  />        \n            </div> \n\n          <div class=\" col-6  ml-2 row\" >\n                  <div class=\"form-group  col-4 mr-4 \">\n                          <div class=\"row\">\n                           \n                            <div class=\" input-group input-group-sm \">\n                                <input  (keyup.enter)=\"buscarObraSocial()\" class=\"form-control col-md-12 form-control-sm\" formControlName=\"obra_social_nombre\" placeholder=\"Obra social\"  />   \n                            \n                                <div class=\"input-group-append\">\n                                  <span class=\" input-group-text form-control-sm\">\n                                    <a  (click)=\"buscarObraSocial()\">\n                                        <img class=\"pointer float-left\" src=\"assets/icons/grey/outline_search_black_18dp.png\" width=\"24px\" height=\"24px\"  >\n                                    </a>\n                                </span>\n                                </div>\n                            </div>    \n                      </div>\n                    </div>\n                    <div class=\"form-group col-4 \">\n                      <div class=\"row\">\n                       \n                        <div class=\" input-group input-group-sm \">\n                            <input  (keyup.enter)=\"buscarMedico()\" class=\"form-control col-md-12 form-control-sm\" formControlName=\"medico_nombre\" placeholder=\"Medico\"  />   \n                        \n                            <div class=\"input-group-append\">\n                              <span class=\" input-group-text form-control-sm\">\n                                <a  (click)=\"buscarMedico()\">\n                                    <img class=\"pointer float-left\" src=\"assets/icons/grey/outline_search_black_18dp.png\" width=\"24px\" height=\"24px\"  >\n                                </a>\n                            </span>\n                            </div>\n                        </div>    \n                  </div>\n                </div>\n                <div class=\"form-group col-3 \">\n                <button    class=\"btn  btn-danger btn-sm float-right mr-2\" (click)=\"afectarRegistros()\" >Afectar registros</button>       \n              </div>                                                     \n                  </div>\n          \n      </div>\n           \n              </form>      \n \n      </div>\n\n      \n    \n  </div>\n\n  <p-table  #dt class=\"pt-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\" [value]=\"elementos\"  (onEditComplete)=\"editRow($event)\" [(selection)]=\"selecteditems\" columnResizeMode=\"expand\" [responsive]=\"true\"\n  scrollHeight=\"500px\" [scrollable]=\"true\"  (onFilter)=\"filtered($event)\"  >\n  <ng-template pTemplate=\"caption\">\n    <div class=\"row\">\n            <div class=\"col-md-12 row\" style=\"text-align:left \">\n              <div class=\"pr-2 pl-2\">    <button    class=\"btn  btn-secondary btn-sm float-right mr-2\"  (click)=\"loadRegistro()\" >Buscar Registros</button>  </div>\n             <div class=\"pr-2 pl-2\">   <button    class=\"btn  btn-outline-info btn-sm   \"  (click)=\"generarPdfListado('todos')\" >Imprimir resumen</button></div>\n             <div><button    class=\"btn  btn-outline-success btn-sm \"  (click)=\"generarPdfListado('medico')\" >Imprimir resumen por médico</button></div>  \n             <div>  <button    class=\"ml-2 btn  btn-outline-danger btn-sm float-right \"  (click)=\"buscarPractica()\" >Buscar otros registros</button></div> \n             <div>  <button    class=\"ml-2 btn  btn-outline-danger btn-sm float-right \"  (click)=\"buscarPracticaPaciente()\" >Buscar registros por paciente</button></div> \n             <div>  <button    class=\"ml-2 btn  btn  btn-outline-info btn-sm float-right \"  (click)=\"generarPreFactura()\" >Imprimir pre-factura</button></div>    \n               \n             <hr width=\"1\" size=\"50\">\n              <div class=\"row ml-2 \">\n                  <label class=\"text-info mt-1\"  >Prestación</label>\n                <div class=\"ml-2 mt-1\"><p-radioButton name=\"groupname12\" class=\"text-info text-sm\" [(ngModel)]=\"internacion_tipo\"   value=\"A\" label=\"Ambulatorio\"  inputId=\"opt12\"></p-radioButton></div>\n                <div class=\"ml-2 mr-4 mt-1\"><p-radioButton name=\"groupname22\" class=\"text-info\" [(ngModel)]=\"internacion_tipo\"   value=\"I\" label=\"Internación\"  inputId=\"opt22\"></p-radioButton></div>\n               \n              </div>                       \n              <button   class=\"btn  btn-outline-success btn-sm  ml-2\"  (click)=\"actualizarPrestacion()\" >Actualizar prestación</button>\n            </div>\n\n </div>\n</ng-template>\n\n             <ng-template pTemplate=\"header\" let-columns >\n            \n                        <tr >\n                             \n                          <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\n                              {{col.header}}\n                              <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activate to sort in descending order\" ariaLabelAsc=\"Activate to sort in ascending order\"></p-sortIcon>\n                          </th> \n                          <th style=\"width: 3em\">\n                                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>\n                          </th>\n                      </tr> \n                      <tr>\n                      <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\"  >\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'operacion_cobro_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\"  class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'apellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'dni'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'gravado_adherente'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                                            \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'descripcion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <p-multiSelect *ngSwitchCase=\"'complejidad'\" [options]=\"nivel\" defaultLabel=\"nivel\"  (onChange)=\"dt.filter($event.value, col.field,  'in')\" appendTo=\"body\" [style]=\"{'width':'100%'}\" [filter]= 'false'></p-multiSelect>\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'codigo'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'internacion_tipo'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'medico_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value , col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'usuario_cobro_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'fecha_cobro'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'cantidad'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                                             \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'valor_facturado'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'distribucion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          <p-multiSelect *ngSwitchCase=\"'forma_pago'\" [options]=\"formasPago\" defaultLabel=\"Pagos\"  (onChange)=\"dt.filter($event.value, col.field,  'in')\" appendTo=\"body\" [style]=\"{'width':'100%'}\"  [filter]= 'false'></p-multiSelect>\n                          \n                      </th>\n                      <th></th>\n                  </tr>\n              </ng-template>\n            \n      <ng-template pTemplate=\"body\" let-elementos  >\n          <tr style=\"height:20px\" [ngClass]=\"colorRow(elementos.operacion_cobro_observacion)\" >\n                 \n                  <td style=\"width: 6%\" >                   \n                      <a     (click)=\"accion($event,op,elementos)\"    ><i class=\"far fa-edit fa-2x icon-color-purple my-hover\"></i></a>\n                   \n                  </td>\n                  <td style=\"width: 5%\">{{elementos.operacion_cobro_id}}</td>\n                  <td style=\"width: 10%\">{{elementos.apellido}}</td>\n                  <td style=\"width: 10%\">{{elementos.nombre}}</td>\n                  <td style=\"font-size: 10px;width: 7%\">{{elementos.dni}}</td>\n                  <td style=\"font-size: 10px;width: 4%\">{{elementos.gravado_adherente}}</td>\n                  <td style=\"width: 15%\">{{elementos.obra_social_nombre}}</td>                                                                    \n                  <td style=\"font-size: 10px;width: 20%\">{{elementos.descripcion}}</td>                            \n                  <td style=\"font-size: 10px;width: 4%\">{{elementos.complejidad}}</td>  \n                  <td style=\"width: 8%\">{{elementos.codigo}}</td>  \n                  <td style=\"font-size: 10px;width: 4%\">{{elementos.internacion_tipo}}</td>\n                  <td style=\"width: 10%\">{{elementos.medico_nombre}}</td>  \n                  <td style=\"width: 8%\">{{elementos.usuario_cobro_nombre}}</td> \n                  <td style=\"width: 8%\">{{elementos.fecha_cobro | date: 'dd/MM/yyyy'}}</td>       \n                  <td style=\"width: 6%\" [ngClass]=\"colorRowPago(elementos.forma_pago)\">{{elementos.cantidad}}</td>                                         \n                  <td style=\"width: 6%\" [ngClass]=\"colorRowPago(elementos.forma_pago)\">{{elementos.valor_facturado}}</td>    \n                  <td style=\"width: 6%\" [ngClass]=\"colorRowPago(elementos.forma_pago)\">{{elementos.distribucion}}</td>    \n                  <td style=\"font-size: 10px;width: 10%\" [ngClass]=\"colorRowPago(elementos.forma_pago)\">{{elementos.forma_pago}}</td>    \n                              \n                  <td style=\"width: 3em\">\n                          <p-tableCheckbox [value]=\"elementos\"></p-tableCheckbox>\n                      </td>\n          </tr>\n      </ng-template>\n      <ng-template pTemplate=\"summary\">\n             <ul>\n                <div class=\"row float-right mr-2\">\n                    <h6 class=\"text-info pr-2\">CANTIDAD PRACTICAS : {{cantidad_practica}}  -</h6>\n                    <h6 class=\"text-danger\"> TOTAL REAL : {{total_original|  number : '1.2-2' }} $ -</h6>\n                    <h6 class=\"text-info\"> TOTAL : {{total_facturado|  number : '1.2-2' }} $</h6>\n                </div>\n              </ul>\n          </ng-template> \n  </p-table>\n</div>\n\n\n\n<p-overlayPanel #op [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" >                          \n    <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"editarRegistro(selecteditems)\">Editar registro</a></span>\n    <span>   <a class=\"nav-link azul text-danger  my-hover\" (click)=\"editarOperacionCobro(selecteditems)\">Editar operacion cobro</a></span>\n    <span> <hr></span>\n    <span>   <a class=\"nav-link azul text-info my-hover\" (click)=\"eliminarRegistro(selecteditems)\">Eliminar registro</a></span>\n  </p-overlayPanel>  \n  \n  \n  \n  "
+module.exports = "\n<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n \n</div>\n<p-toast (life)=\"100\" styleClass=\"custom-toast\" [style]=\"{marginTop: '100px'}\"></p-toast>\n\n<div class=\"row\" >\n    \n  <div class=\"row \" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n      <div  class=\"input-group input-group-sm \">\n              <form  [formGroup]=\"DateForm\">\n              <div class=\"btn-group \" role=\"group\">\n                      <span class=\"pr-1 pt-1\"><h6>Desde:</h6></span>\n          <p-calendar [inputStyle]=\"{'height':'29.1px'}\" [styleClass]=\"form-control\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_desde\"  (onSelect)=\"actualizarFechaDesde($event)\" tabindex=\"0\"  [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n             <ng-template pTemplate=\"date\" let-date>\n                  <span    style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n              </ng-template> \n            </p-calendar>\n            <span class=\"pr-1 pt-1\"><h6>Hasta:</h6></span>\n            <p-calendar [inputStyle]=\"{'height':'29.1px'}\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_hasta\"  (onSelect)=\"actualizarFechaHasta($event)\" tabindex=\"0\"  [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n              <ng-template pTemplate=\"date\" let-date>\n                   <span  inputStyle=\"{'height':'29.5px'}\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n               </ng-template> \n             </p-calendar>               \n                        \n            \n                <span class=\"pr-1 pt-1\"><h6>Periodo:</h6></span>       \n              <p-calendar [inputStyle]=\"{'height':'29.1px'}\" [styleClass]=\"form-control\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"numero\"  (onSelect)=\"actualizarFechaPeriodo($event)\" tabindex=\"0\"  [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                <ng-template pTemplate=\"date\" let-date>\n                     <span    style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                 </ng-template>  \n               </p-calendar>       \n           \n\n            <div class=\"col-1 input-group input-group-sm \">           \n                <input  placeholder=\"Nivel\" class=\"form-control col-md-12 form-control-sm\" formControlName=\"nivel\"  />        \n            </div> \n\n          <div class=\" col-6  ml-2 row\" >\n                  <div class=\"form-group  col-4 mr-4 \">\n                          <div class=\"row\">\n                           \n                            <div class=\" input-group input-group-sm \">\n                                <input  (keyup.enter)=\"buscarObraSocial()\" class=\"form-control col-md-12 form-control-sm\" formControlName=\"obra_social_nombre\" placeholder=\"Obra social\"  />   \n                            \n                                <div class=\"input-group-append\">\n                                  <span class=\" input-group-text form-control-sm\">\n                                    <a  (click)=\"buscarObraSocial()\">\n                                        <img class=\"pointer float-left\" src=\"assets/icons/grey/outline_search_black_18dp.png\" width=\"24px\" height=\"24px\"  >\n                                    </a>\n                                </span>\n                                </div>\n                            </div>    \n                      </div>\n                    </div>\n                    <div class=\"form-group col-4 \">\n                      <div class=\"row\">\n                       \n                        <div class=\" input-group input-group-sm \">\n                            <input  (keyup.enter)=\"buscarMedico()\" class=\"form-control col-md-12 form-control-sm\" formControlName=\"medico_nombre\" placeholder=\"Medico\"  />   \n                        \n                            <div class=\"input-group-append\">\n                              <span class=\" input-group-text form-control-sm\">\n                                <a  (click)=\"buscarMedico()\">\n                                    <img class=\"pointer float-left\" src=\"assets/icons/grey/outline_search_black_18dp.png\" width=\"24px\" height=\"24px\"  >\n                                </a>\n                            </span>\n                            </div>\n                        </div>    \n                  </div>\n                </div>\n                <div class=\"form-group col-3 \">\n                <button    class=\"btn  btn-danger btn-sm float-right mr-2\" (click)=\"afectarRegistros()\" >Afectar registros</button>       \n              </div>                                                     \n                  </div>\n          \n      </div>\n           \n              </form>      \n \n      </div>\n\n      \n    \n  </div>\n\n  <p-table  #dt class=\"pt-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\" [value]=\"elementos\"  (onEditComplete)=\"editRow($event)\" [(selection)]=\"selecteditems\" columnResizeMode=\"expand\" [responsive]=\"true\"\n  scrollHeight=\"500px\" [scrollable]=\"true\"  (onFilter)=\"filtered($event)\"  >\n  <ng-template pTemplate=\"caption\">\n    <div class=\"row\">\n            <div class=\"col-md-12 row\" style=\"text-align:left \">\n              <div class=\"pr-2 pl-2\">    <button    class=\"btn  btn-secondary btn-sm float-right mr-2\"  (click)=\"loadRegistro()\" >Buscar Registros</button>  </div>\n             <div class=\"pr-2 pl-2\">   <button    class=\"btn  btn-outline-info btn-sm   \"  (click)=\"generarPdfListado('todos')\" >Imprimir resumen</button></div>\n             <div><button    class=\"btn  btn-outline-success btn-sm \"  (click)=\"generarPdfListado('medico')\" >Imprimir resumen por médico</button></div>  \n             <div>  <button    class=\"ml-2 btn  btn-outline-danger btn-sm float-right \"  (click)=\"buscarPractica()\" >Buscar otros registros</button></div> \n             <div>  <button    class=\"ml-2 btn  btn-outline-danger btn-sm float-right \"  (click)=\"buscarPracticaPaciente()\" >Buscar registros por paciente</button></div> \n             <div>  <button    class=\"ml-2 btn  btn  btn-outline-info btn-sm float-right \"  (click)=\"generarPreFactura()\" >Imprimir pre-factura</button></div>    \n               \n             <hr width=\"1\" size=\"50\">\n              <div class=\"row ml-2 \">\n                  <label class=\"text-info mt-1\"  >Prestación</label>\n                <div class=\"ml-2 mt-1\"><p-radioButton name=\"groupname12\" class=\"text-info text-sm\" [(ngModel)]=\"internacion_tipo\"   value=\"A\" label=\"Ambulatorio\"  inputId=\"opt12\"></p-radioButton></div>\n                <div class=\"ml-2 mr-4 mt-1\"><p-radioButton name=\"groupname22\" class=\"text-info\" [(ngModel)]=\"internacion_tipo\"   value=\"I\" label=\"Internación\"  inputId=\"opt22\"></p-radioButton></div>\n               \n              </div>                       \n              <button   class=\"btn  btn-outline-success btn-sm  ml-2\"  (click)=\"actualizarPrestacion()\" >Actualizar prestación</button>\n            </div>\n\n </div>\n</ng-template>\n\n             <ng-template pTemplate=\"header\" let-columns >\n            \n                        <tr >\n                             \n                          <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\n                              {{col.header}}\n                              <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activate to sort in descending order\" ariaLabelAsc=\"Activate to sort in ascending order\"></p-sortIcon>\n                          </th> \n                          <th style=\"width: 3em\">\n                                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>\n                          </th>\n                      </tr> \n                      <tr>\n                      <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\"  >\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'operacion_cobro_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\"  class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'apellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'dni'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'gravado_adherente'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                                            \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'descripcion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <p-multiSelect *ngSwitchCase=\"'complejidad'\" [options]=\"nivel\" defaultLabel=\"nivel\"  (onChange)=\"dt.filter($event.value, col.field,  'in')\" appendTo=\"body\" [style]=\"{'width':'100%'}\" [filter]= 'false'></p-multiSelect>\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'codigo'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'internacion_tipo'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'medico_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value , col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'usuario_cobro_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'fecha_cobro'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'cantidad'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                                             \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'valor_facturado'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'distribucion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          <p-multiSelect *ngSwitchCase=\"'forma_pago'\" [options]=\"formasPago\" defaultLabel=\"Pagos\"  (onChange)=\"dt.filter($event.value, col.field,  'in')\" appendTo=\"body\" [style]=\"{'width':'100%'}\"  [filter]= 'false'></p-multiSelect>\n                          \n                      </th>\n                      <th></th>\n                  </tr>\n              </ng-template>\n            \n      <ng-template pTemplate=\"body\" let-elementos  >\n          <tr style=\"height:20px\" [ngClass]=\"colorRow(elementos.operacion_cobro_observacion)\" >\n                 \n                  <td style=\"width: 6%\" >                   \n                      <a     (click)=\"accion($event,op,elementos)\"    ><i class=\"far fa-edit fa-2x icon-color-purple my-hover\"></i></a>\n                   \n                  </td>\n                  <td style=\"width: 5%\">{{elementos.operacion_cobro_id}}</td>\n                  <td style=\"width: 10%\">{{elementos.apellido}}</td>\n                  <td style=\"width: 10%\">{{elementos.nombre}}</td>\n                  <td style=\"font-size: 10px;width: 7%\">{{elementos.dni}}</td>\n                  <td style=\"font-size: 10px;width: 4%\">{{elementos.gravado_adherente}}</td>\n                  <td style=\"width: 15%\">{{elementos.obra_social_nombre}}</td>                                                                    \n                  <td style=\"font-size: 10px;width: 20%\">{{elementos.descripcion}}</td>                            \n                  <td style=\"font-size: 10px;width: 4%\">{{elementos.complejidad}}</td>  \n                  <td style=\"width: 8%\">{{elementos.codigo}}</td>  \n                  <td style=\"font-size: 10px;width: 4%\">{{elementos.internacion_tipo}}</td>\n                  <td style=\"width: 10%\">{{elementos.medico_nombre}}</td>  \n                  <td style=\"width: 8%\">{{elementos.usuario_cobro_nombre}}</td> \n                  <td style=\"width: 8%\">{{elementos.fecha_cobro | date: 'dd/MM/yyyy'}}</td>       \n                  <td style=\"width: 6%\" [ngClass]=\"colorRowPago(elementos.forma_pago)\">{{elementos.cantidad}}</td>                                         \n                  <td style=\"width: 6%\" [ngClass]=\"colorRowPago(elementos.forma_pago)\">{{elementos.valor_facturado}}</td>    \n                  <td style=\"width: 6%\" [ngClass]=\"colorRowPago(elementos.forma_pago)\">{{elementos.distribucion}}</td>    \n                  <td style=\"font-size: 10px;width: 10%\" [ngClass]=\"colorRowPago(elementos.forma_pago)\">{{elementos.forma_pago}}</td>    \n                              \n                  <td style=\"width: 3em\">\n                          <p-tableCheckbox [value]=\"elementos\"></p-tableCheckbox>\n                      </td>\n          </tr>\n      </ng-template>\n      <ng-template pTemplate=\"summary\">\n             <ul>\n                <div class=\"row float-right mr-2\">\n                    <h6 class=\"text-info pr-2\">CANTIDAD PRACTICAS : {{cantidad_practica}}  - </h6>\n                    <h6 class=\"text-danger\"> TOTAL REAL : {{total_original|  number : '1.2-2' }} $ - </h6>\n                    <h6 class=\"text-success\"> TOTAL CATEGORIA : {{total_categoria|  number : '1.2-2' }} $ - </h6>\n                    <h6 class=\"text-info\"> TOTAL : {{total_facturado|  number : '1.2-2' }} $</h6>\n                </div>\n              </ul>\n          </ng-template> \n  </p-table>\n</div>\n\n\n\n<p-overlayPanel #op [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" >                          \n    <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"editarRegistro(selecteditems)\">Editar registro</a></span>\n    <span>   <a class=\"nav-link azul text-danger  my-hover\" (click)=\"editarOperacionCobro(selecteditems)\">Editar operacion cobro</a></span>\n    <span> <hr></span>\n    <span>   <a class=\"nav-link azul text-info my-hover\" (click)=\"eliminarRegistro(selecteditems)\">Eliminar registro</a></span>\n  </p-overlayPanel>  \n  \n  \n  \n  "
 
 /***/ }),
 
@@ -3674,6 +3684,7 @@ var OperacionCobroAfectarComponent = /** @class */ (function () {
         this.cantidad_practica = 0;
         this.total_facturado = 0;
         this.total_original = 0;
+        this.total_categoria = 0;
         this.elemento = null;
         this.elementos = null;
         this.elementosFiltrados = null;
@@ -3804,10 +3815,12 @@ var OperacionCobroAfectarComponent = /** @class */ (function () {
         console.log(vals !== undefined);
         this.total_facturado = 0;
         this.total_original = 0;
+        this.total_categoria = 0;
         this.cantidad_practica = 0;
         for (i = 0; i < vals.length; i++) {
             this.total_original = this.total_original + Number(vals[i]['valor_original']);
-            this.total_facturado = this.total_facturado + Number(vals[i]['valor_facturado']);
+            this.total_facturado = this.total_facturado + Number(vals[i]['valor_facturado']) + Number(vals[i]['categorizacion']);
+            this.total_categoria = this.total_categoria + Number(vals[i]['categorizacion']);
         }
         this.cantidad_practica = vals.length;
         console.log(this.total_facturado);
@@ -4018,7 +4031,7 @@ var OperacionCobroAfectarComponent = /** @class */ (function () {
         this.liquidacion.usuario_audito = userData["id"];
         /***calculo los totales y los sumo */
         for (var i = 0; i < this.selecteditems.length; i++) {
-            this.liquidacion.total = Number(this.liquidacion.total) + Number(this.selecteditems[i]['valor_facturado']);
+            this.liquidacion.total = Number(this.liquidacion.total) + Number(this.selecteditems[i]['valor_facturado']) + Number(this.selecteditems[i]['categorizacion']);
             this.liquidacion.cant_orden = Number(this.liquidacion.cant_orden) + Number(this.selecteditems[i]['cantidad']);
             this.sumarValores(this.liquidacion.total);
         }
@@ -4338,6 +4351,7 @@ var OperacionCobroAfectarComponent = /** @class */ (function () {
                         //doc.text('Facturación de presentaciones', 60, 18, null, null, 'left');
                         doc.setFontSize(6);
                         doc.text('Emitido : ' + _fechaEmision, pageWidth - 40, 18, null, null, 'left');
+                        doc.text('Nº - O.C : ' + operacion_cobro_id, pageWidth - 40, 22, null, null, 'left');
                         doc.setFontSize(7);
                         doc.text('Internación Nro: ' + this.selecteditems[i_coseguro]['operacion_cobro_numero_bono'], 10, 30, null, null, 'left');
                         doc.text('Obra Social: ' + this.selecteditems[i_coseguro]['obra_social_nombre'], 10, 35, null, null, 'left');
@@ -4439,6 +4453,7 @@ var OperacionCobroAfectarComponent = /** @class */ (function () {
                             //doc.text('Facturación de presentaciones', 60, 18, null, null, 'left');
                             doc.setFontSize(6);
                             doc.text('Emitido : ' + _fechaEmision, pageWidth - 40, 18, null, null, 'left');
+                            doc.text('Nº - O.C : ' + operacion_cobro_id, pageWidth - 40, 22, null, null, 'left');
                             doc.setFontSize(7);
                             doc.text('Internación Nro: ' + this.selecteditems[i_obra_social]['operacion_cobro_numero_bono'], 10, 30, null, null, 'left');
                             doc.text('Obra Social: ' + this.selecteditems[i_obra_social]['obra_social_nombre'], 10, 35, null, null, 'left');
@@ -5255,6 +5270,7 @@ var OperacionCobroAuditarComponent = /** @class */ (function () {
                         //doc.text('Facturación de presentaciones', 60, 18, null, null, 'left');
                         doc.setFontSize(6);
                         doc.text('Emitido : ' + _fechaEmision, pageWidth - 40, 18, null, null, 'left');
+                        doc.text('Nº - O.C : ' + operacion_cobro_id, pageWidth - 40, 22, null, null, 'left');
                         doc.setFontSize(7);
                         doc.text('Internación Nro: ' + this.selecteditems[i_coseguro]['operacion_cobro_numero_bono'], 10, 30, null, null, 'left');
                         doc.text('Obra Social: ' + this.selecteditems[i_coseguro]['obra_social_nombre'], 10, 35, null, null, 'left');
@@ -5356,6 +5372,7 @@ var OperacionCobroAuditarComponent = /** @class */ (function () {
                             //doc.text('Facturación de presentaciones', 60, 18, null, null, 'left');
                             doc.setFontSize(6);
                             doc.text('Emitido : ' + _fechaEmision, pageWidth - 40, 18, null, null, 'left');
+                            doc.text('Nº - O.C : ' + operacion_cobro_id, pageWidth - 40, 22, null, null, 'left');
                             doc.setFontSize(7);
                             doc.text('Internación Nro: ' + this.selecteditems[i_obra_social]['operacion_cobro_numero_bono'], 10, 30, null, null, 'left');
                             doc.text('Obra Social: ' + this.selecteditems[i_obra_social]['obra_social_nombre'], 10, 35, null, null, 'left');
@@ -6246,6 +6263,7 @@ var OperacionCobroDetalleComponent = /** @class */ (function () {
                         //doc.text('Facturación de presentaciones', 60, 18, null, null, 'left');
                         doc.setFontSize(6);
                         doc.text('Emitido : ' + _fechaEmision, pageWidth - 40, 18, null, null, 'left');
+                        doc.text('Nº - O.C : ' + operacion_cobro_id, pageWidth - 40, 22, null, null, 'left');
                         doc.setFontSize(7);
                         doc.text('Internación Nro: ' + this.selecteditems[i_coseguro]['operacion_cobro_numero_bono'], 10, 30, null, null, 'left');
                         doc.text('Obra Social: ' + this.selecteditems[i_coseguro]['obra_social_nombre'], 10, 35, null, null, 'left');
@@ -6347,6 +6365,7 @@ var OperacionCobroDetalleComponent = /** @class */ (function () {
                             //doc.text('Facturación de presentaciones', 60, 18, null, null, 'left');
                             doc.setFontSize(6);
                             doc.text('Emitido : ' + _fechaEmision, pageWidth - 40, 18, null, null, 'left');
+                            doc.text('Nº - O.C : ' + operacion_cobro_id, pageWidth - 40, 22, null, null, 'left');
                             doc.setFontSize(7);
                             doc.text('Internación Nro: ' + this.selecteditems[i_obra_social]['operacion_cobro_numero_bono'], 10, 30, null, null, 'left');
                             doc.text('Obra Social: ' + this.selecteditems[i_obra_social]['obra_social_nombre'], 10, 35, null, null, 'left');
@@ -6788,7 +6807,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n \n</div>\n<p-toast (life)=\"100\" styleClass=\"custom-toast\" [style]=\"{marginTop: '100px'}\"></p-toast>\n\n\n    \n  <div class=\"row\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n      <div  class=\"input-group input-group-sm \"> \n          <p-dropdown [options]=\"impresiones\" [(ngModel)]=\"selectedImpresion\" optionLabel=\"name\" ></p-dropdown>\n          <button    class=\"ml-2 btn  btn-secondary btn-sm float-right mr-2 pr-2\" (click)=\"imprimir()\" >Imprimir</button> \n              <form  [formGroup]=\"DateForm\">\n\n              </form>            \n      </div>\n  </div>\n<hr>\n  <div class=\"row mt-2\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n    <div  class=\"input-group input-group-sm \">\n            <form  [formGroup]=\"DateForm\">\n            <div class=\"btn-group mr-1\" role=\"group\">\n                    <span class=\"pr-1 pt-1\"><h6>Desde:</h6></span>\n                    <p-calendar [inputStyle]=\"{'height':'29.1px'}\" [styleClass]=\"form-control\" [showTime]=\"true\"   class=\"mr-2 \" formControlName=\"fecha_desde\"  (onSelect)=\"actualizarFechaDesde($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                      <ng-template pTemplate=\"date\" let-date>\n                              <span    style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                          </ng-template> \n                      </p-calendar>\n                      <span class=\"pr-1 pt-1\"><h6>Hasta:</h6></span>\n                      <p-calendar [inputStyle]=\"{'height':'29.1px'}\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_hasta\"  (onSelect)=\"actualizarFechaHasta($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                          <ng-template pTemplate=\"date\" let-date>\n                              <span  inputStyle=\"{'height':'29.5px'}\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                          </ng-template> \n                      </p-calendar>       \n                        <div class=\"ml-2 mr-2 row\">                         \n                          <div class=\" input-group input-group-sm mb-3\">\n                              <input  (keyup.enter)=\"buscarObraSocial()\" class=\"form-control col-md-12 form-control-sm\" formControlName=\"obra_social_nombre\" placeholder=\"Obra social\" />   \n                            \n                              <div class=\"input-group-append\">\n                                <span class=\"input-group input-group-text form-control-sm\">\n                                  <a  (click)=\"buscarObraSocial()\">\n                                      <img class=\"pointer float-left\" src=\"assets/icons/grey/outline_search_black_18dp.png\" width=\"24px\" height=\"24px\"  >\n                                  </a>\n                              </span>\n                              </div>\n                          </div>    \n                    </div>                                          \n                      <div class=\" ml-2 row\">                         \n                         <div class=\"ml-2\"><button    class=\"btn  btn-danger btn-sm float-right  pr-2\" (click)=\"actualizarRegistros()\" >Actualizar valores de convenio</button>   </div>                           \n                         <div class=\"ml-2\"><button    class=\"btn  btn-outline-danger btn-sm float-right  pr-2\" (click)=\"actualizarRegistros()\" >Actualizar valores de distribución (D.O.S)</button>   </div>                           \n                        </div>     \n                           <div class=\"form-group \">\n               \n          </div>  \n    </div>   \n    \n            </form>            \n          \n    </div>    \n</div>\n  <div class=\"row\">\n  <p-table  #dt class=\"pt-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\" [value]=\"elementos\"  (onEditComplete)=\"editRow($event)\" [(selection)]=\"selecteditems\" columnResizeMode=\"expand\" [responsive]=\"true\"\n  scrollHeight=\"600px\" [scrollable]=\"true\"  (onFilter)=\"filtered($event)\"  >\n \n\n             <ng-template pTemplate=\"header\" let-columns >\n            \n                        <tr >\n                             \n                          <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\n                              {{col.header}}\n                              <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activate to sort in descending order\" ariaLabelAsc=\"Activate to sort in ascending order\"></p-sortIcon>\n                          </th> \n                          <th style=\"width: 3em\">\n                                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>\n                          </th>\n                      </tr> \n                      <tr>\n                      <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\"  >\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'entidad_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\"  class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'numero'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nivel'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'fecha_desde'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'fecha_hasta'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'cant_orden'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'total'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'medico_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nombreyapellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                      </th>\n                      <th></th>\n                  </tr>\n              </ng-template>\n            \n      <ng-template pTemplate=\"body\" let-elementos  >\n          <tr style=\"height:20px\"  >\n                 \n                  <td style=\"width: 6%\" >                   \n                      <a  class=\"my-hover\" (click)=\"accion($event,op,elementos)\"    ><i class=\"far fa-edit fa-2x icon-color-purple\"></i></a>\n                   \n                  </td>\n                  <td style=\"width: 7%\">{{elementos.id}}</td>\n                  <td style=\"width: 20%\">{{elementos.obra_social_nombre}}</td>\n                  <td style=\"width: 10%\">{{elementos.entidad_nombre}}</td>\n                  <td style=\"width: 8%\">{{elementos.numero |date:'dd/MM/yyyy'}}</td>\n                  <td style=\"width: 10%\">{{elementos.nivel}}</td>\n                  <td style=\"width: 10%\">{{elementos.fecha_desde |date:'dd/MM/yyyy'}}</td>\n                  <td style=\"width: 10%\">{{elementos.fecha_hasta |date:'dd/MM/yyyy'}}</td>                                                    \n                  <td style=\"width: 10%\">{{elementos.cant_orden}}</td>                            \n                  <td style=\"width: 20%\">{{elementos.total}}</td>  \n                  <td style=\"width: 15%\">{{elementos.medico_nombre}}</td>                                \n                  <td style=\"width: 15%\">{{elementos.nombreyapellido}}</td>      \n                  <td style=\"width: 3em\">\n                          <p-tableCheckbox [value]=\"elementos\"></p-tableCheckbox>\n                      </td>\n          </tr>\n      </ng-template>\n      <ng-template pTemplate=\"summary\">\n          <div class=\"row float-right pr-2\">\n              <h6 class=\"text-info pr-2\">CANTIDAD : {{cantidad |  number : '1.0-0' }}  - </h6>      \n              <h6 class=\"text-info\"> TOTAL : {{total_facturado |  number : '1.2-2' }} $</h6>\n          </div>\n              <ul> </ul>\n          </ng-template> \n  </p-table>\n</div>\n\n\n<p-overlayPanel #op [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" >                          \n    <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"editarRegistro(selecteditems)\">Modificar registro</a></span>\n    <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"desafectarPresentacion(selecteditems)\">Desafectar registro</a></span>\n    <span> <hr></span>\n    <span>   <a class=\"nav-link azul text-info my-hover\" (click)=\"verDetalle(selecteditems)\">Ver detalle</a></span>\n  </p-overlayPanel>  "
+module.exports = "\n<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n \n</div>\n<p-toast (life)=\"100\" styleClass=\"custom-toast\" [style]=\"{marginTop: '100px'}\"></p-toast>\n\n\n    \n  <div class=\"row mt-2\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n    <div  class=\"input-group input-group-sm \">\n            <form  [formGroup]=\"DateForm\">\n            <div class=\"btn-group mr-1\" role=\"group\">\n                      <span class=\"pr-1 pt-1\"><h6>Fecha liquidación:</h6></span>\n                      <p-calendar [inputStyle]=\"{'height':'29.1px'}\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_liquidacion\"  (onSelect)=\"actualizarFechaHasta($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                          <ng-template pTemplate=\"date\" let-date>\n                              <span  inputStyle=\"{'height':'29.5px'}\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                          </ng-template> \n                      </p-calendar>       \n                        <div class=\"ml-2 mr-2 row\">                         \n                          <div class=\" input-group input-group-sm mb-3\">\n                              <input   class=\"form-control col-md-12 form-control-sm\" formControlName=\"liquidacion_nro\" placeholder=\"Liquidación nº\" />                                                            \n                          </div>    \n                    </div>                                          \n                      <div class=\" ml-2 row\">                         \n                         <div class=\"ml-2\"><button    class=\"btn  btn-success btn-sm float-right  pr-2\" (click)=\"actualizarRegistros()\" >Liquidaciar seleccionados</button>   </div>                                                    \n                        </div>     \n                           <div class=\"form-group \">\n               \n          </div>  \n    </div>   \n    \n            </form>            \n          \n    </div>    \n</div>\n  <div class=\"row\">\n  <p-table  #dt class=\"pt-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\" [value]=\"elementos\"  (onEditComplete)=\"editRow($event)\" [(selection)]=\"selecteditems\" columnResizeMode=\"expand\" [responsive]=\"true\"\n  scrollHeight=\"600px\" [scrollable]=\"true\"  (onFilter)=\"filtered($event)\"  >\n \n\n             <ng-template pTemplate=\"header\" let-columns >\n            \n                        <tr >\n                             \n                          <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\n                              {{col.header}}\n                              <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activate to sort in descending order\" ariaLabelAsc=\"Activate to sort in ascending order\"></p-sortIcon>\n                          </th> \n                          <th style=\"width: 3em\">\n                                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>\n                          </th>\n                      </tr> \n                      <tr>\n                      <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\"  >\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'entidad_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\"  class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'numero'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nivel'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'fecha_desde'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'fecha_hasta'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'cant_orden'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'total'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'medico_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nombreyapellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                      </th>\n                      <th></th>\n                  </tr>\n              </ng-template>\n            \n      <ng-template pTemplate=\"body\" let-elementos  >\n          <tr style=\"height:20px\"  >\n                 \n                  <td style=\"width: 6%\" >                   \n                      <a  class=\"my-hover\" (click)=\"verDetalle(elementos)\"    ><i class=\"far fa-edit fa-2x icon-color-purple\"></i></a>\n                   \n                  </td>\n                  <td style=\"width: 7%\">{{elementos.id}}</td>\n                  <td style=\"width: 20%\">{{elementos.obra_social_nombre}}</td>\n                  <td style=\"width: 10%\">{{elementos.entidad_nombre}}</td>\n                  <td style=\"width: 8%\">{{elementos.numero |date:'dd/MM/yyyy'}}</td>\n                  <td style=\"width: 10%\">{{elementos.nivel}}</td>\n                  <td style=\"width: 10%\">{{elementos.fecha_desde |date:'dd/MM/yyyy'}}</td>\n                  <td style=\"width: 10%\">{{elementos.fecha_hasta |date:'dd/MM/yyyy'}}</td>                                                    \n                  <td style=\"width: 10%\">{{elementos.cant_orden}}</td>                            \n                  <td style=\"width: 20%\">{{elementos.total}}</td>  \n                  <td style=\"width: 15%\">{{elementos.medico_nombre}}</td>                                \n                  <td style=\"width: 15%\">{{elementos.nombreyapellido}}</td>      \n                  <td style=\"width: 3em\">\n                          <p-tableCheckbox [value]=\"elementos\"></p-tableCheckbox>\n                      </td>\n          </tr>\n      </ng-template>\n      <ng-template pTemplate=\"summary\">\n          <div class=\"row float-right pr-2\">\n              <h6 class=\"text-info pr-2\">CANTIDAD : {{cantidad |  number : '1.0-0' }}  - </h6>      \n              <h6 class=\"text-info\"> TOTAL : {{total_facturado |  number : '1.2-2' }} $</h6>\n          </div>\n              <ul> </ul>\n          </ng-template> \n  </p-table>\n</div>\n\n\n<p-overlayPanel #op [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" >                            \n    <span>   <a class=\"nav-link azul text-info my-hover\" (click)=\"verDetalle(selecteditems)\">Ver detalle</a></span>\n  </p-overlayPanel>  "
 
 /***/ }),
 
@@ -6816,8 +6835,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/components/popups/popup-obra-social/popup-obra-social.component */ "./src/app/shared/components/popups/popup-obra-social/popup-obra-social.component.ts");
 /* harmony import */ var _services_liquidacion_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../../services/liquidacion.service */ "./src/app/services/liquidacion.service.ts");
 /* harmony import */ var _shared_pipes_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../../shared/pipes/number-to-words.pipe */ "./src/app/shared/pipes/number-to-words.pipe.ts");
-/* harmony import */ var _shared_components_popups_popup_operacion_cobro_presentacion_popup_operacion_cobro_presentacion_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../../shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component */ "./src/app/shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component.ts");
-/* harmony import */ var _shared_components_popups_popup_presentacion_editar_popup_presentacion_editar_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../../shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component */ "./src/app/shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component.ts");
+/* harmony import */ var _shared_components_popups_popup_presentacion_editar_popup_presentacion_editar_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../../shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component */ "./src/app/shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_distribucion_popup_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../../shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component */ "./src/app/shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6842,7 +6861,6 @@ __webpack_require__(/*! jspdf-autotable */ "./node_modules/jspdf-autotable/dist/
 
 
 
-//import { ExcelService } from '../../../../../services/excel.service';
 var ConfeccionFacturaComponent = /** @class */ (function () {
     function ConfeccionFacturaComponent(miServicio, practicaService, messageService, dialogService, numberToWordsPipe, cp, dp) {
         this.miServicio = miServicio;
@@ -6862,16 +6880,6 @@ var ConfeccionFacturaComponent = /** @class */ (function () {
         this.total_original = 0;
         this.total_facturado = 0;
         this.cantidad = 0;
-        this.impresiones = [
-            { name: 'Presentación todos', code: '1' },
-            { name: 'Presentación a médico', code: '2' },
-            { name: 'Presentación medico ACLISA', code: '3' },
-            { name: 'Presentación DOS Cirugia', code: '4' },
-            { name: 'Presentación con IVA', code: '5' },
-            { name: 'exportarExcel', code: '6' },
-            { name: 'txt práctica y estudios DOS', code: '7' },
-            { name: 'txt cirugia DOS', code: '8' },
-        ];
         this.cols = [
             { field: 'accion', header: 'Accion', width: '6%' },
             { field: 'id', header: 'Liq. nº', width: '7%' },
@@ -6933,15 +6941,12 @@ var ConfeccionFacturaComponent = /** @class */ (function () {
             { title: 'Médico', dataKey: 'medico_nombre' }
         ];
         this.DateForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
-            'fecha_desde': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
-            'fecha_hasta': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
-            'presentacion_nro': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](''),
-            'obra_social_nombre': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](''),
+            'fecha_liquidacion': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](''),
+            'liquidacion_nro': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](''),
             'obra_social_id': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('')
         });
     }
     ConfeccionFacturaComponent.prototype.ngOnInit = function () {
-        this.selectedImpresion = this.impresiones[0];
         this.es = _config_config__WEBPACK_IMPORTED_MODULE_1__["calendarioIdioma"];
         this.fechaDesde = new Date();
         this.fechaHasta = new Date();
@@ -7014,7 +7019,7 @@ var ConfeccionFacturaComponent = /** @class */ (function () {
         var _this = this;
         var data;
         data = this.selecteditemRegistro;
-        var ref = this.dialogService.open(_shared_components_popups_popup_presentacion_editar_popup_presentacion_editar_component__WEBPACK_IMPORTED_MODULE_12__["PopupPresentacionEditarComponent"], {
+        var ref = this.dialogService.open(_shared_components_popups_popup_presentacion_editar_popup_presentacion_editar_component__WEBPACK_IMPORTED_MODULE_11__["PopupPresentacionEditarComponent"], {
             data: data,
             header: 'Editar de presentación',
             width: '98%',
@@ -7025,19 +7030,21 @@ var ConfeccionFacturaComponent = /** @class */ (function () {
             _this.loadlist();
         });
     };
-    ConfeccionFacturaComponent.prototype.verDetalle = function () {
+    ConfeccionFacturaComponent.prototype.verDetalle = function (elementos) {
+        if (elementos) {
+            this.selecteditemRegistro = elementos;
+        }
         var data;
         data = this.selecteditemRegistro;
-        var ref = this.dialogService.open(_shared_components_popups_popup_operacion_cobro_presentacion_popup_operacion_cobro_presentacion_component__WEBPACK_IMPORTED_MODULE_11__["PopupOperacionCobroPresentacionComponent"], {
+        var ref = this.dialogService.open(_shared_components_popups_popup_operacion_cobro_distribucion_popup_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_12__["PopupOperacionCobroDistribucionComponent"], {
             data: data,
-            header: 'Ver detalle de presentación',
+            header: 'Ver detalle para distribuir',
             width: '98%',
             height: '100%'
         });
-        ref.onClose.subscribe(function (PopupOperacionCobroPresentacionComponent) {
-            if (PopupOperacionCobroPresentacionComponent) {
-                console.log(PopupOperacionCobroPresentacionComponent);
-                //            
+        ref.onClose.subscribe(function (PopupOperacionCobroDistribucionComponent) {
+            if (PopupOperacionCobroDistribucionComponent) {
+                console.log(PopupOperacionCobroDistribucionComponent);
             }
         });
     };
@@ -7961,7 +7968,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  liquidacion-detalle works!\n</p>\n"
+module.exports = "\n<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n \n</div>\n<p-toast (life)=\"100\" styleClass=\"custom-toast\" [style]=\"{marginTop: '100px'}\"></p-toast>\n\n\n    \n  <div class=\"row\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n      <div  class=\"input-group input-group-sm \"> \n          <p-dropdown [options]=\"impresiones\" [(ngModel)]=\"selectedImpresion\" optionLabel=\"name\" ></p-dropdown>\n          <button    class=\"ml-2 btn  btn-secondary btn-sm float-right mr-2 pr-2\" (click)=\"imprimir()\" >Imprimir</button> \n              <form  [formGroup]=\"DateForm\">\n\n              </form>            \n      </div>\n  </div>\n<hr>\n  <div class=\"row mt-2\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n    <div  class=\"input-group input-group-sm \">\n            <form  [formGroup]=\"DateForm\">\n            <div class=\"btn-group mr-1\" role=\"group\">\n                    <span class=\"pr-1 pt-1\"><h6>Desde:</h6></span>\n                    <p-calendar [inputStyle]=\"{'height':'29.1px'}\" [styleClass]=\"form-control\" [showTime]=\"true\"   class=\"mr-2 \" formControlName=\"fecha_desde\"  (onSelect)=\"actualizarFechaDesde($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                      <ng-template pTemplate=\"date\" let-date>\n                              <span    style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                          </ng-template> \n                      </p-calendar>\n                      <span class=\"pr-1 pt-1\"><h6>Hasta:</h6></span>\n                      <p-calendar [inputStyle]=\"{'height':'29.1px'}\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_hasta\"  (onSelect)=\"actualizarFechaHasta($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                          <ng-template pTemplate=\"date\" let-date>\n                              <span  inputStyle=\"{'height':'29.5px'}\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                          </ng-template> \n                      </p-calendar>       \n                        <div class=\"ml-2 mr-2 row\">                         \n                          <div class=\" input-group input-group-sm mb-3\">\n                              <input  (keyup.enter)=\"buscarObraSocial()\" class=\"form-control col-md-12 form-control-sm\" formControlName=\"obra_social_nombre\" placeholder=\"Obra social\" />   \n                            \n                              <div class=\"input-group-append\">\n                                <span class=\"input-group input-group-text form-control-sm\">\n                                  <a  (click)=\"buscarObraSocial()\">\n                                      <img class=\"pointer float-left\" src=\"assets/icons/grey/outline_search_black_18dp.png\" width=\"24px\" height=\"24px\"  >\n                                  </a>\n                              </span>\n                              </div>\n                          </div>    \n                    </div>                                          \n                      <div class=\" ml-2 row\">                         \n                         <div class=\"ml-2\"><button    class=\"btn  btn-danger btn-sm float-right  pr-2\" (click)=\"actualizarRegistros()\" >Actualizar valores de convenio</button>   </div>                           \n                         <div class=\"ml-2\"><button    class=\"btn  btn-outline-danger btn-sm float-right  pr-2\" (click)=\"actualizarRegistros()\" >Actualizar valores de distribución (D.O.S)</button>   </div>                           \n                        </div>     \n                           <div class=\"form-group \">\n               \n          </div>  \n    </div>   \n    \n            </form>            \n          \n    </div>    \n</div>\n  <div class=\"row\">\n  <p-table  #dt class=\"pt-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\" [value]=\"elementos\"  (onEditComplete)=\"editRow($event)\" [(selection)]=\"selecteditems\" columnResizeMode=\"expand\" [responsive]=\"true\"\n  scrollHeight=\"600px\" [scrollable]=\"true\"  (onFilter)=\"filtered($event)\"  >\n \n\n             <ng-template pTemplate=\"header\" let-columns >\n            \n                        <tr >\n                             \n                          <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\n                              {{col.header}}\n                              <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activate to sort in descending order\" ariaLabelAsc=\"Activate to sort in ascending order\"></p-sortIcon>\n                          </th> \n                          <th style=\"width: 3em\">\n                                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>\n                          </th>\n                      </tr> \n                      <tr>\n                      <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\"  >\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'entidad_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\"  class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'numero'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nivel'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'fecha_desde'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'fecha_hasta'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'cant_orden'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'total'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'medico_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nombreyapellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                      </th>\n                      <th></th>\n                  </tr>\n              </ng-template>\n            \n      <ng-template pTemplate=\"body\" let-elementos  >\n          <tr style=\"height:20px\"  >\n                 \n                  <td style=\"width: 6%\" >                   \n                      <a  class=\"my-hover\" (click)=\"accion($event,op,elementos)\"    ><i class=\"far fa-edit fa-2x icon-color-purple\"></i></a>\n                   \n                  </td>\n                  <td style=\"width: 7%\">{{elementos.id}}</td>\n                  <td style=\"width: 20%\">{{elementos.obra_social_nombre}}</td>\n                  <td style=\"width: 10%\">{{elementos.entidad_nombre}}</td>\n                  <td style=\"width: 8%\">{{elementos.numero |date:'dd/MM/yyyy'}}</td>\n                  <td style=\"width: 10%\">{{elementos.nivel}}</td>\n                  <td style=\"width: 10%\">{{elementos.fecha_desde |date:'dd/MM/yyyy'}}</td>\n                  <td style=\"width: 10%\">{{elementos.fecha_hasta |date:'dd/MM/yyyy'}}</td>                                                    \n                  <td style=\"width: 10%\">{{elementos.cant_orden}}</td>                            \n                  <td style=\"width: 20%\">{{elementos.total}}</td>  \n                  <td style=\"width: 15%\">{{elementos.medico_nombre}}</td>                                \n                  <td style=\"width: 15%\">{{elementos.nombreyapellido}}</td>      \n                  <td style=\"width: 3em\">\n                          <p-tableCheckbox [value]=\"elementos\"></p-tableCheckbox>\n                      </td>\n          </tr>\n      </ng-template>\n      <ng-template pTemplate=\"summary\">\n          <div class=\"row float-right pr-2\">\n              <h6 class=\"text-info pr-2\">CANTIDAD : {{cantidad |  number : '1.0-0' }}  - </h6>      \n              <h6 class=\"text-info\"> TOTAL : {{total_facturado |  number : '1.2-2' }} $</h6>\n          </div>\n              <ul> </ul>\n          </ng-template> \n  </p-table>\n</div>\n\n\n<p-overlayPanel #op [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" >                          \n    <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"editarRegistro(selecteditems)\">Modificar registro</a></span>\n    <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"desafectarPresentacion(selecteditems)\">Desafectar registro</a></span>\n    <span> <hr></span>\n    <span>   <a class=\"nav-link azul text-info my-hover\" (click)=\"verDetalle(selecteditems)\">Ver detalle</a></span>\n  </p-overlayPanel>  "
 
 /***/ }),
 
@@ -7976,6 +7983,21 @@ module.exports = "<p>\n  liquidacion-detalle works!\n</p>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LiquidacionDetalleComponent", function() { return LiquidacionDetalleComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../config/config */ "./src/app/config/config.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/api.js");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(primeng_api__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var primeng_components_common_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/components/common/api */ "./node_modules/primeng/components/common/api.js");
+/* harmony import */ var primeng_components_common_api__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(primeng_components_common_api__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var src_app_services_practica_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/practica.service */ "./src/app/services/practica.service.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var src_app_shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/components/popups/popup-obra-social/popup-obra-social.component */ "./src/app/shared/components/popups/popup-obra-social/popup-obra-social.component.ts");
+/* harmony import */ var _services_liquidacion_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../../services/liquidacion.service */ "./src/app/services/liquidacion.service.ts");
+/* harmony import */ var _shared_pipes_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../../shared/pipes/number-to-words.pipe */ "./src/app/shared/pipes/number-to-words.pipe.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_presentacion_popup_operacion_cobro_presentacion_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../../shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component */ "./src/app/shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component.ts");
+/* harmony import */ var _shared_components_popups_popup_presentacion_editar_popup_presentacion_editar_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../../shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component */ "./src/app/shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7986,18 +8008,1113 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+var jsPDF = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.min.js");
+__webpack_require__(/*! jspdf-autotable */ "./node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.js");
+
+
+
+
+
+
+
+
+
+//import { ExcelService } from '../../../../../services/excel.service';
 var LiquidacionDetalleComponent = /** @class */ (function () {
-    function LiquidacionDetalleComponent() {
+    function LiquidacionDetalleComponent(miServicio, practicaService, messageService, dialogService, numberToWordsPipe, cp, dp) {
+        this.miServicio = miServicio;
+        this.practicaService = practicaService;
+        this.messageService = messageService;
+        this.dialogService = dialogService;
+        this.numberToWordsPipe = numberToWordsPipe;
+        this.cp = cp;
+        this.dp = dp;
+        this.elementos = null;
+        this.elementosFiltrados = null;
+        this.elementosCirugia = null;
+        this.selecteditemRegistro = null;
+        this.selecteditems = [];
+        this.elementosPreFactura = [];
+        this.cantidad_practica = 0;
+        this.total_original = 0;
+        this.total_facturado = 0;
+        this.cantidad = 0;
+        this.impresiones = [
+            { name: 'Presentación todos', code: '1' },
+            { name: 'Presentación a médico', code: '2' },
+            { name: 'Presentación medico ACLISA', code: '3' },
+            { name: 'Presentación DOS Cirugia', code: '4' },
+            { name: 'Presentación con IVA', code: '5' },
+            { name: 'exportarExcel', code: '6' },
+            { name: 'txt práctica y estudios DOS', code: '7' },
+            { name: 'txt cirugia DOS', code: '8' },
+        ];
+        this.cols = [
+            { field: 'accion', header: 'Accion', width: '6%' },
+            { field: 'id', header: 'Liq. nº', width: '7%' },
+            { field: 'obra_social_nombre', header: 'Obra social', width: '20%' },
+            { field: 'entidad_nombre', header: 'Entidad', width: '10%' },
+            { field: 'numero', header: 'Periodo', width: '8%' },
+            { field: 'nivel', header: 'Nivel', width: '10%' },
+            { field: 'fecha_desde', header: 'Desde', width: '10%' },
+            { field: 'fecha_hasta', header: 'Hasta', width: '10%' },
+            { field: 'cant_orden', header: 'Ordenes', width: '10%' },
+            { field: 'total', header: 'Total', width: '20%' },
+            { field: 'medico_nombre', header: 'Médico', width: '15%' },
+            { field: 'nombreyapellido', header: 'Audito', width: '15%' },
+        ];
+        this.columns = [
+            { title: 'Obra social', dataKey: 'obra_social_nombre' },
+            { title: 'Número', dataKey: 'numero' },
+            { title: 'Nivel', dataKey: 'nivel' },
+            { title: 'Desde', dataKey: 'fecha_desde' },
+            { title: 'Hasta', dataKey: 'fecha_hasta' },
+            { title: 'Cantidad', dataKey: 'cant_orden' },
+            { title: 'Total', dataKey: 'total' },
+            { title: 'Audito', dataKey: 'nombreyapellido' }
+        ];
+        this.columnsListadoMedico = [
+            { title: 'Paciente', dataKey: 'paciente_nombre' },
+            { title: 'Num. afiliado', dataKey: 'numero_afiliado' },
+            { title: 'Código', dataKey: 'codigo' },
+            { title: 'Descripción', dataKey: 'descripcion' },
+            { title: 'Fecha', dataKey: 'fecha_cobro' },
+            { title: 'Cant', dataKey: 'cantidad' },
+            { title: 'Honorario', dataKey: 'valor_facturado' },
+            { title: 'Matricula', dataKey: 'matricula' },
+            { title: 'Médico', dataKey: 'medico_nombre' }
+        ];
+        this.columnsListadoTodos = [
+            { title: 'Paciente', dataKey: 'paciente_nombre' },
+            { title: 'Num. afiliado', dataKey: 'numero_afiliado' },
+            { title: 'Código', dataKey: 'codigo' },
+            { title: 'Descripción', dataKey: 'descripcion' },
+            { title: 'Fecha', dataKey: 'fecha_cobro' },
+            { title: 'Cant', dataKey: 'cantidad' },
+            { title: 'Honorario', dataKey: 'valor_facturado' },
+            { title: 'Matricula', dataKey: 'matricula' },
+            { title: 'Médico', dataKey: 'medico_nombre' }
+        ];
+        this.columnsListadoCirugiaTodos = [
+            { title: 'Paciente', dataKey: 'paciente_nombre' },
+            { title: 'Num. afiliado', dataKey: 'numero_afiliado' },
+            { title: 'Código', dataKey: 'codigo' },
+            { title: 'Descripción', dataKey: 'descripcion' },
+            { title: 'Fecha', dataKey: 'fecha_cobro' },
+            { title: 'Cant', dataKey: 'cantidad' },
+            { title: 'Cat.', dataKey: 'categorizacion' },
+            { title: 'Honor.', dataKey: 'honorarios' },
+            { title: 'Gastos', dataKey: 'gastos' },
+            { title: 'Total', dataKey: 'valor_facturado' },
+            { title: 'Matricula', dataKey: 'matricula' },
+            { title: 'Médico', dataKey: 'medico_nombre' }
+        ];
+        this.DateForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            'fecha_desde': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
+            'fecha_hasta': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
+            'presentacion_nro': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](''),
+            'obra_social_nombre': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](''),
+            'obra_social_id': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('')
+        });
     }
     LiquidacionDetalleComponent.prototype.ngOnInit = function () {
+        this.selectedImpresion = this.impresiones[0];
+        this.es = _config_config__WEBPACK_IMPORTED_MODULE_1__["calendarioIdioma"];
+        this.fechaDesde = new Date();
+        this.fechaHasta = new Date();
+        this.DateForm.patchValue({ fecha_desde: this.fechaDesde });
+        this.DateForm.patchValue({ fecha_hasta: this.fechaHasta });
+        this.loadlist();
+    };
+    LiquidacionDetalleComponent.prototype.actualizarFechaDesde = function (event) {
+        console.log(event);
+        this.fechaDesde = event;
+        console.log(new Date(this.fechaDesde));
+    };
+    LiquidacionDetalleComponent.prototype.actualizarFechaHasta = function (event) {
+        console.log(event);
+        this.fechaHasta = event;
+        console.log(new Date(this.fechaHasta));
+    };
+    LiquidacionDetalleComponent.prototype.accion = function (event, overlaypanel, elementos) {
+        if (elementos) {
+            this.selecteditemRegistro = elementos;
+        }
+        console.log(this.selecteditemRegistro);
+        overlaypanel.toggle(event);
+    };
+    LiquidacionDetalleComponent.prototype.imprimir = function () {
+        this.selectedImpresion['code'];
+        if (this.selectedImpresion['code'] === '1') {
+            this.loadPresentacionTodos();
+        }
+        if (this.selectedImpresion['code'] === '2') {
+            this.loadPresentacionMedico();
+        }
+        if (this.selectedImpresion['code'] === '3') {
+            this.loadPresentacionMedicoACLISA();
+        }
+        if (this.selectedImpresion['code'] === '4') {
+            this.loadPresentacionCirugiaTodos();
+        }
+        if (this.selectedImpresion['code'] === '5') {
+            this.loadPresentacionIva();
+        }
+        if (this.selectedImpresion['code'] === '6') {
+            this.exportarExcel();
+        }
+        if (this.selectedImpresion['code'] === '7') {
+            this.generarTxt();
+        }
+        if (this.selectedImpresion['code'] === '8') {
+            this.generarTxtCirugia();
+        }
+    };
+    LiquidacionDetalleComponent.prototype.buscarObraSocial = function () {
+        var _this = this;
+        var data;
+        var ref = this.dialogService.open(src_app_shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_8__["PopupObraSocialComponent"], {
+            data: data,
+            header: 'Buscar Practica',
+            width: '98%',
+            height: '90%'
+        });
+        ref.onClose.subscribe(function (PopupObraSocialComponent) {
+            if (PopupObraSocialComponent) {
+                console.log(PopupObraSocialComponent);
+                _this.DateForm.patchValue({ obra_social_nombre: PopupObraSocialComponent.nombre });
+                _this.DateForm.patchValue({ obra_social_id: PopupObraSocialComponent.id });
+            }
+        });
+    };
+    LiquidacionDetalleComponent.prototype.editarRegistro = function () {
+        var _this = this;
+        var data;
+        data = this.selecteditemRegistro;
+        var ref = this.dialogService.open(_shared_components_popups_popup_presentacion_editar_popup_presentacion_editar_component__WEBPACK_IMPORTED_MODULE_12__["PopupPresentacionEditarComponent"], {
+            data: data,
+            header: 'Editar de presentación',
+            width: '98%',
+            height: '100%'
+        });
+        ref.onClose.subscribe(function (PopupPresentacionEditarComponent) {
+            console.log('actualizando');
+            _this.loadlist();
+        });
+    };
+    LiquidacionDetalleComponent.prototype.verDetalle = function () {
+        var data;
+        data = this.selecteditemRegistro;
+        var ref = this.dialogService.open(_shared_components_popups_popup_operacion_cobro_presentacion_popup_operacion_cobro_presentacion_component__WEBPACK_IMPORTED_MODULE_11__["PopupOperacionCobroPresentacionComponent"], {
+            data: data,
+            header: 'Ver detalle de presentación',
+            width: '98%',
+            height: '100%'
+        });
+        ref.onClose.subscribe(function (PopupOperacionCobroPresentacionComponent) {
+            if (PopupOperacionCobroPresentacionComponent) {
+                console.log(PopupOperacionCobroPresentacionComponent);
+                //            
+            }
+        });
+    };
+    LiquidacionDetalleComponent.prototype.loadlist = function () {
+        var _this = this;
+        this.loading = true;
+        try {
+            this.miServicio.getLiquidacionDetalle()
+                .subscribe(function (resp) {
+                if (resp[0]) {
+                    _this.elementos = resp;
+                    console.log(_this.elementos);
+                }
+                else {
+                    _this.elementos = null;
+                }
+                _this.loading = false;
+                console.log(resp);
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+            });
+        }
+        catch (error) {
+            this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+        }
+    };
+    LiquidacionDetalleComponent.prototype.loadPresentacionTodos = function () {
+        var _this = this;
+        this.loading = true;
+        try {
+            this.miServicio.getListadoPreFactura(this.selecteditems)
+                .subscribe(function (resp) {
+                var i = 0;
+                var resultado = resp;
+                resultado.forEach(function (element) {
+                    resp[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+                    //    let t = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+                    console.log(resp[i]['fecha_cobro']);
+                    i++;
+                });
+                _this.elementosPreFactura = resp;
+                console.log(_this.elementosPreFactura);
+                _this.generarPdfListadoTodos();
+                _this.loading = false;
+                console.log(resp);
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+            });
+        }
+        catch (error) {
+            this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+        }
+    };
+    LiquidacionDetalleComponent.prototype.loadPresentacionCirugiaTodos = function () {
+        var _this = this;
+        this.loading = true;
+        console.log(this.selecteditems);
+        try {
+            this.miServicio.getListadoPreFacturaCirugia(this.selecteditems)
+                .subscribe(function (resp) {
+                var i = 0;
+                var resultado = resp;
+                resultado.forEach(function (element) {
+                    resp[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+                    if ((resp[i]['paciente_barra_afiliado'] !== '0')) {
+                        resp[i]['numero_afiliado'] = resp[i]['numero_afiliado'] + '/' + resp[i]['paciente_barra_afiliado'];
+                    }
+                    console.log(resp[i]['fecha_cobro']);
+                    i++;
+                });
+                _this.elementosPreFactura = resp;
+                console.log(_this.elementosPreFactura);
+                _this.generarPdfListadoCirugiaTodos();
+                _this.loading = false;
+                console.log(resp);
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+            });
+        }
+        catch (error) {
+            this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+        }
+    };
+    LiquidacionDetalleComponent.prototype.loadPresentacionIva = function () {
+        var _this = this;
+        this.loading = true;
+        try {
+            this.miServicio.getListadoPreFactura(this.selecteditems)
+                .subscribe(function (resp) {
+                var i = 0;
+                var resultado = resp;
+                resultado.forEach(function (element) {
+                    resp[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+                    //    let t = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+                    console.log(resp[i]['fecha_cobro']);
+                    i++;
+                });
+                _this.elementosPreFactura = resp;
+                console.log(_this.elementosPreFactura);
+                _this.generarPdfListadoMedicoIVA();
+                _this.loading = false;
+                console.log(resp);
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+            });
+        }
+        catch (error) {
+            this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+        }
+    };
+    LiquidacionDetalleComponent.prototype.generarTxt = function () {
+        var _this = this;
+        this.loading = true;
+        try {
+            this.miServicio.generarTxt(this.selecteditems)
+                .subscribe(function (resp) {
+                _this.throwAlert('success', 'Se generó el archivo con éxito', '', '');
+                _this.loading = false;
+                console.log(resp);
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+            });
+        }
+        catch (error) {
+            this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+        }
+    };
+    LiquidacionDetalleComponent.prototype.generarTxtCirugia = function () {
+        var _this = this;
+        this.loading = true;
+        console.log(this.selecteditems);
+        try {
+            this.miServicio.getListadoPreFacturaCirugia(this.selecteditems)
+                .subscribe(function (resp) {
+                var i = 0;
+                var resultado = resp;
+                resultado.forEach(function (element) {
+                    resp[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(element['fecha_cobro'], 'dd/MM/yyyy HH:mm', 'en');
+                    if ((resp[i]['paciente_barra_afiliado'] !== '0')) {
+                        resp[i]['numero_afiliado'] = resp[i]['numero_afiliado'] + '/' + resp[i]['paciente_barra_afiliado'];
+                    }
+                    console.log(resp[i]['fecha_cobro']);
+                    i++;
+                });
+                _this.elementosPreFactura = resp;
+                console.log(_this.elementosPreFactura);
+                /***********
+                 *
+                 *
+                 *
+                 *
+                 *
+                 *
+                 *   ORDENO LA FACTURACION
+                 *
+                 *
+                 *
+                 * */
+                var j = 0;
+                for (i = 0; i < _this.elementosPreFactura.length; i++) {
+                    var practica = _this.elementosPreFactura[i]['convenio_os_pmo_id'];
+                    for (j = 0; j < _this.elementosPreFactura.length; j++) {
+                        if (_this.elementosPreFactura[j]['convenio_os_pmo_id'] === practica) {
+                            if ((_this.elementosPreFactura[j]['obra_social_practica_nombre'] === 'HONORARIOS') && (_this.elementosPreFactura[j]['complejidad'] !== 2)) {
+                                if (_this.elementosPreFactura[j]['operacion_cobro_distribucion_total'] === null) {
+                                    _this.elementosPreFactura[i]['operacion_cobro_distribucion_total'] = 0;
+                                }
+                                else {
+                                    if (_this.selecteditems[0]['obra_social_nombre'] === 'DOS - OBRA SOCIAL PROVINCIA') {
+                                        _this.elementosPreFactura[i]['honorarios'] = _this.elementosPreFactura[j]['operacion_cobro_distribucion_total'];
+                                    }
+                                    else {
+                                        _this.elementosPreFactura[i]['honorarios'] = _this.cp.transform((((_this.elementosPreFactura[j]['operacion_cobro_distribucion_total']) * 20) / 80), '', 'symbol-narrow', '1.2-2');
+                                    }
+                                }
+                            }
+                            if ((_this.elementosPreFactura[j]['obra_social_practica_nombre'] === 'GASTOS') && (_this.elementosPreFactura[j]['complejidad'] !== 2)) {
+                                if (_this.elementosPreFactura[j]['operacion_cobro_distribucion_total'] === null) {
+                                    _this.elementosPreFactura[i]['operacion_cobro_distribucion_total'] = 0;
+                                }
+                                else {
+                                    console.log(_this.selecteditems[0]['obra_social_id']);
+                                    if (_this.selecteditems[0]['obra_social_nombre'] == 'DOS - OBRA SOCIAL PROVINCIA') {
+                                        console.log('obra social');
+                                        _this.elementosPreFactura[i]['gastos'] = _this.elementosPreFactura[j]['operacion_cobro_distribucion_total'];
+                                    }
+                                    else {
+                                        console.log('coseguro');
+                                        _this.elementosPreFactura[i]['gastos'] = _this.cp.transform((((_this.elementosPreFactura[j]['operacion_cobro_distribucion_total']) * 20) / 80), '', 'symbol-narrow', '1.2-2');
+                                    }
+                                }
+                            }
+                            if (_this.elementosPreFactura[j]['complejidad'] === 2) {
+                                _this.elementosPreFactura[i]['gastos'] = _this.elementosPreFactura[j]['valor_facturado'];
+                                _this.elementosPreFactura[i]['honorarios'] = '0.00';
+                            }
+                        }
+                    }
+                }
+                var filteredArr = _this.elementosPreFactura.reduce(function (acc, current) {
+                    var x = acc.find(function (item) { return item['operacion_cobro_practica_id'] === current['operacion_cobro_practica_id']; });
+                    if (!x) {
+                        return acc.concat([current]);
+                    }
+                    else {
+                        return acc;
+                    }
+                }, []);
+                try {
+                    _this.miServicio.generarTxtCirugia(filteredArr)
+                        .subscribe(function (resp) {
+                        _this.throwAlert('success', 'Se generó el archivo con éxito', '', '');
+                        _this.loading = false;
+                        console.log(resp);
+                    }, function (error) {
+                        console.log(error.message);
+                        console.log(error.status);
+                        _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+                    });
+                }
+                catch (error) {
+                    _this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+                }
+                _this.loading = false;
+                console.log(resp);
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+            });
+        }
+        catch (error) {
+            this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+        }
+    };
+    LiquidacionDetalleComponent.prototype.loadPresentacionMedico = function () {
+        var _this = this;
+        this.loading = true;
+        try {
+            this.miServicio.getListadoPreFactura(this.selecteditems)
+                .subscribe(function (resp) {
+                var i = 0;
+                var resultado = resp;
+                resultado.forEach(function (element) {
+                    resp[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+                    if ((resp[i]['paciente_barra_afiliado'] !== '0')) {
+                        resp[i]['numero_afiliado'] = resp[i]['numero_afiliado'] + '/' + resp[i]['paciente_barra_afiliado'];
+                    }
+                    console.log(resp[i]['fecha_cobro']);
+                    i++;
+                });
+                _this.sumarValores(resp);
+                _this.elementosPreFactura = resp;
+                console.log(_this.elementosPreFactura);
+                _this.generarPdfListadoMedico();
+                _this.loading = false;
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+            });
+        }
+        catch (error) {
+            this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+        }
+    };
+    LiquidacionDetalleComponent.prototype.sumarValores = function (vals) {
+        var i;
+        console.log(vals);
+        this.total_facturado = 0;
+        this.cantidad = 0;
+        for (i = 0; i < vals.length; i++) {
+            this.cantidad = this.cantidad + Number(vals[i]['cant_orden']);
+            this.total_facturado = this.total_facturado + Number(vals[i]['total']);
+        }
+    };
+    LiquidacionDetalleComponent.prototype.filtered = function (event) {
+        console.log(event.filteredValue);
+        this.elementosFiltrados = event.filteredValue;
+        this.sumarValores(this.elementosFiltrados);
+    };
+    LiquidacionDetalleComponent.prototype.actualizarRegistros = function () {
+        var _this = this;
+        var userData = JSON.parse(localStorage.getItem('userData'));
+        var td = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy', 'en');
+        var th = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy', 'en');
+        sweetalert2__WEBPACK_IMPORTED_MODULE_3___default()({
+            title: '¿Desea actualizar estos  registros?',
+            text: 'Va a actualizar registros',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#C5E1A5',
+            cancelButtonColor: '#FF8A65',
+            confirmButtonText: 'Si, actualizar!',
+            cancelButtonText: 'No'
+        }).then(function (result) {
+            if (result.value) {
+                _this.selecteditems.forEach(function (element) {
+                    element['usuario_audita_id'] = userData['id'];
+                });
+                _this.actualizarRegistrosObraSocial();
+            }
+        });
+    };
+    LiquidacionDetalleComponent.prototype.actualizarRegistrosObraSocial = function () {
+        var _this = this;
+        if (this.selecteditems) {
+            this.loading = true;
+            console.log(this.selecteditems);
+            try {
+                this.practicaService.actualizarValoresPracticasByConvenio(this.selecteditems)
+                    .subscribe(function (resp) {
+                    _this.throwAlert('success', 'Se actualizaron los registros con éxito', '', '');
+                    _this.loading = false;
+                    console.log(resp);
+                }, function (error) {
+                    console.log(error.message);
+                    console.log(error.status);
+                    _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+                });
+            }
+            catch (error) {
+                this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+            }
+        }
+        else {
+            this.throwAlert('warning', 'No se selecciono ninguna ficha', '', '');
+        }
+    };
+    LiquidacionDetalleComponent.prototype.loadPresentacionMedicoACLISA = function () {
+    };
+    LiquidacionDetalleComponent.prototype.desafectarPresentacion = function () {
+        var _this = this;
+        console.log(this.selecteditemRegistro);
+        try {
+            this.practicaService.desafectarPresentacion(this.selecteditemRegistro['id'])
+                .subscribe(function (resp) {
+                _this.throwAlert('success', 'Se desafecto el registro  con éxito', '', '');
+                _this.loading = false;
+                console.log(resp);
+                _this.loadlist();
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+            });
+        }
+        catch (error) {
+            this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+        }
+    };
+    LiquidacionDetalleComponent.prototype.exportarExcel = function () {
+        var _this = this;
+        this.loading = true;
+        try {
+            this.miServicio.getListadoPreFactura(this.selecteditems)
+                .subscribe(function (resp) {
+                var i = 0;
+                var resultado = resp;
+                resultado.forEach(function (element) {
+                    resp[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+                    if ((resp[i]['paciente_barra_afiliado'] !== '0')) {
+                        resp[i]['numero_afiliado'] = resp[i]['numero_afiliado'] + '/' + resp[i]['paciente_barra_afiliado'];
+                    }
+                    i++;
+                });
+                _this.sumarValores(resp);
+                _this.elementosPreFactura = resp;
+                console.log(_this.elementosPreFactura);
+                _this.loading = false;
+                var fecha_impresion = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'dd-MM-yyyy-mm', 'es-Ar');
+                _this.miServicio.exportAsExcelFile(_this.elementosPreFactura, 'listado_presentacion' + fecha_impresion);
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+            });
+        }
+        catch (error) {
+            this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+        }
+    };
+    LiquidacionDetalleComponent.prototype.generarPdfListadoMedico = function () {
+        var td = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy', 'en');
+        var th = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy', 'en');
+        var _fechaEmision = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'en');
+        var rounded;
+        var total_facturado = 0;
+        var total_iva = 0;
+        var total_cantidad = 0;
+        var total_cantidad_impresion = '';
+        var fecha_impresion = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');
+        var i = 0;
+        var userData = JSON.parse(localStorage.getItem('userData'));
+        console.log(this.elementosPreFactura);
+        for (i = 0; i < this.elementosPreFactura.length; i++) {
+            total_cantidad = total_cantidad + Number(this.elementosPreFactura[i]['cantidad']);
+            total_facturado = total_facturado + Number(this.elementosPreFactura[i]['valor_facturado']);
+            //console.log( this.elementosPreFactura[i]['cantidad']);
+        }
+        total_cantidad_impresion = this.dp.transform(total_cantidad, '1.0-0');
+        if (this.selecteditems) {
+            var doc = new jsPDF('l');
+            var pageSize = doc.internal.pageSize;
+            var pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+            doc.addImage(_config_config__WEBPACK_IMPORTED_MODULE_1__["logo_clinica"], 'PNG', 10, 10, 40, 11);
+            doc.setLineWidth(0.4);
+            doc.setFontSize(9);
+            doc.text(this.elementosPreFactura[0]['medico_nombre'], 60, 10, null, null, 'left');
+            doc.setFontSize(6);
+            doc.text('Periodo: ' + td + ' al ' + th, pageSize.width - 60, 10, null, null);
+            doc.line(60, 13, pageWidth - 15, 13);
+            doc.setFontSize(7);
+            var nivel_facturacion = this.elementosPreFactura[0]['nivel'].substring(1, 2);
+            if (nivel_facturacion === 'F') {
+                doc.text('FACTURACION', pageWidth - 60, 20, null, null, 'left');
+            }
+            if (nivel_facturacion === 'R') {
+                doc.text('REFACTURACION', pageWidth - 60, 20, null, null, 'left');
+            }
+            if (nivel_facturacion === 'C') {
+                doc.text('COMPLEMENTARIA', pageWidth - 60, 20, null, null, 'left');
+            }
+            if (nivel_facturacion === 'T') {
+                doc.text('TRANSPANTE', pageWidth - 60, 20, null, null, 'left');
+            }
+            doc.text('Emitido : ' + _fechaEmision, pageWidth - 60, 35, null, null, 'left');
+            doc.setFontSize(9);
+            doc.text('Presentación a Obras Sociales', 60, 20, null, null, 'left');
+            doc.setFontSize(7);
+            doc.text(this.elementosPreFactura[0]['entidad_nombre'], 60, 25, null, null, 'left');
+            doc.text('Obra social: ' + this.elementosPreFactura[0]['obra_social_nombre'], 60, 30, null, null, 'left');
+            doc.setFontSize(8);
+            //doc.line(15, 35, pageWidth - 15, 35);
+            var pageNumber = doc.internal.getNumberOfPages();
+            doc.autoTable(this.columnsListadoTodos, this.elementosPreFactura, {
+                margin: { horizontal: 5, vertical: 38 },
+                bodyStyles: { valign: 'top' },
+                showHead: 'always',
+                styles: { fontSize: 6, cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify', overflow: 'linebreak' },
+                columnStyles: { descripcion: { columnWidth: 20 } }
+            });
+            doc.setFontSize(8);
+            var finalY = doc.autoTable.previous.finalY;
+            doc.line(15, finalY + 3, pageWidth - 15, finalY + 3);
+            doc.text(15, finalY + 8, 'Cantidad : ' + total_cantidad_impresion);
+            doc.text(pageWidth - 120, finalY + 8, 'Importe : ' + this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2'));
+            doc.text(pageWidth - 80, finalY + 8, 'IVA : ' + this.cp.transform(total_iva, '', 'symbol-narrow', '1.2-2'));
+            doc.text(pageWidth - 50, finalY + 8, 'Total : ' + this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2'));
+            //doc.text(15, finalY+10, 'en letras : $' + this.numberToWordsPipe.transform(13) ); 
+            var totalPagesExp_1 = '{total_pages_count_string}';
+            console.log(doc.putTotalPages);
+            var footer = function (data) {
+                var str = 'Page ' + data.pageCount;
+                // Total page number plugin only available in jspdf v1.0+
+                if (typeof doc.putTotalPages === 'function') {
+                    str = str + ' of ' + totalPagesExp_1;
+                    console.log('test');
+                }
+                doc.text(str, data.settings.margin.left, doc.internal.pageSize.height - 30);
+            };
+            window.open(doc.output('bloburl'));
+        }
+    };
+    LiquidacionDetalleComponent.prototype.generarPdfListadoTodos = function () {
+        var td = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy', 'en');
+        var th = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy', 'en');
+        var _fechaEmision = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'en');
+        var rounded;
+        var total_facturado = 0;
+        var total_iva = 0;
+        var total_cantidad = 0;
+        var total_cantidad_impresion = '';
+        var fecha_impresion = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');
+        var i = 0;
+        var userData = JSON.parse(localStorage.getItem('userData'));
+        for (i = 0; i < this.elementosPreFactura.length; i++) {
+            total_cantidad = total_cantidad + Number(this.elementosPreFactura[i]['cantidad']);
+            total_facturado = total_facturado + Number(this.elementosPreFactura[i]['valor_facturado']);
+            console.log(this.elementosPreFactura[i]['cantidad']);
+        }
+        total_cantidad_impresion = this.dp.transform(total_cantidad, '1.0-0');
+        if (this.selecteditems) {
+            var doc = new jsPDF('l');
+            var pageSize = doc.internal.pageSize;
+            var pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+            doc.addImage(_config_config__WEBPACK_IMPORTED_MODULE_1__["logo_clinica"], 'PNG', 10, 10, 40, 11);
+            doc.setLineWidth(0.4);
+            doc.setFontSize(9);
+            doc.text('Clínica de la Visión', 60, 10, null, null, 'left');
+            doc.setFontSize(6);
+            doc.text('Periodo: ' + td + ' al ' + th, pageSize.width - 60, 10, null, null);
+            doc.line(60, 13, pageWidth - 15, 13);
+            doc.setFontSize(7);
+            var nivel_facturacion = this.elementosPreFactura[0]['nivel'].substring(1, 2);
+            if (nivel_facturacion === 'F') {
+                doc.text('FACTURACION', pageWidth - 60, 20, null, null, 'left');
+            }
+            if (nivel_facturacion === 'R') {
+                doc.text('REFACTURACION', pageWidth - 60, 20, null, null, 'left');
+            }
+            if (nivel_facturacion === 'C') {
+                doc.text('COMPLEMENTARIA', pageWidth - 60, 20, null, null, 'left');
+            }
+            if (nivel_facturacion === 'T') {
+                doc.text('TRANSPANTE', pageWidth - 60, 20, null, null, 'left');
+            }
+            doc.text('Emitido : ' + _fechaEmision, pageWidth - 60, 35, null, null, 'left');
+            doc.setFontSize(9);
+            doc.text('Presentación a Obras Sociales', 60, 20, null, null, 'left');
+            doc.setFontSize(7);
+            doc.text(this.elementosPreFactura[0]['entidad_nombre'], 60, 25, null, null, 'left');
+            doc.text('Obra social: ' + this.elementosPreFactura[0]['obra_social_nombre'], 60, 30, null, null, 'left');
+            doc.setFontSize(8);
+            //doc.line(15, 35, pageWidth - 15, 35);
+            var pageNumber = doc.internal.getNumberOfPages();
+            doc.autoTable(this.columnsListadoTodos, this.elementosPreFactura, {
+                margin: { horizontal: 5, vertical: 38 },
+                bodyStyles: { valign: 'top' },
+                showHead: 'always',
+                styles: { fontSize: 6, cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify', overflow: 'linebreak' },
+                columnStyles: { text: { cellWidth: 'auto' } }
+            });
+            doc.setFontSize(8);
+            var finalY = doc.autoTable.previous.finalY;
+            doc.line(15, finalY + 3, pageWidth - 15, finalY + 3);
+            doc.text(15, finalY + 8, 'Cantidad : ' + total_cantidad_impresion);
+            doc.text(pageWidth - 120, finalY + 8, 'Importe : ' + this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2'));
+            doc.text(pageWidth - 80, finalY + 8, 'IVA : ' + this.cp.transform(total_iva, '', 'symbol-narrow', '1.2-2'));
+            doc.text(pageWidth - 50, finalY + 8, 'Total : ' + this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2'));
+            //doc.text(15, finalY+10, 'en letras : $' + this.numberToWordsPipe.transform(13) ); 
+            var totalPagesExp_2 = '{total_pages_count_string}';
+            console.log(doc.putTotalPages);
+            var footer = function (data) {
+                var str = 'Page ' + data.pageCount;
+                // Total page number plugin only available in jspdf v1.0+
+                if (typeof doc.putTotalPages === 'function') {
+                    str = str + ' of ' + totalPagesExp_2;
+                    console.log('test');
+                }
+                doc.text(str, data.settings.margin.left, doc.internal.pageSize.height - 30);
+            };
+            window.open(doc.output('bloburl'));
+        }
+    };
+    LiquidacionDetalleComponent.prototype.removeDuplicateUsingSet = function (arr) {
+        var unique_array = arr.filter(function (elem, index, self) {
+            return index == self.indexOf(elem);
+        });
+        return unique_array;
+    };
+    LiquidacionDetalleComponent.prototype.generarPdfListadoCirugiaTodos = function () {
+        var td = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy', 'en');
+        var th = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy', 'en');
+        var _fechaEmision = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'en');
+        var rounded;
+        var total_facturado = 0;
+        var tmp_elementosPrefactura = [];
+        var tmp;
+        var total_iva = 0;
+        var total_cantidad = 0;
+        var total_gastos = 0;
+        var total_honorario = 0;
+        var total_cantidad_impresion = '';
+        var fecha_impresion = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');
+        var i = 0;
+        var j = 0;
+        var k = 0;
+        var userData = JSON.parse(localStorage.getItem('userData'));
+        var existe; // valida si ya esta insertado el codigo
+        console.log('listado sin modificar');
+        console.log(this.elementosPreFactura);
+        for (i = 0; i < this.elementosPreFactura.length; i++) {
+            var practica = this.elementosPreFactura[i]['convenio_os_pmo_id'];
+            for (j = 0; j < this.elementosPreFactura.length; j++) {
+                if (this.elementosPreFactura[j]['convenio_os_pmo_id'] === practica) {
+                    if ((this.elementosPreFactura[j]['obra_social_practica_nombre'] === 'HONORARIOS') && (this.elementosPreFactura[j]['complejidad'] !== 2)) {
+                        if (this.elementosPreFactura[j]['operacion_cobro_distribucion_total'] === null) {
+                            this.elementosPreFactura[i]['operacion_cobro_distribucion_total'] = 0;
+                        }
+                        else {
+                            if (this.selecteditems[0]['obra_social_nombre'] === 'DOS - OBRA SOCIAL PROVINCIA') {
+                                console.log('obra social honorarios');
+                                this.elementosPreFactura[i]['honorarios'] = this.elementosPreFactura[j]['operacion_cobro_distribucion_total'];
+                                console.log(this.elementosPreFactura[j]['complejidad'] + ' cirugia ' + this.elementosPreFactura[j]['descripcion']);
+                            }
+                            else {
+                                console.log('coseguro honorarios');
+                                var t_hono = this.cp.transform((((this.elementosPreFactura[j]['operacion_cobro_distribucion_total']) * 20) / 80), '', '', '1.2-2');
+                                this.elementosPreFactura[i]['honorarios'] = t_hono;
+                            }
+                        }
+                    }
+                    if ((this.elementosPreFactura[j]['obra_social_practica_nombre'] === 'GASTOS') && (this.elementosPreFactura[j]['complejidad'] !== 2)) {
+                        if (this.elementosPreFactura[j]['operacion_cobro_distribucion_total'] === null) {
+                            this.elementosPreFactura[i]['operacion_cobro_distribucion_total'] = 0;
+                        }
+                        else {
+                            // console.log(this.selecteditems[0]['obra_social_id']);
+                            if (this.selecteditems[0]['obra_social_nombre'] === 'DOS - OBRA SOCIAL PROVINCIA') {
+                                //    console.log('obra social');
+                                console.log('obra social gastos');
+                                this.elementosPreFactura[i]['categoria'] = this.cp.transform(0, '', '', '1.2-2');
+                                this.elementosPreFactura[i]['gastos'] = this.elementosPreFactura[j]['operacion_cobro_distribucion_total'];
+                                //   total_gastos = total_gastos +Number( this.elementosPreFactura[i]['gastos']);
+                                console.log(this.elementosPreFactura[j]['complejidad'] + ' cirugia ' + this.elementosPreFactura[j]['descripcion']);
+                            }
+                            else {
+                                console.log('coseguro gastos');
+                                this.elementosPreFactura[i]['categoria'] = this.cp.transform(0, '', '', '1.2-2');
+                                this.elementosPreFactura[i]['gastos'] = this.cp.transform((((this.elementosPreFactura[j]['operacion_cobro_distribucion_total']) * 20) / 80), '', 'symbol-narrow', '1.2-2');
+                            }
+                        }
+                    }
+                    if (this.elementosPreFactura[j]['complejidad'] === 2) {
+                        // CAMBIO EL VALOR FACTURADO POR GASTO PARA QUE DE
+                        //     this.elementosPreFactura[i]['gastos'] =  this.elementosPreFactura[j]['valor_facturado'];
+                        this.elementosPreFactura[i]['gastos'] = this.elementosPreFactura[j]['valor_facturado'];
+                        this.elementosPreFactura[i]['honorarios'] = '0'; // this.cp.transform(0, '', '', '1.2-2');  
+                        this.elementosPreFactura[i]['categoria'] = 0; //this.cp.transform(0, '', '', '1.2-2'); 
+                        //  console.log('categoria 2 '+this.elementosPreFactura[j]['categoria']+' gasto '+this.elementosPreFactura[j]['descripcion'] );        // CAMBIAR A 4 PARA INSUMOS
+                    }
+                }
+            }
+        }
+        // vuelvo a generar un  arreglo quitando los repetidos
+        //  let mp_elementosPrefactura = this.removeDuplicateUsingSet(this.elementosPreFactura);
+        //console.log(mp_elementosPrefactura);
+        var filteredArr = this.elementosPreFactura.reduce(function (acc, current) {
+            var x = acc.find(function (item) { return item['operacion_cobro_practica_id'] === current['operacion_cobro_practica_id']; });
+            if (!x) {
+                return acc.concat([current]);
+            }
+            else {
+                return acc;
+            }
+        }, []);
+        console.log(filteredArr);
+        for (i = 0; i < filteredArr.length; i++) {
+            if (filteredArr[i]['valor_facturado']['complejidad'] === 2) {
+                filteredArr[i]['categorizacion'] = 0;
+                total_facturado = total_facturado + Number(filteredArr[i]['gastos']);
+                filteredArr[i]['valor_facturado'] = this.cp.transform(Number(filteredArr[i]['gastos']), '', 'symbol-narrow', '1.2-2');
+            }
+            else {
+                //total_honorario = total_honorario +Number( filteredArr[i]['honorarios']);
+                //total_honorario = total_honorario +Number(filteredArr[i]['operacion_cobro_distribucion_total'])+Number(filteredArr[i]['categorizacion']);
+                total_honorario = total_honorario + Number(filteredArr[i]['honorarios']) + Number(filteredArr[i]['categorizacion']);
+                total_gastos = total_gastos + Number(filteredArr[i]['gastos']);
+                total_facturado = total_facturado + Number(filteredArr[i]['valor_facturado']) + Number(filteredArr[i]['categorizacion']);
+                filteredArr[i]['valor_facturado'] = this.cp.transform(Number(filteredArr[i]['valor_facturado']) + Number(filteredArr[i]['categorizacion']), '', 'symbol-narrow', '1.2-2');
+            }
+            if (!total_honorario) {
+                total_honorario = 0;
+            }
+            if (!total_gastos) {
+                total_gastos = 0;
+            }
+            console.log(total_gastos);
+            total_cantidad = total_cantidad + Number(filteredArr[i]['cantidad']);
+        }
+        total_cantidad_impresion = this.dp.transform(total_cantidad, '1.0-0');
+        if (this.selecteditems) {
+            var doc = new jsPDF('l');
+            var pageSize = doc.internal.pageSize;
+            var pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+            doc.addImage(_config_config__WEBPACK_IMPORTED_MODULE_1__["logo_clinica"], 'PNG', 10, 10, 40, 11);
+            doc.setLineWidth(0.4);
+            doc.setFontSize(9);
+            doc.text('Clínica de la Visión', 60, 10, null, null, 'left');
+            doc.setFontSize(6);
+            doc.text('Periodo: ' + td + ' al ' + th, pageSize.width - 60, 10, null, null);
+            doc.line(60, 13, pageWidth - 15, 13);
+            doc.setFontSize(7);
+            var nivel_facturacion = this.elementosPreFactura[0]['nivel'].substring(1, 2);
+            if (nivel_facturacion === 'F') {
+                doc.text('FACTURACION', pageWidth - 60, 20, null, null, 'left');
+            }
+            if (nivel_facturacion === 'R') {
+                doc.text('REFACTURACION', pageWidth - 60, 20, null, null, 'left');
+            }
+            if (nivel_facturacion === 'C') {
+                doc.text('COMPLEMENTARIA', pageWidth - 60, 20, null, null, 'left');
+            }
+            if (nivel_facturacion === 'T') {
+                doc.text('TRANSPANTE', pageWidth - 60, 20, null, null, 'left');
+            }
+            doc.text('Emitido : ' + _fechaEmision, pageWidth - 60, 35, null, null, 'left');
+            doc.setFontSize(9);
+            doc.text('Presentación a Obras Sociales', 60, 20, null, null, 'left');
+            doc.setFontSize(7);
+            doc.text(this.elementosPreFactura[0]['entidad_nombre'], 60, 25, null, null, 'left');
+            doc.text('Obra social: ' + this.elementosPreFactura[0]['obra_social_nombre'], 60, 30, null, null, 'left');
+            doc.setFontSize(8);
+            //doc.line(15, 35, pageWidth - 15, 35);
+            var pageNumber = doc.internal.getNumberOfPages();
+            doc.autoTable(this.columnsListadoCirugiaTodos, filteredArr, {
+                margin: { horizontal: 5, vertical: 38 },
+                bodyStyles: { valign: 'top' },
+                showHead: 'firstPage',
+                styles: { fontSize: 6, cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify', overflow: 'linebreak' },
+                columnStyles: { text: { cellWidth: 'auto' } }
+            });
+            doc.setFontSize(8);
+            var finalY = doc.autoTable.previous.finalY;
+            doc.line(15, finalY + 3, pageWidth - 15, finalY + 3);
+            doc.text(15, finalY + 8, 'Cantidad : ' + total_cantidad_impresion);
+            doc.text(pageWidth - 130, finalY + 8, 'Honorarios : ' + this.cp.transform(total_honorario, '', 'symbol-narrow', '1.2-2'));
+            doc.text(pageWidth - 90, finalY + 8, 'Gastos : ' + this.cp.transform(total_gastos, '', 'symbol-narrow', '1.2-2'));
+            doc.text(pageWidth - 50, finalY + 8, 'Total : ' + this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2'));
+            //doc.text(15, finalY+10, 'en letras : $' + this.numberToWordsPipe.transform(13) ); 
+            var totalPagesExp_3 = '{total_pages_count_string}';
+            console.log(doc.putTotalPages);
+            var footer = function (data) {
+                var str = 'Page ' + data.pageCount;
+                // Total page number plugin only available in jspdf v1.0+
+                if (typeof doc.putTotalPages === 'function') {
+                    str = str + ' of ' + totalPagesExp_3;
+                    console.log('test');
+                }
+                doc.text(str, data.settings.margin.left, doc.internal.pageSize.height - 30);
+            };
+            window.open(doc.output('bloburl'));
+        }
+    };
+    LiquidacionDetalleComponent.prototype.generarPdfListadoMedicoIVA = function () {
+        var _fechaEmision = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'en');
+        var td = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy', 'en');
+        var th = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy', 'en');
+        var rounded;
+        var total_facturado = 0;
+        var total_iva = 0;
+        var total_cantidad = 0;
+        var total_sin_iva = 0;
+        var total_cantidad_impresion = '';
+        var fecha_impresion = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');
+        var i = 0;
+        var userData = JSON.parse(localStorage.getItem('userData'));
+        console.log(this.elementosPreFactura);
+        for (i = 0; i < this.elementosPreFactura.length; i++) {
+            total_cantidad = total_cantidad + Number(this.elementosPreFactura[i]['cantidad']);
+            total_facturado = total_facturado + Number(this.elementosPreFactura[i]['valor_facturado']);
+            console.log(this.elementosPreFactura[i]['cantidad']);
+        }
+        total_iva = total_facturado * 0.105;
+        total_sin_iva = total_facturado;
+        total_facturado = total_facturado + total_iva;
+        total_cantidad_impresion = this.dp.transform(total_cantidad, '1.0-0');
+        if (this.selecteditems) {
+            var doc = new jsPDF('l');
+            var pageSize = doc.internal.pageSize;
+            var pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+            doc.addImage(_config_config__WEBPACK_IMPORTED_MODULE_1__["logo_clinica"], 'PNG', 10, 10, 40, 11);
+            doc.setLineWidth(0.4);
+            doc.setFontSize(9);
+            doc.text(this.elementosPreFactura[0]['medico_nombre'], 60, 10, null, null, 'left');
+            doc.setFontSize(6);
+            doc.text('Periodo: ' + td + ' al ' + th, pageSize.width - 60, 10, null, null);
+            doc.line(60, 13, pageWidth - 15, 13);
+            doc.setFontSize(7);
+            var nivel_facturacion = this.elementosPreFactura[0]['nivel'].substring(1, 2);
+            if (nivel_facturacion === 'F') {
+                doc.text('FACTURACION', pageWidth - 60, 20, null, null, 'left');
+            }
+            if (nivel_facturacion === 'R') {
+                doc.text('REFACTURACION', pageWidth - 60, 20, null, null, 'left');
+            }
+            if (nivel_facturacion === 'C') {
+                doc.text('COMPLEMENTARIA', pageWidth - 60, 20, null, null, 'left');
+            }
+            if (nivel_facturacion === 'T') {
+                doc.text('TRANSPANTE', pageWidth - 60, 20, null, null, 'left');
+            }
+            doc.text('Emitido : ' + _fechaEmision, pageWidth - 60, 35, null, null, 'left');
+            doc.setFontSize(9);
+            doc.text('Presentación a Obras Sociales', 60, 20, null, null, 'left');
+            doc.setFontSize(7);
+            doc.text(this.elementosPreFactura[0]['entidad_nombre'], 60, 25, null, null, 'left');
+            doc.text('Obra social: ' + this.elementosPreFactura[0]['obra_social_nombre'], 60, 30, null, null, 'left');
+            doc.setFontSize(8);
+            //doc.line(15, 35, pageWidth - 15, 35);
+            var pageNumber = doc.internal.getNumberOfPages();
+            doc.autoTable(this.columnsListadoTodos, this.elementosPreFactura, {
+                margin: { horizontal: 5, vertical: 38 },
+                bodyStyles: { valign: 'top' },
+                showHead: 'firstPage',
+                styles: { fontSize: 6, cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify', overflow: 'linebreak' },
+                columnStyles: { text: { cellWidth: 'auto' } }
+            });
+            doc.setFontSize(8);
+            var finalY = doc.autoTable.previous.finalY;
+            doc.line(15, finalY + 3, pageWidth - 15, finalY + 3);
+            doc.text(15, finalY + 8, 'Cantidad : ' + total_cantidad_impresion);
+            doc.text(pageWidth - 120, finalY + 8, 'Importe : ' + this.cp.transform(total_sin_iva, '', 'symbol-narrow', '1.2-2'));
+            doc.text(pageWidth - 80, finalY + 8, 'IVA : ' + this.cp.transform(total_iva, '', 'symbol-narrow', '1.2-2'));
+            doc.text(pageWidth - 50, finalY + 8, 'Total : ' + this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2'));
+            //doc.text(15, finalY+10, 'en letras : $' + this.numberToWordsPipe.transform(13) ); 
+            var totalPagesExp_4 = '{total_pages_count_string}';
+            console.log(doc.putTotalPages);
+            var footer = function (data) {
+                var str = 'Page ' + data.pageCount;
+                // Total page number plugin only available in jspdf v1.0+
+                if (typeof doc.putTotalPages === 'function') {
+                    str = str + ' of ' + totalPagesExp_4;
+                    console.log('test');
+                }
+                doc.text(str, data.settings.margin.left, doc.internal.pageSize.height - 30);
+            };
+            window.open(doc.output('bloburl'));
+        }
+    };
+    LiquidacionDetalleComponent.prototype.showToast = function (estado, mensaje, encabezado) {
+        if (estado == 'exito') {
+            this.messageService.add({ severity: 'success', summary: mensaje, detail: encabezado });
+        }
+        if (estado == 'info') {
+            this.messageService.add({ severity: 'info', summary: 'El campo no es correcto', detail: 'Los datos del campo son incorrectos' });
+        }
+        if (estado == 'warning') {
+            this.messageService.add({ severity: 'warning', summary: 'El campo no es correcto', detail: 'Los datos del campo son incorrectos' });
+        }
+        if (estado == 'error') {
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo modificar el registro' });
+        }
+    };
+    LiquidacionDetalleComponent.prototype.throwAlert = function (estado, mensaje, motivo, errorNumero) {
+        var tipoerror;
+        if (estado == 'success') {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_3___default()({
+                type: 'success',
+                title: 'Exito',
+                text: mensaje
+            });
+        }
+        if (errorNumero == '422') {
+            mensaje = 'Los datos que esta tratando de guardar son iguales a los que ya poseia';
+            sweetalert2__WEBPACK_IMPORTED_MODULE_3___default()({
+                type: 'warning',
+                title: 'Atención..',
+                text: mensaje,
+                footer: motivo
+            });
+        }
+        if ((estado == 'error') && (errorNumero != '422')) {
+            if (errorNumero == '422') {
+                mensaje = 'Los datos que esta tratando de guardar son iguales a los que ya poseia';
+            }
+            if (errorNumero == '400 ') {
+                mensaje = 'Bad Request ';
+            }
+            if (errorNumero == '404') {
+                mensaje = 'No encontrado ';
+            }
+            if (errorNumero == '401') {
+                mensaje = 'Sin autorización';
+            }
+            if (errorNumero == '403') {
+                mensaje = ' Prohibido : La consulta fue valida, pero el servidor rechazo la accion. El usuario puede no tener los permisos necesarios, o necesite una cuenta para operar ';
+            }
+            if (errorNumero == '405') {
+                mensaje = 'Método no permitido';
+            }
+            if (errorNumero == '500') {
+                mensaje = 'Error interno en el servidor';
+            }
+            if (errorNumero == '503') {
+                mensaje = 'Servidor no disponible';
+            }
+            if (errorNumero == '502') {
+                mensaje = 'Bad gateway';
+            }
+            sweetalert2__WEBPACK_IMPORTED_MODULE_3___default()({
+                type: 'error',
+                title: 'Oops...',
+                text: mensaje,
+                footer: motivo
+            });
+        }
     };
     LiquidacionDetalleComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-liquidacion-detalle',
             template: __webpack_require__(/*! ./liquidacion-detalle.component.html */ "./src/app/pages/facturacion/liquidacion/liquidar/liquidacion-detalle/liquidacion-detalle.component.html"),
+            providers: [primeng_api__WEBPACK_IMPORTED_MODULE_4__["MessageService"], primeng_components_common_api__WEBPACK_IMPORTED_MODULE_5__["DialogService"]],
             styles: [__webpack_require__(/*! ./liquidacion-detalle.component.css */ "./src/app/pages/facturacion/liquidacion/liquidar/liquidacion-detalle/liquidacion-detalle.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_liquidacion_service__WEBPACK_IMPORTED_MODULE_9__["LiquidacionService"], src_app_services_practica_service__WEBPACK_IMPORTED_MODULE_6__["PracticaService"], primeng_api__WEBPACK_IMPORTED_MODULE_4__["MessageService"], primeng_components_common_api__WEBPACK_IMPORTED_MODULE_5__["DialogService"], _shared_pipes_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_10__["NumberToWordsPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["CurrencyPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["DecimalPipe"]])
     ], LiquidacionDetalleComponent);
     return LiquidacionDetalleComponent;
 }());
@@ -23223,15 +24340,14 @@ var NavbarComponent = /** @class */ (function () {
                         label: 'Liquidación',
                         visible: !this.facturacion_control,
                         items: [
-                            { label: 'Presentación', 'routerLink': 'facturacion/liquidacion/confeccion/factura' },
-                            { label: 'Liquidación D.O.S', 'routerLink': 'facturacion/liquidacion/provincia' },
+                            { label: 'Presentación', 'routerLink': 'facturacion/liquidacion/presentacion' },
                             {
                                 label: 'Liquidación',
                                 visible: !this.facturacion_control,
                                 items: [
-                                    { label: 'Detalle de liquidación', 'routerLink': 'facturacion/liquidacion/detalle' },
+                                    { label: 'Confeccionar liquidación', 'routerLink': 'facturacion/liquidacion/confeccion' },
                                     { label: 'Liquidar', 'routerLink': 'facturacion/liquidacion/liquidar' },
-                                    { label: 'Generar liquidación', 'routerLink': 'facturacion/liquidacion/generada' },
+                                    { label: 'Contabilidad', 'routerLink': 'facturacion/liquidacion/generada' },
                                 ]
                             }
                         ]
@@ -24945,6 +26061,203 @@ var PopupDerivarAsesoramientoComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_services_cirugia_service__WEBPACK_IMPORTED_MODULE_1__["CirugiaService"], primeng_api__WEBPACK_IMPORTED_MODULE_2__["DynamicDialogConfig"], primeng_api__WEBPACK_IMPORTED_MODULE_2__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_2__["DynamicDialogRef"], primeng_components_common_api__WEBPACK_IMPORTED_MODULE_3__["DialogService"]])
     ], PopupDerivarAsesoramientoComponent);
     return PopupDerivarAsesoramientoComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component.css":
+/*!**********************************************************************************************************************************************!*\
+  !*** ./src/app/shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component.css ***!
+  \**********************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NoYXJlZC9jb21wb25lbnRzL3BvcHVwcy9wb3B1cC1kZXRhbGxlLW9wZXJhY2lvbi1jb2Jyby1kaXN0cmlidWNpb24vcG9wdXAtZGV0YWxsZS1vcGVyYWNpb24tY29icm8tZGlzdHJpYnVjaW9uLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component.html":
+/*!***********************************************************************************************************************************************!*\
+  !*** ./src/app/shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component.html ***!
+  \***********************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div >\n \n    <div class=\"row\">\n      <div class=\" col-8\">\n          <p-dropdown [options]=\"elementos\" [(ngModel)]=\"selectedMedicoOpera\" optionLabel=\"nombre\" [style]=\"{'width':'350px'}\"></p-dropdown>\n      </div>\n      <div class=\" col-2\">\n        <div class=\"input-group mb-2\">\n            <input type=\"number\" (change)=\"calcularPorcentaje()\" class=\"form-control\" [(ngModel)]=\"medicoOperaPorcentaje\" placeholder=\"Porcentaje\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\n            <div class=\"input-group-append\">\n              <span class=\"input-group-text\" id=\"basic-addon2\">%</span>\n            </div>\n          </div>\n      </div>\n\n      <div class=\" col-2\">\n          <div class=\"input-group mb-3\">\n          <input type=\"number\"  class=\"form-control\" [(ngModel)]=\"medicoOperaDistribucion\" placeholder=\"Distribución\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\n          <div class=\"input-group-append\">\n            <span class=\"input-group-text\" id=\"basic-addon2\">$</span>\n          </div>\n        </div>\n      </div>\n\n      <div class=\" col-8\">\n          <p-dropdown [options]=\"elementos\" [(ngModel)]=\"selectedMedicoAyuda\" optionLabel=\"nombre\" [style]=\"{'width':'350px'}\"></p-dropdown>\n      </div>\n      <div class=\" col-2\">\n        <div class=\"input-group mb-2\">\n            <input type=\"text\" (change)=\"calcularPorcentaje()\" class=\"form-control\" [(ngModel)]=\"medicoAyudaPorcentaje\" placeholder=\"Porcentaje\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\n            <div class=\"input-group-append\">\n              <span class=\"input-group-text\" id=\"basic-addon2\">%</span>\n            </div>\n          </div>\n      </div>\n\n      <div class=\" col-2\">\n          <div class=\"input-group mb-3\">\n          <input type=\"text\" class=\"form-control\" [(ngModel)]=\"medicoAyudaDistribucion\" placeholder=\"Distribución\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\n          <div class=\"input-group-append\">\n            <span class=\"input-group-text\" id=\"basic-addon2\">$</span>\n          </div>\n        </div>\n      </div>\n\n      <div class=\" col-8\">\n          <p-dropdown [options]=\"elementos\" [(ngModel)]=\"selectedMedicoAyuda2\" optionLabel=\"nombre\" [style]=\"{'width':'350px'}\"></p-dropdown>\n      </div>\n      <div class=\" col-2\">\n        <div class=\"input-group mb-2\">\n            <input type=\"text\" (change)=\"calcularPorcentaje()\" class=\"form-control\" [(ngModel)]=\"medicoAyuda2Porcentaje\" placeholder=\"Porcentaje\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\n            <div class=\"input-group-append\">\n              <span class=\"input-group-text\" id=\"basic-addon2\">%</span>\n            </div>\n          </div>\n      </div>\n\n      <div class=\" col-2\">\n          <div class=\"input-group mb-3\">\n          <input type=\"text\" class=\"form-control\" [(ngModel)]=\"medicoAyuda2Distribucion\" placeholder=\"Distribución\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\n          <div class=\"input-group-append\">\n            <span class=\"input-group-text\" id=\"basic-addon2\">$</span>\n          </div>\n        </div>\n      </div>\n\n      <div class=\" col-8\">\n          <p-dropdown [options]=\"elementos\" [(ngModel)]=\"selectedClinica\" optionLabel=\"nombre\" [style]=\"{'width':'350px'}\"></p-dropdown>\n      </div>\n      <div class=\" col-2\">\n        <div class=\"input-group mb-2\">\n            <input type=\"number\" (change)=\"calcularPorcentaje()\" class=\"form-control\" [(ngModel)]=\"medicoClinicaPorcentaje\" placeholder=\"Porcentaje\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\n            <div class=\"input-group-append\">\n              <span class=\"input-group-text\" id=\"basic-addon2\">%</span>\n            </div>\n          </div>\n      </div>\n\n      <div class=\" col-2\">\n          <div class=\"input-group mb-3\">\n          <input type=\"number\" class=\"form-control\" [(ngModel)]=\"medicoClinicaDistribucion\" placeholder=\"Distribución\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\">\n          <div class=\"input-group-append\">\n            <span class=\"input-group-text\" id=\"basic-addon2\">$</span>\n          </div>\n        </div>\n      </div>\n      <hr>\n      <div class=\" col-6\"></div>\n      <div class=\" col-2\"></div>\n      <div class=\" col-4\">\n          <h6 class=\"text-info\">TOTAL A CALCULADO {{TOTAL_CALCULADO|  number : '1.2-2' }} $</h6>    \n      </div>\n  </div>\n    \n    \n    \n\n\n  </div>\n\n<hr>\n<h5 class=\"text-info\">TOTAL A DISTRIBUIR {{TOTAL_DISTRIBUCION|  number : '1.2-2' }}</h5>\n\n<div><button    class=\"btn  btn-success btn-sm \"  (click)=\"guardarDistribucion()\" >Guardar distribución</button></div>  "
+
+/***/ }),
+
+/***/ "./src/app/shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component.ts":
+/*!*********************************************************************************************************************************************!*\
+  !*** ./src/app/shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component.ts ***!
+  \*********************************************************************************************************************************************/
+/*! exports provided: PopupDetalleOperacionCobroDistribucionComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PopupDetalleOperacionCobroDistribucionComponent", function() { return PopupDetalleOperacionCobroDistribucionComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_medico_obra_social_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../services/medico-obra-social.service */ "./src/app/services/medico-obra-social.service.ts");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/api.js");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(primeng_api__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../config/config */ "./src/app/config/config.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var PopupDetalleOperacionCobroDistribucionComponent = /** @class */ (function () {
+    function PopupDetalleOperacionCobroDistribucionComponent(miServico, ref, config) {
+        this.miServico = miServico;
+        this.ref = ref;
+        this.config = config;
+        this.TOTAL_DISTRIBUCION = 1000;
+        this.TOTAL_CALCULADO = 0;
+        /** porcentaje */
+        this.medicoOperaPorcentaje = 0;
+        this.medicoAyudaPorcentaje = 0;
+        this.medicoAyuda2Porcentaje = 0;
+        this.medicoClinicaPorcentaje = 50;
+        /** distribucion */
+        this.medicoOperaDistribucion = 0;
+        this.medicoAyudaDistribucion = 0;
+        this.medicoAyuda2Distribucion = 0;
+        this.medicoClinicaDistribucion = 0;
+        this.elemento = null;
+        this.elementos = null;
+    }
+    PopupDetalleOperacionCobroDistribucionComponent.prototype.ngOnInit = function () {
+        console.log(this.config.data);
+        this.selecteditems = this.config.data;
+        this.sumarValores();
+        this.calcularPorcentaje();
+        this.loadList();
+    };
+    PopupDetalleOperacionCobroDistribucionComponent.prototype.loadList = function () {
+        var _this = this;
+        this.es = _config_config__WEBPACK_IMPORTED_MODULE_4__["calendarioIdioma"];
+        this.loading = true;
+        try {
+            this.miServico.getItemMedicoTodos()
+                .subscribe(function (resp) {
+                var i = 0;
+                var resultado = resp;
+                resultado.forEach(function (element) {
+                    resp[i]['nombre'] = element['apellido'] + ' ' + element['nombre'];
+                    _this.elementos = resp;
+                    i++;
+                });
+                console.log(_this.elementos);
+                _this.loading = false;
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+            });
+        }
+        catch (error) {
+            this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+        }
+    };
+    PopupDetalleOperacionCobroDistribucionComponent.prototype.guardarDistribucion = function () {
+        console.log(this.selectedMedicoOpera);
+        console.log(this.selectedMedicoAyuda);
+        console.log(this.selectedMedicoAyuda2);
+        console.log(this.selectedClinica);
+    };
+    PopupDetalleOperacionCobroDistribucionComponent.prototype.calcularPorcentaje = function () {
+        this.medicoOperaDistribucion = (this.medicoOperaPorcentaje * this.TOTAL_DISTRIBUCION) / 100;
+        this.medicoAyudaDistribucion = (this.medicoAyudaPorcentaje * this.TOTAL_DISTRIBUCION) / 100;
+        this.medicoAyuda2Distribucion = (this.medicoAyuda2Porcentaje * this.TOTAL_DISTRIBUCION) / 100;
+        this.medicoClinicaDistribucion = (this.medicoClinicaPorcentaje * this.TOTAL_DISTRIBUCION) / 100;
+        this.TOTAL_CALCULADO = this.medicoOperaDistribucion + this.medicoAyudaDistribucion + this.medicoAyuda2Distribucion + this.medicoClinicaDistribucion;
+    };
+    PopupDetalleOperacionCobroDistribucionComponent.prototype.sumarValores = function () {
+        var i;
+        console.log(this.selecteditems !== undefined);
+        this.TOTAL_DISTRIBUCION = 0;
+        for (i = 0; i < this.selecteditems.length; i++) {
+            this.TOTAL_DISTRIBUCION = this.TOTAL_DISTRIBUCION + Number(this.selecteditems[i]['valor_facturado']);
+        }
+        console.log(this.TOTAL_DISTRIBUCION);
+    };
+    PopupDetalleOperacionCobroDistribucionComponent.prototype.throwAlert = function (estado, mensaje, motivo, errorNumero) {
+        var tipoerror;
+        if (estado == 'success') {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_3___default()({
+                type: 'success',
+                title: 'Exito',
+                text: mensaje
+            });
+        }
+        if (errorNumero == '422') {
+            mensaje = 'Los datos que esta tratando de guardar son iguales a los que ya poseia';
+            sweetalert2__WEBPACK_IMPORTED_MODULE_3___default()({
+                type: 'warning',
+                title: 'Atención..',
+                text: mensaje,
+                footer: motivo
+            });
+        }
+        if ((estado == 'error') && (errorNumero != '422')) {
+            if (errorNumero == '422') {
+                mensaje = 'Los datos que esta tratando de guardar son iguales a los que ya poseia';
+            }
+            if (errorNumero == '400 ') {
+                mensaje = 'Bad Request ';
+            }
+            if (errorNumero == '404') {
+                mensaje = 'No encontrado ';
+            }
+            if (errorNumero == '401') {
+                mensaje = 'Sin autorización';
+            }
+            if (errorNumero == '403') {
+                mensaje = ' Prohibido : La consulta fue valida, pero el servidor rechazo la accion. El usuario puede no tener los permisos necesarios, o necesite una cuenta para operar ';
+            }
+            if (errorNumero == '405') {
+                mensaje = 'Método no permitido';
+            }
+            if (errorNumero == '500') {
+                mensaje = 'Error interno en el servidor';
+            }
+            if (errorNumero == '503') {
+                mensaje = 'Servidor no disponible';
+            }
+            if (errorNumero == '502') {
+                mensaje = 'Bad gateway';
+            }
+            sweetalert2__WEBPACK_IMPORTED_MODULE_3___default()({
+                type: 'error',
+                title: 'Oops...',
+                text: mensaje,
+                footer: motivo
+            });
+        }
+    };
+    PopupDetalleOperacionCobroDistribucionComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-popup-detalle-operacion-cobro-distribucion',
+            template: __webpack_require__(/*! ./popup-detalle-operacion-cobro-distribucion.component.html */ "./src/app/shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component.html"),
+            styles: [__webpack_require__(/*! ./popup-detalle-operacion-cobro-distribucion.component.css */ "./src/app/shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_medico_obra_social_service__WEBPACK_IMPORTED_MODULE_1__["MedicoObraSocialService"], primeng_api__WEBPACK_IMPORTED_MODULE_2__["DynamicDialogRef"], primeng_api__WEBPACK_IMPORTED_MODULE_2__["DynamicDialogConfig"]])
+    ], PopupDetalleOperacionCobroDistribucionComponent);
+    return PopupDetalleOperacionCobroDistribucionComponent;
 }());
 
 
@@ -29805,6 +31118,620 @@ var PopupOperacionCobroDetalleComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component.css":
+/*!******************************************************************************************************************************!*\
+  !*** ./src/app/shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component.css ***!
+  \******************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NoYXJlZC9jb21wb25lbnRzL3BvcHVwcy9wb3B1cC1vcGVyYWNpb24tY29icm8tZGlzdHJpYnVjaW9uL3BvcHVwLW9wZXJhY2lvbi1jb2Jyby1kaXN0cmlidWNpb24uY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component.html":
+/*!*******************************************************************************************************************************!*\
+  !*** ./src/app/shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component.html ***!
+  \*******************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n \n</div>\n<p-toast (life)=\"100\" styleClass=\"custom-toast\" [style]=\"{marginTop: '100px'}\"></p-toast>\n\n<div class=\"row\" >\n    \n  <div class=\"row \" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n      <div  class=\"input-group input-group-sm \">\n              <form  [formGroup]=\"DateForm\">\n              <div class=\"btn-group \" role=\"group\">\n                      <span class=\"pr-1 pt-1\"><h6>Desde:</h6></span>\n          <p-calendar [inputStyle]=\"{'height':'29.1px'}\" [styleClass]=\"form-control\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_desde\"  (onSelect)=\"actualizarFechaDesde($event)\" tabindex=\"0\"  [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n             <ng-template pTemplate=\"date\" let-date>\n                  <span    style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n              </ng-template> \n            </p-calendar>\n            <span class=\"pr-1 pt-1\"><h6>Hasta:</h6></span>\n            <p-calendar [inputStyle]=\"{'height':'29.1px'}\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_hasta\"  (onSelect)=\"actualizarFechaHasta($event)\" tabindex=\"0\"  [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n              <ng-template pTemplate=\"date\" let-date>\n                   <span  inputStyle=\"{'height':'29.5px'}\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n               </ng-template> \n             </p-calendar>               \n                        \n            \n              \n \n          \n      </div>\n           \n              </form>      \n \n      </div>\n\n      \n    \n  </div>\n\n  <p-table  #dt class=\"pt-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\" [value]=\"elementos\"  (onEditComplete)=\"editRow($event)\" [(selection)]=\"selecteditems\" columnResizeMode=\"expand\" [responsive]=\"true\"\n  scrollHeight=\"400px\" [scrollable]=\"true\"  (onFilter)=\"filtered($event)\"  >\n  <ng-template pTemplate=\"caption\">\n    <div class=\"row\">\n            <div class=\"col-md-7 row\" style=\"text-align:left \">\n              <div class=\"pr-2 pl-2\">    <button    class=\"btn  btn-outline-info btn-sm float-right mr-2\"  (click)=\"loadRegistro()\" >Buscar Registros</button>  </div>\n             <div class=\"pr-2 pl-2\">   <button    class=\"btn  btn-outline-secondary btn-sm   \"  (click)=\"generarPdfListado('todos')\" >Imprimir resumen</button></div>\n             <div class=\"pr-2 pl-2\">   <button    class=\"btn  btn-outline-secondary btn-sm   \"  (click)=\"generarPdfListado('todos')\" >Imprimir distribución</button></div>\n             <div><button    class=\"btn  btn-success btn-sm \"  (click)=\"cargarDistribucion('todos')\" >Cargar distribución</button></div>  \n                                      \n            </div>\n\n </div>\n</ng-template>\n\n             <ng-template pTemplate=\"header\" let-columns >\n            \n                        <tr >\n                             \n                          <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\n                              {{col.header}}\n                              <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activate to sort in descending order\" ariaLabelAsc=\"Activate to sort in ascending order\"></p-sortIcon>\n                          </th> \n                          <th style=\"width: 3em\">\n                                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>\n                          </th>\n                      </tr> \n                      <tr>\n                      <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\"  >\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'operacion_cobro_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\"  class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'apellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'dni'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'descripcion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'complejidad'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'codigo'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'medico_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value , col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'usuario_cobro_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'fecha_cobro'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'cantidad'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                                             \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'valor_facturado'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'distribucion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'forma_pago'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          \n                      </th>\n                      <th></th>\n                  </tr>\n              </ng-template>\n            \n      <ng-template pTemplate=\"body\" let-elementos  >\n          <tr style=\"height:20px\" [ngClass]=\"colorRow(elementos.forma_pago)\">\n                 \n                  <td style=\"width: 6%\" >                   \n                      <a     (click)=\"accion($event,op,elementos)\"    ><i class=\"far fa-edit fa-2x icon-color-purple my-hover\"></i></a>\n                   \n                  </td>\n                  <td style=\"width: 5%\">{{elementos.liquidacion_numero}}</td>\n                  <td style=\"width: 5%\">{{elementos.operacion_cobro_id}}</td>\n                  <td style=\"width: 10%\">{{elementos.apellido}}</td>\n                  <td style=\"width: 10%\">{{elementos.nombre}}</td>\n                  <td style=\"width: 7%\">{{elementos.dni}}</td>\n                  <td style=\"width: 15%\">{{elementos.obra_social_nombre}}</td>                                                    \n                  <td style=\"width: 20%\">{{elementos.descripcion}}</td>                            \n                  <td style=\"width: 5%\">{{elementos.complejidad}}</td>  \n                  <td style=\"width: 8%\">{{elementos.codigo}}</td>  \n                  <td style=\"width: 10%\">{{elementos.medico_nombre}}</td>  \n                  <td style=\"width: 8%\">{{elementos.usuario_cobro_nombre}}</td> \n                  <td style=\"width: 8%\">{{elementos.fecha_cobro | date: 'dd/MM/yyyy'}}</td>       \n                  <td style=\"width: 6%\">{{elementos.cantidad}}</td>                                         \n                  <td style=\"width: 6%\">{{elementos.valor_facturado}}</td>    \n                  <td style=\"width: 6%\">{{elementos.distribucion}}</td>    \n                  <td style=\"width: 10%\">{{elementos.forma_pago}}</td>    \n                              \n                  <td style=\"width: 3em\">\n                          <p-tableCheckbox [value]=\"elementos\"></p-tableCheckbox>\n                      </td>\n          </tr>\n      </ng-template>\n      <ng-template pTemplate=\"summary\">\n             <ul>\n                <div class=\"row float-right mr-2\">\n                    <h6 class=\"text-info pr-2\">CANTIDAD PRACTICAS : {{cantidad_practica}}  -</h6>\n                    <h6 class=\"text-danger\"> TOTAL REAL : {{total_original|  number : '1.2-2' }} $ -</h6>\n                    <h6 class=\"text-info\"> TOTAL : {{total_facturado|  number : '1.2-2' }} $</h6>\n                </div>\n              </ul>\n          </ng-template> \n  </p-table>\n</div>\n\n\n\n<p-overlayPanel #op [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" >                          \n    <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"editarRegistro(selecteditems)\">Editar distribución</a></span>   \n    <span> <hr></span>\n    <span>   <a class=\"nav-link azul text-info my-hover\" (click)=\"verRegistro(selecteditems)\">Ver distribución</a></span>\n  </p-overlayPanel>  \n  \n  \n  \n  "
+
+/***/ }),
+
+/***/ "./src/app/shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component.ts":
+/*!*****************************************************************************************************************************!*\
+  !*** ./src/app/shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component.ts ***!
+  \*****************************************************************************************************************************/
+/*! exports provided: PopupOperacionCobroDistribucionComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PopupOperacionCobroDistribucionComponent", function() { return PopupOperacionCobroDistribucionComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../config/config */ "./src/app/config/config.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/api.js");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(primeng_api__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var primeng_components_common_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/components/common/api */ "./node_modules/primeng/components/common/api.js");
+/* harmony import */ var primeng_components_common_api__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(primeng_components_common_api__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var src_app_services_practica_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/practica.service */ "./src/app/services/practica.service.ts");
+/* harmony import */ var src_app_models_operacion_cobro_detalle_model__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/models/operacion-cobro-detalle.model */ "./src/app/models/operacion-cobro-detalle.model.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var src_app_shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/components/popups/popup-obra-social/popup-obra-social.component */ "./src/app/shared/components/popups/popup-obra-social/popup-obra-social.component.ts");
+/* harmony import */ var _popup_operacion_cobro_registro_editar_popup_operacion_cobro_registro_editar_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../popup-operacion-cobro-registro-editar/popup-operacion-cobro-registro-editar.component */ "./src/app/shared/components/popups/popup-operacion-cobro-registro-editar/popup-operacion-cobro-registro-editar.component.ts");
+/* harmony import */ var _popup_operacion_cobro_editar_popup_operacion_cobro_editar_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./../popup-operacion-cobro-editar/popup-operacion-cobro-editar.component */ "./src/app/shared/components/popups/popup-operacion-cobro-editar/popup-operacion-cobro-editar.component.ts");
+/* harmony import */ var _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../models/liquidacion.model */ "./src/app/models/liquidacion.model.ts");
+/* harmony import */ var _popup_operacion_cobro_presentacion_editar_registro_popup_operacion_cobro_presentacion_editar_registro_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../popup-operacion-cobro-presentacion-editar-registro/popup-operacion-cobro-presentacion-editar-registro.component */ "./src/app/shared/components/popups/popup-operacion-cobro-presentacion-editar-registro/popup-operacion-cobro-presentacion-editar-registro.component.ts");
+/* harmony import */ var _popup_medico_popup_medico_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./../popup-medico/popup-medico.component */ "./src/app/shared/components/popups/popup-medico/popup-medico.component.ts");
+/* harmony import */ var _popup_detalle_operacion_cobro_distribucion_popup_detalle_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component */ "./src/app/shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var jsPDF = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.min.js");
+__webpack_require__(/*! jspdf-autotable */ "./node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.js");
+
+
+
+
+
+
+
+
+//import { PopupMedicoComponent } from './../../../../pages/mantenimiento/popup/popup-medico/popup-medico.component';
+
+
+
+
+var PopupOperacionCobroDistribucionComponent = /** @class */ (function () {
+    function PopupOperacionCobroDistribucionComponent(miServicio, config, messageService, dialogService, cp) {
+        this.miServicio = miServicio;
+        this.config = config;
+        this.messageService = messageService;
+        this.dialogService = dialogService;
+        this.cp = cp;
+        this.cantidad_practica = 0;
+        this.total_facturado = 0;
+        this.total_original = 0;
+        this.elemento = null;
+        this.elementos = null;
+        this.elementosFiltrados = null;
+        this.selecteditems = [];
+        this.selecteditemRegistro = null;
+        this.popItemOperacionCobro = null;
+        this.elemento_temp = null;
+        this.popItemMedico = null;
+        this._id = 0;
+        this.cols = [
+            { field: 'accion', header: 'Accion', width: '6%' },
+            { field: 'liquidacion_numero', header: 'Liq. Nº', width: '5%' },
+            { field: 'operacion_cobro_id', header: 'Cobro Nº', width: '5%' },
+            { field: 'apellido', header: 'Apellido', width: '10%' },
+            { field: 'nombre', header: 'Nombre', width: '10%' },
+            { field: 'dni', header: 'DNI', width: '7%' },
+            { field: 'obra_social_nombre', header: 'O.S', width: '15%' },
+            { field: 'descripcion', header: 'Descrpición', width: '20%' },
+            { field: 'complejidad', header: 'nivel', width: '5%' },
+            { field: 'codigo', header: 'Codigo', width: '8%' },
+            { field: 'medico_nombre', header: 'Médico', width: '10%' },
+            { field: 'usuario_cobro_nombre', header: 'Usuario', width: '8%' },
+            { field: 'fecha_cobro', header: 'Fecha', width: '8%' },
+            { field: 'cantidad', header: 'Cant.', width: '6%' },
+            { field: 'valor_facturado', header: 'Fact.', width: '6%' },
+            { field: 'distribucion', header: 'dist', width: '6%' },
+            { field: 'forma_pago', header: 'Medio', width: '10%' }
+        ];
+        this.columns = [
+            { title: 'Apellido', dataKey: 'apellido' },
+            { title: 'Nombre', dataKey: 'nombre' },
+            { title: 'DNI', dataKey: 'dni' },
+            { title: 'Obra social', dataKey: 'obra_social_nombre' },
+            { title: 'Código', dataKey: 'codigo' },
+            { title: 'Descripción', dataKey: 'descripcion' },
+            { title: 'Nivel', dataKey: 'complejidad' },
+            { title: 'Cobro', dataKey: 'fecha_cobro' },
+            { title: 'Cant', dataKey: 'cantidad' },
+            { title: 'Nivel', dataKey: 'complejidad' },
+            { title: 'Valor F.', dataKey: 'valor_facturado' }
+        ];
+        this.DateForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            'fecha_desde': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
+            'fecha_hasta': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
+            'numero': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](''),
+            'nivel': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](''),
+            'obra_social_id': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('0'),
+            'obra_social_nombre': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](''),
+            'medico_id': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('0'),
+            'medico_nombre': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('')
+        });
+    }
+    PopupOperacionCobroDistribucionComponent.prototype.ngOnInit = function () {
+        console.log(this.config.data);
+        this.elemento_temp = this.config.data;
+        this.es = _config_config__WEBPACK_IMPORTED_MODULE_1__["calendarioIdioma"];
+        this.fechaDesde = new Date();
+        this.fechaHasta = new Date();
+        this.DateForm.patchValue({ fecha_desde: this.fechaDesde });
+        this.DateForm.patchValue({ fecha_hasta: this.fechaHasta });
+        this.popItemOperacionCobro = new src_app_models_operacion_cobro_detalle_model__WEBPACK_IMPORTED_MODULE_7__["OperacionCobroDetalle"]('', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '', '', '');
+        this.liquidacion = new _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_12__["Liquidacion"]('', '', '', '', '', '', '', 0, 0, '', '', [], '', '', '');
+        this.loadRegistroByIdLiquidacion();
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.actualizarFechaDesde = function (event) {
+        console.log(event);
+        this.fechaDesde = event;
+        console.log(new Date(this.fechaDesde));
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.actualizarFechaHasta = function (event) {
+        console.log(event);
+        this.fechaHasta = event;
+        console.log(new Date(this.fechaHasta));
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.actualizarFechaPeriodo = function (event) {
+        console.log(event);
+        this.fechaPeriodo = event;
+        console.log(new Date(this.fechaPeriodo));
+    };
+    /** CARGA LA LISTA **/
+    PopupOperacionCobroDistribucionComponent.prototype.editRow = function (row) {
+        console.log(row.data);
+        this.popItem = row.data;
+        /* if( this.actualizarDatos()){
+        this.showToast('exito','Registro modificado','Exito al modificar');
+    }*/
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.accion = function (event, overlaypanel, elementos) {
+        if (elementos) {
+            this.selecteditemRegistro = elementos;
+        }
+        console.log(this.selecteditemRegistro);
+        overlaypanel.toggle(event);
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.sumarValores = function (vals) {
+        var i;
+        //console.log(vals[1]['valor_facturado']);
+        console.log(vals !== undefined);
+        this.total_facturado = 0;
+        this.total_original = 0;
+        this.cantidad_practica = 0;
+        for (i = 0; i < vals.length; i++) {
+            this.total_original = this.total_original + Number(vals[i]['valor_original']);
+            this.total_facturado = this.total_facturado + Number(vals[i]['valor_facturado']);
+        }
+        this.cantidad_practica = vals.length;
+        console.log(this.total_facturado);
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.filtered = function (event) {
+        console.log(event.filteredValue);
+        this.elementosFiltrados = event.filteredValue;
+        this.sumarValores(this.elementosFiltrados);
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.editarRegistro = function () {
+        var _this = this;
+        var data;
+        data = this.selecteditemRegistro;
+        var ref = this.dialogService.open(_popup_operacion_cobro_registro_editar_popup_operacion_cobro_registro_editar_component__WEBPACK_IMPORTED_MODULE_10__["PopupOperacionCobroRegistroEditarComponent"], {
+            data: data,
+            header: 'Editar registro',
+            width: '98%',
+            height: '90%'
+        });
+        ref.onClose.subscribe(function (PopupOperacionCobroRegistroEditarComponent) {
+            if (PopupOperacionCobroRegistroEditarComponent) {
+                console.log(PopupOperacionCobroRegistroEditarComponent);
+                _this.popItemOperacionCobro = PopupOperacionCobroRegistroEditarComponent;
+                //  this.formObraSocial.patchValue({id: this.popItemObraSocial.id});
+                // this.formObraSocial.patchValue({nombre: this.popItemObraSocial.nombre});
+            }
+        });
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.editarOperacionCobro = function () {
+        var _this = this;
+        var data;
+        data = this.selecteditemRegistro;
+        var ref = this.dialogService.open(_popup_operacion_cobro_editar_popup_operacion_cobro_editar_component__WEBPACK_IMPORTED_MODULE_11__["PopupOperacionCobroEditarComponent"], {
+            data: data,
+            header: 'Editar registro',
+            width: '98%',
+            height: '90%'
+        });
+        ref.onClose.subscribe(function (PopupOperacionCobroEditarComponent) {
+            _this.loadRegistro();
+            if (PopupOperacionCobroEditarComponent) {
+                console.log(PopupOperacionCobroEditarComponent);
+                //  this.popItemOperacionCobro = PopupOperacionCobroEditarComponent;
+                //  this.formObraSocial.patchValue({id: this.popItemObraSocial.id});
+                // this.formObraSocial.patchValue({nombre: this.popItemObraSocial.nombre});
+            }
+        });
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.editarPresentacion = function () {
+        var _this = this;
+        var data;
+        data = this.selecteditemRegistro;
+        var ref = this.dialogService.open(_popup_operacion_cobro_presentacion_editar_registro_popup_operacion_cobro_presentacion_editar_registro_component__WEBPACK_IMPORTED_MODULE_13__["PopupOperacionCobroPresentacionEditarRegistroComponent"], {
+            data: data,
+            header: 'Editar registro',
+            width: '100%',
+            height: '100%'
+        });
+        ref.onClose.subscribe(function (PopupOperacionCobroPresentacionEditarRegistroComponent) {
+            _this.loadRegistro();
+            if (PopupOperacionCobroPresentacionEditarRegistroComponent) {
+                console.log(PopupOperacionCobroPresentacionEditarRegistroComponent);
+                //  this.popItemOperacionCobro = PopupOperacionCobroEditarComponent;
+                //  this.formObraSocial.patchValue({id: this.popItemObraSocial.id});
+                // this.formObraSocial.patchValue({nombre: this.popItemObraSocial.nombre});
+            }
+        });
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.eliminarRegistro = function () {
+        var _this = this;
+        sweetalert2__WEBPACK_IMPORTED_MODULE_3___default()({
+            title: '¿Desea eliminar el registro?',
+            text: 'Va a eliminar un registro',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, guardar!'
+        }).then(function (result) {
+            if (result.value) {
+                _this.deleteRegistro(_this.selecteditemRegistro.id);
+            }
+        });
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.buscarMedico = function () {
+        var _this = this;
+        var data;
+        var ref = this.dialogService.open(_popup_medico_popup_medico_component__WEBPACK_IMPORTED_MODULE_14__["PopupMedicoComponent"], {
+            data: data,
+            header: 'Buscar Médico',
+            width: '98%',
+            height: '90%'
+        });
+        ref.onClose.subscribe(function (PopupMedicoComponent) {
+            if (PopupMedicoComponent) {
+                console.log(PopupMedicoComponent);
+                _this.popItemMedico = PopupMedicoComponent;
+                _this.DateForm.patchValue({ medico_id: _this.popItemMedico.usuario_id });
+                _this.DateForm.patchValue({ medico_nombre: _this.popItemMedico.apellido + " " + _this.popItemMedico.nombre });
+                console.log(_this.DateForm.value);
+            }
+        });
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.buscarObraSocial = function () {
+        var _this = this;
+        var data;
+        var ref = this.dialogService.open(src_app_shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_9__["PopupObraSocialComponent"], {
+            data: data,
+            header: 'Buscar Obra social',
+            width: '98%',
+            height: '90%'
+        });
+        ref.onClose.subscribe(function (PopupObraSocialComponent) {
+            if (PopupObraSocialComponent) {
+                console.log(PopupObraSocialComponent);
+                _this.popItemObraSocial = PopupObraSocialComponent;
+                _this.DateForm.patchValue({ obra_social_id: _this.popItemObraSocial.id });
+                _this.DateForm.patchValue({ obra_social_nombre: _this.popItemObraSocial.nombre });
+                console.log(_this.DateForm.value);
+            }
+        });
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.loadRegistro = function () {
+        var _this = this;
+        this.es = _config_config__WEBPACK_IMPORTED_MODULE_1__["calendarioIdioma"];
+        this.loading = true;
+        this._fechaDesde = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaDesde, 'yyyy-MM-dd HH:mm', 'en');
+        this._fechaHasta = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaHasta, 'yyyy-MM-dd HH:mm', 'en');
+        console.log(this._fechaDesde + ' ' + this._fechaHasta);
+        try {
+            this.miServicio.getOperacionCobroRegistrosBetweenDates(this._fechaDesde, this._fechaHasta, 'AFE')
+                .subscribe(function (resp) {
+                if (resp[0]) {
+                    _this.elementos = resp;
+                    console.log(_this.elementos);
+                }
+                else {
+                    _this.elementos = null;
+                }
+                _this.loading = false;
+                console.log(resp);
+                _this.sumarValores(resp);
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+            });
+        }
+        catch (error) {
+            this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+        }
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.loadRegistroByIdLiquidacion = function () {
+        var _this = this;
+        this.es = _config_config__WEBPACK_IMPORTED_MODULE_1__["calendarioIdioma"];
+        this.loading = true;
+        try {
+            this.miServicio.getOperacionCobroRegistrosByLiquidacionNumero(this.config.data.id)
+                .subscribe(function (resp) {
+                if (resp[0]) {
+                    _this.elementos = resp;
+                    console.log(_this.elementos);
+                }
+                else {
+                    _this.elementos = null;
+                }
+                _this.loading = false;
+                console.log(resp);
+                _this.sumarValores(resp);
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+            });
+        }
+        catch (error) {
+            this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+        }
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.deleteRegistro = function (id) {
+        var _this = this;
+        try {
+            this.miServicio.destroyByPracticaById(id)
+                .subscribe(function (resp) {
+                if (resp == 1) {
+                    _this.throwAlert('success', 'Se modificó el registro con éxito', '', '');
+                    _this.loadRegistro();
+                }
+                else {
+                    _this.throwAlert('error', 'No se elimino ningun registro', 'Registro', '200');
+                }
+                _this.loading = false;
+                console.log(resp);
+                _this.sumarValores(resp);
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+            });
+        }
+        catch (error) {
+            this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+        }
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.cargarDistribucion = function () {
+        console.log(this.selecteditems);
+        console.log(this.selecteditemRegistro);
+        var data;
+        data = this.selecteditems;
+        var ref = this.dialogService.open(_popup_detalle_operacion_cobro_distribucion_popup_detalle_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_15__["PopupDetalleOperacionCobroDistribucionComponent"], {
+            data: data,
+            header: 'Agregar distribución a práctica',
+            width: '70%',
+            height: '60%'
+        });
+        ref.onClose.subscribe(function (PopupDetalleOperacionCobroDistribucionComponent) {
+            if (PopupDetalleOperacionCobroDistribucionComponent) {
+                console.log(PopupDetalleOperacionCobroDistribucionComponent);
+                //  this.popItemOperacionCobro = PopupOperacionCobroEditarComponent;
+                //  this.formObraSocial.patchValue({id: this.popItemObraSocial.id});
+                // this.formObraSocial.patchValue({nombre: this.popItemObraSocial.nombre});
+            }
+        });
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.generarPdfListado = function (filtro) {
+        console.log(this.selecteditems);
+        var _fechaEmision = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'en');
+        var _fechaDesde = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy HH:mm', 'en');
+        var _fechaHasta = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy HH:mm', 'en');
+        var tfacturado = 0;
+        var ttransferencia = 0;
+        var tdebito = 0;
+        var tcredito = 0;
+        var tefectivo = 0;
+        var tpractica = 0;
+        var tvarios = 0;
+        var tcheque = 0;
+        var tconsulta_medico = 0;
+        var testudio_medico = 0;
+        var testudio_clinica = 0;
+        var ttotal_medico = 0;
+        var i = 0;
+        for (i = 0; i < this.selecteditems.length; i++) {
+            if (this.selecteditems[i]['forma_pago'] === 'TRANSFERENCIA') {
+                ttransferencia = ttransferencia + Number(this.selecteditems[i]['valor_facturado']);
+            }
+            if (this.selecteditems[i]['forma_pago'] === 'EFECTIVO') {
+                tefectivo = tefectivo + Number(this.selecteditems[i]['valor_facturado']);
+            }
+            if (this.selecteditems[i]['forma_pago'] === 'TARJETA - CREDITO') {
+                tcredito = tcredito + Number(this.selecteditems[i]['valor_facturado']);
+            }
+            if (this.selecteditems[i]['forma_pago'] === 'TARJETA - DEBITO') {
+                tdebito = tdebito + Number(this.selecteditems[i]['valor_facturado']);
+            }
+            if (this.selecteditems[i]['forma_pago'] === 'CHEQUE') {
+                tcheque = tcheque + Number(this.selecteditems[i]['valor_facturado']);
+            }
+            if (this.selecteditems[i]['forma_pago'] === 'VARIOS') {
+                tvarios = tvarios + Number(this.selecteditems[i]['valor_facturado']);
+            }
+            console.log(this.selecteditems[i]['complejidad']);
+            if ((this.selecteditems[i]['complejidad'] == '2') && (this.selecteditems[i]['forma_pago'] !== 'TRANSFERENCIA') && (this.selecteditems[i]['forma_pago'] !== 'TARJETA - CREDITO') && (this.selecteditems[i]['forma_pago'] !== 'TARJETA - DEBITO')) {
+                console.log(this.selecteditems[i]['valor_facturado']);
+                testudio_medico = testudio_medico + Number(this.selecteditems[i]['valor_facturado']) * 0.5;
+                ttotal_medico = Number(ttotal_medico) + Number(testudio_medico);
+            }
+            if ((this.selecteditems[i]['complejidad'] == '1') && (this.selecteditems[i]['forma_pago'] !== 'TRANSFERENCIA') && (this.selecteditems[i]['forma_pago'] !== 'TARJETA - CREDITO') && (this.selecteditems[i]['forma_pago'] !== 'TARJETA - DEBITO')) {
+                tconsulta_medico = tconsulta_medico + Number(this.selecteditems[i]['valor_facturado']);
+                ttotal_medico = Number(ttotal_medico) + Number(tconsulta_medico);
+            }
+            tfacturado = tfacturado + Number(this.selecteditems[i]['valor_facturado']);
+        }
+        //tfacturado = Number(this.cp.transform(tfacturado, '', 'symbol-narrow', '1.2-2'));
+        var userData = JSON.parse(localStorage.getItem('userData'));
+        console.log(this.elementosFiltrados);
+        console.log(this.selecteditems);
+        if (this.selecteditems) {
+            var _fechaDesde_1 = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy HH:mm', 'en');
+            var _fechaHasta_1 = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy HH:mm', 'en');
+            var doc = new jsPDF('landscape');
+            /** valores de la pagina**/
+            var pageSize = doc.internal.pageSize;
+            var pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+            doc.addImage(_config_config__WEBPACK_IMPORTED_MODULE_1__["logo_clinica"], 'PNG', 10, 10, 40, 11);
+            doc.setLineWidth(0.4);
+            doc.line(10, 33, pageWidth - 10, 33);
+            doc.setFontSize(12);
+            doc.text('LISTADO DE ORDENES', pageWidth / 2, 15, null, null, 'center');
+            doc.setFontSize(6);
+            doc.text('Emitido : ' + _fechaEmision, pageWidth / 2, 20, null, null, 'center');
+            doc.setFontSize(8);
+            doc.setFontSize(6);
+            doc.text(15, 38, 'Tarjeta : ' + this.cp.transform(tcredito, '', 'symbol-narrow', '1.2-2'));
+            doc.text(45, 38, 'Debito: ' + this.cp.transform(tdebito, '', 'symbol-narrow', '1.2-2'));
+            doc.text(75, 38, 'Efectivo: ' + this.cp.transform(tefectivo, '', 'symbol-narrow', '1.2-2'));
+            doc.text(105, 38, 'Transferencia: ' + this.cp.transform(ttransferencia, '', 'symbol-narrow', '1.2-2'));
+            doc.text(135, 38, 'Total : ' + this.cp.transform(tfacturado, '', 'symbol-narrow', '1.2-2'));
+            doc.setFontSize(8);
+            if (filtro === 'medico') {
+                doc.text(pageWidth - 60, 15, 'Médico : ' + this.selecteditems[0]['medico_nombre']);
+                doc.text(pageWidth - 60, 20, 'Usuario : ' + userData['nombreyapellido']);
+                doc.text(pageWidth - 60, 25, 'Desde : ' + _fechaDesde_1);
+                doc.text(pageWidth - 60, 30, 'Hasta : ' + _fechaHasta_1);
+                doc.text(pageWidth - 100, 15, 'Prácticas : ' + this.cp.transform(testudio_medico, '', 'symbol-narrow', '1.2-2'));
+                doc.text(pageWidth - 100, 20, 'Consultas: ' + this.cp.transform(tconsulta_medico, '', 'symbol-narrow', '1.2-2'));
+                // doc.line(pageWidth-100, 23, pageWidth-80, 23);
+                // doc.setFontSize(10);
+                // doc.text(pageWidth-100, 30, 'Total : ' +this.cp.transform(ttotal_medico, '', 'symbol-narrow', '1.2-2') ); 
+                doc.setFontSize(8);
+            }
+            else {
+                doc.text(pageWidth - 60, 15, 'CLINICA DE LA VISION');
+                doc.text(pageWidth - 60, 20, 'Usuario : ' + userData['nombreyapellido']);
+                doc.text(pageWidth - 60, 25, 'Desde : ' + _fechaDesde_1);
+                doc.text(pageWidth - 60, 30, 'Hasta : ' + _fechaHasta_1);
+                doc.setFontSize(10);
+                doc.text(pageWidth - 100, 30, 'Prácticas : ' + this.cp.transform(testudio_medico, '', 'symbol-narrow', '1.2-2'));
+                doc.setFontSize(8);
+            }
+            doc.setFontSize(10);
+            doc.setFontSize(8);
+            doc.autoTable(this.columns, this.selecteditems, {
+                margin: { horizontal: 5, vertical: 42 },
+                bodyStyles: { valign: 'top' },
+                styles: { fontSize: 6, cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify' },
+                columnStyles: { text: { cellWidth: 'auto' } }
+            });
+            // doc.save('rendicion-de-caja'+_fechaEmision+'.pdf');
+            window.open(doc.output('bloburl'));
+        }
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.colorRow = function (estado) {
+        if (estado == 'EFECTIVO') {
+            return { 'es-efectivo': 'null' };
+        }
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.showToast = function (estado, mensaje, encabezado) {
+        if (estado == 'exito') {
+            this.messageService.add({ severity: 'success', summary: mensaje, detail: encabezado });
+        }
+        if (estado == 'info') {
+            this.messageService.add({ severity: 'info', summary: 'El campo no es correcto', detail: 'Los datos del campo son incorrectos' });
+        }
+        if (estado == 'warning') {
+            this.messageService.add({ severity: 'warning', summary: 'El campo no es correcto', detail: 'Los datos del campo son incorrectos' });
+        }
+        if (estado == 'error') {
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo modificar el registro' });
+        }
+    };
+    PopupOperacionCobroDistribucionComponent.prototype.throwAlert = function (estado, mensaje, motivo, errorNumero) {
+        var tipoerror;
+        if (estado == 'success') {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_3___default()({
+                type: 'success',
+                title: 'Exito',
+                text: mensaje
+            });
+        }
+        if (errorNumero == '422') {
+            mensaje = 'Los datos que esta tratando de guardar son iguales a los que ya poseia';
+            sweetalert2__WEBPACK_IMPORTED_MODULE_3___default()({
+                type: 'warning',
+                title: 'Atención..',
+                text: mensaje,
+                footer: motivo
+            });
+        }
+        if ((estado == 'error') && (errorNumero != '422')) {
+            if (errorNumero == '422') {
+                mensaje = 'Los datos que esta tratando de guardar son iguales a los que ya poseia';
+            }
+            if (errorNumero == '400 ') {
+                mensaje = 'Bad Request ';
+            }
+            if (errorNumero == '404') {
+                mensaje = 'No encontrado ';
+            }
+            if (errorNumero == '401') {
+                mensaje = 'Sin autorización';
+            }
+            if (errorNumero == '403') {
+                mensaje = ' Prohibido : La consulta fue valida, pero el servidor rechazo la accion. El usuario puede no tener los permisos necesarios, o necesite una cuenta para operar ';
+            }
+            if (errorNumero == '405') {
+                mensaje = 'Método no permitido';
+            }
+            if (errorNumero == '500') {
+                mensaje = 'Error interno en el servidor';
+            }
+            if (errorNumero == '503') {
+                mensaje = 'Servidor no disponible';
+            }
+            if (errorNumero == '502') {
+                mensaje = 'Bad gateway';
+            }
+            sweetalert2__WEBPACK_IMPORTED_MODULE_3___default()({
+                type: 'error',
+                title: 'Oops...',
+                text: mensaje,
+                footer: motivo
+            });
+        }
+    };
+    PopupOperacionCobroDistribucionComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-popup-operacion-cobro-distribucion',
+            template: __webpack_require__(/*! ./popup-operacion-cobro-distribucion.component.html */ "./src/app/shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component.html"),
+            providers: [primeng_api__WEBPACK_IMPORTED_MODULE_4__["MessageService"], primeng_components_common_api__WEBPACK_IMPORTED_MODULE_5__["DialogService"]],
+            styles: [__webpack_require__(/*! ./popup-operacion-cobro-distribucion.component.css */ "./src/app/shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component.css")]
+        }),
+        __metadata("design:paramtypes", [src_app_services_practica_service__WEBPACK_IMPORTED_MODULE_6__["PracticaService"], primeng_api__WEBPACK_IMPORTED_MODULE_4__["DynamicDialogConfig"], primeng_api__WEBPACK_IMPORTED_MODULE_4__["MessageService"], primeng_components_common_api__WEBPACK_IMPORTED_MODULE_5__["DialogService"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["CurrencyPipe"]])
+    ], PopupOperacionCobroDistribucionComponent);
+    return PopupOperacionCobroDistribucionComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/components/popups/popup-operacion-cobro-editar/popup-operacion-cobro-editar.component.css":
 /*!******************************************************************************************************************!*\
   !*** ./src/app/shared/components/popups/popup-operacion-cobro-editar/popup-operacion-cobro-editar.component.css ***!
@@ -30176,7 +32103,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n \n</div>\n<p-toast (life)=\"100\" styleClass=\"custom-toast\" [style]=\"{marginTop: '100px'}\"></p-toast>\n\n<div class=\"row\" >\n    \n  <div class=\"row \" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n      <div  class=\"input-group input-group-sm \">\n              <form  [formGroup]=\"DateForm\">\n              <div class=\"btn-group \" role=\"group\">\n                      <span class=\"pr-1 pt-1\"><h6>Desde:</h6></span>\n          <p-calendar [inputStyle]=\"{'height':'29.1px'}\" [styleClass]=\"form-control\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_desde\"  (onSelect)=\"actualizarFechaDesde($event)\" tabindex=\"0\"  [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n             <ng-template pTemplate=\"date\" let-date>\n                  <span    style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n              </ng-template> \n            </p-calendar>\n            <span class=\"pr-1 pt-1\"><h6>Hasta:</h6></span>\n            <p-calendar [inputStyle]=\"{'height':'29.1px'}\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_hasta\"  (onSelect)=\"actualizarFechaHasta($event)\" tabindex=\"0\"  [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n              <ng-template pTemplate=\"date\" let-date>\n                   <span  inputStyle=\"{'height':'29.5px'}\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n               </ng-template> \n             </p-calendar>               \n                        \n            \n              \n \n          \n      </div>\n           \n              </form>      \n \n      </div>\n\n      \n    \n  </div>\n\n  <p-table  #dt class=\"pt-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\" [value]=\"elementos\"  (onEditComplete)=\"editRow($event)\" [(selection)]=\"selecteditems\" columnResizeMode=\"expand\" [responsive]=\"true\"\n  scrollHeight=\"600px\" [scrollable]=\"true\"  (onFilter)=\"filtered($event)\"  >\n  <ng-template pTemplate=\"caption\">\n    <div class=\"row\">\n            <div class=\"col-md-7 row\" style=\"text-align:left \">\n              <div class=\"pr-2 pl-2\">    <button    class=\"btn  btn-outline-secondary btn-sm float-right mr-2\"  (click)=\"loadRegistro()\" >Buscar Registros</button>  </div>\n             <div class=\"pr-2 pl-2\">   <button    class=\"btn  btn-outline-info btn-sm   \"  (click)=\"generarPdfListado('todos')\" >Imprimir resumen</button></div>\n             <div><button    class=\"btn  btn-outline-success btn-sm \"  (click)=\"generarPdfListado('medico')\" >Imprimir resumen por médico</button></div>  \n                                      \n            </div>\n\n </div>\n</ng-template>\n\n             <ng-template pTemplate=\"header\" let-columns >\n            \n                        <tr >\n                             \n                          <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\n                              {{col.header}}\n                              <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activate to sort in descending order\" ariaLabelAsc=\"Activate to sort in ascending order\"></p-sortIcon>\n                          </th> \n                          <th style=\"width: 3em\">\n                                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>\n                          </th>\n                      </tr> \n                      <tr>\n                      <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\"  >\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'operacion_cobro_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\"  class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'apellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'dni'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'descripcion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'complejidad'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'codigo'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'medico_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value , col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'usuario_cobro_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'fecha_cobro'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'cantidad'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                                             \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'valor_facturado'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'distribucion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'forma_pago'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          \n                      </th>\n                      <th></th>\n                  </tr>\n              </ng-template>\n            \n      <ng-template pTemplate=\"body\" let-elementos  >\n          <tr style=\"height:20px\" [ngClass]=\"colorRow(elementos.forma_pago)\">\n                 \n                  <td style=\"width: 6%\" >                   \n                      <a     (click)=\"accion($event,op,elementos)\"    ><i class=\"far fa-edit fa-2x icon-color-purple my-hover\"></i></a>\n                   \n                  </td>\n                  <td style=\"width: 5%\">{{elementos.liquidacion_numero}}</td>\n                  <td style=\"width: 5%\">{{elementos.operacion_cobro_id}}</td>\n                  <td style=\"width: 10%\">{{elementos.apellido}}</td>\n                  <td style=\"width: 10%\">{{elementos.nombre}}</td>\n                  <td style=\"width: 7%\">{{elementos.dni}}</td>\n                  <td style=\"width: 15%\">{{elementos.obra_social_nombre}}</td>                                                    \n                  <td style=\"width: 20%\">{{elementos.descripcion}}</td>                            \n                  <td style=\"width: 5%\">{{elementos.complejidad}}</td>  \n                  <td style=\"width: 8%\">{{elementos.codigo}}</td>  \n                  <td style=\"width: 10%\">{{elementos.medico_nombre}}</td>  \n                  <td style=\"width: 8%\">{{elementos.usuario_cobro_nombre}}</td> \n                  <td style=\"width: 8%\">{{elementos.fecha_cobro | date: 'dd/MM/yyyy'}}</td>       \n                  <td style=\"width: 6%\">{{elementos.cantidad}}</td>                                         \n                  <td style=\"width: 6%\">{{elementos.valor_facturado}}</td>    \n                  <td style=\"width: 6%\">{{elementos.distribucion}}</td>    \n                  <td style=\"width: 10%\">{{elementos.forma_pago}}</td>    \n                              \n                  <td style=\"width: 3em\">\n                          <p-tableCheckbox [value]=\"elementos\"></p-tableCheckbox>\n                      </td>\n          </tr>\n      </ng-template>\n      <ng-template pTemplate=\"summary\">\n             <ul>\n                <div class=\"row float-right mr-2\">\n                    <h6 class=\"text-info pr-2\">CANTIDAD PRACTICAS : {{cantidad_practica}}  -</h6>\n                    <h6 class=\"text-danger\"> TOTAL REAL : {{total_original|  number : '1.2-2' }} $ -</h6>\n                    <h6 class=\"text-info\"> TOTAL : {{total_facturado|  number : '1.2-2' }} $</h6>\n                </div>\n              </ul>\n          </ng-template> \n  </p-table>\n</div>\n\n\n\n<p-overlayPanel #op [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" >                          \n    <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"editarRegistro(selecteditems)\">Editar registro</a></span>\n    <span>   <a class=\"nav-link azul text-danger  my-hover\" (click)=\"editarOperacionCobro(selecteditems)\">Editar operacion cobro</a></span>\n    <span> <hr></span>\n    <span>   <a class=\"nav-link azul text-info my-hover\" (click)=\"eliminarRegistro(selecteditems)\">Eliminar registro</a></span>\n  </p-overlayPanel>  \n  \n  \n  \n  "
+module.exports = "\n<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n \n</div>\n<p-toast (life)=\"100\" styleClass=\"custom-toast\" [style]=\"{marginTop: '100px'}\"></p-toast>\n\n<div class=\"row\" >\n    \n  <div class=\"row \" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n      <div  class=\"input-group input-group-sm \">\n              <form  [formGroup]=\"DateForm\">\n              <div class=\"btn-group \" role=\"group\">\n                      <span class=\"pr-1 pt-1\"><h6>Desde:</h6></span>\n          <p-calendar [inputStyle]=\"{'height':'29.1px'}\" [styleClass]=\"form-control\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_desde\"  (onSelect)=\"actualizarFechaDesde($event)\" tabindex=\"0\"  [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n             <ng-template pTemplate=\"date\" let-date>\n                  <span    style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n              </ng-template> \n            </p-calendar>\n            <span class=\"pr-1 pt-1\"><h6>Hasta:</h6></span>\n            <p-calendar [inputStyle]=\"{'height':'29.1px'}\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_hasta\"  (onSelect)=\"actualizarFechaHasta($event)\" tabindex=\"0\"  [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n              <ng-template pTemplate=\"date\" let-date>\n                   <span  inputStyle=\"{'height':'29.5px'}\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n               </ng-template> \n             </p-calendar>               \n                        \n            \n              \n \n          \n      </div>\n           \n              </form>      \n \n      </div>\n\n      \n    \n  </div>\n\n  <p-table  #dt class=\"pt-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\" [value]=\"elementos\"  (onEditComplete)=\"editRow($event)\" [(selection)]=\"selecteditems\" columnResizeMode=\"expand\" [responsive]=\"true\"\n  scrollHeight=\"400px\" [scrollable]=\"true\"  (onFilter)=\"filtered($event)\"  >\n  <ng-template pTemplate=\"caption\">\n    <div class=\"row\">\n            <div class=\"col-md-7 row\" style=\"text-align:left \">\n              <div class=\"pr-2 pl-2\">    <button    class=\"btn  btn-outline-secondary btn-sm float-right mr-2\"  (click)=\"loadRegistro()\" >Buscar Registros</button>  </div>\n             <div class=\"pr-2 pl-2\">   <button    class=\"btn  btn-outline-info btn-sm   \"  (click)=\"generarPdfListado('todos')\" >Imprimir resumen</button></div>\n             <div><button    class=\"btn  btn-outline-success btn-sm \"  (click)=\"generarPdfListado('medico')\" >Imprimir resumen por médico</button></div>  \n                                      \n            </div>\n\n </div>\n</ng-template>\n\n             <ng-template pTemplate=\"header\" let-columns >\n            \n                        <tr >\n                             \n                          <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\n                              {{col.header}}\n                              <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activate to sort in descending order\" ariaLabelAsc=\"Activate to sort in ascending order\"></p-sortIcon>\n                          </th> \n                          <th style=\"width: 3em\">\n                                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>\n                          </th>\n                      </tr> \n                      <tr>\n                      <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\"  >\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'operacion_cobro_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\"  class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'apellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'dni'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'descripcion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'complejidad'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'codigo'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'medico_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value , col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'usuario_cobro_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'fecha_cobro'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'cantidad'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                                             \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'valor_facturado'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'distribucion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'forma_pago'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          \n                      </th>\n                      <th></th>\n                  </tr>\n              </ng-template>\n            \n      <ng-template pTemplate=\"body\" let-elementos  >\n          <tr style=\"height:20px\" [ngClass]=\"colorRow(elementos.forma_pago)\">\n                 \n                  <td style=\"width: 6%\" >                   \n                      <a     (click)=\"accion($event,op,elementos)\"    ><i class=\"far fa-edit fa-2x icon-color-purple my-hover\"></i></a>\n                   \n                  </td>\n                  <td style=\"width: 5%\">{{elementos.liquidacion_numero}}</td>\n                  <td style=\"width: 5%\">{{elementos.operacion_cobro_id}}</td>\n                  <td style=\"width: 10%\">{{elementos.apellido}}</td>\n                  <td style=\"width: 10%\">{{elementos.nombre}}</td>\n                  <td style=\"width: 7%\">{{elementos.dni}}</td>\n                  <td style=\"width: 15%\">{{elementos.obra_social_nombre}}</td>                                                    \n                  <td style=\"width: 20%\">{{elementos.descripcion}}</td>                            \n                  <td style=\"width: 5%\">{{elementos.complejidad}}</td>  \n                  <td style=\"width: 8%\">{{elementos.codigo}}</td>  \n                  <td style=\"width: 10%\">{{elementos.medico_nombre}}</td>  \n                  <td style=\"width: 8%\">{{elementos.usuario_cobro_nombre}}</td> \n                  <td style=\"width: 8%\">{{elementos.fecha_cobro | date: 'dd/MM/yyyy'}}</td>       \n                  <td style=\"width: 6%\">{{elementos.cantidad}}</td>                                         \n                  <td style=\"width: 6%\">{{elementos.valor_facturado}}</td>    \n                  <td style=\"width: 6%\">{{elementos.distribucion}}</td>    \n                  <td style=\"width: 10%\">{{elementos.forma_pago}}</td>    \n                              \n                  <td style=\"width: 3em\">\n                          <p-tableCheckbox [value]=\"elementos\"></p-tableCheckbox>\n                      </td>\n          </tr>\n      </ng-template>\n      <ng-template pTemplate=\"summary\">\n             <ul>\n                <div class=\"row float-right mr-2\">\n                    <h6 class=\"text-info pr-2\">CANTIDAD PRACTICAS : {{cantidad_practica}}  -</h6>\n                    <h6 class=\"text-danger\"> TOTAL REAL : {{total_original|  number : '1.2-2' }} $ -</h6>\n                    <h6 class=\"text-info\"> TOTAL : {{total_facturado|  number : '1.2-2' }} $</h6>\n                </div>\n              </ul>\n          </ng-template> \n  </p-table>\n</div>\n\n\n\n<p-overlayPanel #op [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" >                          \n    <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"editarRegistro(selecteditems)\">Editar registro</a></span>\n    <span>   <a class=\"nav-link azul text-danger  my-hover\" (click)=\"editarOperacionCobro(selecteditems)\">Editar operacion cobro</a></span>\n    <span> <hr></span>\n    <span>   <a class=\"nav-link azul text-info my-hover\" (click)=\"eliminarRegistro(selecteditems)\">Eliminar registro</a></span>\n  </p-overlayPanel>  \n  \n  \n  \n  "
 
 /***/ }),
 
@@ -30203,11 +32130,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_models_operacion_cobro_detalle_model__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/models/operacion-cobro-detalle.model */ "./src/app/models/operacion-cobro-detalle.model.ts");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var src_app_shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/components/popups/popup-obra-social/popup-obra-social.component */ "./src/app/shared/components/popups/popup-obra-social/popup-obra-social.component.ts");
-/* harmony import */ var _popup_operacion_cobro_registro_editar_popup_operacion_cobro_registro_editar_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../popup-operacion-cobro-registro-editar/popup-operacion-cobro-registro-editar.component */ "./src/app/shared/components/popups/popup-operacion-cobro-registro-editar/popup-operacion-cobro-registro-editar.component.ts");
-/* harmony import */ var _popup_operacion_cobro_editar_popup_operacion_cobro_editar_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./../popup-operacion-cobro-editar/popup-operacion-cobro-editar.component */ "./src/app/shared/components/popups/popup-operacion-cobro-editar/popup-operacion-cobro-editar.component.ts");
-/* harmony import */ var _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../models/liquidacion.model */ "./src/app/models/liquidacion.model.ts");
-/* harmony import */ var _popup_operacion_cobro_presentacion_editar_registro_popup_operacion_cobro_presentacion_editar_registro_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../popup-operacion-cobro-presentacion-editar-registro/popup-operacion-cobro-presentacion-editar-registro.component */ "./src/app/shared/components/popups/popup-operacion-cobro-presentacion-editar-registro/popup-operacion-cobro-presentacion-editar-registro.component.ts");
-/* harmony import */ var _popup_medico_popup_medico_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./../popup-medico/popup-medico.component */ "./src/app/shared/components/popups/popup-medico/popup-medico.component.ts");
+/* harmony import */ var _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../models/liquidacion.model */ "./src/app/models/liquidacion.model.ts");
+/* harmony import */ var _popup_operacion_cobro_presentacion_editar_registro_popup_operacion_cobro_presentacion_editar_registro_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../popup-operacion-cobro-presentacion-editar-registro/popup-operacion-cobro-presentacion-editar-registro.component */ "./src/app/shared/components/popups/popup-operacion-cobro-presentacion-editar-registro/popup-operacion-cobro-presentacion-editar-registro.component.ts");
+/* harmony import */ var _popup_medico_popup_medico_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./../popup-medico/popup-medico.component */ "./src/app/shared/components/popups/popup-medico/popup-medico.component.ts");
+/* harmony import */ var _popup_operacion_cobro_distribucion_popup_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./../popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component */ "./src/app/shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -30229,9 +32155,8 @@ __webpack_require__(/*! jspdf-autotable */ "./node_modules/jspdf-autotable/dist/
 
 
 
-
-
 //import { PopupMedicoComponent } from './../../../../pages/mantenimiento/popup/popup-medico/popup-medico.component';
+
 
 
 
@@ -30306,7 +32231,7 @@ var PopupOperacionCobroPresentacionComponent = /** @class */ (function () {
         this.DateForm.patchValue({ fecha_desde: this.fechaDesde });
         this.DateForm.patchValue({ fecha_hasta: this.fechaHasta });
         this.popItemOperacionCobro = new src_app_models_operacion_cobro_detalle_model__WEBPACK_IMPORTED_MODULE_7__["OperacionCobroDetalle"]('', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '', '', '');
-        this.liquidacion = new _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_12__["Liquidacion"]('', '', '', '', '', '', '', 0, 0, '', '', [], '', '', '');
+        this.liquidacion = new _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_10__["Liquidacion"]('', '', '', '', '', '', '', 0, 0, '', '', [], '', '', '');
         this.loadRegistroByIdLiquidacion();
     };
     PopupOperacionCobroPresentacionComponent.prototype.actualizarFechaDesde = function (event) {
@@ -30362,36 +32287,35 @@ var PopupOperacionCobroPresentacionComponent = /** @class */ (function () {
         var _this = this;
         var data;
         data = this.selecteditemRegistro;
-        var ref = this.dialogService.open(_popup_operacion_cobro_registro_editar_popup_operacion_cobro_registro_editar_component__WEBPACK_IMPORTED_MODULE_10__["PopupOperacionCobroRegistroEditarComponent"], {
+        var ref = this.dialogService.open(_popup_operacion_cobro_distribucion_popup_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_13__["PopupOperacionCobroDistribucionComponent"], {
             data: data,
-            header: 'Editar registro',
+            header: 'Editar distribución',
             width: '98%',
             height: '90%'
         });
-        ref.onClose.subscribe(function (PopupOperacionCobroRegistroEditarComponent) {
-            if (PopupOperacionCobroRegistroEditarComponent) {
-                console.log(PopupOperacionCobroRegistroEditarComponent);
-                _this.popItemOperacionCobro = PopupOperacionCobroRegistroEditarComponent;
+        ref.onClose.subscribe(function (PopupOperacionCobroDistribucionComponent) {
+            if (PopupOperacionCobroDistribucionComponent) {
+                console.log(PopupOperacionCobroDistribucionComponent);
+                _this.popItemOperacionCobro = PopupOperacionCobroDistribucionComponent;
                 //  this.formObraSocial.patchValue({id: this.popItemObraSocial.id});
                 // this.formObraSocial.patchValue({nombre: this.popItemObraSocial.nombre});
             }
         });
     };
-    PopupOperacionCobroPresentacionComponent.prototype.editarOperacionCobro = function () {
+    PopupOperacionCobroPresentacionComponent.prototype.verRegistro = function () {
         var _this = this;
         var data;
         data = this.selecteditemRegistro;
-        var ref = this.dialogService.open(_popup_operacion_cobro_editar_popup_operacion_cobro_editar_component__WEBPACK_IMPORTED_MODULE_11__["PopupOperacionCobroEditarComponent"], {
+        var ref = this.dialogService.open(_popup_operacion_cobro_distribucion_popup_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_13__["PopupOperacionCobroDistribucionComponent"], {
             data: data,
-            header: 'Editar registro',
+            header: 'Ver distribución',
             width: '98%',
             height: '90%'
         });
-        ref.onClose.subscribe(function (PopupOperacionCobroEditarComponent) {
-            _this.loadRegistro();
-            if (PopupOperacionCobroEditarComponent) {
-                console.log(PopupOperacionCobroEditarComponent);
-                //  this.popItemOperacionCobro = PopupOperacionCobroEditarComponent;
+        ref.onClose.subscribe(function (PopupOperacionCobroDistribucionComponent) {
+            if (PopupOperacionCobroDistribucionComponent) {
+                console.log(PopupOperacionCobroDistribucionComponent);
+                _this.popItemOperacionCobro = PopupOperacionCobroDistribucionComponent;
                 //  this.formObraSocial.patchValue({id: this.popItemObraSocial.id});
                 // this.formObraSocial.patchValue({nombre: this.popItemObraSocial.nombre});
             }
@@ -30401,7 +32325,7 @@ var PopupOperacionCobroPresentacionComponent = /** @class */ (function () {
         var _this = this;
         var data;
         data = this.selecteditemRegistro;
-        var ref = this.dialogService.open(_popup_operacion_cobro_presentacion_editar_registro_popup_operacion_cobro_presentacion_editar_registro_component__WEBPACK_IMPORTED_MODULE_13__["PopupOperacionCobroPresentacionEditarRegistroComponent"], {
+        var ref = this.dialogService.open(_popup_operacion_cobro_presentacion_editar_registro_popup_operacion_cobro_presentacion_editar_registro_component__WEBPACK_IMPORTED_MODULE_11__["PopupOperacionCobroPresentacionEditarRegistroComponent"], {
             data: data,
             header: 'Editar registro',
             width: '100%',
@@ -30436,7 +32360,7 @@ var PopupOperacionCobroPresentacionComponent = /** @class */ (function () {
     PopupOperacionCobroPresentacionComponent.prototype.buscarMedico = function () {
         var _this = this;
         var data;
-        var ref = this.dialogService.open(_popup_medico_popup_medico_component__WEBPACK_IMPORTED_MODULE_14__["PopupMedicoComponent"], {
+        var ref = this.dialogService.open(_popup_medico_popup_medico_component__WEBPACK_IMPORTED_MODULE_12__["PopupMedicoComponent"], {
             data: data,
             header: 'Buscar Médico',
             width: '98%',
