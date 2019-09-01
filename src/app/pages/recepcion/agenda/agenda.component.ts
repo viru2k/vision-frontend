@@ -59,11 +59,11 @@ export class AgendaComponent implements OnInit {
   popItemAgenda:AgendaTurno;
   elementosTurnos:AgendaTurno[] = null;
   popItemMedicoObraSocial:MedicoObraSocial;
-  agendaTurno:AgendaTurno;
+  agendaTurno:AgendaTurno[] = [];
   agendaTurnos:AgendaTurno[] =[];
   selectedagendaTurno:AgendaTurno= null;
-  elementosFiltrados:AgendaTurno = null;
-  elementosFiltradosImpresion:AgendaTurno = null;
+  elementosFiltrados:AgendaTurno[] = [];
+  elementosFiltradosImpresion:AgendaTurno[] = [];
   observacion:string;
   popItemPaciente:Paciente;
   condicion:string;
@@ -83,17 +83,18 @@ export class AgendaComponent implements OnInit {
         {field: 'paciente_apellido', header: 'Apellido', width: '8%' }, 
         {field: 'paciente_nombre', header: 'Nombre', width: '8%' }, 
         {field: 'paciente_dni', header: 'Dni', width: '8%' },
+        {field: 'edad', header: 'Edad', width: '5%' },
         {field: 'paciente_obra_social_nombre', header: 'Obra social', width: '8%' },
+        {field: 'telefono_cel', header: 'Telefono ', width: '8%' },
         {field: 'hora_desde', header: 'Turno', width: '10%' },
         {field: 'estado', header: 'Estado', width: '8%' },
         {field: 'nombreyapellido', header: 'Medico', width: '15%' },  
-        {field: 'dia_nombre', header: 'Dia', width: '8%' },
+        {field: 'dia_nombre', header: 'Dia', width: '6%' },
         {field: 'llegada', header: 'Llegada', width: '8%' },
         {field: 'atendido', header: 'Ingresado' , width: '8%'},
         {field: 'es_alerta', header: '' , width: '4%'},
         {field: 'boton', header: '' , width: '4%'},
         {field: 'boton', header: '', width: '8%' },
-        {field: 'boton', header: '' , width: '8%'},
         ];
      this.busqueda = [
         {label:'Seleccione una busqueda', value:null},
@@ -122,7 +123,7 @@ export class AgendaComponent implements OnInit {
         'fechaHoy': new FormControl('', Validators.required), 
         'medico_nombre': new FormControl('')
         });
-  this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','');
+  this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','');
   }
 
   ngOnInit() {
@@ -397,6 +398,13 @@ async editarRegistro(cond:string,selecteditems:AgendaTurno){
         this.miServico.getHorarioTurnoTodos(this.popItemAgenda)
         .subscribe(resp => {
           if (resp[0]) {
+            let i:number = 0;
+            let resultado = resp;
+            resultado.forEach(element => {
+              resp[i]['telefono_cel'] =  resp[i]['telefono_cel']+' / '+resp[i]['telefono_fijo'];
+              resp[i]['edad'] =String((new Date()).getFullYear() - (new Date(resp[i]['paciente_fecha_nacimiento'])).getFullYear());
+              i++;
+            });
             this.agendaTurno = resp;
             console.log(this.agendaTurno);
               }else{
@@ -433,6 +441,12 @@ if(this._fechaHoy!=''){
       this.miServico.getHorarioTurnoTodos(this.popItemAgenda)    
       .subscribe(resp => {
         if (resp[0]) {
+          let i:number = 0;
+          let resultado = resp;
+          resultado.forEach(element => {
+            resp[i]['telefono_cel'] =  resp[i]['telefono_cel']+' / '+resp[i]['telefono_fijo'];
+            i++;
+          });
           this.agendaTurno = resp;
           console.log(this.agendaTurno);
             }else{
@@ -465,6 +479,12 @@ loadHistoriaPaciente(){
       this.miServico.getHistoriaTurno(this.popItemPaciente.id)    
       .subscribe(resp => {
         if (resp[0]) {
+          let i:number = 0;
+          let resultado = resp;
+          resultado.forEach(element => {
+            resp[i]['telefono_cel'] =  resp[i]['telefono_cel']+' / '+resp[i]['telefono_fijo'];
+            i++;
+          });
           this.agendaTurno = resp;
           console.log(this.agendaTurno);
             }else{
@@ -496,6 +516,12 @@ try{
   this.miServico.getTurnoCancelado()    
   .subscribe(resp => {
     if (resp[0]) {
+      let i:number = 0;
+      let resultado = resp;
+      resultado.forEach(element => {
+        resp[i]['telefono_cel'] =  resp[i]['telefono_cel']+' / '+resp[i]['telefono_fijo'];
+        i++;
+      });
       this.agendaTurno = resp;
       console.log(this.agendaTurno);
         }else{
@@ -563,6 +589,12 @@ if(this._fechaHoy!=''){
       //  console.log(resp);
       
       if (resp[0]) {
+        let i:number = 0;
+        let resultado = resp;
+        resultado.forEach(element => {
+          resp[i]['telefono_cel'] =  resp[i]['telefono_cel']+' / '+resp[i]['telefono_fijo'];
+          i++;
+        });
           this.agendaTurno = resp;
           console.log(this.agendaTurno);
             }else{
@@ -710,6 +742,9 @@ colorRow(estado:string){
     if(estado == 'INGRESADO') {
         return {'es-ingresado'  :'null' };
     }
+    if(estado == 'PRESENTE') {
+      return {'es-presente'  :'null' };
+  }
     if(estado == 'ESPERA') {
         return {'es-espera'  :'null' };
     }

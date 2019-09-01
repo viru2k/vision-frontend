@@ -605,6 +605,11 @@ hr.rulerStyleShadow {
     color: #757575 !important;
 }
 
+.es-presente {
+    background-color: #FFD54F !important;
+    color: #757575 !important;
+}
+
 .es-habilitado {
     background-color: rgb(224, 245, 199) !important;
     color: #757575 !important;
@@ -712,4 +717,33 @@ border: 1px  #AED581!important;
     width      : 100%;
     height     : 100%;
     object-fit : contain;
+  }
+
+
+  .navbar-1 {
+    background-color: #3b5998;
+     font-size: 22px;
+    padding:  10px;
+  }
+  
+  /* Define what each icon button should look like */
+  .button {
+    color: white;
+    display: inline-block; /* Inline elements with width and height. TL;DR they make the icon buttons stack from left-to-right instead of top-to-bottom */
+    position: relative; /* All 'absolute'ly positioned elements are relative to this one */
+    padding: 15px 10px; /* Add some padding so it looks nice */
+  }
+  
+  /* Make the badge float in the top right corner of the button */
+  .button__badge {
+    background-color: #fa3e3e;
+    border-radius: 4px;
+    color: white;
+   
+    padding:  5px;
+    font-size: 12px;
+    
+    position: absolute; /* Position the badge within the relatively positioned button */
+    top: 0;
+    right: 0;
   }

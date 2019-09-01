@@ -27,7 +27,10 @@ export class  OperacionCobroPractica {
     public motivo_observacion:string;
     public gravado_adherente:string;
     public es_anulado:string;    
-    public internacion_tipo:string;    
+    public internacion_tipo:string;
+    public facturacion_nro:string;
+    public distribuido:string;
+
     
     constructor(
         id:string,
@@ -55,7 +58,9 @@ export class  OperacionCobroPractica {
         motivo_observacion:string,
         gravado_adherente:string,
         es_anulado:string,
-        internacion_tipo:string
+        internacion_tipo:string,
+        facturacion_nro:string,
+        distribuido:string
         
          ) {
         this.id = id;
@@ -84,5 +89,7 @@ export class  OperacionCobroPractica {
          this.gravado_adherente = gravado_adherente;
          this.es_anulado = es_anulado;
          this.internacion_tipo = internacion_tipo;
+         this.facturacion_nro = facturacion_nro;
+         this.distribuido = distribuido;
     }
 }

@@ -194,6 +194,8 @@ import { PopupOperacionCobroDetallePacienteComponent } from './shared/components
 import { PopupOperacionCobroRegistroBuscarTodosComponent } from './shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component';
 import { PopupDetalleOperacionCobroDistribucionComponent } from './shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component';
 import { PopupOperacionCobroDistribucionComponent } from './shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component';
+import { AgendaRecepcionComponent } from './pages/recepcion/agenda/agenda-recepcion/agenda-recepcion.component';
+import { PopupPacienteEsperaComponent } from './shared/components/popups/popup-paciente-espera/popup-paciente-espera.component';
 
 
 
@@ -327,6 +329,8 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupOperacionCobroRegistroBuscarTodosComponent,
     PopupDetalleOperacionCobroDistribucionComponent,
     PopupOperacionCobroDistribucionComponent,
+    AgendaRecepcionComponent,
+    PopupPacienteEsperaComponent,
     
   ],
   imports: [
@@ -384,7 +388,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupListadoCirugiaQuirofanoEditarComponent, PopupCobroDistribucionEditarComponent,PopupFichaQuirurgicaOperacionCobroComponent,
     PopupListadoCirugiaQuirofanoObservacionEditarComponent,PopupOperacionCobroDetalleComponent, PopupOperacionCobroDetallePacienteComponent,
     PopupOperacionCobroRegistroBuscarTodosComponent, PopupDetalleOperacionCobroDistribucionComponent, 
-    PopupOperacionCobroDistribucionComponent,
+    PopupOperacionCobroDistribucionComponent,PopupPacienteEsperaComponent
 
   ],
   providers: [CurrencyPipe,DecimalPipe,NumberToWordsPipe,PacienteService,PushNotificationService,ExcelService,{ provide: LOCALE_ID, useValue: 'es-Ar' },

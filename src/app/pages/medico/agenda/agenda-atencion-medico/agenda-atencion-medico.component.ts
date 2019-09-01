@@ -41,8 +41,8 @@ export class AgendaAtencionMedicoComponent implements OnInit {
   loading: boolean;
   elemento:AgendaTurno = null;
   elementos:Agenda[] = null;
-  elementosFiltrados:AgendaTurno = null;
-  elementosFiltradosImpresion:AgendaTurno = null;
+  elementosFiltrados:AgendaTurno[] = [];
+  elementosFiltradosImpresion:AgendaTurno[] = [];
   fechaHoy:Date;
   _fechaHoy:string;
   fecha:Date;
@@ -54,7 +54,7 @@ export class AgendaAtencionMedicoComponent implements OnInit {
   popItemAgenda:AgendaTurno;
   elementosTurnos:AgendaTurno[] = null;
   popItemMedicoObraSocial:MedicoObraSocial;
-  agendaTurno:AgendaTurno;
+  agendaTurno:AgendaTurno[] = [];
   agendaTurnos:AgendaTurno[] =[];
   selectedagendaTurno:AgendaTurno= null;
   columns:any;
@@ -108,7 +108,7 @@ export class AgendaAtencionMedicoComponent implements OnInit {
         'fechaHoy': new FormControl('', Validators.required), 
         'medico_nombre': new FormControl('')
         });
-  this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','', '', '', '','');
+  this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','', '', '', '','','','');
   
   }
 

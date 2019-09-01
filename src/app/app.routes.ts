@@ -53,6 +53,7 @@ import { EstudioCargaComponent } from './pages/estudios/estudio-carga/estudio-ca
 import { ListadoCirugiaQuirofanoComponent } from './pages/asesoramiento/ficha-quirurgica/listado-cirugia-quirofano/listado-cirugia-quirofano.component';
 import { ListadoCirugiaEditarComponent } from './pages/medico/asesoramiento/listado-cirugia-editar/listado-cirugia-editar.component';
 import { AgendaBloqueoEdicionComponent } from './pages/mantenimiento/agenda/agenda-bloqueo-edicion/agenda-bloqueo-edicion.component';
+import { AgendaRecepcionComponent } from './pages/recepcion/agenda/agenda-recepcion/agenda-recepcion.component';
 
 export const ROUTES: Routes = [
     /** principal **/
@@ -93,7 +94,8 @@ export const ROUTES: Routes = [
     { path: 'facturacion/liquidacion/provincia', component: LiquidacionProvinciaComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     { path: 'facturacion/liquidacion/presentacion', component:LiquidacionDetalleComponent , canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     /** recepcion **/
-    { path: 'recepcion/agenda', component: AgendaComponent , canActivate: [AuthGuard], data: {role: 'recepcion_consulta'} },
+    { path: 'recepcion/agenda', component: AgendaRecepcionComponent , canActivate: [AuthGuard], data: {role: 'recepcion_consulta'} },
+    { path: 'recepcion/telefonista/agenda', component: AgendaComponent , canActivate: [AuthGuard], data: {role: 'recepcion_consulta'} },
     { path: 'recepcion/turnos', component: TurnoComponent , canActivate: [AuthGuard], data: {role: 'recepcion_consulta'} },
     { path: 'recepcion/operacioncobro', component: OperacionCobroComponent, canActivate: [AuthGuard], data: {role: 'recepcion_consulta'}  },
     

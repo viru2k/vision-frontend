@@ -7,6 +7,7 @@ import * as XLSX from 'xlsx';
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.xlsx';
 import { URL_SERVICIOS, PARAMS } from '../config/config';
+import { LiquidacionDistribucion } from '../models/liquidacion-distribucion-model';
 
 @Injectable({
   providedIn: 'root'
@@ -69,4 +70,8 @@ getLiquidacionDetalle(){
     generarTxtCirugia(selected:any){
       return this.http.post<any[]>(URL_SERVICIOS+"multiuploads/texto/cirugia",selected);
       } 
+
+    liquidarOperacionCobro(selected:LiquidacionDistribucion){
+    return this.http.post<any[]>(this.url+"/distribucion/medico",selected);
+    } 
 }

@@ -39,6 +39,9 @@ export class AgendaTurno {
     operacion_cobro_id:string;
     agenda_creacion:string;
     es_sobreturno:string;
+    presente:string;
+    edad:string;
+
     constructor( 
         id:string,
         hora_desde:Date,
@@ -76,7 +79,9 @@ export class AgendaTurno {
         es_observacion:string,
         operacion_cobro_id:string,
         agenda_creacion:string,
-        es_sobreturno:string
+        es_sobreturno:string,
+        presente:string,
+        edad:string
         ) {
        
         this.id = id;
@@ -116,5 +121,7 @@ export class AgendaTurno {
         this.operacion_cobro_id = operacion_cobro_id;
         this.agenda_creacion = agenda_creacion;
         this.es_sobreturno = es_sobreturno;
+        this.presente = presente;
+        this.edad = edad;
    }
 }

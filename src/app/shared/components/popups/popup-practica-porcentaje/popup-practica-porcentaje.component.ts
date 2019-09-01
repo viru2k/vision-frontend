@@ -23,6 +23,7 @@ export class PopupPracticaPorcentajeComponent implements OnInit {
   cols: any[];
   selectedItem: Convenio;
   selectedItemPractica: OperacionCobroPractica = null;
+  
   elemento:Convenio = null;
   elementos:Convenio[] = null;
   porcentaje:number = 1;
@@ -60,7 +61,7 @@ export class PopupPracticaPorcentajeComponent implements OnInit {
     this.selectedForma =  this.formasPago[0];
     console.log(this.config.data);      
     this.loadList();
-    this.selectedItemPractica = new OperacionCobroPractica('0','','','','',0,0,'','-','','',0,0,'','',0,0,'','','P','','','','','','');
+    this.selectedItemPractica = new OperacionCobroPractica('0','','','','',0,0,'','-','','',0,0,'','',0,0,'','','P','','','','','','','0','');
     this.observacion = '';
   }
 

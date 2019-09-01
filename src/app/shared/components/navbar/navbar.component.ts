@@ -263,16 +263,17 @@ try {
 menuList(){
 
   this.general = [
+    
     {
 
       label: 'Recepción', 
       visible:!this.recepcion_consulta,
       items: [
-
+        {label: 'Agenda recepción',visible:!this.recepcion_consulta, 'routerLink': 'recepcion/agenda'},
         {
               label: 'Agenda',
               items: [
-                {label: 'Atención', 'routerLink': 'recepcion/agenda'},
+                {label: 'Agenda Telefonista', 'routerLink': 'recepcion//telefonista/agenda'},
                 {label: 'Gestion de turnos', 'routerLink': 'recepcion/turnos'},
               ]
           },

@@ -66,7 +66,7 @@
               
 
             <p-table  #dt class="pt-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols"  [value]="agendaTurno" [(selection)]="selecteditems"   columnResizeMode="expand" [responsive]="true"
-            scrollHeight="400px" [scrollable]="true" (onFilter)="filtered($event)">
+            scrollHeight="500px" [scrollable]="true" (onFilter)="filtered($event)">
             <ng-template pTemplate="caption">
                     <div class="row">
                             <div class="col-md-7" style="text-align:left">
@@ -94,6 +94,7 @@
                                 <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'paciente_nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                               
                                 <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'paciente_dni'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">             
                                 <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'paciente_obra_social_nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">             
+                                <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'telefono_cel'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">             
                                 <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'hora_desde'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">             
                                 <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'estado'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">             
                                 <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'nombreyapellido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">             
@@ -115,11 +116,13 @@
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.paciente_apellido}}</td>                          
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.paciente_nombre}}</td>
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.paciente_dni}}</td>              
+                        <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 5%">{{agendaTurno.edad}}</td>   
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.paciente_obra_social_nombre}}</td>  
+                        <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.telefono_cel}}</td>                          
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 10%">{{agendaTurno.hora_desde}}</td>                           
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.estado}}</td>  
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 15%">{{agendaTurno.nombreyapellido}}</td>  
-                        <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.dia_nombre}}</td> 
+                        <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 6%">{{agendaTurno.dia_nombre}}</td> 
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%" >{{agendaTurno.llegada | date: 'HH:mm:ss'}}</td>   
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%" >{{agendaTurno.atendido | date: 'HH:mm:ss'}}</td> 
                         <td style="width: 4%" >
@@ -135,12 +138,8 @@
                                       
                            </td>
                         <td style="width: 8%">
-                            <button  [disabled]="agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'ESPERA' || agendaTurno.estado == 'CANCELADO'" type="button" class="btn btn-outline-info btn-sm" (click)="pacienteIngresado(agendaTurno)"    >Llegada</button>
-                        </td>
-                        <td style="width: 8%">
-                            <button [disabled]="agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'CANCELADO'" type="button" class="btn btn-outline-success btn-sm" (click)="pacienteAtendido(agendaTurno)"    >Ingresado</button>
-                        </td>
-                      
+                            <button  [disabled]="agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'ESPERA' ||  agendaTurno.estado == 'CANCELADO'" type="button" class="btn btn-outline-info btn-sm" (click)="pacienteIngresado(agendaTurno)"    >Llegada</button>
+                        </td>            
                 </tr>
                 </ng-template>
              
@@ -150,8 +149,7 @@
                         <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('observacion')">  Ver observación</a></span>
                         <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('paciente')">  Ver / editar paciente</a></span>
                         <hr>
-                        <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('atendido')">  Atendido</a></span>
-                        <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('ausente')">  Ausente</a></span>
+                        <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('atendido')">  Atendido</a></span>                        
                         <span>   <a class="nav-link azul my-hover " (click)="editarRegistro('cancelado')">  Cancelar</a></span>  
                         <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('reasignar')">  Reasignar a medico</a></span>
                         <hr>

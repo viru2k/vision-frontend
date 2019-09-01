@@ -38,7 +38,7 @@ export class PopupAgendaComponent implements OnInit {
     colsAgenda:any;
     popItemAgenda:AgendaTurno;
     popItemMedicoObraSocial:MedicoObraSocial;
-    agendaTurno:AgendaTurno;
+    agendaTurno:AgendaTurno[] = [];
   
     constructor(private miServico:AgendaService, private messageService: MessageService ,public dialogService: DialogService,  public ref: DynamicDialogRef, public config: DynamicDialogConfig ) {
      
@@ -67,7 +67,7 @@ export class PopupAgendaComponent implements OnInit {
           'fechaHoy': new FormControl('', Validators.required), 
           'medico_nombre': new FormControl('')
           });
-    this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(),'','', '','', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','');
+    this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(),'','', '','', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','');
     }
   
     ngOnInit() {

@@ -4,6 +4,9 @@ import { DynamicDialogRef, DynamicDialogConfig } from 'primeng/api';
 import swal from 'sweetalert2';
 import { MedicoObraSocial } from './../../../../models/medico-obrasocial.model';
 import { calendarioIdioma } from '../../../../config/config';
+import { LiquidacionDistribucion } from '../../../../models/liquidacion-distribucion-model';
+import { LiquidacionService } from './../../../../services/liquidacion.service';
+
 
 @Component({
   selector: 'app-popup-detalle-operacion-cobro-distribucion',
@@ -12,7 +15,7 @@ import { calendarioIdioma } from '../../../../config/config';
 })
 export class PopupDetalleOperacionCobroDistribucionComponent implements OnInit {
 
-  constructor(private miServico:MedicoObraSocialService, public ref: DynamicDialogRef, public config: DynamicDialogConfig ) { }
+  constructor(private miServico:MedicoObraSocialService, private liquidacionService:LiquidacionService, public ref: DynamicDialogRef, public config: DynamicDialogConfig ) { }
 
   TOTAL_DISTRIBUCION: number = 1000;
   TOTAL_CALCULADO: number = 0;
@@ -32,6 +35,7 @@ export class PopupDetalleOperacionCobroDistribucionComponent implements OnInit {
   medicoAyudaDistribucion: number = 0;
   medicoAyuda2Distribucion: number = 0;
   medicoClinicaDistribucion: number = 0;
+  liquidacionDistribucion:LiquidacionDistribucion = null;
   selecteditems:any[];
   es:any;
   // LOADING
@@ -40,8 +44,10 @@ export class PopupDetalleOperacionCobroDistribucionComponent implements OnInit {
   elementos:MedicoObraSocial[] = null;
 
   ngOnInit() {
-    console.log(this.config.data); 
+    console.log(this.config.data);
+    this.liquidacionDistribucion = new LiquidacionDistribucion(this.config.data,'','','','',0,0,0,0,0,0,0,0)
     this.selecteditems = this.config.data;
+
    this.sumarValores();
     this.calcularPorcentaje();
     this.loadList();
@@ -76,11 +82,58 @@ loadList(){
   }  
 }
 
+
+liquidarPracticas(){
+  this.es = calendarioIdioma;
+  this.loading = true;
+  try {
+      this.liquidacionService.liquidarOperacionCobro(this.liquidacionDistribucion)    
+      .subscribe(resp => {
+
+        let i:number = 0;
+        let resultado = resp;
+      
+          console.log(resp);    
+          this.loading = false;
+      },
+      error => { // error path
+          console.log(error.message);
+          console.log(error.status);
+          this.throwAlert('error' , 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+       });    
+  } catch (error) {
+    this.throwAlert('error' , 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+  }  
+}
+
+
 guardarDistribucion(){
-  console.log(this.selectedMedicoOpera);
-  console.log(this.selectedMedicoAyuda);
-  console.log(this.selectedMedicoAyuda2);
-  console.log(this.selectedClinica);
+
+  if(this.selectedMedicoOpera){
+    this.liquidacionDistribucion.medico_opera = this.selectedMedicoOpera['usuario_id'] ;
+    this.liquidacionDistribucion.medico_opera_porcentaje = this.medicoOperaPorcentaje;
+    this.liquidacionDistribucion.medico_opera_distribucion = this.medicoOperaDistribucion;
+  }
+  if(this.selectedMedicoAyuda){
+    this.liquidacionDistribucion.medico_ayuda = this.selectedMedicoAyuda['usuario_id'] ;
+    this.liquidacionDistribucion.medico_ayuda_porcentaje = this.medicoAyudaPorcentaje;
+    this.liquidacionDistribucion.medico_ayuda_distribucion = this.medicoAyudaDistribucion;
+  }
+  if(this.selectedMedicoAyuda2){
+    
+    this.liquidacionDistribucion.medico_ayuda2 = this.selectedMedicoAyuda2['usuario_id'] ;
+    this.liquidacionDistribucion.medico_ayuda2_porcentaje = this.medicoAyuda2Porcentaje;
+    this.liquidacionDistribucion.medico_ayuda2_distribucion = this.medicoAyuda2Distribucion;
+  }
+  if(this.selectedClinica){
+    this.liquidacionDistribucion.medico_clinica = this.selectedClinica['usuario_id'] ;
+    this.liquidacionDistribucion.medico_clinica_porcentaje = this.medicoClinicaPorcentaje;
+    this.liquidacionDistribucion.medico_clinica_distribucion = this.medicoClinicaDistribucion;
+  }
+
+  console.log(this.liquidacionDistribucion);
+
+  this.liquidarPracticas();
 }
 
 calcularPorcentaje(){
@@ -105,6 +158,8 @@ sumarValores(){
 
   console.log(this.TOTAL_DISTRIBUCION);
 }
+
+
 
 throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string){
   let tipoerror:string;

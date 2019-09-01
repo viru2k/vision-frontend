@@ -140,7 +140,7 @@ export class OperacionCobroComponent implements OnInit {
     console.log(this.user);
     this.tmpdate = new Date();
     
-    this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','');
+    this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','');
     this.popItemPaciente =  new Paciente('0','','','','','',new Date(),'','','','','','','','','0','0','','','0','','','','','','');
     this.popItemObraSocial = new ObraSocial('','','','','','','','');
     this.popItemCoseguro = new ObraSocial('','','','','','','','');
@@ -705,7 +705,7 @@ agregarPractica(){
            console.log('PRACTICA QUE ES COSEGURO');
            this.operacionCobroPractica = new OperacionCobroPractica(PopupPracticaPorcentajeComponent.id,PopupPracticaPorcentajeComponent.convenio_os_pmo_id,PopupPracticaPorcentajeComponent.obra_social_nombre+' - '+PopupPracticaPorcentajeComponent.pmo_descripcion,PopupPracticaPorcentajeComponent.obra_social_nombre,
            PopupPracticaPorcentajeComponent.obra_social_id,Number(PopupPracticaPorcentajeComponent.valor_original), PopupPracticaPorcentajeComponent.valor_facturado,PopupPracticaPorcentajeComponent.operacion_cobro_id,PopupPracticaPorcentajeComponent.observacion, PopupPracticaPorcentajeComponent.pmo_id,
-            PopupPracticaPorcentajeComponent.pmo_nivel,this.categoria_obra_social,PopupPracticaPorcentajeComponent.cantidad, PopupPracticaPorcentajeComponent.es_coseguro,PopupPracticaPorcentajeComponent.tiene_distribucion,this.total_honorario_obra_social,this.total_honorario_coseguro,PopupPracticaPorcentajeComponent.forma_pago,this.usuario_id,'P',PopupPracticaPorcentajeComponent.usuario_cobro_nombre, 'NO', '-','','NO','A');
+            PopupPracticaPorcentajeComponent.pmo_nivel,this.categoria_obra_social,PopupPracticaPorcentajeComponent.cantidad, PopupPracticaPorcentajeComponent.es_coseguro,PopupPracticaPorcentajeComponent.tiene_distribucion,this.total_honorario_obra_social,this.total_honorario_coseguro,PopupPracticaPorcentajeComponent.forma_pago,this.usuario_id,'P',PopupPracticaPorcentajeComponent.usuario_cobro_nombre, 'NO', '-','','NO','A','0','');
           
             this.operacionCobroPracticas.push(this.operacionCobroPractica);
             console.log(this.operacionCobroPractica);
@@ -733,7 +733,7 @@ agregarPractica(){
          
           this.operacionCobroPractica = new OperacionCobroPractica(PopupPracticaPorcentajeComponent.id,PopupPracticaPorcentajeComponent.convenio_os_pmo_id,PopupPracticaPorcentajeComponent.obra_social_nombre+' - '+PopupPracticaPorcentajeComponent.pmo_descripcion,PopupPracticaPorcentajeComponent.obra_social_nombre,
           PopupPracticaPorcentajeComponent.obra_social_id,Number(PopupPracticaPorcentajeComponent.valor_original), PopupPracticaPorcentajeComponent.valor_facturado,PopupPracticaPorcentajeComponent.operacion_cobro_id,PopupPracticaPorcentajeComponent.observacion, PopupPracticaPorcentajeComponent.pmo_id,
-           PopupPracticaPorcentajeComponent.pmo_nivel,this.categoria_obra_social,PopupPracticaPorcentajeComponent.cantidad, PopupPracticaPorcentajeComponent.es_coseguro,PopupPracticaPorcentajeComponent.tiene_distribucion,this.total_honorario_obra_social,this.total_honorario_coseguro,PopupPracticaPorcentajeComponent.forma_pago,this.usuario_id,'P',PopupPracticaPorcentajeComponent.usuario_cobro_nombre, 'NO', '-','','NO','A');
+           PopupPracticaPorcentajeComponent.pmo_nivel,this.categoria_obra_social,PopupPracticaPorcentajeComponent.cantidad, PopupPracticaPorcentajeComponent.es_coseguro,PopupPracticaPorcentajeComponent.tiene_distribucion,this.total_honorario_obra_social,this.total_honorario_coseguro,PopupPracticaPorcentajeComponent.forma_pago,this.usuario_id,'P',PopupPracticaPorcentajeComponent.usuario_cobro_nombre, 'NO', '-','','NO','A','0','');
          
            this.operacionCobroPracticas.push(this.operacionCobroPractica);
            console.log(this.operacionCobroPractica);
@@ -762,7 +762,7 @@ agregarPractica(){
          console.log(this.categoria_obra_social);
           this.operacionCobroPractica = new OperacionCobroPractica(PopupPracticaPorcentajeComponent.id,PopupPracticaPorcentajeComponent.convenio_os_pmo_id,PopupPracticaPorcentajeComponent.obra_social_nombre+' - '+PopupPracticaPorcentajeComponent.pmo_descripcion,PopupPracticaPorcentajeComponent.obra_social_nombre,
           PopupPracticaPorcentajeComponent.obra_social_id,Number(PopupPracticaPorcentajeComponent.valor_original), PopupPracticaPorcentajeComponent.valor_facturado,PopupPracticaPorcentajeComponent.operacion_cobro_id,PopupPracticaPorcentajeComponent.observacion, PopupPracticaPorcentajeComponent.pmo_id,
-           PopupPracticaPorcentajeComponent.pmo_nivel,this.categoria_obra_social ,PopupPracticaPorcentajeComponent.cantidad, PopupPracticaPorcentajeComponent.es_coseguro,PopupPracticaPorcentajeComponent.tiene_distribucion,this.total_honorario_obra_social,this.total_honorario_coseguro,PopupPracticaPorcentajeComponent.forma_pago,this.usuario_id,'P',PopupPracticaPorcentajeComponent.usuario_cobro_nombre, 'NO', '-','','NO','A');
+           PopupPracticaPorcentajeComponent.pmo_nivel,this.categoria_obra_social ,PopupPracticaPorcentajeComponent.cantidad, PopupPracticaPorcentajeComponent.es_coseguro,PopupPracticaPorcentajeComponent.tiene_distribucion,this.total_honorario_obra_social,this.total_honorario_coseguro,PopupPracticaPorcentajeComponent.forma_pago,this.usuario_id,'P',PopupPracticaPorcentajeComponent.usuario_cobro_nombre, 'NO', '-','','NO','A','0','');
          
            this.operacionCobroPracticas.push(this.operacionCobroPractica);
            console.log(this.operacionCobroPractica);
@@ -939,7 +939,7 @@ async obtenerCodigoCoseguro(obra_social_id:string, pmo_id:string){
        this.tmp_operacionCobroPractica.obra_social_nombre,
        this.popItemCoseguro.id,this.veinteporciento, this.veinteporciento,this.tmp_operacionCobroPractica.operacion_cobro_id,this.tmp_operacionCobroPractica.observacion, 
        this.tmp_operacionCobroPractica.pmo_id, this.tmp_operacionCobroPractica.pmo_nivel,this.categoria_coseguro,this.tmp_operacionCobroPractica.cantidad,this.popItemCoseguro.es_coseguro,this.popItemCoseguro.tiene_distribucion
-       ,this.total_honorario_obra_social,this.total_honorario_coseguro,this.tmp_operacionCobroPractica.forma_pago,this.usuario_id,'P',this.tmp_operacionCobroPractica.usuario_cobro_nombre, 'NO', '-','','NO','A');
+       ,this.total_honorario_obra_social,this.total_honorario_coseguro,this.tmp_operacionCobroPractica.forma_pago,this.usuario_id,'P',this.tmp_operacionCobroPractica.usuario_cobro_nombre, 'NO', '-','','NO','A','0','');
        console.log(this.operacionCobroPracticas);
        
        this.operacionCobroPracticas.push(this.operacionCobroPractica);
