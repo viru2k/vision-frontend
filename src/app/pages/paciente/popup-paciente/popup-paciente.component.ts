@@ -17,6 +17,7 @@ export class PopupPacienteNuevoComponent implements OnInit {
   es:any;
   updateDataForm: FormGroup;
   checked: boolean = false;
+  edad:string;
   constructor(public config: DynamicDialogConfig, private messageService: MessageService ,public dialogService: DialogService, public ref: DynamicDialogRef) { 
     this.es = calendarioIdioma;
   }
@@ -51,7 +52,9 @@ export class PopupPacienteNuevoComponent implements OnInit {
          /*** CORRECCION PARA LAS VENTANAS EMERGENTES QUE MANEJAN FECHA EN INPUT */
          let _fecha:Date = new Date(this.config.data.fecha_nacimiento);
          let dateFix = new Date(_fecha.getTime() + (_fecha.getTimezoneOffset() * 60 * 1000));      
-     console.log(dateFix);
+         this.edad =String((new Date()).getFullYear() - (new Date(dateFix)).getFullYear());
+         console.log((new Date()).getFullYear() - (new Date(dateFix)).getFullYear());
+         console.log(dateFix);
      this.config.data.fecha_nacimiento = dateFix;
       this.updateDataForm.patchValue(this.config.data);
     }

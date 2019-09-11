@@ -96,16 +96,12 @@ getOperacionCobroRegistrosBetweenDatesAndMedico(fecha_desde:string,fecha_hasta:s
   async getOperacionCobroDistribucionById(id:string,estado_liquidacion:string,obra_social_id:string): Promise<any[]>{
     
     return await  this.http.get<any[]>(this.URL_OPERACION_COBRO+'registros/by/distribucion?id='+id+'&estado_liquidacion='+estado_liquidacion+'&obra_social_id='+obra_social_id).toPromise();
-    
-    
   } 
 
   
   async getOperacionCobroDistribucionByIdPrefactura(id:string,estado_liquidacion:string,obra_social_id:string): Promise<any[]>{
     
     return await  this.http.get<any[]>(this.URL_OPERACION_COBRO+'registros/by/distribucion/prefactura?id='+id+'&estado_liquidacion='+estado_liquidacion+'&obra_social_id='+obra_social_id).toPromise();
-    
-    
   } 
 
   
@@ -179,6 +175,8 @@ getOperacionCobroRegistrosBetweenDatesAndMedico(fecha_desde:string,fecha_hasta:s
     return this.http.put<any>(this.URL_OPERACION_COBRO+'registro/prestacion/'+id,prestacion);
   }
 
-  
+  getDistribucionbyOperacionCobro(operacion_cobro_id:string){  
+    return this.http.get<OperacionCobroDetalle[]>(this.URL_OPERACION_COBRO+'distribucion/by/operacioncobro?operacion_cobro_id='+operacion_cobro_id);
+  }
   
 }

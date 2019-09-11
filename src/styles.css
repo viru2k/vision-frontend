@@ -109,6 +109,25 @@
     color: #1976d2!important;
 }
 
+
+.icon-color-green-light{
+    color: #2980B9!important; 
+}
+.icon-color-green-light:hover{
+    color: #2980B9!important;
+}
+
+
+.icon-color-red-light{
+    color: #E74C3C!important; 
+}
+.icon-color-red-light:hover{
+    color: #E74C3C!important;
+}
+
+
+
+
 .text-danger{
     color: #ff5252!important;
 }
@@ -720,8 +739,15 @@ border: 1px  #AED581!important;
   }
 
 
+  .navbar-main {
+    background-color: #884EA0;
+     font-size: 22px;
+     padding:  3px;
+  }
+
   .navbar-1 {
-    background-color: #3b5998;
+    /*background-color: #3b5998;*/ 
+    background-color: #884EA0;
      font-size: 22px;
     padding:  10px;
   }
@@ -731,7 +757,7 @@ border: 1px  #AED581!important;
     color: white;
     display: inline-block; /* Inline elements with width and height. TL;DR they make the icon buttons stack from left-to-right instead of top-to-bottom */
     position: relative; /* All 'absolute'ly positioned elements are relative to this one */
-    padding: 15px 10px; /* Add some padding so it looks nice */
+    padding: 5px 10px ; /* Add some padding so it looks nice */
   }
   
   /* Make the badge float in the top right corner of the button */
@@ -740,10 +766,66 @@ border: 1px  #AED581!important;
     border-radius: 4px;
     color: white;
    
-    padding:  5px;
+    padding:  3px;
     font-size: 12px;
     
     position: absolute; /* Position the badge within the relatively positioned button */
     top: 0;
-    right: 0;
+    right: 3;
   }
+
+
+  /**ç
+  alineaciones*/
+
+  .alineacion-flexbox { 
+    display: flex; 
+    justify-content: space-between;
+  }
+
+
+  /******
+    tooltip
+  *******/
+
+  
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /***
+
+  ESTILO DEL CHAT
+  */
+
+
+  

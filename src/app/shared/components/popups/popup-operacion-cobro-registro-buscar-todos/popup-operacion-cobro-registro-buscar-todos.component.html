@@ -89,6 +89,7 @@
                         </tr> 
                         <tr>
                           <th *ngFor="let col of columns" [ngSwitch]="col.field"  >
+                                <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'liquidacion_numero'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
                               <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'operacion_cobro_id'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
                               <input style=" font-size: 12px;"  class="form-control col-md-12 form-control-sm" *ngSwitchCase="'apellido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
                               <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
@@ -114,7 +115,7 @@
                 
           <ng-template pTemplate="body" let-elementos  >
               <tr style="height:20px" >
-                                           
+                    <td style="font-size: 11px;width: 5%">{{elementos.liquidacion_numero}}</td>
                       <td style="font-size: 11px;width: 5%">{{elementos.operacion_cobro_id}}</td>
                       <td style="font-size: 11px;width: 10%">{{elementos.apellido}}</td>
                       <td style="font-size: 11px;width: 10%">{{elementos.nombre}}</td>

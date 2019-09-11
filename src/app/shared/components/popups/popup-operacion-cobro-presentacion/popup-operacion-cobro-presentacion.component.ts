@@ -17,7 +17,7 @@ require('jspdf-autotable');
 import { MessageService, DynamicDialogConfig } from 'primeng/api';
 import { DialogService } from 'primeng/components/common/api';
 import { PracticaService } from 'src/app/services/practica.service';
-import { OperacionCobroDetalle } from 'src/app/models/operacion-cobro-detalle.model';
+import { OperacionCobroDetalle } from '../../../../models/operacion-cobro-detalle.model';
 import { formatDate, CurrencyPipe } from '@angular/common';
 import {OverlayPanelModule, OverlayPanel} from 'primeng/overlaypanel';
 import { PopupObraSocialComponent } from 'src/app/shared/components/popups/popup-obra-social/popup-obra-social.component';
@@ -48,6 +48,8 @@ export class PopupOperacionCobroPresentacionComponent implements OnInit {
   cantidad_practica:number=0;
   total_facturado:number=0;
   total_original:number=0;
+  total_categoria:number = 0;
+  total_final:number = 0;
   cols: any[];
   selectedItem: OperacionCobroDetalle;
   popItem:OperacionCobroDetalle;
@@ -97,8 +99,9 @@ export class PopupOperacionCobroPresentacionComponent implements OnInit {
             { field: 'usuario_cobro_nombre', header: 'Usuario' , width: '8%'},
             { field: 'fecha_cobro' , header: 'Fecha' , width: '8%'},
             { field: 'cantidad', header: 'Cant.' , width: '6%'},
-            { field: 'valor_facturado', header: 'Fact.' , width: '6%'},
-            { field: 'distribucion', header: 'dist' , width: '6%'},
+            { field: 'categorizacion', header: 'Categ.' , width: '6%'},
+            { field: 'valor_facturado', header: 'Valor' , width: '6%'},
+            { field: 'valor_final', header: 'Total' , width: '6%'},
             { field: 'forma_pago', header: 'Medio' , width: '10%'} 
               
            ];         
@@ -143,7 +146,7 @@ export class PopupOperacionCobroPresentacionComponent implements OnInit {
         this.fechaHasta = new Date();
         this.DateForm.patchValue({fecha_desde: this.fechaDesde});
         this.DateForm.patchValue({fecha_hasta: this.fechaHasta});
-        this.popItemOperacionCobro =  new OperacionCobroDetalle('','',0,0,0,'','','','','','','','','','','',0,0,0,'','','');
+        this.popItemOperacionCobro =  new OperacionCobroDetalle('','',0,0,0,'','','','','','','','','','','',0,0,0,'','','',0);
        this.liquidacion = new Liquidacion('','','','','','','',0,0,'','',[],'','','');
        this.loadRegistroByIdLiquidacion();
     }
@@ -193,11 +196,16 @@ export class PopupOperacionCobroPresentacionComponent implements OnInit {
     console.log(vals !== undefined);
     this.total_facturado = 0;
     this.total_original = 0;
+    this.total_categoria = 0;
     this.cantidad_practica = 0;
+    this.total_final=0;
     for(i=0;i<vals.length;i++){
         this.total_original = this.total_original+ Number(vals[i]['valor_original']);
         this.total_facturado = this.total_facturado+ Number(vals[i]['valor_facturado']);
+        this.total_categoria = this.total_categoria+ Number(vals[i]['categorizacion']);
+        
     }
+    this.total_final =   this.total_facturado+ this.total_categoria;
     this.cantidad_practica = vals.length;
     console.log(this.total_facturado);
   }
@@ -214,25 +222,40 @@ export class PopupOperacionCobroPresentacionComponent implements OnInit {
   editarRegistro(){
     let data:any; 
     data = this.selecteditemRegistro;
-    const ref = this.dialogService.open(PopupOperacionCobroDistribucionComponent, {
+    const ref = this.dialogService.open(PopupOperacionCobroRegistroEditarComponent, {
     data,
-     header: 'Editar distribución', 
+     header: 'Editar registro', 
      width: '98%',
      height: '90%'
     });
 
-    ref.onClose.subscribe((PopupOperacionCobroDistribucionComponent:OperacionCobroDetalle) => {
-        if (PopupOperacionCobroDistribucionComponent) {
-          console.log(PopupOperacionCobroDistribucionComponent);    
-          this.popItemOperacionCobro = PopupOperacionCobroDistribucionComponent;
-        //  this.formObraSocial.patchValue({id: this.popItemObraSocial.id});
-         // this.formObraSocial.patchValue({nombre: this.popItemObraSocial.nombre});
-         
+    ref.onClose.subscribe((PopupOperacionCobroRegistroEditarComponent:OperacionCobroDetalle) => {
+        if (PopupOperacionCobroRegistroEditarComponent) {
+          console.log(PopupOperacionCobroRegistroEditarComponent);    
+          this.popItemOperacionCobro = PopupOperacionCobroRegistroEditarComponent;
+          this.loadRegistroByIdLiquidacion();
         }
     });
   }
 
 
+  editarOperacionCobro(){
+    let data:any; 
+    data = this.selecteditemRegistro;
+    const ref = this.dialogService.open(PopupOperacionCobroEditarComponent, {
+    data,
+     header: 'Editar registro', 
+     width: '98%',
+     height: '90%'
+    });
+    ref.onClose.subscribe((PopupOperacionCobroEditarComponent: OperacionCobroDetalle) => {
+     
+        if (PopupOperacionCobroEditarComponent) {
+          console.log(PopupOperacionCobroEditarComponent);
+          this.loadRegistroByIdLiquidacion();
+        }
+    });
+  }
   
   verRegistro(){
     let data:any; 
@@ -354,6 +377,15 @@ export class PopupOperacionCobroPresentacionComponent implements OnInit {
         this.miServicio.getOperacionCobroRegistrosBetweenDates(this._fechaDesde, this._fechaHasta, 'AFE')
         .subscribe(resp => {
           if (resp[0]) {
+            let i:number = 0;
+            let resultado = resp;
+            resultado.forEach(element => {
+              resp[i]['dni'] = resp[i]['dni'] +' - '+resp[i]['numero_afiliado'] +' / '+resp[i]['barra_afiliado'] ;
+              resp[i]['valor_final'] = (Number(resp[i]['valor_facturado']) +Number(resp[i]['categorizacion'])) ;
+          //    let t = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+          
+              i++;
+            });
             this.elementos = resp;
             console.log(this.elementos);
               }else{
@@ -385,6 +417,15 @@ loadRegistroByIdLiquidacion(){
       this.miServicio.getOperacionCobroRegistrosByLiquidacionNumero(this.config.data.id)
       .subscribe(resp => {
         if (resp[0]) {
+          let i:number = 0;
+          let resultado = resp;
+          resultado.forEach(element => {
+            resp[i]['dni'] = resp[i]['dni'] +' - '+resp[i]['numero_afiliado'] +' / '+resp[i]['barra_afiliado'] ;
+            resp[i]['valor_final'] = (Number(resp[i]['valor_facturado']) +Number(resp[i]['categorizacion'])) ;
+        //    let t = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+        
+            i++;
+          });
           this.elementos = resp;
           console.log(this.elementos);
             }else{

@@ -98,7 +98,7 @@
                   <td style="width: 5%">{{elementos.operacion_cobro_id}}</td>
                   <td style="width: 10%">{{elementos.apellido}}</td>
                   <td style="width: 10%">{{elementos.nombre}}</td>
-                  <td style="width: 7%">{{elementos.dni}}</td>
+                  <td style="font-size: 10px;width: 7%">{{elementos.dni}}</td>
                   <td style="width: 15%">{{elementos.obra_social_nombre}}</td>                                                    
                   <td style="width: 20%">{{elementos.descripcion}}</td>                            
                   <td style="width: 5%">{{elementos.complejidad}}</td>  
@@ -106,10 +106,11 @@
                   <td style="width: 10%">{{elementos.medico_nombre}}</td>  
                   <td style="width: 8%">{{elementos.usuario_cobro_nombre}}</td> 
                   <td style="width: 8%">{{elementos.fecha_cobro | date: 'dd/MM/yyyy'}}</td>       
-                  <td style="width: 6%">{{elementos.cantidad}}</td>                                         
-                  <td style="width: 6%">{{elementos.valor_facturado}}</td>    
-                  <td style="width: 6%">{{elementos.distribucion}}</td>    
-                  <td style="width: 10%">{{elementos.forma_pago}}</td>    
+                  <td style="width: 6%" >{{elementos.cantidad}}</td>      
+                  <td style="width: 6%" >{{elementos.categorizacion}}</td>                                       
+                  <td style="width: 6%" >{{elementos.valor_facturado}}</td>    
+                  <td style="width: 6%" >{{elementos.valor_final}}</td>  
+                  <td style="font-size: 10px;width: 10%" >{{elementos.forma_pago}}</td>    
                               
                   <td style="width: 3em">
                           <p-tableCheckbox [value]="elementos"></p-tableCheckbox>
@@ -119,9 +120,10 @@
       <ng-template pTemplate="summary">
              <ul>
                 <div class="row float-right mr-2">
-                    <h6 class="text-info pr-2">CANTIDAD PRACTICAS : {{cantidad_practica}}  -</h6>
-                    <h6 class="text-danger"> TOTAL REAL : {{total_original|  number : '1.2-2' }} $ -</h6>
-                    <h6 class="text-info"> TOTAL : {{total_facturado|  number : '1.2-2' }} $</h6>
+                    <h6 class="text-info pr-2">CANTIDAD PRACTICAS : {{cantidad_practica}}  - </h6>
+                    <h6 class="text-success"> TOTAL CATEGORIA : {{total_categoria|  number : '1.2-2' }} $ - </h6>
+                    <h6 class="text-danger"> VALOR : {{total_facturado|  number : '1.2-2' }} $ - </h6>
+                    <h6 class="text-info"> TOTAL : {{total_final|  number : '1.2-2' }} $</h6>
                 </div>
               </ul>
           </ng-template> 

@@ -165,7 +165,7 @@ export class OperacionCobroAuditarComponent implements OnInit {
         this.fechaHasta = new Date();
         this.DateForm.patchValue({fecha_desde: this.fechaDesde});
         this.DateForm.patchValue({fecha_hasta: this.fechaHasta});   
-        this.popItemOperacionCobro =  new OperacionCobroDetalle('','',0,0,0,'','','','','','','','','','','',0,0,0,'','','');
+        this.popItemOperacionCobro =  new OperacionCobroDetalle('','',0,0,0,'','','','','','','','','','','',0,0,0,'','','',0);
 
     }
   
@@ -425,7 +425,7 @@ export class OperacionCobroAuditarComponent implements OnInit {
                 console.log(resp[i]['categorizacion']);
                 resp[i]['distribucion'] = resp[i]['categorizacion'];
                 }
-          
+                resp[i]['dni'] = resp[i]['dni'] +' - '+resp[i]['numero_afiliado'] +' / '+resp[i]['barra_afiliado'] ;
             }
             this.elementos = resp;
             console.log(this.elementos);

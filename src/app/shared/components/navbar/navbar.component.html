@@ -1,54 +1,32 @@
 
     <p-menubar  [model]="general" *ngIf="loggedIn" autoZIndex="false" styleClass="my-navbar  "  [autoDisplay]="false"  >
             
-                <div class="flexbox " >
-                      <!--   <div class="col-3 float-left" #ab >
-                            <a class="nav-link naranja ">   <img src="assets/icons/grey/outline_comment_black_18dp.png" (click)="accion($event,cp)"  width="24px" height="24px"></a>
-                               <a  class="nav-link azul my-hover">  <img src="assets/icons/grey/outline_comment_black_18dp.png" (click)="accion($event,cp)"    width="24px" height="24px">  </a>
-                              
-                              
-                        </div>      -->
-                        
-                         <div class="col-6"   appendTo="body" >    
-                                               
-  
-                                                      <a #aa class="nav-link azul my-hover">  <img src="assets/icons/grey/outline_settings_black_18dp.png" (click)="accion($event,op)"    width="24px" height="24px">  </a>
-                                                    
-                                                
-                                </div>
-                               
-                                <div class="col-3 "> 
-                                                <div class="row">
-                                                    
-                                                        
-                                                        <div class=" float-right pt-2">  <label class="text-info">{{username}}</label></div>
-                                                                
-                                                              
-                                                </div> 
-                                        </div>                                                 
+               
+                <div class="flexbox " >                      
+                 <div class=" float-right pt-2">  <label class="text-info">{{username}}</label></div>                                             
                         </div> 
-  
-            <!--     
-                <div class="col-6 "> 
-                                <div class="row">
-                                    
-                                        <div class="col-4 pt-2"><small><label>Usuario :</label></small></div>
-                                        <div class="col-7 float-right pt-2">  <small><label class="text-info">{{username}}</label></small></div>
-                                                
-                                              
-                                </div> 
-                        </div> -->
-                         
-                        <p-overlayPanel appendTo="#aa" #op [style]="{ 'z-index': '999'}" [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >   
-                                        <span>   <a class="nav-link azul my-hover" (click)="ajustes()" >Ajustes</a></span>
-                                        <button class="btn btn-outline-info" (click)="cerrarSesion()"> Cerrar sesión</button>
-                            </p-overlayPanel> 
-
-                        <p-overlayPanel [style]="{ 'z-index': '999'}" appendTo="body"    #cp  [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >   
-                                        <app-chat-lista></app-chat-lista>
-                              </p-overlayPanel>  
     </p-menubar> 
 
+    <div class="navbar-main alineacion-flexbox" *ngIf="loggedIn" >
+            <div >
+                        <div class="button">                        
+                <i  (click)="verChat()" class="fa fa-comment pointer my-hover nav-links"></i>
+                <span *ngIf="chats" class="button__badge">0</span>
+                </div> 
+        
+                <div class="button">                              
+                <i (click)="verNotificacion()" class="fas fa-bell pointer my-hover nav-links"></i>
+                <span *ngIf="notificaciones"  class="button__badge"><b>{{notificaciones}}</b></span>
+                </div> 
+            </div>
+            <div >
+          
+            <div class="button"> 
+                <i #aa (click)="cerrarSesion()" class="fas fa-power-off my-hover nav-links"></i>
+            </div>
+              
+            </div>
+    </div>
    
 
     <div class="wrapper fadeInDown" *ngIf="!loggedIn">

@@ -63,8 +63,8 @@ export class PopupOperacionCobroRegistroBuscarComponent implements OnInit {
     constructor(private miServicio:PracticaService,private messageService: MessageService ,public dialogService: DialogService,private cp: CurrencyPipe,public ref: DynamicDialogRef, public config: DynamicDialogConfig  ) {
   
           this.cols = [
-              
-              { field: 'operacion_cobro_id', header: 'Cobro Nº',  width: '5%' },
+              { field: 'liquidacion_numero', header: 'Liq.',  width: '5%' },
+              { field: 'operacion_cobro_id', header: 'Cobro Nº',  width: '5%' }, 
               { field: 'apellido', header: 'Apellido',  width: '10%' },
               {field: 'nombre', header: 'Nombre' , width: '10%' },
               { field: 'dni', header: 'DNI',  width: '7%' },
@@ -114,7 +114,7 @@ export class PopupOperacionCobroRegistroBuscarComponent implements OnInit {
               this.fechaHasta = new Date();
               this.DateForm.patchValue({fecha_desde: this.fechaDesde});
               this.DateForm.patchValue({fecha_hasta: this.fechaHasta});   
-              this.popItemOperacionCobro =  new OperacionCobroDetalle('','',0,0,0,'','','','','','','','','','','',0,0,0,'','','');
+              this.popItemOperacionCobro =  new OperacionCobroDetalle('','',0,0,0,'','','','','','','','','','','',0,0,0,'','','',0);
       
           }
 

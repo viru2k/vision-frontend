@@ -21,7 +21,7 @@ export class  OperacionCobroDetalle {
     public tiene_observacion:string;
     public motivo_observacion:string;
     public gravado_adherente:string;
-
+    public valor_final:number;
     constructor(
         id:string,
         operacion_cobro_id:string,        
@@ -44,8 +44,8 @@ export class  OperacionCobroDetalle {
         distribucion:number,
         tiene_observacion:string,
         motivo_observacion:string,
-        gravado_adherente:string
-    
+        gravado_adherente:string,
+        valor_final:number
          ) {
         this.id = id;
         this.operacion_cobro_id = operacion_cobro_id;
@@ -68,6 +68,7 @@ export class  OperacionCobroDetalle {
         this.tiene_observacion = tiene_observacion;
         this.motivo_observacion = motivo_observacion;
         this.gravado_adherente = gravado_adherente;
+        this.valor_final = valor_final;
 }
 
 }

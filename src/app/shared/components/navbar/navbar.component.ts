@@ -1,20 +1,27 @@
 
 import { AuthenticationService } from './../../../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
-import {MenuItem} from 'primeng/api';
+import { MenuItem, MessageService } from 'primeng/api';
 import { OverlayPanel } from 'primeng/overlaypanel';
-
+import { Observable } from 'rxjs/Rx';
+import { Subscription } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from './../../../models/user.model';
 import { UserService } from './../../../services/user.service';
 import swal from 'sweetalert2';
+import { PopupChatComponent } from './../../../pages/notificacion/popup-chat/popup-chat.component';
+import { PopupNotificacionComponent } from '../../../pages/notificacion/popup-notificacion/popup-notificacion.component';
+import { DialogService } from 'primeng/components/common/api';
+import { DatePipe } from '@angular/common';
+import { NotificacionesService } from './../../../services/notificaciones.service';
 
 //'@types/chart.js': '^2.7.40',
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
+  providers: [MessageService,DialogService,DatePipe]
 })
 export class NavbarComponent implements OnInit {
   
@@ -47,9 +54,12 @@ export class NavbarComponent implements OnInit {
   submitted = false;
   returnUrl: string;
   error = '';
-
+  notificaciones:number= 0;
+  chats:boolean;
 
   constructor(
+     private notificacionesService:NotificacionesService,
+    private messageService: MessageService ,public dialogService: DialogService, 
     private authenticationService: AuthenticationService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -79,6 +89,13 @@ if(currentUser['access_token'] != ''){
      this.username = userData['username'];
      console.log(userData['access_list']);
      this.asignarModulos(userData['access_list']);
+     this.getNotificacionesByUsuario();
+     /*** busco notificaciones si esta logueado*/
+     let timer = Observable.timer(180000,180000);//180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
+     timer.subscribe(t=> {
+       console.log('listando notificaciones');
+       this.getNotificacionesByUsuario();
+   });
      this.menuList();
 }else{
   console.log("sin credenciales");
@@ -158,6 +175,10 @@ asignarModulos(modulos: any){
     }
   });
 
+
+  /** DESPUES DE ASIGNAR MODULOS VERIFICO LAS NOTIFICACIONES */
+
+ 
 }
 
 cerrarSesion(){
@@ -202,6 +223,7 @@ onSubmit() {
      // .pipe(first())
       .subscribe(
           data => {
+            console.log(data);
             this.user = data;
             let us = new User("","","","","",this.f.username.value,this.f.password.value,[]);
             localStorage.setItem('userData', JSON.stringify(us));
@@ -583,6 +605,88 @@ if(errorNumero =='100'){
 
 
 }
+
+
+verNotificacion(){
+  let data:any; 
+  //data = this.popItemAgenda;  
+  const ref = this.dialogService.open(PopupNotificacionComponent, {
+  data,
+   header: 'Notificaciones', 
+   width: '98%',
+   height: '80%'
+  });
+
+  ref.onClose.subscribe((PopupNotificacionComponent:any) => {
+      if (PopupNotificacionComponent) {        
+      }
+  });
+}
+
+verChat(){
+  let data:any; 
+  //data = this.popItemAgenda;  
+  const ref = this.dialogService.open(PopupChatComponent, {
+  data,
+   header: 'Chat', 
+   width: '98%',
+   height: '80%'
+  });
+
+  ref.onClose.subscribe((PopupChatComponent:any) => {
+      if (PopupChatComponent) {
+       // this.loadList();
+      }
+  });
+}
+
+
+getNotificacionesByUsuario(){
+  let userData = JSON.parse(localStorage.getItem('userData'));
+  this.loading = true;
+  
+  try {
+      this.notificacionesService.getNotificacionesByUsuario(userData["id"])    
+      .subscribe(resp => {
+        if (resp[0]) {
+          let i:number = 0;
+          let resultado = resp;
+          let estado:string;
+          let usuario_id:number;
+          this.notificaciones = 0;
+          resultado.forEach(element => {
+            estado = resp[i]['usuario_estado'];
+            usuario_id = resp[i]['usuario_id'];
+            if((estado=== 'PENDIENTE')&&(Number(userData["id"]) ===usuario_id)){
+              this.notificaciones++;
+              console.log(this.notificaciones);
+            }
+            i++;
+          });
+
+            }
+          this.loading = false;
+          console.log(resp.length);
+
+          
+      },
+      error => { // error path
+          console.log(error.message);
+          console.log(error.status);
+          swal({
+            toast: false,
+            type: 'error',
+            title: error.status,
+            text: error.message,
+            showConfirmButton: false,
+            timer: 2000
+          });
+       });    
+  } catch (error) {
+ // this.throwAlert('error','Error al cargar los registros',error,error.status);
+  }  
+}
+
 }
 
 

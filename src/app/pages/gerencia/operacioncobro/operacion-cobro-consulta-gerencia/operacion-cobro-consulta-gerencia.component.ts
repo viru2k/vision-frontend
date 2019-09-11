@@ -145,7 +145,7 @@ export class OperacionCobroConsultaGerenciaComponent implements OnInit {
         this.fechaHasta = new Date();
         this.DateForm.patchValue({fecha_desde: this.fechaDesde});
         this.DateForm.patchValue({fecha_hasta: this.fechaHasta});   
-        this.popItemOperacionCobro =  new OperacionCobroDetalle('','',0,0,0,'','','','','','','','','','','',0,0,0,'','','');
+        this.popItemOperacionCobro =  new OperacionCobroDetalle('','',0,0,0,'','','','','','','','','','','',0,0,0,'','','',0);
 
     }
   

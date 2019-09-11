@@ -138,8 +138,10 @@
                           <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'usuario_cobro_nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                      
                           <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'fecha_cobro'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                      
                           <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'cantidad'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                                             
+                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'categorizacion'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                                             
                           <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'valor_facturado'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                       
-                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'distribucion'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                       
+                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'valor_final'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                       
+                          
                           <p-multiSelect *ngSwitchCase="'forma_pago'" [options]="formasPago" defaultLabel="Pagos"  (onChange)="dt.filter($event.value, col.field,  'in')" appendTo="body" [style]="{'width':'100%'}"  [filter]= 'false'></p-multiSelect>
                           
                       </th>
@@ -165,11 +167,12 @@
                   <td style="width: 8%">{{elementos.codigo}}</td>  
                   <td style="font-size: 10px;width: 4%">{{elementos.internacion_tipo}}</td>
                   <td style="width: 10%">{{elementos.medico_nombre}}</td>  
-                  <td style="width: 8%">{{elementos.usuario_cobro_nombre}}</td> 
+                  <td style="font-size: 10px;width: 8%">{{elementos.usuario_cobro_nombre}}</td> 
                   <td style="width: 8%">{{elementos.fecha_cobro | date: 'dd/MM/yyyy'}}</td>       
-                  <td style="width: 6%" [ngClass]="colorRowPago(elementos.forma_pago)">{{elementos.cantidad}}</td>                                         
+                  <td style="width: 6%" [ngClass]="colorRowPago(elementos.forma_pago)">{{elementos.cantidad}}</td>      
+                  <td style="width: 6%" [ngClass]="colorRowPago(elementos.forma_pago)">{{elementos.categorizacion}}</td>                                       
                   <td style="width: 6%" [ngClass]="colorRowPago(elementos.forma_pago)">{{elementos.valor_facturado}}</td>    
-                  <td style="width: 6%" [ngClass]="colorRowPago(elementos.forma_pago)">{{elementos.distribucion}}</td>    
+                  <td style="width: 6%" >{{elementos.valor_final}}</td>  
                   <td style="font-size: 10px;width: 10%" [ngClass]="colorRowPago(elementos.forma_pago)">{{elementos.forma_pago}}</td>    
                               
                   <td style="width: 3em">
@@ -181,9 +184,9 @@
              <ul>
                 <div class="row float-right mr-2">
                     <h6 class="text-info pr-2">CANTIDAD PRACTICAS : {{cantidad_practica}}  - </h6>
-                    <h6 class="text-danger"> TOTAL REAL : {{total_original|  number : '1.2-2' }} $ - </h6>
                     <h6 class="text-success"> TOTAL CATEGORIA : {{total_categoria|  number : '1.2-2' }} $ - </h6>
-                    <h6 class="text-info"> TOTAL : {{total_facturado|  number : '1.2-2' }} $</h6>
+                    <h6 class="text-danger"> VALOR : {{total_facturado|  number : '1.2-2' }} $ - </h6>
+                    <h6 class="text-info"> TOTAL : {{total_final|  number : '1.2-2' }} $</h6>
                 </div>
               </ul>
           </ng-template> 

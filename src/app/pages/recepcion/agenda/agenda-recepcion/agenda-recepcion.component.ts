@@ -83,6 +83,7 @@ export class AgendaRecepcionComponent implements OnInit {
  
  
     this.cols = [
+      {field: 'agenda_dia_horario_atencion_id', header: 'Nª', width: '5%' }, 
     {field: 'operacion_cobro_id', header: 'OC', width: '5%' }, 
       {field: 'paciente_apellido', header: 'Apellido', width: '8%' }, 
       {field: 'paciente_nombre', header: 'Nombre', width: '8%' }, 
@@ -733,7 +734,7 @@ sumarPresente(){
   this.agendaTurnos = this.agendaTurno;
   if(this.agendaTurnos){
   for(i=0;i<this.agendaTurnos.length;i++){
-    if((this.agendaTurnos[i]['presente'] !== '2099-12-31 00:00:00' ) && (this.agendaTurno[i]['llegada'] === '2099-12-31 00:00:00' )){
+    if((this.agendaTurnos[i]['presente'] !== null ) &&(this.agendaTurnos[i]['presente'] !== '2099-12-31 00:00:00' ) && (this.agendaTurno[i]['llegada'] === '2099-12-31 00:00:00' )){
       this.presentes = this.presentes+1;
     }
   }

@@ -55,6 +55,7 @@ export class LiquidacionDetalleComponent implements OnInit {
   DateForm:FormGroup;
   liquidacion:Liquidacion;
   elementos:Liquidacion[] = null;
+  elementosFiltradosDos:Liquidacion[] = null;
   elementosFiltrados:Liquidacion[] = null;
   elementosCirugia:Liquidacion[] = null;
   selecteditemRegistro:Liquidacion= null;
@@ -469,7 +470,7 @@ generarTxtCirugia(){
             resp[i]['numero_afiliado'] = resp[i]['numero_afiliado']+'/'+resp[i]['paciente_barra_afiliado'] ;
           }
           
-          console.log(resp[i]['fecha_cobro']);
+         // console.log(resp[i]['fecha_cobro']);
           i++;
         });
           this.elementosPreFactura = resp;
@@ -509,9 +510,9 @@ generarTxtCirugia(){
                   if(this.elementosPreFactura[j]['operacion_cobro_distribucion_total'] === null){
                     this.elementosPreFactura[i]['operacion_cobro_distribucion_total'] = 0;
                   }else{
-                    console.log(this.selecteditems[0]['obra_social_id']);
+                 //   console.log(this.selecteditems[0]['obra_social_id']);
                     if(this.selecteditems[0]['obra_social_nombre'] == 'DOS - OBRA SOCIAL PROVINCIA'){
-                     console.log('obra social');
+                 //    console.log('obra social');
                      this.elementosPreFactura[i]['gastos'] =  this.elementosPreFactura[j]['operacion_cobro_distribucion_total'];
                     }else{
                       console.log('coseguro');
@@ -535,7 +536,7 @@ generarTxtCirugia(){
               return acc;
             }
           }, []);
-
+          console.log(filteredArr);
           try {
             this.miServicio.generarTxtCirugia(filteredArr)    
             .subscribe(resp => {
@@ -987,7 +988,7 @@ generarPdfListadoCirugiaTodos() {
             this.elementosPreFactura[i]['categoria'] =  this.cp.transform(0, '', '', '1.2-2');  
              this.elementosPreFactura[i]['gastos'] =  this.elementosPreFactura[j]['operacion_cobro_distribucion_total'];
           //   total_gastos = total_gastos +Number( this.elementosPreFactura[i]['gastos']);
-             console.log(this.elementosPreFactura[j]['complejidad']+' cirugia '+this.elementosPreFactura[j]['descripcion'] );
+          //   console.log(this.elementosPreFactura[j]['complejidad']+' cirugia '+this.elementosPreFactura[j]['descripcion'] );
             }else{
               console.log('coseguro gastos');
               this.elementosPreFactura[i]['categoria'] =  this.cp.transform(0, '', '', '1.2-2');
@@ -1032,6 +1033,7 @@ generarPdfListadoCirugiaTodos() {
   }, []);
   
   console.log(filteredArr);
+  this.elementosFiltradosDos =filteredArr;
   for(i=0;i<filteredArr.length;i++){
     if(filteredArr[i]['valor_facturado']['complejidad'] === 2){
       filteredArr[i]['categorizacion'] = 0;
@@ -1157,7 +1159,7 @@ generarPdfListadoMedicoIVA() {
   doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
   doc.setLineWidth(0.4);
   doc.setFontSize(9);
-  doc.text(this.elementosPreFactura[0]['medico_nombre'], 60, 10, null, null, 'left');
+  doc.text(this.elementosPreFactura[0]['liquidacion_nombreyapellido'], 60, 10, null, null, 'left');
   doc.setFontSize(6);
   doc.text('Periodo: '+td+' al '+th, pageSize.width -60, 10, null, null);
   doc.line(60, 13, pageWidth - 15, 13);

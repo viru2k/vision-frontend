@@ -6,14 +6,7 @@
 
 <div>
     <div >
-        <h6>Agenda</h6>
-        <hr>
-        <div class='sidenav'>
-             <!--   <span (click)='newDoc()'>New Document</span>
-          <span [class.selected]='docId === currentDocId' (click)='loadDoc(docId)' *ngFor='let docId of documents | async'>{{ docId }}</span> 
-        </div>
-        <textarea  [(ngModel)]='document.doc' (keyup)='editDoc()' placeholder='Start typing...'></textarea> -->
-    </div>
+      
     <div class=" d-flex justify-content-sm-start" >
             <div  class="input-group input-group-sm ">
                     <form  [formGroup]="DateForm">
@@ -67,15 +60,7 @@
 
             <p-table  #dt class="pt-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols"  [value]="agendaTurno" [(selection)]="selecteditems"   columnResizeMode="expand" [responsive]="true"
             scrollHeight="500px" [scrollable]="true" (onFilter)="filtered($event)">
-            <ng-template pTemplate="caption">
-                    <div class="row">
-                            <div class="col-md-7" style="text-align:left">
-                                        </div>
-                    <div class="col-md-5" style="text-align:right">                                
-                        <input  class="form-control form-control-sm  col-md-12" type="text"  placeholder="Buscar en toda la tabla" (input)="dt.filterGlobal($event.target.value, 'contains')"  >
-                    </div>
-                 </div>
-                </ng-template>
+          
 
                <ng-template pTemplate="header" let-columns >
               

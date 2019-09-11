@@ -39,6 +39,7 @@ import {ListboxModule} from 'primeng/listbox';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {MenuItem, MessageService,DialogService,SelectItem} from 'primeng/api';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
+import {PanelModule} from 'primeng/panel';
 import localeEsAR from '@angular/common/locales/es-AR';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { AutofocusModule } from 'angular-autofocus-fix'; 
@@ -196,6 +197,10 @@ import { PopupDetalleOperacionCobroDistribucionComponent } from './shared/compon
 import { PopupOperacionCobroDistribucionComponent } from './shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component';
 import { AgendaRecepcionComponent } from './pages/recepcion/agenda/agenda-recepcion/agenda-recepcion.component';
 import { PopupPacienteEsperaComponent } from './shared/components/popups/popup-paciente-espera/popup-paciente-espera.component';
+import { PopupNotificacionComponent } from './pages/notificacion/popup-notificacion/popup-notificacion.component';
+import { PopupChatComponent } from './pages/notificacion/popup-chat/popup-chat.component';
+import { PopupListadoUsuarioComponent } from './pages/notificacion/popup-notificacion/popup-listado-usuario/popup-listado-usuario.component';
+import { PopupNotificacionNuevaComponent } from './pages/notificacion/popup-notificacion/popup-notificacion-nueva/popup-notificacion-nueva.component';
 
 
 
@@ -331,6 +336,10 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupOperacionCobroDistribucionComponent,
     AgendaRecepcionComponent,
     PopupPacienteEsperaComponent,
+    PopupNotificacionComponent,
+    PopupChatComponent,
+    PopupListadoUsuarioComponent,
+    PopupNotificacionNuevaComponent,
     
   ],
   imports: [
@@ -361,6 +370,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     OrderListModule,
     InputTextareaModule,
     ScrollPanelModule,
+    PanelModule,
     SweetAlert2Module.forRoot(),
     AutofocusModule,
     SocketIoModule.forRoot(config),
@@ -388,7 +398,8 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupListadoCirugiaQuirofanoEditarComponent, PopupCobroDistribucionEditarComponent,PopupFichaQuirurgicaOperacionCobroComponent,
     PopupListadoCirugiaQuirofanoObservacionEditarComponent,PopupOperacionCobroDetalleComponent, PopupOperacionCobroDetallePacienteComponent,
     PopupOperacionCobroRegistroBuscarTodosComponent, PopupDetalleOperacionCobroDistribucionComponent, 
-    PopupOperacionCobroDistribucionComponent,PopupPacienteEsperaComponent
+    PopupOperacionCobroDistribucionComponent,PopupPacienteEsperaComponent, PopupNotificacionComponent,
+    PopupChatComponent ,   PopupListadoUsuarioComponent, PopupNotificacionNuevaComponent,
 
   ],
   providers: [CurrencyPipe,DecimalPipe,NumberToWordsPipe,PacienteService,PushNotificationService,ExcelService,{ provide: LOCALE_ID, useValue: 'es-Ar' },

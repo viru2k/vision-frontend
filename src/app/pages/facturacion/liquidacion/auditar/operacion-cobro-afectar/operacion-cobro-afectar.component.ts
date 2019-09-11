@@ -17,7 +17,7 @@ require('jspdf-autotable');
 import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/components/common/api';
 import { PracticaService } from 'src/app/services/practica.service';
-import { OperacionCobroDetalle } from 'src/app/models/operacion-cobro-detalle.model';
+
 import { formatDate, CurrencyPipe, DecimalPipe } from '@angular/common';
 import {OverlayPanelModule, OverlayPanel} from 'primeng/overlaypanel';
 import { PopupObraSocialComponent } from 'src/app/shared/components/popups/popup-obra-social/popup-obra-social.component';
@@ -28,6 +28,7 @@ import { MedicoObraSocial } from '../../../../../models/medico-obrasocial.model'
 import { PopupOperacionCobroEditarComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-editar/popup-operacion-cobro-editar.component';
 import { PopupOperacionCobroRegistroBuscarComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-registro-buscar/popup-operacion-cobro-registro-buscar.component';
 import { PopupOperacionCobroRegistroBuscarTodosComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component';
+import { OperacionCobroDetalle } from '../../../../../models/operacion-cobro-detalle.model';
 
 @Component({
   selector: 'app-operacion-cobro-afectar',
@@ -42,6 +43,7 @@ export class OperacionCobroAfectarComponent implements OnInit {
   total_facturado:number=0;
   total_original:number=0;
   total_categoria:number=0;
+  total_final:number=0;
   cols: any[];
   selectedItem: OperacionCobroDetalle;
   popItem:OperacionCobroDetalle;
@@ -113,8 +115,9 @@ export class OperacionCobroAfectarComponent implements OnInit {
             { field: 'usuario_cobro_nombre', header: 'Usuario' , width: '8%'},
             { field: 'fecha_cobro' , header: 'Fecha' , width: '8%'},
             { field: 'cantidad', header: 'Cant.' , width: '6%'},
-            { field: 'valor_facturado', header: 'Fact.' , width: '6%'},
-            { field: 'distribucion', header: 'dist' , width: '6%'},
+            { field: 'categorizacion', header: 'Categ.' , width: '6%'},
+            { field: 'valor_facturado', header: 'Valor' , width: '6%'},
+            { field: 'valor_final', header: 'Total' , width: '6%'},
             { field: 'forma_pago', header: 'Medio' , width: '10%'} 
               
            ];         
@@ -159,8 +162,9 @@ export class OperacionCobroAfectarComponent implements OnInit {
         this.fechaHasta = new Date();
         this.DateForm.patchValue({fecha_desde: this.fechaDesde});
         this.DateForm.patchValue({fecha_hasta: this.fechaHasta});
-        this.popItemOperacionCobro =  new OperacionCobroDetalle('','',0,0,0,'','','','','','','','','','','',0,0,0,'','','');
+        this.popItemOperacionCobro =  new OperacionCobroDetalle('','',0,0,0,'','','','','','','','','','','',0,0,0,'','','',0);
        this.liquidacion = new Liquidacion('','','','','','','',0,0,'','',[],'','','');
+      
     }
   
     actualizarFechaDesde(event){
@@ -228,11 +232,14 @@ export class OperacionCobroAfectarComponent implements OnInit {
     this.total_original = 0;
     this.total_categoria = 0;
     this.cantidad_practica = 0;
+    this.total_final=0;
     for(i=0;i<vals.length;i++){
         this.total_original = this.total_original+ Number(vals[i]['valor_original']);
-        this.total_facturado = this.total_facturado+ Number(vals[i]['valor_facturado'])+ Number(vals[i]['categorizacion']);
+        this.total_facturado = this.total_facturado+ Number(vals[i]['valor_facturado']);
         this.total_categoria = this.total_categoria+ Number(vals[i]['categorizacion']);
+        
     }
+    this.total_final =   this.total_facturado+ this.total_categoria;
     this.cantidad_practica = vals.length;
     console.log(this.total_facturado);
   }
@@ -316,13 +323,14 @@ export class OperacionCobroAfectarComponent implements OnInit {
       
     }
     swal({
-        title: '¿Desea afectar estos  registros?',
-        text: 'Va a afectar una liquidacion con fecha desde '+td+' y fecha hasta '+th+' para la obra social '+ this.DateForm.value.obra_social_nombre,
+        title: 'Liquidación : Desde '+td+' Hasta '+th+', Obra social '+ this.DateForm.value.obra_social_nombre+ ', A nombre de '+this.DateForm.value.medico_nombre ,
+        text: '¿Desea generar una ficha con estos  registros?',
         type: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, guardar!'
+        confirmButtonColor: '#7FB3D5',
+        cancelButtonColor: '#E74C3C',
+        confirmButtonText: 'Generar ficha',
+        cancelButtonText: 'No, modificar datos'
       }).then((result) => {
         if (result.value) {
           this.afectarOperacionCobro();
@@ -431,6 +439,7 @@ export class OperacionCobroAfectarComponent implements OnInit {
             let resultado = resp;
             resultado.forEach(element => {
               resp[i]['dni'] = resp[i]['dni'] +' - '+resp[i]['numero_afiliado'] +' / '+resp[i]['barra_afiliado'] ;
+              resp[i]['valor_final'] = (Number(resp[i]['valor_facturado']) +Number(resp[i]['categorizacion'])) ;
           //    let t = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
           
               i++;
@@ -458,6 +467,9 @@ export class OperacionCobroAfectarComponent implements OnInit {
 
 
 afectarOperacionCobro(){
+  let user_medico_count:number = 0;
+  let obra_social_count:number = 0;
+  let titulo:string;
   let userData = JSON.parse(localStorage.getItem('userData'));
   this.es = calendarioIdioma;
   this.loading = true;
@@ -479,7 +491,19 @@ afectarOperacionCobro(){
 for(let i=0;i<this.selecteditems.length;i++){
   
   this.liquidacion.total = Number(this.liquidacion.total)+Number(this.selecteditems[i]['valor_facturado'])+Number(this.selecteditems[i]['categorizacion']);
-  this.liquidacion.cant_orden =Number(this.liquidacion.cant_orden)+Number(this.selecteditems[i]['cantidad']);
+  this.liquidacion.cant_orden =Number(this.liquidacion.cant_orden)+Number(this.selecteditems[i]['cantidad']); 
+  // VERIFICO QUE EL MEDICO Y LA OBRA SOCIAL SEAN LOS MISMOS
+  if(Number(this.liquidacion.medico_id) !== Number(this.selecteditems[i]['user_medico_id'])){
+    user_medico_count++;
+    console.log(this.liquidacion.medico_id);
+    console.log(this.selecteditems[i]['user_medico_id']);
+  }
+
+  if(Number(this.liquidacion.obra_social_id) !== Number(this.selecteditems[i]['obra_social_id'])){
+    obra_social_count++;
+    console.log(this.liquidacion.obra_social_id);
+    console.log(this.selecteditems[i]['obra_social_id']);
+  }
   this.sumarValores(this.liquidacion.total);
 }
 
@@ -487,11 +511,74 @@ for(let i=0;i<this.selecteditems.length;i++){
   console.log(this.liquidacion);  
   console.log(JSON.stringify( this.liquidacion ) );
   if((this.liquidacion.obra_social_id !== '0') && (this.liquidacion.medico_id !=='0') && (this.liquidacion.numero !== undefined) &&(this.liquidacion.nivel !=='')){
+    if((obra_social_count>0)||(user_medico_count>0)){
+      if(obra_social_count>0){
+        titulo = 'Existe/n '+obra_social_count+' obra social distinta/s ';
+      }
+      
+      if(user_medico_count>0){
+        titulo = titulo+ ', Existe/n '+user_medico_count+' medicos distinto/s ';
+      }
+      swal({
+        title: 'Existen datos no correspondidos',
+        text: titulo,
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#E74C3C',
+        cancelButtonColor: '#7FB3D5',
+        cancelButtonText: 'No, modificar!',
+        confirmButtonText: 'Ok, seguir detodos modos'
+      }).then((result) => {
+        if (result.value) {
+          //SI CONTINUO ESTOY CONFIRMANDO LOS DATOS ERRONEOS
+          try {
+            this.miServicio.afectarOperacionCobro(this.liquidacion)
+             .subscribe(resp => {
+               console.log(resp);
+              
+                 this.loading = false;
+                 console.log(resp);
+                
+                 this.liquidacion.nivel = this.DateForm.value.nivel;
+                 this.liquidacion.numero = '';
+                 this.liquidacion.medico_id = '';
+                 this.liquidacion.obra_social_id =  '';
+                 this.liquidacion.total = 0;
+                 this.liquidacion.cant_orden = 0;
+                 this.selecteditems = [];
+
+                 const Toast = swal({
+                  toast: false,
+                  type: 'success',
+                  title: 'Datos guardados',
+                  showConfirmButton: false,
+                  timer: 2000
+                });
+                
+               
+              //   this.elementos =[];
+          //    this.throwAlert('success', 'Se modificó el registro con éxito','','');
+                 this.loadRegistro();
+                 
+             },
+             error => { // error path
+                 console.log(error.message);
+                 console.log(error.status);
+                 this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+              });    
+         } catch (error) {
+         this.throwAlert('error','Error al cargar los registros',error,error.status);
+         }  
+        }
+      })
+
+
+    }else{
    try {
      this.miServicio.afectarOperacionCobro(this.liquidacion)
       .subscribe(resp => {
         console.log(resp);
-        this.loadRegistro();
+       
           this.loading = false;
           console.log(resp);
          
@@ -501,6 +588,15 @@ for(let i=0;i<this.selecteditems.length;i++){
           this.liquidacion.obra_social_id =  '';
           this.liquidacion.total = 0;
           this.liquidacion.cant_orden = 0;
+          this.selecteditems = [];
+          const Toast = swal({
+            toast: false,
+            type: 'success',
+            title: 'Datos guardados',
+            showConfirmButton: false,
+            timer: 2000
+          });
+          this.loadRegistro();
       },
       error => { // error path
           console.log(error.message);
@@ -510,6 +606,7 @@ for(let i=0;i<this.selecteditems.length;i++){
   } catch (error) {
   this.throwAlert('error','Error al cargar los registros',error,error.status);
   }  
+    }
 }else{
 
   swal({
@@ -781,24 +878,26 @@ let total_facturado_coseguro:number = 0;
 
 
       if(this.result_distribucion[i]['obra_social_practica_nombre'] === 'GASTOS'){
-        total_facturado  = total_facturado+ Number(this.result_distribucion[i]['distribucion_total']);
+        total_facturado  = total_facturado+ (Number(this.result_distribucion[i]['distribucion_total']* Number(this.result_distribucion[i]['cantidad'])));
      //   console.log(this.result_distribucion[i]);
         doc.text(this.result_distribucion[i]['codigo'], 10, y_gastos, null, null, 'left');
         doc.text(this.result_distribucion[i]['descripcion'], 30, y_gastos, null, null, 'left');
        
         doc.text(this.result_distribucion[i]['cantidad'], 160, y_gastos, null, null, 'left');
-        doc.text(this.result_distribucion[i]['distribucion_total'], 180, y_gastos, null, null, 'left');
+        doc.text(String(Number(this.result_distribucion[i]['distribucion_total']) * Number(this.result_distribucion[i]['cantidad'])), 180, y_gastos, null, null, 'left');
        y_gastos =  y_gastos+5;
       }
       if(this.result_distribucion[i]['obra_social_practica_nombre'] === 'HONORARIOS'){
        // console.log(this.result_distribucion[i]);
-        total_facturado  = total_facturado+ Number(this.result_distribucion[i]['distribucion_total']);
+        total_facturado  = total_facturado+ (Number(this.result_distribucion[i]['distribucion_total'])* Number(this.result_distribucion[i]['cantidad']));
+        console.log((Number(this.result_distribucion[i]['distribucion_total'])* Number(this.result_distribucion[i]['cantidad'])));
         doc.text(this.result_distribucion[i]['codigo'], 10, y_honorarios, null, null, 'left');
         doc.text(this.result_distribucion[i]['descripcion'], 30, y_honorarios, null, null, 'left');
-        doc.text(this.result_distribucion[i]['categorizacion'], 140, y_honorarios, null, null, 'left');
+        doc.text(String(Number(this.result_distribucion[i]['categorizacion']) * Number(this.result_distribucion[i]['cantidad'])), 140, y_honorarios, null, null, 'left');
         doc.text(this.result_distribucion[i]['cantidad'], 160, y_honorarios, null, null, 'left');
-        doc.text(this.result_distribucion[i]['distribucion_total'], 180, y_honorarios, null, null, 'left');
-        total_facturado  = total_facturado+ Number(this.result_distribucion[i]['categorizacion']);
+        
+        doc.text(String(Number(this.result_distribucion[i]['distribucion_total'])* Number(this.result_distribucion[i]['cantidad'])), 180, y_honorarios, null, null, 'left');
+        total_facturado  = total_facturado+ (Number(this.result_distribucion[i]['categorizacion'])* Number(this.result_distribucion[i]['cantidad']));
         y_honorarios = y_honorarios+5;
       }
     
@@ -817,7 +916,7 @@ let total_facturado_coseguro:number = 0;
       doc.text(this.selecteditems[a]['codigo'], 10, y_gastos, null, null, 'left');
       doc.text(this.selecteditems[a]['descripcion'], 30, y_gastos, null, null, 'left');      
       doc.text(this.selecteditems[a]['cantidad'], 160, y_gastos, null, null, 'left');
-      doc.text(this.selecteditems[a]['valor_facturado'], 180, y_gastos, null, null, 'left');
+      doc.text(this.selecteditems[a]['valor_facturado'] , 180, y_gastos, null, null, 'left');
     //  y_gastos = y_gastos+5;
     }
   }
@@ -890,8 +989,8 @@ let total_facturado_coseguro:number = 0;
         doc.text(this.result_distribucion[i]['descripcion'], 30, y_gastos, null, null, 'left');
        
         doc.text(this.result_distribucion[i]['cantidad'], 160, y_gastos, null, null, 'left');
-       let total_coseguro:string =  this.cp.transform(((this.result_distribucion[i]['distribucion_total']*20)/80) , '', 'symbol-narrow', '1.2-2');
-       total_facturado_coseguro  = total_facturado_coseguro+ Number(((this.result_distribucion[i]['distribucion_total']*20)/80));
+       let total_coseguro:string =  this.cp.transform(Number((this.result_distribucion[i]['distribucion_total']*20)/80) * Number(this.result_distribucion[i]['cantidad']) , '', 'symbol-narrow', '1.2-2');
+       total_facturado_coseguro  = total_facturado_coseguro+ Number(((this.result_distribucion[i]['distribucion_total']*20)/80)* Number(this.result_distribucion[i]['cantidad']));
         doc.text(total_coseguro, 180, y_gastos, null, null, 'left');
        y_gastos =  y_gastos+5;
       }
@@ -900,13 +999,13 @@ let total_facturado_coseguro:number = 0;
     //   total_facturado_coseguro  = total_facturado_coseguro+ Number(this.result_distribucion[i]['distribucion_total']);
         doc.text(this.result_distribucion[i]['codigo'], 10, y_honorarios, null, null, 'left');
         doc.text(this.result_distribucion[i]['descripcion'], 30, y_honorarios, null, null, 'left');
-        doc.text(this.result_distribucion[i]['categorizacion'], 140, y_honorarios, null, null, 'left');
+        doc.text(String(Number(this.result_distribucion[i]['categorizacion']) * Number(this.result_distribucion[i]['cantidad'])), 140, y_honorarios, null, null, 'left');
         doc.text(this.result_distribucion[i]['cantidad'], 160, y_honorarios, null, null, 'left');        
         console.log((this.result_distribucion[i]['distribucion_total']*20)/80);
         console.log(this.cp.transform(((this.result_distribucion[i]['distribucion_total']*20)/80) , '', 'symbol-narrow', '1.2-2'));
-        let total_coseguro:string =  this.cp.transform(((this.result_distribucion[i]['distribucion_total']*20)/80) , '', 'symbol-narrow', '1.2-2');
-        total_facturado_coseguro  = total_facturado_coseguro+ Number(((this.result_distribucion[i]['distribucion_total']*20)/80));
-        total_facturado_coseguro = total_facturado_coseguro+ Number(this.result_distribucion[i]['categorizacion']);
+        let total_coseguro:string =  this.cp.transform(((this.result_distribucion[i]['distribucion_total']*20)/80) * this.result_distribucion[i]['cantidad'] , '', 'symbol-narrow', '1.2-2');
+        //total_facturado_coseguro  = total_facturado_coseguro+ (Number((this.result_distribucion[i]['distribucion_total']*20)/80)* Number(this.result_distribucion[i]['cantidad']));
+        total_facturado_coseguro = total_facturado_coseguro+  (Number((this.result_distribucion[i]['distribucion_total']*20)/80)* Number(this.result_distribucion[i]['cantidad']))+ (Number(this.result_distribucion[i]['categorizacion'])* Number(this.result_distribucion[i]['cantidad']));              
         doc.text(total_coseguro, 180, y_honorarios, null, null, 'left');
         y_honorarios = y_honorarios+5;
       }
