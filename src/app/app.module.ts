@@ -40,6 +40,7 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 import {MenuItem, MessageService,DialogService,SelectItem} from 'primeng/api';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
 import {PanelModule} from 'primeng/panel';
+import {AutoCompleteModule} from 'primeng/autocomplete';
 import localeEsAR from '@angular/common/locales/es-AR';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { AutofocusModule } from 'angular-autofocus-fix'; 
@@ -371,6 +372,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     InputTextareaModule,
     ScrollPanelModule,
     PanelModule,
+    AutoCompleteModule,
     SweetAlert2Module.forRoot(),
     AutofocusModule,
     SocketIoModule.forRoot(config),

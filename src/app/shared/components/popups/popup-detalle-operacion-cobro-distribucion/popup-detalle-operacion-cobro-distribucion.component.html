@@ -4,7 +4,13 @@
         <div class=" col-2 mt-1"> <label class="mr-2">Médico opera : </label></div>
       <div class=" col-6">
           
-          <p-dropdown [options]="elementos" [(ngModel)]="selectedMedicoOpera" optionLabel="nombre" [style]="{'width':'350px'}"></p-dropdown>
+      
+
+          <p-autoComplete  [suggestions]="filteredItems" forceSelection="true" (completeMethod)="filterItems($event)" [size]="35"
+            [minLength]="1" placeholder="Escriba para filtrar" [dropdown]="true"  [style]="{'width':'350px'}" (onSelect)="seleccionado($event)"
+            field="nombre" >     
+          </p-autoComplete>
+
       </div>
       <div class=" col-2">
         <div class="input-group mb-2">

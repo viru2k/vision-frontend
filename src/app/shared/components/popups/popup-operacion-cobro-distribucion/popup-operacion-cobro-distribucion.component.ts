@@ -79,6 +79,7 @@ export class PopupOperacionCobroDistribucionComponent implements OnInit {
   DateForm:FormGroup;
   popItemObraSocial:ObraSocial;
   liquidacion:Liquidacion;
+  
 
     constructor(private miServicio:PracticaService,public config: DynamicDialogConfig, private messageService: MessageService ,public dialogService: DialogService,private cp: CurrencyPipe  ) {
   
@@ -456,6 +457,8 @@ cargarDistribucion(){
   });
 
 }
+
+
 
 generarPdfListado(filtro:string) {
   console.log(this.selecteditems);

@@ -42,6 +42,8 @@ export class PopupDetalleOperacionCobroDistribucionComponent implements OnInit {
   loading: boolean;
   elemento:MedicoObraSocial = null;
   elementos:MedicoObraSocial[] = null;
+  filteredItems: any[];
+  nombre:string;
 
   ngOnInit() {
     console.log(this.config.data);
@@ -132,8 +134,8 @@ guardarDistribucion(){
   }
 
   console.log(this.liquidacionDistribucion);
-
-  this.liquidarPracticas();
+  console.log(this.filteredItems);
+ // this.liquidarPracticas();
 }
 
 calcularPorcentaje(){
@@ -159,7 +161,24 @@ sumarValores(){
   console.log(this.TOTAL_DISTRIBUCION);
 }
 
+filterItems(event) {
+ let item:any;
+  this.filteredItems = [];
+  for(let i = 0; i < this.elementos.length; i++) {
+        let nombre= this.elementos[i]['nombre'];
+      
+      if(this.elementos[i]['nombre'].toLowerCase().indexOf(event.query.toLowerCase()) == 0) {
+        item= this.elementos[i];
+        console.log(this.filteredItems);
+          this.filteredItems.push(this.elementos[i]);
+      }
+  }
+}
 
+
+seleccionado(elemento:any){
+  console.log(elemento);
+}
 
 throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string){
   let tipoerror:string;
