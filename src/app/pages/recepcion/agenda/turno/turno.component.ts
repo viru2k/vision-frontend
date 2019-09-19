@@ -25,6 +25,8 @@ import { PacienteService } from 'src/app/services/paciente.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PopupAgendaObservacionComponent } from '../../../../shared/components/popups/popup-agenda-observacion/popup-agenda-observacion.component';
 
+import { User } from '../../../../models/user.model';
+import { UserService } from './../../../../services/user.service';
 
 
 @Component({
@@ -73,7 +75,16 @@ export class TurnoComponent implements OnInit {
  motivoObservaciones:any[] = [];
  sobreturno:string = 'NO';
 
-  constructor(private miServicoPaciente:PacienteService ,private miServico:AgendaService, private datePipe: DatePipe,  private messageService: MessageService ,public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router ) {
+ selectedMotivo:string;
+ selectedEstudio:string;
+ selectedMedicoEfector:string;
+ observacion:string;
+ motivoatencion:any[];
+ estudios:any[];  
+ motivos:any[];
+ usuarios:User[];
+
+  constructor(private miServicoPaciente:PacienteService ,private miUserServico:UserService, private miServico:AgendaService, private datePipe: DatePipe,  private messageService: MessageService ,public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router ) {
 
     this.popItemPaciente =  new Paciente('0','','','','','',new Date(),'','','','','','','','','0','0','','','0','','','','','','');
     if(this.router.getCurrentNavigation().extras.state != undefined){
@@ -89,6 +100,39 @@ export class TurnoComponent implements OnInit {
       {field: 'nombreyapellido', header: 'Usuario' },
       {field: 'boton', header: '' },
       ];
+
+      this.estudios = [
+        {name: 'SIN ESTUDIOS', code: '16'},
+        {name: 'ESTUDIOS COMBINADOS', code: '13'},
+        {name: 'RFG + OCT', code: '14'},
+        {name: 'RFG + OCT + PAQUIMETRIA', code: '15'},
+        {name: 'LASER ARGON', code: '1'},
+        {name: 'YAG LASER', code: '2'},
+        {name: 'ECOGRAFIA', code: '3'},        
+        {name: 'ECOMETRIA', code: '4'},
+        {name: 'RETINOGRAFIA', code: '5'},
+        {name: 'RETINOFLUORESCEINOGRAFIA', code: '6'},
+        {name: 'PAQUIMETRIA', code: '7'},
+        {name: 'CAMPIMETRIA COMPUTARIZADA', code: '8'},
+        {name: 'OCT', code: '9'},
+        {name: 'TOPOGRAFIA', code: '10'},
+        {name: 'IOL MASTER', code: '11'},
+        {name: 'MICROSCOPIA', code: '12'},
+        
+    ];
+  
+    this.motivos = [
+      {name: 'SIN SELECCION', code: '5'},
+      {name: 'ESTUDIOS', code: '1'},
+      {name: 'CONTROL PREQUIRURGICO', code: '2'},
+      {name: 'CONTROL POSQUIRURGICO', code: '3'},
+      {name: 'ANESTESIA', code: '4'},
+      {name: 'ASESORAMIENTO QUIRURGICO', code: '6'},      
+      {name: 'CIRUGIA', code: '7'},
+      {name: 'ADVERTENCIA', code: '8'},
+     
+      
+  ];
     
       this.DateForm = new FormGroup({
         'fechaHoy': new FormControl('', Validators.required)
@@ -106,7 +150,8 @@ export class TurnoComponent implements OnInit {
         let invalidDate3 = new Date();
         let invalidDate4 = new Date();
         
-
+        this.selectedEstudio =  this.estudios[0];
+        this.selectedMotivo =  this.motivos[5];
     
     this.invalidDatesCompleta = [invalidDate, invalidDate];
     this.formPaciente = new FormGroup({
@@ -120,6 +165,9 @@ export class TurnoComponent implements OnInit {
     'medico_nombre': new FormControl(''),
     'obra_social': new FormControl(''),
 });
+
+this.getUsuarioMedico();
+
   let newDate = new Date();
   this.DateForm.patchValue({fechaHoy: this.fechaHoy});
     if(this.esInvocado){
@@ -127,6 +175,39 @@ export class TurnoComponent implements OnInit {
     }
   }
 
+
+  
+  guardarObservacion(){
+    let selectedMedicoEfector_:string;
+    let selectedEstudio_:String;
+    let selectedMotivo_:String;
+    console.log(this.selectedMedicoEfector);
+    if(!this.selectedMedicoEfector['nombreyapellido']){
+      selectedMedicoEfector_ = '';
+    }else{
+      selectedMedicoEfector_ ='MEDICO:  '+ this.selectedMedicoEfector['nombreyapellido'];   
+    }
+
+    if(!this.selectedEstudio['name']){
+      selectedEstudio_ = '';
+    }else{
+      selectedEstudio_ ='ESTUDIO: '+ this.selectedEstudio['name'];     
+    }
+
+    if(!this.selectedMotivo['name']){
+      selectedMotivo_ = '';
+    }else{
+      selectedMotivo_ = this.selectedMotivo['name'];     
+    }
+      this.motivoatencion = [];
+    this.motivoatencion.push(selectedEstudio_);
+    this.motivoatencion.push(selectedMedicoEfector_);
+    this.motivoatencion.push(this.checked);
+    this.motivoatencion.push(this.observacion);
+    this.motivoatencion.push(selectedMotivo_);
+    this.motivoObservaciones = this.motivoatencion;
+    console.log(this.motivoObservaciones);
+  }
 
   cargarAgendaInicio(agenda:AgendaTurno){
     
@@ -174,11 +255,25 @@ loadListTurno(){
           this.loading = false; 
             console.log(error.message);
             console.log(error.status);
-            this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+            swal({
+              toast: false,
+              type: 'error',
+              title: 'Algo salio mal...',
+              text:error.status+' '+error.message ,
+              showConfirmButton: false,
+              timer: 2000
+            });
          });    
     } catch (error) {
       
-    this.throwAlert('error','Error al cargar los registros',error,error.status);
+      swal({
+        toast: false,
+        type: 'error',
+        title: 'Algo salio mal...',
+        text:error.status+' '+error.message ,
+        showConfirmButton: false,
+        timer: 2000
+      });
     }  
   }else{
     this.throwAlert('error','Error: '+404+'  No se selecciono una fecha','Error en la fecha', '400');
@@ -205,10 +300,24 @@ loadListTurnoTodos(){
         error => { // error path
             console.log(error.message);
             console.log(error.status);
-            this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+            swal({
+              toast: false,
+              type: 'error',
+              title: 'Algo salio mal...',
+              text:error.status+' '+error.message ,
+              showConfirmButton: false,
+              timer: 2000
+            });
          });    
     } catch (error) {
-    this.throwAlert('error','Error al cargar los registros',error,error.status);
+      swal({
+        toast: false,
+        type: 'error',
+        title: 'Algo salio mal...',
+        text:error.status+' '+error.message ,
+        showConfirmButton: false,
+        timer: 2000
+      });
     }  
   }else{
     this.throwAlert('error','Error: '+404+'  No se selecciono una fecha','Error en la fecha', '400');
@@ -236,10 +345,24 @@ loadSobreTurno(){
              console.log(error.message);
              console.log(error.status);
              this.loading = false;
-             this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+             swal({
+              toast: false,
+              type: 'error',
+              title: 'Algo salio mal...',
+              text:error.status+' '+error.message ,
+              showConfirmButton: false,
+              timer: 2000
+            });
           });    
      } catch (error) {
-     this.throwAlert('error','Error al cargar los registros',error,error.status);
+      swal({
+        toast: false,
+        type: 'error',
+        title: 'Algo salio mal...',
+        text:error.status+' '+error.message ,
+        showConfirmButton: false,
+        timer: 2000
+      });
      }  
    }else{
      this.throwAlert('error','Error: '+404+'  No se selecciono una fecha','Error en la fecha', '400');
@@ -261,8 +384,10 @@ calendarioBloqueo(){
         .subscribe(resp => {
           
         this.calendarioBloqueado = resp;   
-        console.log(this.calendarioBloqueado);
+        console.log(this.calendarioBloqueado[0]);
+
         if(this.calendarioBloqueado !=null){
+          if(this.calendarioBloqueado.length !=undefined){
         this.calendarioBloqueado.forEach(element => {  
           let _fecha:Date = new Date(element['fecha']);
           let dateFix = new Date(_fecha.getTime() + (_fecha.getTimezoneOffset() * 60 * 1000));     
@@ -274,15 +399,31 @@ calendarioBloqueo(){
             this.loading = false;
             console.log(resp);
       }
+      this.loading = false;
+    }
         },
         error => { // error path
             console.log(error.message);
             console.log(error.status);
             this.loading = false;
-            this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+            swal({
+              toast: false,
+              type: 'error',
+              title: 'Algo salio mal...',
+              text:error.status+' '+error.message ,
+              showConfirmButton: false,
+              timer: 2000
+            });
          });    
     } catch (error) {
-    this.throwAlert('error','Error al cargar los registros',error,error.status);
+      swal({
+        toast: false,
+        type: 'error',
+        title: 'Algo salio mal...',
+        text:error.status+' '+error.message ,
+        showConfirmButton: false,
+        timer: 2000
+      });
     }  
   }else{
     this.throwAlert('error','Error: '+404+'  No se selecciono una fecha','Error en la fecha', '400');
@@ -334,6 +475,42 @@ AgregarMotivosAtencion(){
 
 }
 
+
+
+
+getUsuarioMedico(){
+    
+  try {
+      this.miUserServico.getItems()    
+      .subscribe(resp => {
+      this.usuarios = resp;                             
+          console.log(resp);
+          this.selectedMedicoEfector = resp[0]['nombreyapellido'] ;
+      },
+      error => { // error path
+          console.log(error.message);
+          console.log(error.status);
+          swal({
+            toast: false,
+            type: 'error',
+            title: 'Algo salio mal...',
+            text:error.status+' '+error.message ,
+            showConfirmButton: false,
+            timer: 2000
+          });
+       });    
+  } catch (error) {
+    swal({
+      toast: false,
+      type: 'error',
+      title: 'Algo salio mal...',
+      text:error.status+' '+error.message ,
+      showConfirmButton: false,
+      timer: 2000
+    });
+  }  
+
+}
 
 
 loadTurno(){
@@ -455,12 +632,26 @@ nuevoItemPaciente(){
       error => { // error path
           console.log(error.message);
           console.log(error.status);
-          this.throwAlert('error','Error: '+error.status,  'Error al cargar los registros',error.status);
+          swal({
+            toast: false,
+            type: 'error',
+            title: 'Algo salio mal...',
+            text:error.status+' '+error.message ,
+            showConfirmButton: false,
+            timer: 2000
+          });
           this.resultSave = false;
           this.loading = false;
         });    
   } catch (error) {
-      this.throwAlert('error','Error al cargar los registros',error,error.status);
+    swal({
+      toast: false,
+      type: 'error',
+      title: 'Algo salio mal...',
+      text:error.status+' '+error.message ,
+      showConfirmButton: false,
+      timer: 2000
+    });
   }
   return this.resultSave;
       
@@ -485,18 +676,34 @@ editarItemPaciente(){
       error => { // error path
           console.log(error.message);
           console.log(error.status);
-          this.throwAlert('error','Error: '+error.status,  'Error al cargar los registros',error.status);
+          swal({
+            toast: false,
+            type: 'error',
+            title: 'Algo salio mal...',
+            text:error.status+' '+error.message ,
+            showConfirmButton: false,
+            timer: 2000
+          });
           this.resultSave = false;
           this.loading = false;
         });
   } catch (error) {
-      this.throwAlert('error','Error al cargar los registros',error,error.status);
+    swal({
+      toast: false,
+      type: 'error',
+      title: 'Algo salio mal...',
+      text:error.status+' '+error.message ,
+      showConfirmButton: false,
+      timer: 2000
+    });
   }
   return this.resultSave;
 
 }
 
 generarTurno(event:AgendaTurno){
+  this.guardarObservacion();
+  console.log(this.motivoObservaciones);
   console.log(this.popItemPaciente.id);
  
   let fecha = new Date(this.fechaHoy);
@@ -657,14 +864,28 @@ generarTurno(event:AgendaTurno){
     error => { // error path
         console.log(error.message);
         console.log(error.status);
-        this.throwAlert('error','Error: '+error.status,  'Error al cargar los registros',error.status);
+        swal({
+          toast: false,
+          type: 'error',
+          title: 'Algo salio mal...',
+          text:error.status+' '+error.message ,
+          showConfirmButton: false,
+          timer: 2000
+        });
         this.resultSave = false;
         this.loading = false;
       });    
     }
 } catch (error) {
   this.loading = false;   
-    this.throwAlert('error','Error al cargar los registros',error,error.status);
+  swal({
+    toast: false,
+    type: 'error',
+    title: 'Algo salio mal...',
+    text:error.status+' '+error.message ,
+    showConfirmButton: false,
+    timer: 2000
+  });
 }
   }else{
     console.log(event+ 'aerrera');

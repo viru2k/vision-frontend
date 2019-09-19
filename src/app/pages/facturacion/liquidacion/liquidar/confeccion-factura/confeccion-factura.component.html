@@ -6,11 +6,11 @@
 <p-toast (life)="100" styleClass="custom-toast" [style]="{marginTop: '100px'}"></p-toast>
 
 
-    
-  <div class="row mt-2" role="toolbar" aria-label="Toolbar with button groups">
+    <!-- 
+  <div class=" m-2 row mt-2" role="toolbar" aria-label="Toolbar with button groups">
     <div  class="input-group input-group-sm ">
             <form  [formGroup]="DateForm">
-            <div class="btn-group mr-1" role="group">
+            <div class="  btn-group " role="group">
                       <span class="pr-1 pt-1"><h6>Fecha liquidación:</h6></span>
                       <p-calendar [inputStyle]="{'height':'29.1px'}"  [showTime]="true"  class="mr-2 " formControlName="fecha_liquidacion"  (onSelect)="actualizarFechaHasta($event)" tabindex="0" [disabledDates]="invalidDates" [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
                           <ng-template pTemplate="date" let-date>
@@ -23,7 +23,7 @@
                           </div>    
                     </div>                                          
                       <div class=" ml-2 row">                         
-                         <div class="ml-2"><button    class="btn  btn-success btn-sm float-right  pr-2" (click)="actualizarRegistros()" >Liquidaciar seleccionados</button>   </div>                                                    
+                         <div class="ml-2"><button    class="btn  btn-success btn-sm float-right  pr-2" (click)="actualizarRegistros()" >Liquidar seleccionados</button>   </div>                                                    
                         </div>     
                            <div class="form-group ">
                
@@ -33,8 +33,8 @@
             </form>            
           
     </div>    
-</div>
-  <div class="row">
+</div> -->
+  <div class="row m-1">
   <p-table  #dt class="pt-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  (onEditComplete)="editRow($event)" [(selection)]="selecteditems" columnResizeMode="expand" [responsive]="true"
   scrollHeight="600px" [scrollable]="true"  (onFilter)="filtered($event)"  >
  

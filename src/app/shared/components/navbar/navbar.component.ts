@@ -392,7 +392,7 @@ menuList(){
               {label: 'Historia clínica', 
               visible:!this.medico_control,'routerLink': 'medico/historiaclinica'},
               {label: 'Cirugias',
-              visible:!this.medico_control, 'routerLink': 'asesoramiento/cirugia/listado/cirugia'},
+              visible:!this.medico_control, 'routerLink': 'medico/cirugia/listado/cirugia'},
             ]
         },
         {label: 'Cirugias',

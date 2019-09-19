@@ -1,5 +1,5 @@
 
-import { DialogService, MessageService, DynamicDialogRef } from 'primeng/api';
+import { DialogService, MessageService, DynamicDialogRef, DynamicDialogConfig } from 'primeng/api';
 import { MedicoObraSocial } from 'src/app/models/medico-obrasocial.model';
 import { formatDate, DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
@@ -81,25 +81,24 @@ export class PopupPacienteEsperaComponent implements OnInit {
   document: Document;
   motivo:string;
 
-  constructor(private documentService: DocumentService,private miServico:AgendaService, private messageService: MessageService ,
+  constructor(private documentService: DocumentService,private miServico:AgendaService, private messageService: MessageService ,public config: DynamicDialogConfig,
     public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router, public ref: DynamicDialogRef ) {
 
   this.cols = [
-    {field: 'operacion_cobro_id', header: 'OC', width: '5%' }, 
+      {field: 'boton', header: '' , width: '4%'},
+      {field: 'agenda_dia_horario_atencion_id', header: 'Nº', width: '5%' }, 
+      {field: 'operacion_cobro_id', header: 'OC', width: '5%' }, 
       {field: 'paciente_apellido', header: 'Apellido', width: '8%' }, 
       {field: 'paciente_nombre', header: 'Nombre', width: '8%' }, 
-      {field: 'paciente_dni', header: 'Dni', width: '8%' },
-      {field: 'edad', header: 'Edad', width: '5%' },
+      {field: 'paciente_dni', header: 'Dni', width: '8%' },      
       {field: 'paciente_obra_social_nombre', header: 'Obra social', width: '8%' },
       {field: 'telefono_cel', header: 'Telefono ', width: '8%' },
       {field: 'hora_desde', header: 'Turno', width: '10%' },
       {field: 'estado', header: 'Estado', width: '8%' },
       {field: 'nombreyapellido', header: 'Medico', width: '15%' },  
       {field: 'dia_nombre', header: 'Dia', width: '6%' },
-      {field: 'llegada', header: 'Llegada', width: '8%' },
-      {field: 'atendido', header: 'Ingresado' , width: '8%'},
+      {field: 'presente', header: 'Presente', width: '8%' },      
       {field: 'es_alerta', header: '' , width: '4%'},
-      {field: 'boton', header: '' , width: '4%'},
       {field: 'boton', header: '', width: '8%' },
       ];
    this.busqueda = [
@@ -133,6 +132,7 @@ this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '',''
 }
 
 ngOnInit() {
+  console.log(this.config.data);
   this.userData = JSON.parse(localStorage.getItem('userData'));
   this.popItemPaciente =  new Paciente('0','','','','','',new Date(),'','','','','','','','','0','0','','','0','','','','','','');
   this.es = calendarioIdioma;
@@ -169,6 +169,12 @@ timer.subscribe(t=> {
 });
 
 } 
+
+darTurno(){
+  console.log(this.popItemAgenda);
+  this.router.navigate(['/recepcion/turnos'],{ state: { paciente: this.popItemAgenda } });
+  this.ref.close();
+}
 
 ngOnDestroy() {
   this._docSub.unsubscribe();
@@ -277,10 +283,10 @@ accion(evt:any,overlaypanel:OverlayPanel,event:AgendaTurno){
   if(event){
     this.selectedagendaTurno = event;
 
-      this.observacion = event.observacion;        
+      this.observacion = event.observacion;
   }
   console.log(event);
-
+this.popItemAgenda = event;
   overlaypanel.toggle(evt);
 }
 
@@ -551,6 +557,9 @@ colorRow(estado:string){
   }
   if(estado == 'SOBRETURNO') {
     return {'es-sobreturno'  :'null' };
+  }
+  if(estado == 'TURNO') {
+    return {'es-turno'  :'null' };
   }
   if(estado == 'CANCELADO') {  
     return {'es-cancelado'  :'null' };

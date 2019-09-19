@@ -38,7 +38,7 @@
     
   </div>
 
-  <p-table  #dt class="pt-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  (onEditComplete)="editRow($event)" [(selection)]="selecteditems" columnResizeMode="expand" [responsive]="true"
+  <p-table class="m-1" #dt class="pt-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  (onEditComplete)="editRow($event)" [(selection)]="selecteditems" columnResizeMode="expand" [responsive]="true"
   scrollHeight="400px" [scrollable]="true"  (onFilter)="filtered($event)"  >
   <ng-template pTemplate="caption">
     <div class="row">
@@ -67,7 +67,9 @@
                       </tr> 
                       <tr>
                       <th *ngFor="let col of columns" [ngSwitch]="col.field"  >
+                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'liquidacion_numero'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
                           <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'operacion_cobro_id'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'id'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
                           <input style=" font-size: 12px;"  class="form-control col-md-12 form-control-sm" *ngSwitchCase="'apellido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
                           <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
                           <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'dni'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                      
@@ -80,8 +82,8 @@
                           <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'fecha_cobro'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                      
                           <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'cantidad'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                                             
                           <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'valor_facturado'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                       
-                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'distribucion'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                       
-                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'forma_pago'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                       
+                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'es_distribuido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                       
+                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'liquidacion_distribucion_id'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                       
                           
                       </th>
                       <th></th>
@@ -97,6 +99,7 @@
                   </td>
                   <td style="width: 5%">{{elementos.liquidacion_numero}}</td>
                   <td style="width: 5%">{{elementos.operacion_cobro_id}}</td>
+                  <td style="width: 5%">{{elementos.id}}</td>
                   <td style="width: 10%">{{elementos.apellido}}</td>
                   <td style="width: 10%">{{elementos.nombre}}</td>
                   <td style="width: 7%">{{elementos.dni}}</td>
@@ -109,9 +112,8 @@
                   <td style="width: 8%">{{elementos.fecha_cobro | date: 'dd/MM/yyyy'}}</td>       
                   <td style="width: 6%">{{elementos.cantidad}}</td>                                         
                   <td style="width: 6%">{{elementos.valor_facturado}}</td>    
-                  <td style="width: 6%">{{elementos.distribucion}}</td>    
-                  <td style="width: 10%">{{elementos.forma_pago}}</td>    
-                              
+                  <td style="width: 6%">{{elementos.es_distribuido}}</td>                        
+                  <td style="width: 5%">{{elementos.liquidacion_distribucion_id}}</td>
                   <td style="width: 3em">
                           <p-tableCheckbox [value]="elementos"></p-tableCheckbox>
                       </td>

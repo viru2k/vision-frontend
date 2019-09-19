@@ -54,6 +54,7 @@ import { ListadoCirugiaQuirofanoComponent } from './pages/asesoramiento/ficha-qu
 import { ListadoCirugiaEditarComponent } from './pages/medico/asesoramiento/listado-cirugia-editar/listado-cirugia-editar.component';
 import { AgendaBloqueoEdicionComponent } from './pages/mantenimiento/agenda/agenda-bloqueo-edicion/agenda-bloqueo-edicion.component';
 import { AgendaRecepcionComponent } from './pages/recepcion/agenda/agenda-recepcion/agenda-recepcion.component';
+import { ListadoCirugiaQuirofanoConsultaComponent } from './pages/quirofano/listado-cirugia-quirofano-consulta/listado-cirugia-quirofano-consulta.component';
 
 export const ROUTES: Routes = [
     /** principal **/
@@ -121,7 +122,8 @@ export const ROUTES: Routes = [
      { path: 'gerencia/operacioncobro/consulta', component: OperacionCobroConsultaGerenciaComponent, canActivate: [AuthGuard], data: {role: 'gerencia_control'}  },
 
      /** quirofano */
-     { path: 'quirofona/cirugia/listado/cirugia', component: ListadoCirugiaEditarComponent, canActivate: [AuthGuard], data: {role: 'quirofano_control'}  },
+     { path: 'medico/cirugia/listado/cirugia', component: ListadoCirugiaEditarComponent, canActivate: [AuthGuard], data: {role: 'quirofano_control'}  },
+     { path: 'quirofona/cirugia/listado/cirugia', component: ListadoCirugiaQuirofanoConsultaComponent, canActivate: [AuthGuard], data: {role: 'quirofano_control'}  },
      
     /** otros **/
     { path: 'chat', component: ChatListaComponent },

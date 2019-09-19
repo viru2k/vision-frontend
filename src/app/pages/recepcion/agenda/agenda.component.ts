@@ -751,6 +751,9 @@ colorRow(estado:string){
     if(estado == 'SOBRETURNO') {
       return {'es-sobreturno'  :'null' };
     }
+    if(estado == 'TURNO') {
+      return {'es-turno'  :'null' };
+    }
     if(estado == 'CANCELADO') {  
       return {'es-cancelado'  :'null' };
     }  
@@ -779,6 +782,10 @@ colorEsSobreturno(sobreturno:string, estado:string){
     if((sobreturno === 'SI')) {
       return {'text-danger-bold'  :'null' };
   }
+}
+
+if((estado === 'TURNO')) {
+  return {'text-white'  :'null' };
 }
 }
 

@@ -4,13 +4,14 @@
 </div>
 
 <div>
-  <div class="row">
+  <div class="row m-1">
 
 
       <div class=" col-6">
 
           <form [formGroup]="formPaciente">
               <h6>Buscar paciente</h6>
+              
         <hr>
 
             <div class="form-group ">
@@ -122,37 +123,73 @@
        
         <div class="justify-content-between mb-2" >
             <div  class="row">
-                <div class="col-6">
+                <div class="col-12">
                     <form  [formGroup]="DateForm">
                 <p-calendar formControlName="fechaHoy" [showTime]="true"   (onSelect)="actualizarFecha($event)" tabindex="0" [disabledDates]="invalidDates" [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy "   [readonlyInput]="true">
                    <ng-template pTemplate="date" let-date>
                         <span  [ngClass]="colorRow(date)"  style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
                     </ng-template> 
                   </p-calendar>
+                  <div  class="btn-group ml-2 " role="group" aria-label="First group">                 
+                        <button    class="btn btn-lg btn-outline-danger btn-sm float-right mr-2" (click)="loadSobreTurno()" >Sobre turno</button>
+                        <button    class="btn btn-lg btn-outline-info btn-sm float-right mr-2" (click)="loadTurnoTodos()" >Turnos para ugencias</button>
+                        <button    class="btn btn-lg btn-success btn-sm float-right "  (click)="loadTurno()" >Buscar turnos</button>
+                      </div>    
                     </form>
+                   
                 </div>
-                <div class="col-6">
-                    <button    class="btn btn-lg btn-outline-secondary btn-sm float-right mr-2" (click)="AgregarMotivosAtencion()"> Agregar motivos de atención </button>
+                <div class="ml-2">
+                       
+                    <!-- <button    class="btn btn-lg btn-outline-secondary btn-sm float-right mr-2" (click)="AgregarMotivosAtencion()"> Agregar motivos de atención </button> -->
                 </div>    
             </div>
+            <div class="mt-2">
+                    <h6 >Motivo</h6>
+            </div>
+            
+            <hr>
 
+            <div class="container-fluid">
+                    <div>
+                        <textarea [rows]="1" [cols]="30" pInputTextarea class="mt-1 mb-2 form-control form-control-sm col-md-12"[(ngModel)]="observacion"></textarea>   
+                    </div>
+                    <div class="row container-fluid" >
+                    <div >
+                        <label>Estudios</label>
+                        <p-dropdown class="mt-1 mb-2 col-12" [options]="estudios" [(ngModel)]="selectedEstudio" optionLabel="name" ></p-dropdown> 
+                    </div>
+                    <div >
+                        <label>Médico solicitante</label>
+                        <p-dropdown class="mt-1 mb-2 col-12 " [options]="usuarios" [(ngModel)]="selectedMedicoEfector" optionLabel="nombreyapellido" ></p-dropdown>  
+                    </div>
+                    <div class="row  container-fluid mt-2" >
+                        <div>
+                                <label>Motivo observacion</label>
+                                <p-dropdown class="mt-1 mb-2 col-12" [options]="motivos" [(ngModel)]="selectedMotivo" optionLabel="name" ></p-dropdown>  
+   
+                            </div>
+                          
 
-          <div  class="btn-group mt-2" role="group" aria-label="First group">                 
-            <button    class="btn btn-lg btn-outline-danger btn-sm float-right mr-2" (click)="loadSobreTurno()" >Sobre turno</button>
-            <button    class="btn btn-lg btn-outline-info btn-sm float-right mr-2" (click)="loadTurnoTodos()" >Turnos para ugencias</button>
-            <button    class="btn btn-lg btn-success btn-sm float-right "  (click)="loadTurno()" >Buscar turnos</button>
-          </div>
+                    </div>
+                  
+                  </div>   
+                  
+                  
+                  
+                  </div>
+
+        
          
           
         </div>
           
        <hr>
         <div>
-        <label  >Turnos disponibles</label>
+        <h6 >Turnos disponibles</h6>
        
        
 <div >
-    <p-table  #dt  tableStyleClass="prime-table" class="pt-2" [columns]="colsAgenda" [value]="agendaTurno"   [(selection)]="selectedItemMedico" columnResizeMode="expand" [scrollable]="true" scrollHeight="400px" >
+    <p-table  #dt  tableStyleClass="prime-table" class="pt-2" [columns]="colsAgenda" [value]="agendaTurno"   [(selection)]="selectedItemMedico" columnResizeMode="expand" [scrollable]="true" scrollHeight="250px" >
       <ng-template pTemplate="caption">
           <div class="row">
                   <div class="col-md-7" style="text-align:left">

@@ -202,6 +202,7 @@ import { PopupNotificacionComponent } from './pages/notificacion/popup-notificac
 import { PopupChatComponent } from './pages/notificacion/popup-chat/popup-chat.component';
 import { PopupListadoUsuarioComponent } from './pages/notificacion/popup-notificacion/popup-listado-usuario/popup-listado-usuario.component';
 import { PopupNotificacionNuevaComponent } from './pages/notificacion/popup-notificacion/popup-notificacion-nueva/popup-notificacion-nueva.component';
+import { ListadoCirugiaQuirofanoConsultaComponent } from './pages/quirofano/listado-cirugia-quirofano-consulta/listado-cirugia-quirofano-consulta.component';
 
 
 
@@ -341,6 +342,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupChatComponent,
     PopupListadoUsuarioComponent,
     PopupNotificacionNuevaComponent,
+    ListadoCirugiaQuirofanoConsultaComponent,
     
   ],
   imports: [

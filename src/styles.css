@@ -96,25 +96,25 @@
 }
 
 .icon-color-green{
-    color: #8bc34a!important;
+    color: #229954!important;
 }
 .icon-color-green:hover{
-    color: #689f38!important;
+    color: #229954!important;
 }
 
 .icon-color-blue{
-    color: #42A5F5!important; 
+    color: #2980B9!important; 
 }
 .icon-color-blue:hover{
-    color: #1976d2!important;
+    color: #2980B9!important;
 }
 
 
 .icon-color-green-light{
-    color: #2980B9!important; 
+    color: #689f38!important; 
 }
 .icon-color-green-light:hover{
-    color: #2980B9!important;
+    color: #689f38!important;
 }
 
 
@@ -123,6 +123,13 @@
 }
 .icon-color-red-light:hover{
     color: #E74C3C!important;
+}
+
+.icon-color-orange-light{
+    color: #F39C12!important; 
+}
+.icon-color-orange-light:hover{
+    color: #F39C12!important;
 }
 
 
@@ -644,6 +651,11 @@ hr.rulerStyleShadow {
     color: #e7e7e7 !important;
 }
 
+
+.es-turno {
+    background-color: #1ABC9C !important;
+    color: #e7e7e7 !important;
+}
 
 .es-deshabilitado {
     background-color: rgb(250, 173, 173) !important;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CirugiaFicha } from '../../../../models/cirugia-ficha.model';
-import { OverlayPanel } from 'primeng/overlaypanel';
+
 import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/components/common/api';
 
@@ -24,12 +24,12 @@ import { MedicoService } from '../../../../services/medico.service';
 import { HistoriaClinica } from '../../../../models/historia-clinica.model';
 import { PopupDerivarAsesoramientoListadoComponent } from './../../../../shared/components/popups/popup-derivar-asesoramiento-listado/popup-derivar-asesoramiento-listado.component';
 import { formatDate } from '@angular/common';
-
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { PopupListadoCirugiaQuirofanoEditarComponent } from './../../../../shared/components/popups/popup-listado-cirugia-quirofano-editar/popup-listado-cirugia-quirofano-editar.component';
 import { logo_clinica,calendarioIdioma } from './../../../../config/config';
 import { PopupListadoCirugiaQuirofanoObservacionEditarComponent } from '../../../../shared/components/popups/popup-listado-cirugia-quirofano-observacion-editar/popup-listado-cirugia-quirofano-observacion-editar.component';
 import { CirugiaFichaListadoQuirofano } from '../../../../models/cirugia-ficha-listado-quirofano.model';
-
+import {OverlayPanelModule, OverlayPanel} from 'primeng/overlaypanel';
 
 
 @Component({
@@ -62,7 +62,7 @@ export class ListadoCirugiaEditarComponent implements OnInit {
   observacion:string;
   display:boolean;
 
-  constructor(private miServicio:CirugiaService,private medicoService:MedicoService,private messageService: MessageService ,public dialogService: DialogService) {
+  constructor(private miServicio:CirugiaService,private medicoService:MedicoService,private messageService: MessageService ,public dialogService: DialogService,  private router: Router ) {
 
     this.cols = [
       { field: '', header: 'Obs.',  width: '6%' }, 
@@ -159,7 +159,7 @@ export class ListadoCirugiaEditarComponent implements OnInit {
         });
     this.DateForm.patchValue({es_nuevo: 'NO'});
     this.DateForm.patchValue({fechaHoy: this.fechaHoy});
-    this.loadList();
+    this.loadListByMedico();
   }
 
   filtered(event){
@@ -174,6 +174,7 @@ editRow(row){
       this.showToast('exito',"Registro modificado","Exito al modificar");
   }*/
 }
+
 
 verObservacion(evt:any,overlaypanel:OverlayPanel,event:CirugiaFichaListadoQuirofano){    
   if(event){
@@ -205,7 +206,7 @@ colorEstado(estado:string){
       console.log(new Date(this.fechaHoy));
     }
 
-
+    
   loadList() {
  this.loading = true;
  let _fechaDesde = formatDate(this.fechaHoy, 'dd/MM/yyyy HH:mm:ss', 'en');
@@ -237,6 +238,38 @@ colorEstado(estado:string){
 }
 
 
+loadListByMedico() {
+  let userData = JSON.parse(localStorage.getItem('userData'));
+  this.loading = true;
+  let _fechaDesde = formatDate(this.fechaHoy, 'dd/MM/yyyy HH:mm:ss', 'en');
+     try {
+         this.miServicio.getListadoQuirofanoByMedico(_fechaDesde, userData['id'])
+         .subscribe(resp => {
+           let i:number = 0;
+           let resultado = resp;
+           resultado.forEach(element => {
+             resp[i]['obra_social_nombre'] = resp[i]['obra_social_nombre'] +' / '+resp[i]['coseguro_nombre'] ;
+             resp[i]['hora'] = formatDate( element['fecha_hora'], 'HH:mm', 'en');
+         //    let t = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+             
+             i++;
+           });
+             this.elementos = resp;
+             console.log(resp);
+             this.loading = false;
+         },
+         error => { // error path
+             console.log(error);
+             console.log(error.status);
+             this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+             this.loading = false;
+          });
+     } catch (error) {
+     this.throwAlert('error','Error al cargar los registros',error,error.status);
+     }
+ }
+ 
+
 
 editar(selecteditems:any){
 
@@ -259,17 +292,17 @@ editar(selecteditems:any){
 }
  
 
-verHistoriaClinica(selecteditems){
+verHistoriaClinica(){
  this.loading = true;
  console.log(this.selecteditem);
   try { 
     this.medicoService.getHistoriaClinicaByPaciente(this.selecteditem.paciente_dni)
     .subscribe(resp => {
-    this.elementosHistoriaClinica = resp;
+   // this.elementosHistoriaClinica = resp;
     console.log(resp);      
 
-    this.formPaciente.patchValue({historia_clinica: resp})
-    console.log(this.formPaciente);
+    //this.formPaciente.patchValue({historia_clinica: resp})
+  //  console.log(this.formPaciente);
     this.loading = false;
    
     console.log(resp);
@@ -303,6 +336,9 @@ verHistoriaClinica(selecteditems){
 }
 
 
+darTurno(){
+  this.router.navigate(['/recepcion/turnos'],{ state: { paciente: this.selecteditem } });
+}
 
 loadhistoriaClinica(){ 
   this.loading = true; 

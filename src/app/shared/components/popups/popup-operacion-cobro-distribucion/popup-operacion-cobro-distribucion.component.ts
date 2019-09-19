@@ -86,8 +86,9 @@ export class PopupOperacionCobroDistribucionComponent implements OnInit {
           this.cols = [
               
             { field: 'accion', header: 'Accion' , width: '6%'} ,
-            { field: 'liquidacion_numero', header: 'Liq. Nº',  width: '5%' },
-            { field: 'operacion_cobro_id', header: 'Cobro Nº',  width: '5%' },
+            { field: 'liquidacion_numero', header: 'Exp. Nº',  width: '5%' },
+            { field: 'operacion_cobro_id', header: 'O.C Nº',  width: '5%' },
+            { field: 'id', header: 'Reg. Nº',  width: '5%' },
             { field: 'apellido', header: 'Apellido',  width: '10%' },
             {field: 'nombre', header: 'Nombre' , width: '10%' },
             { field: 'dni', header: 'DNI',  width: '7%' },
@@ -100,8 +101,8 @@ export class PopupOperacionCobroDistribucionComponent implements OnInit {
             { field: 'fecha_cobro' , header: 'Fecha' , width: '8%'},
             { field: 'cantidad', header: 'Cant.' , width: '6%'},
             { field: 'valor_facturado', header: 'Fact.' , width: '6%'},
-            { field: 'distribucion', header: 'dist' , width: '6%'},
-            { field: 'forma_pago', header: 'Medio' , width: '10%'} 
+            { field: 'es_distribuido', header: 'Dist' , width: '6%'},
+            { field: 'liquidacion_distribucion_id', header: 'Dis. Nº' , width: '5%'} 
               
            ];         
 

@@ -20,6 +20,7 @@
                         <div class="button  ">
                             <i (click)="verListadoEspera()" class="fas fa-user-clock pointer my-hover nav-links" ></i>
                             <span class="button__badge">{{presentes}}</span>
+                            
                     </div>
               
               <form  class="ml-2" [formGroup]="DateForm">
@@ -129,12 +130,17 @@
                       <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%" >{{agendaTurno.llegada | date: 'HH:mm:ss'}}</td>   
                       <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%" >{{agendaTurno.atendido | date: 'HH:mm:ss'}}</td> 
                       <td style="width: 4%" >
-                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-syringe fa-2x icon-color-purple" *ngIf="agendaTurno.es_observacion === 'CIRUGIA'"  ></i></a>
+                      
+                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-astronaut fa-2x icon-color-orange-light" *ngIf="agendaTurno.es_observacion === 'CONTROL PREQUIRURGICO'"  ></i></a>
                       <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-md fa-2x icon-color-blue" *ngIf="agendaTurno.es_observacion === 'CONTROL POSQUIRURGICO'"  ></i></a>
                       <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer far fa-bell fa-2x icon-color-green" *ngIf="agendaTurno.es_observacion === 'ESTUDIOS'"  ></i></a>
+                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-first-aid fa-2x icon-color-green " *ngIf="agendaTurno.es_observacion === 'ASESORAMIENTO QUIRURGICO'"  ></i></a> 
                       <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-exclamation-circle fa-2x icon-color-red" *ngIf="agendaTurno.es_observacion === 'ADVERTENCIA'"  ></i></a>
-                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-plus fa-2x icon-color-red-light " *ngIf="agendaTurno.es_observacion === 'NUEVO'"  ></i></a>
-                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer far fa-address-card fa-2x icon-color-green-light" *ngIf="agendaTurno.es_observacion === 'TURNO'"  ></i></a>                      
+                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-plus fa-2x icon-color-red-light " *ngIf="agendaTurno.es_observacion === 'PACIENTE NUEVO'"  ></i></a>
+                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fas fa-syringe fa-2x icon-color-purple " *ngIf="agendaTurno.es_observacion === 'ANESTESIA'"  ></i></a>     
+                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer far fa-address-card fa-2x icon-color-green-light" *ngIf="agendaTurno.es_observacion === 'SOLICITUD DE TURNO'"  ></i></a>                      
+                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-procedures fa-2x icon-color-green-light" *ngIf="agendaTurno.es_observacion === 'CIRUGIA'"  ></i></a>                      
+                      
                       </td> 
                       <td style="width: 4%">
                        <!--    <button type="button"   class="btn btn-outline-success btn-md p-1 pr-1" (click)="accion($event,op,agendaTurno)"    ><i class="far fa-edit fa-2x icon-color-purple"></i></button> -->

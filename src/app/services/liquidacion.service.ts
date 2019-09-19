@@ -72,6 +72,6 @@ getLiquidacionDetalle(){
       } 
 
     liquidarOperacionCobro(selected:LiquidacionDistribucion){
-    return this.http.post<any[]>(this.url+"/distribucion/medico",selected);
+    return this.http.post<any[]>(URL_SERVICIOS+"distribucion/operacion/cobro/medico",selected);
     } 
 }

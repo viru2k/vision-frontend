@@ -83,7 +83,7 @@ export class AgendaRecepcionComponent implements OnInit {
  
  
     this.cols = [
-      {field: 'agenda_dia_horario_atencion_id', header: 'Nª', width: '5%' }, 
+      {field: 'agenda_dia_horario_atencion_id', header: 'Nº', width: '5%' }, 
     {field: 'operacion_cobro_id', header: 'OC', width: '5%' }, 
       {field: 'paciente_apellido', header: 'Apellido', width: '8%' }, 
       {field: 'paciente_nombre', header: 'Nombre', width: '8%' }, 
@@ -809,6 +809,9 @@ colorRow(estado:string){
   if(estado == 'SOBRETURNO') {
     return {'es-sobreturno'  :'null' };
   }
+  if(estado == 'TURNO') {
+    return {'es-turno'  :'null' };
+  }
   if(estado == 'CANCELADO') {  
     return {'es-cancelado'  :'null' };
   }  
@@ -836,7 +839,11 @@ if((estado === 'SOBRETURNO')) {
 }else{
   if((sobreturno === 'SI')) {
     return {'text-danger-bold'  :'null' };
+  }
 }
+
+if((estado === 'TURNO')) {
+  return {'text-white'  :'null' };
 }
 }
 

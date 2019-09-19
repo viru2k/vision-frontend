@@ -5,9 +5,9 @@
 </div>
 <p-toast (life)="100" styleClass="custom-toast" [style]="{marginTop: '100px'}"></p-toast>
 
-<div class="row" >
+<div class="row m-1" >
     
-  <div class="row " role="toolbar" aria-label="Toolbar with button groups">
+  <div class="row m-1" role="toolbar" aria-label="Toolbar with button groups">
       <div  class="input-group input-group-sm ">
               <form  [formGroup]="DateForm">
               <div class="btn-group " role="group">
@@ -85,7 +85,7 @@
     
   </div>
 
-  <p-table  #dt class="pt-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  (onEditComplete)="editRow($event)" [(selection)]="selecteditems" columnResizeMode="expand" [responsive]="true"
+  <p-table  #dt class="pt-2 m-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  (onEditComplete)="editRow($event)" [(selection)]="selecteditems" columnResizeMode="expand" [responsive]="true"
   scrollHeight="500px" [scrollable]="true"  (onFilter)="filtered($event)"  >
   <ng-template pTemplate="caption">
     <div class="row">

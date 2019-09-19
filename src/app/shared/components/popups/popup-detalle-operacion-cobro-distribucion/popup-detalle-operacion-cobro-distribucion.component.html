@@ -3,14 +3,10 @@
     <div class="row">
         <div class=" col-2 mt-1"> <label class="mr-2">Médico opera : </label></div>
       <div class=" col-6">
-          
-      
-
-          <p-autoComplete  [suggestions]="filteredItems" forceSelection="true" (completeMethod)="filterItems($event)" [size]="35"
-            [minLength]="1" placeholder="Escriba para filtrar" [dropdown]="true"  [style]="{'width':'350px'}" (onSelect)="seleccionado($event)"
+          <p-autoComplete  [suggestions]="filteredItemsOpera" forceSelection="true" (completeMethod)="filterItemsOpera($event)" [size]="35" autofocus
+            [minLength]="1" placeholder="Escriba para filtrar" [dropdown]="true"  [style]="{'width':'350px'}" (onSelect)="seleccionadoOpera($event)"
             field="nombre" >     
           </p-autoComplete>
-
       </div>
       <div class=" col-2">
         <div class="input-group mb-2">
@@ -31,8 +27,10 @@
       </div>
       <div class=" col-2 mt-1"> <label class="mr-2">Médico ayuda : </label></div>
       <div class=" col-6">
-        
-          <p-dropdown [options]="elementos" [(ngModel)]="selectedMedicoAyuda" optionLabel="nombre" [style]="{'width':'350px'}"></p-dropdown>
+          <p-autoComplete  [suggestions]="filteredItemsAyuda" forceSelection="true" (completeMethod)="filterItemsAyuda($event)" [size]="35"
+            [minLength]="1" placeholder="Escriba para filtrar" [dropdown]="true"  [style]="{'width':'350px'}" (onSelect)="seleccionadoAyuda($event)"
+            field="nombre" >     
+          </p-autoComplete>
       </div>
       <div class=" col-2">
         <div class="input-group mb-2">
@@ -53,8 +51,10 @@
       </div>
       <div class=" col-2 mt-1"> <label class="mr-2">Médico ayuda 2 : </label></div>
       <div class=" col-6">
-         
-          <p-dropdown [options]="elementos" [(ngModel)]="selectedMedicoAyuda2" optionLabel="nombre" [style]="{'width':'350px'}"></p-dropdown>
+          <p-autoComplete  [suggestions]="filteredItemsAyuda2" forceSelection="true" (completeMethod)="filterItemsAyuda2($event)" [size]="35"
+            [minLength]="1" placeholder="Escriba para filtrar" [dropdown]="true"  [style]="{'width':'350px'}" (onSelect)="seleccionadoAyuda2($event)"
+            field="nombre" >     
+          </p-autoComplete>
       </div>
       <div class=" col-2">
         <div class="input-group mb-2">
@@ -75,8 +75,10 @@
       </div>
       <div class=" col-2 mt-1">          <label class="mr-2">CLínica : </label></div>
       <div class=" col-6">
- 
-          <p-dropdown [options]="elementos" [(ngModel)]="selectedClinica" optionLabel="nombre" [style]="{'width':'350px'}"></p-dropdown>
+          <p-autoComplete  [suggestions]="filteredItemsClinica" forceSelection="true" (completeMethod)="filterItemsClinica($event)" [size]="35"
+            [minLength]="1" placeholder="Escriba para filtrar" [dropdown]="true"  [style]="{'width':'350px'}" (onSelect)="seleccionadoClinica($event)"
+            field="nombre" >     
+          </p-autoComplete>
       </div>
       <div class=" col-2">
         <div class="input-group mb-2">

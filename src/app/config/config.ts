@@ -1,12 +1,12 @@
 
  
   
-export const URL_SERVICIOS = 'http://localhost/api-vision/public/api/';
-export const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
-export const URL_ARCHIVO = 'http://localhost/api-vision/public/';
-//export const URL_SERVICIOS = 'http://messageserver/api-vision/public/api/'; 
-//export const config: SocketIoConfig = { url: 'http://messageserver:4444', options: {} };
-//export const URL_ARCHIVO = 'http://messageserver/api-vision/public/';
+//export const URL_SERVICIOS = 'http://localhost/api-vision/public/api/';
+//export const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
+//export const URL_ARCHIVO = 'http://localhost/api-vision/public/';
+export const URL_SERVICIOS = 'http://messageserver/api-vision/public/api/'; 
+export const config: SocketIoConfig = { url: 'http://messageserver:4444', options: {} };
+export const URL_ARCHIVO = 'http://messageserver/api-vision/public/';
 /***********SERVER DE PRUEBAS ********************** */
  
 //export const URL_SERVICIOS = 'http://messageserver/api-vision-prueba/public/api/'; 

@@ -2,7 +2,7 @@
 <div >
   <app-loading *ngIf="loading"> </app-loading> 
 </div>
-
+<h6>historia medico</h6>
 <div class="row">
       <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
               <div  class="input-group input-group-sm ">
@@ -17,8 +17,9 @@
   
   
             <div  class="btn-group ml-2" role="group" aria-label="First group">                 
-              <button    class="btn btn-lg btn-outline-secondary btn-sm float-right mr-2" (click)="generarPdfListadoMedico()" >Imprimir listado</button>                
-              <button    class="btn btn-lg btn-outline-success btn-sm float-right "  (click)="loadList()" >Listado cirugia</button>                
+              <button    class="btn btn-lg btn-outline-success btn-sm float-right mr-2"  (click)="loadListByMedico()" >Listar cirugia</button>   
+              <button    class="btn btn-lg btn-outline-info btn-sm float-right mr-2"  (click)="loadList()" >Listar todas las cirugias</button>            
+              <button    class="btn btn-lg btn-outline-secondary btn-sm float-right mr-2" (click)="generarPdfListadoMedico()" >Imprimir listado</button>  
             </div>
           </div>
 
@@ -66,7 +67,7 @@
     <ng-template pTemplate="body" let-elementos  >
       <tr style="height:20px" [ngClass]="colorEstado(elementos.tiene_observacion)">
         <td style="width: 6%" >
-          <a   (click)="verObservacion($event,op,elementos)"   >    <i class="pointer far fa-eye fa-2x icon-color-green" *ngIf="elementos.tiene_observacion === 'SI'"  ></i></a>
+        
        </td>
                      
                 <td style="font-size: 9px;width: 6%">{{elementos.cirugia_ficha_id}}</td>
@@ -84,7 +85,9 @@
                 <td style="font-size: 9px;width: 12%">{{elementos.usuario_medico_opera_nombre}}</td>    
                 <td style="font-size: 9px;width: 12%">{{elementos.usuario_medico_ayuda_nombre}}</td>  
                 <td style="font-size: 9px;width: 12%">{{elementos.usuario_medico_anestesista_nombre}}</td>                
-                <td style="width: 6%">   <a   class=" p-1 pr-1  my-hover" (click)="editar(elementos)"    ><i class="far fa-edit fa-2x icon-color-purple"></i></a>        </td>   
+                <td style="width: 6%">   
+                    <a   (click)="accion($event,op,elementos)"   ><i class="far fa-edit fa-2x icon-color-purple my-hover" ></i></a>   
+                </td>   
                 
         </tr>
        
@@ -92,13 +95,12 @@
 </p-table>
 
 
+<p-overlayPanel #op [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >                          
+    <span>   <a class="nav-link text-success my-hover " (click)="verHistoriaClinica()"> historia clínica</a></span>                        
+    <span>   <a class="nav-link text-info my-hover" (click)="darTurno()">  Dar turno</a></span>                    
 
+</p-overlayPanel>  
 </div>
-<p-dialog header="Observaciones" class="text-secondary" [(visible)]="display" class="p-2" [baseZIndex]="10000" [responsive]="true"> 
-  <label>OBSERVACION </label>        
-  <textarea [rows]="5" [cols]="30" pInputTextarea class="form-control form-control-sm col-md-12"[(ngModel)]="observacion"></textarea>   
- 
-  </p-dialog>
-    
+
     
 

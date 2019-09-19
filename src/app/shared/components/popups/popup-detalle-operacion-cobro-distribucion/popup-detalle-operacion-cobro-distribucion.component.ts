@@ -6,6 +6,7 @@ import { MedicoObraSocial } from './../../../../models/medico-obrasocial.model';
 import { calendarioIdioma } from '../../../../config/config';
 import { LiquidacionDistribucion } from '../../../../models/liquidacion-distribucion-model';
 import { LiquidacionService } from './../../../../services/liquidacion.service';
+import { formatDate } from '@angular/common';
 
 
 @Component({
@@ -41,13 +42,27 @@ export class PopupDetalleOperacionCobroDistribucionComponent implements OnInit {
   // LOADING
   loading: boolean;
   elemento:MedicoObraSocial = null;
-  elementos:MedicoObraSocial[] = null;
-  filteredItems: any[];
+
+  elementosOpera:MedicoObraSocial[] = null;
+  elementosAyuda:MedicoObraSocial[] = null;
+  elementosAyuda2:MedicoObraSocial[] = null;
+  elementosClinica:MedicoObraSocial[] = null;
+
+  filteredItemsOpera: any[];
+  filteredItemsAyuda: any[];
+  filteredItemsAyuda2: any[];
+  filteredItemsClinica: any[];
+
+  medicoOpera:string;
+  medicoAyuda:string;
+  medicoAyuda2:string;
+  medicoClinica:string;
+
   nombre:string;
 
   ngOnInit() {
     console.log(this.config.data);
-    this.liquidacionDistribucion = new LiquidacionDistribucion(this.config.data,'','','','',0,0,0,0,0,0,0,0)
+    this.liquidacionDistribucion = new LiquidacionDistribucion('','',0,0,'',0,0,'',0,0,'',0,0,0,0,'','','','',this.config.data);
     this.selecteditems = this.config.data;
 
    this.sumarValores();
@@ -61,17 +76,20 @@ loadList(){
   this.es = calendarioIdioma;
   this.loading = true;
   try {
-      this.miServico.getItemMedicoTodos()    
+      this.miServico.getItemMedicoTodos()
       .subscribe(resp => {
 
         let i:number = 0;
         let resultado = resp;
         resultado.forEach(element => {   
         resp[i]['nombre']  =  element['apellido'] +' '+element['nombre'];
-        this.elementos = resp;
+        this.elementosOpera = resp;
+        this.elementosAyuda = resp;
+        this.elementosAyuda2 = resp;
+        this.elementosClinica = resp;
         i++;
     });
-          console.log(this.elementos);    
+          console.log(this.elementosOpera);    
           this.loading = false;
       },
       error => { // error path
@@ -97,6 +115,14 @@ liquidarPracticas(){
       
           console.log(resp);    
           this.loading = false;
+          swal({
+            toast: false,
+            type: 'success',
+            title: 'Datos guardados',
+            showConfirmButton: false,
+            timer: 1000
+          });
+          this.ref.close();
       },
       error => { // error path
           console.log(error.message);
@@ -110,32 +136,39 @@ liquidarPracticas(){
 
 
 guardarDistribucion(){
-
-  if(this.selectedMedicoOpera){
-    this.liquidacionDistribucion.medico_opera = this.selectedMedicoOpera['usuario_id'] ;
+  let userData = JSON.parse(localStorage.getItem('userData'));
+  const fecha_distribucion = formatDate(new Date(), 'dd/MM/yyyy HH:mm:ss', 'en');
+ this.liquidacionDistribucion.fecha_distribucion = fecha_distribucion;
+ this.liquidacionDistribucion.usuario_audito = userData['id'];
+  if(this.medicoOpera)
+  {
+    this.liquidacionDistribucion.medico_opera_id = this.medicoOpera ;
     this.liquidacionDistribucion.medico_opera_porcentaje = this.medicoOperaPorcentaje;
-    this.liquidacionDistribucion.medico_opera_distribucion = this.medicoOperaDistribucion;
+    this.liquidacionDistribucion.medico_opera_valor = this.medicoOperaDistribucion;
+    console.log(this.liquidacionDistribucion);
   }
-  if(this.selectedMedicoAyuda){
-    this.liquidacionDistribucion.medico_ayuda = this.selectedMedicoAyuda['usuario_id'] ;
+ if(this.medicoAyuda){
+    this.liquidacionDistribucion.medico_ayuda_id = this.medicoAyuda ;
     this.liquidacionDistribucion.medico_ayuda_porcentaje = this.medicoAyudaPorcentaje;
-    this.liquidacionDistribucion.medico_ayuda_distribucion = this.medicoAyudaDistribucion;
+    this.liquidacionDistribucion.medico_ayuda_valor = this.medicoAyudaDistribucion;
   }
-  if(this.selectedMedicoAyuda2){
+  if(this.medicoAyuda2){
     
-    this.liquidacionDistribucion.medico_ayuda2 = this.selectedMedicoAyuda2['usuario_id'] ;
+    this.liquidacionDistribucion.medico_ayuda2_id = this.medicoAyuda2 ;
     this.liquidacionDistribucion.medico_ayuda2_porcentaje = this.medicoAyuda2Porcentaje;
-    this.liquidacionDistribucion.medico_ayuda2_distribucion = this.medicoAyuda2Distribucion;
+    this.liquidacionDistribucion.medico_ayuda2_valor = this.medicoAyuda2Distribucion;
   }
-  if(this.selectedClinica){
-    this.liquidacionDistribucion.medico_clinica = this.selectedClinica['usuario_id'] ;
+  if(this.medicoClinica){
+    this.liquidacionDistribucion.medico_clinica_id = this.medicoClinica ;
     this.liquidacionDistribucion.medico_clinica_porcentaje = this.medicoClinicaPorcentaje;
-    this.liquidacionDistribucion.medico_clinica_distribucion = this.medicoClinicaDistribucion;
+    this.liquidacionDistribucion.medico_clinica_valor = this.medicoClinicaDistribucion;
   }
-
+   this.liquidacionDistribucion.valor_distribuido = this.TOTAL_DISTRIBUCION;
+   this.liquidacionDistribucion.total = this.TOTAL_CALCULADO;
+/*
   console.log(this.liquidacionDistribucion);
-  console.log(this.filteredItems);
- // this.liquidarPracticas();
+  console.log(this.filteredItems);*/
+ this.liquidarPracticas();
 }
 
 calcularPorcentaje(){
@@ -161,24 +194,85 @@ sumarValores(){
   console.log(this.TOTAL_DISTRIBUCION);
 }
 
-filterItems(event) {
+
+filterItemsOpera(event) {
  let item:any;
-  this.filteredItems = [];
-  for(let i = 0; i < this.elementos.length; i++) {
-        let nombre= this.elementos[i]['nombre'];
+  this.filteredItemsOpera = [];
+  for(let i = 0; i < this.elementosOpera.length; i++) {
+        let nombre= this.elementosOpera[i]['nombre'];
       
-      if(this.elementos[i]['nombre'].toLowerCase().indexOf(event.query.toLowerCase()) == 0) {
-        item= this.elementos[i];
-        console.log(this.filteredItems);
-          this.filteredItems.push(this.elementos[i]);
+      if(this.elementosOpera[i]['nombre'].toLowerCase().indexOf(event.query.toLowerCase()) == 0) {
+        item= this.elementosOpera[i];
+        console.log(this.filteredItemsOpera);
+          this.filteredItemsOpera.push(this.elementosOpera[i]);
       }
   }
 }
 
+filterItemsAyuda(event) {
+  let item:any;
+   this.filteredItemsAyuda = [];
+   for(let i = 0; i < this.elementosAyuda.length; i++) {
+         let nombre= this.elementosAyuda[i]['nombre'];
+       
+       if(this.elementosAyuda[i]['nombre'].toLowerCase().indexOf(event.query.toLowerCase()) == 0) {
+         item= this.elementosAyuda[i];
+         console.log(this.filteredItemsAyuda);
+           this.filteredItemsAyuda.push(this.elementosAyuda[i]);
+       }
+   }
+ }
 
-seleccionado(elemento:any){
-  console.log(elemento);
+ filterItemsAyuda2(event) {
+  let item:any;
+   this.filteredItemsAyuda2 = [];
+   for(let i = 0; i < this.elementosAyuda2.length; i++) {
+         let nombre= this.elementosAyuda2[i]['nombre'];
+       
+       if(this.elementosAyuda2[i]['nombre'].toLowerCase().indexOf(event.query.toLowerCase()) == 0) {
+         item= this.elementosAyuda2[i];
+         console.log(this.filteredItemsAyuda2);
+           this.filteredItemsAyuda2.push(this.elementosAyuda2[i]);
+       }
+   }
+ }
+
+ filterItemsClinica(event) {
+  let item:any;
+   this.filteredItemsClinica = [];
+   for(let i = 0; i < this.elementosClinica.length; i++) {
+         let nombre= this.elementosClinica[i]['nombre'];
+       
+       if(this.elementosClinica[i]['nombre'].toLowerCase().indexOf(event.query.toLowerCase()) == 0) {
+         item= this.elementosClinica[i];
+         console.log(this.filteredItemsClinica);
+           this.filteredItemsClinica.push(this.elementosClinica[i]);
+       }
+   }
+ }
+
+
+seleccionadoOpera(elemento:any){
+
+  console.log(elemento.usuario_id);
+  this.medicoOpera = elemento.usuario_id;
 }
+
+seleccionadoAyuda(elemento:any){
+  console.log(elemento);
+  this.medicoAyuda = elemento.usuario_id;
+}
+
+seleccionadoAyuda2(elemento:any){
+  console.log(elemento);
+  this.medicoAyuda2 = elemento.usuario_id;
+}
+
+seleccionadoClinica(elemento:any){
+  console.log(elemento);
+  this.medicoClinica = elemento.usuario_id;
+}
+
 
 throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string){
   let tipoerror:string;
