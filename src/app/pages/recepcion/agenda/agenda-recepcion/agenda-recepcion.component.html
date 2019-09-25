@@ -129,7 +129,7 @@
                       <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%" >{{agendaTurno.presente | date: 'HH:mm:ss'}}</td>   
                       <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%" >{{agendaTurno.llegada | date: 'HH:mm:ss'}}</td>   
                       <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%" >{{agendaTurno.atendido | date: 'HH:mm:ss'}}</td> 
-                      <td style="width: 4%" >
+                      <td style="width: 4%" #mirow>
                       
                       <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-astronaut fa-2x icon-color-orange-light" *ngIf="agendaTurno.es_observacion === 'CONTROL PREQUIRURGICO'"  ></i></a>
                       <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-md fa-2x icon-color-blue" *ngIf="agendaTurno.es_observacion === 'CONTROL POSQUIRURGICO'"  ></i></a>
@@ -140,7 +140,7 @@
                       <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fas fa-syringe fa-2x icon-color-purple " *ngIf="agendaTurno.es_observacion === 'ANESTESIA'"  ></i></a>     
                       <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer far fa-address-card fa-2x icon-color-green-light" *ngIf="agendaTurno.es_observacion === 'SOLICITUD DE TURNO'"  ></i></a>                      
                       <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-procedures fa-2x icon-color-green-light" *ngIf="agendaTurno.es_observacion === 'CIRUGIA'"  ></i></a>                      
-                      
+                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-briefcase-medical fa-2x icon-color-blue" *ngIf="agendaTurno.es_observacion === 'CONSULTA'"  ></i></a>                                            
                       </td> 
                       <td style="width: 4%">
                        <!--    <button type="button"   class="btn btn-outline-success btn-md p-1 pr-1" (click)="accion($event,op,agendaTurno)"    ><i class="far fa-edit fa-2x icon-color-purple"></i></button> -->
@@ -148,7 +148,7 @@
                                     
                          </td>
                       <td style="width: 8%">
-                          <button  [disabled]="agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'ESPERA' || agendaTurno.estado == 'CANCELADO'" type="button" class="btn btn-outline-info btn-sm" (click)="pacienteIngresado(agendaTurno)"    >Llegada</button>
+                          <button  [disabled]="agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'ESPERA' || agendaTurno.estado == 'CANCELADO'" type="button" class="btn btn-outline-info btn-sm" (click)="pacienteIngresado(agendaTurno)"    >Espera</button>
                       </td>
                    
                     
@@ -157,17 +157,24 @@
            
               </p-table>
              
-              <p-overlayPanel #op [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >                          
-                      <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('observacion')">  Ver observación</a></span>
-                      <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('paciente')">  Ver / editar paciente</a></span>
-                      <hr>
-                      <span>   <a class="nav-link azul text-warning my-hover" (click)="editarRegistro('presente')">  Presente</a></span>
-                      <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('atendido')">  Atendido</a></span>                      
-                      <span>   <a class="nav-link azul text-danger my-hover " (click)="editarRegistro('cancelado')">  Cancelar</a></span>  
-                      <span>   <a class="nav-link azul text-success my-hover " (click)="editarRegistro('ingresado')">  Ingresado</a></span>  
-                      <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('reasignar')">  Reasignar a medico</a></span>
-                      <hr>
+              <p-overlayPanel #op [appendTo]="mirow"  [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" [showCloseIcon]="true" >                                                
+                <b><label class="text-info"> Paciente</label></b>     
+                      <span>   <a class="nav-link azul text-success my-hover" (click)="editarRegistro('paciente')">  Ver / editar paciente</a></span>
                       <span>   <a class=" text-info nav-link azul my-hover" (click)="editarRegistro('operacioncobro')">  Operacion de cobro</a></span>
+                      <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('reasignar')">  Reasignar a medico</a></span>   
+                      <hr>  
+                      <b><label class="text-info"> Acciones</label></b>                      
+                      <span>   <a class="nav-link   my-hover es-llamando" (click)="editarRegistro('llamando')"> <i class="fas fa-volume-up"> </i> Llamar</a></span>
+                      <span>   <a class="nav-link   my-hover es-llamando" (click)="editarRegistro('rellamar')"> <i class="fas fa-volume-up"> </i> Volver a llamar</a></span>                               
+                      <span>   <a class="nav-link   my-hover es-presente" (click)="editarRegistro('presente')">  Presente</a></span>                      
+                      <span>   <a class="nav-link   my-hover es-espera" (click)="editarRegistro('espera')">  Espera</a></span>
+                      <hr>
+                                   
+                      <span>   <a class="nav-link azul  my-hover es-ingresado " (click)="editarRegistro('ingresado')">  Ingresado</a></span>  
+                      <span>   <a class="nav-link azul my-hover es-atendido" (click)="editarRegistro('atendido')">  Atendido</a></span>         
+                      <span>   <a class="nav-link azul text-danger my-hover " (click)="editarRegistro('cancelado')">  Cancelar turno</a></span>                        
+                                        
+                   
               </p-overlayPanel>  
       
       </div>

@@ -13,7 +13,22 @@ export class ErrorInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(catchError(err => {
             if (err.status === 401) {
-                this.throwAlert('error','Usuario o contraseña incorrectos',  'Verifique el usuario y contraseña, su sesion puede haber expirado',err.status);
+                swal({
+                    text:'Por favor, verifique sus datos',
+                    imageUrl: './assets/icons/invalid-user-profile.png',
+                    imageHeight: 300,
+                    imageWidth: 300,
+                    title: 'Sesión vencida o invalida',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    onClose: () => {
+                      
+                    
+                    },
+                    backdrop: `
+                    rgba(26, 188, 156,0.7)
+                    no-repeat `
+                  });
                 // auto logout if 401 response returned from api
               //  this.authenticationService.logout();// DEBEN SER DESBLOQUEADO CUANDO SE CORRIJA
                // location.reload(true);

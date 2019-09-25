@@ -201,6 +201,13 @@ getItembyDni(dni:string){
   console.log(this.url_agenda+"horarios/cancelar/horario/"+id);
     return this.http.get<string>(this.url_agenda+"horarios/cancelar/agenda/"+id);
   }
+
+  
+  pacienteDerivado( agendaturno:AgendaTurno, id:string){
+    console.log(this.url_agenda+"turno/derivado/"+id,agendaturno);
+    return this.http.put<AgendaMedico>(this.url_agenda+"turno/derivado/"+id,agendaturno);
+  }
+
   
 } 
 

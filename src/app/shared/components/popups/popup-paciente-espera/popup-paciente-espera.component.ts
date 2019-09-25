@@ -128,7 +128,7 @@ export class PopupPacienteEsperaComponent implements OnInit {
       'fechaHoy': new FormControl('', Validators.required), 
       'medico_nombre': new FormControl('')
       });
-this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','');
+this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','','','');
 }
 
 ngOnInit() {
@@ -222,9 +222,9 @@ loadTurnoTodos(){
 pacienteIngresado(event:AgendaTurno){
  // console.log(event);
   this.popItemAgenda = event;
-  this._fechaHoy = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en');
-  this.popItemAgenda.llegada = this._fechaHoy;
-  this.popItemAgenda.agenda_estado_id = '5';
+  this.popItemAgenda.agenda_estado_id = '9';
+  this.popItemAgenda.puesto_estado = 'LLAMANDO' ;
+  this.popItemAgenda.puesto_llamado = this.userData['puesto'];
   console.log(this.popItemAgenda);
   this.actualizarTurno();
 }
@@ -235,6 +235,7 @@ pacienteAtendido(event:AgendaTurno){
   this._fechaHoy = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en');
   this.popItemAgenda.atendido = this._fechaHoy;
   this.popItemAgenda.agenda_estado_id = '3';
+  this.popItemAgenda.puesto_estado = 'INGRESADO' ;
   this.actualizarTurno();
 }
 
@@ -310,11 +311,43 @@ async editarRegistro(cond:string,selecteditems:AgendaTurno){
       
     } 
     
+    if(cond == 'espera'){
+      this.popItemAgenda.agenda_estado_id = '5';
+      this.popItemAgenda.llegada = this._fechaHoy;
+      this.actualizarTurno();
+    }
+
     if(cond == 'operacioncobro'){
       console.log('ausente');
       this.router.navigate(['/recepcion/operacioncobro'], { state: { paciente: this.popItemAgenda } });
       this.ref.close();
     } 
+
+
+    if(cond == 'llamando'){
+      this.popItemAgenda.agenda_estado_id = '9';
+      this.actualizarTurno();
+    }
+
+    if(cond == 'rellamar'){
+      this.popItemAgenda.agenda_estado_id = '9';      
+      this.actualizarTurno();
+    }
+    if(cond == 'ausente'){
+      this.popItemAgenda.agenda_estado_id = '10';
+      this.popItemAgenda.llegada = this._fechaHoy;
+      this.popItemAgenda.atendido = this._fechaHoy;
+
+      this.actualizarTurno();
+    }
+
+    
+    if(cond == 'presente'){
+      this.popItemAgenda.agenda_estado_id = '8';
+      this.popItemAgenda.presente = this._fechaHoy;
+      this.popItemAgenda.llegada = '2099-12-31 00:00:00';
+      this.actualizarTurno();
+}
 
 }
 
@@ -549,24 +582,30 @@ colorRow(estado:string){
   if(estado == 'INGRESADO') {
       return {'es-ingresado'  :'null' };
   }
-  if(estado == 'PRESENTE') {
-    return {'es-presente'  :'null' };
-}
   if(estado == 'ESPERA') {
       return {'es-espera'  :'null' };
   }
+  if(estado == 'PRESENTE') {
+    return {'es-presente'  :'null' };
+}
   if(estado == 'SOBRETURNO') {
     return {'es-sobreturno'  :'null' };
   }
   if(estado == 'TURNO') {
     return {'es-turno'  :'null' };
   }
+
+  if(estado == 'DERIVADO') {
+    return {'es-turno'  :'null' };
+  }
+
   if(estado == 'CANCELADO') {  
     return {'es-cancelado'  :'null' };
   }  
  
- 
-  
+  if(estado == 'LLAMANDO') {
+    return {'es-llamando'  :'null' };
+  }
   
 
 

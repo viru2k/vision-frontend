@@ -73,6 +73,7 @@ export class AgendaAtencionMedicoComponent implements OnInit {
         {field: 'paciente_nombre', header: 'Nombre', width: '8%' },         
         {field: 'paciente_obra_social_nombre', header: 'Obra social', width: '16%' },
         {field: 'hora_desde', header: 'Turno', width: '10%' },
+        {field: 'presente', header: 'Presente', width: '7%' },
         {field: 'llegada', header: 'Llegada', width: '7%' },
         {field: 'atendido', header: 'Ingresado' , width: '7%'},
         {field: 'estado', header: 'Estado', width: '8%' },        
@@ -82,7 +83,8 @@ export class AgendaAtencionMedicoComponent implements OnInit {
         {field: 'es_alerta', header: '' , width: '4%'},
         {field: 'boton', header: '' , width: '4%'},
         {field: 'boton', header: '', width: '8%' },
-        {field: 'boton', header: '', width: '8%' },
+        {field: 'boton', header: '', width: '10%' },
+        {field: 'boton', header: '', width: '10%' },
         ];
      this.busqueda = [
         {label:'Seleccione una busqueda', value:null},
@@ -108,7 +110,7 @@ export class AgendaAtencionMedicoComponent implements OnInit {
         'fechaHoy': new FormControl('', Validators.required), 
         'medico_nombre': new FormControl('')
         });
-  this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','', '', '', '','','','');
+  this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','', '', '', '','','','','','');
   
   }
 
@@ -118,7 +120,7 @@ export class AgendaAtencionMedicoComponent implements OnInit {
     let timer = Observable.timer(180000,180000);//180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
     timer.subscribe(t=> {
       console.log('bucando turnos');
-      this.loadListByMedico();
+      this.loadListTodosTurnos();
   });
   //fin timer
 
@@ -253,6 +255,7 @@ colorEsSobreturno(sobreturno:string, estado:string){
     this.popItemAgenda = event;
     this._fechaHoy = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en');        
     this.popItemAgenda.atendido = this._fechaHoy;
+    
     this.popItemAgenda.agenda_estado_id = '3';
     console.log(this.popItemAgenda);
     this.document.doc = 'llamando';
@@ -261,6 +264,42 @@ colorEsSobreturno(sobreturno:string, estado:string){
       this.editDoc();
     this.actualizarTurno();
   }
+
+  pacienteDerivado(event:AgendaTurno){
+    // console.log(event);
+     this.popItemAgenda = event;              
+     this.popItemAgenda.agenda_estado_id = '11';
+     console.log(this.popItemAgenda);
+     this.document.doc = 'llamando';
+     this.document.usuario_id = this.userData['id'];
+     console.log(this.document.doc);
+       this.editDoc();
+    
+  console.log(this.popItemAgenda);  
+  this.es = calendarioIdioma;
+  this.loading = true;
+
+  console.log(this.popItemAgenda);  
+  try {
+      this.miServico.pacienteDerivado(this.popItemAgenda, this.popItemAgenda.agenda_dia_horario_atencion_id)
+      .subscribe(resp => {
+     // this.agendaTurno = resp;
+          console.log(resp);    
+          this.loading = false;
+          this.loadListByMedico(); 
+      },
+      error => { // error path
+          console.log(error.message);
+          console.log(error.status);
+          console.log(error);
+          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message);
+       });    
+  } catch (error) {
+  this.throwAlert('error','Error al cargar los registros',error);
+  }  
+   }
+
+  
 
   pacienteAtendido(event:AgendaTurno){
     console.log(event);
@@ -489,32 +528,46 @@ generarPdf(){
 
 colorRow(estado:string){
  
-    if(estado == 'ATENDIDO') {  
-        return {'es-atendido'  :'null' };
-    }
     
-    if(estado == 'PENDIENTE') {  
-        return {'es-pendiente'  :'null' };
-    }
+  if(estado == 'ATENDIDO') {
+    return {'es-atendido'  :'null' };
+  }
+  if(estado == 'ATENDIDO') {
+      return {'es-atendido'  :'null' };
+  }
+  if(estado == 'PENDIENTE') {
+      return {'es-pendiente'  :'null' };
+  }
+  if(estado == 'AUSENTE') {
+      return {'es-ausente'  :'null' };
+  }
+  if(estado == 'INGRESADO') {
+      return {'es-ingresado'  :'null' };
+  }
+  if(estado == 'ESPERA') {
+      return {'es-espera'  :'null' };
+  }
+  if(estado == 'PRESENTE') {
+    return {'es-presente'  :'null' };
+}
+  if(estado == 'SOBRETURNO') {
+    return {'es-sobreturno'  :'null' };
+  }
+  if(estado == 'TURNO') {
+    return {'es-turno'  :'null' };
+  }
 
-    if(estado == 'AUSENTE') {  
-        return {'es-ausente'  :'null' };
-    }
-    
-    if(estado == 'INGRESADO') {  
-        return {'es-ingresado'  :'null' };
-    }
+  if(estado == 'DERIVADO') {
+    return {'es-turno'  :'null' };
+  }
 
-    if(estado == 'ESPERA') {  
-        return {'es-espera'  :'null' };
-    }
-
-    if(estado == 'SOBRETURNO') {  
-      return {'es-sobreturno'  :'null' };
-    }
-    if(estado == 'CANCELADO') {  
-      return {'es-cancelado'  :'null' };
+  if(estado == 'CANCELADO') {  
+    return {'es-cancelado'  :'null' };
   }  
+ 
+  if(estado == 'LLAMANDO') {
+    return {'es-llamando'  :'null' };
+  }
 
 }
 

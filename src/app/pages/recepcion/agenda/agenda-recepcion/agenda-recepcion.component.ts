@@ -127,7 +127,7 @@ export class AgendaRecepcionComponent implements OnInit {
       'fechaHoy': new FormControl('', Validators.required), 
       'medico_nombre': new FormControl('')
       });
-this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','');
+this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','','','');
 }
 
 ngOnInit() {
@@ -424,14 +424,39 @@ this.popItemAgenda = this.selectedagendaTurno;
    
   }
 
+  if(cond == 'espera'){
+    this.popItemAgenda.agenda_estado_id = '5';
+    this.popItemAgenda.llegada = this._fechaHoy;
+    this.actualizarTurno();
+  }
+
   if(cond == 'presente'){
     this.popItemAgenda.agenda_estado_id = '2';
     this.popItemAgenda.presente = this._fechaHoy;
+    this.popItemAgenda.llegada = '2099-12-31 00:00:00';
+    this.popItemAgenda.atendido = '2099-12-31 00:00:00';
   }
 
   if(cond == 'atendido'){
     this.popItemAgenda.agenda_estado_id = '4';
     this.popItemAgenda.atendido = this._fechaHoy;
+  }
+
+  if(cond == 'llamando'){
+    this.popItemAgenda.agenda_estado_id = '9';
+    this.actualizarTurno();
+  }
+
+  if(cond == 'rellamar'){
+    this.popItemAgenda.agenda_estado_id = '9';      
+    this.actualizarTurno();
+  }
+  if(cond == 'ausente'){
+    this.popItemAgenda.agenda_estado_id = '10';
+    this.popItemAgenda.llegada = this._fechaHoy;
+    this.popItemAgenda.atendido = this._fechaHoy;
+
+    this.actualizarTurno();
   }
 
   
@@ -734,7 +759,7 @@ sumarPresente(){
   this.agendaTurnos = this.agendaTurno;
   if(this.agendaTurnos){
   for(i=0;i<this.agendaTurnos.length;i++){
-    if((this.agendaTurnos[i]['presente'] !== null ) &&(this.agendaTurnos[i]['presente'] !== '2099-12-31 00:00:00' ) && (this.agendaTurno[i]['llegada'] === '2099-12-31 00:00:00' )){
+    if((this.agendaTurnos[i]['presente'] !== null ) &&(this.agendaTurnos[i]['presente'] !== '2099-12-31 00:00:00' ) && (this.agendaTurno[i]['llegada'] === '2099-12-31 00:00:00' )&& (this.agendaTurno[i]['estado'] !== 'LLAMANDO')&& (this.agendaTurno[i]['estado'] !== 'ATENDIDO' )){
       this.presentes = this.presentes+1;
     }
   }
@@ -812,10 +837,18 @@ colorRow(estado:string){
   if(estado == 'TURNO') {
     return {'es-turno'  :'null' };
   }
+
+  if(estado == 'DERIVADO') {
+    return {'es-turno'  :'null' };
+  }
+
   if(estado == 'CANCELADO') {  
     return {'es-cancelado'  :'null' };
   }  
  
+  if(estado == 'LLAMANDO') {
+    return {'es-llamando'  :'null' };
+  }
  
   
   
@@ -838,7 +871,7 @@ if((estado === 'SOBRETURNO')) {
 
 }else{
   if((sobreturno === 'SI')) {
-    return {'text-danger-bold'  :'null' };
+    return {'es-sobreturno-texto'  :'null' };
   }
 }
 

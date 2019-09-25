@@ -2,15 +2,16 @@
     <p-menubar  [model]="general" *ngIf="loggedIn" autoZIndex="false" styleClass="my-navbar  "  [autoDisplay]="false"  >
             
                
-                <div class="flexbox " >                      
-                 <div class=" float-right pt-2">  <label class="text-info">{{username}}</label></div>                                             
+                <div class="flexbox " >     
+                <div class=" float-right pt-2">  <b><label class="text-success">PUESTO : {{puesto}}</label></b></div>                     
+                 <div class=" float-right pt-2 ml-2 mr-2"> <b> <label class="text-info">USUARIO : {{username}}</label></b></div>                                             
                         </div> 
     </p-menubar> 
 
     <div class="navbar-main alineacion-flexbox" *ngIf="loggedIn" >
             <div >
                         <div class="button">                        
-                <i  (click)="verChat()" class="fa fa-comment pointer my-hover nav-links"></i>
+                <i  (click)="verChat()" class="fa fa-comment pointer my-hover nav-links m-2"></i>
                 <span *ngIf="chats" class="button__badge">0</span>
                 </div> 
         
@@ -22,7 +23,7 @@
             <div >
           
             <div class="button"> 
-                <i #aa (click)="cerrarSesion()" class="fas fa-power-off my-hover nav-links"></i>
+                <i #aa (click)="cerrarSesion()" class="fas fa-power-off my-hover nav-links m-2"></i>
             </div>
               
             </div>
@@ -43,38 +44,57 @@
       </form>
       
       </div> -->
-      <div class="limiter">
-        <div class="container-login100">
-                <div class="wrap-login100">
-                        <div class="login100-form-title" style="background-image: url(assets/images/bg-01.jpg);">
-                                <span class="login100-form-title-1">
-                                        Bienvenido
-                                </span>
+      
+  <div class="wrapper fadeInDown" *ngIf="!loggedIn">
+  
+        <div style="background-color: #666666;">
+                <div class="limiter">
+                        <div class="container-login100">
+                                <div class="wrap-login100"> 
+                                        <form [formGroup]="loginForm"  class="login100-form validate-form" (ngSubmit)="onSubmit()">
+                                                <span class="login100-form-title p-b-43">
+                                                        Bienvenido
+                                                </span>
+                                                
+                                                
+                                                <div class="wrap-input100 validate-input" data-validate = "Usuario válido es requerido">
+                                                        <input class="input100" type="text" name="email" formControlName="username"   autofocus>
+                                                        <span  class="focus-input100" ></span>
+                                                        <span   class="label-input100" >Usuario</span>
+                                                        
+                                                </div>
+                                                
+                                                
+                                                <div class="wrap-input100 validate-input" data-validate="Contraseña es requerida">
+                                                        <input class="input100" type="password" name="pass" formControlName="password" >
+                                                        <span class="focus-input100"></span>
+                                                        <span class="label-input100" >Contraseña</span>
+                                                </div>
+                                                <b><label class="text-danger mb-1">Solo recepción</label></b>
+                                                <div class="wrap-input100 validate-input" data-validate="Contraseña es requerida">
+                                                       
+                                                       <b> <input class="input100 text-danger" type="text" name="puesto" formControlName="puesto" ></b>
+                                                        <span class="focus-input100"></span>
+                                                        <span class="label-input100" >Puesto</span>
+                                                </div>
+                                        
+                                
+        
+                                                <div class="container-login100-form-btn">
+                                                        <button class="login100-form-btn">
+                                                                Ingresar
+                                                        </button>
+                                                </div>
+                                                
+                                                
+                                        </form>
+        
+                                        <div class="login100-more" style="background-image: url(assets/images/background/login.jpg);">
+                                        </div>
+                                </div>
                         </div>
-
-                        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login100-form validate-form">
-                                <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-                                        <span class="label-input100">Usuario</span>
-                                        <input class="input100"  formControlName="username" type="text" name="username" placeholder="Usuario" autofocus>
-                                        <span class="focus-input100"></span>
-                                </div>
-
-                                <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
-                                        <span class="label-input100">Contraseña</span>
-                                        <input class="input100" formControlName="password" type="password" name="pass" placeholder="Contraseña">
-                                        <span class="focus-input100"></span>
-                                </div>
-                           
-                            
-
-                                <div class="container-login100-form-btn">
-                                        <button class="login100-form-btn">
-                                                Ingresar
-                                        </button>
-                                </div>
-                        </form>
                 </div>
         </div>
-</div>
+        </div>
       
       </div>

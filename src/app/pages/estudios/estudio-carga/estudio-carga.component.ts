@@ -179,7 +179,7 @@ fechaHoy:Date;
       console.log(this.formPaciente);
  
     }else{ //10029750
-      this.paciente = new AgendaTurno('',new Date(), new Date(), new Date(),'','','','','','','','','','','','','','','888888','' ,'','','','','','','','','', new Date(),'','','','','', '','','','');
+      this.paciente = new AgendaTurno('',new Date(), new Date(), new Date(),'','','','','','','','','','','','','','','888888','' ,'','','','','','','','','', new Date(),'','','','','', '','','','','','');
     //  this.historiaClinica();
     }
   }

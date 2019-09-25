@@ -47,6 +47,7 @@ export class NavbarComponent implements OnInit {
   gerencia_control:boolean =true;
 
   public username:string;
+  public puesto:string;
   elemento:User = null;
   elementoModulo:[] = null;
   loginForm: FormGroup;
@@ -76,7 +77,8 @@ export class NavbarComponent implements OnInit {
 
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      puesto: ['0']
   });
 
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -87,6 +89,7 @@ if(currentUser['access_token'] != ''){
   console.log('usuario logueado');
   this.loggedIn = true;
      this.username = userData['username'];
+     this.puesto = userData['puesto'];
      console.log(userData['access_list']);
      this.asignarModulos(userData['access_list']);
      this.getNotificacionesByUsuario();
@@ -182,27 +185,45 @@ asignarModulos(modulos: any){
 }
 
 cerrarSesion(){
+
+  swal({
+  showCancelButton: true,
+  confirmButtonColor: '#448AFF',
+  cancelButtonColor: '#AD1457',
+  cancelButtonText: 'Permanecer',
+  confirmButtonText: 'Cerrar sesión',
+    backdrop: `
+    rgba(26, 188, 156,0.7)
+    no-repeat `
+}).then((result) => {
+  if (result.value) {
+   
   console.log('sesion terminada');
-    this.authenticationService.logout();
-    this.loggedIn =false;
-    this.mantenimiento_stock_insumo =true;
-    this.mantenimiento_stock_lente =true;
-    this.mantenimiento_otros =true;
-    this.facturacion_consulta =true;
-    this.facturacion_control =true;
-    this.medico_consulta =true;
-    this.medico_control =true;
-    this.quirofano_consulta =true;
-    this.quirofano_control =true;
-    this.asesoramiento_control =true;
-    this.asesoramiento_consulta =true;
-    this.recepcion_consulta =true;
-    this.recepcion_control =true;
-    this.administrador = true;
-    this.user = null;
-    this.elemento = null;
-    this.elementoModulo = [];
-    window.location.reload();
+  this.authenticationService.logout();
+  this.loggedIn =false;
+  this.mantenimiento_stock_insumo =true;
+  this.mantenimiento_stock_lente =true;
+  this.mantenimiento_otros =true;
+  this.facturacion_consulta =true;
+  this.facturacion_control =true;
+  this.medico_consulta =true;
+  this.medico_control =true;
+  this.quirofano_consulta =true;
+  this.quirofano_control =true;
+  this.asesoramiento_control =true;
+  this.asesoramiento_consulta =true;
+  this.recepcion_consulta =true;
+  this.recepcion_control =true;
+  this.administrador = true;
+  this.user = null;
+  this.elemento = null;
+  this.elementoModulo = [];
+  window.location.reload();
+  }
+});
+
+
+
     //this.router.navigateByUrl('/');
 }
 
@@ -225,7 +246,7 @@ onSubmit() {
           data => {
             console.log(data);
             this.user = data;
-            let us = new User("","","","","",this.f.username.value,this.f.password.value,[]);
+            let us = new User("","","","","",this.f.username.value,this.f.password.value,[],this.f.puesto.value);
             localStorage.setItem('userData', JSON.stringify(us));
             localStorage.setItem('currentUser', JSON.stringify(this.user));
             //  this.router.navigate([this.returnUrl]);
@@ -257,8 +278,9 @@ try {
        console.log(this.elemento);
        this.elementoModulo = <any>this.elemento;
       this.user = new User(this.elemento[0]['id'] , this.elemento[0]['email'], this.elemento[0]['nombreyapellido'],
-       this.elemento[0]['name'],'1',this.elemento[0]['email'], currentUser['access_token'],this.elementoModulo);
+       this.elemento[0]['name'],'1',this.elemento[0]['email'], currentUser['access_token'],this.elementoModulo, this.f.puesto.value);
        this.username = userData['username'];
+       this.puesto = userData['puesto'];
        localStorage.removeItem('userData');
        localStorage.setItem('userData', JSON.stringify(this.user));
        this.asignarModulos(this.elementoModulo);

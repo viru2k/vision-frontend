@@ -41,6 +41,8 @@ export class AgendaTurno {
     es_sobreturno:string;
     presente:string;
     edad:string;
+    puesto_llamado:string;
+    puesto_estado:string;
 
     constructor( 
         id:string,
@@ -81,7 +83,9 @@ export class AgendaTurno {
         agenda_creacion:string,
         es_sobreturno:string,
         presente:string,
-        edad:string
+        edad:string,
+        puesto_llamado:string,
+        puesto_estado:string
         ) {
        
         this.id = id;
@@ -123,5 +127,7 @@ export class AgendaTurno {
         this.es_sobreturno = es_sobreturno;
         this.presente = presente;
         this.edad = edad;
+        this.puesto_estado = puesto_estado;
+        this.puesto_llamado = puesto_llamado;
    }
 }

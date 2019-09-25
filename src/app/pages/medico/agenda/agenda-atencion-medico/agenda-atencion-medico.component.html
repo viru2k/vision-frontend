@@ -81,6 +81,7 @@
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.paciente_nombre}}</td>                             
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 16%">{{agendaTurno.paciente_obra_social_nombre}}</td>  
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 10%">{{agendaTurno.hora_desde}}</td>                          
+                        <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 7%" >{{agendaTurno.presente | date: 'HH:mm:ss'}}</td> 
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" class="font-weight-bold text-secondary" style="width: 7%"  >{{agendaTurno.llegada | date: 'HH:mm:ss'}}</td>  
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 7%" >{{agendaTurno.atendido | date: 'HH:mm:ss'}}</td> 
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.estado}}</td>                            
@@ -89,29 +90,33 @@
                         
                         <td style="width: 4%" >
                              
-                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-astronaut fa-2x icon-color-orange-light" *ngIf="agendaTurno.es_observacion === 'CONTROL PREQUIRURGICO'"  ></i></a>
-                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-md fa-2x icon-color-blue" *ngIf="agendaTurno.es_observacion === 'CONTROL POSQUIRURGICO'"  ></i></a>
-                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer far fa-bell fa-2x icon-color-green" *ngIf="agendaTurno.es_observacion === 'ESTUDIOS'"  ></i></a>
-                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-first-aid fa-2x icon-color-green " *ngIf="agendaTurno.es_observacion === 'ASESORAMIENTO QUIRURGICO'"  ></i></a> 
-                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-exclamation-circle fa-2x icon-color-red" *ngIf="agendaTurno.es_observacion === 'ADVERTENCIA'"  ></i></a>
-                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-plus fa-2x icon-color-red-light " *ngIf="agendaTurno.es_observacion === 'PACIENTE NUEVO'"  ></i></a>
-                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fas fa-syringe fa-2x icon-color-purple " *ngIf="agendaTurno.es_observacion === 'ANESTESIA'"  ></i></a>     
-                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer far fa-address-card fa-2x icon-color-green-light" *ngIf="agendaTurno.es_observacion === 'SOLICITUD DE TURNO'"  ></i></a>                      
-                      <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-procedures fa-2x icon-color-green-light" *ngIf="agendaTurno.es_observacion === 'CIRUGIA'"  ></i></a>                      
-                      
+                            <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-astronaut fa-2x icon-color-orange-light" *ngIf="agendaTurno.es_observacion === 'CONTROL PREQUIRURGICO'"  ></i></a>
+                            <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-md fa-2x icon-color-blue" *ngIf="agendaTurno.es_observacion === 'CONTROL POSQUIRURGICO'"  ></i></a>
+                            <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer far fa-bell fa-2x icon-color-green" *ngIf="agendaTurno.es_observacion === 'ESTUDIOS'"  ></i></a>
+                            <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-first-aid fa-2x icon-color-green " *ngIf="agendaTurno.es_observacion === 'ASESORAMIENTO QUIRURGICO'"  ></i></a> 
+                            <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-exclamation-circle fa-2x icon-color-red" *ngIf="agendaTurno.es_observacion === 'ADVERTENCIA'"  ></i></a>
+                            <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-plus fa-2x icon-color-red-light " *ngIf="agendaTurno.es_observacion === 'PACIENTE NUEVO'"  ></i></a>
+                            <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fas fa-syringe fa-2x icon-color-purple " *ngIf="agendaTurno.es_observacion === 'ANESTESIA'"  ></i></a>     
+                            <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer far fa-address-card fa-2x icon-color-green-light" *ngIf="agendaTurno.es_observacion === 'SOLICITUD DE TURNO'"  ></i></a>                      
+                            <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-procedures fa-2x icon-color-green-light" *ngIf="agendaTurno.es_observacion === 'CIRUGIA'"  ></i></a>                      
+                            <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-briefcase-medical fa-2x icon-color-blue" *ngIf="agendaTurno.es_observacion === 'CONSULTA'"  ></i></a>                                            
                                 </td> 
                         <td style="width: 4%">
                          <!--    <button type="button"   class="btn btn-outline-success btn-md p-1 pr-1" (click)="accion($event,op,agendaTurno)"    ><i class="far fa-edit fa-2x icon-color-purple"></i></button> -->
                          <a   (click)="accion($event,op,agendaTurno)"   ><i class="far fa-edit fa-2x icon-color-purple my-hover" ></i></a>            
                                       
                            </td>
+                         
                         <td style="width: 8%">
-                            <button  [disabled]="agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'PENDIENTE' || agendaTurno.estado == 'CANCELADO'" type="button" class="btn btn-outline-info btn-sm" (click)="pacienteIngresado(agendaTurno)"    >Llamar</button>
+                            <button  [disabled]="agendaTurno.estado == 'PRESENTE' || agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'PENDIENTE' || agendaTurno.estado == 'CANCELADO'" type="button" class="btn btn-outline-info btn-sm" (click)="pacienteIngresado(agendaTurno)"    >Llamar</button>
                         </td>    
-                        <td style="width: 8%">
-                            <button  [disabled]="agendaTurno.estado == 'ESPERA' || agendaTurno.estado == 'SOBRETURNO' || agendaTurno.estado == 'CANCELADO'" type="button" class="btn btn-outline-secondary btn-sm" (click)="pacienteAtendido(agendaTurno)"    >Atendido</button>
-                        </td>                  
-                      
+                        <td style="width: 10%">
+                            <button  [disabled]="agendaTurno.estado == 'PRESENTE' || agendaTurno.estado == 'ESPERA' || agendaTurno.estado == 'SOBRETURNO' || agendaTurno.estado == 'CANCELADO'" type="button" class="btn btn-outline-secondary btn-sm" (click)="pacienteAtendido(agendaTurno)"    >Atendido</button>
+                        </td>  
+                        <td style="width: 10%">
+                            <button  [disabled]="agendaTurno.estado == 'PRESENTE' || agendaTurno.estado == 'ESPERA' || agendaTurno.estado == 'SOBRETURNO' || agendaTurno.estado == 'CANCELADO'" type="button" class="btn btn-outline-warning btn-sm" (click)="pacienteDerivado(agendaTurno)"    >Recepción</button>
+                        </td>                 
+                        
                 </tr>
                 </ng-template>
              

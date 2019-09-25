@@ -123,7 +123,7 @@ export class AgendaComponent implements OnInit {
         'fechaHoy': new FormControl('', Validators.required), 
         'medico_nombre': new FormControl('')
         });
-  this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','');
+  this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','','','');
   }
 
   ngOnInit() {
@@ -552,6 +552,8 @@ console.log(this.condicion);
   this.miServico.cancelarTurno( this.popItemAgenda.agenda_dia_horario_atencion_id)
   .subscribe(resp => {
       this.loading = false;
+      console.log(resp);
+      console.log(this.condicion);
       if(this.condicion ==='reasignar'){
         this.router.navigate(['/recepcion/turnos'],{ state: { paciente: this.popItemAgenda } });
       }else{

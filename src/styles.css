@@ -611,6 +611,13 @@ hr.rulerStyleShadow {
 
 
 
+.es-llamando {
+    background-color: #FF6D00 !important;
+    color: #FAFAFA !important;
+}
+
+
+
 .es-atendido {
     background-color: #AED581 !important;
     color: #757575 !important;
@@ -652,7 +659,14 @@ hr.rulerStyleShadow {
 }
 
 
+
+
 .es-turno {
+    background-color: #1ABC9C !important;
+    color: #e7e7e7 !important;
+}
+
+.es-derivado {
     background-color: #1ABC9C !important;
     color: #e7e7e7 !important;
 }
@@ -680,6 +694,12 @@ hr.rulerStyleShadow {
     color: rgb(245, 127, 23) !important;
     font-weight: bold !important;
 }
+
+.es-sobreturno-texto{
+   color: #B71C1C !important;
+   font-weight: bold !important;
+}
+
 /************ CURSORES ***********************/
 
 

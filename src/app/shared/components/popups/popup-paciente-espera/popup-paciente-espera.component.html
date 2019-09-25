@@ -6,8 +6,7 @@
 
 <div>
   <div >
-      <h6>Agenda</h6>
-      <hr>
+     
       <div class='sidenav'>
            <!--   <span (click)='newDoc()'>New Document</span>
         <span [class.selected]='docId === currentDocId' (click)='loadDoc(docId)' *ngFor='let docId of documents | async'>{{ docId }}</span> 
@@ -29,32 +28,13 @@
                   </form>   
                   <div class="row pl-4 pr-4 ">
                           <div class="d-flex justify-content-sm-end">
-                                  <div  class="btn-group btn-sm " role="group" aria-label="First group">                 
-                                     <button    class="btn  btn-info btn-sm  float-right mr-2" (click)="loadAgendaCancelada()" >Turnos cancelados</button>
-                                     <button    class="btn  btn-danger btn-sm  float-right mr-2" (click)="darSobreTurno()" >Dar sobre turno</button>
-                                     <button    class="btn  btn-warning btn-sm float-right mr-2" (click)="loadListTodosTurnos()" >Buscar todos los turnos</button>
+                                  <div  class="btn-group btn-sm " role="group" aria-label="First group">                                                     
+                                     <button    class="btn  btn-danger btn-sm  float-right mr-2" (click)="darSobreTurno()" >Dar sobre turno</button>                                     
                                      <button    class="btn  btn-success btn-sm float-right "  (click)="loadTurno()" >Buscar turnos</button>
                                   </div>
                           </div>    
                   </div>     
-                 <div class="row  col-3">
-                      <div class=" input-group input-group-sm row pt-1 pl-4">
-                              <input (keyup.enter)="buscarHistoriaUsuario()"placeholder="buscar paciente"  class="form-control col-12 form-control-sm" [ngModel]="buscar_paciente"  />                  
-                              <div class="input-group-append">
-                                <span class="input-group-text form-control-sm">
-                                  <a  (click)="buscarHistoriaUsuario()">
-                                      <img class="pointer float-left" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
-                                  </a>
-                              </span>
-                              </div>
-                              <div>  <button    class="ml-2 btn  btn-secondary btn-sm float-right "  (click)="generarPdf()" >Imprimir</button></div>
-                          </div>   
-                       
-                 </div> 
           </div>
-
-
-       
       </div>
      
     
@@ -69,7 +49,7 @@
           scrollHeight="500px" [scrollable]="true" (onFilter)="filtered($event)">
          
 
-             <ng-template pTemplate="header" let-columns >
+             <ng-template pTemplate="header" let-columns #mipoprow>
             
                         <tr >
                              
@@ -122,28 +102,41 @@
                       <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 6%">{{agendaTurno.dia_nombre}}</td> 
                       <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%" >{{agendaTurno.presente | date: 'HH:mm:ss'}}</td>   
                       <td style="width: 4%" >
-                            <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-syringe fa-2x icon-color-purple" *ngIf="agendaTurno.es_observacion === 'CIRUGIA'"  ></i></a>
-                            <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-md fa-2x icon-color-blue" *ngIf="agendaTurno.es_observacion === 'CONTROL POSQUIRURGICO'"  ></i></a>
-                            <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer far fa-bell fa-2x icon-color-green" *ngIf="agendaTurno.es_observacion === 'ESTUDIOS'"  ></i></a>
-                            <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-exclamation-circle fa-2x icon-color-red" *ngIf="agendaTurno.es_observacion === 'ADVERTENCIA'"  ></i></a>
-                            <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-plus fa-2x icon-color-red-light " *ngIf="agendaTurno.es_observacion === 'PACIENTE NUEVO'"  ></i></a>
-                            <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer far fa-address-card fa-2x icon-color-green-light" *ngIf="agendaTurno.es_observacion === 'SOLICITUD DE TURNO'"  ></i></a>    
-                          
+                        <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-astronaut fa-2x icon-color-orange-light" *ngIf="agendaTurno.es_observacion === 'CONTROL PREQUIRURGICO'"  ></i></a>
+                        <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-md fa-2x icon-color-blue" *ngIf="agendaTurno.es_observacion === 'CONTROL POSQUIRURGICO'"  ></i></a>
+                        <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer far fa-bell fa-2x icon-color-green" *ngIf="agendaTurno.es_observacion === 'ESTUDIOS'"  ></i></a>
+                        <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-first-aid fa-2x icon-color-green " *ngIf="agendaTurno.es_observacion === 'ASESORAMIENTO QUIRURGICO'"  ></i></a> 
+                        <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-exclamation-circle fa-2x icon-color-red" *ngIf="agendaTurno.es_observacion === 'ADVERTENCIA'"  ></i></a>
+                        <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-plus fa-2x icon-color-red-light " *ngIf="agendaTurno.es_observacion === 'PACIENTE NUEVO'"  ></i></a>
+                        <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fas fa-syringe fa-2x icon-color-purple " *ngIf="agendaTurno.es_observacion === 'ANESTESIA'"  ></i></a>     
+                        <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer far fa-address-card fa-2x icon-color-green-light" *ngIf="agendaTurno.es_observacion === 'SOLICITUD DE TURNO'"  ></i></a>                      
+                        <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-procedures fa-2x icon-color-green-light" *ngIf="agendaTurno.es_observacion === 'CIRUGIA'"  ></i></a>                      
+                        <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-briefcase-medical fa-2x icon-color-blue" *ngIf="agendaTurno.es_observacion === 'CONSULTA'"  ></i></a>                                            
                       </td>                                                                   
                       <td style="width: 8%">
-                          <button  [disabled]="agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'ESPERA' ||  agendaTurno.estado == 'CANCELADO'" type="button" class="btn btn-outline-info btn-sm" (click)="pacienteIngresado(agendaTurno)"    >Llegada</button>
+                          <button  [disabled]="agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'ESPERA' ||  agendaTurno.estado == 'CANCELADO' ||  agendaTurno.estado == 'LLAMANDO'" type="button" class="btn btn-outline-warning btn-sm" (click)="pacienteIngresado(agendaTurno)"    ><i class="fas fa-volume-up"></i></button>
                       </td>            
               </tr>
               </ng-template>
            
               </p-table>
              
-              <p-overlayPanel #op [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >                          
+              <p-overlayPanel #op  appendTo="body" [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" [showCloseIcon]="true">                          
+                      <b><label class="text-info"> Paciente</label></b>  
                       <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('observacion')">  Ver observación</a></span>
                       <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('paciente')">  Ver / editar paciente</a></span>
-                      <hr>                    
-                      <span>   <a class="nav-link text-danger my-hover" (click)="darTurno('reasignar')">  Dar turno</a></span>
                       <hr>
+                      <b><label class="text-info"> Acciones</label></b>                           
+                      <span>   <a class="nav-link azul es-llamando my-hover" (click)="editarRegistro('llamando')"> <i class="fas fa-volume-up"> </i> Llamar</a></span>
+                      <span>   <a class="nav-link azul es-llamando my-hover" (click)="editarRegistro('rellamar')"> <i class="fas fa-volume-up"> </i> Volver a llamar</a></span>                               
+                      <span>   <a class="nav-link azul es-presente my-hover" (click)="editarRegistro('presente')">  Presente</a></span>
+                      <span>   <b><a class="nav-link azul es-espera my-hover " (click)="editarRegistro('espera')">  Espera</a></b></span>   
+                      <hr>
+                      <span>   <a class="nav-link azul text-danger my-hover " (click)="editarRegistro('ausente')">  Ausente</a></span>    
+                      <span>   <a class="nav-link azul text-danger my-hover " (click)="editarRegistro('cancelado')">  Cancelar</a></span>  
+                      
+                      <hr>
+
                       <span>   <a class=" text-info nav-link azul my-hover" (click)="editarRegistro('operacioncobro')">  Operacion de cobro</a></span>
               </p-overlayPanel>  
       
@@ -159,3 +152,6 @@
   <textarea [rows]="5" [cols]="30" pInputTextarea class="form-control form-control-sm col-md-12"[(ngModel)]="observacion"></textarea>   
  
   </p-dialog>
+
+
+  

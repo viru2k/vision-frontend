@@ -122,14 +122,15 @@ export class TurnoComponent implements OnInit {
     ];
   
     this.motivos = [
-      {name: 'SIN SELECCION', code: '5'},
-      {name: 'ESTUDIOS', code: '1'},
-      {name: 'CONTROL PREQUIRURGICO', code: '2'},
-      {name: 'CONTROL POSQUIRURGICO', code: '3'},
-      {name: 'ANESTESIA', code: '4'},
-      {name: 'ASESORAMIENTO QUIRURGICO', code: '6'},      
-      {name: 'CIRUGIA', code: '7'},
-      {name: 'ADVERTENCIA', code: '8'},
+      {name: 'SIN SELECCION', code: '1'},
+      {name: 'CONSULTA', code: '2'},
+      {name: 'ESTUDIOS', code: '3'},
+      {name: 'CONTROL PREQUIRURGICO', code: '4'},
+      {name: 'CONTROL POSQUIRURGICO', code: '5'},
+      {name: 'ANESTESIA', code: '6'},
+      {name: 'ASESORAMIENTO QUIRURGICO', code: '7'},
+      {name: 'CIRUGIA', code: '8'},
+      {name: 'ADVERTENCIA', code: '9'},
      
       
   ];
@@ -151,7 +152,7 @@ export class TurnoComponent implements OnInit {
         let invalidDate4 = new Date();
         
         this.selectedEstudio =  this.estudios[0];
-        this.selectedMotivo =  this.motivos[5];
+        this.selectedMotivo =  this.motivos[1];
     
     this.invalidDatesCompleta = [invalidDate, invalidDate];
     this.formPaciente = new FormGroup({
