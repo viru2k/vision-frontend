@@ -1328,7 +1328,7 @@ var AgendaMedicoHorarioDia = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgendaTurno", function() { return AgendaTurno; });
 var AgendaTurno = /** @class */ (function () {
-    function AgendaTurno(id, hora_desde, hora_hasta, hora_desde_hasta, agenda_dia_horario_atencion_id, fecha_turno, llegada, atendido, agenda_estado_id, estado, agenda_dia_id, usuario_id, nombreyapellido, dia_nombre, dia_nro, paciente_id, paciente_nombre, paciente_apellido, paciente_dni, paciente_fecha_nacimiento, paciente_obra_social_id, paciente_obra_social_nombre, paciente_coseguro_nombre, paciente_coseguro_id, numero_afiliado, barra_afiliado, coseguro_es_coseguro, coseguro, tiene_distribucion, fecha_matricula, codigo_old, plan, domicilio, es_observacion, operacion_cobro_id, agenda_creacion, es_sobreturno, presente, edad) {
+    function AgendaTurno(id, hora_desde, hora_hasta, hora_desde_hasta, agenda_dia_horario_atencion_id, fecha_turno, llegada, atendido, agenda_estado_id, estado, agenda_dia_id, usuario_id, nombreyapellido, dia_nombre, dia_nro, paciente_id, paciente_nombre, paciente_apellido, paciente_dni, paciente_fecha_nacimiento, paciente_obra_social_id, paciente_obra_social_nombre, paciente_coseguro_nombre, paciente_coseguro_id, numero_afiliado, barra_afiliado, coseguro_es_coseguro, coseguro, tiene_distribucion, fecha_matricula, codigo_old, plan, domicilio, es_observacion, operacion_cobro_id, agenda_creacion, es_sobreturno, presente, llamando, edad, puesto_llamado, puesto_estado, llama_pantalla) {
         this.id = id;
         this.hora_desde = hora_desde;
         this.hora_hasta = hora_hasta;
@@ -1367,7 +1367,11 @@ var AgendaTurno = /** @class */ (function () {
         this.agenda_creacion = agenda_creacion;
         this.es_sobreturno = es_sobreturno;
         this.presente = presente;
+        this.llamando = llamando;
         this.edad = edad;
+        this.puesto_estado = puesto_estado;
+        this.puesto_llamado = puesto_llamado;
+        this.llama_pantalla = llama_pantalla;
     }
     return AgendaTurno;
 }());
@@ -2066,7 +2070,7 @@ var PracticaDistribucionRegistro = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
 var User = /** @class */ (function () {
-    function User(id, name, nombreyapellido, email, admin, username, password, access_list) {
+    function User(id, name, nombreyapellido, email, admin, username, password, access_list, puesto) {
         this.grant_type = "password";
         this.client_secret = "65LMI4rQJmikbPTETbQBrXjL4tCtOvathTQGUqUA";
         this.password = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjA2OWU5NmZkNDg3N2FhNjc5ZGNmYTZkNWRmOGEwMzAxNzE3M2FlOTgzOWZjNTMyNDY4ZGM4ZjY2MGU5MzljZTZlN2E0YzUzYzc0NjVlYWE2In0.eyJhdWQiOiIxIiwianRpIjoiMDY5ZTk2ZmQ0ODc3YWE2NzlkY2ZhNmQ1ZGY4YTAzMDE3MTczYWU5ODM5ZmM1MzI0NjhkYzhmNjYwZTkzOWNlNmU3YTRjNTNjNzQ2NWVhYTYiLCJpYXQiOjE1NTY5MDIxMTgsIm5iZiI6MTU1NjkwMjExOCwiZXhwIjoxNTU3MTYxMzE4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Y1vEerY2jchYCvAMTUuVwW5sQL5fAdl0lGon4qCHmB2M-794VSSv7sXXgpqv1wwH1cdNsArsdDVwGE87UgrB4-lzNLZ5iCiF7jVVT4oCtUMiDIBBFXKDxGSXHQD-Eijy5J69w-Lb0JLM1kxVRdBfNJ2tCUuogrz38Tp5hjhLlTMUeRPdPj5o0wscJ6HuOSU_-XwXirDbA-4yk1L-yUVzMbU2dMkmI_UUhnpfxwTnDOVyjAgHjRVh2-FG482UiYGGuU6Z83u1oDxmp0mBMz0u8rEAYUS4yPGfCe0mG_Ql5egTeNd9C4e7pMYSFs4zJNvpHUttZ0oz_srWAyxaZOkVw097rUgUMME2EpyMNbvYxQY1o8Qmx1QI-6GnIMZAtZg0xxEpg5feJFO_OlOL3vMDyvGOMW_0T5MfwkFt8ZpMMzt8kNW0WSBzgvXAanNqcNosip74homCSQOXaeUhOCpxLsFYCkH0vayNCoEgCfahJ6w7uC_NnA6y_g84-1pPpPdUVMrxKxme-YuQGiXABXsrkJHnCEbFRPStgz1gfOkcuc90j7oJaXy32lwlWKpVMMVgVpVep8UJ6WSW7Pf7eE1aU6N6FWzloxpgqEdAaVRvV-EPJPfe-ivXBjjvHgUPDLMcB-ME8D7TBv2zsMhf34bYuLUefYNpItcm6EVZMHJ_Jyc";
@@ -2079,6 +2083,7 @@ var User = /** @class */ (function () {
         this.username = username;
         this.password = password;
         this.access_list = access_list;
+        this.puesto = puesto;
     }
     return User;
 }());
@@ -3491,7 +3496,7 @@ var EstudioCargaComponent = /** @class */ (function () {
             console.log(this.formPaciente);
         }
         else { //10029750
-            this.paciente = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_5__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '888888', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '');
+            this.paciente = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_5__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '888888', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '');
             //  this.historiaClinica();
         }
     };
@@ -9725,7 +9730,7 @@ var OperacionCobroComponent = /** @class */ (function () {
         this.usuario_id = this.user.id;
         console.log(this.user);
         this.tmpdate = new Date();
-        this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_2__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '');
+        this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_2__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '');
         this.popItemPaciente = new _models_paciente_model__WEBPACK_IMPORTED_MODULE_18__["Paciente"]('0', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '0', '0', '', '', '0', '', '', '', '', '', '');
         this.popItemObraSocial = new _models_obra_social_model__WEBPACK_IMPORTED_MODULE_24__["ObraSocial"]('', '', '', '', '', '', '', '');
         this.popItemCoseguro = new _models_obra_social_model__WEBPACK_IMPORTED_MODULE_24__["ObraSocial"]('', '', '', '', '', '', '', '');
@@ -11451,7 +11456,7 @@ var AgendaConsultaComponent = /** @class */ (function () {
             'fechaHoy': new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required),
             'medico_nombre': new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('')
         });
-        this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_1__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '');
+        this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_1__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '');
     }
     AgendaConsultaComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -11472,7 +11477,7 @@ var AgendaConsultaComponent = /** @class */ (function () {
         this._docSub = this.documentService.currentDocument.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["startWith"])({ id: 'VISION123456787890', doc: '', usuario_id: '', data: [] })).subscribe(function (document) {
             _this.document = document;
             console.log(_this.document);
-            if (document.doc === 'ingresado') {
+            if (document.doc === 'llamando') {
                 _this.loadListByMedico();
             }
         });
@@ -11639,7 +11644,7 @@ var AgendaConsultaComponent = /** @class */ (function () {
                         _this.agendaTurno = null;
                     }
                     _this.newDoc();
-                    _this.loadDoc('');
+                    _this.loadDoc('llamando');
                     _this.loading = false;
                 }, function (error) {
                     console.log(error.message);
@@ -11680,7 +11685,7 @@ var AgendaConsultaComponent = /** @class */ (function () {
                     _this.agendaTurno = null;
                 }
                 _this.newDoc();
-                _this.loadDoc('');
+                _this.loadDoc('llamando');
                 _this.loading = false;
             }, function (error) {
                 console.log(error.message);
@@ -11711,7 +11716,7 @@ var AgendaConsultaComponent = /** @class */ (function () {
                         _this.agendaTurno = null;
                     }
                     _this.newDoc();
-                    _this.loadDoc('');
+                    _this.loadDoc('llamando');
                     _this.loading = false;
                 }, function (error) {
                     console.log(error.message);
@@ -16185,7 +16190,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div>\r\n    <app-loading *ngIf=\"loading\"> </app-loading> \r\n   <!-- <button  *ngIf=\"loading\"   class=\"btn btn-lg btn-success btn-sm float-right mr-2\" (click)=\"loadTurnoTodos()\" >Actualizar</button>-->\r\n</div>\r\n\r\n<div>\r\n    \r\n    <div class=\"row\" >\r\n                <div class=\"col-2\">\r\n                    <form  [formGroup]=\"DateForm\">\r\n                    <div class=\"btn-group\" role=\"group\">\r\n                         <p-calendar class=\"mr-2 \"formControlName=\"fechaHoy\"  (onSelect)=\"actualizarFecha($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\r\n                        <ng-template pTemplate=\"date\" let-date>\r\n                             <span  [ngClass]=\"colorRow(date)\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\r\n                         </ng-template> \r\n                        </p-calendar>\r\n                    </div>\r\n                    </form> \r\n                </div> \r\n                    <div class=\"row col-10 float-right\">\r\n                    <div class=\" col-10 row  float-left\">\r\n                            <div  class=\"btn-group btn-sm \" role=\"group\" aria-label=\"First group\">                 \r\n                               <button    class=\"btn  btn-danger btn-sm  float-right mr-2\" (click)=\"darSobreTurno()\" >Dar sobre turno</button>\r\n                               <button    class=\"btn  btn-info btn-sm float-right mr-2\"  (click)=\"loadListTodosTurnos()\" >Ver todos los turnos</button>\r\n                               <button    class=\"btn  btn-success btn-sm float-right \"  (click)=\"loadListByMedico()\" >Buscar turnos</button>\r\n                            </div>   \r\n                    </div>    \r\n                    <div class=\"col-2  float-right\">\r\n                        <button    class=\"ml-2 btn  btn-secondary btn-sm float-right \"  (click)=\"generarPdf()\" >Imprimir</button>\r\n                    </div>\r\n                </div>\r\n        </div>\r\n       \r\n      \r\n     \r\n    <div>\r\n       \r\n        <div >\r\n            <hr>\r\n              \r\n\r\n            <p-table  #dt class=\"pt-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\"  [value]=\"agendaTurno\" [(selection)]=\"selecteditems\"   columnResizeMode=\"expand\" [responsive]=\"true\"\r\n            scrollHeight=\"600px\" [scrollable]=\"true\" (onFilter)=\"filtered($event)\">\r\n           \r\n\r\n               <ng-template pTemplate=\"header\" let-columns >\r\n              \r\n                          <tr >\r\n                               \r\n                            <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\r\n                                    {{col.header}}\r\n                                    <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activar para ordenar en forma descendente\" ariaLabelAsc=\"Activar para ordenar en forma ascendente\"></p-sortIcon>\r\n                                </th>\r\n                                \r\n                            </tr>\r\n                            <tr>\r\n                            <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\" >\r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'operacion_cobro_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_apellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                               \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'hora_desde'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">       \r\n                                <input class=\"form-control form-control-sm col-md-12\"  *ngSwitchCase=\"'llegada'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'atendido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                   \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'estado'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'dia_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'usuario_alta'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                                             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'boton'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'boton1'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                 \r\n                            </th>\r\n                            \r\n                        </tr>\r\n                    </ng-template>\r\n                \r\n                <ng-template pTemplate=\"body\" let-agendaTurno> \r\n                     \r\n                <tr style=\"height:20px\" [ngClass]=\"colorRow(agendaTurno.estado)\" >\r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 5%\"><a class=\"my-hover\" (click)=\"verDetalle(agendaTurno)\">{{agendaTurno.operacion_cobro_id}}</a></td> \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_apellido}}</td>                          \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_nombre}}</td>                             \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 16%\">{{agendaTurno.paciente_obra_social_nombre}}</td>  \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 10%\">{{agendaTurno.hora_desde}}</td>                          \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 7%\" >{{agendaTurno.presente | date: 'HH:mm:ss'}}</td> \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" class=\"font-weight-bold text-secondary\" style=\"width: 7%\"  >{{agendaTurno.llegada | date: 'HH:mm:ss'}}</td>  \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 7%\" >{{agendaTurno.atendido | date: 'HH:mm:ss'}}</td> \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.estado}}</td>                            \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.dia_nombre}}</td> \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.usuario_alta}}</td> \r\n                        \r\n                        <td style=\"width: 4%\" >\r\n                             \r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-astronaut fa-2x icon-color-orange-light\" *ngIf=\"agendaTurno.es_observacion === 'CONTROL PREQUIRURGICO'\"  ></i></a>\r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-md fa-2x icon-color-blue\" *ngIf=\"agendaTurno.es_observacion === 'CONTROL POSQUIRURGICO'\"  ></i></a>\r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer far fa-bell fa-2x icon-color-green\" *ngIf=\"agendaTurno.es_observacion === 'ESTUDIOS'\"  ></i></a>\r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-first-aid fa-2x icon-color-green \" *ngIf=\"agendaTurno.es_observacion === 'ASESORAMIENTO QUIRURGICO'\"  ></i></a> \r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-exclamation-circle fa-2x icon-color-red\" *ngIf=\"agendaTurno.es_observacion === 'ADVERTENCIA'\"  ></i></a>\r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-plus fa-2x icon-color-red-light \" *ngIf=\"agendaTurno.es_observacion === 'PACIENTE NUEVO'\"  ></i></a>\r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fas fa-syringe fa-2x icon-color-purple \" *ngIf=\"agendaTurno.es_observacion === 'ANESTESIA'\"  ></i></a>     \r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer far fa-address-card fa-2x icon-color-green-light\" *ngIf=\"agendaTurno.es_observacion === 'SOLICITUD DE TURNO'\"  ></i></a>                      \r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-procedures fa-2x icon-color-green-light\" *ngIf=\"agendaTurno.es_observacion === 'CIRUGIA'\"  ></i></a>                      \r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-briefcase-medical fa-2x icon-color-blue\" *ngIf=\"agendaTurno.es_observacion === 'CONSULTA'\"  ></i></a>                                            \r\n                                </td> \r\n                        <td style=\"width: 4%\">\r\n                         <!--    <button type=\"button\"   class=\"btn btn-outline-success btn-md p-1 pr-1\" (click)=\"accion($event,op,agendaTurno)\"    ><i class=\"far fa-edit fa-2x icon-color-purple\"></i></button> -->\r\n                         <a   (click)=\"accion($event,op,agendaTurno)\"   ><i class=\"far fa-edit fa-2x icon-color-purple my-hover\" ></i></a>            \r\n                                      \r\n                           </td>\r\n                         \r\n                        <td style=\"width: 8%\">\r\n                            <button  [disabled]=\"agendaTurno.estado == 'PRESENTE' || agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'PENDIENTE' || agendaTurno.estado == 'CANCELADO'\" type=\"button\" class=\"btn btn-outline-info btn-sm\" (click)=\"pacienteIngresado(agendaTurno)\"    >Llamar</button>\r\n                        </td>    \r\n                        <td style=\"width: 10%\">\r\n                            <button  [disabled]=\"agendaTurno.estado == 'PRESENTE' || agendaTurno.estado == 'ESPERA' || agendaTurno.estado == 'SOBRETURNO' || agendaTurno.estado == 'CANCELADO'\" type=\"button\" class=\"btn btn-outline-secondary btn-sm\" (click)=\"pacienteAtendido(agendaTurno)\"    >Atendido</button>\r\n                        </td>  \r\n                        <td style=\"width: 10%\">\r\n                            <button  [disabled]=\"agendaTurno.estado == 'PRESENTE' || agendaTurno.estado == 'ESPERA' || agendaTurno.estado == 'SOBRETURNO' || agendaTurno.estado == 'CANCELADO'\" type=\"button\" class=\"btn btn-outline-warning btn-sm\" (click)=\"pacienteDerivado(agendaTurno)\"    >Recepción</button>\r\n                        </td>                 \r\n                        \r\n                </tr>\r\n                </ng-template>\r\n             \r\n                </p-table>\r\n               \r\n                <p-overlayPanel #op [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" >                          \r\n                        <span>   <a class=\"nav-link azul my-hover \" (click)=\"editarRegistro('historia')\"> historia clínica</a></span>                        \r\n                        <span>   <a class=\"nav-link azul my-hover\" (click)=\"editarRegistro('turno')\">  Dar turno</a></span>                    \r\n                        <hr>\r\n                        <span>   <a class=\"nav-link azul my-hover\" (click)=\"editarRegistro('observacion')\">  Ver observación</a></span>    \r\n                </p-overlayPanel>  \r\n        \r\n        </div>\r\n      \r\n\r\n         \r\n    </div>\r\n</div>\r\n\r\n<p-dialog header=\"Observación\" class=\"text-secondary\" [(visible)]=\"display\" class=\"p-2\" [baseZIndex]=\"10000\" [responsive]=\"true\"> \r\n        <label>MOTIVO :  {{motivo}}</label>        \r\n        <textarea [rows]=\"5\" [cols]=\"30\" pInputTextarea class=\"form-control form-control-sm col-md-12\"[(ngModel)]=\"observacion\"></textarea>   \r\n       \r\n        </p-dialog>"
+module.exports = "\r\n<div>\r\n    <app-loading *ngIf=\"loading\"> </app-loading> \r\n   <!-- <button  *ngIf=\"loading\"   class=\"btn btn-lg btn-success btn-sm float-right mr-2\" (click)=\"loadTurnoTodos()\" >Actualizar</button>-->\r\n</div>\r\n\r\n<div>\r\n    \r\n    <div class=\"row\" >\r\n                <div class=\"col-2\">\r\n                    <form  [formGroup]=\"DateForm\">\r\n                    <div class=\"btn-group\" role=\"group\">\r\n                         <p-calendar class=\"mr-2 \"formControlName=\"fechaHoy\"  (onSelect)=\"actualizarFecha($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\r\n                        <ng-template pTemplate=\"date\" let-date>\r\n                             <span  [ngClass]=\"colorRow(date)\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\r\n                         </ng-template> \r\n                        </p-calendar>\r\n                    </div>\r\n                    </form> \r\n                </div> \r\n                    <div class=\"row col-10 float-right\">\r\n                    <div class=\" col-10 row  float-left\">\r\n                            <div  class=\"btn-group btn-sm \" role=\"group\" aria-label=\"First group\">                 \r\n                               <button    class=\"btn  btn-danger btn-sm  float-right mr-2\" (click)=\"darSobreTurno()\" >Dar sobre turno</button>\r\n                               <button    class=\"btn  btn-info btn-sm float-right mr-2\"  (click)=\"loadListTodosTurnos()\" >Ver todos los turnos</button>\r\n                               <button    class=\"btn  btn-success btn-sm float-right \"  (click)=\"loadListByMedico()\" >Buscar turnos</button>\r\n                            </div>   \r\n                    </div>    \r\n                    <div class=\"col-2  float-right\">\r\n                        <button    class=\"ml-2 btn  btn-secondary btn-sm float-right \"  (click)=\"generarPdf()\" >Imprimir</button>\r\n                    </div>\r\n                </div>\r\n        </div>\r\n       \r\n      \r\n     \r\n    <div>\r\n       \r\n        <div >\r\n            <hr>\r\n              \r\n\r\n            <p-table  #dt class=\"pt-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\"  [value]=\"agendaTurno\" [(selection)]=\"selecteditems\"   columnResizeMode=\"expand\" [responsive]=\"true\"\r\n            scrollHeight=\"600px\" [scrollable]=\"true\" (onFilter)=\"filtered($event)\">\r\n           \r\n\r\n               <ng-template pTemplate=\"header\" let-columns >\r\n              \r\n                          <tr >\r\n                               \r\n                            <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\r\n                                    {{col.header}}\r\n                                    <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activar para ordenar en forma descendente\" ariaLabelAsc=\"Activar para ordenar en forma ascendente\"></p-sortIcon>\r\n                                </th>\r\n                                \r\n                            </tr>\r\n                            <tr>\r\n                            <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\" >\r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'operacion_cobro_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_apellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                               \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'hora_desde'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">       \r\n                                <input class=\"form-control form-control-sm col-md-12\"  *ngSwitchCase=\"'llegada'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'atendido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                   \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'estado'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'dia_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'usuario_alta'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                                             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'boton'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'boton1'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                 \r\n                            </th>\r\n                            \r\n                        </tr>\r\n                    </ng-template>\r\n                \r\n                <ng-template pTemplate=\"body\" let-agendaTurno> \r\n                     \r\n                <tr style=\"height:20px\" [ngClass]=\"colorRow(agendaTurno.estado)\" >\r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 5%\"><a class=\"my-hover\" (click)=\"verDetalle(agendaTurno)\">{{agendaTurno.operacion_cobro_id}}</a></td> \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_apellido}}</td>                          \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_nombre}}</td>                             \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 16%\">{{agendaTurno.paciente_obra_social_nombre}}</td>  \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 10%\">{{agendaTurno.hora_desde}}</td>                          \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 7%\" >{{agendaTurno.presente | date: 'HH:mm:ss'}}</td> \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" class=\"font-weight-bold text-secondary\" style=\"width: 7%\"  >{{agendaTurno.llegada | date: 'HH:mm:ss'}}</td>  \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 7%\" >{{agendaTurno.atendido | date: 'HH:mm:ss'}}</td> \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.estado}}</td>                            \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.dia_nombre}}</td> \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.usuario_alta}}</td> \r\n                        \r\n                        <td style=\"width: 4%\" #mirow>\r\n                             \r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-astronaut fa-2x icon-color-orange-light\" *ngIf=\"agendaTurno.es_observacion === 'CONTROL PREQUIRURGICO'\"  ></i></a>\r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-md fa-2x icon-color-blue\" *ngIf=\"agendaTurno.es_observacion === 'CONTROL POSQUIRURGICO'\"  ></i></a>\r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer far fa-bell fa-2x icon-color-green\" *ngIf=\"agendaTurno.es_observacion === 'ESTUDIOS'\"  ></i></a>\r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-first-aid fa-2x icon-color-green \" *ngIf=\"agendaTurno.es_observacion === 'ASESORAMIENTO QUIRURGICO'\"  ></i></a> \r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-exclamation-circle fa-2x icon-color-red\" *ngIf=\"agendaTurno.es_observacion === 'ADVERTENCIA'\"  ></i></a>\r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-plus fa-2x icon-color-red-light \" *ngIf=\"agendaTurno.es_observacion === 'PACIENTE NUEVO'\"  ></i></a>\r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fas fa-syringe fa-2x icon-color-purple \" *ngIf=\"agendaTurno.es_observacion === 'ANESTESIA'\"  ></i></a>     \r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer far fa-address-card fa-2x icon-color-green-light\" *ngIf=\"agendaTurno.es_observacion === 'SOLICITUD DE TURNO'\"  ></i></a>                      \r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-procedures fa-2x icon-color-green-light\" *ngIf=\"agendaTurno.es_observacion === 'CIRUGIA'\"  ></i></a>                      \r\n                            <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-briefcase-medical fa-2x icon-color-blue\" *ngIf=\"agendaTurno.es_observacion === 'CONSULTA'\"  ></i></a>                                            \r\n                                </td> \r\n                        <td style=\"width: 4%\">\r\n                         <!--    <button type=\"button\"   class=\"btn btn-outline-success btn-md p-1 pr-1\" (click)=\"accion($event,op,agendaTurno)\"    ><i class=\"far fa-edit fa-2x icon-color-purple\"></i></button> -->\r\n                         <a   (click)=\"accion($event,op,agendaTurno)\"   ><i class=\"far fa-edit fa-2x icon-color-purple my-hover\" ></i></a>            \r\n                                      \r\n                           </td>\r\n                         \r\n                        <td style=\"width: 8%\">\r\n                            <button  [disabled]=\"agendaTurno.estado == 'PRESENTE'  || agendaTurno.estado == 'PENDIENTE' || agendaTurno.estado == 'CANCELADO'\" type=\"button\" class=\"btn btn-outline-info btn-sm\" (click)=\"pacienteIngresado(agendaTurno)\"    >Llamar</button>\r\n                        </td>    \r\n                        <td style=\"width: 10%\">\r\n                            <button  [disabled]=\"agendaTurno.estado == 'PRESENTE'  || agendaTurno.estado == 'ESPERA' || agendaTurno.estado == 'SOBRETURNO' || agendaTurno.estado == 'CANCELADO'\" type=\"button\" class=\"btn btn-outline-secondary btn-sm\" (click)=\"pacienteAtendido(agendaTurno)\"    >Atendido</button>\r\n                        </td>  \r\n                        <td style=\"width: 10%\">\r\n                            <button  [disabled]=\"agendaTurno.estado == 'PRESENTE' || agendaTurno.estado == 'ESPERA' || agendaTurno.estado == 'SOBRETURNO' || agendaTurno.estado == 'CANCELADO'\" type=\"button\" class=\"btn btn-outline-warning btn-sm\" (click)=\"pacienteDerivado(agendaTurno)\"    >Recepción</button>\r\n                        </td>                 \r\n                        \r\n                </tr>\r\n                </ng-template>\r\n             \r\n                </p-table>\r\n               \r\n                <p-overlayPanel #op [appendTo]=\"mirow\" [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" [showCloseIcon]=\"true\" >                          \r\n                        <span>   <a class=\"nav-link azul my-hover \" (click)=\"editarRegistro('historia')\"> historia clínica</a></span>                        \r\n                        <span>   <a class=\"nav-link azul my-hover\" (click)=\"editarRegistro('turno')\">  Dar turno</a></span>                    \r\n                        <hr>\r\n                        <span>   <a class=\"nav-link azul my-hover\" (click)=\"editarRegistro('observacion')\">  Ver observación</a></span>    \r\n                </p-overlayPanel>  \r\n        \r\n        </div>\r\n      \r\n\r\n         \r\n    </div>\r\n</div>\r\n\r\n<p-dialog header=\"Observación\" class=\"text-secondary\" [(visible)]=\"display\" class=\"p-2\" [baseZIndex]=\"10000\" [responsive]=\"true\"> \r\n        <label>MOTIVO :  {{motivo}}</label>        \r\n        <textarea [rows]=\"5\" [cols]=\"30\" pInputTextarea class=\"form-control form-control-sm col-md-12\"[(ngModel)]=\"observacion\"></textarea>   \r\n       \r\n        </p-dialog>"
 
 /***/ }),
 
@@ -16211,11 +16216,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
-/* harmony import */ var _services_document_service_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./../../../../services/document-service.service */ "./src/app/services/document-service.service.ts");
-/* harmony import */ var _shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../../shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component */ "./src/app/shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component.ts");
-/* harmony import */ var _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../../models/liquidacion.model */ "./src/app/models/liquidacion.model.ts");
+/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
+/* harmony import */ var _services_document_service_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./../../../../services/document-service.service */ "./src/app/services/document-service.service.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component */ "./src/app/shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component.ts");
+/* harmony import */ var _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../../models/liquidacion.model */ "./src/app/models/liquidacion.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -16276,7 +16280,6 @@ __webpack_require__(/*! jspdf-autotable */ "./node_modules/jspdf-autotable/dist/
 
 
 
-
 var AgendaAtencionMedicoComponent = /** @class */ (function () {
     function AgendaAtencionMedicoComponent(documentService, miServico, messageService, dialogService, route, router) {
         this.documentService = documentService;
@@ -16333,16 +16336,16 @@ var AgendaAtencionMedicoComponent = /** @class */ (function () {
             'fechaHoy': new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required),
             'medico_nombre': new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('')
         });
-        this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_1__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '');
+        this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_1__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '');
     }
     AgendaAtencionMedicoComponent.prototype.ngOnInit = function () {
         var _this = this;
         // timer para llamar
         console.log('iniciando timer');
-        var timer = rxjs_Rx__WEBPACK_IMPORTED_MODULE_11__["Observable"].timer(180000, 180000); //180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
+        var timer = rxjs_Rx__WEBPACK_IMPORTED_MODULE_10__["Observable"].timer(180000, 180000); //180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
         timer.subscribe(function (t) {
             console.log('bucando turnos');
-            _this.loadListTodosTurnos();
+            _this.loadListByMedico();
         });
         //fin timer
         this.userData = JSON.parse(localStorage.getItem('userData'));
@@ -16355,33 +16358,17 @@ var AgendaAtencionMedicoComponent = /** @class */ (function () {
             'dni': new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required),
         });
         this.DateForm.patchValue({ fechaHoy: this.fechaHoy });
-        this.loadListByMedico();
-        this.documents = this.documentService.documents;
-        this._docSub = this.documentService.currentDocument.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["startWith"])({ id: 'VISION123456787890', doc: '', usuario_id: '', data: [] })).subscribe(function (document) {
-            _this.document = document;
-            console.log(_this.document);
-            if ((document.doc === 'ingresado') && (document.usuario_id === _this.userData['id'])) {
+        this.documentService
+            .getMessages()
+            .subscribe(function (message) {
+            console.log(message);
+            if (message === 'llamando-recepcion') {
                 _this.loadListByMedico();
             }
         });
-        this.newDoc();
+        this.loadListByMedico();
     };
     AgendaAtencionMedicoComponent.prototype.ngOnDestroy = function () {
-        this._docSub.unsubscribe();
-    };
-    AgendaAtencionMedicoComponent.prototype.loadDoc = function (id) {
-        if (this.document.doc) {
-            console.log('load doc ' + this.document.doc);
-            this.documentService.getDocument(id);
-        }
-    };
-    AgendaAtencionMedicoComponent.prototype.newDoc = function () {
-        this.documentService.newDocument();
-    };
-    AgendaAtencionMedicoComponent.prototype.editDoc = function () {
-        console.log('edit doc ' + this.document.doc);
-        //if()
-        this.documentService.editDocument(this.document);
     };
     AgendaAtencionMedicoComponent.prototype.actualizarFecha = function (event) {
         console.log(event);
@@ -16397,10 +16384,10 @@ var AgendaAtencionMedicoComponent = /** @class */ (function () {
     AgendaAtencionMedicoComponent.prototype.verDetalle = function (agendaTurno) {
         console.log(agendaTurno);
         var liquidacion;
-        liquidacion = new _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_14__["Liquidacion"](agendaTurno['operacion_cobro_id'], '', '', '', '', '', '', 0, 0, '', '', [], '', '', '');
+        liquidacion = new _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_13__["Liquidacion"](agendaTurno['operacion_cobro_id'], '', '', '', '', '', '', 0, 0, '', '', [], '', '', '');
         var data;
         data = liquidacion;
-        var ref = this.dialogService.open(_shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_13__["PopupOperacionCobroDetalleComponent"], {
+        var ref = this.dialogService.open(_shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_12__["PopupOperacionCobroDetalleComponent"], {
             data: data,
             header: 'Ver detalle de presentación',
             width: '98%',
@@ -16452,13 +16439,54 @@ var AgendaAtencionMedicoComponent = /** @class */ (function () {
         this.popItemAgenda = event;
         this._fechaHoy = Object(_angular_common__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en');
         this.popItemAgenda.atendido = this._fechaHoy;
+        this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+        this.popItemAgenda.puesto_estado = 'LLAMANDO';
+        this.popItemAgenda.llama_pantalla = 'SI';
         this.popItemAgenda.agenda_estado_id = '3';
         console.log(this.popItemAgenda);
-        this.document.doc = 'llamando';
-        this.document.usuario_id = this.userData['id'];
-        console.log(this.document.doc);
-        this.editDoc();
-        this.actualizarTurno();
+        this.ActualizarTurnoLlamando();
+    };
+    AgendaAtencionMedicoComponent.prototype.ActualizarTurnoLlamando = function () {
+        var _this = this;
+        try {
+            console.log(this.userData);
+            this.miServico.ActualizarTurnoLlamando(this.popItemAgenda.paciente_id, this.popItemAgenda.usuario_id, this.userData['puesto'])
+                .subscribe(function (resp) {
+                console.log(resp);
+                _this.loading = false;
+                sweetalert2__WEBPACK_IMPORTED_MODULE_8___default()({
+                    title: '¿LLamar en pantalla?',
+                    type: 'info',
+                    showCancelButton: true,
+                    confirmButtonColor: '#9CCC65',
+                    cancelButtonColor: '#E64A19',
+                    confirmButtonText: 'Si',
+                    cancelButtonText: 'No'
+                }).then(function (result) {
+                    if (result.value) {
+                        _this.documentService.sendMessage('llamando-pantalla');
+                        _this.actualizarTurno();
+                    }
+                    else {
+                        _this.actualizarTurno();
+                    }
+                });
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                console.log(error);
+                sweetalert2__WEBPACK_IMPORTED_MODULE_8___default()({
+                    toast: false,
+                    type: 'warning',
+                    title: error.status,
+                    text: error.message,
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            });
+        }
+        catch (error) {
+        }
     };
     AgendaAtencionMedicoComponent.prototype.pacienteDerivado = function (event) {
         var _this = this;
@@ -16466,10 +16494,6 @@ var AgendaAtencionMedicoComponent = /** @class */ (function () {
         this.popItemAgenda = event;
         this.popItemAgenda.agenda_estado_id = '11';
         console.log(this.popItemAgenda);
-        this.document.doc = 'llamando';
-        this.document.usuario_id = this.userData['id'];
-        console.log(this.document.doc);
-        this.editDoc();
         console.log(this.popItemAgenda);
         this.es = _config_config__WEBPACK_IMPORTED_MODULE_0__["calendarioIdioma"];
         this.loading = true;
@@ -16485,11 +16509,17 @@ var AgendaAtencionMedicoComponent = /** @class */ (function () {
                 console.log(error.message);
                 console.log(error.status);
                 console.log(error);
-                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message);
+                sweetalert2__WEBPACK_IMPORTED_MODULE_8___default()({
+                    toast: false,
+                    type: 'warning',
+                    title: error.status,
+                    text: error.message,
+                    showConfirmButton: false,
+                    timer: 2000
+                });
             });
         }
         catch (error) {
-            this.throwAlert('error', 'Error al cargar los registros', error);
         }
     };
     AgendaAtencionMedicoComponent.prototype.pacienteAtendido = function (event) {
@@ -16509,10 +16539,6 @@ var AgendaAtencionMedicoComponent = /** @class */ (function () {
         }).then(function (result) {
             if (result.value) {
                 _this.popItemAgenda.agenda_estado_id = '4';
-                _this.document.doc = 'atendido';
-                _this.document.usuario_id = _this.userData['id'];
-                console.log(_this.document.doc);
-                _this.editDoc();
                 _this.actualizarTurno();
             }
         });
@@ -16587,17 +16613,13 @@ var AgendaAtencionMedicoComponent = /** @class */ (function () {
                     else {
                         _this.agendaTurno = null;
                     }
-                    _this.document.doc = 'llamando';
-                    _this.documentService.editDocument(_this.document);
                     _this.loading = false;
                 }, function (error) {
                     console.log(error.message);
                     console.log(error.status);
-                    _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message);
                 });
             }
             catch (error) {
-                this.throwAlert('error', 'Error al cargar los registros', error);
             }
         }
     };
@@ -16619,18 +16641,22 @@ var AgendaAtencionMedicoComponent = /** @class */ (function () {
                     else {
                         _this.agendaTurno = null;
                     }
-                    _this.newDoc();
-                    _this.loadDoc('');
                     _this.loading = false;
                 }, function (error) {
                     console.log(error.message);
                     console.log(error.status);
                     _this.loading = false;
-                    _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message);
+                    sweetalert2__WEBPACK_IMPORTED_MODULE_8___default()({
+                        toast: false,
+                        type: 'warning',
+                        title: error.status,
+                        text: error.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
                 });
             }
             catch (error) {
-                this.throwAlert('error', 'Error al cargar los registros', error);
             }
         }
     };
@@ -16645,16 +16671,23 @@ var AgendaAtencionMedicoComponent = /** @class */ (function () {
                 // this.agendaTurno = resp;
                 console.log(resp);
                 _this.loading = false;
+                _this.documentService.sendMessage('llamando-agendas');
                 _this.loadListByMedico();
             }, function (error) {
                 console.log(error.message);
                 console.log(error.status);
                 console.log(error);
-                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message);
+                sweetalert2__WEBPACK_IMPORTED_MODULE_8___default()({
+                    toast: false,
+                    type: 'warning',
+                    title: error.status,
+                    text: error.message,
+                    showConfirmButton: false,
+                    timer: 2000
+                });
             });
         }
         catch (error) {
-            this.throwAlert('error', 'Error al cargar los registros', error);
         }
     };
     AgendaAtencionMedicoComponent.prototype.generarPdf = function () {
@@ -16758,7 +16791,7 @@ var AgendaAtencionMedicoComponent = /** @class */ (function () {
             providers: [primeng_api__WEBPACK_IMPORTED_MODULE_4__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_4__["DialogService"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["DatePipe"]],
             styles: [__webpack_require__(/*! ./agenda-atencion-medico.component.css */ "./src/app/pages/medico/agenda/agenda-atencion-medico/agenda-atencion-medico.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_document_service_service__WEBPACK_IMPORTED_MODULE_12__["DocumentService"], _services_agenda_service__WEBPACK_IMPORTED_MODULE_2__["AgendaService"], primeng_api__WEBPACK_IMPORTED_MODULE_4__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_4__["DialogService"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"]])
+        __metadata("design:paramtypes", [_services_document_service_service__WEBPACK_IMPORTED_MODULE_11__["DocumentService"], _services_agenda_service__WEBPACK_IMPORTED_MODULE_2__["AgendaService"], primeng_api__WEBPACK_IMPORTED_MODULE_4__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_4__["DialogService"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"]])
     ], AgendaAtencionMedicoComponent);
     return AgendaAtencionMedicoComponent;
 }());
@@ -18007,7 +18040,7 @@ var HistoriaClinicaVisualizarComponent = /** @class */ (function () {
             this.loadhistoriaClinica();
         }
         else { //10029750
-            this.paciente = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_9__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '888888', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '');
+            this.paciente = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_9__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '888888', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '');
             //  this.historiaClinica();
         }
     };
@@ -18335,7 +18368,7 @@ var HistoriaClinicaComponent = /** @class */ (function () {
             this.loadhistoriaClinica();
         }
         else { //10029750
-            this.paciente = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_10__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '888888', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '');
+            this.paciente = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_10__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '888888', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '');
             //  this.historiaClinica();
         }
     };
@@ -18453,7 +18486,7 @@ var HistoriaClinicaComponent = /** @class */ (function () {
     };
     HistoriaClinicaComponent.prototype.derivarAsesoramiento = function () {
         var userData = JSON.parse(localStorage.getItem('userData'));
-        var agenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_10__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', userData["id"], userData["nombreyapellido"], '', '', this.paciente.paciente_id, this.paciente.paciente_nombre, this.paciente.paciente_apellido, this.paciente.paciente_dni, this.paciente.paciente_fecha_nacimiento, this.paciente.paciente_obra_social_id, this.paciente.paciente_obra_social_nombre, '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '');
+        var agenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_10__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', userData["id"], userData["nombreyapellido"], '', '', this.paciente.paciente_id, this.paciente.paciente_nombre, this.paciente.paciente_apellido, this.paciente.paciente_dni, this.paciente.paciente_fecha_nacimiento, this.paciente.paciente_obra_social_id, this.paciente.paciente_obra_social_nombre, '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '');
         var data;
         data = agenda;
         var ref = this.dialogService.open(_shared_components_popups_popup_derivar_asesoramiento_popup_derivar_asesoramiento_component__WEBPACK_IMPORTED_MODULE_14__["PopupDerivarAsesoramientoComponent"], {
@@ -18484,18 +18517,24 @@ var HistoriaClinicaComponent = /** @class */ (function () {
             }, function (error) {
                 console.log(error.message);
                 console.log(error.status);
-                _this.throwAlert('error', 'error', 'Error: ' + error.status + '  Error al cargar los registros', error.message);
+                sweetalert2__WEBPACK_IMPORTED_MODULE_6___default()({
+                    toast: false,
+                    type: 'warning',
+                    title: error.status,
+                    text: error.message,
+                    showConfirmButton: false,
+                    timer: 2000
+                });
                 //     this.resultSave = false;
                 _this.loading = false;
             });
         }
         catch (error) {
-            this.throwAlert('error', 'error', 'Error: ' + error.status + '  Error al cargar los registros', error.message);
         }
     };
     HistoriaClinicaComponent.prototype.darTurno = function () {
         var userData = JSON.parse(localStorage.getItem('userData'));
-        this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_10__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', userData["id"], userData["nombreyapellido"], '', '', this.paciente.paciente_id, this.paciente.paciente_nombre, this.paciente.paciente_apellido, this.paciente.paciente_dni, this.paciente.paciente_fecha_nacimiento, this.paciente.paciente_obra_social_id, this.paciente.paciente_obra_social_nombre, '', '', '', '', '', '', '', new Date(), '', this.paciente.plan, this.paciente.domicilio, '', '', '', '', '', '');
+        this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_10__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', userData["id"], userData["nombreyapellido"], '', '', this.paciente.paciente_id, this.paciente.paciente_nombre, this.paciente.paciente_apellido, this.paciente.paciente_dni, this.paciente.paciente_fecha_nacimiento, this.paciente.paciente_obra_social_id, this.paciente.paciente_obra_social_nombre, '', '', '', '', '', '', '', new Date(), '', this.paciente.plan, this.paciente.domicilio, '', '', '', '', '', '', '', '', '', '');
         console.log(this.popItemAgenda);
         this.router.navigate(['/medico/turnos'], { state: { paciente: this.popItemAgenda } });
     };
@@ -21573,7 +21612,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n <!-- <button  *ngIf=\"loading\"   class=\"btn btn-lg btn-success btn-sm float-right mr-2\" (click)=\"loadTurnoTodos()\" >Actualizar</button>-->\n</div>\n\n<div>\n  <div >\n     \n\n      <div class=\"navbar-1\">\n         \n\n        <!--   <div class=\"button\">\n            <i class=\"fa fa-comments\"></i>\n            <span class=\"button__badge\">4</span>\n          </div> -->\n\n          <div  class=\"input-group input-group-sm \">\n                        <div class=\"button  \">\n                            <i (click)=\"verListadoEspera()\" class=\"fas fa-user-clock pointer my-hover nav-links\" ></i>\n                            <span class=\"button__badge\">{{presentes}}</span>\n                            \n                    </div>\n              \n              <form  class=\"ml-2\" [formGroup]=\"DateForm\">\n              <div class=\"btn-group\" role=\"group\">\n          <p-calendar class=\"mr-2 \"formControlName=\"fechaHoy\" [monthNavigator]=\"true\"   (onSelect)=\"actualizarFecha($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n             <ng-template pTemplate=\"date\" let-date>\n                  <span  [ngClass]=\"colorRow(date)\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n              </ng-template> \n            </p-calendar>\n          \n\n      </div>\n              </form>   \n              <div class=\"row pl-4 pr-4 \">\n                      <div class=\"d-flex justify-content-sm-end\">\n                              <div  class=\"btn-group btn-sm \" role=\"group\" aria-label=\"First group\">                 \n                                 <button    class=\"btn  btn-info btn-sm  float-right mr-2\" (click)=\"loadAgendaCancelada()\" >Turnos cancelados</button>\n                                 <button    class=\"btn  btn-danger btn-sm  float-right mr-2\" (click)=\"darSobreTurno()\" >Dar sobre turno</button>\n                                 <button    class=\"btn  btn-warning btn-sm float-right mr-2\" (click)=\"loadListTodosTurnos()\" >Buscar todos los turnos</button>\n                                 <button    class=\"btn  btn-success btn-sm float-right \"  (click)=\"loadTurno()\" >Buscar turnos</button>\n                              </div>\n                      </div>    \n              </div>     \n             <div class=\"row  col-3\">\n                  <div class=\" input-group input-group-sm row pt-1 pl-4\">\n                          <input (keyup.enter)=\"buscarHistoriaUsuario()\"placeholder=\"buscar paciente\"  class=\"form-control col-12 form-control-sm\" [ngModel]=\"buscar_paciente\"  />                  \n                          <div class=\"input-group-append\">\n                            <span class=\"input-group-text form-control-sm\">\n                              <a  (click)=\"buscarHistoriaUsuario()\">\n                                  <img class=\"pointer float-left\" src=\"assets/icons/grey/outline_search_black_18dp.png\" width=\"24px\" height=\"24px\"  >\n                              </a>\n                          </span>\n                          </div>\n                          <div>  <button    class=\"ml-2 btn  btn-secondary btn-sm float-right \"  (click)=\"generarPdf()\" >Imprimir</button></div>\n                      </div>   \n                   \n             </div> \n        </div>\n \n  <div class=\" d-flex justify-content-sm-start\" >\n         \n          </div>\n\n\n       \n      </div>\n     \n    \n   \n  <div>\n     \n      <div >\n          \n            \n\n          <p-table  #dt class=\"pt-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\"  [value]=\"agendaTurno\" [(selection)]=\"selecteditems\"   columnResizeMode=\"expand\" [responsive]=\"true\"\n          scrollHeight=\"500px\" [scrollable]=\"true\" (onFilter)=\"filtered($event)\">\n  \n\n             <ng-template pTemplate=\"header\" let-columns >\n            \n                        <tr >\n                             \n                          <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\n                                  {{col.header}}\n                                  <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activar para ordenar en forma descendente\" ariaLabelAsc=\"Activar para ordenar en forma ascendente\"></p-sortIcon>\n                              </th>\n                              \n                          </tr>\n                          <tr>\n                          <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\" >\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'agenda_dia_horario_atencion_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'operacion_cobro_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_apellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                               \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_dni'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'hora_desde'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'estado'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'nombreyapellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'dia_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                             \n                              <input class=\"form-control form-control-sm col-md-12\"  *ngSwitchCase=\"'presente'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\"  *ngSwitchCase=\"'llegada'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'atendido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'boton1'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">   \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'boton2'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">   \n                          </th>\n                          \n                      </tr>\n                  </ng-template>\n              \n              <ng-template pTemplate=\"body\" let-agendaTurno> \n                   \n              <tr style=\"height:20px\" [ngClass]=\"colorRow(agendaTurno.estado)\" >\n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"font-size: 10px;width: 5%\">{{agendaTurno.agenda_dia_horario_atencion_id}}</td>                          \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 5%\"><a class=\"my-hover\" (click)=\"verDetalle(agendaTurno)\">{{agendaTurno.operacion_cobro_id}}</a></td>   \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_apellido}}</td>                          \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_nombre}}</td>\n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_dni}}</td>              \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_obra_social_nombre}}</td>  \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 10%\">{{agendaTurno.hora_desde}}</td>                           \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.estado}}</td>  \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 15%\">{{agendaTurno.nombreyapellido}}</td>  \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.dia_nombre}}</td> \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\" >{{agendaTurno.presente | date: 'HH:mm:ss'}}</td>   \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\" >{{agendaTurno.llegada | date: 'HH:mm:ss'}}</td>   \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\" >{{agendaTurno.atendido | date: 'HH:mm:ss'}}</td> \n                      <td style=\"width: 4%\" #mirow>\n                      \n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-astronaut fa-2x icon-color-orange-light\" *ngIf=\"agendaTurno.es_observacion === 'CONTROL PREQUIRURGICO'\"  ></i></a>\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-md fa-2x icon-color-blue\" *ngIf=\"agendaTurno.es_observacion === 'CONTROL POSQUIRURGICO'\"  ></i></a>\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer far fa-bell fa-2x icon-color-green\" *ngIf=\"agendaTurno.es_observacion === 'ESTUDIOS'\"  ></i></a>\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-first-aid fa-2x icon-color-green \" *ngIf=\"agendaTurno.es_observacion === 'ASESORAMIENTO QUIRURGICO'\"  ></i></a> \n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-exclamation-circle fa-2x icon-color-red\" *ngIf=\"agendaTurno.es_observacion === 'ADVERTENCIA'\"  ></i></a>\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-plus fa-2x icon-color-red-light \" *ngIf=\"agendaTurno.es_observacion === 'PACIENTE NUEVO'\"  ></i></a>\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fas fa-syringe fa-2x icon-color-purple \" *ngIf=\"agendaTurno.es_observacion === 'ANESTESIA'\"  ></i></a>     \n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer far fa-address-card fa-2x icon-color-green-light\" *ngIf=\"agendaTurno.es_observacion === 'SOLICITUD DE TURNO'\"  ></i></a>                      \n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-procedures fa-2x icon-color-green-light\" *ngIf=\"agendaTurno.es_observacion === 'CIRUGIA'\"  ></i></a>                      \n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-briefcase-medical fa-2x icon-color-blue\" *ngIf=\"agendaTurno.es_observacion === 'CONSULTA'\"  ></i></a>                                            \n                      </td> \n                      <td style=\"width: 4%\">\n                       <!--    <button type=\"button\"   class=\"btn btn-outline-success btn-md p-1 pr-1\" (click)=\"accion($event,op,agendaTurno)\"    ><i class=\"far fa-edit fa-2x icon-color-purple\"></i></button> -->\n                       <a   (click)=\"accion($event,op,agendaTurno)\"   ><i class=\"far fa-edit fa-2x icon-color-purple my-hover\" ></i></a>            \n                                    \n                         </td>\n                      <td style=\"width: 8%\">\n                          <button  [disabled]=\"agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'ESPERA' || agendaTurno.estado == 'CANCELADO'\" type=\"button\" class=\"btn btn-outline-info btn-sm\" (click)=\"pacienteIngresado(agendaTurno)\"    >Espera</button>\n                      </td>\n                   \n                    \n              </tr>\n              </ng-template>\n           \n              </p-table>\n             \n              <p-overlayPanel #op [appendTo]=\"mirow\"  [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" [showCloseIcon]=\"true\" >                                                \n                <b><label class=\"text-info\"> Paciente</label></b>     \n                      <span>   <a class=\"nav-link azul text-success my-hover\" (click)=\"editarRegistro('paciente')\">  Ver / editar paciente</a></span>\n                      <span>   <a class=\" text-info nav-link azul my-hover\" (click)=\"editarRegistro('operacioncobro')\">  Operacion de cobro</a></span>\n                      <span>   <a class=\"nav-link azul my-hover\" (click)=\"editarRegistro('reasignar')\">  Reasignar a medico</a></span>   \n                      <hr>  \n                      <b><label class=\"text-info\"> Acciones</label></b>                      \n                      <span>   <a class=\"nav-link   my-hover es-llamando\" (click)=\"editarRegistro('llamando')\"> <i class=\"fas fa-volume-up\"> </i> Llamar</a></span>\n                      <span>   <a class=\"nav-link   my-hover es-llamando\" (click)=\"editarRegistro('rellamar')\"> <i class=\"fas fa-volume-up\"> </i> Volver a llamar</a></span>                               \n                      <span>   <a class=\"nav-link   my-hover es-presente\" (click)=\"editarRegistro('presente')\">  Presente</a></span>                      \n                      <span>   <a class=\"nav-link   my-hover es-espera\" (click)=\"editarRegistro('espera')\">  Espera</a></span>\n                      <hr>\n                                   \n                      <span>   <a class=\"nav-link azul  my-hover es-ingresado \" (click)=\"editarRegistro('ingresado')\">  Ingresado</a></span>  \n                      <span>   <a class=\"nav-link azul my-hover es-atendido\" (click)=\"editarRegistro('atendido')\">  Atendido</a></span>         \n                      <span>   <a class=\"nav-link azul text-danger my-hover \" (click)=\"editarRegistro('cancelado')\">  Cancelar turno</a></span>                        \n                                        \n                   \n              </p-overlayPanel>  \n      \n      </div>\n    \n\n       \n  </div>\n</div>\n\n<p-dialog header=\"Observación\" class=\"text-secondary\" [(visible)]=\"display\" class=\"p-2\" [baseZIndex]=\"10000\" [responsive]=\"true\"> \n  <label>MOTIVO :  {{motivo}}</label>        \n  <textarea [rows]=\"5\" [cols]=\"30\" pInputTextarea class=\"form-control form-control-sm col-md-12\"[(ngModel)]=\"observacion\"></textarea>   \n \n  </p-dialog>"
+module.exports = "\n<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n <!-- <button  *ngIf=\"loading\"   class=\"btn btn-lg btn-success btn-sm float-right mr-2\" (click)=\"loadTurnoTodos()\" >Actualizar</button>-->\n</div>\n\n<div>\n  <div >\n     \n\n      <div class=\"navbar-1\">\n         \n\n        <!--   <div class=\"button\">\n            <i class=\"fa fa-comments\"></i>\n            <span class=\"button__badge\">4</span>\n          </div> -->\n\n          <div  class=\"input-group input-group-sm \">\n                        <div class=\"button  \">\n                            <i (click)=\"verListadoEspera()\" class=\"fas fa-user-clock pointer my-hover nav-links\" ></i>\n                            <span class=\"button__badge\">{{presentes}}</span>\n                            \n                    </div>\n              \n              <form  class=\"ml-2\" [formGroup]=\"DateForm\">\n              <div class=\"btn-group\" role=\"group\">\n          <p-calendar class=\"mr-2 \"formControlName=\"fechaHoy\" [monthNavigator]=\"true\"   (onSelect)=\"actualizarFecha($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n             <ng-template pTemplate=\"date\" let-date>\n                  <span  [ngClass]=\"colorRow(date)\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n              </ng-template> \n            </p-calendar>\n          \n\n      </div>\n              </form>   \n              <div class=\"row pl-4 pr-4 \">\n                      <div class=\"d-flex justify-content-sm-end\">\n                              <div  class=\"btn-group btn-sm \" role=\"group\" aria-label=\"First group\">                 \n                                 <button    class=\"btn  btn-info btn-sm  float-right mr-2\" (click)=\"loadAgendaCancelada()\" >Turnos cancelados</button>\n                                 <button    class=\"btn  btn-danger btn-sm  float-right mr-2\" (click)=\"darSobreTurno()\" >Dar sobre turno</button>\n                                 <button    class=\"btn  btn-warning btn-sm float-right mr-2\" (click)=\"loadListTodosTurnos()\" >Buscar todos los turnos</button>\n                                 <button    class=\"btn  btn-success btn-sm float-right \"  (click)=\"loadTurno()\" >Buscar turnos</button>\n                              </div>\n                      </div>    \n              </div>     \n             <div class=\"row  col-3\">\n                  <div class=\" input-group input-group-sm row pt-1 pl-4\">\n                          <input (keyup.enter)=\"buscarHistoriaUsuario()\"placeholder=\"buscar paciente\"  class=\"form-control col-12 form-control-sm\" [ngModel]=\"buscar_paciente\"  />                  \n                          <div class=\"input-group-append\">\n                            <span class=\"input-group-text form-control-sm\">\n                              <a  (click)=\"buscarHistoriaUsuario()\">\n                                  <img class=\"pointer float-left\" src=\"assets/icons/grey/outline_search_black_18dp.png\" width=\"24px\" height=\"24px\"  >\n                              </a>\n                          </span>\n                          </div>\n                          <div>  <button    class=\"ml-2 btn  btn-secondary btn-sm float-right \"  (click)=\"generarPdf()\" >Imprimir</button></div>\n                      </div>   \n                   \n             </div> \n        </div>\n \n  <div class=\" d-flex justify-content-sm-start\" >\n         \n          </div>\n\n\n       \n      </div>\n     \n    \n   \n  <div>\n     \n      <div >\n          \n            \n\n          <p-table  #dt class=\"pt-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\"  [value]=\"agendaTurno\" [(selection)]=\"selecteditems\"   columnResizeMode=\"expand\" [responsive]=\"true\"\n          scrollHeight=\"500px\" [scrollable]=\"true\" (onFilter)=\"filtered($event)\">\n  \n\n             <ng-template pTemplate=\"header\" let-columns >\n            \n                        <tr >\n                             \n                          <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\n                                  {{col.header}}\n                                  <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activar para ordenar en forma descendente\" ariaLabelAsc=\"Activar para ordenar en forma ascendente\"></p-sortIcon>\n                              </th>\n                              \n                          </tr>\n                          <tr>\n                          <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\" >\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'agenda_dia_horario_atencion_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'operacion_cobro_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_apellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                               \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_dni'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'hora_desde'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'estado'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'nombreyapellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'dia_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                             \n                              <input class=\"form-control form-control-sm col-md-12\"  *ngSwitchCase=\"'presente'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\"  *ngSwitchCase=\"'llegada'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'atendido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'boton1'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">   \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'boton2'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">   \n                          </th>\n                          \n                      </tr>\n                  </ng-template>\n              \n              <ng-template pTemplate=\"body\" let-agendaTurno> \n                   \n              <tr style=\"height:20px\" [ngClass]=\"colorRow(agendaTurno.estado)\" >\n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"font-size: 10px;width: 5%\">{{agendaTurno.agenda_dia_horario_atencion_id}}</td>                          \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 5%\"><a class=\"my-hover\" (click)=\"verDetalle(agendaTurno)\">{{agendaTurno.operacion_cobro_id}}</a></td>   \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_apellido}}</td>                          \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_nombre}}</td>\n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_dni}}</td>              \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_obra_social_nombre}}</td>  \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 10%\">{{agendaTurno.hora_desde}}</td>                           \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.estado}}</td>  \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 15%\">{{agendaTurno.nombreyapellido}}</td>  \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.dia_nombre}}</td> \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\" >{{agendaTurno.presente | date: 'HH:mm:ss'}}</td>   \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\" >{{agendaTurno.llegada | date: 'HH:mm:ss'}}</td>   \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\" >{{agendaTurno.atendido | date: 'HH:mm:ss'}}</td> \n                      <td style=\"width: 4%\" #mirow>\n                      \n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-astronaut fa-2x icon-color-orange-light\" *ngIf=\"agendaTurno.es_observacion === 'CONTROL PREQUIRURGICO'\"  ></i></a>\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-md fa-2x icon-color-blue\" *ngIf=\"agendaTurno.es_observacion === 'CONTROL POSQUIRURGICO'\"  ></i></a>\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer far fa-bell fa-2x icon-color-green\" *ngIf=\"agendaTurno.es_observacion === 'ESTUDIOS'\"  ></i></a>\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-first-aid fa-2x icon-color-green \" *ngIf=\"agendaTurno.es_observacion === 'ASESORAMIENTO QUIRURGICO'\"  ></i></a> \n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-exclamation-circle fa-2x icon-color-red\" *ngIf=\"agendaTurno.es_observacion === 'ADVERTENCIA'\"  ></i></a>\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-plus fa-2x icon-color-red-light \" *ngIf=\"agendaTurno.es_observacion === 'PACIENTE NUEVO'\"  ></i></a>\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fas fa-syringe fa-2x icon-color-purple \" *ngIf=\"agendaTurno.es_observacion === 'ANESTESIA'\"  ></i></a>     \n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer far fa-address-card fa-2x icon-color-green-light\" *ngIf=\"agendaTurno.es_observacion === 'SOLICITUD DE TURNO'\"  ></i></a>                      \n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-procedures fa-2x icon-color-green-light\" *ngIf=\"agendaTurno.es_observacion === 'CIRUGIA'\"  ></i></a>                      \n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-briefcase-medical fa-2x icon-color-blue\" *ngIf=\"agendaTurno.es_observacion === 'CONSULTA'\"  ></i></a>                                            \n                      </td> \n                      <td style=\"width: 4%\">\n                       <!--    <button type=\"button\"   class=\"btn btn-outline-success btn-md p-1 pr-1\" (click)=\"accion($event,op,agendaTurno)\"    ><i class=\"far fa-edit fa-2x icon-color-purple\"></i></button> -->\n                       <a   (click)=\"accion($event,op,agendaTurno)\"   ><i class=\"far fa-edit fa-2x icon-color-purple my-hover\" ></i></a>            \n                                    \n                         </td>                    \n                   \n                    \n              </tr>\n              </ng-template>\n           \n              </p-table>\n             \n              <p-overlayPanel #op [appendTo]=\"mirow\"  [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" [showCloseIcon]=\"true\" >                                                \n                <b><label class=\"text-info\"> Paciente</label></b>     \n                      <span>   <a class=\"nav-link azul text-success my-hover\" (click)=\"editarRegistro('paciente')\">  Ver / editar paciente</a></span>\n                      <span>   <a class=\" text-info nav-link azul my-hover\" (click)=\"editarRegistro('operacioncobro')\">  Operacion de cobro</a></span>\n                      <span>   <a class=\"nav-link azul my-hover\" (click)=\"editarRegistro('reasignar')\">  Reasignar a medico</a></span>   \n                      <hr>  \n                      <b><label class=\"text-info\"> Acciones</label></b>                      \n                      <span>   <a class=\"nav-link   my-hover es-presente\" (click)=\"editarRegistro('presente')\">  Presente</a></span>    \n                      <span>   <a class=\"nav-link   my-hover es-llamando\" (click)=\"editarRegistro('llamando')\"> <i class=\"fas fa-volume-up\"> </i> Llamar</a></span>\n                      <span>   <a class=\"nav-link   my-hover es-llamando\" (click)=\"editarRegistro('rellamar')\"> <i class=\"fas fa-volume-up\"> </i> Volver a llamar</a></span>                               \n                      <span>   <a class=\"nav-link   my-hover es-espera\" (click)=\"editarRegistro('espera')\">  Espera</a></span>\n                      <hr>\n                                   \n                      <span>   <a class=\"nav-link azul  my-hover es-ingresado \" (click)=\"editarRegistro('ingresado')\">  Ingresado</a></span>  \n                      <span>   <a class=\"nav-link azul my-hover es-atendido\" (click)=\"editarRegistro('atendido')\">  Atendido</a></span>         \n                      <span>   <a class=\"nav-link azul text-danger my-hover \" (click)=\"editarRegistro('cancelado')\">  Cancelar turno</a></span>                        \n                                        \n                   \n              </p-overlayPanel>  \n      \n      </div>\n    \n\n       \n  </div>\n</div>\n\n<p-dialog header=\"Observación\" class=\"text-secondary\" [(visible)]=\"display\" class=\"p-2\" [baseZIndex]=\"10000\" [responsive]=\"true\"> \n  <label>MOTIVO :  {{motivo}}</label>        \n  <textarea [rows]=\"5\" [cols]=\"30\" pInputTextarea class=\"form-control form-control-sm col-md-12\"[(ngModel)]=\"observacion\"></textarea>   \n \n  </p-dialog>"
 
 /***/ }),
 
@@ -21601,13 +21640,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _shared_components_popups_popup_paciente_obrasocial_popup_paciente_obrasocial_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../shared/components/popups/popup-paciente-obrasocial/popup-paciente-obrasocial.component */ "./src/app/shared/components/popups/popup-paciente-obrasocial/popup-paciente-obrasocial.component.ts");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _services_document_service_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./../../../../services/document-service.service */ "./src/app/services/document-service.service.ts");
-/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
-/* harmony import */ var _shared_components_popups_popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../../shared/components/popups/popup-paciente-consulta/popup-paciente-consulta.component */ "./src/app/shared/components/popups/popup-paciente-consulta/popup-paciente-consulta.component.ts");
-/* harmony import */ var _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../../models/liquidacion.model */ "./src/app/models/liquidacion.model.ts");
-/* harmony import */ var _shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../../../shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component */ "./src/app/shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component.ts");
-/* harmony import */ var _shared_components_popups_popup_paciente_espera_popup_paciente_espera_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../../../shared/components/popups/popup-paciente-espera/popup-paciente-espera.component */ "./src/app/shared/components/popups/popup-paciente-espera/popup-paciente-espera.component.ts");
+/* harmony import */ var _services_document_service_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./../../../../services/document-service.service */ "./src/app/services/document-service.service.ts");
+/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
+/* harmony import */ var _shared_components_popups_popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../../shared/components/popups/popup-paciente-consulta/popup-paciente-consulta.component */ "./src/app/shared/components/popups/popup-paciente-consulta/popup-paciente-consulta.component.ts");
+/* harmony import */ var _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../../models/liquidacion.model */ "./src/app/models/liquidacion.model.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../../shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component */ "./src/app/shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component.ts");
+/* harmony import */ var _shared_components_popups_popup_paciente_espera_popup_paciente_espera_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../../../shared/components/popups/popup-paciente-espera/popup-paciente-espera.component */ "./src/app/shared/components/popups/popup-paciente-espera/popup-paciente-espera.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -21672,7 +21710,6 @@ __webpack_require__(/*! jspdf-autotable */ "./node_modules/jspdf-autotable/dist/
 
 
 
-
 var AgendaRecepcionComponent = /** @class */ (function () {
     function AgendaRecepcionComponent(documentService, miServico, messageService, dialogService, route, router) {
         this.documentService = documentService;
@@ -21708,7 +21745,6 @@ var AgendaRecepcionComponent = /** @class */ (function () {
             { field: 'atendido', header: 'Ingresado', width: '8%' },
             { field: 'es_alerta', header: '', width: '4%' },
             { field: 'boton', header: '', width: '4%' },
-            { field: 'boton', header: '', width: '8%' },
         ];
         this.busqueda = [
             { label: 'Seleccione una busqueda', value: null },
@@ -21731,7 +21767,7 @@ var AgendaRecepcionComponent = /** @class */ (function () {
             'fechaHoy': new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required),
             'medico_nombre': new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"]('')
         });
-        this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_3__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '');
+        this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_3__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '');
     }
     AgendaRecepcionComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -21746,38 +21782,22 @@ var AgendaRecepcionComponent = /** @class */ (function () {
             'dni': new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required),
         });
         this.DateForm.patchValue({ fechaHoy: this.fechaHoy });
-        this.documents = this.documentService.documents;
-        this._docSub = this.documentService.currentDocument.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_12__["startWith"])({ id: 'VISION123456787890', doc: '', usuario_id: '', data: [] })).subscribe(function (document) {
-            _this.document = document;
-            console.log(_this.document);
-            if ((document.doc === 'llamando')) {
-                //  this.loadList();
+        this.documentService
+            .getMessages()
+            .subscribe(function (message) {
+            console.log(message);
+            if (message === 'llamando-agendas') {
+                _this.loadList();
             }
         });
-        this.newDoc();
         this.loadList();
-        var timer = rxjs_Rx__WEBPACK_IMPORTED_MODULE_14__["Observable"].timer(180000, 180000); //180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
+        var timer = rxjs_Rx__WEBPACK_IMPORTED_MODULE_13__["Observable"].timer(180000, 180000); //180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
         timer.subscribe(function (t) {
             console.log('bucando turnos');
             _this.loadList();
         });
     };
     AgendaRecepcionComponent.prototype.ngOnDestroy = function () {
-        this._docSub.unsubscribe();
-    };
-    AgendaRecepcionComponent.prototype.loadDoc = function (id) {
-        if (this.document.doc) {
-            console.log('load doc ' + this.document.doc);
-            this.documentService.getDocument(id);
-        }
-    };
-    AgendaRecepcionComponent.prototype.newDoc = function () {
-        this.documentService.newDocument();
-    };
-    AgendaRecepcionComponent.prototype.editDoc = function () {
-        console.log('edit doc ' + this.document.doc);
-        //if()
-        this.documentService.editDocument(this.document);
     };
     AgendaRecepcionComponent.prototype.actualizarFecha = function (event) {
         console.log(event);
@@ -21839,7 +21859,7 @@ var AgendaRecepcionComponent = /** @class */ (function () {
         this.popItemAgenda = event;
         this._fechaHoy = Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["formatDate"])(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en');
         this.popItemAgenda.llegada = this._fechaHoy;
-        this.popItemAgenda.agenda_estado_id = '5';
+        this.popItemAgenda.agenda_estado_id = '3';
         console.log(this.popItemAgenda);
         this.actualizarTurno();
     };
@@ -21848,7 +21868,7 @@ var AgendaRecepcionComponent = /** @class */ (function () {
         this.popItemAgenda = event;
         this._fechaHoy = Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["formatDate"])(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en');
         this.popItemAgenda.atendido = this._fechaHoy;
-        this.popItemAgenda.agenda_estado_id = '3';
+        this.popItemAgenda.agenda_estado_id = '4';
         this.actualizarTurno();
     };
     AgendaRecepcionComponent.prototype.buscarPaciente = function () {
@@ -21868,7 +21888,7 @@ var AgendaRecepcionComponent = /** @class */ (function () {
         var _this = this;
         var data;
         data = this.popItemAgenda;
-        var ref = this.dialogService.open(_shared_components_popups_popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_15__["PopupPacienteConsultaComponent"], {
+        var ref = this.dialogService.open(_shared_components_popups_popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_14__["PopupPacienteConsultaComponent"], {
             data: data,
             header: 'Consultar paciente',
             width: '98%',
@@ -21884,7 +21904,7 @@ var AgendaRecepcionComponent = /** @class */ (function () {
         var _this = this;
         var data;
         data = this.popItemAgenda;
-        var ref = this.dialogService.open(_shared_components_popups_popup_paciente_espera_popup_paciente_espera_component__WEBPACK_IMPORTED_MODULE_18__["PopupPacienteEsperaComponent"], {
+        var ref = this.dialogService.open(_shared_components_popups_popup_paciente_espera_popup_paciente_espera_component__WEBPACK_IMPORTED_MODULE_17__["PopupPacienteEsperaComponent"], {
             data: data,
             header: 'Listado de pacientes en espera',
             width: '98%',
@@ -21977,8 +21997,10 @@ var AgendaRecepcionComponent = /** @class */ (function () {
                                 cancelButtonText: 'No'
                             }).then(function (result) {
                                 if (result.value) {
-                                    _this.popItemAgenda.agenda_estado_id = '5';
+                                    _this.popItemAgenda.agenda_estado_id = '3';
                                     _this.popItemAgenda.presente = _this._fechaHoy;
+                                    //   this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+                                    //   this.popItemAgenda.puesto_estado = 'LLAMANDO'; 
                                 }
                             })];
                     case 3:
@@ -21999,19 +22021,27 @@ var AgendaRecepcionComponent = /** @class */ (function () {
                         if (cond == 'atendido') {
                             this.popItemAgenda.agenda_estado_id = '4';
                             this.popItemAgenda.atendido = this._fechaHoy;
+                            this.popItemAgenda.puesto_estado = 'ATENDIDO';
                         }
                         if (cond == 'llamando') {
                             this.popItemAgenda.agenda_estado_id = '9';
-                            this.actualizarTurno();
+                            this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+                            this.popItemAgenda.puesto_estado = 'LLAMANDO';
+                            this.popItemAgenda.llamando = this._fechaHoy;
+                            this.ActualizarTurnoLlamando();
                         }
                         if (cond == 'rellamar') {
                             this.popItemAgenda.agenda_estado_id = '9';
-                            this.actualizarTurno();
+                            this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+                            this.popItemAgenda.puesto_estado = 'LLAMANDO';
+                            this.popItemAgenda.llamando = this._fechaHoy;
+                            this.ActualizarTurnoLlamando();
                         }
                         if (cond == 'ausente') {
                             this.popItemAgenda.agenda_estado_id = '10';
                             this.popItemAgenda.llegada = this._fechaHoy;
                             this.popItemAgenda.atendido = this._fechaHoy;
+                            this.popItemAgenda.puesto_estado = 'ATENDIDO';
                             this.actualizarTurno();
                         }
                         if (cond == 'observacion') {
@@ -22054,18 +22084,22 @@ var AgendaRecepcionComponent = /** @class */ (function () {
                     else {
                         _this.agendaTurno = null;
                     }
-                    //this.newDoc();
-                    //  this.loadDoc('');
                     _this.loading = false;
                 }, function (error) {
                     console.log(error.message);
                     console.log(error.status);
                     _this.loading = false;
-                    _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message);
+                    sweetalert2__WEBPACK_IMPORTED_MODULE_9___default()({
+                        toast: false,
+                        type: 'warning',
+                        title: error.status,
+                        text: error.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
                 });
             }
             catch (error) {
-                this.throwAlert('error', 'Error al cargar los registros', error);
             }
         }
     };
@@ -22087,19 +22121,23 @@ var AgendaRecepcionComponent = /** @class */ (function () {
                     else {
                         _this.agendaTurno = null;
                     }
-                    _this.newDoc();
-                    _this.loadDoc('');
                     _this.sumarPresente();
                     _this.loading = false;
                 }, function (error) {
                     console.log(error.message);
                     console.log(error.status);
                     _this.loading = false;
-                    _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message);
+                    sweetalert2__WEBPACK_IMPORTED_MODULE_9___default()({
+                        toast: false,
+                        type: 'warning',
+                        title: error.status,
+                        text: error.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
                 });
             }
             catch (error) {
-                this.throwAlert('error', 'Error al cargar los registros', error);
             }
         }
     };
@@ -22122,11 +22160,17 @@ var AgendaRecepcionComponent = /** @class */ (function () {
                 console.log(error.message);
                 console.log(error.status);
                 _this.loading = false;
-                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message);
+                sweetalert2__WEBPACK_IMPORTED_MODULE_9___default()({
+                    toast: false,
+                    type: 'warning',
+                    title: error.status,
+                    text: error.message,
+                    showConfirmButton: false,
+                    timer: 2000
+                });
             });
         }
         catch (error) {
-            this.throwAlert('error', 'Error al cargar los registros', error);
         }
     };
     AgendaRecepcionComponent.prototype.loadAgendaCancelada = function () {
@@ -22148,11 +22192,17 @@ var AgendaRecepcionComponent = /** @class */ (function () {
                 console.log(error.message);
                 console.log(error.status);
                 _this.loading = false;
-                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message);
+                sweetalert2__WEBPACK_IMPORTED_MODULE_9___default()({
+                    toast: false,
+                    type: 'warning',
+                    title: error.status,
+                    text: error.message,
+                    showConfirmButton: false,
+                    timer: 2000
+                });
             });
         }
         catch (error) {
-            this.throwAlert('error', 'Error al cargar los registros', error);
         }
     };
     AgendaRecepcionComponent.prototype.cancelarTurno = function () {
@@ -22207,12 +22257,44 @@ var AgendaRecepcionComponent = /** @class */ (function () {
                 }, function (error) {
                     console.log(error.message);
                     console.log(error.status);
-                    _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message);
+                    sweetalert2__WEBPACK_IMPORTED_MODULE_9___default()({
+                        toast: false,
+                        type: 'warning',
+                        title: error.status,
+                        text: error.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
                 });
             }
             catch (error) {
-                this.throwAlert('error', 'Error al cargar los registros', error);
             }
+        }
+    };
+    AgendaRecepcionComponent.prototype.ActualizarTurnoLlamando = function () {
+        var _this = this;
+        try {
+            this.miServico.ActualizarTurnoLlamando(this.popItemAgenda.paciente_id, this.popItemAgenda.usuario_id, this.userData['puesto'])
+                .subscribe(function (resp) {
+                console.log(resp);
+                _this.loading = false;
+                _this.documentService.sendMessage('llamando-pantalla');
+                _this.actualizarTurno();
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                console.log(error);
+                sweetalert2__WEBPACK_IMPORTED_MODULE_9___default()({
+                    toast: false,
+                    type: 'warning',
+                    title: error.status,
+                    text: error.message,
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            });
+        }
+        catch (error) {
         }
     };
     AgendaRecepcionComponent.prototype.actualizarTurno = function () {
@@ -22226,20 +22308,27 @@ var AgendaRecepcionComponent = /** @class */ (function () {
                 // this.agendaTurno = resp;
                 console.log(resp);
                 _this.loading = false;
-                _this.document.doc = 'ingresado';
-                _this.document.usuario_id = _this.popItemAgenda.usuario_id;
-                console.log(_this.document.doc);
-                _this.editDoc();
+                // this.document.doc = 'llamando';
+                // this.document.usuario_id = this.popItemAgenda.usuario_id;
+                //  console.log(this.document.doc);
+                _this.documentService.sendMessage('llamando-recepcion');
+                // this.editDoc();
                 _this.loadList();
             }, function (error) {
                 console.log(error.message);
                 console.log(error.status);
                 console.log(error);
-                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message);
+                sweetalert2__WEBPACK_IMPORTED_MODULE_9___default()({
+                    toast: false,
+                    type: 'warning',
+                    title: error.status,
+                    text: error.message,
+                    showConfirmButton: false,
+                    timer: 2000
+                });
             });
         }
         catch (error) {
-            this.throwAlert('error', 'Error al cargar los registros', error);
         }
     };
     AgendaRecepcionComponent.prototype.guardarObservacion = function () {
@@ -22260,10 +22349,10 @@ var AgendaRecepcionComponent = /** @class */ (function () {
     AgendaRecepcionComponent.prototype.verDetalle = function (agendaTurno) {
         console.log(agendaTurno);
         var liquidacion;
-        liquidacion = new _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_16__["Liquidacion"](agendaTurno['operacion_cobro_id'], '', '', '', '', '', '', 0, 0, '', '', [], '', '', '');
+        liquidacion = new _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_15__["Liquidacion"](agendaTurno['operacion_cobro_id'], '', '', '', '', '', '', 0, 0, '', '', [], '', '', '');
         var data;
         data = liquidacion;
-        var ref = this.dialogService.open(_shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_17__["PopupOperacionCobroDetalleComponent"], {
+        var ref = this.dialogService.open(_shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_16__["PopupOperacionCobroDetalleComponent"], {
             data: data,
             header: 'Ver detalle de presentación',
             width: '98%',
@@ -22278,7 +22367,7 @@ var AgendaRecepcionComponent = /** @class */ (function () {
         this.agendaTurnos = this.agendaTurno;
         if (this.agendaTurnos) {
             for (i = 0; i < this.agendaTurnos.length; i++) {
-                if ((this.agendaTurnos[i]['presente'] !== null) && (this.agendaTurnos[i]['presente'] !== '2099-12-31 00:00:00') && (this.agendaTurno[i]['llegada'] === '2099-12-31 00:00:00')) {
+                if ((this.agendaTurnos[i]['presente'] !== null) && (this.agendaTurnos[i]['presente'] !== '2099-12-31 00:00:00') && (this.agendaTurno[i]['llegada'] === '2099-12-31 00:00:00') && (this.agendaTurno[i]['estado'] !== 'LLAMANDO') && (this.agendaTurno[i]['estado'] !== 'ATENDIDO')) {
                     this.presentes = this.presentes + 1;
                 }
             }
@@ -22397,7 +22486,7 @@ var AgendaRecepcionComponent = /** @class */ (function () {
             providers: [primeng_api__WEBPACK_IMPORTED_MODULE_1__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_1__["DialogService"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"]],
             styles: [__webpack_require__(/*! ./agenda-recepcion.component.css */ "./src/app/pages/recepcion/agenda/agenda-recepcion/agenda-recepcion.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_document_service_service__WEBPACK_IMPORTED_MODULE_13__["DocumentService"], _services_agenda_service__WEBPACK_IMPORTED_MODULE_4__["AgendaService"], primeng_api__WEBPACK_IMPORTED_MODULE_1__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_1__["DialogService"], _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"]])
+        __metadata("design:paramtypes", [_services_document_service_service__WEBPACK_IMPORTED_MODULE_12__["DocumentService"], _services_agenda_service__WEBPACK_IMPORTED_MODULE_4__["AgendaService"], primeng_api__WEBPACK_IMPORTED_MODULE_1__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_1__["DialogService"], _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"]])
     ], AgendaRecepcionComponent);
     return AgendaRecepcionComponent;
 }());
@@ -22424,7 +22513,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div >\r\n    <app-loading *ngIf=\"loading\"> </app-loading> \r\n   <!-- <button  *ngIf=\"loading\"   class=\"btn btn-lg btn-success btn-sm float-right mr-2\" (click)=\"loadTurnoTodos()\" >Actualizar</button>-->\r\n</div>\r\n\r\n<div>\r\n    <div >\r\n      \r\n    <div class=\" d-flex justify-content-sm-start\" >\r\n            <div  class=\"input-group input-group-sm \">\r\n                    <form  [formGroup]=\"DateForm\">\r\n                    <div class=\"btn-group\" role=\"group\">\r\n                <p-calendar class=\"mr-2 \"formControlName=\"fechaHoy\" [monthNavigator]=\"true\"   (onSelect)=\"actualizarFecha($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\r\n                   <ng-template pTemplate=\"date\" let-date>\r\n                        <span  [ngClass]=\"colorRow(date)\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\r\n                    </ng-template> \r\n                  </p-calendar>\r\n                \r\n\r\n            </div>\r\n                    </form>   \r\n                    <div class=\"row pl-4 pr-4 \">\r\n                            <div class=\"d-flex justify-content-sm-end\">\r\n                                    <div  class=\"btn-group btn-sm \" role=\"group\" aria-label=\"First group\">                 \r\n                                       <button    class=\"btn  btn-info btn-sm  float-right mr-2\" (click)=\"loadAgendaCancelada()\" >Turnos cancelados</button>\r\n                                       <button    class=\"btn  btn-danger btn-sm  float-right mr-2\" (click)=\"darSobreTurno()\" >Dar sobre turno</button>\r\n                                       <button    class=\"btn  btn-warning btn-sm float-right mr-2\" (click)=\"loadListTodosTurnos()\" >Buscar todos los turnos</button>\r\n                                       <button    class=\"btn  btn-success btn-sm float-right \"  (click)=\"loadTurno()\" >Buscar turnos</button>\r\n                                    </div>\r\n                            </div>    \r\n                    </div>     \r\n                   <div class=\"row  col-3\">\r\n                        <div class=\" input-group input-group-sm row pt-1 pl-4\">\r\n                                <input (keyup.enter)=\"buscarHistoriaUsuario()\"placeholder=\"buscar paciente\"  class=\"form-control col-12 form-control-sm\" [ngModel]=\"buscar_paciente\"  />                  \r\n                                <div class=\"input-group-append\">\r\n                                  <span class=\"input-group-text form-control-sm\">\r\n                                    <a  (click)=\"buscarHistoriaUsuario()\">\r\n                                        <img class=\"pointer float-left\" src=\"assets/icons/grey/outline_search_black_18dp.png\" width=\"24px\" height=\"24px\"  >\r\n                                    </a>\r\n                                </span>\r\n                                </div>\r\n                                <div>  <button    class=\"ml-2 btn  btn-secondary btn-sm float-right \"  (click)=\"generarPdf()\" >Imprimir</button></div>\r\n                            </div>   \r\n                         \r\n                   </div> \r\n            </div>\r\n\r\n\r\n         \r\n        </div>\r\n       \r\n      \r\n     \r\n    <div>\r\n       \r\n        <div >\r\n            <hr>\r\n              \r\n\r\n            <p-table  #dt class=\"pt-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\"  [value]=\"agendaTurno\" [(selection)]=\"selecteditems\"   columnResizeMode=\"expand\" [responsive]=\"true\"\r\n            scrollHeight=\"500px\" [scrollable]=\"true\" (onFilter)=\"filtered($event)\">\r\n          \r\n\r\n               <ng-template pTemplate=\"header\" let-columns >\r\n              \r\n                          <tr >\r\n                               \r\n                            <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\r\n                                    {{col.header}}\r\n                                    <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activar para ordenar en forma descendente\" ariaLabelAsc=\"Activar para ordenar en forma ascendente\"></p-sortIcon>\r\n                                </th>\r\n                                \r\n                            </tr>\r\n                            <tr>\r\n                            <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\" >\r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'operacion_cobro_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_apellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                               \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_dni'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'telefono_cel'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'hora_desde'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'estado'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'nombreyapellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'dia_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                             \r\n                                <input class=\"form-control form-control-sm col-md-12\"  *ngSwitchCase=\"'llegada'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'atendido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'boton1'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">   \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'boton2'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">   \r\n                            </th>\r\n                            \r\n                        </tr>\r\n                    </ng-template>\r\n                \r\n                <ng-template pTemplate=\"body\" let-agendaTurno> \r\n                     \r\n                <tr style=\"height:20px\" [ngClass]=\"colorRow(agendaTurno.estado)\" >\r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 5%\"><a class=\"my-hover\" (click)=\"verDetalle(agendaTurno)\">{{agendaTurno.operacion_cobro_id}}</a></td>   \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_apellido}}</td>                          \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_nombre}}</td>\r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_dni}}</td>              \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 5%\">{{agendaTurno.edad}}</td>   \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_obra_social_nombre}}</td>  \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.telefono_cel}}</td>                          \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 10%\">{{agendaTurno.hora_desde}}</td>                           \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.estado}}</td>  \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 15%\">{{agendaTurno.nombreyapellido}}</td>  \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 6%\">{{agendaTurno.dia_nombre}}</td> \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\" >{{agendaTurno.llegada | date: 'HH:mm:ss'}}</td>   \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\" >{{agendaTurno.atendido | date: 'HH:mm:ss'}}</td> \r\n                        <td style=\"width: 4%\" >\r\n                               \r\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-astronaut fa-2x icon-color-orange-light\" *ngIf=\"agendaTurno.es_observacion === 'CONTROL PREQUIRURGICO'\"  ></i></a>\r\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-md fa-2x icon-color-blue\" *ngIf=\"agendaTurno.es_observacion === 'CONTROL POSQUIRURGICO'\"  ></i></a>\r\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer far fa-bell fa-2x icon-color-green\" *ngIf=\"agendaTurno.es_observacion === 'ESTUDIOS'\"  ></i></a>\r\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-first-aid fa-2x icon-color-green \" *ngIf=\"agendaTurno.es_observacion === 'ASESORAMIENTO QUIRURGICO'\"  ></i></a> \r\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-exclamation-circle fa-2x icon-color-red\" *ngIf=\"agendaTurno.es_observacion === 'ADVERTENCIA'\"  ></i></a>\r\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-plus fa-2x icon-color-red-light \" *ngIf=\"agendaTurno.es_observacion === 'PACIENTE NUEVO'\"  ></i></a>\r\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fas fa-syringe fa-2x icon-color-purple \" *ngIf=\"agendaTurno.es_observacion === 'ANESTESIA'\"  ></i></a>     \r\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer far fa-address-card fa-2x icon-color-green-light\" *ngIf=\"agendaTurno.es_observacion === 'SOLICITUD DE TURNO'\"  ></i></a>                      \r\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-procedures fa-2x icon-color-green-light\" *ngIf=\"agendaTurno.es_observacion === 'CIRUGIA'\"  ></i></a>                      \r\n                      \r\n                            \r\n                        </td> \r\n                        <td style=\"width: 4%\">\r\n                         <!--    <button type=\"button\"   class=\"btn btn-outline-success btn-md p-1 pr-1\" (click)=\"accion($event,op,agendaTurno)\"    ><i class=\"far fa-edit fa-2x icon-color-purple\"></i></button> -->\r\n                         <a   (click)=\"accion($event,op,agendaTurno)\"   ><i class=\"far fa-edit fa-2x icon-color-purple my-hover\" ></i></a>            \r\n                                      \r\n                           </td>\r\n                        <td style=\"width: 8%\">\r\n                            <button  [disabled]=\"agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'ESPERA' ||  agendaTurno.estado == 'CANCELADO'\" type=\"button\" class=\"btn btn-outline-info btn-sm\" (click)=\"pacienteIngresado(agendaTurno)\"    >Llegada</button>\r\n                        </td>            \r\n                </tr>\r\n                </ng-template>\r\n             \r\n                </p-table>\r\n               \r\n                <p-overlayPanel #op [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" >                          \r\n                        <span>   <a class=\"nav-link azul my-hover\" (click)=\"editarRegistro('observacion')\">  Ver observación</a></span>\r\n                        <span>   <a class=\"nav-link azul my-hover\" (click)=\"editarRegistro('paciente')\">  Ver / editar paciente</a></span>\r\n                        <hr>\r\n                        <span>   <a class=\"nav-link azul my-hover\" (click)=\"editarRegistro('atendido')\">  Atendido</a></span>                        \r\n                        <span>   <a class=\"nav-link azul my-hover \" (click)=\"editarRegistro('cancelado')\">  Cancelar</a></span>  \r\n                        <span>   <a class=\"nav-link azul my-hover\" (click)=\"editarRegistro('reasignar')\">  Reasignar a medico</a></span>\r\n                        <hr>\r\n                        <span>   <a class=\" text-info nav-link azul my-hover\" (click)=\"editarRegistro('operacioncobro')\">  Operacion de cobro</a></span>\r\n                </p-overlayPanel>  \r\n        \r\n        </div>\r\n      \r\n\r\n         \r\n    </div>\r\n</div>\r\n\r\n<p-dialog header=\"Observación\" class=\"text-secondary\" [(visible)]=\"display\" class=\"p-2\" [baseZIndex]=\"10000\" [responsive]=\"true\"> \r\n    <label>MOTIVO :  {{motivo}}</label>        \r\n    <textarea [rows]=\"5\" [cols]=\"30\" pInputTextarea class=\"form-control form-control-sm col-md-12\"[(ngModel)]=\"observacion\"></textarea>   \r\n   \r\n    </p-dialog>"
+module.exports = "\r\n<div >\r\n    <app-loading *ngIf=\"loading\"> </app-loading> \r\n   <!-- <button  *ngIf=\"loading\"   class=\"btn btn-lg btn-success btn-sm float-right mr-2\" (click)=\"loadTurnoTodos()\" >Actualizar</button>-->\r\n</div>\r\n\r\n<div>\r\n    <div >\r\n      \r\n    <div class=\" d-flex justify-content-sm-start\" >\r\n            <div  class=\"input-group input-group-sm \">\r\n                    <form  [formGroup]=\"DateForm\">\r\n                    <div class=\"btn-group\" role=\"group\">\r\n                <p-calendar class=\"mr-2 \"formControlName=\"fechaHoy\" [monthNavigator]=\"true\"   (onSelect)=\"actualizarFecha($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\r\n                   <ng-template pTemplate=\"date\" let-date>\r\n                        <span  [ngClass]=\"colorRow(date)\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\r\n                    </ng-template> \r\n                  </p-calendar>\r\n                \r\n\r\n            </div>\r\n                    </form>   \r\n                    <div class=\"row pl-4 pr-4 \">\r\n                            <div class=\"d-flex justify-content-sm-end\">\r\n                                    <div  class=\"btn-group btn-sm \" role=\"group\" aria-label=\"First group\">                 \r\n                                       <button    class=\"btn  btn-info btn-sm  float-right mr-2\" (click)=\"loadAgendaCancelada()\" >Turnos cancelados</button>\r\n                                       <button    class=\"btn  btn-danger btn-sm  float-right mr-2\" (click)=\"darSobreTurno()\" >Dar sobre turno</button>\r\n                                       <button    class=\"btn  btn-warning btn-sm float-right mr-2\" (click)=\"loadListTodosTurnos()\" >Buscar todos los turnos</button>\r\n                                       <button    class=\"btn  btn-success btn-sm float-right \"  (click)=\"loadTurno()\" >Buscar turnos</button>\r\n                                    </div>\r\n                            </div>    \r\n                    </div>     \r\n                   <div class=\"row  col-3\">\r\n                        <div class=\" input-group input-group-sm row pt-1 pl-4\">\r\n                                <input (keyup.enter)=\"buscarHistoriaUsuario()\"placeholder=\"buscar paciente\"  class=\"form-control col-12 form-control-sm\" [ngModel]=\"buscar_paciente\"  />                  \r\n                                <div class=\"input-group-append\">\r\n                                  <span class=\"input-group-text form-control-sm\">\r\n                                    <a  (click)=\"buscarHistoriaUsuario()\">\r\n                                        <img class=\"pointer float-left\" src=\"assets/icons/grey/outline_search_black_18dp.png\" width=\"24px\" height=\"24px\"  >\r\n                                    </a>\r\n                                </span>\r\n                                </div>\r\n                                <div>  <button    class=\"ml-2 btn  btn-secondary btn-sm float-right \"  (click)=\"generarPdf()\" >Imprimir</button></div>\r\n                            </div>   \r\n                         \r\n                   </div> \r\n            </div>\r\n\r\n\r\n         \r\n        </div>\r\n       \r\n      \r\n     \r\n    <div>\r\n       \r\n        <div >\r\n            <hr>\r\n              \r\n\r\n            <p-table  #dt class=\"pt-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\"  [value]=\"agendaTurno\" [(selection)]=\"selecteditems\"   columnResizeMode=\"expand\" [responsive]=\"true\"\r\n            scrollHeight=\"500px\" [scrollable]=\"true\" (onFilter)=\"filtered($event)\">\r\n          \r\n\r\n               <ng-template pTemplate=\"header\" let-columns >\r\n              \r\n                          <tr >\r\n                               \r\n                            <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\r\n                                    {{col.header}}\r\n                                    <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activar para ordenar en forma descendente\" ariaLabelAsc=\"Activar para ordenar en forma ascendente\"></p-sortIcon>\r\n                                </th>\r\n                                \r\n                            </tr>\r\n                            <tr>\r\n                            <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\" >\r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'operacion_cobro_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_apellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                               \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_dni'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'telefono_cel'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'hora_desde'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'estado'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'nombreyapellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'dia_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                             \r\n                                <input class=\"form-control form-control-sm col-md-12\"  *ngSwitchCase=\"'llegada'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'atendido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'boton1'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">   \r\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'boton2'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">   \r\n                            </th>\r\n                            \r\n                        </tr>\r\n                    </ng-template>\r\n                \r\n                <ng-template pTemplate=\"body\" let-agendaTurno> \r\n                     \r\n                <tr style=\"height:20px\" [ngClass]=\"colorRow(agendaTurno.estado)\" >\r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 5%\"><a class=\"my-hover\" (click)=\"verDetalle(agendaTurno)\">{{agendaTurno.operacion_cobro_id}}</a></td>   \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_apellido}}</td>                          \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_nombre}}</td>\r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_dni}}</td>              \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 5%\">{{agendaTurno.edad}}</td>   \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_obra_social_nombre}}</td>  \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.telefono_cel}}</td>                          \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 10%\">{{agendaTurno.hora_desde}}</td>                           \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.estado}}</td>  \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 15%\">{{agendaTurno.nombreyapellido}}</td>  \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 6%\">{{agendaTurno.dia_nombre}}</td> \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\" >{{agendaTurno.llegada | date: 'HH:mm:ss'}}</td>   \r\n                        <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\" >{{agendaTurno.atendido | date: 'HH:mm:ss'}}</td> \r\n                        <td style=\"width: 4%\" >\r\n                               \r\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-astronaut fa-2x icon-color-orange-light\" *ngIf=\"agendaTurno.es_observacion === 'CONTROL PREQUIRURGICO'\"  ></i></a>\r\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-md fa-2x icon-color-blue\" *ngIf=\"agendaTurno.es_observacion === 'CONTROL POSQUIRURGICO'\"  ></i></a>\r\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer far fa-bell fa-2x icon-color-green\" *ngIf=\"agendaTurno.es_observacion === 'ESTUDIOS'\"  ></i></a>\r\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-first-aid fa-2x icon-color-green \" *ngIf=\"agendaTurno.es_observacion === 'ASESORAMIENTO QUIRURGICO'\"  ></i></a> \r\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-exclamation-circle fa-2x icon-color-red\" *ngIf=\"agendaTurno.es_observacion === 'ADVERTENCIA'\"  ></i></a>\r\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-plus fa-2x icon-color-red-light \" *ngIf=\"agendaTurno.es_observacion === 'PACIENTE NUEVO'\"  ></i></a>\r\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fas fa-syringe fa-2x icon-color-purple \" *ngIf=\"agendaTurno.es_observacion === 'ANESTESIA'\"  ></i></a>     \r\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer far fa-address-card fa-2x icon-color-green-light\" *ngIf=\"agendaTurno.es_observacion === 'SOLICITUD DE TURNO'\"  ></i></a>                      \r\n                      <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-procedures fa-2x icon-color-green-light\" *ngIf=\"agendaTurno.es_observacion === 'CIRUGIA'\"  ></i></a>                      \r\n                      \r\n                            \r\n                        </td> \r\n                        <td style=\"width: 4%\">\r\n                         <!--    <button type=\"button\"   class=\"btn btn-outline-success btn-md p-1 pr-1\" (click)=\"accion($event,op,agendaTurno)\"    ><i class=\"far fa-edit fa-2x icon-color-purple\"></i></button> -->\r\n                         <a   (click)=\"accion($event,op,agendaTurno)\"   ><i class=\"far fa-edit fa-2x icon-color-purple my-hover\" ></i></a>            \r\n                                      \r\n                           </td>\r\n                                \r\n                </tr>\r\n                </ng-template>\r\n             \r\n                </p-table>\r\n               \r\n                <p-overlayPanel #op [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" >                          \r\n                        <span>   <a class=\"nav-link azul my-hover\" (click)=\"editarRegistro('observacion')\">  Ver observación</a></span>\r\n                        <span>   <a class=\"nav-link azul my-hover\" (click)=\"editarRegistro('paciente')\">  Ver / editar paciente</a></span>\r\n                        <hr>\r\n                        <span>   <a class=\"nav-link azul my-hover es-atendido\" (click)=\"editarRegistro('atendido')\">  Atendido</a></span>                        \r\n                        <span>   <a class=\"nav-link azul my-hover es-cancelado\" (click)=\"editarRegistro('cancelado')\">  Cancelar</a></span>  \r\n                        <span>   <a class=\"nav-link azul my-hover es-turno\" (click)=\"editarRegistro('reasignar')\">  Reasignar a medico</a></span>\r\n                        <hr>\r\n                        <span>   <a class=\" text-info nav-link azul my-hover\" (click)=\"editarRegistro('operacioncobro')\">  Operacion de cobro</a></span>\r\n                </p-overlayPanel>  \r\n        \r\n        </div>\r\n      \r\n\r\n         \r\n    </div>\r\n</div>\r\n\r\n<p-dialog header=\"Observación\" class=\"text-secondary\" [(visible)]=\"display\" class=\"p-2\" [baseZIndex]=\"10000\" [responsive]=\"true\"> \r\n    <label>MOTIVO :  {{motivo}}</label>        \r\n    <textarea [rows]=\"5\" [cols]=\"30\" pInputTextarea class=\"form-control form-control-sm col-md-12\"[(ngModel)]=\"observacion\"></textarea>   \r\n   \r\n    </p-dialog>"
 
 /***/ }),
 
@@ -22452,12 +22541,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _shared_components_popups_popup_paciente_obrasocial_popup_paciente_obrasocial_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../shared/components/popups/popup-paciente-obrasocial/popup-paciente-obrasocial.component */ "./src/app/shared/components/popups/popup-paciente-obrasocial/popup-paciente-obrasocial.component.ts");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _services_document_service_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./../../../services/document-service.service */ "./src/app/services/document-service.service.ts");
-/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
-/* harmony import */ var _shared_components_popups_popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../shared/components/popups/popup-paciente-consulta/popup-paciente-consulta.component */ "./src/app/shared/components/popups/popup-paciente-consulta/popup-paciente-consulta.component.ts");
-/* harmony import */ var _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../models/liquidacion.model */ "./src/app/models/liquidacion.model.ts");
-/* harmony import */ var _shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../../shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component */ "./src/app/shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component.ts");
+/* harmony import */ var _services_document_service_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./../../../services/document-service.service */ "./src/app/services/document-service.service.ts");
+/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
+/* harmony import */ var _shared_components_popups_popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../shared/components/popups/popup-paciente-consulta/popup-paciente-consulta.component */ "./src/app/shared/components/popups/popup-paciente-consulta/popup-paciente-consulta.component.ts");
+/* harmony import */ var _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../models/liquidacion.model */ "./src/app/models/liquidacion.model.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component */ "./src/app/shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -22521,7 +22609,6 @@ __webpack_require__(/*! jspdf-autotable */ "./node_modules/jspdf-autotable/dist/
 
 
 
-
 var AgendaComponent = /** @class */ (function () {
     function AgendaComponent(documentService, miServico, messageService, dialogService, route, router) {
         this.documentService = documentService;
@@ -22557,7 +22644,6 @@ var AgendaComponent = /** @class */ (function () {
             { field: 'atendido', header: 'Ingresado', width: '8%' },
             { field: 'es_alerta', header: '', width: '4%' },
             { field: 'boton', header: '', width: '4%' },
-            { field: 'boton', header: '', width: '8%' },
         ];
         this.busqueda = [
             { label: 'Seleccione una busqueda', value: null },
@@ -22580,7 +22666,7 @@ var AgendaComponent = /** @class */ (function () {
             'fechaHoy': new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required),
             'medico_nombre': new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"]('')
         });
-        this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_3__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '');
+        this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_3__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '');
     }
     AgendaComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -22595,38 +22681,22 @@ var AgendaComponent = /** @class */ (function () {
             'dni': new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required),
         });
         this.DateForm.patchValue({ fechaHoy: this.fechaHoy });
-        this.documents = this.documentService.documents;
-        this._docSub = this.documentService.currentDocument.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_12__["startWith"])({ id: 'VISION123456787890', doc: '', usuario_id: '', data: [] })).subscribe(function (document) {
-            _this.document = document;
-            console.log(_this.document);
-            if ((document.doc === 'llamando')) {
-                //  this.loadList();
+        this.documentService
+            .getMessages()
+            .subscribe(function (message) {
+            console.log(message);
+            if (message === 'llamando-recepcion') {
+                _this.loadList();
             }
         });
-        this.newDoc();
         this.loadList();
-        var timer = rxjs_Rx__WEBPACK_IMPORTED_MODULE_14__["Observable"].timer(180000, 180000); //180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
+        var timer = rxjs_Rx__WEBPACK_IMPORTED_MODULE_13__["Observable"].timer(180000, 180000); //180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
         timer.subscribe(function (t) {
             console.log('bucando turnos');
             _this.loadList();
         });
     };
     AgendaComponent.prototype.ngOnDestroy = function () {
-        this._docSub.unsubscribe();
-    };
-    AgendaComponent.prototype.loadDoc = function (id) {
-        if (this.document.doc) {
-            console.log('load doc ' + this.document.doc);
-            this.documentService.getDocument(id);
-        }
-    };
-    AgendaComponent.prototype.newDoc = function () {
-        this.documentService.newDocument();
-    };
-    AgendaComponent.prototype.editDoc = function () {
-        console.log('edit doc ' + this.document.doc);
-        //if()
-        this.documentService.editDocument(this.document);
     };
     AgendaComponent.prototype.actualizarFecha = function (event) {
         console.log(event);
@@ -22717,7 +22787,7 @@ var AgendaComponent = /** @class */ (function () {
         var _this = this;
         var data;
         data = this.popItemAgenda;
-        var ref = this.dialogService.open(_shared_components_popups_popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_15__["PopupPacienteConsultaComponent"], {
+        var ref = this.dialogService.open(_shared_components_popups_popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_14__["PopupPacienteConsultaComponent"], {
             data: data,
             header: 'Consultar paciente',
             width: '98%',
@@ -22827,7 +22897,7 @@ var AgendaComponent = /** @class */ (function () {
                         _this.agendaTurno = null;
                     }
                     //this.newDoc();
-                    //  this.loadDoc('');
+                    //  this.loadDoc('llamando');
                     _this.loading = false;
                 }, function (error) {
                     console.log(error.message);
@@ -22865,8 +22935,6 @@ var AgendaComponent = /** @class */ (function () {
                     else {
                         _this.agendaTurno = null;
                     }
-                    _this.newDoc();
-                    _this.loadDoc('');
                     _this.loading = false;
                 }, function (error) {
                     console.log(error.message);
@@ -22951,6 +23019,8 @@ var AgendaComponent = /** @class */ (function () {
             this.miServico.cancelarTurno(this.popItemAgenda.agenda_dia_horario_atencion_id)
                 .subscribe(function (resp) {
                 _this.loading = false;
+                console.log(resp);
+                console.log(_this.condicion);
                 if (_this.condicion === 'reasignar') {
                     _this.router.navigate(['/recepcion/turnos'], { state: { paciente: _this.popItemAgenda } });
                 }
@@ -23020,10 +23090,7 @@ var AgendaComponent = /** @class */ (function () {
                 // this.agendaTurno = resp;
                 console.log(resp);
                 _this.loading = false;
-                _this.document.doc = 'ingresado';
-                _this.document.usuario_id = _this.popItemAgenda.usuario_id;
-                console.log(_this.document.doc);
-                _this.editDoc();
+                _this.documentService.sendMessage('llamando-agendas');
                 _this.loadList();
             }, function (error) {
                 console.log(error.message);
@@ -23054,10 +23121,10 @@ var AgendaComponent = /** @class */ (function () {
     AgendaComponent.prototype.verDetalle = function (agendaTurno) {
         console.log(agendaTurno);
         var liquidacion;
-        liquidacion = new _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_16__["Liquidacion"](agendaTurno['operacion_cobro_id'], '', '', '', '', '', '', 0, 0, '', '', [], '', '', '');
+        liquidacion = new _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_15__["Liquidacion"](agendaTurno['operacion_cobro_id'], '', '', '', '', '', '', 0, 0, '', '', [], '', '', '');
         var data;
         data = liquidacion;
-        var ref = this.dialogService.open(_shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_17__["PopupOperacionCobroDetalleComponent"], {
+        var ref = this.dialogService.open(_shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_16__["PopupOperacionCobroDetalleComponent"], {
             data: data,
             header: 'Ver detalle de presentación',
             width: '98%',
@@ -23113,11 +23180,11 @@ var AgendaComponent = /** @class */ (function () {
         if (estado == 'INGRESADO') {
             return { 'es-ingresado': 'null' };
         }
-        if (estado == 'PRESENTE') {
-            return { 'es-presente': 'null' };
-        }
         if (estado == 'ESPERA') {
             return { 'es-espera': 'null' };
+        }
+        if (estado == 'PRESENTE') {
+            return { 'es-presente': 'null' };
         }
         if (estado == 'SOBRETURNO') {
             return { 'es-sobreturno': 'null' };
@@ -23125,8 +23192,14 @@ var AgendaComponent = /** @class */ (function () {
         if (estado == 'TURNO') {
             return { 'es-turno': 'null' };
         }
+        if (estado == 'DERIVADO') {
+            return { 'es-turno': 'null' };
+        }
         if (estado == 'CANCELADO') {
             return { 'es-cancelado': 'null' };
+        }
+        if (estado == 'LLAMANDO') {
+            return { 'es-llamando': 'null' };
         }
     };
     AgendaComponent.prototype.colorString = function (estado) {
@@ -23173,7 +23246,7 @@ var AgendaComponent = /** @class */ (function () {
             providers: [primeng_api__WEBPACK_IMPORTED_MODULE_1__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_1__["DialogService"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"]],
             styles: [__webpack_require__(/*! ./agenda.component.css */ "./src/app/pages/recepcion/agenda/agenda.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_document_service_service__WEBPACK_IMPORTED_MODULE_13__["DocumentService"], _services_agenda_service__WEBPACK_IMPORTED_MODULE_4__["AgendaService"], primeng_api__WEBPACK_IMPORTED_MODULE_1__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_1__["DialogService"], _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"]])
+        __metadata("design:paramtypes", [_services_document_service_service__WEBPACK_IMPORTED_MODULE_12__["DocumentService"], _services_agenda_service__WEBPACK_IMPORTED_MODULE_4__["AgendaService"], primeng_api__WEBPACK_IMPORTED_MODULE_1__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_1__["DialogService"], _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"]])
     ], AgendaComponent);
     return AgendaComponent;
 }());
@@ -25157,6 +25230,9 @@ var AgendaService = /** @class */ (function () {
         console.log(this.url_agenda + "turno/derivado/" + id, agendaturno);
         return this.http.put(this.url_agenda + "turno/derivado/" + id, agendaturno);
     };
+    AgendaService.prototype.ActualizarTurnoLlamando = function (paciente_id, medico_id, puesto) {
+        return this.http.get(this.url_agenda + "turno/pantalla/llamando?paciente_id=" + paciente_id + '&medico_id=' + medico_id + '&puesto=' + puesto);
+    };
     AgendaService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
@@ -25203,7 +25279,7 @@ var AuthenticationService = /** @class */ (function () {
     }
     AuthenticationService.prototype.login = function (username, password) {
         console.log(_config_config__WEBPACK_IMPORTED_MODULE_2__["URL_SERVICIOS"] + "oauth/token");
-        this.usuario = new _models_user_model__WEBPACK_IMPORTED_MODULE_3__["User"]("", "", "", "", "", username, password, []);
+        this.usuario = new _models_user_model__WEBPACK_IMPORTED_MODULE_3__["User"]("", "", "", "", "", username, password, [], '');
         console.log(this.usuario);
         return this.http.post(_config_config__WEBPACK_IMPORTED_MODULE_2__["URL_SERVICIOS"] + "oauth/token", this.usuario);
         /*  .pipe(map(user => {
@@ -25449,6 +25525,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentService", function() { return DocumentService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var ngx_socket_io__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ngx-socket-io */ "./node_modules/ngx-socket-io/index.js");
+/* harmony import */ var rxjs_Observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/Observable */ "./node_modules/rxjs-compat/_esm5/Observable.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -25460,11 +25537,20 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var DocumentService = /** @class */ (function () {
     function DocumentService(socket) {
+        var _this = this;
         this.socket = socket;
         this.currentDocument = this.socket.fromEvent('document');
         this.documents = this.socket.fromEvent('documents');
+        this.getMessages = function () {
+            return rxjs_Observable__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(function (observer) {
+                _this.socket.on('new-message', function (message) {
+                    observer.next(message);
+                });
+            });
+        };
     }
     DocumentService.prototype.getDocument = function (id) {
         this.socket.emit('getDoc', this.docId);
@@ -25484,6 +25570,9 @@ var DocumentService = /** @class */ (function () {
           }
       */
         return 'VISION123456787890';
+    };
+    DocumentService.prototype.sendMessage = function (document) {
+        this.socket.emit('new-message', document);
     };
     DocumentService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -26525,7 +26614,7 @@ module.exports = "\r\n@font-face {\r\n  font-family: Poppins-Regular;\r\n  src: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n    <p-menubar  [model]=\"general\" *ngIf=\"loggedIn\" autoZIndex=\"false\" styleClass=\"my-navbar  \"  [autoDisplay]=\"false\"  >\r\n            \r\n               \r\n                <div class=\"flexbox \" >                      \r\n                 <div class=\" float-right pt-2\">  <label class=\"text-info\">{{username}}</label></div>                                             \r\n                        </div> \r\n    </p-menubar> \r\n\r\n    <div class=\"navbar-main alineacion-flexbox\" *ngIf=\"loggedIn\" >\r\n            <div >\r\n                        <div class=\"button\">                        \r\n                <i  (click)=\"verChat()\" class=\"fa fa-comment pointer my-hover nav-links m-2\"></i>\r\n                <span *ngIf=\"chats\" class=\"button__badge\">0</span>\r\n                </div> \r\n        \r\n                <div class=\"button\">                              \r\n                <i (click)=\"verNotificacion()\" class=\"fas fa-bell pointer my-hover nav-links\"></i>\r\n                <span *ngIf=\"notificaciones\"  class=\"button__badge\"><b>{{notificaciones}}</b></span>\r\n                </div> \r\n            </div>\r\n            <div >\r\n          \r\n            <div class=\"button\"> \r\n                <i #aa (click)=\"cerrarSesion()\" class=\"fas fa-power-off my-hover nav-links m-2\"></i>\r\n            </div>\r\n              \r\n            </div>\r\n    </div>\r\n   \r\n\r\n    <div class=\"wrapper fadeInDown\" *ngIf=\"!loggedIn\">\r\n      <!--   <div id=\"formContent\">\r\n      <h2 class=\"active\"> Ingresar</h2>\r\n      <div class=\"fadeIn first\">\r\n        <img src=\"assets/img/login-user.jpg\" id=\"icon\" alt=\"User Icon\" />\r\n      </div>\r\n      <form [formGroup]=\"loginForm\" (ngSubmit)=\"onSubmit()\">\r\n        <input type=\"text\" formControlName=\"username\" class=\"fadeIn second\" name=\"login\" placeholder=\"Usuario\">\r\n        <input type=\"password\" formControlName=\"password\" class=\"fadeIn third\" name=\"login\" placeholder=\"Contraseña\">\r\n        <input type=\"submit\" class=\"fadeIn fourth\" value=\"Ingresar\">\r\n        \r\n      </form>\r\n      \r\n      </div> -->\r\n      \r\n  <div class=\"wrapper fadeInDown\" *ngIf=\"!loggedIn\">\r\n  \r\n        <div style=\"background-color: #666666;\">\r\n                <div class=\"limiter\">\r\n                        <div class=\"container-login100\">\r\n                                <div class=\"wrap-login100\"> \r\n                                        <form [formGroup]=\"loginForm\"  class=\"login100-form validate-form\" (ngSubmit)=\"onSubmit()\">\r\n                                                <span class=\"login100-form-title p-b-43\">\r\n                                                        Bienvenido\r\n                                                </span>\r\n                                                \r\n                                                \r\n                                                <div class=\"wrap-input100 validate-input\" data-validate = \"Usuario válido es requerido\">\r\n                                                        <input class=\"input100\" type=\"text\" name=\"email\" formControlName=\"username\"   autofocus>\r\n                                                        <span  class=\"focus-input100\" ></span>\r\n                                                        <span   class=\"label-input100\" >Usuario</span>\r\n                                                        \r\n                                                </div>\r\n                                                \r\n                                                \r\n                                                <div class=\"wrap-input100 validate-input\" data-validate=\"Contraseña es requerida\">\r\n                                                        <input class=\"input100\" type=\"password\" name=\"pass\" formControlName=\"password\" >\r\n                                                        <span class=\"focus-input100\"></span>\r\n                                                        <span class=\"label-input100\" >Contraseña</span>\r\n                                                </div>\r\n        \r\n                                        \r\n                                \r\n        \r\n                                                <div class=\"container-login100-form-btn\">\r\n                                                        <button class=\"login100-form-btn\">\r\n                                                                Ingresar\r\n                                                        </button>\r\n                                                </div>\r\n                                                \r\n                                                \r\n                                        </form>\r\n        \r\n                                        <div class=\"login100-more\" style=\"background-image: url(assets/images/background/login.jpg);\">\r\n                                        </div>\r\n                                </div>\r\n                        </div>\r\n                </div>\r\n        </div>\r\n        </div>\r\n      \r\n      </div>"
+module.exports = "\r\n    <p-menubar  [model]=\"general\" *ngIf=\"loggedIn\" autoZIndex=\"false\" styleClass=\"my-navbar  \"  [autoDisplay]=\"false\"  >\r\n            \r\n               \r\n                <div class=\"flexbox \" >     \r\n                <div class=\" float-right pt-2\">  <b><label class=\"text-success\">PUESTO : {{puesto}}</label></b></div>                     \r\n                 <div class=\" float-right pt-2 ml-2 mr-2\"> <b> <label class=\"text-info\">USUARIO : {{username}}</label></b></div>                                             \r\n                        </div> \r\n    </p-menubar> \r\n\r\n    <div class=\"navbar-main alineacion-flexbox\" *ngIf=\"loggedIn\" >\r\n            <div >\r\n                        <div class=\"button\">                        \r\n                <i  (click)=\"verChat()\" class=\"fa fa-comment pointer my-hover nav-links m-2\"></i>\r\n                <span *ngIf=\"chats\" class=\"button__badge\">0</span>\r\n                </div> \r\n        \r\n                <div class=\"button\">                              \r\n                <i (click)=\"verNotificacion()\" class=\"fas fa-bell pointer my-hover nav-links\"></i>\r\n                <span *ngIf=\"notificaciones\"  class=\"button__badge\"><b>{{notificaciones}}</b></span>\r\n                </div> \r\n            </div>\r\n            <div >\r\n          \r\n            <div class=\"button\"> \r\n                <i #aa (click)=\"cerrarSesion()\" class=\"fas fa-power-off my-hover nav-links m-2\"></i>\r\n            </div>\r\n              \r\n            </div>\r\n    </div>\r\n   \r\n\r\n    <div class=\"wrapper fadeInDown\" *ngIf=\"!loggedIn\">\r\n      <!--   <div id=\"formContent\">\r\n      <h2 class=\"active\"> Ingresar</h2>\r\n      <div class=\"fadeIn first\">\r\n        <img src=\"assets/img/login-user.jpg\" id=\"icon\" alt=\"User Icon\" />\r\n      </div>\r\n      <form [formGroup]=\"loginForm\" (ngSubmit)=\"onSubmit()\">\r\n        <input type=\"text\" formControlName=\"username\" class=\"fadeIn second\" name=\"login\" placeholder=\"Usuario\">\r\n        <input type=\"password\" formControlName=\"password\" class=\"fadeIn third\" name=\"login\" placeholder=\"Contraseña\">\r\n        <input type=\"submit\" class=\"fadeIn fourth\" value=\"Ingresar\">\r\n        \r\n      </form>\r\n      \r\n      </div> -->\r\n      \r\n  <div class=\"wrapper fadeInDown\" *ngIf=\"!loggedIn\">\r\n  \r\n        <div style=\"background-color: #666666;\">\r\n                <div class=\"limiter\">\r\n                        <div class=\"container-login100\">\r\n                                <div class=\"wrap-login100\"> \r\n                                        <form [formGroup]=\"loginForm\"  class=\"login100-form validate-form\" (ngSubmit)=\"onSubmit()\">\r\n                                                <span class=\"login100-form-title p-b-43\">\r\n                                                        Bienvenido\r\n                                                </span>\r\n                                                \r\n                                                \r\n                                                <div class=\"wrap-input100 validate-input\" data-validate = \"Usuario válido es requerido\">\r\n                                                        <input class=\"input100\" type=\"text\" name=\"email\" formControlName=\"username\"   autofocus>\r\n                                                        <span  class=\"focus-input100\" ></span>\r\n                                                        <span   class=\"label-input100\" >Usuario</span>\r\n                                                        \r\n                                                </div>\r\n                                                \r\n                                                \r\n                                                <div class=\"wrap-input100 validate-input\" data-validate=\"Contraseña es requerida\">\r\n                                                        <input class=\"input100\" type=\"password\" name=\"pass\" formControlName=\"password\" >\r\n                                                        <span class=\"focus-input100\"></span>\r\n                                                        <span class=\"label-input100\" >Contraseña</span>\r\n                                                </div>\r\n                                                <b><label class=\"text-danger mb-1\">Solo recepción</label></b>\r\n                                                <div class=\"wrap-input100 validate-input\" data-validate=\"Contraseña es requerida\">\r\n                                                       \r\n                                                       <b> <input class=\"input100 text-danger\" type=\"text\" name=\"puesto\" formControlName=\"puesto\" ></b>\r\n                                                        <span class=\"focus-input100\"></span>\r\n                                                        <span class=\"label-input100\" >Puesto</span>\r\n                                                </div>\r\n                                        \r\n                                \r\n        \r\n                                                <div class=\"container-login100-form-btn\">\r\n                                                        <button class=\"login100-form-btn\">\r\n                                                                Ingresar\r\n                                                        </button>\r\n                                                </div>\r\n                                                \r\n                                                \r\n                                        </form>\r\n        \r\n                                        <div class=\"login100-more\" style=\"background-image: url(assets/images/background/login.jpg);\">\r\n                                        </div>\r\n                                </div>\r\n                        </div>\r\n                </div>\r\n        </div>\r\n        </div>\r\n      \r\n      </div>"
 
 /***/ }),
 
@@ -26623,7 +26712,8 @@ var NavbarComponent = /** @class */ (function () {
         var _this = this;
         this.loginForm = this.formBuilder.group({
             username: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
-            password: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]
+            password: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
+            puesto: ['0']
         });
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentUser['access_token'] != '') {
@@ -26632,6 +26722,7 @@ var NavbarComponent = /** @class */ (function () {
             console.log('usuario logueado');
             this.loggedIn = true;
             this.username = userData['username'];
+            this.puesto = userData['puesto'];
             console.log(userData['access_list']);
             this.asignarModulos(userData['access_list']);
             this.getNotificacionesByUsuario();
@@ -26770,7 +26861,7 @@ var NavbarComponent = /** @class */ (function () {
             .subscribe(function (data) {
             console.log(data);
             _this.user = data;
-            var us = new _models_user_model__WEBPACK_IMPORTED_MODULE_6__["User"]("", "", "", "", "", _this.f.username.value, _this.f.password.value, []);
+            var us = new _models_user_model__WEBPACK_IMPORTED_MODULE_6__["User"]("", "", "", "", "", _this.f.username.value, _this.f.password.value, [], _this.f.puesto.value);
             localStorage.setItem('userData', JSON.stringify(us));
             localStorage.setItem('currentUser', JSON.stringify(_this.user));
             //  this.router.navigate([this.returnUrl]);
@@ -26797,8 +26888,9 @@ var NavbarComponent = /** @class */ (function () {
                 var userData = JSON.parse(localStorage.getItem('userData'));
                 console.log(_this.elemento);
                 _this.elementoModulo = _this.elemento;
-                _this.user = new _models_user_model__WEBPACK_IMPORTED_MODULE_6__["User"](_this.elemento[0]['id'], _this.elemento[0]['email'], _this.elemento[0]['nombreyapellido'], _this.elemento[0]['name'], '1', _this.elemento[0]['email'], currentUser['access_token'], _this.elementoModulo);
+                _this.user = new _models_user_model__WEBPACK_IMPORTED_MODULE_6__["User"](_this.elemento[0]['id'], _this.elemento[0]['email'], _this.elemento[0]['nombreyapellido'], _this.elemento[0]['name'], '1', _this.elemento[0]['email'], currentUser['access_token'], _this.elementoModulo, _this.f.puesto.value);
                 _this.username = userData['username'];
+                _this.puesto = userData['puesto'];
                 localStorage.removeItem('userData');
                 localStorage.setItem('userData', JSON.stringify(_this.user));
                 _this.asignarModulos(_this.elementoModulo);
@@ -27513,7 +27605,7 @@ var PopupAgendaComponent = /** @class */ (function () {
             'fechaHoy': new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required),
             'medico_nombre': new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"]('')
         });
-        this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_3__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '');
+        this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_3__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '');
     }
     PopupAgendaComponent.prototype.ngOnInit = function () {
         this.es = _config_config__WEBPACK_IMPORTED_MODULE_7__["calendarioIdioma"];
@@ -31111,17 +31203,30 @@ var PopupHistoriaClinicaRegistroNuevoComponent = /** @class */ (function () {
         try {
             this.miServicio.setHistoriaClinicaFicha(this.dataForm.value)
                 .subscribe(function (resp) {
-                _this.throwAlert('success', 'Se modificó el registro con éxito', '', '');
+                sweetalert2__WEBPACK_IMPORTED_MODULE_4___default()({
+                    toast: false,
+                    type: 'success',
+                    title: 'Guardado',
+                    text: 'Se guardo la historia clínica',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
                 _this.ref.close(resp);
                 console.log(resp);
             }, function (error) {
                 console.log(error.message);
                 console.log(error.status);
-                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+                sweetalert2__WEBPACK_IMPORTED_MODULE_4___default()({
+                    toast: false,
+                    type: 'warning',
+                    title: error.status,
+                    text: error.message,
+                    showConfirmButton: false,
+                    timer: 2000
+                });
             });
         }
         catch (error) {
-            this.throwAlert('error', 'Error al cargar los registros', error, error.status);
         }
     };
     PopupHistoriaClinicaRegistroNuevoComponent.prototype.actualizarLEJOS_OD_E = function () {
@@ -37176,7 +37281,7 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
             'fechaHoy': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required),
             'medico_nombre': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('')
         });
-        this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_12__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '');
+        this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_12__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '');
     }
     PopupPacienteEsperaComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -37248,6 +37353,8 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
         // console.log(event);
         this.popItemAgenda = event;
         this.popItemAgenda.agenda_estado_id = '9';
+        //this.popItemAgenda.puesto_estado = 'LLAMANDO' ;
+        //this.popItemAgenda.puesto_llamado = this.userData['puesto'];
         console.log(this.popItemAgenda);
         this.actualizarTurno();
     };
@@ -37257,6 +37364,8 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
         this._fechaHoy = Object(_angular_common__WEBPACK_IMPORTED_MODULE_1__["formatDate"])(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en');
         this.popItemAgenda.atendido = this._fechaHoy;
         this.popItemAgenda.agenda_estado_id = '3';
+        //this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+        // this.popItemAgenda.puesto_estado = 'INGRESADO' ;
         this.actualizarTurno();
     };
     PopupPacienteEsperaComponent.prototype.buscarPaciente = function () {
@@ -37323,16 +37432,24 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
                 }
                 if (cond == 'llamando') {
                     this.popItemAgenda.agenda_estado_id = '9';
+                    this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+                    this.popItemAgenda.puesto_estado = 'LLAMANDO';
+                    this.popItemAgenda.llamando = this._fechaHoy;
                     this.actualizarTurno();
                 }
                 if (cond == 'rellamar') {
                     this.popItemAgenda.agenda_estado_id = '9';
+                    this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+                    this.popItemAgenda.puesto_estado = 'LLAMANDO';
+                    this.popItemAgenda.llamando = this._fechaHoy;
                     this.actualizarTurno();
                 }
                 if (cond == 'ausente') {
                     this.popItemAgenda.agenda_estado_id = '10';
                     this.popItemAgenda.llegada = this._fechaHoy;
                     this.popItemAgenda.atendido = this._fechaHoy;
+                    this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+                    this.popItemAgenda.puesto_estado = 'ATENDIDO';
                     this.actualizarTurno();
                 }
                 if (cond == 'presente') {
@@ -37384,7 +37501,7 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
                         _this.agendaTurno = null;
                     }
                     //this.newDoc();
-                    //  this.loadDoc('');
+                    //  this.loadDoc('llamando');
                     _this.loading = false;
                 }, function (error) {
                     console.log(error.message);
@@ -37450,7 +37567,7 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
                 // this.agendaTurno = resp;
                 console.log(resp);
                 _this.loading = false;
-                _this.document.doc = 'ingresado';
+                _this.document.doc = 'llamando';
                 _this.document.usuario_id = _this.popItemAgenda.usuario_id;
                 console.log(_this.document.doc);
                 _this.editDoc();

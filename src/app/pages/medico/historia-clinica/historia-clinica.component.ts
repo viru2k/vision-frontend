@@ -196,7 +196,7 @@ export class HistoriaClinicaComponent implements OnInit {
       console.log(this.formPaciente);
     this.loadhistoriaClinica();
     }else{ //10029750
-      this.paciente = new AgendaTurno('',new Date(), new Date(), new Date(),'','','','','','','','','','','','','','','888888','' ,'','','','','','','','','', new Date(),'','','','','', '','','','','','');
+      this.paciente = new AgendaTurno('',new Date(), new Date(), new Date(),'','','','','','','','','','','','','','','888888','' ,'','','','','','','','','', new Date(),'','','','','', '','','','','','','','');
     //  this.historiaClinica();
     }
   }
@@ -347,7 +347,7 @@ verHistoriaClinicaListado(){
 derivarAsesoramiento(){
   
   let userData = JSON.parse(localStorage.getItem('userData'));
-  let agenda = new AgendaTurno('',new Date(),new Date(),new Date(), '','','','','','','',userData["id"], userData["nombreyapellido"], '','', this.paciente.paciente_id, this.paciente.paciente_nombre, this.paciente.paciente_apellido, this.paciente.paciente_dni, this.paciente.paciente_fecha_nacimiento, this.paciente.paciente_obra_social_id, this.paciente.paciente_obra_social_nombre,'','','','','','','',new Date(),'','','', '' ,'', '','','','','','');
+  let agenda = new AgendaTurno('',new Date(),new Date(),new Date(), '','','','','','','',userData["id"], userData["nombreyapellido"], '','', this.paciente.paciente_id, this.paciente.paciente_nombre, this.paciente.paciente_apellido, this.paciente.paciente_dni, this.paciente.paciente_fecha_nacimiento, this.paciente.paciente_obra_social_id, this.paciente.paciente_obra_social_nombre,'','','','','','','',new Date(),'','','', '' ,'', '','','','','','','','');
   let data:any;    
   data = agenda;
   const ref = this.dialogService.open(PopupDerivarAsesoramientoComponent, {
@@ -384,12 +384,19 @@ loadhistoriaClinica(){
       error => { // error path
           console.log(error.message);
           console.log(error.status);
-          this.throwAlert('error','error','Error: '+error.status+'  Error al cargar los registros',error.message);
+          swal({
+            toast: false,
+            type: 'warning',
+            title: error.status,
+            text: error.message,
+            showConfirmButton: false,
+            timer: 2000
+          });
      //     this.resultSave = false;
           this.loading = false;
         });    
   } catch (error) {
-    this.throwAlert('error','error','Error: '+error.status+'  Error al cargar los registros',error.message);
+    
   }
 
 
@@ -402,7 +409,7 @@ loadhistoriaClinica(){
 darTurno(){
   let userData = JSON.parse(localStorage.getItem('userData'));
 
-this.popItemAgenda = new AgendaTurno('',new Date(),new Date(),new Date(), '','','','','','','',userData["id"], userData["nombreyapellido"], '','', this.paciente.paciente_id, this.paciente.paciente_nombre, this.paciente.paciente_apellido, this.paciente.paciente_dni, this.paciente.paciente_fecha_nacimiento, this.paciente.paciente_obra_social_id, this.paciente.paciente_obra_social_nombre,'','','','','','','',new Date(),'',this.paciente.plan,this.paciente.domicilio,'','', '','','','','','');
+this.popItemAgenda = new AgendaTurno('',new Date(),new Date(),new Date(), '','','','','','','',userData["id"], userData["nombreyapellido"], '','', this.paciente.paciente_id, this.paciente.paciente_nombre, this.paciente.paciente_apellido, this.paciente.paciente_dni, this.paciente.paciente_fecha_nacimiento, this.paciente.paciente_obra_social_id, this.paciente.paciente_obra_social_nombre,'','','','','','','',new Date(),'',this.paciente.plan,this.paciente.domicilio,'','', '','','','','','','','');
 console.log(this.popItemAgenda);
   this.router.navigate(['/medico/turnos'],{ state: { paciente: this.popItemAgenda } });
 }

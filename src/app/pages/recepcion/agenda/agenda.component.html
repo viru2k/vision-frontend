@@ -129,9 +129,7 @@
                          <a   (click)="accion($event,op,agendaTurno)"   ><i class="far fa-edit fa-2x icon-color-purple my-hover" ></i></a>            
                                       
                            </td>
-                        <td style="width: 8%">
-                            <button  [disabled]="agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'ESPERA' ||  agendaTurno.estado == 'CANCELADO'" type="button" class="btn btn-outline-info btn-sm" (click)="pacienteIngresado(agendaTurno)"    >Llegada</button>
-                        </td>            
+                                
                 </tr>
                 </ng-template>
              
@@ -141,9 +139,9 @@
                         <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('observacion')">  Ver observación</a></span>
                         <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('paciente')">  Ver / editar paciente</a></span>
                         <hr>
-                        <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('atendido')">  Atendido</a></span>                        
-                        <span>   <a class="nav-link azul my-hover " (click)="editarRegistro('cancelado')">  Cancelar</a></span>  
-                        <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('reasignar')">  Reasignar a medico</a></span>
+                        <span>   <a class="nav-link azul my-hover es-atendido" (click)="editarRegistro('atendido')">  Atendido</a></span>                        
+                        <span>   <a class="nav-link azul my-hover es-cancelado" (click)="editarRegistro('cancelado')">  Cancelar</a></span>  
+                        <span>   <a class="nav-link azul my-hover es-turno" (click)="editarRegistro('reasignar')">  Reasignar a medico</a></span>
                         <hr>
                         <span>   <a class=" text-info nav-link azul my-hover" (click)="editarRegistro('operacioncobro')">  Operacion de cobro</a></span>
                 </p-overlayPanel>  

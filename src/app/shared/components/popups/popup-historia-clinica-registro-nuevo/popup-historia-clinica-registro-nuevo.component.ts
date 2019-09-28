@@ -190,17 +190,31 @@ guardarHistoria(){
  try {
     this.miServicio.setHistoriaClinicaFicha(this.dataForm.value)
     .subscribe(resp => {
-      this.throwAlert('success', 'Se modificó el registro con éxito','','');
+      swal({
+        toast: false,
+        type: 'success',
+        title: 'Guardado',
+        text: 'Se guardo la historia clínica',
+        showConfirmButton: false,
+        timer: 2000
+      });
         this.ref.close(resp);          
         console.log(resp);      
     },
     error => { // error path
         console.log(error.message);
         console.log(error.status);
-        this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+        swal({
+          toast: false,
+          type: 'warning',
+          title: error.status,
+          text: error.message,
+          showConfirmButton: false,
+          timer: 2000
+        });
      });    
 } catch (error) {
-this.throwAlert('error','Error al cargar los registros',error,error.status);
+
 }  
   
 }

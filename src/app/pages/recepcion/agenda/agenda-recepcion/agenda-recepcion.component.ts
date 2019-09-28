@@ -98,7 +98,6 @@ export class AgendaRecepcionComponent implements OnInit {
       {field: 'atendido', header: 'Ingresado' , width: '8%'},
       {field: 'es_alerta', header: '' , width: '4%'},
       {field: 'boton', header: '' , width: '4%'},
-      {field: 'boton', header: '', width: '8%' },
       ];
    this.busqueda = [
       {label:'Seleccione una busqueda', value:null},
@@ -127,7 +126,7 @@ export class AgendaRecepcionComponent implements OnInit {
       'fechaHoy': new FormControl('', Validators.required), 
       'medico_nombre': new FormControl('')
       });
-this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','','','');
+this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','','','','','');
 }
 
 ngOnInit() {
@@ -144,20 +143,17 @@ ngOnInit() {
 
 this.DateForm.patchValue({fechaHoy: this.fechaHoy});
 
-
-
- 
-this.documents = this.documentService.documents;
-this._docSub = this.documentService.currentDocument.pipe(
-  startWith({ id: 'VISION123456787890', doc: '',usuario_id: '', data: []})
-).subscribe(document => {
-  this.document = document;
-  console.log(this.document);
-  if((document.doc === 'llamando')){
-  //  this.loadList();
-    }
+this.documentService
+.getMessages()
+.subscribe((message: string) => {
+  console.log(message);
+  if(message ==='llamando-agendas'){
+    this.loadList();    
+  }
 });
-this.newDoc();
+
+
+
 this.loadList();
 
 let timer = Observable.timer(180000,180000);//180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
@@ -169,25 +165,9 @@ timer.subscribe(t=> {
 } 
 
 ngOnDestroy() {
-  this._docSub.unsubscribe();
+ 
 }
 
-loadDoc(id: string) {
-  if(this.document.doc){
-  console.log('load doc '+this.document.doc);
-  this.documentService.getDocument(id);
-  }
-}
-
-newDoc() {
-  this.documentService.newDocument();
-}
-
-editDoc() {
-  console.log('edit doc '+this.document.doc);
-  //if()
-  this.documentService.editDocument(this.document);
-}
 
 actualizarFecha(event){
   console.log(event);
@@ -260,7 +240,7 @@ pacienteIngresado(event:AgendaTurno){
   this.popItemAgenda = event;
   this._fechaHoy = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en');
   this.popItemAgenda.llegada = this._fechaHoy;
-  this.popItemAgenda.agenda_estado_id = '5';
+  this.popItemAgenda.agenda_estado_id = '3';
   console.log(this.popItemAgenda);
   this.actualizarTurno();
 }
@@ -270,7 +250,7 @@ pacienteAtendido(event:AgendaTurno){
   this.popItemAgenda = event;
   this._fechaHoy = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en');
   this.popItemAgenda.atendido = this._fechaHoy;
-  this.popItemAgenda.agenda_estado_id = '3';
+  this.popItemAgenda.agenda_estado_id = '4';
   this.actualizarTurno();
 }
 
@@ -416,8 +396,10 @@ this.popItemAgenda = this.selectedagendaTurno;
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
-        this.popItemAgenda.agenda_estado_id = '5';
+        this.popItemAgenda.agenda_estado_id = '3';
         this.popItemAgenda.presente = this._fechaHoy;
+     //   this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+     //   this.popItemAgenda.puesto_estado = 'LLAMANDO'; 
       }
     });
     
@@ -440,22 +422,30 @@ this.popItemAgenda = this.selectedagendaTurno;
   if(cond == 'atendido'){
     this.popItemAgenda.agenda_estado_id = '4';
     this.popItemAgenda.atendido = this._fechaHoy;
+    this.popItemAgenda.puesto_estado = 'ATENDIDO';
   }
 
   if(cond == 'llamando'){
     this.popItemAgenda.agenda_estado_id = '9';
-    this.actualizarTurno();
+    this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+    this.popItemAgenda.puesto_estado = 'LLAMANDO';
+    this.popItemAgenda.llamando = this._fechaHoy;
+    this.ActualizarTurnoLlamando();
+    
   }
 
   if(cond == 'rellamar'){
-    this.popItemAgenda.agenda_estado_id = '9';      
-    this.actualizarTurno();
+    this.popItemAgenda.agenda_estado_id = '9';
+    this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+    this.popItemAgenda.puesto_estado = 'LLAMANDO'; 
+    this.popItemAgenda.llamando = this._fechaHoy;
+    this.ActualizarTurnoLlamando();
   }
   if(cond == 'ausente'){
     this.popItemAgenda.agenda_estado_id = '10';
     this.popItemAgenda.llegada = this._fechaHoy;
     this.popItemAgenda.atendido = this._fechaHoy;
-
+    this.popItemAgenda.puesto_estado = 'ATENDIDO';
     this.actualizarTurno();
   }
 
@@ -502,20 +492,23 @@ if(this._fechaHoy!=''){
           this.sumarPresente();
             }else{
               this.agendaTurno =null;
-            }
-            //this.newDoc();
-          //  this.loadDoc('');
-      
+            }          
           this.loading = false;
       },
       error => { // error path
           console.log(error.message);
           console.log(error.status);
           this.loading = false;
-          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message);
+          swal({
+            toast: false,
+            type: 'warning',
+            title: error.status,
+            text: error.message,
+            showConfirmButton: false,
+            timer: 2000
+          });
        });    
-  } catch (error) {
-  this.throwAlert('error','Error al cargar los registros',error);
+  } catch (error) {  
   }  
 } 
 
@@ -539,8 +532,6 @@ try {
           }else{
             this.agendaTurno =null;
           }
-          this.newDoc();
-          this.loadDoc('');
           this.sumarPresente();
         this.loading = false;
     },
@@ -548,10 +539,17 @@ try {
         console.log(error.message);
         console.log(error.status);
         this.loading = false;
-        this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message);
+        swal({
+          toast: false,
+          type: 'warning',
+          title: error.status,
+          text: error.message,
+          showConfirmButton: false,
+          timer: 2000
+        });
      });    
 } catch (error) {
-this.throwAlert('error','Error al cargar los registros',error);
+
 }  
 } 
 
@@ -579,10 +577,17 @@ try {
         console.log(error.message);
         console.log(error.status);
         this.loading = false;
-        this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message);
+        swal({
+          toast: false,
+          type: 'warning',
+          title: error.status,
+          text: error.message,
+          showConfirmButton: false,
+          timer: 2000
+        });
      });    
 } catch (error) {
-this.throwAlert('error','Error al cargar los registros',error);
+
 
 } 
 
@@ -610,10 +615,17 @@ error => { // error path
     console.log(error.message);
     console.log(error.status);
     this.loading = false;
-    this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message);
+    swal({
+      toast: false,
+      type: 'warning',
+      title: error.status,
+      text: error.message,
+      showConfirmButton: false,
+      timer: 2000
+    });
  });    
 } catch (error) {
-this.throwAlert('error','Error al cargar los registros',error);
+
 
 } 
 
@@ -676,16 +688,49 @@ try {
     error => { // error path
         console.log(error.message);
         console.log(error.status);
-        this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message);
+        swal({
+          toast: false,
+          type: 'warning',
+          title: error.status,
+          text: error.message,
+          showConfirmButton: false,
+          timer: 2000
+        });
      });    
 } catch (error) {
-this.throwAlert('error','Error al cargar los registros',error);
+
 }  
 } 
 
 }
 
+ActualizarTurnoLlamando(){
 
+  try {
+    this.miServico.ActualizarTurnoLlamando(this.popItemAgenda.paciente_id,this.popItemAgenda.usuario_id, this.userData['puesto'])
+    .subscribe(resp => {   
+        console.log(resp);    
+        this.loading = false;
+        this.documentService.sendMessage('llamando-pantalla');
+        this.actualizarTurno(); 
+    },
+    error => { // error path
+        console.log(error.message);
+        console.log(error.status);
+        console.log(error);
+        swal({
+          toast: false,
+          type: 'warning',
+          title: error.status,
+          text: error.message,
+          showConfirmButton: false,
+          timer: 2000
+        });
+     });    
+} catch (error) {
+
+}  
+}
 
 actualizarTurno(){
 this.es = calendarioIdioma;
@@ -699,20 +744,28 @@ try {
         console.log(resp);    
         this.loading = false;
         
-      this.document.doc = 'ingresado';
-      this.document.usuario_id = this.popItemAgenda.usuario_id;
-      console.log(this.document.doc);
-        this.editDoc();
+     // this.document.doc = 'llamando';
+     // this.document.usuario_id = this.popItemAgenda.usuario_id;
+    //  console.log(this.document.doc);
+    this.documentService.sendMessage('llamando-recepcion');    
+       // this.editDoc();
         this.loadList(); 
     },
     error => { // error path
         console.log(error.message);
         console.log(error.status);
         console.log(error);
-        this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message);
+        swal({
+          toast: false,
+          type: 'warning',
+          title: error.status,
+          text: error.message,
+          showConfirmButton: false,
+          timer: 2000
+        });
      });    
 } catch (error) {
-this.throwAlert('error','Error al cargar los registros',error);
+
 }  
 } 
 

@@ -93,8 +93,7 @@ export class AgendaComponent implements OnInit {
         {field: 'llegada', header: 'Llegada', width: '8%' },
         {field: 'atendido', header: 'Ingresado' , width: '8%'},
         {field: 'es_alerta', header: '' , width: '4%'},
-        {field: 'boton', header: '' , width: '4%'},
-        {field: 'boton', header: '', width: '8%' },
+        {field: 'boton', header: '' , width: '4%'},        
         ];
      this.busqueda = [
         {label:'Seleccione una busqueda', value:null},
@@ -123,7 +122,7 @@ export class AgendaComponent implements OnInit {
         'fechaHoy': new FormControl('', Validators.required), 
         'medico_nombre': new FormControl('')
         });
-  this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','','','');
+  this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','','','','','');
   }
 
   ngOnInit() {
@@ -141,19 +140,17 @@ export class AgendaComponent implements OnInit {
   this.DateForm.patchValue({fechaHoy: this.fechaHoy});
  
 
-
-   
-  this.documents = this.documentService.documents;
-  this._docSub = this.documentService.currentDocument.pipe(
-    startWith({ id: 'VISION123456787890', doc: '',usuario_id: '', data: []})
-  ).subscribe(document => {
-    this.document = document;
-    console.log(this.document);
-    if((document.doc === 'llamando')){
-    //  this.loadList();
-      }
+  this.documentService
+  .getMessages()
+  .subscribe((message: string) => {    
+    console.log(message);
+    if(message ==='llamando-recepcion'){
+      this.loadList();
+    }
+    
   });
-  this.newDoc();
+   
+  
   this.loadList();
 
   let timer = Observable.timer(180000,180000);//180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
@@ -165,26 +162,9 @@ export class AgendaComponent implements OnInit {
   } 
 
   ngOnDestroy() {
-    this._docSub.unsubscribe();
+    
   }
 
-  loadDoc(id: string) {
-    if(this.document.doc){
-    console.log('load doc '+this.document.doc);
-    this.documentService.getDocument(id);
-    }
-  }
-
-  newDoc() {
-    this.documentService.newDocument();
-  }
-
-  editDoc() {
-    console.log('edit doc '+this.document.doc);
-    //if()
-    this.documentService.editDocument(this.document);
-  }
-  
   actualizarFecha(event){
     console.log(event);
     this.fechaHoy = event;
@@ -411,7 +391,7 @@ async editarRegistro(cond:string,selecteditems:AgendaTurno){
                 this.agendaTurno =null;
               }
               //this.newDoc();
-            //  this.loadDoc('');
+            //  this.loadDoc('llamando');
         
             this.loading = false;
         },
@@ -451,9 +431,7 @@ if(this._fechaHoy!=''){
           console.log(this.agendaTurno);
             }else{
               this.agendaTurno =null;
-            }
-            this.newDoc();
-            this.loadDoc('');
+            }  
       
           this.loading = false;
       },
@@ -630,11 +608,7 @@ if(this._fechaHoy!=''){
      // this.agendaTurno = resp;
           console.log(resp);    
           this.loading = false;
-          
-        this.document.doc = 'ingresado';
-        this.document.usuario_id = this.popItemAgenda.usuario_id;
-        console.log(this.document.doc);
-          this.editDoc();
+          this.documentService.sendMessage('llamando-agendas');
           this.loadList(); 
       },
       error => { // error path
@@ -729,42 +703,46 @@ generarPdf(){
 colorRow(estado:string){
     
   
-    if(estado == 'ATENDIDO') {
-      return {'es-atendido'  :'null' };
-    }
-    if(estado == 'ATENDIDO') {
-        return {'es-atendido'  :'null' };
-    }
-    if(estado == 'PENDIENTE') {
-        return {'es-pendiente'  :'null' };
-    }
-    if(estado == 'AUSENTE') {
-        return {'es-ausente'  :'null' };
-    }
-    if(estado == 'INGRESADO') {
-        return {'es-ingresado'  :'null' };
-    }
-    if(estado == 'PRESENTE') {
-      return {'es-presente'  :'null' };
+  if(estado == 'ATENDIDO') {
+    return {'es-atendido'  :'null' };
   }
-    if(estado == 'ESPERA') {
-        return {'es-espera'  :'null' };
-    }
-    if(estado == 'SOBRETURNO') {
-      return {'es-sobreturno'  :'null' };
-    }
-    if(estado == 'TURNO') {
-      return {'es-turno'  :'null' };
-    }
-    if(estado == 'CANCELADO') {  
-      return {'es-cancelado'  :'null' };
-    }  
-   
-   
-    
-    
-  
-  
+  if(estado == 'ATENDIDO') {
+      return {'es-atendido'  :'null' };
+  }
+  if(estado == 'PENDIENTE') {
+      return {'es-pendiente'  :'null' };
+  }
+  if(estado == 'AUSENTE') {
+      return {'es-ausente'  :'null' };
+  }
+  if(estado == 'INGRESADO') {
+      return {'es-ingresado'  :'null' };
+  }
+  if(estado == 'ESPERA') {
+      return {'es-espera'  :'null' };
+  }
+  if(estado == 'PRESENTE') {
+    return {'es-presente'  :'null' };
+}
+  if(estado == 'SOBRETURNO') {
+    return {'es-sobreturno'  :'null' };
+  }
+  if(estado == 'TURNO') {
+    return {'es-turno'  :'null' };
+  }
+
+  if(estado == 'DERIVADO') {
+    return {'es-turno'  :'null' };
+  }
+
+  if(estado == 'CANCELADO') {  
+    return {'es-cancelado'  :'null' };
+  }  
+ 
+  if(estado == 'LLAMANDO') {
+    return {'es-llamando'  :'null' };
+  }
+ 
 }
 
 colorString(estado:string){

@@ -127,7 +127,7 @@ export class AgendaConsultaComponent implements OnInit {
         'fechaHoy': new FormControl('', Validators.required), 
         'medico_nombre': new FormControl('')
         });
-  this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','', '', '', '','','','','','');
+  this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','', '', '', '','','','','','','','');
   
   }
 
@@ -154,7 +154,7 @@ export class AgendaConsultaComponent implements OnInit {
   ).subscribe(document => {
     this.document = document;
     console.log(this.document);
-    if(document.doc === 'ingresado'){
+    if(document.doc === 'llamando'){
     this.loadListByMedico();
     }
   });
@@ -350,7 +350,7 @@ if(this._fechaHoy!=''){
               this.agendaTurno =null;
             }
           this.newDoc();
-          this.loadDoc('');
+          this.loadDoc('llamando');
           this.loading = false;
       },
       error => { // error path
@@ -398,7 +398,7 @@ loadListByDates(){
               this.agendaTurno =null;
             }
           this.newDoc();
-          this.loadDoc('');
+          this.loadDoc('llamando');
           this.loading = false;
       },
       error => { // error path
@@ -432,7 +432,7 @@ if(this._fechaHoy!=''){
               this.agendaTurno =null;
             }
             this.newDoc();
-            this.loadDoc('');
+            this.loadDoc('llamando');
       
           this.loading = false;
       },

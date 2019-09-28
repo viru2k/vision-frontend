@@ -146,10 +146,7 @@
                        <!--    <button type="button"   class="btn btn-outline-success btn-md p-1 pr-1" (click)="accion($event,op,agendaTurno)"    ><i class="far fa-edit fa-2x icon-color-purple"></i></button> -->
                        <a   (click)="accion($event,op,agendaTurno)"   ><i class="far fa-edit fa-2x icon-color-purple my-hover" ></i></a>            
                                     
-                         </td>
-                      <td style="width: 8%">
-                          <button  [disabled]="agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'ESPERA' || agendaTurno.estado == 'CANCELADO'" type="button" class="btn btn-outline-info btn-sm" (click)="pacienteIngresado(agendaTurno)"    >Espera</button>
-                      </td>
+                         </td>                    
                    
                     
               </tr>
@@ -164,9 +161,9 @@
                       <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('reasignar')">  Reasignar a medico</a></span>   
                       <hr>  
                       <b><label class="text-info"> Acciones</label></b>                      
+                      <span>   <a class="nav-link   my-hover es-presente" (click)="editarRegistro('presente')">  Presente</a></span>    
                       <span>   <a class="nav-link   my-hover es-llamando" (click)="editarRegistro('llamando')"> <i class="fas fa-volume-up"> </i> Llamar</a></span>
                       <span>   <a class="nav-link   my-hover es-llamando" (click)="editarRegistro('rellamar')"> <i class="fas fa-volume-up"> </i> Volver a llamar</a></span>                               
-                      <span>   <a class="nav-link   my-hover es-presente" (click)="editarRegistro('presente')">  Presente</a></span>                      
                       <span>   <a class="nav-link   my-hover es-espera" (click)="editarRegistro('espera')">  Espera</a></span>
                       <hr>
                                    

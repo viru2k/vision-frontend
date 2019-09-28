@@ -64,6 +64,8 @@ export class AgendaAtencionMedicoComponent implements OnInit {
   private _docSub: Subscription;
   document: Document;
   motivo:string;
+  message: string;
+
 
   constructor(private documentService: DocumentService, private miServico:AgendaService, private messageService: MessageService ,public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router ) {
    
@@ -110,7 +112,7 @@ export class AgendaAtencionMedicoComponent implements OnInit {
         'fechaHoy': new FormControl('', Validators.required), 
         'medico_nombre': new FormControl('')
         });
-  this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','', '', '', '','','','','','');
+  this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','', '', '', '','','','','','','','');
   
   }
 
@@ -120,7 +122,7 @@ export class AgendaAtencionMedicoComponent implements OnInit {
     let timer = Observable.timer(180000,180000);//180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
     timer.subscribe(t=> {
       console.log('bucando turnos');
-      this.loadListTodosTurnos();
+      this.loadListByMedico();
   });
   //fin timer
 
@@ -134,40 +136,25 @@ export class AgendaAtencionMedicoComponent implements OnInit {
       'dni': new FormControl('', Validators.required),     
   });
   this.DateForm.patchValue({fechaHoy: this.fechaHoy});
-  this.loadListByMedico();
-  this.documents = this.documentService.documents;
-  this._docSub = this.documentService.currentDocument.pipe(
-    startWith({ id: 'VISION123456787890', doc: '',usuario_id:'', data: []})
-  ).subscribe(document => {
-    this.document = document;
-    console.log(this.document);
-    if((document.doc === 'ingresado')&&(document.usuario_id ===  this.userData['id'])){
-    this.loadListByMedico();
+  
+  this.documentService
+  .getMessages()
+  .subscribe((message: string) => {    
+    console.log(message);
+    if(message ==='llamando-recepcion'){
+      this.loadListByMedico();    
     }
+    
   });
-  this.newDoc();
+
+  this.loadListByMedico();
   }
 
   ngOnDestroy() {
-    this._docSub.unsubscribe();
+ 
   }
 
-  loadDoc(id: string) {
-    if(this.document.doc){
-    console.log('load doc '+this.document.doc);
-    this.documentService.getDocument(id);
-    }
-  }
 
-  newDoc() {
-    this.documentService.newDocument();
-  }
-
-  editDoc() {
-    console.log('edit doc '+this.document.doc);
-    //if()
-    this.documentService.editDocument(this.document);
-  }
 
   actualizarFecha(event){
     console.log(event);
@@ -255,25 +242,68 @@ colorEsSobreturno(sobreturno:string, estado:string){
     this.popItemAgenda = event;
     this._fechaHoy = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en');        
     this.popItemAgenda.atendido = this._fechaHoy;
-    
+    this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+    this.popItemAgenda.puesto_estado = 'LLAMANDO'; 
+    this.popItemAgenda.llama_pantalla ='SI';
     this.popItemAgenda.agenda_estado_id = '3';
     console.log(this.popItemAgenda);
-    this.document.doc = 'llamando';
-    this.document.usuario_id = this.userData['id'];
-    console.log(this.document.doc);
-      this.editDoc();
-    this.actualizarTurno();
+
+    this.ActualizarTurnoLlamando();
+    
   }
+
+
+  
+ActualizarTurnoLlamando(){
+
+  try {
+    console.log(this.userData);
+    this.miServico.ActualizarTurnoLlamando(this.popItemAgenda.paciente_id,this.popItemAgenda.usuario_id, this.userData['puesto'])
+    .subscribe(resp => {   
+        console.log(resp);    
+        this.loading = false;
+      swal({
+        title: '¿LLamar en pantalla?',
+        type: 'info',
+        showCancelButton: true,
+        confirmButtonColor: '#9CCC65',
+        cancelButtonColor: '#E64A19',
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (result.value) {
+          this.documentService.sendMessage('llamando-pantalla');
+          this.actualizarTurno(); 
+        }else{          
+          this.actualizarTurno(); 
+        }
+      })
+
+    },
+    error => { // error path
+        console.log(error.message);
+        console.log(error.status);
+        console.log(error);
+        swal({
+          toast: false,
+          type: 'warning',
+          title: error.status,
+          text: error.message,
+          showConfirmButton: false,
+          timer: 2000
+        });
+     });    
+} catch (error) {
+
+}  
+}
 
   pacienteDerivado(event:AgendaTurno){
     // console.log(event);
      this.popItemAgenda = event;              
      this.popItemAgenda.agenda_estado_id = '11';
      console.log(this.popItemAgenda);
-     this.document.doc = 'llamando';
-     this.document.usuario_id = this.userData['id'];
-     console.log(this.document.doc);
-       this.editDoc();
+
     
   console.log(this.popItemAgenda);  
   this.es = calendarioIdioma;
@@ -292,10 +322,16 @@ colorEsSobreturno(sobreturno:string, estado:string){
           console.log(error.message);
           console.log(error.status);
           console.log(error);
-          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message);
+          swal({
+            toast: false,
+            type: 'warning',
+            title: error.status,
+            text: error.message,
+            showConfirmButton: false,
+            timer: 2000
+          });
        });    
-  } catch (error) {
-  this.throwAlert('error','Error al cargar los registros',error);
+  } catch (error) {  
   }  
    }
 
@@ -316,11 +352,7 @@ colorEsSobreturno(sobreturno:string, estado:string){
       cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.value) {
-        this.popItemAgenda.agenda_estado_id = '4';
-        this.document.doc = 'atendido';
-        this.document.usuario_id = this.userData['id'];
-        console.log(this.document.doc);
-          this.editDoc();
+        this.popItemAgenda.agenda_estado_id = '4';                
         this.actualizarTurno();
       }
     });
@@ -406,18 +438,16 @@ if(this._fechaHoy!=''){
           console.log(this.agendaTurno);
             }else{
               this.agendaTurno =null;
-            }
-          this.document.doc='llamando';
-          this.documentService.editDocument(this.document);
+            }    
           this.loading = false;
       },
       error => { // error path
           console.log(error.message);
           console.log(error.status);
-          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message);
+         
        });    
   } catch (error) {
-  this.throwAlert('error','Error al cargar los registros',error);
+  
   }  
 } 
 
@@ -440,8 +470,7 @@ if(this._fechaHoy!=''){
             }else{
               this.agendaTurno =null;
             }
-            this.newDoc();
-            this.loadDoc('');
+
       
           this.loading = false;
       },
@@ -449,10 +478,16 @@ if(this._fechaHoy!=''){
           console.log(error.message);
           console.log(error.status);
           this.loading = false;
-          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message);
+          swal({
+            toast: false,
+            type: 'warning',
+            title: error.status,
+            text: error.message,
+            showConfirmButton: false,
+            timer: 2000
+          });
        });    
-  } catch (error) {
-  this.throwAlert('error','Error al cargar los registros',error);
+  } catch (error) {  
   }  
 } 
 
@@ -471,16 +506,23 @@ if(this._fechaHoy!=''){
      // this.agendaTurno = resp;
           console.log(resp);    
           this.loading = false;
+          this.documentService.sendMessage('llamando-agendas');
           this.loadListByMedico(); 
       },
       error => { // error path
           console.log(error.message);
           console.log(error.status);
           console.log(error);
-          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message);
+          swal({
+            toast: false,
+            type: 'warning',
+            title: error.status,
+            text: error.message,
+            showConfirmButton: false,
+            timer: 2000
+          });
        });    
-  } catch (error) {
-  this.throwAlert('error','Error al cargar los registros',error);
+  } catch (error) {  
   }  
 } 
 

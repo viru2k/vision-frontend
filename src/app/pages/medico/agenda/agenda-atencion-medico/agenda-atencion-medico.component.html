@@ -88,7 +88,7 @@
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.dia_nombre}}</td> 
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.usuario_alta}}</td> 
                         
-                        <td style="width: 4%" >
+                        <td style="width: 4%" #mirow>
                              
                             <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-astronaut fa-2x icon-color-orange-light" *ngIf="agendaTurno.es_observacion === 'CONTROL PREQUIRURGICO'"  ></i></a>
                             <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-user-md fa-2x icon-color-blue" *ngIf="agendaTurno.es_observacion === 'CONTROL POSQUIRURGICO'"  ></i></a>
@@ -108,10 +108,10 @@
                            </td>
                          
                         <td style="width: 8%">
-                            <button  [disabled]="agendaTurno.estado == 'PRESENTE' || agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'PENDIENTE' || agendaTurno.estado == 'CANCELADO'" type="button" class="btn btn-outline-info btn-sm" (click)="pacienteIngresado(agendaTurno)"    >Llamar</button>
+                            <button  [disabled]="agendaTurno.estado == 'PRESENTE'  || agendaTurno.estado == 'PENDIENTE' || agendaTurno.estado == 'CANCELADO'" type="button" class="btn btn-outline-info btn-sm" (click)="pacienteIngresado(agendaTurno)"    >Llamar</button>
                         </td>    
                         <td style="width: 10%">
-                            <button  [disabled]="agendaTurno.estado == 'PRESENTE' || agendaTurno.estado == 'ESPERA' || agendaTurno.estado == 'SOBRETURNO' || agendaTurno.estado == 'CANCELADO'" type="button" class="btn btn-outline-secondary btn-sm" (click)="pacienteAtendido(agendaTurno)"    >Atendido</button>
+                            <button  [disabled]="agendaTurno.estado == 'PRESENTE'  || agendaTurno.estado == 'ESPERA' || agendaTurno.estado == 'SOBRETURNO' || agendaTurno.estado == 'CANCELADO'" type="button" class="btn btn-outline-secondary btn-sm" (click)="pacienteAtendido(agendaTurno)"    >Atendido</button>
                         </td>  
                         <td style="width: 10%">
                             <button  [disabled]="agendaTurno.estado == 'PRESENTE' || agendaTurno.estado == 'ESPERA' || agendaTurno.estado == 'SOBRETURNO' || agendaTurno.estado == 'CANCELADO'" type="button" class="btn btn-outline-warning btn-sm" (click)="pacienteDerivado(agendaTurno)"    >Recepción</button>
@@ -122,7 +122,7 @@
              
                 </p-table>
                
-                <p-overlayPanel #op [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >                          
+                <p-overlayPanel #op [appendTo]="mirow" [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" [showCloseIcon]="true" >                          
                         <span>   <a class="nav-link azul my-hover " (click)="editarRegistro('historia')"> historia clínica</a></span>                        
                         <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('turno')">  Dar turno</a></span>                    
                         <hr>

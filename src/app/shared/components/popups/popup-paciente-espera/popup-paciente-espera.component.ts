@@ -128,7 +128,7 @@ export class PopupPacienteEsperaComponent implements OnInit {
       'fechaHoy': new FormControl('', Validators.required), 
       'medico_nombre': new FormControl('')
       });
-this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','','','');
+this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','','','','','');
 }
 
 ngOnInit() {
@@ -223,8 +223,8 @@ pacienteIngresado(event:AgendaTurno){
  // console.log(event);
   this.popItemAgenda = event;
   this.popItemAgenda.agenda_estado_id = '9';
-  this.popItemAgenda.puesto_estado = 'LLAMANDO' ;
-  this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+  //this.popItemAgenda.puesto_estado = 'LLAMANDO' ;
+  //this.popItemAgenda.puesto_llamado = this.userData['puesto'];
   console.log(this.popItemAgenda);
   this.actualizarTurno();
 }
@@ -235,7 +235,8 @@ pacienteAtendido(event:AgendaTurno){
   this._fechaHoy = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en');
   this.popItemAgenda.atendido = this._fechaHoy;
   this.popItemAgenda.agenda_estado_id = '3';
-  this.popItemAgenda.puesto_estado = 'INGRESADO' ;
+  //this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+ // this.popItemAgenda.puesto_estado = 'INGRESADO' ;
   this.actualizarTurno();
 }
 
@@ -326,17 +327,25 @@ async editarRegistro(cond:string,selecteditems:AgendaTurno){
 
     if(cond == 'llamando'){
       this.popItemAgenda.agenda_estado_id = '9';
+      this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+      this.popItemAgenda.puesto_estado = 'LLAMANDO';
+      this.popItemAgenda.llamando = this._fechaHoy;
       this.actualizarTurno();
     }
 
     if(cond == 'rellamar'){
-      this.popItemAgenda.agenda_estado_id = '9';      
+      this.popItemAgenda.agenda_estado_id = '9';
+      this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+      this.popItemAgenda.puesto_estado = 'LLAMANDO';
+      this.popItemAgenda.llamando = this._fechaHoy;
       this.actualizarTurno();
     }
     if(cond == 'ausente'){
       this.popItemAgenda.agenda_estado_id = '10';
       this.popItemAgenda.llegada = this._fechaHoy;
       this.popItemAgenda.atendido = this._fechaHoy;
+      this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+      this.popItemAgenda.puesto_estado = 'ATENDIDO';
 
       this.actualizarTurno();
     }
@@ -391,7 +400,7 @@ if(this._fechaHoy!=''){
               this.agendaTurno =null;
             }
             //this.newDoc();
-          //  this.loadDoc('');
+          //  this.loadDoc('llamando');
       
           this.loading = false;
       },
@@ -469,7 +478,7 @@ try {
         console.log(resp);    
         this.loading = false;
         
-      this.document.doc = 'ingresado';
+      this.document.doc = 'llamando';
       this.document.usuario_id = this.popItemAgenda.usuario_id;
       console.log(this.document.doc);
         this.editDoc();

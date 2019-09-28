@@ -208,6 +208,12 @@ getItembyDni(dni:string){
     return this.http.put<AgendaMedico>(this.url_agenda+"turno/derivado/"+id,agendaturno);
   }
 
+
+  ActualizarTurnoLlamando( paciente_id:string, medico_id:string,puesto:string){
+    
+    return this.http.get<any>(this.url_agenda+"turno/pantalla/llamando?paciente_id="+paciente_id+'&medico_id='+medico_id+'&puesto='+puesto);
+  }
+
   
 } 
 

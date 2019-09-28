@@ -40,9 +40,11 @@ export class AgendaTurno {
     agenda_creacion:string;
     es_sobreturno:string;
     presente:string;
+    llamando:string;
     edad:string;
     puesto_llamado:string;
     puesto_estado:string;
+    llama_pantalla:string;
 
     constructor( 
         id:string,
@@ -83,9 +85,11 @@ export class AgendaTurno {
         agenda_creacion:string,
         es_sobreturno:string,
         presente:string,
+        llamando:string,
         edad:string,
         puesto_llamado:string,
-        puesto_estado:string
+        puesto_estado:string,
+        llama_pantalla:string
         ) {
        
         this.id = id;
@@ -126,8 +130,10 @@ export class AgendaTurno {
         this.agenda_creacion = agenda_creacion;
         this.es_sobreturno = es_sobreturno;
         this.presente = presente;
+        this.llamando = llamando;
         this.edad = edad;
         this.puesto_estado = puesto_estado;
         this.puesto_llamado = puesto_llamado;
+        this.llama_pantalla = llama_pantalla;
    }
 }

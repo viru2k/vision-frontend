@@ -140,7 +140,7 @@ export class OperacionCobroComponent implements OnInit {
     console.log(this.user);
     this.tmpdate = new Date();
     
-    this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','','','');
+    this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','','','','','');
     this.popItemPaciente =  new Paciente('0','','','','','',new Date(),'','','','','','','','','0','0','','','0','','','','','','');
     this.popItemObraSocial = new ObraSocial('','','','','','','','');
     this.popItemCoseguro = new ObraSocial('','','','','','','','');
