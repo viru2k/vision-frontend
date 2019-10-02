@@ -13,7 +13,10 @@ import swal from 'sweetalert2';
 declare const require: any;
 const jsPDF = require('jspdf');
 require('jspdf-autotable'); 
-
+import  html2canvas from 'html2canvas';
+var JsBarcode = require('jsbarcode');
+var Canvas = require("canvas");
+import * as $ from 'jquery';
 import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/components/common/api';
 import { PracticaService } from 'src/app/services/practica.service';
@@ -28,6 +31,7 @@ import { NumberToWordsPipe } from '../../../../../shared/pipes/number-to-words.p
 import { PopupOperacionCobroPresentacionComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component';
 import { PopupPresentacionEditarComponent } from '../../../../../shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component';
 //import { ExcelService } from '../../../../../services/excel.service';
+import { FacturacionService } from '../../../../../services/facturacion.service';
 
 
 @Component({
@@ -38,7 +42,7 @@ import { PopupPresentacionEditarComponent } from '../../../../../shared/componen
 })
 export class LiquidacionDetalleComponent implements OnInit {
 
- 
+  @ViewChild('codigobarra') canvas: ElementRef;
   cols: any[];
   columns: any[];
   columnsListadoMedico: any[];
@@ -68,8 +72,11 @@ export class LiquidacionDetalleComponent implements OnInit {
   cantidad:number = 0;
   selectedImpresion:string ;//= 'Transferencia';
   impresiones:any[];
-
-  constructor(private miServicio:LiquidacionService,private practicaService:PracticaService, private messageService: MessageService ,public dialogService: DialogService,public numberToWordsPipe:NumberToWordsPipe,private cp: CurrencyPipe, private dp: DecimalPipe) {
+  barcode:boolean;
+  resp_factura:any[];
+  
+   value:string;
+  constructor(private facturacionService:FacturacionService,private miServicio:LiquidacionService,private practicaService:PracticaService, private messageService: MessageService ,public dialogService: DialogService,public numberToWordsPipe:NumberToWordsPipe,private cp: CurrencyPipe, private dp: DecimalPipe) {
 
     this.impresiones = [
       {name: 'Presentación todos', code: '1'},
@@ -77,9 +84,10 @@ export class LiquidacionDetalleComponent implements OnInit {
       {name: 'Presentación medico ACLISA', code: '3'},        
       {name: 'Presentación DOS Cirugia', code: '4'},        
       {name: 'Presentación con IVA', code: '5'},
-      {name: 'exportarExcel', code: '6'},
-      {name: 'txt práctica y estudios DOS', code: '7'},
-      {name: 'txt cirugia DOS', code: '8'},
+      {name: 'Exportar Excel', code: '6'},
+      {name: 'Txt práctica y estudios DOS', code: '7'},
+      {name: 'Txt cirugia DOS', code: '8'},
+      {name: 'Imprimir factura', code: '9'},
   ];
 
     this.cols = [
@@ -170,6 +178,8 @@ this.DateForm = new FormGroup({
    }
 
   ngOnInit() {
+    this.barcode = true;
+  this.barcode = false;
     this.selectedImpresion =  this.impresiones[0];
     this.es = calendarioIdioma;
     this.fechaDesde = new Date();        
@@ -232,6 +242,9 @@ this.DateForm = new FormGroup({
     }
     if( this.selectedImpresion['code'] === '8'){
       this.generarTxtCirugia();
+    }
+    if( this.selectedImpresion['code'] === '9'){
+      this.generarFactura();
     }
   }
 
@@ -429,6 +442,49 @@ loadPresentacionIva(){
   } catch (error) {
   this.throwAlert('error','Error al cargar los registros',error,error.status);
   }  
+
+}
+
+generarFactura(){
+  
+  this.loading = true;
+  this.value ='69403789532737';
+     
+  
+  
+  try {
+    this.facturacionService.CrearFacturaA('24')    
+    .subscribe(resp => {
+      this.resp_factura = resp;
+      console.log(this.resp_factura["CAE"]);
+      this.value =this.resp_factura["CAE"];
+      JsBarcode("#barcode", this.value, {
+        format: "CODE128",
+        height:50,
+        displayValue: true
+      });
+      html2canvas(document.getElementById("barcode")).then(canvas => {
+        var imgData = canvas.toDataURL('image/png');
+        console.log('Report Image URL: '+imgData);
+        var doc = new jsPDF();//210mm wide and 297mm high
+        doc.addImage(imgData, 'JPEG', 15, 15);
+        window.open(doc.output('bloburl'));
+      });
+      this.throwAlert('success', 'Se generó el archivo con éxito','','');
+        this.loading = false;
+        console.log(resp);
+      
+
+    },
+    error => { // error path
+        console.log(error.message);
+        console.log(error.status);
+        this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+     });    
+} catch (error) {
+this.throwAlert('error','Error al cargar los registros',error,error.status);
+}  
+  
 
 }
 

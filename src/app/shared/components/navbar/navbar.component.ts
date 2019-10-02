@@ -321,6 +321,7 @@ menuList(){
                 {label: 'Gestion de turnos', 'routerLink': 'recepcion/turnos'},
               ]
           },
+          {label: 'Factura electrónica',visible:!this.recepcion_consulta, 'routerLink': 'recepcion/factura/electronica'},
           {label: 'Operación de cobro',visible:!this.recepcion_consulta, 'routerLink': 'recepcion/operacioncobro'},
           {label: 'Detalle de operaciones de cobro',visible:! this.recepcion_consulta, 'routerLink': 'liquidacion/operacioncobro/detalle'},
           {label: 'Historia clínica',visible:!this.recepcion_consulta, 'routerLink': 'medico/historiaclinica/consulta'},

@@ -26,6 +26,7 @@ import { PopupOperacionCobroEditarComponent } from '../../../../../shared/compon
 import { PopupOperacionCobroRegistroBuscarComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-registro-buscar/popup-operacion-cobro-registro-buscar.component';
 import { PopupCobroDistribucionEditarComponent } from '../../../../../shared/components/popups/popup-cobro-distribucion-editar/popup-cobro-distribucion-editar.component';
 import { PopupOperacionCobroRegistroBuscarTodosComponent } from './../../../../../shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component';
+import { LiquidacionService } from './../../../../../services/liquidacion.service';
 
 @Component({
   selector: 'app-operacion-cobro-auditar',
@@ -68,7 +69,7 @@ export class OperacionCobroAuditarComponent implements OnInit {
   formasPago:any[];
   nivel:any[];
 
-    constructor(private miServicio:PracticaService,private messageService: MessageService ,public dialogService: DialogService,private cp: CurrencyPipe,private dp: DecimalPipe ) {
+    constructor(private miServicio:PracticaService,private liquidacionService:LiquidacionService,private messageService: MessageService ,public dialogService: DialogService,private cp: CurrencyPipe,private dp: DecimalPipe ) {
   
 
       this.formasPago = [
@@ -513,6 +514,12 @@ auditarRegistros(){
   }  
 }
 
+
+
+public exportarExcel(){
+  const fecha_impresion = formatDate(new Date(), 'dd-MM-yyyy-mm', 'es-Ar');  
+  this.liquidacionService.exportAsExcelFile(  this.selecteditems, 'listado_presentacion'+fecha_impresion);
+}
 
 async generarPreFactura(){
 

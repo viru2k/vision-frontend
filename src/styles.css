@@ -180,6 +180,16 @@
     outline: 0;
 }
 
+.btn-excel{
+    background:  #1B5E20!important; 
+    border:  #1B5E20!important;
+    border-radius: 5px;    
+    outline-color: #1B5E20!important; 
+    color: #FFFFFF!important;
+    outline: 0;
+    
+}
+
 .btn-success:active:focus{
     border-color:  #8bc34a!important;
     outline:  #8bc34a !important;

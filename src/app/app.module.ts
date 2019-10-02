@@ -47,6 +47,10 @@ import { AutofocusModule } from 'angular-autofocus-fix';
 import localeEsAr from '@angular/common/locales/es-AR'; 
 registerLocaleData(localeEsAR, 'es-Ar');
 
+
+/****barcode para imprimir */
+import { NgxBarcodeModule } from 'ngx-barcode';
+
 /** COMPONENTES **/
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
@@ -203,6 +207,7 @@ import { PopupChatComponent } from './pages/notificacion/popup-chat/popup-chat.c
 import { PopupListadoUsuarioComponent } from './pages/notificacion/popup-notificacion/popup-listado-usuario/popup-listado-usuario.component';
 import { PopupNotificacionNuevaComponent } from './pages/notificacion/popup-notificacion/popup-notificacion-nueva/popup-notificacion-nueva.component';
 import { ListadoCirugiaQuirofanoConsultaComponent } from './pages/quirofano/listado-cirugia-quirofano-consulta/listado-cirugia-quirofano-consulta.component';
+import { FacturaElectronicaComponent } from './pages/facturacion/factura/factura-electronica/factura-electronica.component';
 
 
 
@@ -343,6 +348,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupListadoUsuarioComponent,
     PopupNotificacionNuevaComponent,
     ListadoCirugiaQuirofanoConsultaComponent,
+    FacturaElectronicaComponent,
     
   ],
   imports: [
@@ -377,6 +383,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     AutoCompleteModule,
     SweetAlert2Module.forRoot(),
     AutofocusModule,
+    NgxBarcodeModule,
     SocketIoModule.forRoot(config),
       RouterModule.forRoot( ROUTES, { useHash: true } ),
       SocketIoModule.forRoot(config),
