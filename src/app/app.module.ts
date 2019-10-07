@@ -36,6 +36,7 @@ import {SpinnerModule} from 'primeng/spinner';
 import {ToastModule} from 'primeng/toast';
 import { DynamicDialogModule } from "primeng/dynamicdialog";
 import {ListboxModule} from 'primeng/listbox';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {MenuItem, MessageService,DialogService,SelectItem} from 'primeng/api';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
@@ -208,6 +209,15 @@ import { PopupListadoUsuarioComponent } from './pages/notificacion/popup-notific
 import { PopupNotificacionNuevaComponent } from './pages/notificacion/popup-notificacion/popup-notificacion-nueva/popup-notificacion-nueva.component';
 import { ListadoCirugiaQuirofanoConsultaComponent } from './pages/quirofano/listado-cirugia-quirofano-consulta/listado-cirugia-quirofano-consulta.component';
 import { FacturaElectronicaComponent } from './pages/facturacion/factura/factura-electronica/factura-electronica.component';
+import { CategoriaIvaComponent } from './pages/facturacion/factura-electronica/popups/categoria-iva/categoria-iva.component';
+import { EntidadComponent } from './pages/mantenimiento/entidad/entidad.component';
+import { EditEntidadComponent } from './pages/mantenimiento/entidad/edit-entidad/edit-entidad.component';
+import { GerenciaDetalleOperacionCobroComponent } from './pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component';
+import { GenerarFacturaComponent } from './pages/facturacion/factura-electronica/popups/generar-factura/generar-factura.component';
+import { GenerarNotaCreditoComponent } from './pages/facturacion/factura-electronica/popups/generar-nota-credito/generar-nota-credito.component';
+import { BuscarClienteFacturaComponent } from './pages/facturacion/factura-electronica/popups/buscar-cliente-factura/buscar-cliente-factura.component';
+import { PopupFacturaRenglonComponent } from './pages/factura/factura-electronica/popups/popup-factura-renglon/popup-factura-renglon.component';
+import { BuscarConceptoFacturaComponent } from './pages/facturacion/factura-electronica/popups/buscar-concepto-factura/buscar-concepto-factura.component';
 
 
 
@@ -349,6 +359,15 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupNotificacionNuevaComponent,
     ListadoCirugiaQuirofanoConsultaComponent,
     FacturaElectronicaComponent,
+    CategoriaIvaComponent,
+    EntidadComponent,
+    EditEntidadComponent,
+    GerenciaDetalleOperacionCobroComponent,
+    GenerarFacturaComponent,
+    GenerarNotaCreditoComponent,
+    BuscarClienteFacturaComponent,
+    PopupFacturaRenglonComponent,
+    BuscarConceptoFacturaComponent,
     
   ],
   imports: [
@@ -379,6 +398,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     OrderListModule,
     InputTextareaModule,
     ScrollPanelModule,
+    ProgressSpinnerModule,
     PanelModule,
     AutoCompleteModule,
     SweetAlert2Module.forRoot(),
@@ -411,6 +431,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupOperacionCobroRegistroBuscarTodosComponent, PopupDetalleOperacionCobroDistribucionComponent, 
     PopupOperacionCobroDistribucionComponent,PopupPacienteEsperaComponent, PopupNotificacionComponent,
     PopupChatComponent ,   PopupListadoUsuarioComponent, PopupNotificacionNuevaComponent,
+    PopupFacturaRenglonComponent,BuscarConceptoFacturaComponent
 
   ],
   providers: [CurrencyPipe,DecimalPipe,NumberToWordsPipe,PacienteService,PushNotificationService,ExcelService,{ provide: LOCALE_ID, useValue: 'es-Ar' },

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 
 import { URL_SERVICIOS, PARAMS } from '../config/config';
+import { FacturaElectronica } from './../models/factura-electronica.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class FacturacionService {
 
 
   GetLastVoucher(punto_vta:string, comprobante_tipo:string, medico_id:string){
-    return this.http.get<any[]>(this.url+'afip/data/getlastvoucher?punto_vta='+punto_vta+'&comprobante_tipo='+comprobante_tipo+'&medico_id='+medico_id);
+    return this.http.get<number>(this.url+'afip/data/getlastvoucher?punto_vta='+punto_vta+'&comprobante_tipo='+comprobante_tipo+'&medico_id='+medico_id);
     }
 
     getIformacionComprobante(punto_vta:string, comprobante_tipo:string, medico_id:string, comprobante_nro:string){
@@ -83,4 +84,49 @@ export class FacturacionService {
     CrearNotaCreditoC(medico_id:string){
       return this.http.get<any[]>(this.url+'afip/notacredito/c?medico_id='+medico_id);
       }   
+
+
+
+
+      /******************************************************************* */
+        // ELEMENTOS DE LA FACTURA
+      /******************************************************************* */
+
+
+      Alicuota(){
+        return this.http.get<any[]>(this.url+'afip/elementos/alicuota');
+      }
+
+      AlicuotaAsociada(){
+        return this.http.get<any[]>(this.url+'afip/elementos/alicuota/asociada');
+      }
+       
+      Comprobante(){
+        return this.http.get<any[]>(this.url+'afip/elementos/comprobante');
+      }
+
+      Concepto(){
+        return this.http.get<any[]>(this.url+'afip/elementos/concepto');
+      }
+
+      Documento(){
+        return this.http.get<any[]>(this.url+'afip/elementos/documento');
+      } 
+
+      PtoVta(){
+        return this.http.get<any[]>(this.url+'afip/elementos/pto/vta');
+      }
+
+      CategoriaIva(){
+        return this.http.get<any[]>(this.url+'afip/elementos/categoria/iva');
+      }
+
+      GetFacturaByid(){
+        return this.http.get<any[]>(this.url+'afip/elementos/factura');
+      }
+
+      crearFactura(facturaElectronica:FacturaElectronica){
+        return this.http.post<any[]>(this.url+'afip/elementos/factura/nueva', facturaElectronica);
+      }
+
 }

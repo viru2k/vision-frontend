@@ -51,11 +51,14 @@
             <ng-template pTemplate="body" let-elementos>
                         <tr  style="height:20px" [pSelectableRow]="elementos" >
                             <td style="width: 20%">{{elementos.nombre}}</td>
-                            <td style="width: 30%">{{elementos.descripcion}}</td>
-                            <td style="width: 10%">{{elementos.es_habilitada}}</td> 
-                            <td style="width: 20%">{{elementos.entidad_nombre}}</td>                                                   
-                            <td style="width: 10%">{{elementos.tiene_distribucion}}</td>
-                            <td style="width: 10%">{{elementos.es_coseguro}}</td>
+                            <td style="width: 10%">{{elementos.descripcion}}</td>
+                            <td style="width: 8%">{{elementos.es_habilitada}}</td> 
+                            <td style="width: 20%">{{elementos.entidad_nombre}}</td>         
+                            <td style="width: 10%">{{elementos.cuit}}</td>   
+                            <td style="width: 20%">{{elementos.categoria_iva}}</td>   
+                            <td style="width: 20%">{{elementos.domicilio}}</td>                                             
+                            <td style="width: 8%">{{elementos.tiene_distribucion}}</td>
+                            <td style="width: 8%">{{elementos.es_coseguro}}</td>
                         </tr>
                     </ng-template>
           

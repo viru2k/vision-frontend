@@ -277,131 +277,137 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_locales_es_AR__WEBPACK_IMPORTED_MODULE_36___default = /*#__PURE__*/__webpack_require__.n(_angular_common_locales_es_AR__WEBPACK_IMPORTED_MODULE_36__);
 /* harmony import */ var _toverux_ngx_sweetalert2__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! @toverux/ngx-sweetalert2 */ "./node_modules/@toverux/ngx-sweetalert2/esm5/toverux-ngx-sweetalert2.js");
 /* harmony import */ var angular_autofocus_fix__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! angular-autofocus-fix */ "./node_modules/angular-autofocus-fix/index.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _shared_components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./shared/components/navbar/navbar.component */ "./src/app/shared/components/navbar/navbar.component.ts");
-/* harmony import */ var _pages_login_login_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./pages/login/login.component */ "./src/app/pages/login/login.component.ts");
-/* harmony import */ var _pages_quirofano_quirofano_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./pages/quirofano/quirofano.component */ "./src/app/pages/quirofano/quirofano.component.ts");
-/* harmony import */ var _pages_medico_medico_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./pages/medico/medico.component */ "./src/app/pages/medico/medico.component.ts");
-/* harmony import */ var _pages_estadistica_estadistica_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./pages/estadistica/estadistica.component */ "./src/app/pages/estadistica/estadistica.component.ts");
-/* harmony import */ var _pages_paciente_paciente_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./pages/paciente/paciente.component */ "./src/app/pages/paciente/paciente.component.ts");
-/* harmony import */ var _shared_components_popups_popup_medico_popup_medico_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./shared/components/popups/popup-medico/popup-medico.component */ "./src/app/shared/components/popups/popup-medico/popup-medico.component.ts");
-/* harmony import */ var _shared_components_loading_loading_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./shared/components/loading/loading.component */ "./src/app/shared/components/loading/loading.component.ts");
-/* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./app.routes */ "./src/app/app.routes.ts");
-/* harmony import */ var angular_popper__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! angular-popper */ "./node_modules/angular-popper/fesm5/angular-popper.js");
-/* harmony import */ var _services_paciente_service__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./services/paciente.service */ "./src/app/services/paciente.service.ts");
-/* harmony import */ var _pages_mantenimiento_convenio_obra_social_obra_social_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./pages/mantenimiento/convenio/obra-social/obra-social.component */ "./src/app/pages/mantenimiento/convenio/obra-social/obra-social.component.ts");
-/* harmony import */ var _pages_mantenimiento_convenio_obra_social_pmo_pmo_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./pages/mantenimiento/convenio/obra-social/pmo/pmo.component */ "./src/app/pages/mantenimiento/convenio/obra-social/pmo/pmo.component.ts");
-/* harmony import */ var _pages_mantenimiento_convenio_convenio_convenio_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./pages/mantenimiento/convenio/convenio/convenio.component */ "./src/app/pages/mantenimiento/convenio/convenio/convenio.component.ts");
-/* harmony import */ var _pages_facturacion_liquidacion_generada_liquidacion_generada_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./pages/facturacion/liquidacion-generada/liquidacion-generada.component */ "./src/app/pages/facturacion/liquidacion-generada/liquidacion-generada.component.ts");
-/* harmony import */ var _pages_facturacion_liquidacion_liquidacion_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./pages/facturacion/liquidacion/liquidacion.component */ "./src/app/pages/facturacion/liquidacion/liquidacion.component.ts");
-/* harmony import */ var _pages_mantenimiento_cirugia_cirugia_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./pages/mantenimiento/cirugia/cirugia.component */ "./src/app/pages/mantenimiento/cirugia/cirugia.component.ts");
-/* harmony import */ var _pages_mantenimiento_cirugia_cirugia_grupo_cirugia_grupo_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./pages/mantenimiento/cirugia/cirugia-grupo/cirugia-grupo.component */ "./src/app/pages/mantenimiento/cirugia/cirugia-grupo/cirugia-grupo.component.ts");
-/* harmony import */ var _pages_mantenimiento_cirugia_cirugia_grupo_medico_cirugia_grupo_medico_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./pages/mantenimiento/cirugia/cirugia-grupo-medico/cirugia-grupo-medico.component */ "./src/app/pages/mantenimiento/cirugia/cirugia-grupo-medico/cirugia-grupo-medico.component.ts");
-/* harmony import */ var _pages_mantenimiento_popup_popup_obrasocial_popup_obrasocial_component__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./pages/mantenimiento/popup/popup-obrasocial/popup-obrasocial.component */ "./src/app/pages/mantenimiento/popup/popup-obrasocial/popup-obrasocial.component.ts");
-/* harmony import */ var _pages_mantenimiento_popup_popup_pmo_popup_pmo_component__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./pages/mantenimiento/popup/popup-pmo/popup-pmo.component */ "./src/app/pages/mantenimiento/popup/popup-pmo/popup-pmo.component.ts");
-/* harmony import */ var _pages_mantenimiento_popup_popup_entidad_factura_popup_entidad_factura_component__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./pages/mantenimiento/popup/popup-entidad-factura/popup-entidad-factura.component */ "./src/app/pages/mantenimiento/popup/popup-entidad-factura/popup-entidad-factura.component.ts");
-/* harmony import */ var _pages_mantenimiento_popup_popup_medico_grupo_medico_popup_medico_grupo_medico_component__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./pages/mantenimiento/popup/popup-medico-grupo-medico/popup-medico-grupo-medico.component */ "./src/app/pages/mantenimiento/popup/popup-medico-grupo-medico/popup-medico-grupo-medico.component.ts");
-/* harmony import */ var _pages_mantenimiento_popup_popup_medico_grupo_popup_medico_grupo_component__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./pages/mantenimiento/popup/popup-medico-grupo/popup-medico-grupo.component */ "./src/app/pages/mantenimiento/popup/popup-medico-grupo/popup-medico-grupo.component.ts");
-/* harmony import */ var _pages_facturacion_liquidacion_liquidar_liquidar_component__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./pages/facturacion/liquidacion/liquidar/liquidar.component */ "./src/app/pages/facturacion/liquidacion/liquidar/liquidar.component.ts");
-/* harmony import */ var _pages_facturacion_operacion_cobro_operacion_cobro_component__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./pages/facturacion/operacion-cobro/operacion-cobro.component */ "./src/app/pages/facturacion/operacion-cobro/operacion-cobro.component.ts");
-/* harmony import */ var _pages_recepcion_agenda_agenda_component__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./pages/recepcion/agenda/agenda.component */ "./src/app/pages/recepcion/agenda/agenda.component.ts");
-/* harmony import */ var _pages_mantenimiento_convenio_edit_convenio_edit_convenio_component__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./pages/mantenimiento/convenio/edit-convenio/edit-convenio.component */ "./src/app/pages/mantenimiento/convenio/edit-convenio/edit-convenio.component.ts");
-/* harmony import */ var _pages_mantenimiento_popup_popup_paciente_creacion_creacion_component__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./pages/mantenimiento/popup/popup-paciente/creacion/creacion.component */ "./src/app/pages/mantenimiento/popup/popup-paciente/creacion/creacion.component.ts");
-/* harmony import */ var _shared_components_popups_popup_agenda_popup_agenda_component__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./shared/components/popups/popup-agenda/popup-agenda.component */ "./src/app/shared/components/popups/popup-agenda/popup-agenda.component.ts");
-/* harmony import */ var _shared_components_popups_popup_convenio_popup_convenio_component__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./shared/components/popups/popup-convenio/popup-convenio.component */ "./src/app/shared/components/popups/popup-convenio/popup-convenio.component.ts");
-/* harmony import */ var _pages_recepcion_agenda_turno_turno_component__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./pages/recepcion/agenda/turno/turno.component */ "./src/app/pages/recepcion/agenda/turno/turno.component.ts");
-/* harmony import */ var _pages_facturacion_operacion_cobro_popup_combinada_popup_combinada_component__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./pages/facturacion/operacion-cobro/popup-combinada/popup-combinada.component */ "./src/app/pages/facturacion/operacion-cobro/popup-combinada/popup-combinada.component.ts");
-/* harmony import */ var _pages_facturacion_operacion_cobro_popup_combinada_popup_combinada_item_popup_combinada_item_component__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./pages/facturacion/operacion-cobro/popup-combinada/popup-combinada-item/popup-combinada-item.component */ "./src/app/pages/facturacion/operacion-cobro/popup-combinada/popup-combinada-item/popup-combinada-item.component.ts");
-/* harmony import */ var _pages_mantenimiento_convenio_obra_social_edit_obra_social_edit_obra_social_component__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./pages/mantenimiento/convenio/obra-social/edit-obra-social/edit-obra-social.component */ "./src/app/pages/mantenimiento/convenio/obra-social/edit-obra-social/edit-obra-social.component.ts");
-/* harmony import */ var _pages_mantenimiento_distribucion_practica_distribucion_practica_component__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./pages/mantenimiento/distribucion-practica/distribucion-practica.component */ "./src/app/pages/mantenimiento/distribucion-practica/distribucion-practica.component.ts");
-/* harmony import */ var _pages_facturacion_operacion_cobro_popup_combinada_lectura_popup_combinada_lectura_component__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./pages/facturacion/operacion-cobro/popup-combinada-lectura/popup-combinada-lectura.component */ "./src/app/pages/facturacion/operacion-cobro/popup-combinada-lectura/popup-combinada-lectura.component.ts");
-/* harmony import */ var _shared_components_popups_popup_forma_pago_popup_forma_pago_component__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./shared/components/popups/popup-forma-pago/popup-forma-pago.component */ "./src/app/shared/components/popups/popup-forma-pago/popup-forma-pago.component.ts");
-/* harmony import */ var _pages_mantenimiento_agenda_agenda_medico_agenda_medico_component__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./pages/mantenimiento/agenda/agenda-medico/agenda-medico.component */ "./src/app/pages/mantenimiento/agenda/agenda-medico/agenda-medico.component.ts");
-/* harmony import */ var _shared_components_popups_popup_usuario_popup_usuario_component__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./shared/components/popups/popup-usuario/popup-usuario.component */ "./src/app/shared/components/popups/popup-usuario/popup-usuario.component.ts");
-/* harmony import */ var _pages_recepcion_agenda_turno_popup_turno_usuario_obra_social_popup_turno_usuario_obra_social_component__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./pages/recepcion/agenda/turno/popup-turno-usuario-obra-social/popup-turno-usuario-obra-social.component */ "./src/app/pages/recepcion/agenda/turno/popup-turno-usuario-obra-social/popup-turno-usuario-obra-social.component.ts");
-/* harmony import */ var _shared_components_popups_popup_paciente_popup_paciente_component__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./shared/components/popups/popup-paciente/popup-paciente.component */ "./src/app/shared/components/popups/popup-paciente/popup-paciente.component.ts");
-/* harmony import */ var _pages_paciente_popup_paciente_popup_paciente_component__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./pages/paciente/popup-paciente/popup-paciente.component */ "./src/app/pages/paciente/popup-paciente/popup-paciente.component.ts");
-/* harmony import */ var _shared_pipes_date_format_pipe__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./shared/pipes/date-format.pipe */ "./src/app/shared/pipes/date-format.pipe.ts");
-/* harmony import */ var _shared_components_popups_popup_paciente_obrasocial_popup_paciente_obrasocial_component__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./shared/components/popups/popup-paciente-obrasocial/popup-paciente-obrasocial.component */ "./src/app/shared/components/popups/popup-paciente-obrasocial/popup-paciente-obrasocial.component.ts");
-/* harmony import */ var _shared_components_popups_popup_practica_porcentaje_popup_practica_porcentaje_component__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./shared/components/popups/popup-practica-porcentaje/popup-practica-porcentaje.component */ "./src/app/shared/components/popups/popup-practica-porcentaje/popup-practica-porcentaje.component.ts");
-/* harmony import */ var _pages_medico_popup_obra_social_medico_popup_obra_social_medico_component__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! ./pages/medico/popup-obra-social-medico/popup-obra-social-medico.component */ "./src/app/pages/medico/popup-obra-social-medico/popup-obra-social-medico.component.ts");
-/* harmony import */ var _shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! ./shared/components/popups/popup-obra-social/popup-obra-social.component */ "./src/app/shared/components/popups/popup-obra-social/popup-obra-social.component.ts");
-/* harmony import */ var _pages_mantenimiento_agenda_agenda_bloqueo_agenda_bloqueo_component__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./pages/mantenimiento/agenda/agenda-bloqueo/agenda-bloqueo.component */ "./src/app/pages/mantenimiento/agenda/agenda-bloqueo/agenda-bloqueo.component.ts");
-/* harmony import */ var _pages_facturacion_liquidacion_auditar_operacion_cobro_auditar_operacion_cobro_auditar_component__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ./pages/facturacion/liquidacion/auditar/operacion-cobro-auditar/operacion-cobro-auditar.component */ "./src/app/pages/facturacion/liquidacion/auditar/operacion-cobro-auditar/operacion-cobro-auditar.component.ts");
-/* harmony import */ var _pages_facturacion_liquidacion_auditar_operacion_cobro_editar_operacion_cobro_editar_component__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./pages/facturacion/liquidacion/auditar/operacion-cobro-editar/operacion-cobro-editar.component */ "./src/app/pages/facturacion/liquidacion/auditar/operacion-cobro-editar/operacion-cobro-editar.component.ts");
-/* harmony import */ var _pages_asesoramiento_ficha_quirurgica_ficha_quirurgica_component__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./pages/asesoramiento/ficha-quirurgica/ficha-quirurgica.component */ "./src/app/pages/asesoramiento/ficha-quirurgica/ficha-quirurgica.component.ts");
-/* harmony import */ var _shared_components_popups_popup_turno_editar_popup_turno_editar_component__WEBPACK_IMPORTED_MODULE_92__ = __webpack_require__(/*! ./shared/components/popups/popup-turno-editar/popup-turno-editar.component */ "./src/app/shared/components/popups/popup-turno-editar/popup-turno-editar.component.ts");
-/* harmony import */ var _pages_facturacion_liquidacion_auditar_operacion_cobro_detalle_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_93__ = __webpack_require__(/*! ./pages/facturacion/liquidacion/auditar/operacion-cobro-detalle/operacion-cobro-detalle.component */ "./src/app/pages/facturacion/liquidacion/auditar/operacion-cobro-detalle/operacion-cobro-detalle.component.ts");
-/* harmony import */ var _shared_popups_medico_popup_historia_clinica_resumen_popup_historia_clinica_resumen_component__WEBPACK_IMPORTED_MODULE_94__ = __webpack_require__(/*! ./shared/popups/medico/popup-historia-clinica-resumen/popup-historia-clinica-resumen.component */ "./src/app/shared/popups/medico/popup-historia-clinica-resumen/popup-historia-clinica-resumen.component.ts");
-/* harmony import */ var _shared_components_popups_popup_operacion_cobro_registro_editar_popup_operacion_cobro_registro_editar_component__WEBPACK_IMPORTED_MODULE_95__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-registro-editar/popup-operacion-cobro-registro-editar.component */ "./src/app/shared/components/popups/popup-operacion-cobro-registro-editar/popup-operacion-cobro-registro-editar.component.ts");
-/* harmony import */ var _pages_facturacion_liquidacion_auditar_operacion_cobro_afectar_operacion_cobro_afectar_component__WEBPACK_IMPORTED_MODULE_96__ = __webpack_require__(/*! ./pages/facturacion/liquidacion/auditar/operacion-cobro-afectar/operacion-cobro-afectar.component */ "./src/app/pages/facturacion/liquidacion/auditar/operacion-cobro-afectar/operacion-cobro-afectar.component.ts");
-/* harmony import */ var _pages_asesoramiento_rendicion_caja_rendicion_caja_component__WEBPACK_IMPORTED_MODULE_97__ = __webpack_require__(/*! ./pages/asesoramiento/rendicion-caja/rendicion-caja.component */ "./src/app/pages/asesoramiento/rendicion-caja/rendicion-caja.component.ts");
-/* harmony import */ var _pages_stock_lentes_stock_lente_stock_lente_component__WEBPACK_IMPORTED_MODULE_98__ = __webpack_require__(/*! ./pages/stock/lentes/stock-lente/stock-lente.component */ "./src/app/pages/stock/lentes/stock-lente/stock-lente.component.ts");
-/* harmony import */ var _pages_stock_lentes_alta_lente_alta_lente_component__WEBPACK_IMPORTED_MODULE_99__ = __webpack_require__(/*! ./pages/stock/lentes/alta-lente/alta-lente.component */ "./src/app/pages/stock/lentes/alta-lente/alta-lente.component.ts");
-/* harmony import */ var _pages_stock_lentes_popup_popup_detalle_lente_popup_detalle_lente_component__WEBPACK_IMPORTED_MODULE_100__ = __webpack_require__(/*! ./pages/stock/lentes/popup/popup-detalle-lente/popup-detalle-lente.component */ "./src/app/pages/stock/lentes/popup/popup-detalle-lente/popup-detalle-lente.component.ts");
-/* harmony import */ var _pages_mantenimiento_stock_lente_lente_component__WEBPACK_IMPORTED_MODULE_101__ = __webpack_require__(/*! ./pages/mantenimiento/stock/lente/lente.component */ "./src/app/pages/mantenimiento/stock/lente/lente.component.ts");
-/* harmony import */ var _pages_mantenimiento_stock_insumo_insumo_component__WEBPACK_IMPORTED_MODULE_102__ = __webpack_require__(/*! ./pages/mantenimiento/stock/insumo/insumo.component */ "./src/app/pages/mantenimiento/stock/insumo/insumo.component.ts");
-/* harmony import */ var _pages_medico_historia_clinica_historia_clinica_component__WEBPACK_IMPORTED_MODULE_103__ = __webpack_require__(/*! ./pages/medico/historia-clinica/historia-clinica.component */ "./src/app/pages/medico/historia-clinica/historia-clinica.component.ts");
-/* harmony import */ var _pages_medico_agenda_agenda_atencion_medico_agenda_atencion_medico_component__WEBPACK_IMPORTED_MODULE_104__ = __webpack_require__(/*! ./pages/medico/agenda/agenda-atencion-medico/agenda-atencion-medico.component */ "./src/app/pages/medico/agenda/agenda-atencion-medico/agenda-atencion-medico.component.ts");
-/* harmony import */ var _shared_components_chat_chat_lista_chat_lista_component__WEBPACK_IMPORTED_MODULE_105__ = __webpack_require__(/*! ./shared/components/chat/chat-lista/chat-lista.component */ "./src/app/shared/components/chat/chat-lista/chat-lista.component.ts");
-/* harmony import */ var _pages_info_empty_empty_component__WEBPACK_IMPORTED_MODULE_106__ = __webpack_require__(/*! ./pages/info/empty/empty.component */ "./src/app/pages/info/empty/empty.component.ts");
-/* harmony import */ var _pages_info_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_107__ = __webpack_require__(/*! ./pages/info/not-found/not-found.component */ "./src/app/pages/info/not-found/not-found.component.ts");
-/* harmony import */ var _pages_asesoramiento_ficha_quirurgica_listado_cirugia_listado_cirugia_component__WEBPACK_IMPORTED_MODULE_108__ = __webpack_require__(/*! ./pages/asesoramiento/ficha-quirurgica/listado-cirugia/listado-cirugia.component */ "./src/app/pages/asesoramiento/ficha-quirurgica/listado-cirugia/listado-cirugia.component.ts");
-/* harmony import */ var _shared_components_popups_popup_lentes_popup_lentes_component__WEBPACK_IMPORTED_MODULE_109__ = __webpack_require__(/*! ./shared/components/popups/popup-lentes/popup-lentes.component */ "./src/app/shared/components/popups/popup-lentes/popup-lentes.component.ts");
-/* harmony import */ var _pages_mantenimiento_usuario_usuario_modulo_usuario_modulo_component__WEBPACK_IMPORTED_MODULE_110__ = __webpack_require__(/*! ./pages/mantenimiento/usuario/usuario-modulo/usuario-modulo.component */ "./src/app/pages/mantenimiento/usuario/usuario-modulo/usuario-modulo.component.ts");
-/* harmony import */ var _pages_facturacion_liquidacion_provincia_liquidacion_provincia_liquidacion_provincia_component__WEBPACK_IMPORTED_MODULE_111__ = __webpack_require__(/*! ./pages/facturacion/liquidacion/provincia/liquidacion-provincia/liquidacion-provincia.component */ "./src/app/pages/facturacion/liquidacion/provincia/liquidacion-provincia/liquidacion-provincia.component.ts");
-/* harmony import */ var _pages_facturacion_liquidacion_liquidar_liquidacion_detalle_liquidacion_detalle_component__WEBPACK_IMPORTED_MODULE_112__ = __webpack_require__(/*! ./pages/facturacion/liquidacion/liquidar/liquidacion-detalle/liquidacion-detalle.component */ "./src/app/pages/facturacion/liquidacion/liquidar/liquidacion-detalle/liquidacion-detalle.component.ts");
-/* harmony import */ var _pages_facturacion_liquidacion_liquidar_confeccion_factura_confeccion_factura_component__WEBPACK_IMPORTED_MODULE_113__ = __webpack_require__(/*! ./pages/facturacion/liquidacion/liquidar/confeccion-factura/confeccion-factura.component */ "./src/app/pages/facturacion/liquidacion/liquidar/confeccion-factura/confeccion-factura.component.ts");
-/* harmony import */ var _shared_components_popups_popup_ficha_quirurgica_lente_popup_ficha_quirurgica_lente_component__WEBPACK_IMPORTED_MODULE_114__ = __webpack_require__(/*! ./shared/components/popups/popup-ficha-quirurgica-lente/popup-ficha-quirurgica-lente.component */ "./src/app/shared/components/popups/popup-ficha-quirurgica-lente/popup-ficha-quirurgica-lente.component.ts");
-/* harmony import */ var _shared_components_popups_popup_ficha_quirurgica_medico_grupo_popup_ficha_quirurgica_medico_grupo_component__WEBPACK_IMPORTED_MODULE_115__ = __webpack_require__(/*! ./shared/components/popups/popup-ficha-quirurgica-medico-grupo/popup-ficha-quirurgica-medico-grupo.component */ "./src/app/shared/components/popups/popup-ficha-quirurgica-medico-grupo/popup-ficha-quirurgica-medico-grupo.component.ts");
-/* harmony import */ var _shared_components_popups_popup_ficha_quirurgica_estado_popup_ficha_quirurgica_estado_component__WEBPACK_IMPORTED_MODULE_116__ = __webpack_require__(/*! ./shared/components/popups/popup-ficha-quirurgica-estado/popup-ficha-quirurgica-estado.component */ "./src/app/shared/components/popups/popup-ficha-quirurgica-estado/popup-ficha-quirurgica-estado.component.ts");
-/* harmony import */ var _shared_components_popups_popup_ficha_quirurgica_anestecia_popup_ficha_quirurgica_anestecia_component__WEBPACK_IMPORTED_MODULE_117__ = __webpack_require__(/*! ./shared/components/popups/popup-ficha-quirurgica-anestecia/popup-ficha-quirurgica-anestecia.component */ "./src/app/shared/components/popups/popup-ficha-quirurgica-anestecia/popup-ficha-quirurgica-anestecia.component.ts");
-/* harmony import */ var _shared_components_popups_popup_paciente_estudio_popup_paciente_estudio_component__WEBPACK_IMPORTED_MODULE_118__ = __webpack_require__(/*! ./shared/components/popups/popup-paciente-estudio/popup-paciente-estudio.component */ "./src/app/shared/components/popups/popup-paciente-estudio/popup-paciente-estudio.component.ts");
-/* harmony import */ var _shared_components_popups_popup_lente_tipo_popup_lente_tipo_component__WEBPACK_IMPORTED_MODULE_119__ = __webpack_require__(/*! ./shared/components/popups/popup-lente-tipo/popup-lente-tipo.component */ "./src/app/shared/components/popups/popup-lente-tipo/popup-lente-tipo.component.ts");
-/* harmony import */ var _shared_components_popups_popup_historia_clinica_lista_consulta_popup_historia_clinica_lista_consulta_component__WEBPACK_IMPORTED_MODULE_120__ = __webpack_require__(/*! ./shared/components/popups/popup-historia-clinica-lista-consulta/popup-historia-clinica-lista-consulta.component */ "./src/app/shared/components/popups/popup-historia-clinica-lista-consulta/popup-historia-clinica-lista-consulta.component.ts");
-/* harmony import */ var _shared_components_popups_popup_liquidacion_detalle_popup_liquidacion_detalle_component__WEBPACK_IMPORTED_MODULE_121__ = __webpack_require__(/*! ./shared/components/popups/popup-liquidacion-detalle/popup-liquidacion-detalle.component */ "./src/app/shared/components/popups/popup-liquidacion-detalle/popup-liquidacion-detalle.component.ts");
-/* harmony import */ var _shared_components_popups_popup_historia_clinica_registro_popup_historia_clinica_registro_component__WEBPACK_IMPORTED_MODULE_122__ = __webpack_require__(/*! ./shared/components/popups/popup-historia-clinica-registro/popup-historia-clinica-registro.component */ "./src/app/shared/components/popups/popup-historia-clinica-registro/popup-historia-clinica-registro.component.ts");
-/* harmony import */ var _shared_components_popups_popup_historia_clinica_registro_nuevo_popup_historia_clinica_registro_nuevo_component__WEBPACK_IMPORTED_MODULE_123__ = __webpack_require__(/*! ./shared/components/popups/popup-historia-clinica-registro-nuevo/popup-historia-clinica-registro-nuevo.component */ "./src/app/shared/components/popups/popup-historia-clinica-registro-nuevo/popup-historia-clinica-registro-nuevo.component.ts");
-/* harmony import */ var _shared_components_popups_popup_derivar_asesoramiento_popup_derivar_asesoramiento_component__WEBPACK_IMPORTED_MODULE_124__ = __webpack_require__(/*! ./shared/components/popups/popup-derivar-asesoramiento/popup-derivar-asesoramiento.component */ "./src/app/shared/components/popups/popup-derivar-asesoramiento/popup-derivar-asesoramiento.component.ts");
-/* harmony import */ var _pages_medico_historia_clinica_historia_clinica_visualizar_historia_clinica_visualizar_component__WEBPACK_IMPORTED_MODULE_125__ = __webpack_require__(/*! ./pages/medico/historia-clinica/historia-clinica-visualizar/historia-clinica-visualizar.component */ "./src/app/pages/medico/historia-clinica/historia-clinica-visualizar/historia-clinica-visualizar.component.ts");
-/* harmony import */ var _shared_components_popups_popup_agenda_observacion_popup_agenda_observacion_component__WEBPACK_IMPORTED_MODULE_126__ = __webpack_require__(/*! ./shared/components/popups/popup-agenda-observacion/popup-agenda-observacion.component */ "./src/app/shared/components/popups/popup-agenda-observacion/popup-agenda-observacion.component.ts");
-/* harmony import */ var _shared_components_popups_popup_operacion_cobro_editar_popup_operacion_cobro_editar_component__WEBPACK_IMPORTED_MODULE_127__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-editar/popup-operacion-cobro-editar.component */ "./src/app/shared/components/popups/popup-operacion-cobro-editar/popup-operacion-cobro-editar.component.ts");
-/* harmony import */ var _shared_components_popups_popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_128__ = __webpack_require__(/*! ./shared/components/popups/popup-paciente-consulta/popup-paciente-consulta.component */ "./src/app/shared/components/popups/popup-paciente-consulta/popup-paciente-consulta.component.ts");
-/* harmony import */ var _pages_medico_facturacion_operacion_cobro_detalle_medico_operacion_cobro_detalle_medico_component__WEBPACK_IMPORTED_MODULE_129__ = __webpack_require__(/*! ./pages/medico/facturacion/operacion-cobro-detalle-medico/operacion-cobro-detalle-medico.component */ "./src/app/pages/medico/facturacion/operacion-cobro-detalle-medico/operacion-cobro-detalle-medico.component.ts");
-/* harmony import */ var _shared_components_popups_popup_operacion_cobro_registro_buscar_popup_operacion_cobro_registro_buscar_component__WEBPACK_IMPORTED_MODULE_130__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-registro-buscar/popup-operacion-cobro-registro-buscar.component */ "./src/app/shared/components/popups/popup-operacion-cobro-registro-buscar/popup-operacion-cobro-registro-buscar.component.ts");
-/* harmony import */ var _pages_gerencia_agenda_agenda_consulta_agenda_consulta_component__WEBPACK_IMPORTED_MODULE_131__ = __webpack_require__(/*! ./pages/gerencia/agenda/agenda-consulta/agenda-consulta.component */ "./src/app/pages/gerencia/agenda/agenda-consulta/agenda-consulta.component.ts");
-/* harmony import */ var _pages_gerencia_operacioncobro_operacion_cobro_consulta_gerencia_operacion_cobro_consulta_gerencia_component__WEBPACK_IMPORTED_MODULE_132__ = __webpack_require__(/*! ./pages/gerencia/operacioncobro/operacion-cobro-consulta-gerencia/operacion-cobro-consulta-gerencia.component */ "./src/app/pages/gerencia/operacioncobro/operacion-cobro-consulta-gerencia/operacion-cobro-consulta-gerencia.component.ts");
-/* harmony import */ var _shared_pipes_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_133__ = __webpack_require__(/*! ./shared/pipes/number-to-words.pipe */ "./src/app/shared/pipes/number-to-words.pipe.ts");
-/* harmony import */ var _pages_estudios_estudio_carga_estudio_carga_component__WEBPACK_IMPORTED_MODULE_134__ = __webpack_require__(/*! ./pages/estudios/estudio-carga/estudio-carga.component */ "./src/app/pages/estudios/estudio-carga/estudio-carga.component.ts");
-/* harmony import */ var _angular_service_worker__WEBPACK_IMPORTED_MODULE_135__ = __webpack_require__(/*! @angular/service-worker */ "./node_modules/@angular/service-worker/fesm5/service-worker.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_136__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _services_push_notification_service__WEBPACK_IMPORTED_MODULE_137__ = __webpack_require__(/*! ./services/push-notification.service */ "./src/app/services/push-notification.service.ts");
-/* harmony import */ var _shared_components_popups_popup_estudios_imagen_popup_estudios_imagen_component__WEBPACK_IMPORTED_MODULE_138__ = __webpack_require__(/*! ./shared/components/popups/popup-estudios-imagen/popup-estudios-imagen.component */ "./src/app/shared/components/popups/popup-estudios-imagen/popup-estudios-imagen.component.ts");
-/* harmony import */ var _shared_components_popups_popup_operacion_cobro_presentacion_popup_operacion_cobro_presentacion_component__WEBPACK_IMPORTED_MODULE_139__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component */ "./src/app/shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component.ts");
-/* harmony import */ var _shared_components_popups_popup_operacion_cobro_presentacion_editar_registro_popup_operacion_cobro_presentacion_editar_registro_component__WEBPACK_IMPORTED_MODULE_140__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-presentacion-editar-registro/popup-operacion-cobro-presentacion-editar-registro.component */ "./src/app/shared/components/popups/popup-operacion-cobro-presentacion-editar-registro/popup-operacion-cobro-presentacion-editar-registro.component.ts");
-/* harmony import */ var _shared_components_popups_popup_presentacion_editar_popup_presentacion_editar_component__WEBPACK_IMPORTED_MODULE_141__ = __webpack_require__(/*! ./shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component */ "./src/app/shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component.ts");
-/* harmony import */ var _pages_asesoramiento_ficha_quirurgica_listado_cirugia_quirofano_listado_cirugia_quirofano_component__WEBPACK_IMPORTED_MODULE_142__ = __webpack_require__(/*! ./pages/asesoramiento/ficha-quirurgica/listado-cirugia-quirofano/listado-cirugia-quirofano.component */ "./src/app/pages/asesoramiento/ficha-quirurgica/listado-cirugia-quirofano/listado-cirugia-quirofano.component.ts");
-/* harmony import */ var _pages_asesoramiento_ficha_quirurgica_popup_listado_cirugia_quirofano_popup_listado_cirugia_quirofano_component__WEBPACK_IMPORTED_MODULE_143__ = __webpack_require__(/*! ./pages/asesoramiento/ficha-quirurgica/popup-listado-cirugia-quirofano/popup-listado-cirugia-quirofano.component */ "./src/app/pages/asesoramiento/ficha-quirurgica/popup-listado-cirugia-quirofano/popup-listado-cirugia-quirofano.component.ts");
-/* harmony import */ var _shared_components_popups_popup_derivar_asesoramiento_listado_popup_derivar_asesoramiento_listado_component__WEBPACK_IMPORTED_MODULE_144__ = __webpack_require__(/*! ./shared/components/popups/popup-derivar-asesoramiento-listado/popup-derivar-asesoramiento-listado.component */ "./src/app/shared/components/popups/popup-derivar-asesoramiento-listado/popup-derivar-asesoramiento-listado.component.ts");
-/* harmony import */ var _shared_components_popups_popup_listado_cirugia_quirofano_editar_popup_listado_cirugia_quirofano_editar_component__WEBPACK_IMPORTED_MODULE_145__ = __webpack_require__(/*! ./shared/components/popups/popup-listado-cirugia-quirofano-editar/popup-listado-cirugia-quirofano-editar.component */ "./src/app/shared/components/popups/popup-listado-cirugia-quirofano-editar/popup-listado-cirugia-quirofano-editar.component.ts");
-/* harmony import */ var _shared_components_popups_popup_cobro_distribucion_editar_popup_cobro_distribucion_editar_component__WEBPACK_IMPORTED_MODULE_146__ = __webpack_require__(/*! ./shared/components/popups/popup-cobro-distribucion-editar/popup-cobro-distribucion-editar.component */ "./src/app/shared/components/popups/popup-cobro-distribucion-editar/popup-cobro-distribucion-editar.component.ts");
-/* harmony import */ var _services_excel_service__WEBPACK_IMPORTED_MODULE_147__ = __webpack_require__(/*! ./services/excel.service */ "./src/app/services/excel.service.ts");
-/* harmony import */ var _shared_components_popups_popup_ficha_quirurgica_operacion_cobro_popup_ficha_quirurgica_operacion_cobro_component__WEBPACK_IMPORTED_MODULE_148__ = __webpack_require__(/*! ./shared/components/popups/popup-ficha-quirurgica-operacion-cobro/popup-ficha-quirurgica-operacion-cobro.component */ "./src/app/shared/components/popups/popup-ficha-quirurgica-operacion-cobro/popup-ficha-quirurgica-operacion-cobro.component.ts");
-/* harmony import */ var _pages_medico_asesoramiento_listado_cirugia_editar_listado_cirugia_editar_component__WEBPACK_IMPORTED_MODULE_149__ = __webpack_require__(/*! ./pages/medico/asesoramiento/listado-cirugia-editar/listado-cirugia-editar.component */ "./src/app/pages/medico/asesoramiento/listado-cirugia-editar/listado-cirugia-editar.component.ts");
-/* harmony import */ var _shared_components_popups_popup_listado_cirugia_quirofano_observacion_editar_popup_listado_cirugia_quirofano_observacion_editar_component__WEBPACK_IMPORTED_MODULE_150__ = __webpack_require__(/*! ./shared/components/popups/popup-listado-cirugia-quirofano-observacion-editar/popup-listado-cirugia-quirofano-observacion-editar.component */ "./src/app/shared/components/popups/popup-listado-cirugia-quirofano-observacion-editar/popup-listado-cirugia-quirofano-observacion-editar.component.ts");
-/* harmony import */ var _pages_mantenimiento_agenda_agenda_bloqueo_edicion_agenda_bloqueo_edicion_component__WEBPACK_IMPORTED_MODULE_151__ = __webpack_require__(/*! ./pages/mantenimiento/agenda/agenda-bloqueo-edicion/agenda-bloqueo-edicion.component */ "./src/app/pages/mantenimiento/agenda/agenda-bloqueo-edicion/agenda-bloqueo-edicion.component.ts");
-/* harmony import */ var _shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_152__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component */ "./src/app/shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component.ts");
-/* harmony import */ var _shared_components_popups_popup_operacion_cobro_detalle_paciente_popup_operacion_cobro_detalle_paciente_component__WEBPACK_IMPORTED_MODULE_153__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-detalle-paciente/popup-operacion-cobro-detalle-paciente.component */ "./src/app/shared/components/popups/popup-operacion-cobro-detalle-paciente/popup-operacion-cobro-detalle-paciente.component.ts");
-/* harmony import */ var _shared_components_popups_popup_operacion_cobro_registro_buscar_todos_popup_operacion_cobro_registro_buscar_todos_component__WEBPACK_IMPORTED_MODULE_154__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component */ "./src/app/shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component.ts");
-/* harmony import */ var _shared_components_popups_popup_detalle_operacion_cobro_distribucion_popup_detalle_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_155__ = __webpack_require__(/*! ./shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component */ "./src/app/shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component.ts");
-/* harmony import */ var _shared_components_popups_popup_operacion_cobro_distribucion_popup_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_156__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component */ "./src/app/shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component.ts");
-/* harmony import */ var _pages_recepcion_agenda_agenda_recepcion_agenda_recepcion_component__WEBPACK_IMPORTED_MODULE_157__ = __webpack_require__(/*! ./pages/recepcion/agenda/agenda-recepcion/agenda-recepcion.component */ "./src/app/pages/recepcion/agenda/agenda-recepcion/agenda-recepcion.component.ts");
-/* harmony import */ var _shared_components_popups_popup_paciente_espera_popup_paciente_espera_component__WEBPACK_IMPORTED_MODULE_158__ = __webpack_require__(/*! ./shared/components/popups/popup-paciente-espera/popup-paciente-espera.component */ "./src/app/shared/components/popups/popup-paciente-espera/popup-paciente-espera.component.ts");
-/* harmony import */ var _pages_notificacion_popup_notificacion_popup_notificacion_component__WEBPACK_IMPORTED_MODULE_159__ = __webpack_require__(/*! ./pages/notificacion/popup-notificacion/popup-notificacion.component */ "./src/app/pages/notificacion/popup-notificacion/popup-notificacion.component.ts");
-/* harmony import */ var _pages_notificacion_popup_chat_popup_chat_component__WEBPACK_IMPORTED_MODULE_160__ = __webpack_require__(/*! ./pages/notificacion/popup-chat/popup-chat.component */ "./src/app/pages/notificacion/popup-chat/popup-chat.component.ts");
-/* harmony import */ var _pages_notificacion_popup_notificacion_popup_listado_usuario_popup_listado_usuario_component__WEBPACK_IMPORTED_MODULE_161__ = __webpack_require__(/*! ./pages/notificacion/popup-notificacion/popup-listado-usuario/popup-listado-usuario.component */ "./src/app/pages/notificacion/popup-notificacion/popup-listado-usuario/popup-listado-usuario.component.ts");
-/* harmony import */ var _pages_notificacion_popup_notificacion_popup_notificacion_nueva_popup_notificacion_nueva_component__WEBPACK_IMPORTED_MODULE_162__ = __webpack_require__(/*! ./pages/notificacion/popup-notificacion/popup-notificacion-nueva/popup-notificacion-nueva.component */ "./src/app/pages/notificacion/popup-notificacion/popup-notificacion-nueva/popup-notificacion-nueva.component.ts");
-/* harmony import */ var _pages_quirofano_listado_cirugia_quirofano_consulta_listado_cirugia_quirofano_consulta_component__WEBPACK_IMPORTED_MODULE_163__ = __webpack_require__(/*! ./pages/quirofano/listado-cirugia-quirofano-consulta/listado-cirugia-quirofano-consulta.component */ "./src/app/pages/quirofano/listado-cirugia-quirofano-consulta/listado-cirugia-quirofano-consulta.component.ts");
+/* harmony import */ var ngx_barcode__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ngx-barcode */ "./node_modules/ngx-barcode/index.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _shared_components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./shared/components/navbar/navbar.component */ "./src/app/shared/components/navbar/navbar.component.ts");
+/* harmony import */ var _pages_login_login_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./pages/login/login.component */ "./src/app/pages/login/login.component.ts");
+/* harmony import */ var _pages_quirofano_quirofano_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./pages/quirofano/quirofano.component */ "./src/app/pages/quirofano/quirofano.component.ts");
+/* harmony import */ var _pages_medico_medico_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./pages/medico/medico.component */ "./src/app/pages/medico/medico.component.ts");
+/* harmony import */ var _pages_estadistica_estadistica_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./pages/estadistica/estadistica.component */ "./src/app/pages/estadistica/estadistica.component.ts");
+/* harmony import */ var _pages_paciente_paciente_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./pages/paciente/paciente.component */ "./src/app/pages/paciente/paciente.component.ts");
+/* harmony import */ var _shared_components_popups_popup_medico_popup_medico_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./shared/components/popups/popup-medico/popup-medico.component */ "./src/app/shared/components/popups/popup-medico/popup-medico.component.ts");
+/* harmony import */ var _shared_components_loading_loading_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./shared/components/loading/loading.component */ "./src/app/shared/components/loading/loading.component.ts");
+/* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./app.routes */ "./src/app/app.routes.ts");
+/* harmony import */ var angular_popper__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! angular-popper */ "./node_modules/angular-popper/fesm5/angular-popper.js");
+/* harmony import */ var _services_paciente_service__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./services/paciente.service */ "./src/app/services/paciente.service.ts");
+/* harmony import */ var _pages_mantenimiento_convenio_obra_social_obra_social_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./pages/mantenimiento/convenio/obra-social/obra-social.component */ "./src/app/pages/mantenimiento/convenio/obra-social/obra-social.component.ts");
+/* harmony import */ var _pages_mantenimiento_convenio_obra_social_pmo_pmo_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./pages/mantenimiento/convenio/obra-social/pmo/pmo.component */ "./src/app/pages/mantenimiento/convenio/obra-social/pmo/pmo.component.ts");
+/* harmony import */ var _pages_mantenimiento_convenio_convenio_convenio_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./pages/mantenimiento/convenio/convenio/convenio.component */ "./src/app/pages/mantenimiento/convenio/convenio/convenio.component.ts");
+/* harmony import */ var _pages_facturacion_liquidacion_generada_liquidacion_generada_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./pages/facturacion/liquidacion-generada/liquidacion-generada.component */ "./src/app/pages/facturacion/liquidacion-generada/liquidacion-generada.component.ts");
+/* harmony import */ var _pages_facturacion_liquidacion_liquidacion_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./pages/facturacion/liquidacion/liquidacion.component */ "./src/app/pages/facturacion/liquidacion/liquidacion.component.ts");
+/* harmony import */ var _pages_mantenimiento_cirugia_cirugia_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./pages/mantenimiento/cirugia/cirugia.component */ "./src/app/pages/mantenimiento/cirugia/cirugia.component.ts");
+/* harmony import */ var _pages_mantenimiento_cirugia_cirugia_grupo_cirugia_grupo_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./pages/mantenimiento/cirugia/cirugia-grupo/cirugia-grupo.component */ "./src/app/pages/mantenimiento/cirugia/cirugia-grupo/cirugia-grupo.component.ts");
+/* harmony import */ var _pages_mantenimiento_cirugia_cirugia_grupo_medico_cirugia_grupo_medico_component__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./pages/mantenimiento/cirugia/cirugia-grupo-medico/cirugia-grupo-medico.component */ "./src/app/pages/mantenimiento/cirugia/cirugia-grupo-medico/cirugia-grupo-medico.component.ts");
+/* harmony import */ var _pages_mantenimiento_popup_popup_obrasocial_popup_obrasocial_component__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./pages/mantenimiento/popup/popup-obrasocial/popup-obrasocial.component */ "./src/app/pages/mantenimiento/popup/popup-obrasocial/popup-obrasocial.component.ts");
+/* harmony import */ var _pages_mantenimiento_popup_popup_pmo_popup_pmo_component__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./pages/mantenimiento/popup/popup-pmo/popup-pmo.component */ "./src/app/pages/mantenimiento/popup/popup-pmo/popup-pmo.component.ts");
+/* harmony import */ var _pages_mantenimiento_popup_popup_entidad_factura_popup_entidad_factura_component__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./pages/mantenimiento/popup/popup-entidad-factura/popup-entidad-factura.component */ "./src/app/pages/mantenimiento/popup/popup-entidad-factura/popup-entidad-factura.component.ts");
+/* harmony import */ var _pages_mantenimiento_popup_popup_medico_grupo_medico_popup_medico_grupo_medico_component__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./pages/mantenimiento/popup/popup-medico-grupo-medico/popup-medico-grupo-medico.component */ "./src/app/pages/mantenimiento/popup/popup-medico-grupo-medico/popup-medico-grupo-medico.component.ts");
+/* harmony import */ var _pages_mantenimiento_popup_popup_medico_grupo_popup_medico_grupo_component__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./pages/mantenimiento/popup/popup-medico-grupo/popup-medico-grupo.component */ "./src/app/pages/mantenimiento/popup/popup-medico-grupo/popup-medico-grupo.component.ts");
+/* harmony import */ var _pages_facturacion_liquidacion_liquidar_liquidar_component__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./pages/facturacion/liquidacion/liquidar/liquidar.component */ "./src/app/pages/facturacion/liquidacion/liquidar/liquidar.component.ts");
+/* harmony import */ var _pages_facturacion_operacion_cobro_operacion_cobro_component__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./pages/facturacion/operacion-cobro/operacion-cobro.component */ "./src/app/pages/facturacion/operacion-cobro/operacion-cobro.component.ts");
+/* harmony import */ var _pages_recepcion_agenda_agenda_component__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./pages/recepcion/agenda/agenda.component */ "./src/app/pages/recepcion/agenda/agenda.component.ts");
+/* harmony import */ var _pages_mantenimiento_convenio_edit_convenio_edit_convenio_component__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./pages/mantenimiento/convenio/edit-convenio/edit-convenio.component */ "./src/app/pages/mantenimiento/convenio/edit-convenio/edit-convenio.component.ts");
+/* harmony import */ var _pages_mantenimiento_popup_popup_paciente_creacion_creacion_component__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./pages/mantenimiento/popup/popup-paciente/creacion/creacion.component */ "./src/app/pages/mantenimiento/popup/popup-paciente/creacion/creacion.component.ts");
+/* harmony import */ var _shared_components_popups_popup_agenda_popup_agenda_component__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./shared/components/popups/popup-agenda/popup-agenda.component */ "./src/app/shared/components/popups/popup-agenda/popup-agenda.component.ts");
+/* harmony import */ var _shared_components_popups_popup_convenio_popup_convenio_component__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./shared/components/popups/popup-convenio/popup-convenio.component */ "./src/app/shared/components/popups/popup-convenio/popup-convenio.component.ts");
+/* harmony import */ var _pages_recepcion_agenda_turno_turno_component__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./pages/recepcion/agenda/turno/turno.component */ "./src/app/pages/recepcion/agenda/turno/turno.component.ts");
+/* harmony import */ var _pages_facturacion_operacion_cobro_popup_combinada_popup_combinada_component__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./pages/facturacion/operacion-cobro/popup-combinada/popup-combinada.component */ "./src/app/pages/facturacion/operacion-cobro/popup-combinada/popup-combinada.component.ts");
+/* harmony import */ var _pages_facturacion_operacion_cobro_popup_combinada_popup_combinada_item_popup_combinada_item_component__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./pages/facturacion/operacion-cobro/popup-combinada/popup-combinada-item/popup-combinada-item.component */ "./src/app/pages/facturacion/operacion-cobro/popup-combinada/popup-combinada-item/popup-combinada-item.component.ts");
+/* harmony import */ var _pages_mantenimiento_convenio_obra_social_edit_obra_social_edit_obra_social_component__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./pages/mantenimiento/convenio/obra-social/edit-obra-social/edit-obra-social.component */ "./src/app/pages/mantenimiento/convenio/obra-social/edit-obra-social/edit-obra-social.component.ts");
+/* harmony import */ var _pages_mantenimiento_distribucion_practica_distribucion_practica_component__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./pages/mantenimiento/distribucion-practica/distribucion-practica.component */ "./src/app/pages/mantenimiento/distribucion-practica/distribucion-practica.component.ts");
+/* harmony import */ var _pages_facturacion_operacion_cobro_popup_combinada_lectura_popup_combinada_lectura_component__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./pages/facturacion/operacion-cobro/popup-combinada-lectura/popup-combinada-lectura.component */ "./src/app/pages/facturacion/operacion-cobro/popup-combinada-lectura/popup-combinada-lectura.component.ts");
+/* harmony import */ var _shared_components_popups_popup_forma_pago_popup_forma_pago_component__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./shared/components/popups/popup-forma-pago/popup-forma-pago.component */ "./src/app/shared/components/popups/popup-forma-pago/popup-forma-pago.component.ts");
+/* harmony import */ var _pages_mantenimiento_agenda_agenda_medico_agenda_medico_component__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./pages/mantenimiento/agenda/agenda-medico/agenda-medico.component */ "./src/app/pages/mantenimiento/agenda/agenda-medico/agenda-medico.component.ts");
+/* harmony import */ var _shared_components_popups_popup_usuario_popup_usuario_component__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./shared/components/popups/popup-usuario/popup-usuario.component */ "./src/app/shared/components/popups/popup-usuario/popup-usuario.component.ts");
+/* harmony import */ var _pages_recepcion_agenda_turno_popup_turno_usuario_obra_social_popup_turno_usuario_obra_social_component__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./pages/recepcion/agenda/turno/popup-turno-usuario-obra-social/popup-turno-usuario-obra-social.component */ "./src/app/pages/recepcion/agenda/turno/popup-turno-usuario-obra-social/popup-turno-usuario-obra-social.component.ts");
+/* harmony import */ var _shared_components_popups_popup_paciente_popup_paciente_component__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./shared/components/popups/popup-paciente/popup-paciente.component */ "./src/app/shared/components/popups/popup-paciente/popup-paciente.component.ts");
+/* harmony import */ var _pages_paciente_popup_paciente_popup_paciente_component__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./pages/paciente/popup-paciente/popup-paciente.component */ "./src/app/pages/paciente/popup-paciente/popup-paciente.component.ts");
+/* harmony import */ var _shared_pipes_date_format_pipe__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./shared/pipes/date-format.pipe */ "./src/app/shared/pipes/date-format.pipe.ts");
+/* harmony import */ var _shared_components_popups_popup_paciente_obrasocial_popup_paciente_obrasocial_component__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./shared/components/popups/popup-paciente-obrasocial/popup-paciente-obrasocial.component */ "./src/app/shared/components/popups/popup-paciente-obrasocial/popup-paciente-obrasocial.component.ts");
+/* harmony import */ var _shared_components_popups_popup_practica_porcentaje_popup_practica_porcentaje_component__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! ./shared/components/popups/popup-practica-porcentaje/popup-practica-porcentaje.component */ "./src/app/shared/components/popups/popup-practica-porcentaje/popup-practica-porcentaje.component.ts");
+/* harmony import */ var _pages_medico_popup_obra_social_medico_popup_obra_social_medico_component__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! ./pages/medico/popup-obra-social-medico/popup-obra-social-medico.component */ "./src/app/pages/medico/popup-obra-social-medico/popup-obra-social-medico.component.ts");
+/* harmony import */ var _shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./shared/components/popups/popup-obra-social/popup-obra-social.component */ "./src/app/shared/components/popups/popup-obra-social/popup-obra-social.component.ts");
+/* harmony import */ var _pages_mantenimiento_agenda_agenda_bloqueo_agenda_bloqueo_component__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ./pages/mantenimiento/agenda/agenda-bloqueo/agenda-bloqueo.component */ "./src/app/pages/mantenimiento/agenda/agenda-bloqueo/agenda-bloqueo.component.ts");
+/* harmony import */ var _pages_facturacion_liquidacion_auditar_operacion_cobro_auditar_operacion_cobro_auditar_component__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./pages/facturacion/liquidacion/auditar/operacion-cobro-auditar/operacion-cobro-auditar.component */ "./src/app/pages/facturacion/liquidacion/auditar/operacion-cobro-auditar/operacion-cobro-auditar.component.ts");
+/* harmony import */ var _pages_facturacion_liquidacion_auditar_operacion_cobro_editar_operacion_cobro_editar_component__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./pages/facturacion/liquidacion/auditar/operacion-cobro-editar/operacion-cobro-editar.component */ "./src/app/pages/facturacion/liquidacion/auditar/operacion-cobro-editar/operacion-cobro-editar.component.ts");
+/* harmony import */ var _pages_asesoramiento_ficha_quirurgica_ficha_quirurgica_component__WEBPACK_IMPORTED_MODULE_92__ = __webpack_require__(/*! ./pages/asesoramiento/ficha-quirurgica/ficha-quirurgica.component */ "./src/app/pages/asesoramiento/ficha-quirurgica/ficha-quirurgica.component.ts");
+/* harmony import */ var _shared_components_popups_popup_turno_editar_popup_turno_editar_component__WEBPACK_IMPORTED_MODULE_93__ = __webpack_require__(/*! ./shared/components/popups/popup-turno-editar/popup-turno-editar.component */ "./src/app/shared/components/popups/popup-turno-editar/popup-turno-editar.component.ts");
+/* harmony import */ var _pages_facturacion_liquidacion_auditar_operacion_cobro_detalle_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_94__ = __webpack_require__(/*! ./pages/facturacion/liquidacion/auditar/operacion-cobro-detalle/operacion-cobro-detalle.component */ "./src/app/pages/facturacion/liquidacion/auditar/operacion-cobro-detalle/operacion-cobro-detalle.component.ts");
+/* harmony import */ var _shared_popups_medico_popup_historia_clinica_resumen_popup_historia_clinica_resumen_component__WEBPACK_IMPORTED_MODULE_95__ = __webpack_require__(/*! ./shared/popups/medico/popup-historia-clinica-resumen/popup-historia-clinica-resumen.component */ "./src/app/shared/popups/medico/popup-historia-clinica-resumen/popup-historia-clinica-resumen.component.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_registro_editar_popup_operacion_cobro_registro_editar_component__WEBPACK_IMPORTED_MODULE_96__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-registro-editar/popup-operacion-cobro-registro-editar.component */ "./src/app/shared/components/popups/popup-operacion-cobro-registro-editar/popup-operacion-cobro-registro-editar.component.ts");
+/* harmony import */ var _pages_facturacion_liquidacion_auditar_operacion_cobro_afectar_operacion_cobro_afectar_component__WEBPACK_IMPORTED_MODULE_97__ = __webpack_require__(/*! ./pages/facturacion/liquidacion/auditar/operacion-cobro-afectar/operacion-cobro-afectar.component */ "./src/app/pages/facturacion/liquidacion/auditar/operacion-cobro-afectar/operacion-cobro-afectar.component.ts");
+/* harmony import */ var _pages_asesoramiento_rendicion_caja_rendicion_caja_component__WEBPACK_IMPORTED_MODULE_98__ = __webpack_require__(/*! ./pages/asesoramiento/rendicion-caja/rendicion-caja.component */ "./src/app/pages/asesoramiento/rendicion-caja/rendicion-caja.component.ts");
+/* harmony import */ var _pages_stock_lentes_stock_lente_stock_lente_component__WEBPACK_IMPORTED_MODULE_99__ = __webpack_require__(/*! ./pages/stock/lentes/stock-lente/stock-lente.component */ "./src/app/pages/stock/lentes/stock-lente/stock-lente.component.ts");
+/* harmony import */ var _pages_stock_lentes_alta_lente_alta_lente_component__WEBPACK_IMPORTED_MODULE_100__ = __webpack_require__(/*! ./pages/stock/lentes/alta-lente/alta-lente.component */ "./src/app/pages/stock/lentes/alta-lente/alta-lente.component.ts");
+/* harmony import */ var _pages_stock_lentes_popup_popup_detalle_lente_popup_detalle_lente_component__WEBPACK_IMPORTED_MODULE_101__ = __webpack_require__(/*! ./pages/stock/lentes/popup/popup-detalle-lente/popup-detalle-lente.component */ "./src/app/pages/stock/lentes/popup/popup-detalle-lente/popup-detalle-lente.component.ts");
+/* harmony import */ var _pages_mantenimiento_stock_lente_lente_component__WEBPACK_IMPORTED_MODULE_102__ = __webpack_require__(/*! ./pages/mantenimiento/stock/lente/lente.component */ "./src/app/pages/mantenimiento/stock/lente/lente.component.ts");
+/* harmony import */ var _pages_mantenimiento_stock_insumo_insumo_component__WEBPACK_IMPORTED_MODULE_103__ = __webpack_require__(/*! ./pages/mantenimiento/stock/insumo/insumo.component */ "./src/app/pages/mantenimiento/stock/insumo/insumo.component.ts");
+/* harmony import */ var _pages_medico_historia_clinica_historia_clinica_component__WEBPACK_IMPORTED_MODULE_104__ = __webpack_require__(/*! ./pages/medico/historia-clinica/historia-clinica.component */ "./src/app/pages/medico/historia-clinica/historia-clinica.component.ts");
+/* harmony import */ var _pages_medico_agenda_agenda_atencion_medico_agenda_atencion_medico_component__WEBPACK_IMPORTED_MODULE_105__ = __webpack_require__(/*! ./pages/medico/agenda/agenda-atencion-medico/agenda-atencion-medico.component */ "./src/app/pages/medico/agenda/agenda-atencion-medico/agenda-atencion-medico.component.ts");
+/* harmony import */ var _shared_components_chat_chat_lista_chat_lista_component__WEBPACK_IMPORTED_MODULE_106__ = __webpack_require__(/*! ./shared/components/chat/chat-lista/chat-lista.component */ "./src/app/shared/components/chat/chat-lista/chat-lista.component.ts");
+/* harmony import */ var _pages_info_empty_empty_component__WEBPACK_IMPORTED_MODULE_107__ = __webpack_require__(/*! ./pages/info/empty/empty.component */ "./src/app/pages/info/empty/empty.component.ts");
+/* harmony import */ var _pages_info_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_108__ = __webpack_require__(/*! ./pages/info/not-found/not-found.component */ "./src/app/pages/info/not-found/not-found.component.ts");
+/* harmony import */ var _pages_asesoramiento_ficha_quirurgica_listado_cirugia_listado_cirugia_component__WEBPACK_IMPORTED_MODULE_109__ = __webpack_require__(/*! ./pages/asesoramiento/ficha-quirurgica/listado-cirugia/listado-cirugia.component */ "./src/app/pages/asesoramiento/ficha-quirurgica/listado-cirugia/listado-cirugia.component.ts");
+/* harmony import */ var _shared_components_popups_popup_lentes_popup_lentes_component__WEBPACK_IMPORTED_MODULE_110__ = __webpack_require__(/*! ./shared/components/popups/popup-lentes/popup-lentes.component */ "./src/app/shared/components/popups/popup-lentes/popup-lentes.component.ts");
+/* harmony import */ var _pages_mantenimiento_usuario_usuario_modulo_usuario_modulo_component__WEBPACK_IMPORTED_MODULE_111__ = __webpack_require__(/*! ./pages/mantenimiento/usuario/usuario-modulo/usuario-modulo.component */ "./src/app/pages/mantenimiento/usuario/usuario-modulo/usuario-modulo.component.ts");
+/* harmony import */ var _pages_facturacion_liquidacion_provincia_liquidacion_provincia_liquidacion_provincia_component__WEBPACK_IMPORTED_MODULE_112__ = __webpack_require__(/*! ./pages/facturacion/liquidacion/provincia/liquidacion-provincia/liquidacion-provincia.component */ "./src/app/pages/facturacion/liquidacion/provincia/liquidacion-provincia/liquidacion-provincia.component.ts");
+/* harmony import */ var _pages_facturacion_liquidacion_liquidar_liquidacion_detalle_liquidacion_detalle_component__WEBPACK_IMPORTED_MODULE_113__ = __webpack_require__(/*! ./pages/facturacion/liquidacion/liquidar/liquidacion-detalle/liquidacion-detalle.component */ "./src/app/pages/facturacion/liquidacion/liquidar/liquidacion-detalle/liquidacion-detalle.component.ts");
+/* harmony import */ var _pages_facturacion_liquidacion_liquidar_confeccion_factura_confeccion_factura_component__WEBPACK_IMPORTED_MODULE_114__ = __webpack_require__(/*! ./pages/facturacion/liquidacion/liquidar/confeccion-factura/confeccion-factura.component */ "./src/app/pages/facturacion/liquidacion/liquidar/confeccion-factura/confeccion-factura.component.ts");
+/* harmony import */ var _shared_components_popups_popup_ficha_quirurgica_lente_popup_ficha_quirurgica_lente_component__WEBPACK_IMPORTED_MODULE_115__ = __webpack_require__(/*! ./shared/components/popups/popup-ficha-quirurgica-lente/popup-ficha-quirurgica-lente.component */ "./src/app/shared/components/popups/popup-ficha-quirurgica-lente/popup-ficha-quirurgica-lente.component.ts");
+/* harmony import */ var _shared_components_popups_popup_ficha_quirurgica_medico_grupo_popup_ficha_quirurgica_medico_grupo_component__WEBPACK_IMPORTED_MODULE_116__ = __webpack_require__(/*! ./shared/components/popups/popup-ficha-quirurgica-medico-grupo/popup-ficha-quirurgica-medico-grupo.component */ "./src/app/shared/components/popups/popup-ficha-quirurgica-medico-grupo/popup-ficha-quirurgica-medico-grupo.component.ts");
+/* harmony import */ var _shared_components_popups_popup_ficha_quirurgica_estado_popup_ficha_quirurgica_estado_component__WEBPACK_IMPORTED_MODULE_117__ = __webpack_require__(/*! ./shared/components/popups/popup-ficha-quirurgica-estado/popup-ficha-quirurgica-estado.component */ "./src/app/shared/components/popups/popup-ficha-quirurgica-estado/popup-ficha-quirurgica-estado.component.ts");
+/* harmony import */ var _shared_components_popups_popup_ficha_quirurgica_anestecia_popup_ficha_quirurgica_anestecia_component__WEBPACK_IMPORTED_MODULE_118__ = __webpack_require__(/*! ./shared/components/popups/popup-ficha-quirurgica-anestecia/popup-ficha-quirurgica-anestecia.component */ "./src/app/shared/components/popups/popup-ficha-quirurgica-anestecia/popup-ficha-quirurgica-anestecia.component.ts");
+/* harmony import */ var _shared_components_popups_popup_paciente_estudio_popup_paciente_estudio_component__WEBPACK_IMPORTED_MODULE_119__ = __webpack_require__(/*! ./shared/components/popups/popup-paciente-estudio/popup-paciente-estudio.component */ "./src/app/shared/components/popups/popup-paciente-estudio/popup-paciente-estudio.component.ts");
+/* harmony import */ var _shared_components_popups_popup_lente_tipo_popup_lente_tipo_component__WEBPACK_IMPORTED_MODULE_120__ = __webpack_require__(/*! ./shared/components/popups/popup-lente-tipo/popup-lente-tipo.component */ "./src/app/shared/components/popups/popup-lente-tipo/popup-lente-tipo.component.ts");
+/* harmony import */ var _shared_components_popups_popup_historia_clinica_lista_consulta_popup_historia_clinica_lista_consulta_component__WEBPACK_IMPORTED_MODULE_121__ = __webpack_require__(/*! ./shared/components/popups/popup-historia-clinica-lista-consulta/popup-historia-clinica-lista-consulta.component */ "./src/app/shared/components/popups/popup-historia-clinica-lista-consulta/popup-historia-clinica-lista-consulta.component.ts");
+/* harmony import */ var _shared_components_popups_popup_liquidacion_detalle_popup_liquidacion_detalle_component__WEBPACK_IMPORTED_MODULE_122__ = __webpack_require__(/*! ./shared/components/popups/popup-liquidacion-detalle/popup-liquidacion-detalle.component */ "./src/app/shared/components/popups/popup-liquidacion-detalle/popup-liquidacion-detalle.component.ts");
+/* harmony import */ var _shared_components_popups_popup_historia_clinica_registro_popup_historia_clinica_registro_component__WEBPACK_IMPORTED_MODULE_123__ = __webpack_require__(/*! ./shared/components/popups/popup-historia-clinica-registro/popup-historia-clinica-registro.component */ "./src/app/shared/components/popups/popup-historia-clinica-registro/popup-historia-clinica-registro.component.ts");
+/* harmony import */ var _shared_components_popups_popup_historia_clinica_registro_nuevo_popup_historia_clinica_registro_nuevo_component__WEBPACK_IMPORTED_MODULE_124__ = __webpack_require__(/*! ./shared/components/popups/popup-historia-clinica-registro-nuevo/popup-historia-clinica-registro-nuevo.component */ "./src/app/shared/components/popups/popup-historia-clinica-registro-nuevo/popup-historia-clinica-registro-nuevo.component.ts");
+/* harmony import */ var _shared_components_popups_popup_derivar_asesoramiento_popup_derivar_asesoramiento_component__WEBPACK_IMPORTED_MODULE_125__ = __webpack_require__(/*! ./shared/components/popups/popup-derivar-asesoramiento/popup-derivar-asesoramiento.component */ "./src/app/shared/components/popups/popup-derivar-asesoramiento/popup-derivar-asesoramiento.component.ts");
+/* harmony import */ var _pages_medico_historia_clinica_historia_clinica_visualizar_historia_clinica_visualizar_component__WEBPACK_IMPORTED_MODULE_126__ = __webpack_require__(/*! ./pages/medico/historia-clinica/historia-clinica-visualizar/historia-clinica-visualizar.component */ "./src/app/pages/medico/historia-clinica/historia-clinica-visualizar/historia-clinica-visualizar.component.ts");
+/* harmony import */ var _shared_components_popups_popup_agenda_observacion_popup_agenda_observacion_component__WEBPACK_IMPORTED_MODULE_127__ = __webpack_require__(/*! ./shared/components/popups/popup-agenda-observacion/popup-agenda-observacion.component */ "./src/app/shared/components/popups/popup-agenda-observacion/popup-agenda-observacion.component.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_editar_popup_operacion_cobro_editar_component__WEBPACK_IMPORTED_MODULE_128__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-editar/popup-operacion-cobro-editar.component */ "./src/app/shared/components/popups/popup-operacion-cobro-editar/popup-operacion-cobro-editar.component.ts");
+/* harmony import */ var _shared_components_popups_popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_129__ = __webpack_require__(/*! ./shared/components/popups/popup-paciente-consulta/popup-paciente-consulta.component */ "./src/app/shared/components/popups/popup-paciente-consulta/popup-paciente-consulta.component.ts");
+/* harmony import */ var _pages_medico_facturacion_operacion_cobro_detalle_medico_operacion_cobro_detalle_medico_component__WEBPACK_IMPORTED_MODULE_130__ = __webpack_require__(/*! ./pages/medico/facturacion/operacion-cobro-detalle-medico/operacion-cobro-detalle-medico.component */ "./src/app/pages/medico/facturacion/operacion-cobro-detalle-medico/operacion-cobro-detalle-medico.component.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_registro_buscar_popup_operacion_cobro_registro_buscar_component__WEBPACK_IMPORTED_MODULE_131__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-registro-buscar/popup-operacion-cobro-registro-buscar.component */ "./src/app/shared/components/popups/popup-operacion-cobro-registro-buscar/popup-operacion-cobro-registro-buscar.component.ts");
+/* harmony import */ var _pages_gerencia_agenda_agenda_consulta_agenda_consulta_component__WEBPACK_IMPORTED_MODULE_132__ = __webpack_require__(/*! ./pages/gerencia/agenda/agenda-consulta/agenda-consulta.component */ "./src/app/pages/gerencia/agenda/agenda-consulta/agenda-consulta.component.ts");
+/* harmony import */ var _pages_gerencia_operacioncobro_operacion_cobro_consulta_gerencia_operacion_cobro_consulta_gerencia_component__WEBPACK_IMPORTED_MODULE_133__ = __webpack_require__(/*! ./pages/gerencia/operacioncobro/operacion-cobro-consulta-gerencia/operacion-cobro-consulta-gerencia.component */ "./src/app/pages/gerencia/operacioncobro/operacion-cobro-consulta-gerencia/operacion-cobro-consulta-gerencia.component.ts");
+/* harmony import */ var _shared_pipes_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_134__ = __webpack_require__(/*! ./shared/pipes/number-to-words.pipe */ "./src/app/shared/pipes/number-to-words.pipe.ts");
+/* harmony import */ var _pages_estudios_estudio_carga_estudio_carga_component__WEBPACK_IMPORTED_MODULE_135__ = __webpack_require__(/*! ./pages/estudios/estudio-carga/estudio-carga.component */ "./src/app/pages/estudios/estudio-carga/estudio-carga.component.ts");
+/* harmony import */ var _angular_service_worker__WEBPACK_IMPORTED_MODULE_136__ = __webpack_require__(/*! @angular/service-worker */ "./node_modules/@angular/service-worker/fesm5/service-worker.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_137__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _services_push_notification_service__WEBPACK_IMPORTED_MODULE_138__ = __webpack_require__(/*! ./services/push-notification.service */ "./src/app/services/push-notification.service.ts");
+/* harmony import */ var _shared_components_popups_popup_estudios_imagen_popup_estudios_imagen_component__WEBPACK_IMPORTED_MODULE_139__ = __webpack_require__(/*! ./shared/components/popups/popup-estudios-imagen/popup-estudios-imagen.component */ "./src/app/shared/components/popups/popup-estudios-imagen/popup-estudios-imagen.component.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_presentacion_popup_operacion_cobro_presentacion_component__WEBPACK_IMPORTED_MODULE_140__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component */ "./src/app/shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_presentacion_editar_registro_popup_operacion_cobro_presentacion_editar_registro_component__WEBPACK_IMPORTED_MODULE_141__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-presentacion-editar-registro/popup-operacion-cobro-presentacion-editar-registro.component */ "./src/app/shared/components/popups/popup-operacion-cobro-presentacion-editar-registro/popup-operacion-cobro-presentacion-editar-registro.component.ts");
+/* harmony import */ var _shared_components_popups_popup_presentacion_editar_popup_presentacion_editar_component__WEBPACK_IMPORTED_MODULE_142__ = __webpack_require__(/*! ./shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component */ "./src/app/shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component.ts");
+/* harmony import */ var _pages_asesoramiento_ficha_quirurgica_listado_cirugia_quirofano_listado_cirugia_quirofano_component__WEBPACK_IMPORTED_MODULE_143__ = __webpack_require__(/*! ./pages/asesoramiento/ficha-quirurgica/listado-cirugia-quirofano/listado-cirugia-quirofano.component */ "./src/app/pages/asesoramiento/ficha-quirurgica/listado-cirugia-quirofano/listado-cirugia-quirofano.component.ts");
+/* harmony import */ var _pages_asesoramiento_ficha_quirurgica_popup_listado_cirugia_quirofano_popup_listado_cirugia_quirofano_component__WEBPACK_IMPORTED_MODULE_144__ = __webpack_require__(/*! ./pages/asesoramiento/ficha-quirurgica/popup-listado-cirugia-quirofano/popup-listado-cirugia-quirofano.component */ "./src/app/pages/asesoramiento/ficha-quirurgica/popup-listado-cirugia-quirofano/popup-listado-cirugia-quirofano.component.ts");
+/* harmony import */ var _shared_components_popups_popup_derivar_asesoramiento_listado_popup_derivar_asesoramiento_listado_component__WEBPACK_IMPORTED_MODULE_145__ = __webpack_require__(/*! ./shared/components/popups/popup-derivar-asesoramiento-listado/popup-derivar-asesoramiento-listado.component */ "./src/app/shared/components/popups/popup-derivar-asesoramiento-listado/popup-derivar-asesoramiento-listado.component.ts");
+/* harmony import */ var _shared_components_popups_popup_listado_cirugia_quirofano_editar_popup_listado_cirugia_quirofano_editar_component__WEBPACK_IMPORTED_MODULE_146__ = __webpack_require__(/*! ./shared/components/popups/popup-listado-cirugia-quirofano-editar/popup-listado-cirugia-quirofano-editar.component */ "./src/app/shared/components/popups/popup-listado-cirugia-quirofano-editar/popup-listado-cirugia-quirofano-editar.component.ts");
+/* harmony import */ var _shared_components_popups_popup_cobro_distribucion_editar_popup_cobro_distribucion_editar_component__WEBPACK_IMPORTED_MODULE_147__ = __webpack_require__(/*! ./shared/components/popups/popup-cobro-distribucion-editar/popup-cobro-distribucion-editar.component */ "./src/app/shared/components/popups/popup-cobro-distribucion-editar/popup-cobro-distribucion-editar.component.ts");
+/* harmony import */ var _services_excel_service__WEBPACK_IMPORTED_MODULE_148__ = __webpack_require__(/*! ./services/excel.service */ "./src/app/services/excel.service.ts");
+/* harmony import */ var _shared_components_popups_popup_ficha_quirurgica_operacion_cobro_popup_ficha_quirurgica_operacion_cobro_component__WEBPACK_IMPORTED_MODULE_149__ = __webpack_require__(/*! ./shared/components/popups/popup-ficha-quirurgica-operacion-cobro/popup-ficha-quirurgica-operacion-cobro.component */ "./src/app/shared/components/popups/popup-ficha-quirurgica-operacion-cobro/popup-ficha-quirurgica-operacion-cobro.component.ts");
+/* harmony import */ var _pages_medico_asesoramiento_listado_cirugia_editar_listado_cirugia_editar_component__WEBPACK_IMPORTED_MODULE_150__ = __webpack_require__(/*! ./pages/medico/asesoramiento/listado-cirugia-editar/listado-cirugia-editar.component */ "./src/app/pages/medico/asesoramiento/listado-cirugia-editar/listado-cirugia-editar.component.ts");
+/* harmony import */ var _shared_components_popups_popup_listado_cirugia_quirofano_observacion_editar_popup_listado_cirugia_quirofano_observacion_editar_component__WEBPACK_IMPORTED_MODULE_151__ = __webpack_require__(/*! ./shared/components/popups/popup-listado-cirugia-quirofano-observacion-editar/popup-listado-cirugia-quirofano-observacion-editar.component */ "./src/app/shared/components/popups/popup-listado-cirugia-quirofano-observacion-editar/popup-listado-cirugia-quirofano-observacion-editar.component.ts");
+/* harmony import */ var _pages_mantenimiento_agenda_agenda_bloqueo_edicion_agenda_bloqueo_edicion_component__WEBPACK_IMPORTED_MODULE_152__ = __webpack_require__(/*! ./pages/mantenimiento/agenda/agenda-bloqueo-edicion/agenda-bloqueo-edicion.component */ "./src/app/pages/mantenimiento/agenda/agenda-bloqueo-edicion/agenda-bloqueo-edicion.component.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_153__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component */ "./src/app/shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_detalle_paciente_popup_operacion_cobro_detalle_paciente_component__WEBPACK_IMPORTED_MODULE_154__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-detalle-paciente/popup-operacion-cobro-detalle-paciente.component */ "./src/app/shared/components/popups/popup-operacion-cobro-detalle-paciente/popup-operacion-cobro-detalle-paciente.component.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_registro_buscar_todos_popup_operacion_cobro_registro_buscar_todos_component__WEBPACK_IMPORTED_MODULE_155__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component */ "./src/app/shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component.ts");
+/* harmony import */ var _shared_components_popups_popup_detalle_operacion_cobro_distribucion_popup_detalle_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_156__ = __webpack_require__(/*! ./shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component */ "./src/app/shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_distribucion_popup_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_157__ = __webpack_require__(/*! ./shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component */ "./src/app/shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component.ts");
+/* harmony import */ var _pages_recepcion_agenda_agenda_recepcion_agenda_recepcion_component__WEBPACK_IMPORTED_MODULE_158__ = __webpack_require__(/*! ./pages/recepcion/agenda/agenda-recepcion/agenda-recepcion.component */ "./src/app/pages/recepcion/agenda/agenda-recepcion/agenda-recepcion.component.ts");
+/* harmony import */ var _shared_components_popups_popup_paciente_espera_popup_paciente_espera_component__WEBPACK_IMPORTED_MODULE_159__ = __webpack_require__(/*! ./shared/components/popups/popup-paciente-espera/popup-paciente-espera.component */ "./src/app/shared/components/popups/popup-paciente-espera/popup-paciente-espera.component.ts");
+/* harmony import */ var _pages_notificacion_popup_notificacion_popup_notificacion_component__WEBPACK_IMPORTED_MODULE_160__ = __webpack_require__(/*! ./pages/notificacion/popup-notificacion/popup-notificacion.component */ "./src/app/pages/notificacion/popup-notificacion/popup-notificacion.component.ts");
+/* harmony import */ var _pages_notificacion_popup_chat_popup_chat_component__WEBPACK_IMPORTED_MODULE_161__ = __webpack_require__(/*! ./pages/notificacion/popup-chat/popup-chat.component */ "./src/app/pages/notificacion/popup-chat/popup-chat.component.ts");
+/* harmony import */ var _pages_notificacion_popup_notificacion_popup_listado_usuario_popup_listado_usuario_component__WEBPACK_IMPORTED_MODULE_162__ = __webpack_require__(/*! ./pages/notificacion/popup-notificacion/popup-listado-usuario/popup-listado-usuario.component */ "./src/app/pages/notificacion/popup-notificacion/popup-listado-usuario/popup-listado-usuario.component.ts");
+/* harmony import */ var _pages_notificacion_popup_notificacion_popup_notificacion_nueva_popup_notificacion_nueva_component__WEBPACK_IMPORTED_MODULE_163__ = __webpack_require__(/*! ./pages/notificacion/popup-notificacion/popup-notificacion-nueva/popup-notificacion-nueva.component */ "./src/app/pages/notificacion/popup-notificacion/popup-notificacion-nueva/popup-notificacion-nueva.component.ts");
+/* harmony import */ var _pages_quirofano_listado_cirugia_quirofano_consulta_listado_cirugia_quirofano_consulta_component__WEBPACK_IMPORTED_MODULE_164__ = __webpack_require__(/*! ./pages/quirofano/listado-cirugia-quirofano-consulta/listado-cirugia-quirofano-consulta.component */ "./src/app/pages/quirofano/listado-cirugia-quirofano-consulta/listado-cirugia-quirofano-consulta.component.ts");
+/* harmony import */ var _pages_facturacion_factura_factura_electronica_factura_electronica_component__WEBPACK_IMPORTED_MODULE_165__ = __webpack_require__(/*! ./pages/facturacion/factura/factura-electronica/factura-electronica.component */ "./src/app/pages/facturacion/factura/factura-electronica/factura-electronica.component.ts");
+/* harmony import */ var _pages_facturacion_factura_electronica_popups_categoria_iva_categoria_iva_component__WEBPACK_IMPORTED_MODULE_166__ = __webpack_require__(/*! ./pages/facturacion/factura-electronica/popups/categoria-iva/categoria-iva.component */ "./src/app/pages/facturacion/factura-electronica/popups/categoria-iva/categoria-iva.component.ts");
+/* harmony import */ var _pages_mantenimiento_entidad_entidad_component__WEBPACK_IMPORTED_MODULE_167__ = __webpack_require__(/*! ./pages/mantenimiento/entidad/entidad.component */ "./src/app/pages/mantenimiento/entidad/entidad.component.ts");
+/* harmony import */ var _pages_mantenimiento_entidad_edit_entidad_edit_entidad_component__WEBPACK_IMPORTED_MODULE_168__ = __webpack_require__(/*! ./pages/mantenimiento/entidad/edit-entidad/edit-entidad.component */ "./src/app/pages/mantenimiento/entidad/edit-entidad/edit-entidad.component.ts");
+/* harmony import */ var _pages_gerencia_gerencia_detalle_operacion_cobro_gerencia_detalle_operacion_cobro_component__WEBPACK_IMPORTED_MODULE_169__ = __webpack_require__(/*! ./pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component */ "./src/app/pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -449,6 +455,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["registerLocaleData"])(_angular_common_locales_es_AR__WEBPACK_IMPORTED_MODULE_36___default.a, 'es-Ar');
+/****barcode para imprimir */
+
 /** COMPONENTES **/
 
 
@@ -582,6 +590,11 @@ Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["registerLocaleData"])(_angu
 
 
 
+
+
+
+
+
 Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["registerLocaleData"])(_angular_common_locales_es_AR__WEBPACK_IMPORTED_MODULE_36___default.a, 'es-Ar');
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -589,126 +602,131 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_39__["AppComponent"],
-                _shared_components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_40__["NavbarComponent"],
-                _pages_login_login_component__WEBPACK_IMPORTED_MODULE_41__["LoginComponent"],
-                _pages_quirofano_quirofano_component__WEBPACK_IMPORTED_MODULE_42__["QuirofanoComponent"],
-                _pages_medico_medico_component__WEBPACK_IMPORTED_MODULE_43__["MedicoComponent"],
-                _pages_estadistica_estadistica_component__WEBPACK_IMPORTED_MODULE_44__["EstadisticaComponent"],
-                _pages_paciente_paciente_component__WEBPACK_IMPORTED_MODULE_45__["PacienteComponent"],
-                _shared_components_loading_loading_component__WEBPACK_IMPORTED_MODULE_47__["LoadingComponent"],
-                _pages_mantenimiento_convenio_obra_social_obra_social_component__WEBPACK_IMPORTED_MODULE_51__["ObraSocialComponent"],
-                _pages_mantenimiento_convenio_convenio_convenio_component__WEBPACK_IMPORTED_MODULE_53__["ConvenioComponent"],
-                _pages_mantenimiento_convenio_obra_social_pmo_pmo_component__WEBPACK_IMPORTED_MODULE_52__["PmoComponent"],
-                _pages_mantenimiento_cirugia_cirugia_component__WEBPACK_IMPORTED_MODULE_56__["CirugiaComponent"],
-                _pages_mantenimiento_cirugia_cirugia_grupo_cirugia_grupo_component__WEBPACK_IMPORTED_MODULE_57__["CirugiaGrupoComponent"],
-                _pages_mantenimiento_cirugia_cirugia_grupo_medico_cirugia_grupo_medico_component__WEBPACK_IMPORTED_MODULE_58__["CirugiaGrupoMedicoComponent"],
-                _pages_facturacion_liquidacion_generada_liquidacion_generada_component__WEBPACK_IMPORTED_MODULE_54__["LiquidacionGeneradaComponent"],
-                _pages_facturacion_liquidacion_liquidacion_component__WEBPACK_IMPORTED_MODULE_55__["LiquidacionComponent"],
+                _app_component__WEBPACK_IMPORTED_MODULE_40__["AppComponent"],
+                _shared_components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_41__["NavbarComponent"],
+                _pages_login_login_component__WEBPACK_IMPORTED_MODULE_42__["LoginComponent"],
+                _pages_quirofano_quirofano_component__WEBPACK_IMPORTED_MODULE_43__["QuirofanoComponent"],
+                _pages_medico_medico_component__WEBPACK_IMPORTED_MODULE_44__["MedicoComponent"],
+                _pages_estadistica_estadistica_component__WEBPACK_IMPORTED_MODULE_45__["EstadisticaComponent"],
+                _pages_paciente_paciente_component__WEBPACK_IMPORTED_MODULE_46__["PacienteComponent"],
+                _shared_components_loading_loading_component__WEBPACK_IMPORTED_MODULE_48__["LoadingComponent"],
+                _pages_mantenimiento_convenio_obra_social_obra_social_component__WEBPACK_IMPORTED_MODULE_52__["ObraSocialComponent"],
+                _pages_mantenimiento_convenio_convenio_convenio_component__WEBPACK_IMPORTED_MODULE_54__["ConvenioComponent"],
+                _pages_mantenimiento_convenio_obra_social_pmo_pmo_component__WEBPACK_IMPORTED_MODULE_53__["PmoComponent"],
+                _pages_mantenimiento_cirugia_cirugia_component__WEBPACK_IMPORTED_MODULE_57__["CirugiaComponent"],
+                _pages_mantenimiento_cirugia_cirugia_grupo_cirugia_grupo_component__WEBPACK_IMPORTED_MODULE_58__["CirugiaGrupoComponent"],
+                _pages_mantenimiento_cirugia_cirugia_grupo_medico_cirugia_grupo_medico_component__WEBPACK_IMPORTED_MODULE_59__["CirugiaGrupoMedicoComponent"],
+                _pages_facturacion_liquidacion_generada_liquidacion_generada_component__WEBPACK_IMPORTED_MODULE_55__["LiquidacionGeneradaComponent"],
+                _pages_facturacion_liquidacion_liquidacion_component__WEBPACK_IMPORTED_MODULE_56__["LiquidacionComponent"],
                 _pages_medico_popup_medico_edit_popup_medico_edit_component__WEBPACK_IMPORTED_MODULE_2__["PopupMedicoEditComponent"],
-                _pages_mantenimiento_popup_popup_obrasocial_popup_obrasocial_component__WEBPACK_IMPORTED_MODULE_59__["PopupObrasocialComponent"],
-                _pages_mantenimiento_popup_popup_pmo_popup_pmo_component__WEBPACK_IMPORTED_MODULE_60__["PopupPmoComponent"],
-                _pages_mantenimiento_popup_popup_entidad_factura_popup_entidad_factura_component__WEBPACK_IMPORTED_MODULE_61__["PopupEntidadFacturaComponent"],
-                _shared_components_popups_popup_medico_popup_medico_component__WEBPACK_IMPORTED_MODULE_46__["PopupMedicoComponent"],
-                _pages_mantenimiento_popup_popup_medico_grupo_medico_popup_medico_grupo_medico_component__WEBPACK_IMPORTED_MODULE_62__["PopupMedicoGrupoMedicoComponent"],
-                _pages_mantenimiento_popup_popup_medico_grupo_popup_medico_grupo_component__WEBPACK_IMPORTED_MODULE_63__["PopupMedicoGrupoComponent"],
-                _pages_facturacion_liquidacion_liquidar_liquidar_component__WEBPACK_IMPORTED_MODULE_64__["LiquidarComponent"],
-                _pages_facturacion_operacion_cobro_operacion_cobro_component__WEBPACK_IMPORTED_MODULE_65__["OperacionCobroComponent"],
-                _pages_recepcion_agenda_agenda_component__WEBPACK_IMPORTED_MODULE_66__["AgendaComponent"],
-                _pages_mantenimiento_convenio_edit_convenio_edit_convenio_component__WEBPACK_IMPORTED_MODULE_67__["EditConvenioComponent"],
-                _pages_mantenimiento_popup_popup_paciente_creacion_creacion_component__WEBPACK_IMPORTED_MODULE_68__["CreacionComponent"],
-                _shared_components_popups_popup_agenda_popup_agenda_component__WEBPACK_IMPORTED_MODULE_69__["PopupAgendaComponent"],
-                _shared_components_popups_popup_convenio_popup_convenio_component__WEBPACK_IMPORTED_MODULE_70__["PopupConvenioComponent"],
-                _shared_components_popups_popup_paciente_popup_paciente_component__WEBPACK_IMPORTED_MODULE_81__["PopupPacienteComponent"],
-                _pages_paciente_popup_paciente_popup_paciente_component__WEBPACK_IMPORTED_MODULE_82__["PopupPacienteNuevoComponent"],
-                _pages_recepcion_agenda_turno_turno_component__WEBPACK_IMPORTED_MODULE_71__["TurnoComponent"],
-                _pages_facturacion_operacion_cobro_popup_combinada_popup_combinada_component__WEBPACK_IMPORTED_MODULE_72__["PopupCombinadaComponent"],
-                _pages_facturacion_operacion_cobro_popup_combinada_popup_combinada_item_popup_combinada_item_component__WEBPACK_IMPORTED_MODULE_73__["PopupCombinadaItemComponent"],
-                _pages_mantenimiento_convenio_obra_social_edit_obra_social_edit_obra_social_component__WEBPACK_IMPORTED_MODULE_74__["EditObraSocialComponent"],
-                _pages_mantenimiento_distribucion_practica_distribucion_practica_component__WEBPACK_IMPORTED_MODULE_75__["DistribucionPracticaComponent"],
-                _pages_facturacion_operacion_cobro_popup_combinada_lectura_popup_combinada_lectura_component__WEBPACK_IMPORTED_MODULE_76__["PopupCombinadaLecturaComponent"],
-                _shared_components_popups_popup_forma_pago_popup_forma_pago_component__WEBPACK_IMPORTED_MODULE_77__["PopUpFormaPagoComponent"],
-                _pages_mantenimiento_agenda_agenda_medico_agenda_medico_component__WEBPACK_IMPORTED_MODULE_78__["AgendaMedicoComponent"],
-                _shared_components_popups_popup_usuario_popup_usuario_component__WEBPACK_IMPORTED_MODULE_79__["PopupUsuarioComponent"],
-                _pages_recepcion_agenda_turno_popup_turno_usuario_obra_social_popup_turno_usuario_obra_social_component__WEBPACK_IMPORTED_MODULE_80__["PopupTurnoUsuarioObraSocialComponent"],
-                _shared_pipes_date_format_pipe__WEBPACK_IMPORTED_MODULE_83__["DateFormatPipe"],
-                _pages_mantenimiento_usuario_usuario_modulo_usuario_modulo_component__WEBPACK_IMPORTED_MODULE_110__["UsuarioModuloComponent"],
-                _shared_components_popups_popup_paciente_obrasocial_popup_paciente_obrasocial_component__WEBPACK_IMPORTED_MODULE_84__["PopupPacienteObrasocialComponent"],
-                _shared_components_popups_popup_practica_porcentaje_popup_practica_porcentaje_component__WEBPACK_IMPORTED_MODULE_85__["PopupPracticaPorcentajeComponent"],
-                _pages_medico_popup_obra_social_medico_popup_obra_social_medico_component__WEBPACK_IMPORTED_MODULE_86__["PopupObraSocialMedicoComponent"],
-                _shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_87__["PopupObraSocialComponent"],
-                _pages_mantenimiento_agenda_agenda_bloqueo_agenda_bloqueo_component__WEBPACK_IMPORTED_MODULE_88__["AgendaBloqueoComponent"],
-                _pages_facturacion_liquidacion_auditar_operacion_cobro_auditar_operacion_cobro_auditar_component__WEBPACK_IMPORTED_MODULE_89__["OperacionCobroAuditarComponent"],
-                _pages_facturacion_liquidacion_auditar_operacion_cobro_editar_operacion_cobro_editar_component__WEBPACK_IMPORTED_MODULE_90__["OperacionCobroEditarComponent"],
-                _pages_asesoramiento_ficha_quirurgica_ficha_quirurgica_component__WEBPACK_IMPORTED_MODULE_91__["FichaQuirurgicaComponent"],
-                _shared_components_popups_popup_turno_editar_popup_turno_editar_component__WEBPACK_IMPORTED_MODULE_92__["PopupTurnoEditarComponent"],
-                _pages_facturacion_liquidacion_auditar_operacion_cobro_detalle_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_93__["OperacionCobroDetalleComponent"],
-                _shared_popups_medico_popup_historia_clinica_resumen_popup_historia_clinica_resumen_component__WEBPACK_IMPORTED_MODULE_94__["PopupHistoriaClinicaResumenComponent"],
-                _shared_components_popups_popup_operacion_cobro_registro_editar_popup_operacion_cobro_registro_editar_component__WEBPACK_IMPORTED_MODULE_95__["PopupOperacionCobroRegistroEditarComponent"],
-                _pages_facturacion_liquidacion_auditar_operacion_cobro_afectar_operacion_cobro_afectar_component__WEBPACK_IMPORTED_MODULE_96__["OperacionCobroAfectarComponent"],
-                _pages_asesoramiento_rendicion_caja_rendicion_caja_component__WEBPACK_IMPORTED_MODULE_97__["RendicionCajaComponent"],
-                _pages_stock_lentes_stock_lente_stock_lente_component__WEBPACK_IMPORTED_MODULE_98__["StockLenteComponent"],
-                _pages_stock_lentes_alta_lente_alta_lente_component__WEBPACK_IMPORTED_MODULE_99__["AltaLenteComponent"],
-                _pages_stock_lentes_popup_popup_detalle_lente_popup_detalle_lente_component__WEBPACK_IMPORTED_MODULE_100__["PopupDetalleLenteComponent"],
-                _pages_mantenimiento_stock_lente_lente_component__WEBPACK_IMPORTED_MODULE_101__["LenteComponent"],
-                _pages_mantenimiento_stock_insumo_insumo_component__WEBPACK_IMPORTED_MODULE_102__["InsumoComponent"],
-                _pages_medico_historia_clinica_historia_clinica_component__WEBPACK_IMPORTED_MODULE_103__["HistoriaClinicaComponent"],
-                _pages_medico_agenda_agenda_atencion_medico_agenda_atencion_medico_component__WEBPACK_IMPORTED_MODULE_104__["AgendaAtencionMedicoComponent"],
-                _shared_components_chat_chat_lista_chat_lista_component__WEBPACK_IMPORTED_MODULE_105__["ChatListaComponent"],
-                _pages_info_empty_empty_component__WEBPACK_IMPORTED_MODULE_106__["EmptyComponent"],
-                _pages_info_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_107__["NotFoundComponent"],
-                _pages_asesoramiento_ficha_quirurgica_listado_cirugia_listado_cirugia_component__WEBPACK_IMPORTED_MODULE_108__["ListadoCirugiaComponent"],
-                _shared_components_popups_popup_lentes_popup_lentes_component__WEBPACK_IMPORTED_MODULE_109__["PopupLentesComponent"],
-                _pages_mantenimiento_usuario_usuario_modulo_usuario_modulo_component__WEBPACK_IMPORTED_MODULE_110__["UsuarioModuloComponent"],
-                _pages_facturacion_liquidacion_provincia_liquidacion_provincia_liquidacion_provincia_component__WEBPACK_IMPORTED_MODULE_111__["LiquidacionProvinciaComponent"],
-                _pages_facturacion_liquidacion_liquidar_liquidacion_detalle_liquidacion_detalle_component__WEBPACK_IMPORTED_MODULE_112__["LiquidacionDetalleComponent"],
-                _pages_facturacion_liquidacion_liquidar_confeccion_factura_confeccion_factura_component__WEBPACK_IMPORTED_MODULE_113__["ConfeccionFacturaComponent"],
-                _shared_components_popups_popup_ficha_quirurgica_lente_popup_ficha_quirurgica_lente_component__WEBPACK_IMPORTED_MODULE_114__["PopupFichaQuirurgicaLenteComponent"],
-                _shared_components_popups_popup_ficha_quirurgica_medico_grupo_popup_ficha_quirurgica_medico_grupo_component__WEBPACK_IMPORTED_MODULE_115__["PopupFichaQuirurgicaMedicoGrupoComponent"],
-                _shared_components_popups_popup_ficha_quirurgica_estado_popup_ficha_quirurgica_estado_component__WEBPACK_IMPORTED_MODULE_116__["PopupFichaQuirurgicaEstadoComponent"],
-                _shared_components_popups_popup_ficha_quirurgica_anestecia_popup_ficha_quirurgica_anestecia_component__WEBPACK_IMPORTED_MODULE_117__["PopupFichaQuirurgicaAnesteciaComponent"],
-                _shared_components_popups_popup_paciente_estudio_popup_paciente_estudio_component__WEBPACK_IMPORTED_MODULE_118__["PopupPacienteEstudioComponent"],
-                _shared_components_popups_popup_lente_tipo_popup_lente_tipo_component__WEBPACK_IMPORTED_MODULE_119__["PopupLenteTipoComponent"],
-                _shared_components_popups_popup_historia_clinica_lista_consulta_popup_historia_clinica_lista_consulta_component__WEBPACK_IMPORTED_MODULE_120__["PopupHistoriaClinicaListaConsultaComponent"],
-                _shared_components_popups_popup_liquidacion_detalle_popup_liquidacion_detalle_component__WEBPACK_IMPORTED_MODULE_121__["PopupLiquidacionDetalleComponent"],
-                _shared_components_popups_popup_historia_clinica_registro_popup_historia_clinica_registro_component__WEBPACK_IMPORTED_MODULE_122__["PopupHistoriaClinicaRegistroComponent"],
-                _shared_components_popups_popup_historia_clinica_registro_nuevo_popup_historia_clinica_registro_nuevo_component__WEBPACK_IMPORTED_MODULE_123__["PopupHistoriaClinicaRegistroNuevoComponent"],
-                _shared_components_popups_popup_derivar_asesoramiento_popup_derivar_asesoramiento_component__WEBPACK_IMPORTED_MODULE_124__["PopupDerivarAsesoramientoComponent"],
-                _pages_medico_historia_clinica_historia_clinica_visualizar_historia_clinica_visualizar_component__WEBPACK_IMPORTED_MODULE_125__["HistoriaClinicaVisualizarComponent"],
-                _shared_components_popups_popup_agenda_observacion_popup_agenda_observacion_component__WEBPACK_IMPORTED_MODULE_126__["PopupAgendaObservacionComponent"],
-                _shared_components_popups_popup_operacion_cobro_editar_popup_operacion_cobro_editar_component__WEBPACK_IMPORTED_MODULE_127__["PopupOperacionCobroEditarComponent"],
-                _shared_components_popups_popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_128__["PopupPacienteConsultaComponent"],
-                _pages_medico_facturacion_operacion_cobro_detalle_medico_operacion_cobro_detalle_medico_component__WEBPACK_IMPORTED_MODULE_129__["OperacionCobroDetalleMedicoComponent"],
-                _shared_components_popups_popup_operacion_cobro_registro_buscar_popup_operacion_cobro_registro_buscar_component__WEBPACK_IMPORTED_MODULE_130__["PopupOperacionCobroRegistroBuscarComponent"],
-                _pages_gerencia_agenda_agenda_consulta_agenda_consulta_component__WEBPACK_IMPORTED_MODULE_131__["AgendaConsultaComponent"],
-                _pages_gerencia_operacioncobro_operacion_cobro_consulta_gerencia_operacion_cobro_consulta_gerencia_component__WEBPACK_IMPORTED_MODULE_132__["OperacionCobroConsultaGerenciaComponent"],
-                _shared_pipes_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_133__["NumberToWordsPipe"],
-                _pages_estudios_estudio_carga_estudio_carga_component__WEBPACK_IMPORTED_MODULE_134__["EstudioCargaComponent"],
-                _shared_components_popups_popup_estudios_imagen_popup_estudios_imagen_component__WEBPACK_IMPORTED_MODULE_138__["PopupEstudiosImagenComponent"],
-                _shared_components_popups_popup_operacion_cobro_presentacion_popup_operacion_cobro_presentacion_component__WEBPACK_IMPORTED_MODULE_139__["PopupOperacionCobroPresentacionComponent"],
-                _shared_components_popups_popup_operacion_cobro_presentacion_editar_registro_popup_operacion_cobro_presentacion_editar_registro_component__WEBPACK_IMPORTED_MODULE_140__["PopupOperacionCobroPresentacionEditarRegistroComponent"],
-                _shared_components_popups_popup_presentacion_editar_popup_presentacion_editar_component__WEBPACK_IMPORTED_MODULE_141__["PopupPresentacionEditarComponent"],
-                _pages_asesoramiento_ficha_quirurgica_listado_cirugia_quirofano_listado_cirugia_quirofano_component__WEBPACK_IMPORTED_MODULE_142__["ListadoCirugiaQuirofanoComponent"],
-                _pages_asesoramiento_ficha_quirurgica_popup_listado_cirugia_quirofano_popup_listado_cirugia_quirofano_component__WEBPACK_IMPORTED_MODULE_143__["PopupListadoCirugiaQuirofanoComponent"],
-                _shared_components_popups_popup_derivar_asesoramiento_listado_popup_derivar_asesoramiento_listado_component__WEBPACK_IMPORTED_MODULE_144__["PopupDerivarAsesoramientoListadoComponent"],
-                _shared_components_popups_popup_listado_cirugia_quirofano_editar_popup_listado_cirugia_quirofano_editar_component__WEBPACK_IMPORTED_MODULE_145__["PopupListadoCirugiaQuirofanoEditarComponent"],
-                _shared_components_popups_popup_cobro_distribucion_editar_popup_cobro_distribucion_editar_component__WEBPACK_IMPORTED_MODULE_146__["PopupCobroDistribucionEditarComponent"],
-                _shared_components_popups_popup_ficha_quirurgica_operacion_cobro_popup_ficha_quirurgica_operacion_cobro_component__WEBPACK_IMPORTED_MODULE_148__["PopupFichaQuirurgicaOperacionCobroComponent"],
-                _pages_medico_asesoramiento_listado_cirugia_editar_listado_cirugia_editar_component__WEBPACK_IMPORTED_MODULE_149__["ListadoCirugiaEditarComponent"],
-                _shared_components_popups_popup_listado_cirugia_quirofano_observacion_editar_popup_listado_cirugia_quirofano_observacion_editar_component__WEBPACK_IMPORTED_MODULE_150__["PopupListadoCirugiaQuirofanoObservacionEditarComponent"],
-                _pages_mantenimiento_agenda_agenda_bloqueo_edicion_agenda_bloqueo_edicion_component__WEBPACK_IMPORTED_MODULE_151__["AgendaBloqueoEdicionComponent"],
-                _shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_152__["PopupOperacionCobroDetalleComponent"],
-                _shared_components_popups_popup_operacion_cobro_detalle_paciente_popup_operacion_cobro_detalle_paciente_component__WEBPACK_IMPORTED_MODULE_153__["PopupOperacionCobroDetallePacienteComponent"],
-                _shared_components_popups_popup_operacion_cobro_registro_buscar_todos_popup_operacion_cobro_registro_buscar_todos_component__WEBPACK_IMPORTED_MODULE_154__["PopupOperacionCobroRegistroBuscarTodosComponent"],
-                _shared_components_popups_popup_detalle_operacion_cobro_distribucion_popup_detalle_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_155__["PopupDetalleOperacionCobroDistribucionComponent"],
-                _shared_components_popups_popup_operacion_cobro_distribucion_popup_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_156__["PopupOperacionCobroDistribucionComponent"],
-                _pages_recepcion_agenda_agenda_recepcion_agenda_recepcion_component__WEBPACK_IMPORTED_MODULE_157__["AgendaRecepcionComponent"],
-                _shared_components_popups_popup_paciente_espera_popup_paciente_espera_component__WEBPACK_IMPORTED_MODULE_158__["PopupPacienteEsperaComponent"],
-                _pages_notificacion_popup_notificacion_popup_notificacion_component__WEBPACK_IMPORTED_MODULE_159__["PopupNotificacionComponent"],
-                _pages_notificacion_popup_chat_popup_chat_component__WEBPACK_IMPORTED_MODULE_160__["PopupChatComponent"],
-                _pages_notificacion_popup_notificacion_popup_listado_usuario_popup_listado_usuario_component__WEBPACK_IMPORTED_MODULE_161__["PopupListadoUsuarioComponent"],
-                _pages_notificacion_popup_notificacion_popup_notificacion_nueva_popup_notificacion_nueva_component__WEBPACK_IMPORTED_MODULE_162__["PopupNotificacionNuevaComponent"],
-                _pages_quirofano_listado_cirugia_quirofano_consulta_listado_cirugia_quirofano_consulta_component__WEBPACK_IMPORTED_MODULE_163__["ListadoCirugiaQuirofanoConsultaComponent"],
+                _pages_mantenimiento_popup_popup_obrasocial_popup_obrasocial_component__WEBPACK_IMPORTED_MODULE_60__["PopupObrasocialComponent"],
+                _pages_mantenimiento_popup_popup_pmo_popup_pmo_component__WEBPACK_IMPORTED_MODULE_61__["PopupPmoComponent"],
+                _pages_mantenimiento_popup_popup_entidad_factura_popup_entidad_factura_component__WEBPACK_IMPORTED_MODULE_62__["PopupEntidadFacturaComponent"],
+                _shared_components_popups_popup_medico_popup_medico_component__WEBPACK_IMPORTED_MODULE_47__["PopupMedicoComponent"],
+                _pages_mantenimiento_popup_popup_medico_grupo_medico_popup_medico_grupo_medico_component__WEBPACK_IMPORTED_MODULE_63__["PopupMedicoGrupoMedicoComponent"],
+                _pages_mantenimiento_popup_popup_medico_grupo_popup_medico_grupo_component__WEBPACK_IMPORTED_MODULE_64__["PopupMedicoGrupoComponent"],
+                _pages_facturacion_liquidacion_liquidar_liquidar_component__WEBPACK_IMPORTED_MODULE_65__["LiquidarComponent"],
+                _pages_facturacion_operacion_cobro_operacion_cobro_component__WEBPACK_IMPORTED_MODULE_66__["OperacionCobroComponent"],
+                _pages_recepcion_agenda_agenda_component__WEBPACK_IMPORTED_MODULE_67__["AgendaComponent"],
+                _pages_mantenimiento_convenio_edit_convenio_edit_convenio_component__WEBPACK_IMPORTED_MODULE_68__["EditConvenioComponent"],
+                _pages_mantenimiento_popup_popup_paciente_creacion_creacion_component__WEBPACK_IMPORTED_MODULE_69__["CreacionComponent"],
+                _shared_components_popups_popup_agenda_popup_agenda_component__WEBPACK_IMPORTED_MODULE_70__["PopupAgendaComponent"],
+                _shared_components_popups_popup_convenio_popup_convenio_component__WEBPACK_IMPORTED_MODULE_71__["PopupConvenioComponent"],
+                _shared_components_popups_popup_paciente_popup_paciente_component__WEBPACK_IMPORTED_MODULE_82__["PopupPacienteComponent"],
+                _pages_paciente_popup_paciente_popup_paciente_component__WEBPACK_IMPORTED_MODULE_83__["PopupPacienteNuevoComponent"],
+                _pages_recepcion_agenda_turno_turno_component__WEBPACK_IMPORTED_MODULE_72__["TurnoComponent"],
+                _pages_facturacion_operacion_cobro_popup_combinada_popup_combinada_component__WEBPACK_IMPORTED_MODULE_73__["PopupCombinadaComponent"],
+                _pages_facturacion_operacion_cobro_popup_combinada_popup_combinada_item_popup_combinada_item_component__WEBPACK_IMPORTED_MODULE_74__["PopupCombinadaItemComponent"],
+                _pages_mantenimiento_convenio_obra_social_edit_obra_social_edit_obra_social_component__WEBPACK_IMPORTED_MODULE_75__["EditObraSocialComponent"],
+                _pages_mantenimiento_distribucion_practica_distribucion_practica_component__WEBPACK_IMPORTED_MODULE_76__["DistribucionPracticaComponent"],
+                _pages_facturacion_operacion_cobro_popup_combinada_lectura_popup_combinada_lectura_component__WEBPACK_IMPORTED_MODULE_77__["PopupCombinadaLecturaComponent"],
+                _shared_components_popups_popup_forma_pago_popup_forma_pago_component__WEBPACK_IMPORTED_MODULE_78__["PopUpFormaPagoComponent"],
+                _pages_mantenimiento_agenda_agenda_medico_agenda_medico_component__WEBPACK_IMPORTED_MODULE_79__["AgendaMedicoComponent"],
+                _shared_components_popups_popup_usuario_popup_usuario_component__WEBPACK_IMPORTED_MODULE_80__["PopupUsuarioComponent"],
+                _pages_recepcion_agenda_turno_popup_turno_usuario_obra_social_popup_turno_usuario_obra_social_component__WEBPACK_IMPORTED_MODULE_81__["PopupTurnoUsuarioObraSocialComponent"],
+                _shared_pipes_date_format_pipe__WEBPACK_IMPORTED_MODULE_84__["DateFormatPipe"],
+                _pages_mantenimiento_usuario_usuario_modulo_usuario_modulo_component__WEBPACK_IMPORTED_MODULE_111__["UsuarioModuloComponent"],
+                _shared_components_popups_popup_paciente_obrasocial_popup_paciente_obrasocial_component__WEBPACK_IMPORTED_MODULE_85__["PopupPacienteObrasocialComponent"],
+                _shared_components_popups_popup_practica_porcentaje_popup_practica_porcentaje_component__WEBPACK_IMPORTED_MODULE_86__["PopupPracticaPorcentajeComponent"],
+                _pages_medico_popup_obra_social_medico_popup_obra_social_medico_component__WEBPACK_IMPORTED_MODULE_87__["PopupObraSocialMedicoComponent"],
+                _shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_88__["PopupObraSocialComponent"],
+                _pages_mantenimiento_agenda_agenda_bloqueo_agenda_bloqueo_component__WEBPACK_IMPORTED_MODULE_89__["AgendaBloqueoComponent"],
+                _pages_facturacion_liquidacion_auditar_operacion_cobro_auditar_operacion_cobro_auditar_component__WEBPACK_IMPORTED_MODULE_90__["OperacionCobroAuditarComponent"],
+                _pages_facturacion_liquidacion_auditar_operacion_cobro_editar_operacion_cobro_editar_component__WEBPACK_IMPORTED_MODULE_91__["OperacionCobroEditarComponent"],
+                _pages_asesoramiento_ficha_quirurgica_ficha_quirurgica_component__WEBPACK_IMPORTED_MODULE_92__["FichaQuirurgicaComponent"],
+                _shared_components_popups_popup_turno_editar_popup_turno_editar_component__WEBPACK_IMPORTED_MODULE_93__["PopupTurnoEditarComponent"],
+                _pages_facturacion_liquidacion_auditar_operacion_cobro_detalle_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_94__["OperacionCobroDetalleComponent"],
+                _shared_popups_medico_popup_historia_clinica_resumen_popup_historia_clinica_resumen_component__WEBPACK_IMPORTED_MODULE_95__["PopupHistoriaClinicaResumenComponent"],
+                _shared_components_popups_popup_operacion_cobro_registro_editar_popup_operacion_cobro_registro_editar_component__WEBPACK_IMPORTED_MODULE_96__["PopupOperacionCobroRegistroEditarComponent"],
+                _pages_facturacion_liquidacion_auditar_operacion_cobro_afectar_operacion_cobro_afectar_component__WEBPACK_IMPORTED_MODULE_97__["OperacionCobroAfectarComponent"],
+                _pages_asesoramiento_rendicion_caja_rendicion_caja_component__WEBPACK_IMPORTED_MODULE_98__["RendicionCajaComponent"],
+                _pages_stock_lentes_stock_lente_stock_lente_component__WEBPACK_IMPORTED_MODULE_99__["StockLenteComponent"],
+                _pages_stock_lentes_alta_lente_alta_lente_component__WEBPACK_IMPORTED_MODULE_100__["AltaLenteComponent"],
+                _pages_stock_lentes_popup_popup_detalle_lente_popup_detalle_lente_component__WEBPACK_IMPORTED_MODULE_101__["PopupDetalleLenteComponent"],
+                _pages_mantenimiento_stock_lente_lente_component__WEBPACK_IMPORTED_MODULE_102__["LenteComponent"],
+                _pages_mantenimiento_stock_insumo_insumo_component__WEBPACK_IMPORTED_MODULE_103__["InsumoComponent"],
+                _pages_medico_historia_clinica_historia_clinica_component__WEBPACK_IMPORTED_MODULE_104__["HistoriaClinicaComponent"],
+                _pages_medico_agenda_agenda_atencion_medico_agenda_atencion_medico_component__WEBPACK_IMPORTED_MODULE_105__["AgendaAtencionMedicoComponent"],
+                _shared_components_chat_chat_lista_chat_lista_component__WEBPACK_IMPORTED_MODULE_106__["ChatListaComponent"],
+                _pages_info_empty_empty_component__WEBPACK_IMPORTED_MODULE_107__["EmptyComponent"],
+                _pages_info_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_108__["NotFoundComponent"],
+                _pages_asesoramiento_ficha_quirurgica_listado_cirugia_listado_cirugia_component__WEBPACK_IMPORTED_MODULE_109__["ListadoCirugiaComponent"],
+                _shared_components_popups_popup_lentes_popup_lentes_component__WEBPACK_IMPORTED_MODULE_110__["PopupLentesComponent"],
+                _pages_mantenimiento_usuario_usuario_modulo_usuario_modulo_component__WEBPACK_IMPORTED_MODULE_111__["UsuarioModuloComponent"],
+                _pages_facturacion_liquidacion_provincia_liquidacion_provincia_liquidacion_provincia_component__WEBPACK_IMPORTED_MODULE_112__["LiquidacionProvinciaComponent"],
+                _pages_facturacion_liquidacion_liquidar_liquidacion_detalle_liquidacion_detalle_component__WEBPACK_IMPORTED_MODULE_113__["LiquidacionDetalleComponent"],
+                _pages_facturacion_liquidacion_liquidar_confeccion_factura_confeccion_factura_component__WEBPACK_IMPORTED_MODULE_114__["ConfeccionFacturaComponent"],
+                _shared_components_popups_popup_ficha_quirurgica_lente_popup_ficha_quirurgica_lente_component__WEBPACK_IMPORTED_MODULE_115__["PopupFichaQuirurgicaLenteComponent"],
+                _shared_components_popups_popup_ficha_quirurgica_medico_grupo_popup_ficha_quirurgica_medico_grupo_component__WEBPACK_IMPORTED_MODULE_116__["PopupFichaQuirurgicaMedicoGrupoComponent"],
+                _shared_components_popups_popup_ficha_quirurgica_estado_popup_ficha_quirurgica_estado_component__WEBPACK_IMPORTED_MODULE_117__["PopupFichaQuirurgicaEstadoComponent"],
+                _shared_components_popups_popup_ficha_quirurgica_anestecia_popup_ficha_quirurgica_anestecia_component__WEBPACK_IMPORTED_MODULE_118__["PopupFichaQuirurgicaAnesteciaComponent"],
+                _shared_components_popups_popup_paciente_estudio_popup_paciente_estudio_component__WEBPACK_IMPORTED_MODULE_119__["PopupPacienteEstudioComponent"],
+                _shared_components_popups_popup_lente_tipo_popup_lente_tipo_component__WEBPACK_IMPORTED_MODULE_120__["PopupLenteTipoComponent"],
+                _shared_components_popups_popup_historia_clinica_lista_consulta_popup_historia_clinica_lista_consulta_component__WEBPACK_IMPORTED_MODULE_121__["PopupHistoriaClinicaListaConsultaComponent"],
+                _shared_components_popups_popup_liquidacion_detalle_popup_liquidacion_detalle_component__WEBPACK_IMPORTED_MODULE_122__["PopupLiquidacionDetalleComponent"],
+                _shared_components_popups_popup_historia_clinica_registro_popup_historia_clinica_registro_component__WEBPACK_IMPORTED_MODULE_123__["PopupHistoriaClinicaRegistroComponent"],
+                _shared_components_popups_popup_historia_clinica_registro_nuevo_popup_historia_clinica_registro_nuevo_component__WEBPACK_IMPORTED_MODULE_124__["PopupHistoriaClinicaRegistroNuevoComponent"],
+                _shared_components_popups_popup_derivar_asesoramiento_popup_derivar_asesoramiento_component__WEBPACK_IMPORTED_MODULE_125__["PopupDerivarAsesoramientoComponent"],
+                _pages_medico_historia_clinica_historia_clinica_visualizar_historia_clinica_visualizar_component__WEBPACK_IMPORTED_MODULE_126__["HistoriaClinicaVisualizarComponent"],
+                _shared_components_popups_popup_agenda_observacion_popup_agenda_observacion_component__WEBPACK_IMPORTED_MODULE_127__["PopupAgendaObservacionComponent"],
+                _shared_components_popups_popup_operacion_cobro_editar_popup_operacion_cobro_editar_component__WEBPACK_IMPORTED_MODULE_128__["PopupOperacionCobroEditarComponent"],
+                _shared_components_popups_popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_129__["PopupPacienteConsultaComponent"],
+                _pages_medico_facturacion_operacion_cobro_detalle_medico_operacion_cobro_detalle_medico_component__WEBPACK_IMPORTED_MODULE_130__["OperacionCobroDetalleMedicoComponent"],
+                _shared_components_popups_popup_operacion_cobro_registro_buscar_popup_operacion_cobro_registro_buscar_component__WEBPACK_IMPORTED_MODULE_131__["PopupOperacionCobroRegistroBuscarComponent"],
+                _pages_gerencia_agenda_agenda_consulta_agenda_consulta_component__WEBPACK_IMPORTED_MODULE_132__["AgendaConsultaComponent"],
+                _pages_gerencia_operacioncobro_operacion_cobro_consulta_gerencia_operacion_cobro_consulta_gerencia_component__WEBPACK_IMPORTED_MODULE_133__["OperacionCobroConsultaGerenciaComponent"],
+                _shared_pipes_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_134__["NumberToWordsPipe"],
+                _pages_estudios_estudio_carga_estudio_carga_component__WEBPACK_IMPORTED_MODULE_135__["EstudioCargaComponent"],
+                _shared_components_popups_popup_estudios_imagen_popup_estudios_imagen_component__WEBPACK_IMPORTED_MODULE_139__["PopupEstudiosImagenComponent"],
+                _shared_components_popups_popup_operacion_cobro_presentacion_popup_operacion_cobro_presentacion_component__WEBPACK_IMPORTED_MODULE_140__["PopupOperacionCobroPresentacionComponent"],
+                _shared_components_popups_popup_operacion_cobro_presentacion_editar_registro_popup_operacion_cobro_presentacion_editar_registro_component__WEBPACK_IMPORTED_MODULE_141__["PopupOperacionCobroPresentacionEditarRegistroComponent"],
+                _shared_components_popups_popup_presentacion_editar_popup_presentacion_editar_component__WEBPACK_IMPORTED_MODULE_142__["PopupPresentacionEditarComponent"],
+                _pages_asesoramiento_ficha_quirurgica_listado_cirugia_quirofano_listado_cirugia_quirofano_component__WEBPACK_IMPORTED_MODULE_143__["ListadoCirugiaQuirofanoComponent"],
+                _pages_asesoramiento_ficha_quirurgica_popup_listado_cirugia_quirofano_popup_listado_cirugia_quirofano_component__WEBPACK_IMPORTED_MODULE_144__["PopupListadoCirugiaQuirofanoComponent"],
+                _shared_components_popups_popup_derivar_asesoramiento_listado_popup_derivar_asesoramiento_listado_component__WEBPACK_IMPORTED_MODULE_145__["PopupDerivarAsesoramientoListadoComponent"],
+                _shared_components_popups_popup_listado_cirugia_quirofano_editar_popup_listado_cirugia_quirofano_editar_component__WEBPACK_IMPORTED_MODULE_146__["PopupListadoCirugiaQuirofanoEditarComponent"],
+                _shared_components_popups_popup_cobro_distribucion_editar_popup_cobro_distribucion_editar_component__WEBPACK_IMPORTED_MODULE_147__["PopupCobroDistribucionEditarComponent"],
+                _shared_components_popups_popup_ficha_quirurgica_operacion_cobro_popup_ficha_quirurgica_operacion_cobro_component__WEBPACK_IMPORTED_MODULE_149__["PopupFichaQuirurgicaOperacionCobroComponent"],
+                _pages_medico_asesoramiento_listado_cirugia_editar_listado_cirugia_editar_component__WEBPACK_IMPORTED_MODULE_150__["ListadoCirugiaEditarComponent"],
+                _shared_components_popups_popup_listado_cirugia_quirofano_observacion_editar_popup_listado_cirugia_quirofano_observacion_editar_component__WEBPACK_IMPORTED_MODULE_151__["PopupListadoCirugiaQuirofanoObservacionEditarComponent"],
+                _pages_mantenimiento_agenda_agenda_bloqueo_edicion_agenda_bloqueo_edicion_component__WEBPACK_IMPORTED_MODULE_152__["AgendaBloqueoEdicionComponent"],
+                _shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_153__["PopupOperacionCobroDetalleComponent"],
+                _shared_components_popups_popup_operacion_cobro_detalle_paciente_popup_operacion_cobro_detalle_paciente_component__WEBPACK_IMPORTED_MODULE_154__["PopupOperacionCobroDetallePacienteComponent"],
+                _shared_components_popups_popup_operacion_cobro_registro_buscar_todos_popup_operacion_cobro_registro_buscar_todos_component__WEBPACK_IMPORTED_MODULE_155__["PopupOperacionCobroRegistroBuscarTodosComponent"],
+                _shared_components_popups_popup_detalle_operacion_cobro_distribucion_popup_detalle_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_156__["PopupDetalleOperacionCobroDistribucionComponent"],
+                _shared_components_popups_popup_operacion_cobro_distribucion_popup_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_157__["PopupOperacionCobroDistribucionComponent"],
+                _pages_recepcion_agenda_agenda_recepcion_agenda_recepcion_component__WEBPACK_IMPORTED_MODULE_158__["AgendaRecepcionComponent"],
+                _shared_components_popups_popup_paciente_espera_popup_paciente_espera_component__WEBPACK_IMPORTED_MODULE_159__["PopupPacienteEsperaComponent"],
+                _pages_notificacion_popup_notificacion_popup_notificacion_component__WEBPACK_IMPORTED_MODULE_160__["PopupNotificacionComponent"],
+                _pages_notificacion_popup_chat_popup_chat_component__WEBPACK_IMPORTED_MODULE_161__["PopupChatComponent"],
+                _pages_notificacion_popup_notificacion_popup_listado_usuario_popup_listado_usuario_component__WEBPACK_IMPORTED_MODULE_162__["PopupListadoUsuarioComponent"],
+                _pages_notificacion_popup_notificacion_popup_notificacion_nueva_popup_notificacion_nueva_component__WEBPACK_IMPORTED_MODULE_163__["PopupNotificacionNuevaComponent"],
+                _pages_quirofano_listado_cirugia_quirofano_consulta_listado_cirugia_quirofano_consulta_component__WEBPACK_IMPORTED_MODULE_164__["ListadoCirugiaQuirofanoConsultaComponent"],
+                _pages_facturacion_factura_factura_electronica_factura_electronica_component__WEBPACK_IMPORTED_MODULE_165__["FacturaElectronicaComponent"],
+                _pages_facturacion_factura_electronica_popups_categoria_iva_categoria_iva_component__WEBPACK_IMPORTED_MODULE_166__["CategoriaIvaComponent"],
+                _pages_mantenimiento_entidad_entidad_component__WEBPACK_IMPORTED_MODULE_167__["EntidadComponent"],
+                _pages_mantenimiento_entidad_edit_entidad_edit_entidad_component__WEBPACK_IMPORTED_MODULE_168__["EditEntidadComponent"],
+                _pages_gerencia_gerencia_detalle_operacion_cobro_gerencia_detalle_operacion_cobro_component__WEBPACK_IMPORTED_MODULE_169__["GerenciaDetalleOperacionCobroComponent"],
             ],
             imports: [
                 ng2_pdf_viewer__WEBPACK_IMPORTED_MODULE_10__["PdfViewerModule"],
@@ -742,34 +760,35 @@ var AppModule = /** @class */ (function () {
                 primeng_autocomplete__WEBPACK_IMPORTED_MODULE_35__["AutoCompleteModule"],
                 _toverux_ngx_sweetalert2__WEBPACK_IMPORTED_MODULE_37__["SweetAlert2Module"].forRoot(),
                 angular_autofocus_fix__WEBPACK_IMPORTED_MODULE_38__["AutofocusModule"],
+                ngx_barcode__WEBPACK_IMPORTED_MODULE_39__["NgxBarcodeModule"],
                 ngx_socket_io__WEBPACK_IMPORTED_MODULE_13__["SocketIoModule"].forRoot(_config_config__WEBPACK_IMPORTED_MODULE_14__["config"]),
-                _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(_app_routes__WEBPACK_IMPORTED_MODULE_48__["ROUTES"], { useHash: true }),
+                _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(_app_routes__WEBPACK_IMPORTED_MODULE_49__["ROUTES"], { useHash: true }),
                 ngx_socket_io__WEBPACK_IMPORTED_MODULE_13__["SocketIoModule"].forRoot(_config_config__WEBPACK_IMPORTED_MODULE_14__["config"]),
-                angular_popper__WEBPACK_IMPORTED_MODULE_49__["NgxPopper"],
-                _angular_service_worker__WEBPACK_IMPORTED_MODULE_135__["ServiceWorkerModule"].register('ngsw-worker.js', { enabled: _environments_environment__WEBPACK_IMPORTED_MODULE_136__["environment"].production })
+                angular_popper__WEBPACK_IMPORTED_MODULE_50__["NgxPopper"],
+                _angular_service_worker__WEBPACK_IMPORTED_MODULE_136__["ServiceWorkerModule"].register('ngsw-worker.js', { enabled: _environments_environment__WEBPACK_IMPORTED_MODULE_137__["environment"].production })
             ],
             entryComponents: [
-                _pages_mantenimiento_popup_popup_obrasocial_popup_obrasocial_component__WEBPACK_IMPORTED_MODULE_59__["PopupObrasocialComponent"], _pages_mantenimiento_popup_popup_pmo_popup_pmo_component__WEBPACK_IMPORTED_MODULE_60__["PopupPmoComponent"], _pages_mantenimiento_popup_popup_entidad_factura_popup_entidad_factura_component__WEBPACK_IMPORTED_MODULE_61__["PopupEntidadFacturaComponent"], _shared_components_popups_popup_medico_popup_medico_component__WEBPACK_IMPORTED_MODULE_46__["PopupMedicoComponent"],
-                _shared_components_popups_popup_paciente_popup_paciente_component__WEBPACK_IMPORTED_MODULE_81__["PopupPacienteComponent"], _pages_mantenimiento_popup_popup_medico_grupo_medico_popup_medico_grupo_medico_component__WEBPACK_IMPORTED_MODULE_62__["PopupMedicoGrupoMedicoComponent"], _pages_mantenimiento_popup_popup_medico_grupo_popup_medico_grupo_component__WEBPACK_IMPORTED_MODULE_63__["PopupMedicoGrupoComponent"], _pages_mantenimiento_convenio_edit_convenio_edit_convenio_component__WEBPACK_IMPORTED_MODULE_67__["EditConvenioComponent"], _pages_mantenimiento_convenio_obra_social_edit_obra_social_edit_obra_social_component__WEBPACK_IMPORTED_MODULE_74__["EditObraSocialComponent"],
-                _shared_components_popups_popup_agenda_popup_agenda_component__WEBPACK_IMPORTED_MODULE_69__["PopupAgendaComponent"], _shared_components_popups_popup_convenio_popup_convenio_component__WEBPACK_IMPORTED_MODULE_70__["PopupConvenioComponent"], _pages_facturacion_operacion_cobro_popup_combinada_popup_combinada_component__WEBPACK_IMPORTED_MODULE_72__["PopupCombinadaComponent"], _pages_paciente_popup_paciente_popup_paciente_component__WEBPACK_IMPORTED_MODULE_82__["PopupPacienteNuevoComponent"],
-                _pages_facturacion_operacion_cobro_popup_combinada_popup_combinada_item_popup_combinada_item_component__WEBPACK_IMPORTED_MODULE_73__["PopupCombinadaItemComponent"], _pages_facturacion_operacion_cobro_popup_combinada_lectura_popup_combinada_lectura_component__WEBPACK_IMPORTED_MODULE_76__["PopupCombinadaLecturaComponent"], _shared_components_popups_popup_forma_pago_popup_forma_pago_component__WEBPACK_IMPORTED_MODULE_77__["PopUpFormaPagoComponent"], _shared_components_popups_popup_usuario_popup_usuario_component__WEBPACK_IMPORTED_MODULE_79__["PopupUsuarioComponent"],
-                _pages_recepcion_agenda_turno_popup_turno_usuario_obra_social_popup_turno_usuario_obra_social_component__WEBPACK_IMPORTED_MODULE_80__["PopupTurnoUsuarioObraSocialComponent"], _shared_components_popups_popup_paciente_obrasocial_popup_paciente_obrasocial_component__WEBPACK_IMPORTED_MODULE_84__["PopupPacienteObrasocialComponent"], _shared_components_popups_popup_practica_porcentaje_popup_practica_porcentaje_component__WEBPACK_IMPORTED_MODULE_85__["PopupPracticaPorcentajeComponent"],
-                _pages_medico_popup_obra_social_medico_popup_obra_social_medico_component__WEBPACK_IMPORTED_MODULE_86__["PopupObraSocialMedicoComponent"], _shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_87__["PopupObraSocialComponent"], _pages_medico_popup_medico_edit_popup_medico_edit_component__WEBPACK_IMPORTED_MODULE_2__["PopupMedicoEditComponent"],
-                _shared_components_popups_popup_turno_editar_popup_turno_editar_component__WEBPACK_IMPORTED_MODULE_92__["PopupTurnoEditarComponent"], _shared_components_popups_popup_operacion_cobro_registro_editar_popup_operacion_cobro_registro_editar_component__WEBPACK_IMPORTED_MODULE_95__["PopupOperacionCobroRegistroEditarComponent"], _shared_components_popups_popup_ficha_quirurgica_lente_popup_ficha_quirurgica_lente_component__WEBPACK_IMPORTED_MODULE_114__["PopupFichaQuirurgicaLenteComponent"],
-                _shared_components_popups_popup_ficha_quirurgica_medico_grupo_popup_ficha_quirurgica_medico_grupo_component__WEBPACK_IMPORTED_MODULE_115__["PopupFichaQuirurgicaMedicoGrupoComponent"], _pages_stock_lentes_popup_popup_detalle_lente_popup_detalle_lente_component__WEBPACK_IMPORTED_MODULE_100__["PopupDetalleLenteComponent"], _shared_components_popups_popup_lente_tipo_popup_lente_tipo_component__WEBPACK_IMPORTED_MODULE_119__["PopupLenteTipoComponent"],
-                _shared_components_popups_popup_ficha_quirurgica_estado_popup_ficha_quirurgica_estado_component__WEBPACK_IMPORTED_MODULE_116__["PopupFichaQuirurgicaEstadoComponent"], _shared_components_popups_popup_ficha_quirurgica_anestecia_popup_ficha_quirurgica_anestecia_component__WEBPACK_IMPORTED_MODULE_117__["PopupFichaQuirurgicaAnesteciaComponent"], _shared_components_popups_popup_paciente_estudio_popup_paciente_estudio_component__WEBPACK_IMPORTED_MODULE_118__["PopupPacienteEstudioComponent"],
-                _shared_components_popups_popup_historia_clinica_lista_consulta_popup_historia_clinica_lista_consulta_component__WEBPACK_IMPORTED_MODULE_120__["PopupHistoriaClinicaListaConsultaComponent"], _shared_components_popups_popup_historia_clinica_registro_nuevo_popup_historia_clinica_registro_nuevo_component__WEBPACK_IMPORTED_MODULE_123__["PopupHistoriaClinicaRegistroNuevoComponent"], _shared_components_popups_popup_lentes_popup_lentes_component__WEBPACK_IMPORTED_MODULE_109__["PopupLentesComponent"],
-                _shared_components_popups_popup_historia_clinica_registro_popup_historia_clinica_registro_component__WEBPACK_IMPORTED_MODULE_122__["PopupHistoriaClinicaRegistroComponent"], _shared_components_popups_popup_historia_clinica_registro_popup_historia_clinica_registro_component__WEBPACK_IMPORTED_MODULE_122__["PopupHistoriaClinicaRegistroComponent"], _shared_components_popups_popup_historia_clinica_lista_consulta_popup_historia_clinica_lista_consulta_component__WEBPACK_IMPORTED_MODULE_120__["PopupHistoriaClinicaListaConsultaComponent"],
-                _shared_components_popups_popup_derivar_asesoramiento_popup_derivar_asesoramiento_component__WEBPACK_IMPORTED_MODULE_124__["PopupDerivarAsesoramientoComponent"], _shared_components_popups_popup_agenda_observacion_popup_agenda_observacion_component__WEBPACK_IMPORTED_MODULE_126__["PopupAgendaObservacionComponent"], _shared_components_popups_popup_operacion_cobro_editar_popup_operacion_cobro_editar_component__WEBPACK_IMPORTED_MODULE_127__["PopupOperacionCobroEditarComponent"], _shared_components_popups_popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_128__["PopupPacienteConsultaComponent"],
-                _shared_components_popups_popup_operacion_cobro_registro_buscar_popup_operacion_cobro_registro_buscar_component__WEBPACK_IMPORTED_MODULE_130__["PopupOperacionCobroRegistroBuscarComponent"], _shared_components_popups_popup_estudios_imagen_popup_estudios_imagen_component__WEBPACK_IMPORTED_MODULE_138__["PopupEstudiosImagenComponent"], _shared_components_popups_popup_operacion_cobro_presentacion_popup_operacion_cobro_presentacion_component__WEBPACK_IMPORTED_MODULE_139__["PopupOperacionCobroPresentacionComponent"],
-                _shared_components_popups_popup_operacion_cobro_presentacion_editar_registro_popup_operacion_cobro_presentacion_editar_registro_component__WEBPACK_IMPORTED_MODULE_140__["PopupOperacionCobroPresentacionEditarRegistroComponent"], _shared_components_popups_popup_presentacion_editar_popup_presentacion_editar_component__WEBPACK_IMPORTED_MODULE_141__["PopupPresentacionEditarComponent"], _shared_components_popups_popup_derivar_asesoramiento_listado_popup_derivar_asesoramiento_listado_component__WEBPACK_IMPORTED_MODULE_144__["PopupDerivarAsesoramientoListadoComponent"],
-                _shared_components_popups_popup_listado_cirugia_quirofano_editar_popup_listado_cirugia_quirofano_editar_component__WEBPACK_IMPORTED_MODULE_145__["PopupListadoCirugiaQuirofanoEditarComponent"], _shared_components_popups_popup_cobro_distribucion_editar_popup_cobro_distribucion_editar_component__WEBPACK_IMPORTED_MODULE_146__["PopupCobroDistribucionEditarComponent"], _shared_components_popups_popup_ficha_quirurgica_operacion_cobro_popup_ficha_quirurgica_operacion_cobro_component__WEBPACK_IMPORTED_MODULE_148__["PopupFichaQuirurgicaOperacionCobroComponent"],
-                _shared_components_popups_popup_listado_cirugia_quirofano_observacion_editar_popup_listado_cirugia_quirofano_observacion_editar_component__WEBPACK_IMPORTED_MODULE_150__["PopupListadoCirugiaQuirofanoObservacionEditarComponent"], _shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_152__["PopupOperacionCobroDetalleComponent"], _shared_components_popups_popup_operacion_cobro_detalle_paciente_popup_operacion_cobro_detalle_paciente_component__WEBPACK_IMPORTED_MODULE_153__["PopupOperacionCobroDetallePacienteComponent"],
-                _shared_components_popups_popup_operacion_cobro_registro_buscar_todos_popup_operacion_cobro_registro_buscar_todos_component__WEBPACK_IMPORTED_MODULE_154__["PopupOperacionCobroRegistroBuscarTodosComponent"], _shared_components_popups_popup_detalle_operacion_cobro_distribucion_popup_detalle_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_155__["PopupDetalleOperacionCobroDistribucionComponent"],
-                _shared_components_popups_popup_operacion_cobro_distribucion_popup_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_156__["PopupOperacionCobroDistribucionComponent"], _shared_components_popups_popup_paciente_espera_popup_paciente_espera_component__WEBPACK_IMPORTED_MODULE_158__["PopupPacienteEsperaComponent"], _pages_notificacion_popup_notificacion_popup_notificacion_component__WEBPACK_IMPORTED_MODULE_159__["PopupNotificacionComponent"],
-                _pages_notificacion_popup_chat_popup_chat_component__WEBPACK_IMPORTED_MODULE_160__["PopupChatComponent"], _pages_notificacion_popup_notificacion_popup_listado_usuario_popup_listado_usuario_component__WEBPACK_IMPORTED_MODULE_161__["PopupListadoUsuarioComponent"], _pages_notificacion_popup_notificacion_popup_notificacion_nueva_popup_notificacion_nueva_component__WEBPACK_IMPORTED_MODULE_162__["PopupNotificacionNuevaComponent"],
+                _pages_mantenimiento_popup_popup_obrasocial_popup_obrasocial_component__WEBPACK_IMPORTED_MODULE_60__["PopupObrasocialComponent"], _pages_mantenimiento_popup_popup_pmo_popup_pmo_component__WEBPACK_IMPORTED_MODULE_61__["PopupPmoComponent"], _pages_mantenimiento_popup_popup_entidad_factura_popup_entidad_factura_component__WEBPACK_IMPORTED_MODULE_62__["PopupEntidadFacturaComponent"], _shared_components_popups_popup_medico_popup_medico_component__WEBPACK_IMPORTED_MODULE_47__["PopupMedicoComponent"],
+                _shared_components_popups_popup_paciente_popup_paciente_component__WEBPACK_IMPORTED_MODULE_82__["PopupPacienteComponent"], _pages_mantenimiento_popup_popup_medico_grupo_medico_popup_medico_grupo_medico_component__WEBPACK_IMPORTED_MODULE_63__["PopupMedicoGrupoMedicoComponent"], _pages_mantenimiento_popup_popup_medico_grupo_popup_medico_grupo_component__WEBPACK_IMPORTED_MODULE_64__["PopupMedicoGrupoComponent"], _pages_mantenimiento_convenio_edit_convenio_edit_convenio_component__WEBPACK_IMPORTED_MODULE_68__["EditConvenioComponent"], _pages_mantenimiento_convenio_obra_social_edit_obra_social_edit_obra_social_component__WEBPACK_IMPORTED_MODULE_75__["EditObraSocialComponent"],
+                _shared_components_popups_popup_agenda_popup_agenda_component__WEBPACK_IMPORTED_MODULE_70__["PopupAgendaComponent"], _shared_components_popups_popup_convenio_popup_convenio_component__WEBPACK_IMPORTED_MODULE_71__["PopupConvenioComponent"], _pages_facturacion_operacion_cobro_popup_combinada_popup_combinada_component__WEBPACK_IMPORTED_MODULE_73__["PopupCombinadaComponent"], _pages_paciente_popup_paciente_popup_paciente_component__WEBPACK_IMPORTED_MODULE_83__["PopupPacienteNuevoComponent"],
+                _pages_facturacion_operacion_cobro_popup_combinada_popup_combinada_item_popup_combinada_item_component__WEBPACK_IMPORTED_MODULE_74__["PopupCombinadaItemComponent"], _pages_facturacion_operacion_cobro_popup_combinada_lectura_popup_combinada_lectura_component__WEBPACK_IMPORTED_MODULE_77__["PopupCombinadaLecturaComponent"], _shared_components_popups_popup_forma_pago_popup_forma_pago_component__WEBPACK_IMPORTED_MODULE_78__["PopUpFormaPagoComponent"], _shared_components_popups_popup_usuario_popup_usuario_component__WEBPACK_IMPORTED_MODULE_80__["PopupUsuarioComponent"],
+                _pages_recepcion_agenda_turno_popup_turno_usuario_obra_social_popup_turno_usuario_obra_social_component__WEBPACK_IMPORTED_MODULE_81__["PopupTurnoUsuarioObraSocialComponent"], _shared_components_popups_popup_paciente_obrasocial_popup_paciente_obrasocial_component__WEBPACK_IMPORTED_MODULE_85__["PopupPacienteObrasocialComponent"], _shared_components_popups_popup_practica_porcentaje_popup_practica_porcentaje_component__WEBPACK_IMPORTED_MODULE_86__["PopupPracticaPorcentajeComponent"],
+                _pages_medico_popup_obra_social_medico_popup_obra_social_medico_component__WEBPACK_IMPORTED_MODULE_87__["PopupObraSocialMedicoComponent"], _shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_88__["PopupObraSocialComponent"], _pages_medico_popup_medico_edit_popup_medico_edit_component__WEBPACK_IMPORTED_MODULE_2__["PopupMedicoEditComponent"],
+                _shared_components_popups_popup_turno_editar_popup_turno_editar_component__WEBPACK_IMPORTED_MODULE_93__["PopupTurnoEditarComponent"], _shared_components_popups_popup_operacion_cobro_registro_editar_popup_operacion_cobro_registro_editar_component__WEBPACK_IMPORTED_MODULE_96__["PopupOperacionCobroRegistroEditarComponent"], _shared_components_popups_popup_ficha_quirurgica_lente_popup_ficha_quirurgica_lente_component__WEBPACK_IMPORTED_MODULE_115__["PopupFichaQuirurgicaLenteComponent"],
+                _shared_components_popups_popup_ficha_quirurgica_medico_grupo_popup_ficha_quirurgica_medico_grupo_component__WEBPACK_IMPORTED_MODULE_116__["PopupFichaQuirurgicaMedicoGrupoComponent"], _pages_stock_lentes_popup_popup_detalle_lente_popup_detalle_lente_component__WEBPACK_IMPORTED_MODULE_101__["PopupDetalleLenteComponent"], _shared_components_popups_popup_lente_tipo_popup_lente_tipo_component__WEBPACK_IMPORTED_MODULE_120__["PopupLenteTipoComponent"],
+                _shared_components_popups_popup_ficha_quirurgica_estado_popup_ficha_quirurgica_estado_component__WEBPACK_IMPORTED_MODULE_117__["PopupFichaQuirurgicaEstadoComponent"], _shared_components_popups_popup_ficha_quirurgica_anestecia_popup_ficha_quirurgica_anestecia_component__WEBPACK_IMPORTED_MODULE_118__["PopupFichaQuirurgicaAnesteciaComponent"], _shared_components_popups_popup_paciente_estudio_popup_paciente_estudio_component__WEBPACK_IMPORTED_MODULE_119__["PopupPacienteEstudioComponent"],
+                _shared_components_popups_popup_historia_clinica_lista_consulta_popup_historia_clinica_lista_consulta_component__WEBPACK_IMPORTED_MODULE_121__["PopupHistoriaClinicaListaConsultaComponent"], _shared_components_popups_popup_historia_clinica_registro_nuevo_popup_historia_clinica_registro_nuevo_component__WEBPACK_IMPORTED_MODULE_124__["PopupHistoriaClinicaRegistroNuevoComponent"], _shared_components_popups_popup_lentes_popup_lentes_component__WEBPACK_IMPORTED_MODULE_110__["PopupLentesComponent"],
+                _shared_components_popups_popup_historia_clinica_registro_popup_historia_clinica_registro_component__WEBPACK_IMPORTED_MODULE_123__["PopupHistoriaClinicaRegistroComponent"], _shared_components_popups_popup_historia_clinica_registro_popup_historia_clinica_registro_component__WEBPACK_IMPORTED_MODULE_123__["PopupHistoriaClinicaRegistroComponent"], _shared_components_popups_popup_historia_clinica_lista_consulta_popup_historia_clinica_lista_consulta_component__WEBPACK_IMPORTED_MODULE_121__["PopupHistoriaClinicaListaConsultaComponent"],
+                _shared_components_popups_popup_derivar_asesoramiento_popup_derivar_asesoramiento_component__WEBPACK_IMPORTED_MODULE_125__["PopupDerivarAsesoramientoComponent"], _shared_components_popups_popup_agenda_observacion_popup_agenda_observacion_component__WEBPACK_IMPORTED_MODULE_127__["PopupAgendaObservacionComponent"], _shared_components_popups_popup_operacion_cobro_editar_popup_operacion_cobro_editar_component__WEBPACK_IMPORTED_MODULE_128__["PopupOperacionCobroEditarComponent"], _shared_components_popups_popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_129__["PopupPacienteConsultaComponent"],
+                _shared_components_popups_popup_operacion_cobro_registro_buscar_popup_operacion_cobro_registro_buscar_component__WEBPACK_IMPORTED_MODULE_131__["PopupOperacionCobroRegistroBuscarComponent"], _shared_components_popups_popup_estudios_imagen_popup_estudios_imagen_component__WEBPACK_IMPORTED_MODULE_139__["PopupEstudiosImagenComponent"], _shared_components_popups_popup_operacion_cobro_presentacion_popup_operacion_cobro_presentacion_component__WEBPACK_IMPORTED_MODULE_140__["PopupOperacionCobroPresentacionComponent"],
+                _shared_components_popups_popup_operacion_cobro_presentacion_editar_registro_popup_operacion_cobro_presentacion_editar_registro_component__WEBPACK_IMPORTED_MODULE_141__["PopupOperacionCobroPresentacionEditarRegistroComponent"], _shared_components_popups_popup_presentacion_editar_popup_presentacion_editar_component__WEBPACK_IMPORTED_MODULE_142__["PopupPresentacionEditarComponent"], _shared_components_popups_popup_derivar_asesoramiento_listado_popup_derivar_asesoramiento_listado_component__WEBPACK_IMPORTED_MODULE_145__["PopupDerivarAsesoramientoListadoComponent"],
+                _shared_components_popups_popup_listado_cirugia_quirofano_editar_popup_listado_cirugia_quirofano_editar_component__WEBPACK_IMPORTED_MODULE_146__["PopupListadoCirugiaQuirofanoEditarComponent"], _shared_components_popups_popup_cobro_distribucion_editar_popup_cobro_distribucion_editar_component__WEBPACK_IMPORTED_MODULE_147__["PopupCobroDistribucionEditarComponent"], _shared_components_popups_popup_ficha_quirurgica_operacion_cobro_popup_ficha_quirurgica_operacion_cobro_component__WEBPACK_IMPORTED_MODULE_149__["PopupFichaQuirurgicaOperacionCobroComponent"],
+                _shared_components_popups_popup_listado_cirugia_quirofano_observacion_editar_popup_listado_cirugia_quirofano_observacion_editar_component__WEBPACK_IMPORTED_MODULE_151__["PopupListadoCirugiaQuirofanoObservacionEditarComponent"], _shared_components_popups_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_153__["PopupOperacionCobroDetalleComponent"], _shared_components_popups_popup_operacion_cobro_detalle_paciente_popup_operacion_cobro_detalle_paciente_component__WEBPACK_IMPORTED_MODULE_154__["PopupOperacionCobroDetallePacienteComponent"],
+                _shared_components_popups_popup_operacion_cobro_registro_buscar_todos_popup_operacion_cobro_registro_buscar_todos_component__WEBPACK_IMPORTED_MODULE_155__["PopupOperacionCobroRegistroBuscarTodosComponent"], _shared_components_popups_popup_detalle_operacion_cobro_distribucion_popup_detalle_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_156__["PopupDetalleOperacionCobroDistribucionComponent"],
+                _shared_components_popups_popup_operacion_cobro_distribucion_popup_operacion_cobro_distribucion_component__WEBPACK_IMPORTED_MODULE_157__["PopupOperacionCobroDistribucionComponent"], _shared_components_popups_popup_paciente_espera_popup_paciente_espera_component__WEBPACK_IMPORTED_MODULE_159__["PopupPacienteEsperaComponent"], _pages_notificacion_popup_notificacion_popup_notificacion_component__WEBPACK_IMPORTED_MODULE_160__["PopupNotificacionComponent"],
+                _pages_notificacion_popup_chat_popup_chat_component__WEBPACK_IMPORTED_MODULE_161__["PopupChatComponent"], _pages_notificacion_popup_notificacion_popup_listado_usuario_popup_listado_usuario_component__WEBPACK_IMPORTED_MODULE_162__["PopupListadoUsuarioComponent"], _pages_notificacion_popup_notificacion_popup_notificacion_nueva_popup_notificacion_nueva_component__WEBPACK_IMPORTED_MODULE_163__["PopupNotificacionNuevaComponent"],
             ],
-            providers: [_angular_common__WEBPACK_IMPORTED_MODULE_8__["CurrencyPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["DecimalPipe"], _shared_pipes_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_133__["NumberToWordsPipe"], _services_paciente_service__WEBPACK_IMPORTED_MODULE_50__["PacienteService"], _services_push_notification_service__WEBPACK_IMPORTED_MODULE_137__["PushNotificationService"], _services_excel_service__WEBPACK_IMPORTED_MODULE_147__["ExcelService"], { provide: _angular_core__WEBPACK_IMPORTED_MODULE_4__["LOCALE_ID"], useValue: 'es-Ar' },
+            providers: [_angular_common__WEBPACK_IMPORTED_MODULE_8__["CurrencyPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["DecimalPipe"], _shared_pipes_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_134__["NumberToWordsPipe"], _services_paciente_service__WEBPACK_IMPORTED_MODULE_51__["PacienteService"], _services_push_notification_service__WEBPACK_IMPORTED_MODULE_138__["PushNotificationService"], _services_excel_service__WEBPACK_IMPORTED_MODULE_148__["ExcelService"], { provide: _angular_core__WEBPACK_IMPORTED_MODULE_4__["LOCALE_ID"], useValue: 'es-Ar' },
                 primeng_multiselect__WEBPACK_IMPORTED_MODULE_16__["MultiSelectModule"],
                 // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
                 {
@@ -781,7 +800,7 @@ var AppModule = /** @class */ (function () {
                     deps: [_angular_core__WEBPACK_IMPORTED_MODULE_4__["Injector"]]
                 },
                 { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HTTP_INTERCEPTORS"], useClass: _helpers_error_interceptor__WEBPACK_IMPORTED_MODULE_0__["ErrorInterceptor"], multi: true }],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_39__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_40__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -846,6 +865,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_mantenimiento_agenda_agenda_bloqueo_edicion_agenda_bloqueo_edicion_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./pages/mantenimiento/agenda/agenda-bloqueo-edicion/agenda-bloqueo-edicion.component */ "./src/app/pages/mantenimiento/agenda/agenda-bloqueo-edicion/agenda-bloqueo-edicion.component.ts");
 /* harmony import */ var _pages_recepcion_agenda_agenda_recepcion_agenda_recepcion_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./pages/recepcion/agenda/agenda-recepcion/agenda-recepcion.component */ "./src/app/pages/recepcion/agenda/agenda-recepcion/agenda-recepcion.component.ts");
 /* harmony import */ var _pages_quirofano_listado_cirugia_quirofano_consulta_listado_cirugia_quirofano_consulta_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./pages/quirofano/listado-cirugia-quirofano-consulta/listado-cirugia-quirofano-consulta.component */ "./src/app/pages/quirofano/listado-cirugia-quirofano-consulta/listado-cirugia-quirofano-consulta.component.ts");
+/* harmony import */ var _pages_facturacion_factura_factura_electronica_factura_electronica_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./pages/facturacion/factura/factura-electronica/factura-electronica.component */ "./src/app/pages/facturacion/factura/factura-electronica/factura-electronica.component.ts");
+/* harmony import */ var _pages_gerencia_gerencia_detalle_operacion_cobro_gerencia_detalle_operacion_cobro_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component */ "./src/app/pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component.ts");
+
+
 
 
 
@@ -927,6 +950,7 @@ var ROUTES = [
     { path: 'facturacion/liquidacion/confeccion', component: _pages_facturacion_liquidacion_liquidar_confeccion_factura_confeccion_factura_component__WEBPACK_IMPORTED_MODULE_32__["ConfeccionFacturaComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'facturacion_control' } },
     { path: 'facturacion/liquidacion/provincia', component: _pages_facturacion_liquidacion_provincia_liquidacion_provincia_liquidacion_provincia_component__WEBPACK_IMPORTED_MODULE_31__["LiquidacionProvinciaComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'facturacion_control' } },
     { path: 'facturacion/liquidacion/presentacion', component: _pages_facturacion_liquidacion_liquidar_liquidacion_detalle_liquidacion_detalle_component__WEBPACK_IMPORTED_MODULE_30__["LiquidacionDetalleComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'facturacion_control' } },
+    { path: 'recepcion/factura/electronica', component: _pages_facturacion_factura_factura_electronica_factura_electronica_component__WEBPACK_IMPORTED_MODULE_45__["FacturaElectronicaComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'recepcion_consulta' } },
     /** recepcion **/
     { path: 'recepcion/agenda', component: _pages_recepcion_agenda_agenda_recepcion_agenda_recepcion_component__WEBPACK_IMPORTED_MODULE_43__["AgendaRecepcionComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'recepcion_consulta' } },
     { path: 'recepcion/telefonista/agenda', component: _pages_recepcion_agenda_agenda_component__WEBPACK_IMPORTED_MODULE_17__["AgendaComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'recepcion_consulta' } },
@@ -947,6 +971,7 @@ var ROUTES = [
     /** gerencia **/
     { path: 'gerencia/agenda/consulta', component: _pages_gerencia_agenda_agenda_consulta_agenda_consulta_component__WEBPACK_IMPORTED_MODULE_37__["AgendaConsultaComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'gerencia_control' } },
     { path: 'gerencia/operacioncobro/consulta', component: _pages_gerencia_operacioncobro_operacion_cobro_consulta_gerencia_operacion_cobro_consulta_gerencia_component__WEBPACK_IMPORTED_MODULE_38__["OperacionCobroConsultaGerenciaComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'gerencia_control' } },
+    { path: 'gerencia/operacioncobro/detalle', component: _pages_gerencia_gerencia_detalle_operacion_cobro_gerencia_detalle_operacion_cobro_component__WEBPACK_IMPORTED_MODULE_46__["GerenciaDetalleOperacionCobroComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'gerencia_control' } },
     /** quirofano */
     { path: 'medico/cirugia/listado/cirugia', component: _pages_medico_asesoramiento_listado_cirugia_editar_listado_cirugia_editar_component__WEBPACK_IMPORTED_MODULE_41__["ListadoCirugiaEditarComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'quirofano_control' } },
     { path: 'quirofona/cirugia/listado/cirugia', component: _pages_quirofano_listado_cirugia_quirofano_consulta_listado_cirugia_quirofano_consulta_component__WEBPACK_IMPORTED_MODULE_44__["ListadoCirugiaQuirofanoConsultaComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__["AuthGuard"]], data: { role: 'quirofano_control' } },
@@ -3682,6 +3707,239 @@ var EstudioCargaComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/pages/facturacion/factura-electronica/popups/categoria-iva/categoria-iva.component.css":
+/*!********************************************************************************************************!*\
+  !*** ./src/app/pages/facturacion/factura-electronica/popups/categoria-iva/categoria-iva.component.css ***!
+  \********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2ZhY3R1cmFjaW9uL2ZhY3R1cmEtZWxlY3Ryb25pY2EvcG9wdXBzL2NhdGVnb3JpYS1pdmEvY2F0ZWdvcmlhLWl2YS5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/pages/facturacion/factura-electronica/popups/categoria-iva/categoria-iva.component.html":
+/*!*********************************************************************************************************!*\
+  !*** ./src/app/pages/facturacion/factura-electronica/popups/categoria-iva/categoria-iva.component.html ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  categoria-iva works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/pages/facturacion/factura-electronica/popups/categoria-iva/categoria-iva.component.ts":
+/*!*******************************************************************************************************!*\
+  !*** ./src/app/pages/facturacion/factura-electronica/popups/categoria-iva/categoria-iva.component.ts ***!
+  \*******************************************************************************************************/
+/*! exports provided: CategoriaIvaComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CategoriaIvaComponent", function() { return CategoriaIvaComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CategoriaIvaComponent = /** @class */ (function () {
+    function CategoriaIvaComponent() {
+    }
+    CategoriaIvaComponent.prototype.ngOnInit = function () {
+    };
+    CategoriaIvaComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-categoria-iva',
+            template: __webpack_require__(/*! ./categoria-iva.component.html */ "./src/app/pages/facturacion/factura-electronica/popups/categoria-iva/categoria-iva.component.html"),
+            styles: [__webpack_require__(/*! ./categoria-iva.component.css */ "./src/app/pages/facturacion/factura-electronica/popups/categoria-iva/categoria-iva.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CategoriaIvaComponent);
+    return CategoriaIvaComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/facturacion/factura/factura-electronica/factura-electronica.component.css":
+/*!*************************************************************************************************!*\
+  !*** ./src/app/pages/facturacion/factura/factura-electronica/factura-electronica.component.css ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2ZhY3R1cmFjaW9uL2ZhY3R1cmEvZmFjdHVyYS1lbGVjdHJvbmljYS9mYWN0dXJhLWVsZWN0cm9uaWNhLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/pages/facturacion/factura/factura-electronica/factura-electronica.component.html":
+/*!**************************************************************************************************!*\
+  !*** ./src/app/pages/facturacion/factura/factura-electronica/factura-electronica.component.html ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  factura-electronica works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/pages/facturacion/factura/factura-electronica/factura-electronica.component.ts":
+/*!************************************************************************************************!*\
+  !*** ./src/app/pages/facturacion/factura/factura-electronica/factura-electronica.component.ts ***!
+  \************************************************************************************************/
+/*! exports provided: FacturaElectronicaComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FacturaElectronicaComponent", function() { return FacturaElectronicaComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_facturacion_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../services/facturacion.service */ "./src/app/services/facturacion.service.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var FacturaElectronicaComponent = /** @class */ (function () {
+    function FacturaElectronicaComponent(facturacionService) {
+        this.facturacionService = facturacionService;
+        this.elementos = null;
+    }
+    FacturaElectronicaComponent.prototype.ngOnInit = function () {
+        this.TipoComprobantesDisponibles();
+        this.TipoConceptosDisponibles();
+        this.TipoDocumentosDisponibles();
+        this.TipoAlicuotasDisponibles();
+    };
+    FacturaElectronicaComponent.prototype.TipoComprobantesDisponibles = function () {
+        var _this = this;
+        try {
+            this.facturacionService.TipoComprobantesDisponibles('24')
+                .subscribe(function (resp) {
+                _this.elementos = resp;
+                _this.loading = false;
+                console.log(resp);
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                sweetalert2__WEBPACK_IMPORTED_MODULE_2___default()({
+                    toast: false,
+                    type: 'error',
+                    text: error.message,
+                    title: 'error.status',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            });
+        }
+        catch (error) {
+        }
+    };
+    FacturaElectronicaComponent.prototype.TipoConceptosDisponibles = function () {
+        var _this = this;
+        try {
+            this.facturacionService.TipoConceptosDisponibles('24')
+                .subscribe(function (resp) {
+                _this.elementos = resp;
+                _this.loading = false;
+                console.log(resp);
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                sweetalert2__WEBPACK_IMPORTED_MODULE_2___default()({
+                    toast: false,
+                    type: 'error',
+                    text: error.message,
+                    title: 'error.status',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            });
+        }
+        catch (error) {
+        }
+    };
+    FacturaElectronicaComponent.prototype.TipoDocumentosDisponibles = function () {
+        var _this = this;
+        try {
+            this.facturacionService.TipoDocumentosDisponibles('24')
+                .subscribe(function (resp) {
+                _this.elementos = resp;
+                _this.loading = false;
+                console.log(resp);
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                sweetalert2__WEBPACK_IMPORTED_MODULE_2___default()({
+                    toast: false,
+                    type: 'error',
+                    text: error.message,
+                    title: 'error.status',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            });
+        }
+        catch (error) {
+        }
+    };
+    FacturaElectronicaComponent.prototype.TipoAlicuotasDisponibles = function () {
+        var _this = this;
+        try {
+            this.facturacionService.TipoAlicuotasDisponibles('24')
+                .subscribe(function (resp) {
+                _this.elementos = resp;
+                _this.loading = false;
+                console.log(resp);
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                sweetalert2__WEBPACK_IMPORTED_MODULE_2___default()({
+                    toast: false,
+                    type: 'error',
+                    text: error.message,
+                    title: 'error.status',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            });
+        }
+        catch (error) {
+        }
+    };
+    FacturaElectronicaComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-factura-electronica',
+            template: __webpack_require__(/*! ./factura-electronica.component.html */ "./src/app/pages/facturacion/factura/factura-electronica/factura-electronica.component.html"),
+            styles: [__webpack_require__(/*! ./factura-electronica.component.css */ "./src/app/pages/facturacion/factura/factura-electronica/factura-electronica.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_facturacion_service__WEBPACK_IMPORTED_MODULE_1__["FacturacionService"]])
+    ], FacturaElectronicaComponent);
+    return FacturaElectronicaComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/pages/facturacion/liquidacion-generada/liquidacion-generada.component.css":
 /*!*******************************************************************************************!*\
   !*** ./src/app/pages/facturacion/liquidacion-generada/liquidacion-generada.component.css ***!
@@ -4924,7 +5182,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n \n</div>\n<p-toast (life)=\"100\" styleClass=\"custom-toast\" [style]=\"{marginTop: '100px'}\"></p-toast>\n\n<div class=\"row  m-1\">\n    \n  <div class=\"row m-2\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n      <div  class=\"input-group input-group-sm \">\n              <form  [formGroup]=\"DateForm\">\n              <div class=\"btn-group mr-1\" role=\"group\">\n                      <span class=\"pr-1 pt-1\"><h6>Desde:</h6></span>\n                      <p-calendar [inputStyle]=\"{'height':'29.1px'}\" [styleClass]=\"form-control\" [showTime]=\"true\"   class=\"mr-2 \" formControlName=\"fecha_desde\"  (onSelect)=\"actualizarFechaDesde($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                        <ng-template pTemplate=\"date\" let-date>\n                                <span    style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                            </ng-template> \n                        </p-calendar>\n                        <span class=\"pr-1 pt-1\"><h6>Hasta:</h6></span>\n                        <p-calendar [inputStyle]=\"{'height':'29.1px'}\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_hasta\"  (onSelect)=\"actualizarFechaHasta($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                            <ng-template pTemplate=\"date\" let-date>\n                                <span  inputStyle=\"{'height':'29.5px'}\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                            </ng-template> \n                        </p-calendar>                                  \n                        <div class=\" ml-2 row\">\n                           <div> <button    class=\"btn  btn-success btn-sm  \"  (click)=\"loadRegistro()\" >Buscar Registros</button></div>\n                           <div class=\"ml-2\"><button    class=\"btn  btn-info btn-sm float-right  pr-2\" (click)=\"afectarRegistros()\" >Auditar registros</button>   </div>                           \n                          </div>       \n      </div>   \n              </form>            \n            \n      </div>    \n  </div>\n  \n  <p-table  #dt class=\"pt-2\"   tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\" [value]=\"elementos\"  (onEditComplete)=\"editRow($event)\" [(selection)]=\"selecteditems\" columnResizeMode=\"expand\" [responsive]=\"true\"\n  scrollHeight=\"400px\" [scrollable]=\"true\"  (onFilter)=\"filtered($event)\"  >\n  <ng-template pTemplate=\"caption\">\n    <div class=\"row\">\n            <div class=\"col-md-12 row\" style=\"text-align:left \">\n             <div class=\"pr-2 pl-2\">   <button    class=\"btn  btn-outline-info btn-sm   \"  (click)=\"generarPdfListado('todos')\" >Imprimir resumen</button></div>\n             <div><button    class=\"btn  btn-outline-success btn-sm \"  (click)=\"generarPdfListado('medico')\" >Imprimir resumen por médico</button></div> \n             <div>  <button    class=\"ml-2 btn  btn  btn-outline-info btn-sm float-right \"  (click)=\"generarPreFactura()\" >Imprimir pre-factura</button></div>                          \n             <div>  <button    class=\"ml-2 btn  btn-outline-secondary btn-sm float-right \"  (click)=\"buscarPractica()\" >Buscar otros registros</button></div>     \n             <div>  <button    class=\"ml-2 btn  btn-outline-secondary btn-sm float-right \"  (click)=\"buscarPracticaPaciente()\" >Buscar registros por paciente</button></div> \n             \n            </div>\n    \n </div>\n</ng-template>\n             <ng-template pTemplate=\"header\" let-columns >\n            \n                        <tr >\n                             \n                          <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\n                              {{col.header}}\n                              <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activate to sort in descending order\" ariaLabelAsc=\"Activate to sort in ascending order\"></p-sortIcon>\n                          </th> \n                          <th style=\"width: 3em\">\n                                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>\n                          </th>\n                      </tr> \n                      <tr>\n                        <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\"  >\n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'operacion_cobro_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                            <input style=\" font-size: 12px;\"  class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'apellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'dni'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                      \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'gravado_adherente'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'descripcion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                            <p-multiSelect *ngSwitchCase=\"'complejidad'\" [options]=\"nivel\" defaultLabel=\"nivel\"  (onChange)=\"dt.filter($event.value, col.field,  'in')\" appendTo=\"body\" [style]=\"{'width':'100%'}\" [filter]= 'false'></p-multiSelect>\n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'codigo'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'medico_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value , col.field, col.filterMatchMode)\" >                      \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'usuario_cobro_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'fecha_cobro'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'cantidad'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                                             \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'valor_original'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'valor_facturado'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'distribucion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                                                                                         \n                            <p-multiSelect *ngSwitchCase=\"'forma_pago'\" [options]=\"formasPago\" defaultLabel=\"Pagos\"  (onChange)=\"dt.filter($event.value, col.field,  'in')\" appendTo=\"body\" [style]=\"{'width':'100%'}\" [filter]= 'false'></p-multiSelect>\n                        </th>\n                        <th></th>\n                    </tr>\n                </ng-template>\n              \n        <ng-template pTemplate=\"body\" let-elementos  >\n            <tr style=\"height:20px\" [ngClass]=\"colorEstado(elementos.operacion_cobro_observacion)\">\n                   \n                    <td style=\"width: 6%\" >                   \n                        <a     (click)=\"accion($event,op,elementos)\"    ><i class=\"far fa-edit fa-2x icon-color-purple my-hover\"></i></a>\n                     \n                    </td>\n                    <td style=\"font-size: 11px;width: 6%\">{{elementos.operacion_cobro_id}}</td>\n                    <td style=\"font-size: 11px;width: 10%\">{{elementos.apellido}}</td>\n                    <td style=\"font-size: 11px;width: 10%\">{{elementos.nombre}}</td>\n                    <td style=\"font-size: 10px;width: 7%\">{{elementos.dni}}</td>\n                    <td style=\"font-size: 10px;width: 15%\">{{elementos.obra_social_nombre}}</td>                                                    \n                    <td style=\"font-size: 11px;width: 4%\">{{elementos.gravado_adherente}}</td>   \n                    <td style=\"font-size: 11px;width: 20%\">{{elementos.descripcion}}</td>                            \n                    <td style=\"font-size: 11px;width: 5%\">{{elementos.complejidad}}</td>  \n                    <td style=\"font-size: 11px;width: 8%\">{{elementos.codigo}}</td>  \n                    <td style=\"font-size: 11px;width: 10%\">{{elementos.medico_nombre}}</td>  \n                    <td style=\"font-size: 11px;width: 8%\">{{elementos.usuario_cobro_nombre}}</td> \n                    <td style=\"font-size: 11px;width: 8%\">{{elementos.fecha_cobro | date: 'dd/MM/yyyy'}}</td>       \n                    <td [ngClass]=\"colorRow(elementos.forma_pago)\" style=\"font-size: 11px; font-weight:bold;width: 6%\">{{elementos.cantidad}}</td>                                         \n                    <td [ngClass]=\"colorRow(elementos.forma_pago)\" style=\"font-size: 11px; font-weight:bold;width: 6%\" >{{elementos.valor_original}}</td>    \n                    <td style=\"font-size: 11px;width: 6%\" >{{elementos.valor_facturado}}</td>    \n                    <td [ngClass]=\"colorRowNivel(elementos.complejidad)\" style=\"font-size: 11px;width: 6%\" >{{elementos.distribucion |  number : '1.2-2'}}</td>    \n                    <td style=\"font-size: 11px;width: 10%\">{{elementos.forma_pago}}</td>\n                  <td style=\"width: 3em\">\n                          <p-tableCheckbox [value]=\"elementos\"></p-tableCheckbox>\n                      </td>\n          </tr>\n      </ng-template>\n      <ng-template pTemplate=\"summary\">\n              <ul>\n             <!--      <li *ngFor=\"let sel of selecteditems\" style=\"text-align: left\">\n                      {{sel.obra_social_nombre + ' - ' + sel.descripcion + ' - ' + sel.fecha_cobro + ' - ' + sel.medico_nombre}}\n                  </li>-->\n              </ul>\n          </ng-template> \n  </p-table>\n \n<div class=\"container-fluid pt-4\">\n      <hr>\n  <div class=\"row float-right\">\n      <h6 class=\"text-info pr-2\">CANTIDAD PRACTICAS : {{cantidad_practica}}  -</h6>\n      <h6 class=\"text-danger\"> TOTAL REAL : {{total_original|  number : '1.2-2' }} $ -</h6>\n      <h6 class=\"text-info\"> TOTAL : {{total_facturado|  number : '1.2-2' }} $</h6>\n  </div>\n</div>\n</div>\n\n<p-overlayPanel #op [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" >                          \n  <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"editarRegistro(selecteditems)\">Editar registro</a></span>\n  <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"editarOperacionCobro(selecteditems)\">Editar operacion cobro</a></span>\n  <span> <hr></span>\n  <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"editarOperacionCobroDistribucion(selecteditems)\">Editar distribucion</a></span>\n  <span>   <a class=\"nav-link azul text-danger my-hover\" (click)=\"eliminarRegistro(selecteditems)\">Eliminar registro</a></span>\n</p-overlayPanel>  \n\n\n\n"
+module.exports = "\n<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n \n</div>\n<p-toast (life)=\"100\" styleClass=\"custom-toast\" [style]=\"{marginTop: '100px'}\"></p-toast>\n\n<div class=\"row  m-1\">\n    \n  <div class=\"row m-2\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n      <div  class=\"input-group input-group-sm \">\n              <form  [formGroup]=\"DateForm\">\n              <div class=\"btn-group mr-1\" role=\"group\">\n                      <span class=\"pr-1 pt-1\"><h6>Desde:</h6></span>\n                      <p-calendar [inputStyle]=\"{'height':'29.1px'}\" [styleClass]=\"form-control\" [showTime]=\"true\"   class=\"mr-2 \" formControlName=\"fecha_desde\"  (onSelect)=\"actualizarFechaDesde($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                        <ng-template pTemplate=\"date\" let-date>\n                                <span    style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                            </ng-template> \n                        </p-calendar>\n                        <span class=\"pr-1 pt-1\"><h6>Hasta:</h6></span>\n                        <p-calendar [inputStyle]=\"{'height':'29.1px'}\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_hasta\"  (onSelect)=\"actualizarFechaHasta($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                            <ng-template pTemplate=\"date\" let-date>\n                                <span  inputStyle=\"{'height':'29.5px'}\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                            </ng-template> \n                        </p-calendar>                                  \n                        <div class=\" ml-2 row\">\n                           <div> <button    class=\"btn  btn-success btn-sm  \"  (click)=\"loadRegistro()\" >Buscar Registros</button></div>\n                           <div class=\"ml-2\"><button    class=\"btn  btn-info btn-sm float-right  pr-2\" (click)=\"afectarRegistros()\" >Auditar registros</button>   </div>                           \n                          </div>       \n      </div>   \n              </form>            \n            \n      </div>    \n  </div>\n  \n  <p-table  #dt class=\"pt-2\"   tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\" [value]=\"elementos\"  (onEditComplete)=\"editRow($event)\" [(selection)]=\"selecteditems\" columnResizeMode=\"expand\" [responsive]=\"true\"\n  scrollHeight=\"400px\" [scrollable]=\"true\"  (onFilter)=\"filtered($event)\"  >\n  <ng-template pTemplate=\"caption\">\n    <div class=\"row\">\n            <div class=\"col-md-12 row\" style=\"text-align:left \">\n             <div class=\"pr-2 pl-2\">   <button    class=\"btn  btn-outline-info btn-sm   \"  (click)=\"generarPdfListado('todos')\" >Imprimir resumen</button></div>\n             <div><button    class=\"btn  btn-outline-success btn-sm \"  (click)=\"generarPdfListado('medico')\" >Imprimir resumen por médico</button></div> \n             <div>  <button    class=\"ml-2 btn  btn  btn-outline-info btn-sm float-right \"  (click)=\"generarPreFactura()\" >Imprimir pre-factura</button></div>                          \n             <div>  <button    class=\"ml-2 btn  btn-outline-secondary btn-sm float-right \"  (click)=\"buscarPractica()\" >Buscar otros registros</button></div>     \n             <div>  <button    class=\"ml-2 btn  btn-outline-secondary btn-sm float-right \"  (click)=\"buscarPracticaPaciente()\" >Buscar registros por paciente</button></div> \n             <div>  <button    class=\"ml-2  btn  btn-excel btn-sm float-right \"  (click)=\"exportarExcel()\" > <i class=\"fa fa-file-excel-o  mr-1\" aria-hidden=\"true\"> </i> Exportar a excel</button></div> \n            \n            </div>\n    \n </div>\n</ng-template>\n             <ng-template pTemplate=\"header\" let-columns >\n            \n                        <tr >\n                             \n                          <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\n                              {{col.header}}\n                              <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activate to sort in descending order\" ariaLabelAsc=\"Activate to sort in ascending order\"></p-sortIcon>\n                          </th> \n                          <th style=\"width: 3em\">\n                                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>\n                          </th>\n                      </tr> \n                      <tr>\n                        <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\"  >\n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'operacion_cobro_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                            <input style=\" font-size: 12px;\"  class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'apellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'dni'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                      \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'gravado_adherente'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'descripcion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                            <p-multiSelect *ngSwitchCase=\"'complejidad'\" [options]=\"nivel\" defaultLabel=\"nivel\"  (onChange)=\"dt.filter($event.value, col.field,  'in')\" appendTo=\"body\" [style]=\"{'width':'100%'}\" [filter]= 'false'></p-multiSelect>\n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'codigo'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'medico_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value , col.field, col.filterMatchMode)\" >                      \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'usuario_cobro_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'fecha_cobro'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'cantidad'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                                             \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'valor_original'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'valor_facturado'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                            <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'distribucion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                                                                                         \n                            <p-multiSelect *ngSwitchCase=\"'forma_pago'\" [options]=\"formasPago\" defaultLabel=\"Pagos\"  (onChange)=\"dt.filter($event.value, col.field,  'in')\" appendTo=\"body\" [style]=\"{'width':'100%'}\" [filter]= 'false'></p-multiSelect>\n                        </th>\n                        <th></th>\n                    </tr>\n                </ng-template>\n              \n        <ng-template pTemplate=\"body\" let-elementos  >\n            <tr style=\"height:20px\" [ngClass]=\"colorEstado(elementos.operacion_cobro_observacion)\">\n                   \n                    <td style=\"width: 6%\" >                   \n                        <a     (click)=\"accion($event,op,elementos)\"    ><i class=\"far fa-edit fa-2x icon-color-purple my-hover\"></i></a>\n                     \n                    </td>\n                    <td style=\"font-size: 11px;width: 6%\">{{elementos.operacion_cobro_id}}</td>\n                    <td style=\"font-size: 11px;width: 10%\">{{elementos.apellido}}</td>\n                    <td style=\"font-size: 11px;width: 10%\">{{elementos.nombre}}</td>\n                    <td style=\"font-size: 10px;width: 7%\">{{elementos.dni}}</td>\n                    <td style=\"font-size: 10px;width: 15%\">{{elementos.obra_social_nombre}}</td>                                                    \n                    <td style=\"font-size: 11px;width: 4%\">{{elementos.gravado_adherente}}</td>   \n                    <td style=\"font-size: 11px;width: 20%\">{{elementos.descripcion}}</td>                            \n                    <td style=\"font-size: 11px;width: 5%\">{{elementos.complejidad}}</td>  \n                    <td style=\"font-size: 11px;width: 8%\">{{elementos.codigo}}</td>  \n                    <td style=\"font-size: 11px;width: 10%\">{{elementos.medico_nombre}}</td>  \n                    <td style=\"font-size: 11px;width: 8%\">{{elementos.usuario_cobro_nombre}}</td> \n                    <td style=\"font-size: 11px;width: 8%\">{{elementos.fecha_cobro | date: 'dd/MM/yyyy'}}</td>       \n                    <td [ngClass]=\"colorRow(elementos.forma_pago)\" style=\"font-size: 11px; font-weight:bold;width: 6%\">{{elementos.cantidad}}</td>                                         \n                    <td [ngClass]=\"colorRow(elementos.forma_pago)\" style=\"font-size: 11px; font-weight:bold;width: 6%\" >{{elementos.valor_original}}</td>    \n                    <td style=\"font-size: 11px;width: 6%\" >{{elementos.valor_facturado}}</td>    \n                    <td [ngClass]=\"colorRowNivel(elementos.complejidad)\" style=\"font-size: 11px;width: 6%\" >{{elementos.distribucion |  number : '1.2-2'}}</td>    \n                    <td style=\"font-size: 11px;width: 10%\">{{elementos.forma_pago}}</td>\n                  <td style=\"width: 3em\">\n                          <p-tableCheckbox [value]=\"elementos\"></p-tableCheckbox>\n                      </td>\n          </tr>\n      </ng-template>\n      <ng-template pTemplate=\"summary\">\n              <ul>\n             <!--      <li *ngFor=\"let sel of selecteditems\" style=\"text-align: left\">\n                      {{sel.obra_social_nombre + ' - ' + sel.descripcion + ' - ' + sel.fecha_cobro + ' - ' + sel.medico_nombre}}\n                  </li>-->\n              </ul>\n          </ng-template> \n  </p-table>\n \n<div class=\"container-fluid pt-4\">\n      <hr>\n  <div class=\"row float-right\">\n      <h6 class=\"text-info pr-2\">CANTIDAD PRACTICAS : {{cantidad_practica}}  -</h6>\n      <h6 class=\"text-danger\"> TOTAL REAL : {{total_original|  number : '1.2-2' }} $ -</h6>\n      <h6 class=\"text-info\"> TOTAL : {{total_facturado|  number : '1.2-2' }} $</h6>\n  </div>\n</div>\n</div>\n\n<p-overlayPanel #op [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" >                          \n  <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"editarRegistro(selecteditems)\">Editar registro</a></span>\n  <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"editarOperacionCobro(selecteditems)\">Editar operacion cobro</a></span>\n  <span> <hr></span>\n  <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"editarOperacionCobroDistribucion(selecteditems)\">Editar distribucion</a></span>\n  <span>   <a class=\"nav-link azul text-danger my-hover\" (click)=\"eliminarRegistro(selecteditems)\">Eliminar registro</a></span>\n</p-overlayPanel>  \n\n\n\n"
 
 /***/ }),
 
@@ -4956,6 +5214,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_components_popups_popup_operacion_cobro_registro_buscar_popup_operacion_cobro_registro_buscar_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../../shared/components/popups/popup-operacion-cobro-registro-buscar/popup-operacion-cobro-registro-buscar.component */ "./src/app/shared/components/popups/popup-operacion-cobro-registro-buscar/popup-operacion-cobro-registro-buscar.component.ts");
 /* harmony import */ var _shared_components_popups_popup_cobro_distribucion_editar_popup_cobro_distribucion_editar_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../../../shared/components/popups/popup-cobro-distribucion-editar/popup-cobro-distribucion-editar.component */ "./src/app/shared/components/popups/popup-cobro-distribucion-editar/popup-cobro-distribucion-editar.component.ts");
 /* harmony import */ var _shared_components_popups_popup_operacion_cobro_registro_buscar_todos_popup_operacion_cobro_registro_buscar_todos_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./../../../../../shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component */ "./src/app/shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component.ts");
+/* harmony import */ var _services_liquidacion_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./../../../../../services/liquidacion.service */ "./src/app/services/liquidacion.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5017,9 +5276,11 @@ __webpack_require__(/*! jspdf-autotable */ "./node_modules/jspdf-autotable/dist/
 
 
 
+
 var OperacionCobroAuditarComponent = /** @class */ (function () {
-    function OperacionCobroAuditarComponent(miServicio, messageService, dialogService, cp, dp) {
+    function OperacionCobroAuditarComponent(miServicio, liquidacionService, messageService, dialogService, cp, dp) {
         this.miServicio = miServicio;
+        this.liquidacionService = liquidacionService;
         this.messageService = messageService;
         this.dialogService = dialogService;
         this.cp = cp;
@@ -5242,8 +5503,8 @@ var OperacionCobroAuditarComponent = /** @class */ (function () {
              console.log(this.elementosFiltrados);
          }*/
         sweetalert2__WEBPACK_IMPORTED_MODULE_4___default()({
-            title: '¿Desea afectar estos  registros?',
-            text: 'Va a afectar una liquidacion con fecha desde ' + td + ' y fecha hasta ' + th + ' para la obra social ' + this.formObraSocial.value.nombre,
+            title: '¿Desea auditar estos  registros?',
+            text: 'Va a auditar una liquidacion con fecha desde ' + td + ' y fecha hasta ' + th + ' para la obra social ' + this.formObraSocial.value.nombre,
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#C5E1A5',
@@ -5407,6 +5668,10 @@ var OperacionCobroAuditarComponent = /** @class */ (function () {
         catch (error) {
             this.throwAlert('error', 'Error al cargar los registros', error, error.status);
         }
+    };
+    OperacionCobroAuditarComponent.prototype.exportarExcel = function () {
+        var fecha_impresion = Object(_angular_common__WEBPACK_IMPORTED_MODULE_9__["formatDate"])(new Date(), 'dd-MM-yyyy-mm', 'es-Ar');
+        this.liquidacionService.exportAsExcelFile(this.selecteditems, 'listado_presentacion' + fecha_impresion);
     };
     OperacionCobroAuditarComponent.prototype.generarPreFactura = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -5936,7 +6201,7 @@ var OperacionCobroAuditarComponent = /** @class */ (function () {
             providers: [primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"], primeng_components_common_api__WEBPACK_IMPORTED_MODULE_6__["DialogService"]],
             styles: [__webpack_require__(/*! ./operacion-cobro-auditar.component.css */ "./src/app/pages/facturacion/liquidacion/auditar/operacion-cobro-auditar/operacion-cobro-auditar.component.css")]
         }),
-        __metadata("design:paramtypes", [src_app_services_practica_service__WEBPACK_IMPORTED_MODULE_7__["PracticaService"], primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"], primeng_components_common_api__WEBPACK_IMPORTED_MODULE_6__["DialogService"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["CurrencyPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["DecimalPipe"]])
+        __metadata("design:paramtypes", [src_app_services_practica_service__WEBPACK_IMPORTED_MODULE_7__["PracticaService"], _services_liquidacion_service__WEBPACK_IMPORTED_MODULE_15__["LiquidacionService"], primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"], primeng_components_common_api__WEBPACK_IMPORTED_MODULE_6__["DialogService"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["CurrencyPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["DecimalPipe"]])
     ], OperacionCobroAuditarComponent);
     return OperacionCobroAuditarComponent;
 }());
@@ -8265,7 +8530,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n \n</div>\n<p-toast (life)=\"100\" styleClass=\"custom-toast\" [style]=\"{marginTop: '100px'}\"></p-toast>\n\n\n    \n  <div class=\"row m-2\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n      <div  class=\"input-group input-group-sm \"> \n          <p-dropdown [options]=\"impresiones\" [(ngModel)]=\"selectedImpresion\" optionLabel=\"name\" ></p-dropdown>\n          <button    class=\"ml-2 btn  btn-secondary btn-sm float-right mr-2 pr-2\" (click)=\"imprimir()\" >Imprimir</button> \n          <button    class=\"ml-2 btn  btn-success btn-sm float-right mr-2 pr-2\" (click)=\"loadlist()\" ><i class=\"fas fa-sync\"></i></button> \n              <form  [formGroup]=\"DateForm\">\n\n              </form>            \n      </div>\n  </div>\n<hr>\n  <div class=\"row mt-2\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n    <div  class=\"input-group input-group-sm \">\n            <form  [formGroup]=\"DateForm\">\n            <div class=\"btn-group mr-1\" role=\"group\">\n                    <span class=\"pr-1 pt-1\"><h6>Desde:</h6></span>\n                    <p-calendar [inputStyle]=\"{'height':'29.1px'}\" [styleClass]=\"form-control\" [showTime]=\"true\"   class=\"mr-2 \" formControlName=\"fecha_desde\"  (onSelect)=\"actualizarFechaDesde($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                      <ng-template pTemplate=\"date\" let-date>\n                              <span    style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                          </ng-template> \n                      </p-calendar>\n                      <span class=\"pr-1 pt-1\"><h6>Hasta:</h6></span>\n                      <p-calendar [inputStyle]=\"{'height':'29.1px'}\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_hasta\"  (onSelect)=\"actualizarFechaHasta($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                          <ng-template pTemplate=\"date\" let-date>\n                              <span  inputStyle=\"{'height':'29.5px'}\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                          </ng-template> \n                      </p-calendar>       \n                        <div class=\"ml-2 mr-2 row\">                         \n                          <div class=\" input-group input-group-sm mb-3\">\n                              <input  (keyup.enter)=\"buscarObraSocial()\" class=\"form-control col-md-12 form-control-sm\" formControlName=\"obra_social_nombre\" placeholder=\"Obra social\" />   \n                            \n                              <div class=\"input-group-append\">\n                                <span class=\"input-group input-group-text form-control-sm\">\n                                  <a  (click)=\"buscarObraSocial()\">\n                                      <img class=\"pointer float-left\" src=\"assets/icons/grey/outline_search_black_18dp.png\" width=\"24px\" height=\"24px\"  >\n                                  </a>\n                              </span>\n                              </div>\n                          </div>    \n                    </div>                                          \n                      <div class=\" ml-2 row\">                         \n                         <div class=\"ml-2\"><button    class=\"btn  btn-danger btn-sm float-right  pr-2\" (click)=\"actualizarRegistros()\" >Actualizar valores de convenio</button>   </div>                           \n                         <div class=\"ml-2\"><button    class=\"btn  btn-outline-danger btn-sm float-right  pr-2\" (click)=\"actualizarRegistros()\" >Actualizar valores de distribución (D.O.S)</button>   </div>                           \n                        </div>     \n                           <div class=\"form-group \">\n               \n          </div>  \n    </div>   \n    \n            </form>            \n          \n    </div>    \n</div>\n  <div class=\"row\">\n  <p-table  #dt class=\"pt-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\" [value]=\"elementos\"  (onEditComplete)=\"editRow($event)\" [(selection)]=\"selecteditems\" columnResizeMode=\"expand\" [responsive]=\"true\"\n  scrollHeight=\"600px\" [scrollable]=\"true\"  (onFilter)=\"filtered($event)\"  >\n \n\n             <ng-template pTemplate=\"header\" let-columns >\n            \n                        <tr >\n                             \n                          <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\n                              {{col.header}}\n                              <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activate to sort in descending order\" ariaLabelAsc=\"Activate to sort in ascending order\"></p-sortIcon>\n                          </th> \n                          <th style=\"width: 3em\">\n                                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>\n                          </th>\n                      </tr> \n                      <tr>\n                      <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\"  >\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'entidad_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\"  class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'numero'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nivel'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'fecha_desde'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'fecha_hasta'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'cant_orden'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'total'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'medico_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nombreyapellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                      </th>\n                      <th></th>\n                  </tr>\n              </ng-template>\n            \n      <ng-template pTemplate=\"body\" let-elementos  >\n          <tr style=\"height:20px\"  >\n                 \n                  <td style=\"width: 6%\" >                   \n                      <a  class=\"my-hover\" (click)=\"accion($event,op,elementos)\"    ><i class=\"far fa-edit fa-2x icon-color-purple\"></i></a>\n                   \n                  </td>\n                  <td style=\"width: 7%\">{{elementos.id}}</td>\n                  <td style=\"width: 20%\">{{elementos.obra_social_nombre}}</td>\n                  <td style=\"width: 10%\">{{elementos.entidad_nombre}}</td>\n                  <td style=\"width: 8%\">{{elementos.numero |date:'dd/MM/yyyy'}}</td>\n                  <td style=\"width: 10%\">{{elementos.nivel}}</td>\n                  <td style=\"width: 10%\">{{elementos.fecha_desde |date:'dd/MM/yyyy'}}</td>\n                  <td style=\"width: 10%\">{{elementos.fecha_hasta |date:'dd/MM/yyyy'}}</td>                                                    \n                  <td style=\"width: 10%\">{{elementos.cant_orden}}</td>                            \n                  <td style=\"width: 20%\">{{elementos.total}}</td>  \n                  <td style=\"width: 15%\">{{elementos.medico_nombre}}</td>                                \n                  <td style=\"width: 15%\">{{elementos.nombreyapellido}}</td>      \n                  <td style=\"width: 3em\">\n                          <p-tableCheckbox [value]=\"elementos\"></p-tableCheckbox>\n                      </td>\n          </tr>\n      </ng-template>\n      <ng-template pTemplate=\"summary\">\n          <div class=\"row float-right pr-2\">\n              <h6 class=\"text-info pr-2\">CANTIDAD : {{cantidad |  number : '1.0-0' }}  - </h6>      \n              <h6 class=\"text-info\"> TOTAL : {{total_facturado |  number : '1.2-2' }} $</h6>\n          </div>\n              <ul> </ul>\n          </ng-template> \n  </p-table>\n</div>\n\n\n<p-overlayPanel #op [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" >                          \n    <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"editarRegistro(selecteditems)\">Modificar registro</a></span>\n    <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"desafectarPresentacion(selecteditems)\">Desafectar registro</a></span>\n    <span> <hr></span>\n    <span>   <a class=\"nav-link azul text-info my-hover\" (click)=\"verDetalle(selecteditems)\">Ver detalle</a></span>\n  </p-overlayPanel>  "
+module.exports = "\n<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n \n</div>\n<p-toast (life)=\"100\" styleClass=\"custom-toast\" [style]=\"{marginTop: '100px'}\"></p-toast>\n\n\n    \n  <div class=\"row m-2\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n      <div  class=\"input-group input-group-sm \"> \n          <p-dropdown [options]=\"impresiones\" [(ngModel)]=\"selectedImpresion\" optionLabel=\"name\" ></p-dropdown>\n          <button    class=\"ml-2 btn  btn-secondary btn-sm float-right mr-2 pr-2\" (click)=\"imprimir()\" >Imprimir</button> \n          <button    class=\"ml-2 btn  btn-success btn-sm float-right mr-2 pr-2\" (click)=\"loadlist()\" ><i class=\"fas fa-sync\"></i></button> \n              <form  [formGroup]=\"DateForm\">\n\n              </form>            \n      </div>\n  </div>\n<hr>\n  <div class=\"row mt-2\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n    <div  class=\"input-group input-group-sm \">\n            <form  [formGroup]=\"DateForm\">\n            <div class=\"btn-group mr-1\" role=\"group\">\n                    <span class=\"pr-1 pt-1\"><h6>Desde:</h6></span>\n                    <p-calendar [inputStyle]=\"{'height':'29.1px'}\" [styleClass]=\"form-control\" [showTime]=\"true\"   class=\"mr-2 \" formControlName=\"fecha_desde\"  (onSelect)=\"actualizarFechaDesde($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                      <ng-template pTemplate=\"date\" let-date>\n                              <span    style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                          </ng-template> \n                      </p-calendar>\n                      <span class=\"pr-1 pt-1\"><h6>Hasta:</h6></span>\n                      <p-calendar [inputStyle]=\"{'height':'29.1px'}\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_hasta\"  (onSelect)=\"actualizarFechaHasta($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                          <ng-template pTemplate=\"date\" let-date>\n                              <span  inputStyle=\"{'height':'29.5px'}\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                          </ng-template> \n                      </p-calendar>       \n                        <div class=\"ml-2 mr-2 row\">                         \n                          <div class=\" input-group input-group-sm mb-3\">\n                              <input  (keyup.enter)=\"buscarObraSocial()\" class=\"form-control col-md-12 form-control-sm\" formControlName=\"obra_social_nombre\" placeholder=\"Obra social\" />   \n                            \n                              <div class=\"input-group-append\">\n                                <span class=\"input-group input-group-text form-control-sm\">\n                                  <a  (click)=\"buscarObraSocial()\">\n                                      <img class=\"pointer float-left\" src=\"assets/icons/grey/outline_search_black_18dp.png\" width=\"24px\" height=\"24px\"  >\n                                  </a>\n                              </span>\n                              </div>\n                          </div>    \n                    </div>                                          \n                      <div class=\" ml-2 row\">                         \n                         <div class=\"ml-2\"><button    class=\"btn  btn-danger btn-sm float-right  pr-2\" (click)=\"actualizarRegistros()\" >Actualizar valores de convenio</button>   </div>                           \n                         <div class=\"ml-2\"><button    class=\"btn  btn-outline-danger btn-sm float-right  pr-2\" (click)=\"actualizarRegistros()\" >Actualizar valores de distribución (D.O.S)</button>   </div>                           \n                        </div>     \n                           <div class=\"form-group \">\n               \n          </div>  \n    </div>   \n    \n            </form>            \n          \n    </div>    \n</div>\n  <div class=\"row\">\n  <p-table  #dt class=\"pt-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\" [value]=\"elementos\"  (onEditComplete)=\"editRow($event)\" [(selection)]=\"selecteditems\" columnResizeMode=\"expand\" [responsive]=\"true\"\n  scrollHeight=\"600px\" [scrollable]=\"true\"  (onFilter)=\"filtered($event)\"  >\n \n\n             <ng-template pTemplate=\"header\" let-columns >\n            \n                        <tr >\n                             \n                          <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\n                              {{col.header}}\n                              <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activate to sort in descending order\" ariaLabelAsc=\"Activate to sort in ascending order\"></p-sortIcon>\n                          </th> \n                          <th style=\"width: 3em\">\n                                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>\n                          </th>\n                      </tr> \n                      <tr>\n                      <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\"  >\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'entidad_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\"  class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'numero'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nivel'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'fecha_desde'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'fecha_hasta'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'cant_orden'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'total'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'medico_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nombreyapellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                      </th>\n                      <th></th>\n                  </tr>\n              </ng-template>\n            \n      <ng-template pTemplate=\"body\" let-elementos  >\n          <tr style=\"height:20px\"  >\n                 \n                  <td style=\"width: 6%\" >                   \n                      <a  class=\"my-hover\" (click)=\"accion($event,op,elementos)\"    ><i class=\"far fa-edit fa-2x icon-color-purple\"></i></a>\n                   \n                  </td>\n                  <td style=\"width: 7%\">{{elementos.id}}</td>\n                  <td style=\"width: 20%\">{{elementos.obra_social_nombre}}</td>\n                  <td style=\"width: 10%\">{{elementos.entidad_nombre}}</td>\n                  <td style=\"width: 8%\">{{elementos.numero |date:'dd/MM/yyyy'}}</td>\n                  <td style=\"width: 10%\">{{elementos.nivel}}</td>\n                  <td style=\"width: 10%\">{{elementos.fecha_desde |date:'dd/MM/yyyy'}}</td>\n                  <td style=\"width: 10%\">{{elementos.fecha_hasta |date:'dd/MM/yyyy'}}</td>                                                    \n                  <td style=\"width: 10%\">{{elementos.cant_orden}}</td>                            \n                  <td style=\"width: 20%\">{{elementos.total}}</td>  \n                  <td style=\"width: 15%\">{{elementos.medico_nombre}}</td>                                \n                  <td style=\"width: 15%\">{{elementos.nombreyapellido}}</td>      \n                  <td style=\"width: 3em\">\n                          <p-tableCheckbox [value]=\"elementos\"></p-tableCheckbox>\n                      </td>\n          </tr>\n      </ng-template>\n      <ng-template pTemplate=\"summary\">\n          <div class=\"row float-right pr-2\">\n              <h6 class=\"text-info pr-2\">CANTIDAD : {{cantidad |  number : '1.0-0' }}  - </h6>      \n              <h6 class=\"text-info\"> TOTAL : {{total_facturado |  number : '1.2-2' }} $</h6>\n          </div>\n              <ul> </ul>\n          </ng-template> \n  </p-table>\n</div>\n\n\n<p-overlayPanel #op [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" >                          \n    <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"editarRegistro(selecteditems)\">Modificar registro</a></span>\n    <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"desafectarPresentacion(selecteditems)\">Desafectar registro</a></span>\n    <span> <hr></span>\n    <span>   <a class=\"nav-link azul text-info my-hover\" (click)=\"verDetalle(selecteditems)\">Ver detalle</a></span>\n  </p-overlayPanel>  \n\n  \n  <div style=\"position: absolute; opacity: 0.0; height: 0%;\">  <canvas id=\"barcode\"></canvas></div> \n "
 
 /***/ }),
 
@@ -8284,17 +8549,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/api.js");
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(primeng_api__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var primeng_components_common_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/components/common/api */ "./node_modules/primeng/components/common/api.js");
-/* harmony import */ var primeng_components_common_api__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(primeng_components_common_api__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var src_app_services_practica_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/practica.service */ "./src/app/services/practica.service.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var src_app_shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/components/popups/popup-obra-social/popup-obra-social.component */ "./src/app/shared/components/popups/popup-obra-social/popup-obra-social.component.ts");
-/* harmony import */ var _services_liquidacion_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../../services/liquidacion.service */ "./src/app/services/liquidacion.service.ts");
-/* harmony import */ var _shared_pipes_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../../shared/pipes/number-to-words.pipe */ "./src/app/shared/pipes/number-to-words.pipe.ts");
-/* harmony import */ var _shared_components_popups_popup_operacion_cobro_presentacion_popup_operacion_cobro_presentacion_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../../shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component */ "./src/app/shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component.ts");
-/* harmony import */ var _shared_components_popups_popup_presentacion_editar_popup_presentacion_editar_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../../shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component */ "./src/app/shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component.ts");
+/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! html2canvas */ "./node_modules/html2canvas/dist/html2canvas.js");
+/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/api.js");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(primeng_api__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var primeng_components_common_api__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primeng/components/common/api */ "./node_modules/primeng/components/common/api.js");
+/* harmony import */ var primeng_components_common_api__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(primeng_components_common_api__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var src_app_services_practica_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/practica.service */ "./src/app/services/practica.service.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var src_app_shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/components/popups/popup-obra-social/popup-obra-social.component */ "./src/app/shared/components/popups/popup-obra-social/popup-obra-social.component.ts");
+/* harmony import */ var _services_liquidacion_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../../services/liquidacion.service */ "./src/app/services/liquidacion.service.ts");
+/* harmony import */ var _shared_pipes_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../../shared/pipes/number-to-words.pipe */ "./src/app/shared/pipes/number-to-words.pipe.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_presentacion_popup_operacion_cobro_presentacion_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../../shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component */ "./src/app/shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component.ts");
+/* harmony import */ var _shared_components_popups_popup_presentacion_editar_popup_presentacion_editar_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../../../shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component */ "./src/app/shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component.ts");
+/* harmony import */ var _services_facturacion_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../../../services/facturacion.service */ "./src/app/services/facturacion.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8311,6 +8579,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var jsPDF = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.min.js");
 __webpack_require__(/*! jspdf-autotable */ "./node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.js");
 
+var JsBarcode = __webpack_require__(/*! jsbarcode */ "./node_modules/jsbarcode/bin/JsBarcode.js");
+var Canvas = __webpack_require__(/*! canvas */ "./node_modules/canvas/browser.js");
+
 
 
 
@@ -8320,8 +8591,10 @@ __webpack_require__(/*! jspdf-autotable */ "./node_modules/jspdf-autotable/dist/
 
 
 //import { ExcelService } from '../../../../../services/excel.service';
+
 var LiquidacionDetalleComponent = /** @class */ (function () {
-    function LiquidacionDetalleComponent(miServicio, practicaService, messageService, dialogService, numberToWordsPipe, cp, dp) {
+    function LiquidacionDetalleComponent(facturacionService, miServicio, practicaService, messageService, dialogService, numberToWordsPipe, cp, dp) {
+        this.facturacionService = facturacionService;
         this.miServicio = miServicio;
         this.practicaService = practicaService;
         this.messageService = messageService;
@@ -8346,9 +8619,10 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
             { name: 'Presentación medico ACLISA', code: '3' },
             { name: 'Presentación DOS Cirugia', code: '4' },
             { name: 'Presentación con IVA', code: '5' },
-            { name: 'exportarExcel', code: '6' },
-            { name: 'txt práctica y estudios DOS', code: '7' },
-            { name: 'txt cirugia DOS', code: '8' },
+            { name: 'Exportar Excel', code: '6' },
+            { name: 'Txt práctica y estudios DOS', code: '7' },
+            { name: 'Txt cirugia DOS', code: '8' },
+            { name: 'Imprimir factura', code: '9' },
         ];
         this.cols = [
             { field: 'accion', header: 'Accion', width: '6%' },
@@ -8419,6 +8693,8 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
         });
     }
     LiquidacionDetalleComponent.prototype.ngOnInit = function () {
+        this.barcode = true;
+        this.barcode = false;
         this.selectedImpresion = this.impresiones[0];
         this.es = _config_config__WEBPACK_IMPORTED_MODULE_1__["calendarioIdioma"];
         this.fechaDesde = new Date();
@@ -8470,11 +8746,14 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
         if (this.selectedImpresion['code'] === '8') {
             this.generarTxtCirugia();
         }
+        if (this.selectedImpresion['code'] === '9') {
+            this.generarFactura();
+        }
     };
     LiquidacionDetalleComponent.prototype.buscarObraSocial = function () {
         var _this = this;
         var data;
-        var ref = this.dialogService.open(src_app_shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_8__["PopupObraSocialComponent"], {
+        var ref = this.dialogService.open(src_app_shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_9__["PopupObraSocialComponent"], {
             data: data,
             header: 'Buscar Practica',
             width: '98%',
@@ -8492,7 +8771,7 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
         var _this = this;
         var data;
         data = this.selecteditemRegistro;
-        var ref = this.dialogService.open(_shared_components_popups_popup_presentacion_editar_popup_presentacion_editar_component__WEBPACK_IMPORTED_MODULE_12__["PopupPresentacionEditarComponent"], {
+        var ref = this.dialogService.open(_shared_components_popups_popup_presentacion_editar_popup_presentacion_editar_component__WEBPACK_IMPORTED_MODULE_13__["PopupPresentacionEditarComponent"], {
             data: data,
             header: 'Editar de presentación',
             width: '98%',
@@ -8506,7 +8785,7 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
     LiquidacionDetalleComponent.prototype.verDetalle = function () {
         var data;
         data = this.selecteditemRegistro;
-        var ref = this.dialogService.open(_shared_components_popups_popup_operacion_cobro_presentacion_popup_operacion_cobro_presentacion_component__WEBPACK_IMPORTED_MODULE_11__["PopupOperacionCobroPresentacionComponent"], {
+        var ref = this.dialogService.open(_shared_components_popups_popup_operacion_cobro_presentacion_popup_operacion_cobro_presentacion_component__WEBPACK_IMPORTED_MODULE_12__["PopupOperacionCobroPresentacionComponent"], {
             data: data,
             header: 'Ver detalle de presentación',
             width: '98%',
@@ -8553,7 +8832,7 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
                 var i = 0;
                 var resultado = resp;
                 resultado.forEach(function (element) {
-                    resp[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+                    resp[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(element['fecha_cobro'], 'dd/MM/yyyy', 'en');
                     //    let t = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
                     console.log(resp[i]['fecha_cobro']);
                     i++;
@@ -8583,7 +8862,7 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
                 var i = 0;
                 var resultado = resp;
                 resultado.forEach(function (element) {
-                    resp[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+                    resp[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(element['fecha_cobro'], 'dd/MM/yyyy', 'en');
                     if ((resp[i]['paciente_barra_afiliado'] !== '0')) {
                         resp[i]['numero_afiliado'] = resp[i]['numero_afiliado'] + '/' + resp[i]['paciente_barra_afiliado'];
                     }
@@ -8614,7 +8893,7 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
                 var i = 0;
                 var resultado = resp;
                 resultado.forEach(function (element) {
-                    resp[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+                    resp[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(element['fecha_cobro'], 'dd/MM/yyyy', 'en');
                     //    let t = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
                     console.log(resp[i]['fecha_cobro']);
                     i++;
@@ -8622,6 +8901,41 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
                 _this.elementosPreFactura = resp;
                 console.log(_this.elementosPreFactura);
                 _this.generarPdfListadoMedicoIVA();
+                _this.loading = false;
+                console.log(resp);
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+            });
+        }
+        catch (error) {
+            this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+        }
+    };
+    LiquidacionDetalleComponent.prototype.generarFactura = function () {
+        var _this = this;
+        this.loading = true;
+        this.value = '69403789532737';
+        try {
+            this.facturacionService.CrearFacturaA('24')
+                .subscribe(function (resp) {
+                _this.resp_factura = resp;
+                console.log(_this.resp_factura["CAE"]);
+                _this.value = _this.resp_factura["CAE"];
+                JsBarcode("#barcode", _this.value, {
+                    format: "CODE128",
+                    height: 50,
+                    displayValue: true
+                });
+                html2canvas__WEBPACK_IMPORTED_MODULE_4___default()(document.getElementById("barcode")).then(function (canvas) {
+                    var imgData = canvas.toDataURL('image/png');
+                    console.log('Report Image URL: ' + imgData);
+                    var doc = new jsPDF(); //210mm wide and 297mm high
+                    doc.addImage(imgData, 'JPEG', 15, 15);
+                    window.open(doc.output('bloburl'));
+                });
+                _this.throwAlert('success', 'Se generó el archivo con éxito', '', '');
                 _this.loading = false;
                 console.log(resp);
             }, function (error) {
@@ -8663,7 +8977,7 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
                 var i = 0;
                 var resultado = resp;
                 resultado.forEach(function (element) {
-                    resp[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(element['fecha_cobro'], 'dd/MM/yyyy HH:mm', 'en');
+                    resp[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(element['fecha_cobro'], 'dd/MM/yyyy HH:mm', 'en');
                     if ((resp[i]['paciente_barra_afiliado'] !== '0')) {
                         resp[i]['numero_afiliado'] = resp[i]['numero_afiliado'] + '/' + resp[i]['paciente_barra_afiliado'];
                     }
@@ -8771,7 +9085,7 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
                 var i = 0;
                 var resultado = resp;
                 resultado.forEach(function (element) {
-                    resp[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+                    resp[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(element['fecha_cobro'], 'dd/MM/yyyy', 'en');
                     if ((resp[i]['paciente_barra_afiliado'] !== '0')) {
                         resp[i]['numero_afiliado'] = resp[i]['numero_afiliado'] + '/' + resp[i]['paciente_barra_afiliado'];
                     }
@@ -8811,8 +9125,8 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
     LiquidacionDetalleComponent.prototype.actualizarRegistros = function () {
         var _this = this;
         var userData = JSON.parse(localStorage.getItem('userData'));
-        var td = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy', 'en');
-        var th = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy', 'en');
+        var td = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy', 'en');
+        var th = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy', 'en');
         sweetalert2__WEBPACK_IMPORTED_MODULE_3___default()({
             title: '¿Desea actualizar estos  registros?',
             text: 'Va a actualizar registros',
@@ -8887,7 +9201,7 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
                 var i = 0;
                 var resultado = resp;
                 resultado.forEach(function (element) {
-                    resp[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+                    resp[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(element['fecha_cobro'], 'dd/MM/yyyy', 'en');
                     if ((resp[i]['paciente_barra_afiliado'] !== '0')) {
                         resp[i]['numero_afiliado'] = resp[i]['numero_afiliado'] + '/' + resp[i]['paciente_barra_afiliado'];
                     }
@@ -8897,7 +9211,7 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
                 _this.elementosPreFactura = resp;
                 console.log(_this.elementosPreFactura);
                 _this.loading = false;
-                var fecha_impresion = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'dd-MM-yyyy-mm', 'es-Ar');
+                var fecha_impresion = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(new Date(), 'dd-MM-yyyy-mm', 'es-Ar');
                 _this.miServicio.exportAsExcelFile(_this.elementosPreFactura, 'listado_presentacion' + fecha_impresion);
             }, function (error) {
                 console.log(error.message);
@@ -8910,15 +9224,15 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
         }
     };
     LiquidacionDetalleComponent.prototype.generarPdfListadoMedico = function () {
-        var td = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy', 'en');
-        var th = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy', 'en');
-        var _fechaEmision = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'en');
+        var td = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy', 'en');
+        var th = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy', 'en');
+        var _fechaEmision = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'en');
         var rounded;
         var total_facturado = 0;
         var total_iva = 0;
         var total_cantidad = 0;
         var total_cantidad_impresion = '';
-        var fecha_impresion = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');
+        var fecha_impresion = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');
         var i = 0;
         var userData = JSON.parse(localStorage.getItem('userData'));
         console.log(this.elementosPreFactura);
@@ -8992,15 +9306,15 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
         }
     };
     LiquidacionDetalleComponent.prototype.generarPdfListadoTodos = function () {
-        var td = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy', 'en');
-        var th = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy', 'en');
-        var _fechaEmision = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'en');
+        var td = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy', 'en');
+        var th = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy', 'en');
+        var _fechaEmision = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'en');
         var rounded;
         var total_facturado = 0;
         var total_iva = 0;
         var total_cantidad = 0;
         var total_cantidad_impresion = '';
-        var fecha_impresion = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');
+        var fecha_impresion = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');
         var i = 0;
         var userData = JSON.parse(localStorage.getItem('userData'));
         for (i = 0; i < this.elementosPreFactura.length; i++) {
@@ -9079,9 +9393,9 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
         return unique_array;
     };
     LiquidacionDetalleComponent.prototype.generarPdfListadoCirugiaTodos = function () {
-        var td = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy', 'en');
-        var th = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy', 'en');
-        var _fechaEmision = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'en');
+        var td = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy', 'en');
+        var th = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy', 'en');
+        var _fechaEmision = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'en');
         var rounded;
         var total_facturado = 0;
         var tmp_elementosPrefactura = [];
@@ -9091,7 +9405,7 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
         var total_gastos = 0;
         var total_honorario = 0;
         var total_cantidad_impresion = '';
-        var fecha_impresion = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');
+        var fecha_impresion = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');
         var i = 0;
         var j = 0;
         var k = 0;
@@ -9254,16 +9568,16 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
         }
     };
     LiquidacionDetalleComponent.prototype.generarPdfListadoMedicoIVA = function () {
-        var _fechaEmision = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'en');
-        var td = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy', 'en');
-        var th = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy', 'en');
+        var _fechaEmision = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'en');
+        var td = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy', 'en');
+        var th = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy', 'en');
         var rounded;
         var total_facturado = 0;
         var total_iva = 0;
         var total_cantidad = 0;
         var total_sin_iva = 0;
         var total_cantidad_impresion = '';
-        var fecha_impresion = Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');
+        var fecha_impresion = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');
         var i = 0;
         var userData = JSON.parse(localStorage.getItem('userData'));
         console.log(this.elementosPreFactura);
@@ -9407,14 +9721,18 @@ var LiquidacionDetalleComponent = /** @class */ (function () {
             });
         }
     };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('codigobarra'),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
+    ], LiquidacionDetalleComponent.prototype, "canvas", void 0);
     LiquidacionDetalleComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-liquidacion-detalle',
             template: __webpack_require__(/*! ./liquidacion-detalle.component.html */ "./src/app/pages/facturacion/liquidacion/liquidar/liquidacion-detalle/liquidacion-detalle.component.html"),
-            providers: [primeng_api__WEBPACK_IMPORTED_MODULE_4__["MessageService"], primeng_components_common_api__WEBPACK_IMPORTED_MODULE_5__["DialogService"]],
+            providers: [primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"], primeng_components_common_api__WEBPACK_IMPORTED_MODULE_6__["DialogService"]],
             styles: [__webpack_require__(/*! ./liquidacion-detalle.component.css */ "./src/app/pages/facturacion/liquidacion/liquidar/liquidacion-detalle/liquidacion-detalle.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_liquidacion_service__WEBPACK_IMPORTED_MODULE_9__["LiquidacionService"], src_app_services_practica_service__WEBPACK_IMPORTED_MODULE_6__["PracticaService"], primeng_api__WEBPACK_IMPORTED_MODULE_4__["MessageService"], primeng_components_common_api__WEBPACK_IMPORTED_MODULE_5__["DialogService"], _shared_pipes_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_10__["NumberToWordsPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["CurrencyPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["DecimalPipe"]])
+        __metadata("design:paramtypes", [_services_facturacion_service__WEBPACK_IMPORTED_MODULE_14__["FacturacionService"], _services_liquidacion_service__WEBPACK_IMPORTED_MODULE_10__["LiquidacionService"], src_app_services_practica_service__WEBPACK_IMPORTED_MODULE_7__["PracticaService"], primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"], primeng_components_common_api__WEBPACK_IMPORTED_MODULE_6__["DialogService"], _shared_pipes_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_11__["NumberToWordsPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["CurrencyPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["DecimalPipe"]])
     ], LiquidacionDetalleComponent);
     return LiquidacionDetalleComponent;
 }());
@@ -11329,9 +11647,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _services_document_service_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./../../../../services/document-service.service */ "./src/app/services/document-service.service.ts");
-/* harmony import */ var _services_liquidacion_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../services/liquidacion.service */ "./src/app/services/liquidacion.service.ts");
+/* harmony import */ var _services_liquidacion_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../services/liquidacion.service */ "./src/app/services/liquidacion.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -11388,14 +11704,11 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 var jsPDF = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.min.js");
 __webpack_require__(/*! jspdf-autotable */ "./node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.js");
-
-
 //import { ExcelService } from './../../../../services/excel.service';
 
 var AgendaConsultaComponent = /** @class */ (function () {
-    function AgendaConsultaComponent(liquidacionService, documentService, miServico, messageService, dialogService, route, router) {
+    function AgendaConsultaComponent(liquidacionService, miServico, messageService, dialogService, route, router) {
         this.liquidacionService = liquidacionService;
-        this.documentService = documentService;
         this.miServico = miServico;
         this.messageService = messageService;
         this.dialogService = dialogService;
@@ -11459,7 +11772,6 @@ var AgendaConsultaComponent = /** @class */ (function () {
         this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_1__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '');
     }
     AgendaConsultaComponent.prototype.ngOnInit = function () {
-        var _this = this;
         this.userData = JSON.parse(localStorage.getItem('userData'));
         this.es = _config_config__WEBPACK_IMPORTED_MODULE_0__["calendarioIdioma"];
         this.fechaHoy = new Date();
@@ -11473,31 +11785,8 @@ var AgendaConsultaComponent = /** @class */ (function () {
         });
         this.DateForm.patchValue({ fechaHoy: this.fechaHoy });
         this.loadListByMedico();
-        this.documents = this.documentService.documents;
-        this._docSub = this.documentService.currentDocument.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["startWith"])({ id: 'VISION123456787890', doc: '', usuario_id: '', data: [] })).subscribe(function (document) {
-            _this.document = document;
-            console.log(_this.document);
-            if (document.doc === 'llamando') {
-                _this.loadListByMedico();
-            }
-        });
     };
     AgendaConsultaComponent.prototype.ngOnDestroy = function () {
-        this._docSub.unsubscribe();
-    };
-    AgendaConsultaComponent.prototype.loadDoc = function (id) {
-        if (this.document.doc) {
-            console.log('load doc ' + this.document.doc);
-            this.documentService.getDocument(id);
-        }
-    };
-    AgendaConsultaComponent.prototype.newDoc = function () {
-        this.documentService.newDocument();
-    };
-    AgendaConsultaComponent.prototype.editDoc = function () {
-        console.log('edit doc ' + this.document.doc);
-        //if()
-        this.documentService.editDocument(this.document);
     };
     AgendaConsultaComponent.prototype.actualizarFecha = function (event) {
         console.log(event);
@@ -11643,8 +11932,6 @@ var AgendaConsultaComponent = /** @class */ (function () {
                     else {
                         _this.agendaTurno = null;
                     }
-                    _this.newDoc();
-                    _this.loadDoc('llamando');
                     _this.loading = false;
                 }, function (error) {
                     console.log(error.message);
@@ -11684,8 +11971,6 @@ var AgendaConsultaComponent = /** @class */ (function () {
                 else {
                     _this.agendaTurno = null;
                 }
-                _this.newDoc();
-                _this.loadDoc('llamando');
                 _this.loading = false;
             }, function (error) {
                 console.log(error.message);
@@ -11715,8 +12000,6 @@ var AgendaConsultaComponent = /** @class */ (function () {
                     else {
                         _this.agendaTurno = null;
                     }
-                    _this.newDoc();
-                    _this.loadDoc('llamando');
                     _this.loading = false;
                 }, function (error) {
                     console.log(error.message);
@@ -11839,9 +12122,1201 @@ var AgendaConsultaComponent = /** @class */ (function () {
             providers: [primeng_api__WEBPACK_IMPORTED_MODULE_4__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_4__["DialogService"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["DatePipe"]],
             styles: [__webpack_require__(/*! ./agenda-consulta.component.css */ "./src/app/pages/gerencia/agenda/agenda-consulta/agenda-consulta.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_liquidacion_service__WEBPACK_IMPORTED_MODULE_12__["LiquidacionService"], _services_document_service_service__WEBPACK_IMPORTED_MODULE_11__["DocumentService"], _services_agenda_service__WEBPACK_IMPORTED_MODULE_2__["AgendaService"], primeng_api__WEBPACK_IMPORTED_MODULE_4__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_4__["DialogService"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"]])
+        __metadata("design:paramtypes", [_services_liquidacion_service__WEBPACK_IMPORTED_MODULE_10__["LiquidacionService"], _services_agenda_service__WEBPACK_IMPORTED_MODULE_2__["AgendaService"], primeng_api__WEBPACK_IMPORTED_MODULE_4__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_4__["DialogService"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"]])
     ], AgendaConsultaComponent);
     return AgendaConsultaComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component.css":
+/*!****************************************************************************************************************!*\
+  !*** ./src/app/pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component.css ***!
+  \****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2dlcmVuY2lhL2dlcmVuY2lhLWRldGFsbGUtb3BlcmFjaW9uLWNvYnJvL2dlcmVuY2lhLWRldGFsbGUtb3BlcmFjaW9uLWNvYnJvLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component.html":
+/*!*****************************************************************************************************************!*\
+  !*** ./src/app/pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component.html ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n \n</div>\n<p-toast (life)=\"100\" styleClass=\"custom-toast\" [style]=\"{marginTop: '100px'}\"></p-toast>\n\n<div class=\"row m-1\" >\n    \n      <div  class=\" col-4 input-group input-group-sm \">\n              <form  [formGroup]=\"DateForm\">\n              <div class=\"btn-group \" role=\"group\">\n                      <span class=\"pr-1 pt-1\"><h6>Desde:</h6></span>\n              <p-calendar [inputStyle]=\"{'height':'29.1px'}\" [styleClass]=\"form-control\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_desde\"  (onSelect)=\"actualizarFechaDesde($event)\" tabindex=\"0\"  [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                <ng-template pTemplate=\"date\" let-date>\n                      <span    style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                  </ng-template> \n                </p-calendar>\n                <span class=\"pr-1 pt-1\"><h6>Hasta:</h6></span>\n                <p-calendar [inputStyle]=\"{'height':'29.1px'}\"  [showTime]=\"true\"  class=\"mr-2 \" formControlName=\"fecha_hasta\"  (onSelect)=\"actualizarFechaHasta($event)\" tabindex=\"0\"  [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                  <ng-template pTemplate=\"date\" let-date>\n                      <span  inputStyle=\"{'height':'29.5px'}\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                  </ng-template> \n                </p-calendar>               \n          </div>\n           \n              </form>    \n            </div>  \n    <div class=\" col-8  ml-2 row\" >\n         \n                \n            \n                  <div class=\"row ml-2 \">\n                    <label class=\"text-info mt-1\"  >Listado a :</label>\n                  <div class=\"ml-2 mt-1\"><p-radioButton name=\"groupname12\" class=\"text-info text-sm\" [(ngModel)]=\"busqueda\"   value=\"AUD\" label=\"Auditar\"  inputId=\"opt12\"></p-radioButton></div>\n                  <div class=\"ml-2 mr-4 mt-1\"><p-radioButton name=\"groupname22\" class=\"text-info\" [(ngModel)]=\"busqueda\"   value=\"AFE\" label=\"Afectar\"  inputId=\"opt22\"></p-radioButton></div>\n                 \n                </div>                       \n                <button   class=\"btn  btn-success btn-sm  ml-2\"  (click)=\"loadRegistro()\" >Buscar operaciones</button>\n              </div>                                                     \n           \n      \n\n      \n    \n  </div>\n\n  <p-table  #dt class=\"pt-2 m-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\" [value]=\"elementos\"  (onEditComplete)=\"editRow($event)\" [(selection)]=\"selecteditems\" columnResizeMode=\"expand\" [responsive]=\"true\"\n  scrollHeight=\"500px\" [scrollable]=\"true\"  (onFilter)=\"filtered($event)\"  >\n  <ng-template pTemplate=\"caption\">\n    <div class=\"row\">\n            <div class=\"col-md-12 row\" style=\"text-align:left \">             \n             <div class=\"pr-2 pl-2\">   <button    class=\"btn  btn-info btn-sm   \"  (click)=\"generarPdfListado('todos')\" >Imprimir resumen</button></div>\n             <div><button    class=\"btn  btn-success btn-sm \"  (click)=\"generarPdfListado('medico')\" >Imprimir resumen por médico</button></div>  \n             <div>  <button    class=\"ml-2 btn  btn-secondary btn-sm float-right \"  (click)=\"buscarPractica()\" >Buscar otros registros</button></div> \n             <div>  <button    class=\"ml-2 btn  btn-secondary btn-sm float-right \"  (click)=\"buscarPracticaPaciente()\" >Buscar registros por paciente</button></div> \n             <div>  <button    class=\"ml-2  btn  btn-excel btn-sm float-right \"  (click)=\"exportarExcel()\" > <i class=\"fa fa-file-excel-o  mr-1\" aria-hidden=\"true\"> </i> Exportar a excel</button></div> \n             <div class=\"ml-2\"><button    class=\"btn  btn-info btn-sm float-right  pr-2\" (click)=\"afectarRegistros()\" >Auditar registros</button>   </div>    \n               \n             <hr width=\"1\" size=\"50\">\n         \n            </div>\n\n </div>\n</ng-template>\n\n             <ng-template pTemplate=\"header\" let-columns >\n            \n                        <tr >\n                             \n                          <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\n                              {{col.header}}\n                              <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activate to sort in descending order\" ariaLabelAsc=\"Activate to sort in ascending order\"></p-sortIcon>\n                          </th> \n                          <th style=\"width: 3em\">\n                                  <p-tableHeaderCheckbox (onChange)=\"sumarValoresSeleccionados(selecteditems)\"></p-tableHeaderCheckbox>\n                          </th>\n                      </tr> \n                      <tr>\n                      <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\"  >\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'operacion_cobro_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\"  class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'apellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'dni'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                                            \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\"  *ngSwitchCase=\"'descripcion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                                  \n                          <p-multiSelect *ngSwitchCase=\"'complejidad'\" [options]=\"nivel\" defaultLabel=\"nivel\"  (onChange)=\"dt.filter($event.value, col.field,  'in')\" appendTo=\"body\" [style]=\"{'width':'100%'}\" [filter]= 'false'></p-multiSelect>\n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'codigo'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                                                \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'medico_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value , col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'usuario_cobro_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'fecha_cobro'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                      \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'cantidad'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                                             \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'categorizacion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                                             \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'valor_facturado'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          <input style=\" font-size: 12px;\" class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'valor_final'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\" >                       \n                          \n                          <p-multiSelect *ngSwitchCase=\"'forma_pago'\" [options]=\"formasPago\" defaultLabel=\"Pagos\"  (onChange)=\"dt.filter($event.value, col.field,  'in')\" appendTo=\"body\" [style]=\"{'width':'100%'}\"  [filter]= 'false'></p-multiSelect>\n                          \n                      </th>\n                      <th></th>\n                  </tr>\n              </ng-template>\n            \n      <ng-template pTemplate=\"body\" let-elementos  >\n          <tr style=\"height:20px\" [ngClass]=\"colorRow(elementos.operacion_cobro_observacion)\" >\n                 \n                  <td style=\"width: 6%\" >                   \n                      <a     (click)=\"accion($event,op,elementos)\"    ><i class=\"far fa-edit fa-2x icon-color-purple my-hover\"></i></a>\n                   \n                  </td>\n                  <td style=\"width: 5%\">{{elementos.operacion_cobro_id}}</td>\n                  <td style=\"width: 10%\">{{elementos.apellido}}</td>\n                  <td style=\"width: 10%\">{{elementos.nombre}}</td>\n                  <td style=\"font-size: 10px;width: 7%\">{{elementos.dni}}</td>                  \n                  <td style=\"width: 15%\">{{elementos.obra_social_nombre}}</td>                                                                    \n                  <td style=\"font-size: 10px;width: 20%\">{{elementos.descripcion}}</td>                            \n                  <td style=\"font-size: 10px;width: 4%\">{{elementos.complejidad}}</td>  \n                  <td style=\"width: 8%\">{{elementos.codigo}}</td>                    \n                  <td style=\"width: 10%\">{{elementos.medico_nombre}}</td>  \n                  <td style=\"font-size: 10px;width: 8%\">{{elementos.usuario_cobro_nombre}}</td> \n                  <td style=\"width: 8%\">{{elementos.fecha_cobro | date: 'dd/MM/yyyy'}}</td>       \n                  <td style=\"width: 6%\" [ngClass]=\"colorRowPago(elementos.forma_pago)\">{{elementos.cantidad}}</td>      \n                  <td style=\"width: 6%\" [ngClass]=\"colorRowPago(elementos.forma_pago)\">{{elementos.categorizacion}}</td>                                       \n                  <td style=\"width: 6%\" [ngClass]=\"colorRowPago(elementos.forma_pago)\">{{elementos.valor_facturado}}</td>    \n                  <td style=\"width: 6%\" >{{elementos.valor_final}}</td>  \n                  <td style=\"font-size: 10px;width: 10%\" [ngClass]=\"colorRowPago(elementos.forma_pago)\">{{elementos.forma_pago}}</td>    \n                              \n                  <td style=\"width: 3em\">\n                          <p-tableCheckbox [value]=\"elementos\" (click)=\"sumarValoresSeleccionados(selecteditems)\"></p-tableCheckbox>\n                      </td>\n          </tr>\n      </ng-template>\n      <ng-template pTemplate=\"summary\">\n             <ul>\n                <div class=\"row float-right mr-2\">\n                    <h6 class=\"text-success mr-5\">TOTAL SELECCIONADO : {{total_seleccionado|  number : '1.2-2'}}  - </h6>\n                    <h6 class=\"text-info pr-2\">CANTIDAD PRACTICAS : {{cantidad_practica}}  - </h6>\n                    <h6 class=\"text-success\"> TOTAL CATEGORIA : {{total_categoria|  number : '1.2-2' }} $ - </h6>\n                    <h6 class=\"text-danger\"> VALOR : {{total_facturado|  number : '1.2-2' }} $ - </h6>\n                    <h6 class=\"text-info\"> TOTAL : {{total_final|  number : '1.2-2' }} $</h6>\n                </div>\n              </ul>\n          </ng-template> \n  </p-table>\n\n\n\n\n<p-overlayPanel #op [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" >                          \n    <span>   <a class=\"nav-link azul text-info  my-hover\" (click)=\"editarRegistro(selecteditems)\">Editar registro</a></span>\n    <span>   <a class=\"nav-link azul text-danger  my-hover\" (click)=\"editarOperacionCobro(selecteditems)\">Editar operacion cobro</a></span>\n    <span> <hr></span>\n    <span>   <a class=\"nav-link azul text-info my-hover\" (click)=\"eliminarRegistro(selecteditems)\">Eliminar registro</a></span>\n  </p-overlayPanel>  \n  \n  \n  \n  "
+
+/***/ }),
+
+/***/ "./src/app/pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component.ts":
+/*!***************************************************************************************************************!*\
+  !*** ./src/app/pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component.ts ***!
+  \***************************************************************************************************************/
+/*! exports provided: GerenciaDetalleOperacionCobroComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GerenciaDetalleOperacionCobroComponent", function() { return GerenciaDetalleOperacionCobroComponent; });
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_registro_editar_popup_operacion_cobro_registro_editar_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../shared/components/popups/popup-operacion-cobro-registro-editar/popup-operacion-cobro-registro-editar.component */ "./src/app/shared/components/popups/popup-operacion-cobro-registro-editar/popup-operacion-cobro-registro-editar.component.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../config/config */ "./src/app/config/config.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/api.js");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(primeng_api__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var primeng_components_common_api__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primeng/components/common/api */ "./node_modules/primeng/components/common/api.js");
+/* harmony import */ var primeng_components_common_api__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(primeng_components_common_api__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var src_app_services_practica_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/practica.service */ "./src/app/services/practica.service.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var src_app_shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/components/popups/popup-obra-social/popup-obra-social.component */ "./src/app/shared/components/popups/popup-obra-social/popup-obra-social.component.ts");
+/* harmony import */ var _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../models/liquidacion.model */ "./src/app/models/liquidacion.model.ts");
+/* harmony import */ var _shared_components_popups_popup_medico_popup_medico_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../shared/components/popups/popup-medico/popup-medico.component */ "./src/app/shared/components/popups/popup-medico/popup-medico.component.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_editar_popup_operacion_cobro_editar_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../shared/components/popups/popup-operacion-cobro-editar/popup-operacion-cobro-editar.component */ "./src/app/shared/components/popups/popup-operacion-cobro-editar/popup-operacion-cobro-editar.component.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_registro_buscar_popup_operacion_cobro_registro_buscar_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../shared/components/popups/popup-operacion-cobro-registro-buscar/popup-operacion-cobro-registro-buscar.component */ "./src/app/shared/components/popups/popup-operacion-cobro-registro-buscar/popup-operacion-cobro-registro-buscar.component.ts");
+/* harmony import */ var _shared_components_popups_popup_operacion_cobro_registro_buscar_todos_popup_operacion_cobro_registro_buscar_todos_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component */ "./src/app/shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component.ts");
+/* harmony import */ var _models_operacion_cobro_detalle_model__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../models/operacion-cobro-detalle.model */ "./src/app/models/operacion-cobro-detalle.model.ts");
+/* harmony import */ var _services_liquidacion_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./../../../services/liquidacion.service */ "./src/app/services/liquidacion.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+var jsPDF = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.min.js");
+__webpack_require__(/*! jspdf-autotable */ "./node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.js");
+
+
+
+
+
+
+
+
+
+
+
+
+var GerenciaDetalleOperacionCobroComponent = /** @class */ (function () {
+    function GerenciaDetalleOperacionCobroComponent(miServicio, messageService, liquidacionService, dialogService, cp, dp) {
+        this.miServicio = miServicio;
+        this.messageService = messageService;
+        this.liquidacionService = liquidacionService;
+        this.dialogService = dialogService;
+        this.cp = cp;
+        this.dp = dp;
+        this.cantidad_practica = 0;
+        this.total_facturado = 0;
+        this.total_original = 0;
+        this.total_categoria = 0;
+        this.total_final = 0;
+        this.total_seleccionado = 0;
+        this.elemento = null;
+        this.elementos = null;
+        this.elementosFiltrados = null;
+        this.selecteditems = [];
+        this.selecteditemRegistro = null;
+        this.popItemOperacionCobro = null;
+        this.popItemMedico = null;
+        this._id = 0;
+        this.busqueda = 'AUD';
+        this.formasPago = [
+            { label: 'TRANSFERENCIA', value: 'TRANSFERENCIA' },
+            { label: 'EFECTIVO', value: 'EFECTIVO' },
+            { label: 'TARJETA - CREDITO', value: 'TARJETA - CREDITO' },
+            { label: 'TARJETA - DEBITO', value: 'TARJETA - DEBITO' },
+            { label: 'CHEQUE', value: 'CHEQUE' },
+            { label: 'VARIOS', value: 'VARIOS' }
+        ];
+        this.nivel = [
+            { label: '1', value: 1 },
+            { label: '2', value: 2 },
+            { label: '3', value: 3 },
+            { label: '4', value: 4 },
+        ];
+        this.cols = [
+            { field: 'accion', header: 'Accion', width: '6%' },
+            { field: 'operacion_cobro_id', header: 'Nº', width: '5%' },
+            { field: 'apellido', header: 'Apellido', width: '10%' },
+            { field: 'nombre', header: 'Nombre', width: '10%' },
+            { field: 'dni', header: 'DNI/afil.', width: '7%' },
+            { field: 'obra_social_nombre', header: 'O.S', width: '15%' },
+            { field: 'descripcion', header: 'Descrpición', width: '20%' },
+            { field: 'complejidad', header: 'nivel', width: '4%' },
+            { field: 'codigo', header: 'Codigo', width: '8%' },
+            { field: 'medico_nombre', header: 'Médico', width: '10%' },
+            { field: 'usuario_cobro_nombre', header: 'Usuario', width: '8%' },
+            { field: 'fecha_cobro', header: 'Fecha', width: '8%' },
+            { field: 'cantidad', header: 'Cant.', width: '6%' },
+            { field: 'categorizacion', header: 'Categ.', width: '6%' },
+            { field: 'valor_facturado', header: 'Valor', width: '6%' },
+            { field: 'valor_final', header: 'Total', width: '6%' },
+            { field: 'forma_pago', header: 'Medio', width: '10%' }
+        ];
+        this.columns = [
+            { title: 'Nº', dataKey: 'operacion_cobro_id' },
+            { title: 'Apellido', dataKey: 'apellido' },
+            { title: 'Nombre', dataKey: 'nombre' },
+            { title: 'DNI', dataKey: 'dni' },
+            { title: 'Obra social', dataKey: 'obra_social_nombre' },
+            { title: 'Código', dataKey: 'codigo' },
+            { title: 'Descripción', dataKey: 'descripcion' },
+            { title: 'Fecha', dataKey: 'fecha_cobro' },
+            { title: 'Nivel', dataKey: 'complejidad' },
+            { title: 'Cobro', dataKey: 'fecha_cobro' },
+            { title: 'Cant', dataKey: 'cantidad' },
+            { title: 'Nivel', dataKey: 'complejidad' },
+            { title: 'Valor F.', dataKey: 'valor_facturado' }
+        ];
+        this.DateForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
+            'fecha_desde': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required),
+            'fecha_hasta': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required),
+            'numero': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](''),
+            'nivel': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](''),
+            'obra_social_id': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('0'),
+            'obra_social_nombre': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](''),
+            'medico_id': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('0'),
+            'medico_nombre': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('')
+        });
+    }
+    GerenciaDetalleOperacionCobroComponent.prototype.ngOnInit = function () {
+        this.es = _config_config__WEBPACK_IMPORTED_MODULE_2__["calendarioIdioma"];
+        this.fechaDesde = new Date();
+        this.fechaHasta = new Date();
+        this.DateForm.patchValue({ fecha_desde: this.fechaDesde });
+        this.DateForm.patchValue({ fecha_hasta: this.fechaHasta });
+        this.popItemOperacionCobro = new _models_operacion_cobro_detalle_model__WEBPACK_IMPORTED_MODULE_15__["OperacionCobroDetalle"]('', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '', '', '', 0);
+        this.liquidacion = new _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_10__["Liquidacion"]('', '', '', '', '', '', '', 0, 0, '', '', [], '', '', '');
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.actualizarFechaDesde = function (event) {
+        console.log(event);
+        this.fechaDesde = event;
+        console.log(new Date(this.fechaDesde));
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.actualizarFechaHasta = function (event) {
+        console.log(event);
+        this.fechaHasta = event;
+        console.log(new Date(this.fechaHasta));
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.actualizarFechaPeriodo = function (event) {
+        console.log(event);
+        this.fechaPeriodo = event;
+        console.log(new Date(this.fechaPeriodo));
+    };
+    /** CARGA LA LISTA **/
+    GerenciaDetalleOperacionCobroComponent.prototype.editRow = function (row) {
+        console.log(row.data);
+        this.popItem = row.data;
+        /* if( this.actualizarDatos()){
+        this.showToast('exito','Registro modificado','Exito al modificar');
+    }*/
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.accion = function (event, overlaypanel, elementos) {
+        if (elementos) {
+            this.selecteditemRegistro = elementos;
+        }
+        console.log(this.selecteditemRegistro);
+        overlaypanel.toggle(event);
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.sumarValoresSeleccionados = function (vals) {
+        // SUMO LO FILTRADO
+        console.log(vals);
+        this.total_seleccionado = 0;
+        var i;
+        for (i = 0; i < vals.length; i++) {
+            this.total_seleccionado = this.total_seleccionado + Number(vals[i]['valor_facturado']);
+        }
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.sumarValores = function (vals) {
+        var i;
+        //console.log(vals[1]['valor_facturado']);
+        console.log(vals !== undefined);
+        this.total_facturado = 0;
+        this.total_original = 0;
+        this.total_categoria = 0;
+        this.cantidad_practica = 0;
+        this.total_seleccionado = 0;
+        this.total_final = 0;
+        for (i = 0; i < vals.length; i++) {
+            this.total_original = this.total_original + Number(vals[i]['valor_original']);
+            this.total_facturado = this.total_facturado + Number(vals[i]['valor_facturado']);
+            this.total_categoria = this.total_categoria + Number(vals[i]['categorizacion']);
+        }
+        this.total_final = this.total_facturado + this.total_categoria;
+        this.cantidad_practica = vals.length;
+        console.log(this.total_facturado);
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.filtered = function (event) {
+        console.log(event.filteredValue);
+        this.elementosFiltrados = event.filteredValue;
+        this.sumarValores(this.elementosFiltrados);
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.editarRegistro = function () {
+        var _this = this;
+        var data;
+        data = this.selecteditemRegistro;
+        var ref = this.dialogService.open(_shared_components_popups_popup_operacion_cobro_registro_editar_popup_operacion_cobro_registro_editar_component__WEBPACK_IMPORTED_MODULE_0__["PopupOperacionCobroRegistroEditarComponent"], {
+            data: data,
+            header: 'Editar registro',
+            width: '98%',
+            height: '90%'
+        });
+        ref.onClose.subscribe(function (PopupOperacionCobroRegistroEditarComponent) {
+            if (PopupOperacionCobroRegistroEditarComponent) {
+                console.log(PopupOperacionCobroRegistroEditarComponent);
+                _this.popItemOperacionCobro = PopupOperacionCobroRegistroEditarComponent;
+                //  this.formObraSocial.patchValue({id: this.popItemObraSocial.id});
+                // this.formObraSocial.patchValue({nombre: this.popItemObraSocial.nombre});
+            }
+        });
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.editarOperacionCobro = function () {
+        var _this = this;
+        var data;
+        data = this.selecteditemRegistro;
+        var ref = this.dialogService.open(_shared_components_popups_popup_operacion_cobro_editar_popup_operacion_cobro_editar_component__WEBPACK_IMPORTED_MODULE_12__["PopupOperacionCobroEditarComponent"], {
+            data: data,
+            header: 'Editar registro',
+            width: '98%',
+            height: '90%'
+        });
+        ref.onClose.subscribe(function (PopupOperacionCobroEditarComponent) {
+            _this.loadRegistro();
+            if (PopupOperacionCobroEditarComponent) {
+                console.log(PopupOperacionCobroEditarComponent);
+                //  this.popItemOperacionCobro = PopupOperacionCobroEditarComponent;
+                //  this.formObraSocial.patchValue({id: this.popItemObraSocial.id});
+                // this.formObraSocial.patchValue({nombre: this.popItemObraSocial.nombre});
+            }
+        });
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.eliminarRegistro = function () {
+        var _this = this;
+        sweetalert2__WEBPACK_IMPORTED_MODULE_4___default()({
+            title: '¿Desea eliminar el registro?',
+            text: 'Va a eliminar un registro',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, guardar!'
+        }).then(function (result) {
+            if (result.value) {
+                _this.deleteRegistro(_this.selecteditemRegistro.id);
+            }
+        });
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.afectarRegistros = function () {
+        var _this = this;
+        console.log(this.selecteditems);
+        var td = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy HH:mm', 'en');
+        var th = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy HH:mm', 'en');
+        /* if(this.elementosFiltrados.length != this.elementos.length){
+            console.log(this.elementosFiltrados);
+        }*/
+        sweetalert2__WEBPACK_IMPORTED_MODULE_4___default()({
+            title: '¿Desea auditar estos  registros?',
+            text: 'Va a auditar una liquidacion con fecha desde ' + td + ' y fecha hasta ' + th + ' para la obra social ' + this.formObraSocial.value.nombre,
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#C5E1A5',
+            cancelButtonColor: '#FF8A65',
+            confirmButtonText: 'Si, guardar!'
+        }).then(function (result) {
+            if (result.value) {
+                var userData_1 = JSON.parse(localStorage.getItem('userData'));
+                _this.selecteditems.forEach(function (element) {
+                    element['usuario_audita_id'] = userData_1['id']; // DEBE SER MODIFICADO PARA QUE AUDITE EL USUARIO
+                });
+                _this.auditarRegistros();
+            }
+        });
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.auditarRegistros = function () {
+        var _this = this;
+        try {
+            console.log(JSON.stringify(this.selecteditems));
+            this.miServicio.auditarpractica(this.selecteditems)
+                .subscribe(function (resp) {
+                console.log(resp);
+                if (resp != 0) {
+                    sweetalert2__WEBPACK_IMPORTED_MODULE_4___default()({
+                        toast: false,
+                        type: 'success',
+                        title: 'Se auditaron con éxito ' + resp + ' registros',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    _this.loadRegistro();
+                }
+                _this.loading = false;
+                console.log(resp);
+                _this.sumarValores(resp);
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+            });
+        }
+        catch (error) {
+            this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+        }
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.buscarPractica = function () {
+        var data;
+        var ref = this.dialogService.open(_shared_components_popups_popup_operacion_cobro_registro_buscar_popup_operacion_cobro_registro_buscar_component__WEBPACK_IMPORTED_MODULE_13__["PopupOperacionCobroRegistroBuscarComponent"], {
+            data: data,
+            header: 'Buscar Practica',
+            width: '100%',
+            height: '100%'
+        });
+        ref.onClose.subscribe(function (PopupOperacionCobroRegistroBuscarComponent) {
+            if (PopupOperacionCobroRegistroBuscarComponent) {
+                // console.log(PopupOperacionCobroRegistroBuscarComponent);    
+                //  this.buscarPractica();
+            }
+        });
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.buscarPracticaPaciente = function () {
+        var data;
+        var ref = this.dialogService.open(_shared_components_popups_popup_operacion_cobro_registro_buscar_todos_popup_operacion_cobro_registro_buscar_todos_component__WEBPACK_IMPORTED_MODULE_14__["PopupOperacionCobroRegistroBuscarTodosComponent"], {
+            data: data,
+            header: 'Buscar Practica',
+            width: '100%',
+            height: '100%'
+        });
+        ref.onClose.subscribe(function (PopupOperacionCobroRegistroBuscarTodosComponent) {
+            if (PopupOperacionCobroRegistroBuscarTodosComponent) {
+                // console.log(PopupOperacionCobroRegistroBuscarComponent);    
+                //   this.buscarPractica();
+            }
+        });
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.buscarMedico = function () {
+        var _this = this;
+        var data;
+        var ref = this.dialogService.open(_shared_components_popups_popup_medico_popup_medico_component__WEBPACK_IMPORTED_MODULE_11__["PopupMedicoComponent"], {
+            data: data,
+            header: 'Buscar Médico',
+            width: '98%',
+            height: '90%'
+        });
+        ref.onClose.subscribe(function (PopupMedicoComponent) {
+            if (PopupMedicoComponent) {
+                console.log(PopupMedicoComponent);
+                _this.popItemMedico = PopupMedicoComponent;
+                _this.DateForm.patchValue({ medico_id: _this.popItemMedico.usuario_id });
+                _this.DateForm.patchValue({ medico_nombre: _this.popItemMedico.apellido + " " + _this.popItemMedico.nombre });
+                console.log(_this.DateForm.value);
+            }
+        });
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.buscarObraSocial = function () {
+        var _this = this;
+        var data;
+        var ref = this.dialogService.open(src_app_shared_components_popups_popup_obra_social_popup_obra_social_component__WEBPACK_IMPORTED_MODULE_9__["PopupObraSocialComponent"], {
+            data: data,
+            header: 'Buscar Obra social',
+            width: '98%',
+            height: '90%'
+        });
+        ref.onClose.subscribe(function (PopupObraSocialComponent) {
+            if (PopupObraSocialComponent) {
+                console.log(PopupObraSocialComponent);
+                _this.popItemObraSocial = PopupObraSocialComponent;
+                _this.DateForm.patchValue({ obra_social_id: _this.popItemObraSocial.id });
+                _this.DateForm.patchValue({ obra_social_nombre: _this.popItemObraSocial.nombre });
+                console.log(_this.DateForm.value);
+            }
+        });
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.loadRegistro = function () {
+        var _this = this;
+        this.es = _config_config__WEBPACK_IMPORTED_MODULE_2__["calendarioIdioma"];
+        this.loading = true;
+        this._fechaDesde = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaDesde, 'yyyy-MM-dd HH:mm', 'en');
+        this._fechaHasta = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaHasta, 'yyyy-MM-dd HH:mm', 'en');
+        console.log(this._fechaDesde + ' ' + this._fechaHasta);
+        try {
+            this.miServicio.getOperacionCobroRegistrosBetweenDates(this._fechaDesde, this._fechaHasta, this.busqueda)
+                .subscribe(function (resp) {
+                if (resp[0]) {
+                    var i_1 = 0;
+                    var resultado = resp;
+                    resultado.forEach(function (element) {
+                        resp[i_1]['dni'] = resp[i_1]['dni'] + ' - ' + resp[i_1]['numero_afiliado'] + ' / ' + resp[i_1]['barra_afiliado'];
+                        resp[i_1]['valor_final'] = (Number(resp[i_1]['valor_facturado']) + Number(resp[i_1]['categorizacion']));
+                        //    let t = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+                        i_1++;
+                    });
+                    _this.elementos = resp;
+                    console.log(_this.elementos);
+                }
+                else {
+                    _this.elementos = null;
+                }
+                _this.loading = false;
+                console.log(resp);
+                _this.sumarValores(resp);
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+            });
+        }
+        catch (error) {
+            this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+        }
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.afectarOperacionCobro = function () {
+        var _this = this;
+        var user_medico_count = 0;
+        var obra_social_count = 0;
+        var titulo;
+        var userData = JSON.parse(localStorage.getItem('userData'));
+        this.es = _config_config__WEBPACK_IMPORTED_MODULE_2__["calendarioIdioma"];
+        this.loading = true;
+        this._fechaDesde = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaDesde, 'yyyy-MM-dd HH:mm', 'en');
+        this._fechaHasta = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaHasta, 'yyyy-MM-dd HH:mm', 'en');
+        this._fechaPeriodo = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaPeriodo, 'dd-MM-yyyy', 'en');
+        this.liquidacion.fecha_desde = this._fechaDesde;
+        this.liquidacion.fecha_hasta = this._fechaHasta;
+        this.liquidacion.nivel = this.DateForm.value.nivel;
+        this.liquidacion.numero = this._fechaPeriodo;
+        this.liquidacion.medico_id = String(this.DateForm.value.medico_id);
+        this.liquidacion.obra_social_id = String(this.DateForm.value.obra_social_id);
+        this.liquidacion.estado = 'AFE';
+        this.liquidacion.usuario_audito = userData["id"];
+        /***calculo los totales y los sumo */
+        for (var i = 0; i < this.selecteditems.length; i++) {
+            this.liquidacion.total = Number(this.liquidacion.total) + Number(this.selecteditems[i]['valor_facturado']) + Number(this.selecteditems[i]['categorizacion']);
+            this.liquidacion.cant_orden = Number(this.liquidacion.cant_orden) + Number(this.selecteditems[i]['cantidad']);
+            // VERIFICO QUE EL MEDICO Y LA OBRA SOCIAL SEAN LOS MISMOS
+            if (Number(this.liquidacion.medico_id) !== Number(this.selecteditems[i]['user_medico_id'])) {
+                user_medico_count++;
+                console.log(this.liquidacion.medico_id);
+                console.log(this.selecteditems[i]['user_medico_id']);
+            }
+            if (Number(this.liquidacion.obra_social_id) !== Number(this.selecteditems[i]['obra_social_id'])) {
+                obra_social_count++;
+                console.log(this.liquidacion.obra_social_id);
+                console.log(this.selecteditems[i]['obra_social_id']);
+            }
+            this.sumarValores(this.liquidacion.total);
+        }
+        this.liquidacion.registros = this.selecteditems;
+        console.log(this.liquidacion);
+        console.log(JSON.stringify(this.liquidacion));
+        if ((this.liquidacion.obra_social_id !== '0') && (this.liquidacion.medico_id !== '0') && (this.liquidacion.numero !== undefined) && (this.liquidacion.nivel !== '')) {
+            if ((obra_social_count > 0) || (user_medico_count > 0)) {
+                if (obra_social_count > 0) {
+                    titulo = 'Existe/n ' + obra_social_count + ' obra social distinta/s ';
+                }
+                if (user_medico_count > 0) {
+                    titulo = titulo + ', Existe/n ' + user_medico_count + ' medicos distinto/s ';
+                }
+                sweetalert2__WEBPACK_IMPORTED_MODULE_4___default()({
+                    title: 'Existen datos no correspondidos',
+                    text: titulo,
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#E74C3C',
+                    cancelButtonColor: '#7FB3D5',
+                    cancelButtonText: 'No, modificar!',
+                    confirmButtonText: 'Ok, seguir detodos modos'
+                }).then(function (result) {
+                    if (result.value) {
+                        //SI CONTINUO ESTOY CONFIRMANDO LOS DATOS ERRONEOS
+                        try {
+                            _this.miServicio.afectarOperacionCobro(_this.liquidacion)
+                                .subscribe(function (resp) {
+                                console.log(resp);
+                                _this.loading = false;
+                                console.log(resp);
+                                _this.liquidacion.nivel = _this.DateForm.value.nivel;
+                                _this.liquidacion.numero = '';
+                                _this.liquidacion.medico_id = '';
+                                _this.liquidacion.obra_social_id = '';
+                                _this.liquidacion.total = 0;
+                                _this.liquidacion.cant_orden = 0;
+                                _this.selecteditems = [];
+                                var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default()({
+                                    toast: false,
+                                    type: 'success',
+                                    title: 'Datos guardados',
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                });
+                                //   this.elementos =[];
+                                //    this.throwAlert('success', 'Se modificó el registro con éxito','','');
+                                _this.loadRegistro();
+                            }, function (error) {
+                                console.log(error.message);
+                                console.log(error.status);
+                                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+                            });
+                        }
+                        catch (error) {
+                            _this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+                        }
+                    }
+                });
+            }
+            else {
+                try {
+                    this.miServicio.afectarOperacionCobro(this.liquidacion)
+                        .subscribe(function (resp) {
+                        console.log(resp);
+                        _this.loading = false;
+                        console.log(resp);
+                        _this.liquidacion.nivel = _this.DateForm.value.nivel;
+                        _this.liquidacion.numero = '';
+                        _this.liquidacion.medico_id = '';
+                        _this.liquidacion.obra_social_id = '';
+                        _this.liquidacion.total = 0;
+                        _this.liquidacion.cant_orden = 0;
+                        _this.selecteditems = [];
+                        var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default()({
+                            toast: false,
+                            type: 'success',
+                            title: 'Datos guardados',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                        _this.loadRegistro();
+                    }, function (error) {
+                        console.log(error.message);
+                        console.log(error.status);
+                        _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+                    });
+                }
+                catch (error) {
+                    this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+                }
+            }
+        }
+        else {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_4___default()({
+                title: 'Campo vacio',
+                text: 'Algun campo esta vacio',
+                type: 'warning',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok, lo corregire'
+            }).then(function (result) {
+                if (result.value) {
+                }
+            });
+        }
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.exportarExcel = function () {
+        var fecha_impresion = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(new Date(), 'dd-MM-yyyy-mm', 'es-Ar');
+        this.liquidacionService.exportAsExcelFile(this.selecteditems, 'listado_presentacion' + fecha_impresion);
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.deleteRegistro = function (id) {
+        var _this = this;
+        try {
+            this.miServicio.destroyByPracticaById(id)
+                .subscribe(function (resp) {
+                if (resp == 1) {
+                    _this.throwAlert('success', 'Se modificó el registro con éxito', '', '');
+                    _this.loadRegistro();
+                }
+                else {
+                    _this.throwAlert('error', 'No se elimino ningun registro', 'Registro', '200');
+                }
+                _this.loading = false;
+                console.log(resp);
+                _this.sumarValores(resp);
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                _this.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+            });
+        }
+        catch (error) {
+            this.throwAlert('error', 'Error al cargar los registros', error, error.status);
+        }
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.generarPdfListado = function (filtro) {
+        console.log(this.selecteditems);
+        var _fechaEmision = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'en');
+        var _fechaDesde = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy HH:mm', 'en');
+        var _fechaHasta = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy HH:mm', 'en');
+        var fecha_chirugia = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.selecteditems[0]['fecha_cobro'], 'dd/MM/yyyy HH:mm', 'en');
+        var tfacturado = 0;
+        var ttransferencia = 0;
+        var tdebito = 0;
+        var tcredito = 0;
+        var tefectivo = 0;
+        var tpractica = 0;
+        var tvarios = 0;
+        var tcheque = 0;
+        var tconsulta_medico = 0;
+        var testudio_medico = 0;
+        var testudio_clinica = 0;
+        var ttotal_medico = 0;
+        var _selecteditems = this.selecteditems;
+        var i = 0;
+        for (i = 0; i < this.selecteditems.length; i++) {
+            if (this.selecteditems[i]['forma_pago'] === 'TRANSFERENCIA') {
+                ttransferencia = ttransferencia + Number(this.selecteditems[i]['valor_facturado']);
+            }
+            if (this.selecteditems[i]['forma_pago'] === 'EFECTIVO') {
+                tefectivo = tefectivo + Number(this.selecteditems[i]['valor_facturado']);
+            }
+            if (this.selecteditems[i]['forma_pago'] === 'TARJETA - CREDITO') {
+                tcredito = tcredito + Number(this.selecteditems[i]['valor_facturado']);
+            }
+            if (this.selecteditems[i]['forma_pago'] === 'TARJETA - DEBITO') {
+                tdebito = tdebito + Number(this.selecteditems[i]['valor_facturado']);
+            }
+            if (this.selecteditems[i]['forma_pago'] === 'CHEQUE') {
+                tcheque = tcheque + Number(this.selecteditems[i]['valor_facturado']);
+            }
+            if (this.selecteditems[i]['forma_pago'] === 'VARIOS') {
+                tvarios = tvarios + Number(this.selecteditems[i]['valor_facturado']);
+            }
+            console.log(this.selecteditems[i]['complejidad']);
+            if ((this.selecteditems[i]['complejidad'] == '2') && (this.selecteditems[i]['forma_pago'] !== 'TRANSFERENCIA') && (this.selecteditems[i]['forma_pago'] !== 'TARJETA - CREDITO') && (this.selecteditems[i]['forma_pago'] !== 'TARJETA - DEBITO')) {
+                console.log(this.selecteditems[i]['valor_facturado']);
+                testudio_medico = testudio_medico + Number(this.selecteditems[i]['valor_facturado']) * 0.5;
+                ttotal_medico = Number(ttotal_medico) + Number(testudio_medico);
+            }
+            if ((this.selecteditems[i]['complejidad'] == '1') && (this.selecteditems[i]['forma_pago'] !== 'TRANSFERENCIA') && (this.selecteditems[i]['forma_pago'] !== 'TARJETA - CREDITO') && (this.selecteditems[i]['forma_pago'] !== 'TARJETA - DEBITO')) {
+                tconsulta_medico = tconsulta_medico + Number(this.selecteditems[i]['valor_facturado']);
+                ttotal_medico = Number(ttotal_medico) + Number(tconsulta_medico);
+            }
+            tfacturado = tfacturado + Number(this.selecteditems[i]['valor_facturado']);
+            try {
+                _selecteditems[i]['fecha_cobro'] = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.selecteditems[i]['fecha_cobro'], 'dd/MM/yyyy HH:mm', 'en');
+            }
+            catch (error) {
+            }
+        }
+        //tfacturado = Number(this.cp.transform(tfacturado, '', 'symbol-narrow', '1.2-2'));
+        var userData = JSON.parse(localStorage.getItem('userData'));
+        console.log(this.elementosFiltrados);
+        console.log(this.selecteditems);
+        if (this.selecteditems) {
+            var _fechaDesde_1 = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy HH:mm', 'en');
+            var _fechaHasta_1 = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy HH:mm', 'en');
+            var doc = new jsPDF('landscape');
+            /** valores de la pagina**/
+            var pageSize = doc.internal.pageSize;
+            var pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+            doc.addImage(_config_config__WEBPACK_IMPORTED_MODULE_2__["logo_clinica"], 'PNG', 10, 10, 40, 11);
+            doc.setLineWidth(0.4);
+            doc.line(10, 33, pageWidth - 10, 33);
+            doc.setFontSize(12);
+            doc.text('LISTADO DE ORDENES', pageWidth / 2, 15, null, null, 'center');
+            doc.setFontSize(6);
+            doc.text('Emitido : ' + _fechaEmision, pageWidth / 2, 20, null, null, 'center');
+            doc.setFontSize(8);
+            doc.text('Fecha de cobro: ' + fecha_chirugia, 10, 30, null, null, 'left');
+            doc.setFontSize(6);
+            doc.text(15, 38, 'Tarjeta : ' + this.cp.transform(tcredito, '', 'symbol-narrow', '1.2-2'));
+            doc.text(45, 38, 'Debito: ' + this.cp.transform(tdebito, '', 'symbol-narrow', '1.2-2'));
+            doc.text(75, 38, 'Efectivo: ' + this.cp.transform(tefectivo, '', 'symbol-narrow', '1.2-2'));
+            doc.text(105, 38, 'Transferencia: ' + this.cp.transform(ttransferencia, '', 'symbol-narrow', '1.2-2'));
+            doc.text(135, 38, 'Total : ' + this.cp.transform(tfacturado, '', 'symbol-narrow', '1.2-2'));
+            doc.setFontSize(8);
+            if (filtro === 'medico') {
+                doc.text(pageWidth - 60, 15, 'Médico : ' + this.selecteditems[0]['medico_nombre']);
+                doc.text(pageWidth - 60, 20, 'Usuario : ' + userData['nombreyapellido']);
+                doc.text(pageWidth - 60, 25, 'Desde : ' + _fechaDesde_1);
+                doc.text(pageWidth - 60, 30, 'Hasta : ' + _fechaHasta_1);
+                doc.text(pageWidth - 100, 15, 'Prácticas : ' + this.cp.transform(testudio_medico, '', 'symbol-narrow', '1.2-2'));
+                doc.text(pageWidth - 100, 20, 'Consultas: ' + this.cp.transform(tconsulta_medico, '', 'symbol-narrow', '1.2-2'));
+                // doc.line(pageWidth-100, 23, pageWidth-80, 23);
+                // doc.setFontSize(10);
+                // doc.text(pageWidth-100, 30, 'Total : ' +this.cp.transform(ttotal_medico, '', 'symbol-narrow', '1.2-2') ); 
+                doc.setFontSize(8);
+            }
+            else {
+                doc.text(pageWidth - 60, 15, 'CLINICA DE LA VISION');
+                doc.text(pageWidth - 60, 20, 'Usuario : ' + userData['nombreyapellido']);
+                doc.text(pageWidth - 60, 25, 'Desde : ' + _fechaDesde_1);
+                doc.text(pageWidth - 60, 30, 'Hasta : ' + _fechaHasta_1);
+                doc.setFontSize(10);
+                doc.text(pageWidth - 100, 30, 'Prácticas : ' + this.cp.transform(testudio_medico, '', 'symbol-narrow', '1.2-2'));
+                doc.setFontSize(8);
+            }
+            doc.setFontSize(10);
+            doc.setFontSize(8);
+            doc.autoTable(this.columns, this.selecteditems, {
+                margin: { horizontal: 5, vertical: 42 },
+                bodyStyles: { valign: 'top' },
+                styles: { fontSize: 6, cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify' },
+                columnStyles: { text: { cellWidth: 'auto' } }
+            });
+            // doc.save('rendicion-de-caja'+_fechaEmision+'.pdf');
+            window.open(doc.output('bloburl'));
+        }
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.generarPreFactura = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var td, th, _fechaEmision, rounded, fecha_chirugia, total_iva, total_cantidad, total_cantidad_impresion, fecha_impresion, i, a, userData, y, i_obra_social, y_gastos, y_honorarios, total_facturado, i_coseguro, y_gastos_coseguro, y_honorarios_coseguro, total_facturado_coseguro, operacion_cobro_id, doc, pageSize, pageWidth, _a, codigo, cambio_codigo, honorarios, gastos, total_coseguro, total_coseguro, complejidad, total_lente, tiene_lente, lente, pageNumber, totalPagesExp_1, footer;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        td = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaDesde, 'dd/MM/yyyy', 'en');
+                        th = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.fechaHasta, 'dd/MM/yyyy', 'en');
+                        _fechaEmision = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'en');
+                        fecha_chirugia = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(this.selecteditems[0]['fecha_cobro'], 'dd/MM/yyyy HH:mm', 'en');
+                        total_iva = 0;
+                        total_cantidad = 0;
+                        total_cantidad_impresion = '';
+                        fecha_impresion = Object(_angular_common__WEBPACK_IMPORTED_MODULE_8__["formatDate"])(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');
+                        i = 0;
+                        a = 0;
+                        userData = JSON.parse(localStorage.getItem('userData'));
+                        y = 0;
+                        y_gastos = 115;
+                        y_honorarios = 80;
+                        total_facturado = 0;
+                        i_coseguro = 0;
+                        y_gastos_coseguro = 115;
+                        y_honorarios_coseguro = 80;
+                        total_facturado_coseguro = 0;
+                        console.log(this.selecteditems);
+                        total_cantidad_impresion = this.dp.transform(total_cantidad, '1.0-0');
+                        if (!this.selecteditems) return [3 /*break*/, 2];
+                        /** guardo los indices de os y coseguro */
+                        for (a = 0; a < this.selecteditems.length; a++) {
+                            if (this.selecteditems[a]['obra_social_id'] === 1) {
+                                i_obra_social = a;
+                            }
+                            else {
+                                i_coseguro = a;
+                            }
+                        }
+                        operacion_cobro_id = this.selecteditems[0]['operacion_cobro_id'];
+                        doc = new jsPDF();
+                        pageSize = doc.internal.pageSize;
+                        pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+                        /************ OBTENGO LAS DISTRIBUCIONES */
+                        _a = this;
+                        return [4 /*yield*/, this.buscarDistribucion()];
+                    case 1:
+                        /************ OBTENGO LAS DISTRIBUCIONES */
+                        _a.result_distribucion = _b.sent();
+                        console.log(this.result_distribucion);
+                        codigo = void 0;
+                        cambio_codigo = false;
+                        honorarios = void 0;
+                        gastos = void 0;
+                        /****************************************************   OBRA SOCIAL ******************************************************************************** */
+                        doc.addImage(_config_config__WEBPACK_IMPORTED_MODULE_2__["logo_clinica"], 'PNG', 10, 10, 40, 11);
+                        doc.setLineWidth(0.4);
+                        doc.setFontSize(9);
+                        doc.text('Clínica de la Visión', 60, 10, null, null, 'left');
+                        doc.line(60, 13, pageWidth - 10, 13);
+                        //doc.text('Facturación de presentaciones', 60, 18, null, null, 'left');
+                        doc.setFontSize(6);
+                        doc.text('Emitido : ' + _fechaEmision, pageWidth - 40, 18, null, null, 'left');
+                        doc.text('Nº - O.C : ' + operacion_cobro_id, pageWidth - 40, 22, null, null, 'left');
+                        doc.setFontSize(8);
+                        doc.text('Internación Nro: ' + this.selecteditems[i_obra_social]['operacion_cobro_numero_bono'], 10, 30, null, null, 'left');
+                        doc.text('Obra Social: ' + this.selecteditems[i_obra_social]['obra_social_nombre'], 10, 35, null, null, 'left');
+                        doc.text('Paciente: ' + this.selecteditems[i_obra_social]['apellido'] + ' ' + this.selecteditems[0]['nombre'], 10, 40, null, null, 'left');
+                        doc.text('Nro. Afiliado: ' + this.selecteditems[i_obra_social]['numero_afiliado'] + '/' + this.selecteditems[0]['barra_afiliado'], 10, 45, null, null, 'left');
+                        doc.text('Fecha de internación: ' + fecha_chirugia, 10, 50, null, null, 'left');
+                        doc.text('Médico que interna: ' + this.selecteditems[i_obra_social]['medico_nombre'], 10, 55, null, null, 'left');
+                        doc.setFontSize(8);
+                        doc.line(10, 60, pageWidth - 10, 60);
+                        doc.text('Código', 10, 65, null, null, 'left');
+                        doc.text('Práctica', 30, 65, null, null, 'left');
+                        doc.text('Categoria', 140, 65, null, null, 'left');
+                        doc.text('Cant.', 160, 65, null, null, 'left');
+                        doc.text('TOTAL', 180, 65, null, null, 'left');
+                        doc.line(10, 68, pageWidth - 10, 68);
+                        doc.text('GASTOS', 10, 110, null, null, 'left'); //INICIO EN Y DE GASTOS ES 80
+                        doc.text('HONORARIOS', 10, 75, null, null, 'left'); // INICIO DE Y EN HONORARIOS ES 130
+                        for (i = 0; i < this.result_distribucion.length; i++) {
+                            if ((this.result_distribucion[i]['obra_social_id'] === 1)) {
+                                /************************** DATOS DE OBRA SOCIAL */
+                                if (this.result_distribucion[i]['obra_social_practica_nombre'] === 'GASTOS') {
+                                    total_facturado = total_facturado + (Number(this.result_distribucion[i]['distribucion_total'] * Number(this.result_distribucion[i]['cantidad'])));
+                                    //   console.log(this.result_distribucion[i]);
+                                    doc.text(this.result_distribucion[i]['codigo'], 10, y_gastos, null, null, 'left');
+                                    doc.text(this.result_distribucion[i]['descripcion'], 30, y_gastos, null, null, 'left');
+                                    doc.text(this.result_distribucion[i]['cantidad'], 160, y_gastos, null, null, 'left');
+                                    doc.text(String(Number(this.result_distribucion[i]['distribucion_total']) * Number(this.result_distribucion[i]['cantidad'])), 180, y_gastos, null, null, 'left');
+                                    y_gastos = y_gastos + 5;
+                                }
+                                if (this.result_distribucion[i]['obra_social_practica_nombre'] === 'HONORARIOS') {
+                                    // console.log(this.result_distribucion[i]);
+                                    total_facturado = total_facturado + (Number(this.result_distribucion[i]['distribucion_total']) * Number(this.result_distribucion[i]['cantidad']));
+                                    console.log((Number(this.result_distribucion[i]['distribucion_total']) * Number(this.result_distribucion[i]['cantidad'])));
+                                    doc.text(this.result_distribucion[i]['codigo'], 10, y_honorarios, null, null, 'left');
+                                    doc.text(this.result_distribucion[i]['descripcion'], 30, y_honorarios, null, null, 'left');
+                                    doc.text(String(Number(this.result_distribucion[i]['categorizacion']) * Number(this.result_distribucion[i]['cantidad'])), 140, y_honorarios, null, null, 'left');
+                                    doc.text(this.result_distribucion[i]['cantidad'], 160, y_honorarios, null, null, 'left');
+                                    doc.text(String(Number(this.result_distribucion[i]['distribucion_total']) * Number(this.result_distribucion[i]['cantidad'])), 180, y_honorarios, null, null, 'left');
+                                    total_facturado = total_facturado + (Number(this.result_distribucion[i]['categorizacion']) * Number(this.result_distribucion[i]['cantidad']));
+                                    y_honorarios = y_honorarios + 5;
+                                }
+                            }
+                        }
+                        /*****  AGREGO UNIDAD DE INTERNACION PARA OBRA SOCIAL */
+                        for (a = 0; a < this.selecteditems.length; a++) {
+                            if ((this.selecteditems[a]['obra_social_id'] === 1) && (this.selecteditems[a]['codigo'] === '43.01.07')) {
+                                console.log('UNIDAD DE INTERNACION');
+                                console.log(this.selecteditems[a]);
+                                total_facturado = total_facturado + Number(this.selecteditems[a]['valor_facturado']);
+                                doc.text(this.selecteditems[a]['codigo'], 10, y_gastos, null, null, 'left');
+                                doc.text(this.selecteditems[a]['descripcion'], 30, y_gastos, null, null, 'left');
+                                doc.text(this.selecteditems[a]['cantidad'], 160, y_gastos, null, null, 'left');
+                                doc.text(this.selecteditems[a]['valor_facturado'], 180, y_gastos, null, null, 'left');
+                                //  y_gastos = y_gastos+5;
+                            }
+                        }
+                        // AGREGO TOTALES
+                        doc.setFontSize(10);
+                        doc.line(10, 195, pageWidth - 10, 195);
+                        doc.text('TOTAL: ', 10, 200, null, null, 'left');
+                        doc.text(this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2'), 30, 200, null, null, 'left');
+                        doc.line(10, 203, pageWidth - 10, 203);
+                        doc.setFontSize(8);
+                        // RESETEO LOS VALORES
+                        y_gastos = 115;
+                        y_honorarios = 80;
+                        total_facturado = 0;
+                        /** RENGLON PARA COSEGURO  */
+                        y_gastos_coseguro = 115;
+                        y_honorarios_coseguro = 80;
+                        total_facturado_coseguro = 0;
+                        /****************************************************   COSEGURO ******************************************************************************** */
+                        doc.addPage();
+                        doc.addImage(_config_config__WEBPACK_IMPORTED_MODULE_2__["logo_clinica"], 'PNG', 10, 10, 40, 11);
+                        doc.setLineWidth(0.4);
+                        doc.setFontSize(9);
+                        doc.text('Clínica de la Visión', 60, 10, null, null, 'left');
+                        doc.line(60, 13, pageWidth - 10, 13);
+                        //doc.text('Facturación de presentaciones', 60, 18, null, null, 'left');
+                        doc.setFontSize(6);
+                        doc.text('Emitido : ' + _fechaEmision, pageWidth - 40, 18, null, null, 'left');
+                        doc.text('Nº - O.C : ' + operacion_cobro_id, pageWidth - 40, 22, null, null, 'left');
+                        doc.setFontSize(7);
+                        doc.text('Internación Nro: ' + this.selecteditems[i_coseguro]['operacion_cobro_numero_bono'], 10, 30, null, null, 'left');
+                        doc.text('Obra Social: ' + this.selecteditems[i_coseguro]['obra_social_nombre'], 10, 35, null, null, 'left');
+                        doc.text('Paciente: ' + this.selecteditems[i_coseguro]['apellido'] + ' ' + this.selecteditems[0]['nombre'], 10, 40, null, null, 'left');
+                        doc.text('Nro. Afiliado: ' + this.selecteditems[i_coseguro]['numero_afiliado'] + '/' + this.selecteditems[0]['barra_afiliado'], 10, 45, null, null, 'left');
+                        doc.text('Fecha de internación: ' + fecha_chirugia, 10, 50, null, null, 'left');
+                        doc.text('Médico que interna: ' + this.selecteditems[i_coseguro]['medico_nombre'], 10, 55, null, null, 'left');
+                        doc.setFontSize(8);
+                        doc.line(10, 60, pageWidth - 10, 60);
+                        doc.text('Código', 10, 65, null, null, 'left');
+                        doc.text('Práctica', 30, 65, null, null, 'left');
+                        doc.text('Categoria', 140, 65, null, null, 'left');
+                        doc.text('Cant.', 160, 65, null, null, 'left');
+                        doc.text('TOTAL', 180, 65, null, null, 'left');
+                        doc.line(10, 70, pageWidth - 10, 70);
+                        doc.text('GASTOS', 10, 110, null, null, 'left'); //INICIO EN Y DE GASTOS ES 80
+                        doc.text('HONORARIOS', 10, 75, null, null, 'left'); // INICIO DE Y EN HONORARIOS ES 130
+                        for (i = 0; i < this.result_distribucion.length; i++) {
+                            if ((this.result_distribucion[i]['obra_social_id'] !== 1)) {
+                                /************************** DATOS DE COSEGURO */
+                                if (this.result_distribucion[i]['obra_social_practica_nombre'] === 'GASTOS') {
+                                    //   console.log(this.result_distribucion[i]);
+                                    doc.text(this.result_distribucion[i]['codigo'], 10, y_gastos, null, null, 'left');
+                                    doc.text(this.result_distribucion[i]['descripcion'], 30, y_gastos, null, null, 'left');
+                                    doc.text(this.result_distribucion[i]['cantidad'], 160, y_gastos, null, null, 'left');
+                                    total_coseguro = this.cp.transform(Number((this.result_distribucion[i]['distribucion_total'] * 20) / 80) * Number(this.result_distribucion[i]['cantidad']), '', 'symbol-narrow', '1.2-2');
+                                    total_facturado_coseguro = total_facturado_coseguro + Number(((this.result_distribucion[i]['distribucion_total'] * 20) / 80) * Number(this.result_distribucion[i]['cantidad']));
+                                    doc.text(total_coseguro, 180, y_gastos, null, null, 'left');
+                                    y_gastos = y_gastos + 5;
+                                }
+                                if (this.result_distribucion[i]['obra_social_practica_nombre'] === 'HONORARIOS') {
+                                    // console.log(this.result_distribucion[i]);
+                                    //   total_facturado_coseguro  = total_facturado_coseguro+ Number(this.result_distribucion[i]['distribucion_total']);
+                                    doc.text(this.result_distribucion[i]['codigo'], 10, y_honorarios, null, null, 'left');
+                                    doc.text(this.result_distribucion[i]['descripcion'], 30, y_honorarios, null, null, 'left');
+                                    doc.text(String(Number(this.result_distribucion[i]['categorizacion']) * Number(this.result_distribucion[i]['cantidad'])), 140, y_honorarios, null, null, 'left');
+                                    doc.text(this.result_distribucion[i]['cantidad'], 160, y_honorarios, null, null, 'left');
+                                    console.log((this.result_distribucion[i]['distribucion_total'] * 20) / 80);
+                                    console.log(this.cp.transform(((this.result_distribucion[i]['distribucion_total'] * 20) / 80), '', 'symbol-narrow', '1.2-2'));
+                                    total_coseguro = this.cp.transform(((this.result_distribucion[i]['distribucion_total'] * 20) / 80) * this.result_distribucion[i]['cantidad'], '', 'symbol-narrow', '1.2-2');
+                                    //total_facturado_coseguro  = total_facturado_coseguro+ (Number((this.result_distribucion[i]['distribucion_total']*20)/80)* Number(this.result_distribucion[i]['cantidad']));
+                                    total_facturado_coseguro = total_facturado_coseguro + (Number((this.result_distribucion[i]['distribucion_total'] * 20) / 80) * Number(this.result_distribucion[i]['cantidad'])) + (Number(this.result_distribucion[i]['categorizacion']) * Number(this.result_distribucion[i]['cantidad']));
+                                    doc.text(total_coseguro, 180, y_honorarios, null, null, 'left');
+                                    y_honorarios = y_honorarios + 5;
+                                }
+                            }
+                        }
+                        /*
+                        *
+                        * VALIDAR EN PROXIMAS LIQUIDACIONES DE CAMBIAR EL CODIGO PARA CONFECCION DE PRE FACTURA
+                        *
+                        *  PROBAR GENERAR UNA DISTRIBUCION PARA LAS UNIDADES DE NIVEL 2
+                        *  ASI SE ASOCIAN A INSUMOS, DE TAL FORMA QUE PUEDAN SER AGREGADAS TODAS
+                        * /
+                      
+                         /*****  AGREGO UNIDAD DE INTERNACION E INSUMOS  PARA COSEGURO, DEBE FIGURAR */
+                        for (a = 0; a < this.selecteditems.length; a++) {
+                            complejidad = Number(this.selecteditems[a]['complejidad']);
+                            console.log(complejidad);
+                            if ((this.selecteditems[a]['obra_social_id'] !== 1) && (complejidad === 4)) {
+                                total_facturado_coseguro = total_facturado_coseguro + Number(this.selecteditems[a]['valor_facturado']);
+                                doc.text(this.selecteditems[a]['codigo'], 10, y_gastos, null, null, 'left');
+                                doc.text(this.selecteditems[a]['descripcion'], 30, y_gastos, null, null, 'left');
+                                doc.text(this.selecteditems[a]['cantidad'], 160, y_gastos, null, null, 'left');
+                                doc.text(this.selecteditems[a]['valor_facturado'], 180, y_gastos, null, null, 'left');
+                                y_gastos = y_gastos + 5;
+                            }
+                            /*if((this.selecteditems[a]['obra_social_id'] !== 1 )&&(this.selecteditems[a]['codigo'] === 'LIOF05' )){
+                              total_facturado_coseguro  = total_facturado_coseguro+ Number(this.selecteditems[a]['valor_facturado']);
+                              doc.text(this.selecteditems[a]['codigo'], 10, y_gastos, null, null, 'left');
+                              doc.text(this.selecteditems[a]['descripcion'], 30, y_gastos, null, null, 'left');
+                              doc.text(this.selecteditems[a]['cantidad'], 160, y_gastos, null, null, 'left');
+                              doc.text(this.selecteditems[a]['valor_facturado'], 180, y_gastos, null, null, 'left');
+                              y_gastos = y_gastos+5;
+                            }*/
+                        }
+                        // AGREGO TOTALES
+                        doc.setFontSize(10);
+                        doc.line(10, 195, pageWidth - 10, 195);
+                        doc.text('TOTAL: ', 10, 200, null, null, 'left');
+                        doc.text(this.cp.transform(total_facturado_coseguro, '', 'symbol-narrow', '1.2-2'), 30, 200, null, null, 'left');
+                        doc.line(10, 203, pageWidth - 10, 203);
+                        doc.setFontSize(8);
+                        total_lente = 0;
+                        tiene_lente = void 0;
+                        for (a = 0; a < this.selecteditems.length; a++) {
+                            lente = this.selecteditems[a]['codigo'].substring(0, 4);
+                            if ((this.selecteditems[a]['obra_social_id'] === 1) && (lente === 'LIOF')) {
+                                tiene_lente = true;
+                                doc.addPage();
+                            }
+                        }
+                        if (tiene_lente) {
+                            doc.addImage(_config_config__WEBPACK_IMPORTED_MODULE_2__["logo_clinica"], 'PNG', 10, 10, 40, 11);
+                            doc.setLineWidth(0.4);
+                            doc.setFontSize(9);
+                            doc.text('Clínica de la Visión', 60, 10, null, null, 'left');
+                            doc.line(60, 13, pageWidth - 10, 13);
+                            //doc.text('Facturación de presentaciones', 60, 18, null, null, 'left');
+                            doc.setFontSize(6);
+                            doc.text('Emitido : ' + _fechaEmision, pageWidth - 40, 18, null, null, 'left');
+                            doc.text('Nº - O.C : ' + operacion_cobro_id, pageWidth - 40, 22, null, null, 'left');
+                            doc.setFontSize(7);
+                            doc.text('Internación Nro: ' + this.selecteditems[i_obra_social]['operacion_cobro_numero_bono'], 10, 30, null, null, 'left');
+                            doc.text('Obra Social: ' + this.selecteditems[i_obra_social]['obra_social_nombre'], 10, 35, null, null, 'left');
+                            doc.text('Paciente: ' + this.selecteditems[i_obra_social]['apellido'] + ' ' + this.selecteditems[0]['nombre'], 10, 40, null, null, 'left');
+                            doc.text('Nro. Afiliado: ' + this.selecteditems[i_obra_social]['numero_afiliado'] + '/' + this.selecteditems[0]['barra_afiliado'], 10, 45, null, null, 'left');
+                            doc.text('Fecha de internación: ' + fecha_chirugia, 10, 50, null, null, 'left');
+                            doc.text('Médico que interna: ' + this.selecteditems[i_obra_social]['medico_nombre'], 10, 55, null, null, 'left');
+                            doc.setFontSize(8);
+                            doc.line(10, 60, pageWidth - 10, 60);
+                            doc.text('Código', 10, 65, null, null, 'left');
+                            doc.text('Práctica', 30, 65, null, null, 'left');
+                            doc.text('Categoria', 140, 65, null, null, 'left');
+                            doc.text('Cant.', 160, 65, null, null, 'left');
+                            doc.text('TOTAL', 180, 65, null, null, 'left');
+                            doc.line(10, 68, pageWidth - 10, 68);
+                            doc.text('INSUMOS', 10, 75, null, null, 'left'); //INICIO EN Y DE GASTOS ES 80
+                            y_gastos = 80;
+                            for (a = 0; a < this.selecteditems.length; a++) {
+                                if ((this.selecteditems[a]['obra_social_id'] === 1) && (this.selecteditems[a]['codigo'] === 'LIOF05')) {
+                                    total_lente = total_lente + Number(this.selecteditems[a]['valor_facturado']);
+                                    doc.text(this.selecteditems[a]['codigo'], 10, y_gastos, null, null, 'left');
+                                    doc.text(this.selecteditems[a]['descripcion'], 30, y_gastos, null, null, 'left');
+                                    doc.text(this.selecteditems[a]['cantidad'], 160, y_gastos, null, null, 'left');
+                                    doc.text(this.selecteditems[a]['valor_facturado'], 180, y_gastos, null, null, 'left');
+                                    y_gastos = y_gastos + 5;
+                                }
+                            }
+                            // AGREGO TOTALES
+                            doc.setFontSize(10);
+                            doc.line(10, 195, pageWidth - 10, 195);
+                            doc.text('TOTAL: ', 10, 200, null, null, 'left');
+                            doc.text(this.cp.transform(total_lente, '', 'symbol-narrow', '1.2-2'), 30, 200, null, null, 'left');
+                            doc.line(10, 203, pageWidth - 10, 203);
+                            doc.setFontSize(8);
+                        }
+                        pageNumber = doc.internal.getNumberOfPages();
+                        doc.setFontSize(8);
+                        totalPagesExp_1 = '{total_pages_count_string}';
+                        footer = function (data) {
+                            var str = 'Page ' + data.pageCount;
+                            // Total page number plugin only available in jspdf v1.0+
+                            if (typeof doc.putTotalPages === 'function') {
+                                str = str + ' of ' + totalPagesExp_1;
+                                console.log('test');
+                            }
+                            doc.text(str, data.settings.margin.left, doc.internal.pageSize.height - 30);
+                        };
+                        window.open(doc.output('bloburl'));
+                        _b.label = 2;
+                    case 2: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.buscarDistribucion = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var rest, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.miServicio.getOperacionCobroDistribucionByIdPrefactura(this.selecteditems[0]['operacion_cobro_id'], this.selecteditems[0]['estado_liquidacion'], this.selecteditems[0]['obra_social_id'])];
+                    case 1:
+                        rest = _a.sent();
+                        console.log(this.result_distribucion);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_1 = _a.sent();
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/, rest];
+                }
+            });
+        });
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.colorRow = function (estado) {
+        if (estado != '-') {
+            return { 'es-observacion': 'null' };
+        }
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.colorRowPago = function (estado) {
+        if (estado == 'EFECTIVO') {
+            return { 'es-efectivo': 'null' };
+        }
+        if (estado == 'TARJETA - CREDITO') {
+            return { 'es-tarjeta-debito': 'null' };
+        }
+        if (estado == 'TARJETA - DEBITO') {
+            return { 'es-tarjeta-debito': 'null' };
+        }
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.showToast = function (estado, mensaje, encabezado) {
+        if (estado == 'exito') {
+            this.messageService.add({ severity: 'success', summary: mensaje, detail: encabezado });
+        }
+        if (estado == 'info') {
+            this.messageService.add({ severity: 'info', summary: 'El campo no es correcto', detail: 'Los datos del campo son incorrectos' });
+        }
+        if (estado == 'warning') {
+            this.messageService.add({ severity: 'warning', summary: 'El campo no es correcto', detail: 'Los datos del campo son incorrectos' });
+        }
+        if (estado == 'error') {
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo modificar el registro' });
+        }
+    };
+    GerenciaDetalleOperacionCobroComponent.prototype.throwAlert = function (estado, mensaje, motivo, errorNumero) {
+        var tipoerror;
+        if (estado == 'success') {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_4___default()({
+                type: 'success',
+                title: 'Exito',
+                text: mensaje
+            });
+        }
+        if (errorNumero == '422') {
+            mensaje = 'Los datos que esta tratando de guardar son iguales a los que ya poseia';
+            sweetalert2__WEBPACK_IMPORTED_MODULE_4___default()({
+                type: 'warning',
+                title: 'Atención..',
+                text: mensaje,
+                footer: motivo
+            });
+        }
+        if ((estado == 'error') && (errorNumero != '422')) {
+            if (errorNumero == '422') {
+                mensaje = 'Los datos que esta tratando de guardar son iguales a los que ya poseia';
+            }
+            if (errorNumero == '400 ') {
+                mensaje = 'Bad Request ';
+            }
+            if (errorNumero == '404') {
+                mensaje = 'No encontrado ';
+            }
+            if (errorNumero == '401') {
+                mensaje = 'Sin autorización';
+            }
+            if (errorNumero == '403') {
+                mensaje = ' Prohibido : La consulta fue valida, pero el servidor rechazo la accion. El usuario puede no tener los permisos necesarios, o necesite una cuenta para operar ';
+            }
+            if (errorNumero == '405') {
+                mensaje = 'Método no permitido';
+            }
+            if (errorNumero == '500') {
+                mensaje = 'Error interno en el servidor';
+            }
+            if (errorNumero == '503') {
+                mensaje = 'Servidor no disponible';
+            }
+            if (errorNumero == '502') {
+                mensaje = 'Bad gateway';
+            }
+            sweetalert2__WEBPACK_IMPORTED_MODULE_4___default()({
+                type: 'error',
+                title: 'Oops...',
+                text: mensaje,
+                footer: motivo
+            });
+        }
+    };
+    GerenciaDetalleOperacionCobroComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-gerencia-detalle-operacion-cobro',
+            template: __webpack_require__(/*! ./gerencia-detalle-operacion-cobro.component.html */ "./src/app/pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component.html"),
+            providers: [primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"], primeng_components_common_api__WEBPACK_IMPORTED_MODULE_6__["DialogService"]],
+            styles: [__webpack_require__(/*! ./gerencia-detalle-operacion-cobro.component.css */ "./src/app/pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component.css")]
+        }),
+        __metadata("design:paramtypes", [src_app_services_practica_service__WEBPACK_IMPORTED_MODULE_7__["PracticaService"], primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"], _services_liquidacion_service__WEBPACK_IMPORTED_MODULE_16__["LiquidacionService"], primeng_components_common_api__WEBPACK_IMPORTED_MODULE_6__["DialogService"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["CurrencyPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["DecimalPipe"]])
+    ], GerenciaDetalleOperacionCobroComponent);
+    return GerenciaDetalleOperacionCobroComponent;
 }());
 
 
@@ -14524,6 +15999,22 @@ var EditObraSocialComponent = /** @class */ (function () {
         this.messageService = messageService;
         this.dialogService = dialogService;
         this.popItem = null;
+        this.listaCategoriaIva = [
+            { label: 'IVA Responsable Inscripto', value: { id: 1, name: 'IVA Responsable Inscripto', code: 'IVA Responsable Inscripto' } },
+            { label: 'IVA Responsable no Inscripto', value: { id: 2, name: 'IVA Responsable no Inscripto', code: 'IVA Responsable no Inscripto' } },
+            { label: 'IVA no Responsable', value: { id: 3, name: 'IVA no Responsable', code: 'IVA no Responsable' } },
+            { label: 'IVA Sujeto Exento', value: { id: 4, name: 'IVA Sujeto Exento', code: 'IVA Sujeto Exento' } },
+            { label: 'Consumidor Final', value: { id: 5, name: 'Consumidor Final', code: 'Consumidor Final' } },
+            { label: 'Responsable Monotributo', value: { id: 6, name: 'Responsable Monotributo', code: 'Responsable Monotributo' } },
+            { label: 'Sujeto no Categorizado', value: { id: 7, name: 'Sujeto no Categorizado', code: 'Sujeto no Categorizado' } },
+            { label: 'Proveedor del Exterior', value: { id: 8, name: 'Proveedor del Exterior', code: 'Proveedor del Exterior' } },
+            { label: 'Cliente del Exterior', value: { id: 9, name: 'Cliente del Exterior', code: 'Cliente del Exterior' } },
+            { label: 'IVA Liberado – Ley Nº 19.640', value: { id: 10, name: 'IVA Liberado – Ley Nº 19.640', code: 'IVA Liberado – Ley Nº 19.640' } },
+            { label: 'IVA Responsable Inscripto – Agente de Percepción', value: { id: 11, name: 'IVA Responsable Inscripto – Agente de Percepción', code: 'IVA Responsable Inscripto – Agente de Percepción' } },
+            { label: 'Pequeño Contribuyente Eventual', value: { id: 12, name: 'Pequeño Contribuyente Eventual', code: 'Pequeño Contribuyente Eventual' } },
+            { label: 'Monotributista Social', value: { id: 13, name: 'Monotributista Social', code: 'Monotributista Social' } },
+            { label: 'Pequeño Contribuyente Eventual Social', value: { id: 14, name: 'Pequeño Contribuyente Eventual Social', code: 'Pequeño Contribuyente Eventual Social' } },
+        ];
     }
     EditObraSocialComponent.prototype.ngOnInit = function () {
         this.updateDataForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
@@ -14609,7 +16100,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div >\r\n    <app-loading *ngIf=\"loading\"> </app-loading> \r\n   \r\n</div>\r\n\r\n\r\n<div class=\"row col-md-12 animated fadeIn slow\" *ngIf=\"!loading\">\r\n        <div class=\"row \">\r\n                <div class=\"col-md-7\" style=\"text-align:left\">\r\n                    <button type=\"button\" class=\"btn btn-outline-info btn-md\" (click)=\"showDialogToAdd()\" >Nuevo</button>\r\n                </div>\r\n                \r\n        <div class=\"col-md-5\" style=\"text-align:right\">                                \r\n                <button type=\"button\" class=\"btn btn-outline-success btn-md\" (click)=\"generarPdf()\" ><i class=\"fas fa-print\"></i></button>\r\n        </div>\r\n        </div>\r\n        <p-table #dt class=\"pt-2\" tableStyleClass=\"prime-table\" [columns]=\"cols\"  [value]=\"elementos\" selectionMode=\"single\" [resizableColumns]=\"true\"\r\n         [(selection)]=\"selectedItem\" (onRowSelect)=\"showDialogToUpdate($event)\"  scrollHeight=\"500px\" [scrollable]=\"true\" >\r\n        <ng-template pTemplate=\"caption\">\r\n                <div class=\"row\">\r\n                        <div class=\"col-md-7\" style=\"text-align:left\">                            \r\n                         </div>\r\n                <div class=\"col-md-5\" style=\"text-align:right\">                                \r\n                    <input  class=\"form-control col-md-12 form-control-sm\" type=\"text\"  placeholder=\"Buscar en toda la tabla\" (input)=\"dt.filterGlobal($event.target.value, 'contains')\" >\r\n                </div>\r\n        </div>\r\n            </ng-template>\r\n        <ng-template pTemplate=\"header\" let-columns >\r\n\r\n                <tr>\r\n                    <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\" pResizableColumn [ngStyle]=\"{'width': col.width}\">\r\n                        {{col.header}}\r\n                        <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activate to sort in descending order\" ariaLabelAsc=\"Activate to sort in ascending order\"></p-sortIcon>\r\n                    </th>\r\n                    \r\n                </tr>\r\n                <tr>\r\n                    <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\" >\r\n                        <input class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\r\n                        <input class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'descripcion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\r\n                        <input class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'es_habilitada'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                      \r\n                        <input class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'entidad_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\r\n                        <input class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'tiene_distribucion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\r\n                        <input class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'es_coseguro'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\r\n                    </th>\r\n                   \r\n                </tr>\r\n            </ng-template>\r\n     \r\n            <ng-template pTemplate=\"body\" let-elementos>\r\n                        <tr  style=\"height:20px\" [pSelectableRow]=\"elementos\" >\r\n                            <td style=\"width: 20%\">{{elementos.nombre}}</td>\r\n                            <td style=\"width: 30%\">{{elementos.descripcion}}</td>\r\n                            <td style=\"width: 10%\">{{elementos.es_habilitada}}</td> \r\n                            <td style=\"width: 20%\">{{elementos.entidad_nombre}}</td>                                                   \r\n                            <td style=\"width: 10%\">{{elementos.tiene_distribucion}}</td>\r\n                            <td style=\"width: 10%\">{{elementos.es_coseguro}}</td>\r\n                        </tr>\r\n                    </ng-template>\r\n          \r\n         \r\n        </p-table>\r\n       \r\n    \r\n   \r\n\r\n\r\n</div>"
+module.exports = "\r\n<div >\r\n    <app-loading *ngIf=\"loading\"> </app-loading> \r\n   \r\n</div>\r\n\r\n\r\n<div class=\"row col-md-12 animated fadeIn slow\" *ngIf=\"!loading\">\r\n        <div class=\"row \">\r\n                <div class=\"col-md-7\" style=\"text-align:left\">\r\n                    <button type=\"button\" class=\"btn btn-outline-info btn-md\" (click)=\"showDialogToAdd()\" >Nuevo</button>\r\n                </div>\r\n                \r\n        <div class=\"col-md-5\" style=\"text-align:right\">                                \r\n                <button type=\"button\" class=\"btn btn-outline-success btn-md\" (click)=\"generarPdf()\" ><i class=\"fas fa-print\"></i></button>\r\n        </div>\r\n        </div>\r\n        <p-table #dt class=\"pt-2\" tableStyleClass=\"prime-table\" [columns]=\"cols\"  [value]=\"elementos\" selectionMode=\"single\" [resizableColumns]=\"true\"\r\n         [(selection)]=\"selectedItem\" (onRowSelect)=\"showDialogToUpdate($event)\"  scrollHeight=\"500px\" [scrollable]=\"true\" >\r\n        <ng-template pTemplate=\"caption\">\r\n                <div class=\"row\">\r\n                        <div class=\"col-md-7\" style=\"text-align:left\">                            \r\n                         </div>\r\n                <div class=\"col-md-5\" style=\"text-align:right\">                                \r\n                    <input  class=\"form-control col-md-12 form-control-sm\" type=\"text\"  placeholder=\"Buscar en toda la tabla\" (input)=\"dt.filterGlobal($event.target.value, 'contains')\" >\r\n                </div>\r\n        </div>\r\n            </ng-template>\r\n        <ng-template pTemplate=\"header\" let-columns >\r\n\r\n                <tr>\r\n                    <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\" pResizableColumn [ngStyle]=\"{'width': col.width}\">\r\n                        {{col.header}}\r\n                        <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activate to sort in descending order\" ariaLabelAsc=\"Activate to sort in ascending order\"></p-sortIcon>\r\n                    </th>\r\n                    \r\n                </tr>\r\n                <tr>\r\n                    <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\" >\r\n                        <input class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\r\n                        <input class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'descripcion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\r\n                        <input class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'es_habilitada'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                      \r\n                        <input class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'entidad_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\r\n                        <input class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'tiene_distribucion'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\r\n                        <input class=\"form-control col-md-12 form-control-sm\" *ngSwitchCase=\"'es_coseguro'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">\r\n                    </th>\r\n                   \r\n                </tr>\r\n            </ng-template>\r\n     \r\n            <ng-template pTemplate=\"body\" let-elementos>\r\n                        <tr  style=\"height:20px\" [pSelectableRow]=\"elementos\" >\r\n                            <td style=\"width: 20%\">{{elementos.nombre}}</td>\r\n                            <td style=\"width: 10%\">{{elementos.descripcion}}</td>\r\n                            <td style=\"width: 8%\">{{elementos.es_habilitada}}</td> \r\n                            <td style=\"width: 20%\">{{elementos.entidad_nombre}}</td>         \r\n                            <td style=\"width: 10%\">{{elementos.cuit}}</td>   \r\n                            <td style=\"width: 20%\">{{elementos.categoria_iva}}</td>   \r\n                            <td style=\"width: 20%\">{{elementos.domicilio}}</td>                                             \r\n                            <td style=\"width: 8%\">{{elementos.tiene_distribucion}}</td>\r\n                            <td style=\"width: 8%\">{{elementos.es_coseguro}}</td>\r\n                        </tr>\r\n                    </ng-template>\r\n          \r\n         \r\n        </p-table>\r\n       \r\n    \r\n   \r\n\r\n\r\n</div>"
 
 /***/ }),
 
@@ -14661,11 +16152,14 @@ var ObraSocialComponent = /** @class */ (function () {
         this._id = 0;
         this.cols = [
             { field: 'nombre', header: 'Nombre', width: '20%' },
-            { field: 'descripcion', header: 'Descripcion', width: '30%' },
-            { field: 'es_habilitada', header: 'Habilitada', width: '10%' },
+            { field: 'descripcion', header: 'Descripcion', width: '10%' },
+            { field: 'es_habilitada', header: 'Habilitada', width: '8%' },
             { field: 'entidad_nombre', header: 'Entidad factura', width: '20%' },
-            { field: 'tiene_distribucion', header: 'Distribución', width: '10%' },
-            { field: 'es_coseguro', header: 'Es coseguro', width: '10%' },
+            { field: 'cuit', header: 'C.U.I.T', width: '10%' },
+            { field: 'categoria_iva', header: 'Cat. IVA', width: '20%' },
+            { field: 'domicilio', header: 'Domicilio', width: '20%' },
+            { field: 'tiene_distribucion', header: 'Distribución', width: '8%' },
+            { field: 'es_coseguro', header: 'Es coseguro', width: '8%' },
         ];
     }
     ObraSocialComponent.prototype.ngOnInit = function () {
@@ -15215,6 +16709,132 @@ var DistribucionPracticaComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_services_convenio_service__WEBPACK_IMPORTED_MODULE_5__["ConvenioService"], primeng_api__WEBPACK_IMPORTED_MODULE_3__["MessageService"], primeng_components_common_api__WEBPACK_IMPORTED_MODULE_4__["DialogService"]])
     ], DistribucionPracticaComponent);
     return DistribucionPracticaComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/mantenimiento/entidad/edit-entidad/edit-entidad.component.css":
+/*!*************************************************************************************!*\
+  !*** ./src/app/pages/mantenimiento/entidad/edit-entidad/edit-entidad.component.css ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL21hbnRlbmltaWVudG8vZW50aWRhZC9lZGl0LWVudGlkYWQvZWRpdC1lbnRpZGFkLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/pages/mantenimiento/entidad/edit-entidad/edit-entidad.component.html":
+/*!**************************************************************************************!*\
+  !*** ./src/app/pages/mantenimiento/entidad/edit-entidad/edit-entidad.component.html ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  edit-entidad works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/pages/mantenimiento/entidad/edit-entidad/edit-entidad.component.ts":
+/*!************************************************************************************!*\
+  !*** ./src/app/pages/mantenimiento/entidad/edit-entidad/edit-entidad.component.ts ***!
+  \************************************************************************************/
+/*! exports provided: EditEntidadComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditEntidadComponent", function() { return EditEntidadComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var EditEntidadComponent = /** @class */ (function () {
+    function EditEntidadComponent() {
+    }
+    EditEntidadComponent.prototype.ngOnInit = function () {
+    };
+    EditEntidadComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-edit-entidad',
+            template: __webpack_require__(/*! ./edit-entidad.component.html */ "./src/app/pages/mantenimiento/entidad/edit-entidad/edit-entidad.component.html"),
+            styles: [__webpack_require__(/*! ./edit-entidad.component.css */ "./src/app/pages/mantenimiento/entidad/edit-entidad/edit-entidad.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], EditEntidadComponent);
+    return EditEntidadComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/mantenimiento/entidad/entidad.component.css":
+/*!*******************************************************************!*\
+  !*** ./src/app/pages/mantenimiento/entidad/entidad.component.css ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL21hbnRlbmltaWVudG8vZW50aWRhZC9lbnRpZGFkLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/pages/mantenimiento/entidad/entidad.component.html":
+/*!********************************************************************!*\
+  !*** ./src/app/pages/mantenimiento/entidad/entidad.component.html ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  entidad works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/pages/mantenimiento/entidad/entidad.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/pages/mantenimiento/entidad/entidad.component.ts ***!
+  \******************************************************************/
+/*! exports provided: EntidadComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EntidadComponent", function() { return EntidadComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var EntidadComponent = /** @class */ (function () {
+    function EntidadComponent() {
+    }
+    EntidadComponent.prototype.ngOnInit = function () {
+    };
+    EntidadComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-entidad',
+            template: __webpack_require__(/*! ./entidad.component.html */ "./src/app/pages/mantenimiento/entidad/entidad.component.html"),
+            styles: [__webpack_require__(/*! ./entidad.component.css */ "./src/app/pages/mantenimiento/entidad/entidad.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], EntidadComponent);
+    return EntidadComponent;
 }());
 
 
@@ -18191,7 +19811,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n \n</div>\n<p-toast (life)=\"100\" styleClass=\"custom-toast\" [style]=\"{marginTop: '100px'}\"></p-toast>\n\n  <!--ENCABEZADO-->\n  \n  \n    <div  >\n            <form  [formGroup]=\"formPaciente\">\n        <div class=\"  ml-2 row\" >\n                <div class=\"form-group  mr-4 \">                                                 \n                          <div class=\" input-group input-group-sm \">\n                              <label class=\" mt-1 mr-2\">Paciente :</label>  \n                              <input  (keyup.enter)=\"buscarPaciente()\" class=\"form-control col-md-12 form-control-sm\" formControlName=\"paciente_nombre\" placeholder=\"Paciente\"  />   \n                          \n                              <div class=\"input-group-append\">\n                                <span class=\" input-group-text form-control-sm\">\n                                  <a  (click)=\"buscarPaciente()\">\n                                      <img class=\"pointer float-left\" src=\"assets/icons/grey/outline_search_black_18dp.png\" width=\"24px\" height=\"24px\"  >\n                                  </a>\n                              </span>\n                              </div>\n                          </div>       \n                        </div>\n                  \n                    <div class=\"form-group  mr-4 \">\n                    <div class=\" input-group input-group-sm \">         \n                      <h4 class=\"ml-3 mt-1\">Edad :</h4>                        \n                     <b> <h4 class=\"ml-1 mt-1 text-info\" >{{edad}}</h4>  </b>\n                    </div>   \n                  </div> \n                  <div class=\"form-group  mr-4 \">\n                      <div class=\" input-group input-group-sm \">         \n                        <label class=\"ml-3 mt-1\">DNI :</label>                        \n                        <label class=\"ml-1 mt-1 text-info\" >{{formPaciente.value.dni}}</label>  \n                      </div>   \n                    </div> \n                    <div class=\"form-group  mr-4 \">\n                        <div class=\" input-group input-group-sm \">         \n                          <label class=\"ml-3 mt-1\">Domicilio :</label>                        \n                          <label class=\"ml-1 mt-1 text-info\" >{{formPaciente.value.domicilio}}</label>  \n                        </div>   \n                      </div> \n                  <div class=\"form-group  mr-4 \">\n                    <div class=\" input-group input-group-sm \">           \n                        <label class=\"ml-3 mt-1\">Obra social :</label>                                               \n                        <label class=\"ml-1 mt-1 text-info\" >{{formPaciente.value.obra_social_nombre}}</label> \n                            \n                    </div>     \n                  </div>\n                  <div class=\"form-group  mr-4 \">                                                 \n                    <div class=\" input-group input-group-sm \">\n                        <label class=\"ml-3 mt-1\">Número :</label>  \n                        <label class=\"ml-1 mt-1  text-info\">{{formPaciente.value.numero_afiliado}}/{{formPaciente.value.barra_afiliado}}</label> \n                        <label class=\"ml-3 mt-1 \">Plan :</label>  \n                        <label class=\"ml-1 mt-1 text-info\" >{{formPaciente.value.plan}}</label>  \n                    </div>    \n                    \n                  </div>\n                </div>\n              </form> \n            </div>\n                <div class=\"row  ml-2  form-group mt-2  mr-4 mb-2\">\n                    <button    class=\"btn  btn-danger btn-sm float-right mr-2\"  (click)=\"darTurno()\" >Dar turno</button>    \n                    <button    class=\"btn  btn-info btn-sm float-right mr-2\" (click)=\"derivarAsesoramiento()\" >Derivar asesoramiento</button>                                                                         \n                    <button    class=\"btn  btn-warning btn-sm float-right mr-2\" (click)=\"imprimirHistoriaClinica()\" >Imprimir historia clinica</button>   \n                     <button    class=\"btn  btn-success btn-sm mr-2\" (click)=\"agregarHistoria()\" >Agregar historia clínica</button>\n                     <hr>\n                     \n                     <button    class=\"btn  btn-outline-info btn-sm float-right mr-2 ml-2\" (click)=\"verReceta()\" ><i class=\"fas fa-file-signature \"></i> Imprimir recetas</button>\n                </div>\n                <hr>\n\n                <div class=\"row  ml-2  form-group  mr-4 mb-2\">\n                  \n              </div>\n          \n         \n<p-dialog header=\"Confeccionar receta\" [(visible)]=\"display\" [contentStyle]=\"{'overflow':'visible'}\"  [responsive]=\"true\" [style]=\"{width: '90%', height: '400px'}\" [minY]=\"70\" \n[maximizable]=\"true\" [baseZIndex]=\"10000\">                  \n<div class=\"row ml-2\"><label class=\"mr-2\">REDACTAR RECETA</label> </div>\n<div class=\"row\">\n  \n    <div> <p-multiSelect class=\"mt-2 ml-2\" [options]=\"listarecetas\" [(ngModel)]=\"selectedReceta\"  defaultLabel=\"SELECCIONE ESTUDIOS\" [panelStyle]=\"{minWidth:'12em'}\" [filter]=\"true\" filterBy=\"label,value.name\" >      </p-multiSelect></div> \n  <div class=\"ml-2\"><p-dropdown [options]=\"listaindicacionesmedicas\" optionLabel=\"name\" [(ngModel)]=\"selectedIndicaciones\" placeholder=\"INDICACIONES MEDICAS\" optionLabel=\"name\" [showClear]=\"true\"></p-dropdown></div>\n</div> \n<hr>\n<textarea [style]=\"{width: '100%', height: '250px'}\" [(ngModel)]=\"diagnostico_receta\" class=\"pt-1 col-11\"  rows=\"3\" cols=\"40\" pInputTextarea placeholder=\"DIAGNOSTICO PRESUNTIVO\"></textarea>\n<hr>\n<textarea [style]=\"{width: '100%', height: '250px'}\" [(ngModel)]=\"historia_clinica_resumen \" class=\"pt-1 col-11\"  rows=\"3\" cols=\"40\" pInputTextarea  placeholder=\"RESUMEN HISTORIA CLINICA\"></textarea>\n<div class=\"mt-2\">\n  <button class=\"btn btn-info btn-sm mt-3\" (click)=\"imprimirRecetaEscrita()\"><i class=\"fas fa-file-signature \"></i>  Imprimir receta</button>\n</div>\n\n</p-dialog>\n          \n        <hr>\n\n\n  <!-- FIN ENCABEZADO-->\n  \n\n  <!--CUERPO DERECHO DATOS PERSONALES-->\n  \n<div>\n\n\n      <p-scrollPanel [style]=\"{width: '100%', height: '700px'}\" styleClass=\"custom\">\n        <div *ngFor=\"let elemento of elementos\">\n            <div class=\"card mt-2 col-12\" >\n              <div class=\"card-body\">\n                  <button    class=\"btn  btn-warning btn-sm float-right mr-2\" (click)=\"imprimirRenglon(elemento)\" ><i class=\"fas fa-file-signature \"></i> Imprimir</button>   \n                <div  *ngIf=\"elemento.FECHA\" class='head-border' style=\"   border-radius: 6px 6px 0px 0px;\n                -moz-border-radius: 6px 6px 0px 0px;\n                -webkit-border-radius: 6px 6px 0px 0px;\n                border: 1px  #AED581!important;\"><h6 class=\"text-danger\"> FECHA : {{elemento.FECHA | date: 'dd/MM/yyyy hh:mm'}}</h6></div>\n                <hr class=\"mt-3 mb-3\">\n                <div  *ngIf=\"elemento.MEDICONOM\"><label>MEDICO : {{elemento.MEDICONOM}}</label></div>        \n                <div  *ngIf=\"elemento.MC\"><label>MC : {{elemento.MC}}</label></div>    \n                <div  *ngIf=\"elemento.AEA\"><label>AEA : {{elemento.AEA}}</label></div>    \n                <div  *ngIf=\"elemento.APP\"><label>APP : {{elemento.APP}}</label></div>    \n                <div  *ngIf=\"elemento.AF\"><label>AF : {{elemento.AF}}</label></div>    \n                <div  *ngIf=\"elemento.SINTOMAS\"><label>SINTOMAS : {{elemento.SINTOMAS}}</label></div>  \n                <div  *ngIf=\"elemento.SINTOMAS_SIGNOS\"><label>SINTOMAS Y SIGNOS : {{elemento.SINTOMAS_SIGNOS}}</label></div>      \n                <div  *ngIf=\"elemento.TRATAMIENT\"><label>TRATAMIENTO : {{elemento.TRATAMIENT}}</label></div>  \n                <div  *ngIf=\"elemento.DIAGNOSTIC\"><label>DIAGNOSTICO : {{elemento.DIAGNOSTIC}}</label></div>  \n                <div  *ngIf=\"elemento.BIO\"><label>BIO : {{elemento.BIO}}</label></div>    \n                <div  *ngIf=\"elemento.COMENTARIO\"><label>COMENTARIO : {{elemento.COMENTARIO}}</label></div>    \n                <div  *ngIf=\"elemento.OBS_LENTES\"><label>OBS LENTES : {{elemento.OBS_LENTES}}</label></div>    \n                <div  *ngIf=\"elemento.OBSERVACIO\"><label>OBSERVACIO : {{elemento.OBSERVACIO}}</label></div>    \n                <div  *ngIf=\"elemento.FO\"><label>FO : {{elemento.FO}}</label></div>    \n                <div  *ngIf=\"elemento.FO\"><label>FO : {{elemento.SINTOMAS_SIGNOS}}</label></div>    \n               \n          </div>\n          </div>\n\n          <div class=\"card mt-2\" *ngIf=\"elemento.estudio_id\">\n              <div class=\"card-body\">\n                <div class=\"row\">\n              <div  *ngIf=\"elemento.estudio_nombre\">  <label>ESTUDIO : {{elemento.estudio_nombre}}</label></div>\n             <div class=\"col-3\">  <button    class=\"btn  btn-danger btn-md float-left mr-2 ml-2\" (click)=\"verEstudios(elemento.estudio_id)\" ><i class=\"fas fa-camera \"></i>  Ver estudio</button>                      </div>                  \n            </div>\n          </div>\n          </div>\n  \n  \n          <div class=\"card mt-2\" *ngIf=\"elemento.AV_LEJOS_O || elemento.AV_LEJOS_2 || elemento.AV_LEJOS_3 || elemento.AV_LEJOS_4 ||elemento.AV_LEJOS_5 || elemento.AV_LEJOS_6 || elemento.AV_LEJOS_7 || elemento.AV_LEJOS_8\">\n              <div class=\"card-body\">\n                  <label class=\"card-title text-info\">EXAMEN</label>\n               <div class=\"row\">\n                 <div class=\"col-1\">\n                   <div>\n                      \n                   </div>       \n                 </div>\n                 <div class=\"col-10\">\n                    <div class=\"row\">\n                        <label class=\"pt-1 form-control-label col-md-1\" ></label>\n                        <label class=\"  col-md-2 form-control-sm text-secondary ml-2 mr-2\"  >AV s/c</label>\n                        <label class=\"  col-md-2 form-control-sm text-secondary mr-2\" >Autorefractometro</label>\n                        <label class=\"  col-md-2 form-control-sm text-secondary mr-2\" >AV c/c</label>\n                        <label class=\"  col-md-2 form-control-sm text-secondary mr-2\" >AV c/e</label>                       \n                     </div>\n                   <div class=\"row\">\n                      <label class=\"pt-1 form-control-label col-md-1\" >OD : </label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info ml-2 mr-2\"  >{{elemento.AV_LEJOS_O}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.AV_LEJOS_2}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.AV_LEJOS_3}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.AV_LEJOS_4}}</label>                       \n                   </div>\n                   <div class=\"row\">\n                      <label class=\"pt-1  form-control-label col-md-1 mt-1\" >OI : </label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info ml-2 mr-2 mt-1\" >{{elemento.AV_LEJOS_5}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.AV_LEJOS_6}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.AV_LEJOS_7}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.AV_LEJOS_8}}</label>    \n                   </div>\n                 </div>       \n               </div>         \n              \n              </div>\n            </div>\n        \n     \n  \n  \n  \n          <div class=\"card mt-1\" *ngIf=\"elemento.LEJOS_OD_E || elemento.LEJOS_OD_C || elemento.LEJOS_OD_2 || elemento.LEJOS_OD_P || elemento.LEJOS_OD_B || elemento.LEJOS_OI_E || elemento.LEJOS_OI_C || elemento.LEJOS_OI_2 || elemento.LEJOS_OI_P || elemento.LEJOS_OI_B || elemento.CERCA_OD_E || elemento.CERCA_OD_C || elemento.CERCA_OD_2 || elemento.CERCA_OD_P || elemento.CERCA_OD_B || elemento.CERCA_OI_E || elemento.CERCA_OI_C || elemento.CERCA_OI_2 || elemento.CERCA_OI_P || elemento.CERCA_OI_B\">\n              <div class=\"card-body\">\n                  <label class=\"card-title text-info\" >LENTE</label>\n               <div class=\"row\">\n                 <div class=\"col-1\">\n                   <div>\n                      <label>LEJOS</label>\n                   </div>       \n                 </div>\n                 <div class=\"col-10\">\n                    <div class=\"row\">\n                        <label class=\"pt-1 form-control-label col-md-1\" ></label>\n                        <label class=\"  col-md-2 form-control-sm text-secondary ml-2 mr-2\"  >Esférico</label>\n                        <label class=\"  col-md-2 form-control-sm text-secondary mr-2\" >Cilíndrico</label>\n                        <label class=\"  col-md-2 form-control-sm text-secondary mr-2\" >Eje</label>\n                        <label class=\"  col-md-2 form-control-sm text-secondary mr-2\" >Prisma</label>                       \n                        <label class=\"  col-md-2 form-control-sm text-secondary mr-2\" >Base</label>                       \n                    \n                     </div>\n                   <div class=\"row\">\n                      <label class=\"pt-1 form-control-label col-md-1\" >OD : </label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info ml-2 mr-2\" >{{elemento.LEJOS_OD_E}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.LEJOS_OD_C}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.LEJOS_OD_2}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.LEJOS_OD_P}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.LEJOS_OD_B}}</label>           \n                   </div>\n                   <div class=\"row\">\n                      <label class=\"pt-1  form-control-label col-md-1 mt-1\" >OI : </label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info ml-2 mr-2 mt-1\" >{{elemento.LEJOS_OI_E}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.LEJOS_OI_C}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.LEJOS_OI_2}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.LEJOS_OI_P}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.LEJOS_OI_B}}</label>              \n                   </div>\n                 </div>       \n               </div>\n               <hr>\n               <div class=\"row\">\n                  <div class=\"col-1\">\n                    <div>\n                       <label>CERCA</label>\n                    </div>       \n                  </div>\n                  <div class=\"col-10\">\n                    <div class=\"row\">\n                       <label class=\"pt-1 form-control-label col-md-1\" >OD : </label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info ml-2 mr-2\" >{{elemento.CERCA_OD_E}}</label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.CERCA_OD_C}}</label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.CERCA_OD_2}}</label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.CERCA_OD_P}}</label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.CERCA_OD_B}}</label>           \n                    </div>\n                    <div class=\"row\">\n                       <label class=\"pt-1  form-control-label col-md-1 mt-1\" >OI : </label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info ml-2 mr-2 mt-1\" >{{elemento.CERCA_OI_E}}</label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.CERCA_OI_C}}</label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.CERCA_OI_2}}</label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.CERCA_OI_P}}</label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.CERCA_OI_B}}</label>              \n                    </div>\n                  </div>       \n                </div>\n              </div>\n            </div>\n            \n\n            <div class=\"card mt-2 col-12\" *ngIf=\"elemento.REFRACCION_OD || elemento.REFRACCION_OI || elemento.CICLOPEGIA_OD || elemento.CICLOPEGIA_OI || elemento.FONDO_OD || elemento.FONDO_OI || elemento.PIO_OD || elemento.PIO_OI || elemento.BIO_OD || elemento.BIO_OI || elemento.DIAGNOSTICO_OD || elemento.DIAGNOSTICO_OI || elemento.TRATAMIENTO_MEDICO || elemento.TRATAMIENTO_QUIRURGICO || elemento.ESTUDIOSES\" >\n              <div class=\"card-body\">\n\n            <label *ngIf=\"elemento.REFRACCION_OD || elemento.REFRACCION_OI\" class=\"text-info\" >AUTOREFRACTOMETRO</label>\n            \n            <div *ngIf=\"elemento.REFRACCION_OD || elemento.REFRACCION_OI\" class=\"row col-4 mt-3  mb-3\">\n                <div class=\"col-6\" *ngIf=\"elemento.REFRACCION_OD\"><label>REFRACCION OD : {{elemento.REFRACCION_OD}}</label></div>   \n                <div class=\"col-6\" *ngIf=\"elemento.REFRACCION_OI\"><label>REFRACCION OI : {{elemento.REFRACCION_OI}}</label></div>   \n\n            </div>  \n            <hr *ngIf=\"elemento.CICLOPEGIA_OD || elemento.CICLOPEGIA_OI\">\n            <label *ngIf=\"elemento.CICLOPEGIA_OD || elemento.CICLOPEGIA_OI\" class=\"text-info\" >CICLOPEGIA</label>            \n            <div *ngIf=\"elemento.CICLOPEGIA_OD || elemento.CICLOPEGIA_OI\" class=\"row col-4  mt-3  mb-3\">\n                <div class=\"col-6\" *ngIf=\"elemento.CICLOPEGIA_OD\"><label>CICLOPEGIA OD : {{elemento.CICLOPEGIA_OD}}</label></div>   \n                <div class=\"col-6\" *ngIf=\"elemento.CICLOPEGIA_OI\"><label>CICLOPEGIA OI : {{elemento.CICLOPEGIA_OI}}</label></div>   \n            </div>\n            <hr *ngIf=\"elemento.FONDO_OD || elemento.FONDO_OI\">\n            <label *ngIf=\"elemento.FONDO_OD || elemento.FONDO_OI\" class=\"text-info\" >FONDO DE OJO</label>\n            <div *ngIf=\"elemento.FONDO_OD || elemento.FONDO_OI\" class=\"row col-4  mt-3  mb-3\">\n                <div class=\"col-6\" *ngIf=\"elemento.FONDO_OD\"><label>FO OD : {{elemento.FONDO_OD}}</label></div>   \n                <div class=\"col-6\" *ngIf=\"elemento.FONDO_OI\"><label>FO OI : {{elemento.FONDO_OI}}</label></div>   \n            </div>\n            <hr  *ngIf=\"elemento.PIO_OD || elemento.PIO_OI\" >\n            <label *ngIf=\"elemento.PIO_OD || elemento.PIO_OI\" class=\"text-info\" >PRESION INTRAOCULAR</label>\n            <div *ngIf=\"elemento.PIO_OD || elemento.PIO_OI\" class=\"row col-4  mt-3  mb-3\">\n                <div class=\"col-6\" *ngIf=\"elemento.PIO_OD\"><label>PIO OD : {{elemento.PIO_OD}}</label></div>   \n                <div class=\"col-6\" *ngIf=\"elemento.PIO_OI\"><label>PIO OI : {{elemento.PIO_OI}}</label></div>   \n            </div>\n            <hr *ngIf=\"elemento.BIO_OD || elemento.BIO_OI\">\n            <label *ngIf=\"elemento.BIO_OD || elemento.BIO_OI\" class=\"text-info\" >BIOMICROSCOPIA</label>\n            <div *ngIf=\"elemento.BIO_OD || elemento.BIO_OI\" class=\"row col-4 mt-3 mb-3\">\n                <div class=\"col-6\" *ngIf=\"elemento.BIO_OD\"><label>BIO OD : {{elemento.BIO_OD}}</label></div>   \n                <div class=\"col-6\" *ngIf=\"elemento.BIO_OI\"><label>BIO OI : {{elemento.BIO_OI}}</label></div>   \n            </div>\n            <hr *ngIf=\"elemento.DIAGNOSTICO_OD || elemento.DIAGNOSTICO_OI\">\n            <label *ngIf=\"elemento.DIAGNOSTICO_OD || elemento.DIAGNOSTICO_OI\" class=\"text-info\" >DIAGNOSTICO</label>\n            <div *ngIf=\"elemento.DIAGNOSTICO_OI || elemento.DIAGNOSTICO_OI\" class=\"row col-4 mt-3  mb-3\">\n                <div class=\"col-6\" *ngIf=\"elemento.DIAGNOSTICO_OD\"><label>DIAGNOSTICO OD : {{elemento.DIAGNOSTICO_OD}}</label></div>   \n                <div class=\"col-6\" *ngIf=\"elemento.DIAGNOSTICO_OI\"><label>DIAGNOSTICO OI : {{elemento.DIAGNOSTICO_OI}}</label></div>   \n            </div>\n            <hr *ngIf=\"elemento.TRATAMIENTO_MEDICO || elemento.TRATAMIENTO_QUIRURGICO\">\n            <label *ngIf=\"elemento.TRATAMIENTO_MEDICO || elemento.TRATAMIENTO_QUIRURGICO\" class=\"text-info\" >TRATAMIENTO QUIRURGICO</label>\n            <div  *ngIf=\"elemento.TRATAMIENTO_MEDICO\"><label>MEDICO : {{elemento.TRATAMIENTO_MEDICO}}</label></div> \n            <div  *ngIf=\"elemento.TRATAMIENTO_QUIRURGICO\"><label>QUIRURGICO : {{elemento.TRATAMIENTO_QUIRURGICO}}</label></div> \n            <div  *ngIf=\"elemento.ESTUDIOSES\"><label>ESTUDIOS FONDO DE OJO : {{elemento.ESTUDIOSES}}</label></div> \n            \n          </div>\n        </div>\n        \n          </div>\n    </p-scrollPanel>\n  \n  </div>\n    \n  \n"
+module.exports = "<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n \n</div>\n<p-toast (life)=\"100\" styleClass=\"custom-toast\" [style]=\"{marginTop: '100px'}\"></p-toast>\n\n  <!--ENCABEZADO-->\n  \n  \n    <div  >\n            <form  [formGroup]=\"formPaciente\">\n        <div class=\"  ml-2 row\" >\n                <div class=\"form-group  mr-4 \">                                                 \n                          <div class=\" input-group input-group-sm \">\n                              <label class=\" mt-1 mr-2\">Paciente :</label>  \n                              <input  (keyup.enter)=\"buscarPaciente()\" class=\"form-control col-md-12 form-control-sm\" formControlName=\"paciente_nombre\" placeholder=\"Paciente\"  />   \n                          \n                              <div class=\"input-group-append\">\n                                <span class=\" input-group-text form-control-sm\">\n                                  <a  (click)=\"buscarPaciente()\">\n                                      <img class=\"pointer float-left\" src=\"assets/icons/grey/outline_search_black_18dp.png\" width=\"24px\" height=\"24px\"  >\n                                  </a>\n                              </span>\n                              </div>\n                          </div>       \n                        </div>\n                  \n                    <div class=\"form-group  mr-4 \">\n                    <div class=\" input-group input-group-sm \">         \n                      <h4 class=\"ml-3 mt-1\">Edad :</h4>                        \n                     <b> <h4 class=\"ml-1 mt-1 text-info\" >{{edad}}</h4>  </b>\n                    </div>   \n                  </div> \n                  <div class=\"form-group  mr-4 \">\n                      <div class=\" input-group input-group-sm \">         \n                        <label class=\"ml-3 mt-1\">DNI :</label>                        \n                        <label class=\"ml-1 mt-1 text-info\" >{{formPaciente.value.dni}}</label>  \n                      </div>   \n                    </div> \n                    <div class=\"form-group  mr-4 \">\n                        <div class=\" input-group input-group-sm \">         \n                          <label class=\"ml-3 mt-1\">Domicilio :</label>                        \n                          <label class=\"ml-1 mt-1 text-info\" >{{formPaciente.value.domicilio}}</label>  \n                        </div>   \n                      </div> \n                  <div class=\"form-group  mr-4 \">\n                    <div class=\" input-group input-group-sm \">           \n                        <label class=\"ml-3 mt-1\">Obra social :</label>                                               \n                        <label class=\"ml-1 mt-1 text-info\" >{{formPaciente.value.obra_social_nombre}}</label> \n                            \n                    </div>     \n                  </div>\n                  <div class=\"form-group  mr-4 \">                                                 \n                    <div class=\" input-group input-group-sm \">\n                        <label class=\"ml-3 mt-1\">Número :</label>  \n                        <label class=\"ml-1 mt-1  text-info\">{{formPaciente.value.numero_afiliado}}/{{formPaciente.value.barra_afiliado}}</label> \n                        <label class=\"ml-3 mt-1 \">Plan :</label>  \n                        <label class=\"ml-1 mt-1 text-info\" >{{formPaciente.value.plan}}</label>  \n                    </div>    \n                    \n                  </div>\n                </div>\n              </form> \n            </div>\n                <div class=\"row  ml-2  form-group mt-2  mr-4 mb-2\">\n                    <button    class=\"btn  btn-danger btn-sm float-right mr-2\"  (click)=\"darTurno()\" >Dar turno</button>    \n                    <button    class=\"btn  btn-info btn-sm float-right mr-2\" (click)=\"derivarAsesoramiento()\" >Derivar asesoramiento</button>                                                                         \n                    <button    class=\"btn  btn-warning btn-sm float-right mr-2\" (click)=\"imprimirHistoriaClinica()\" >Imprimir historia clinica</button>   \n                     <button    class=\"btn  btn-success btn-sm mr-2\" (click)=\"agregarHistoria()\" >Agregar historia clínica</button>\n                     <hr>\n                     \n                     <button    class=\"btn  btn-outline-info btn-sm float-right mr-2 ml-2\" (click)=\"verReceta()\" ><i class=\"fas fa-file-signature \"></i> Imprimir recetas</button>\n                </div>\n                <hr>\n\n                <div class=\"row  ml-2  form-group  mr-4 mb-2\">\n                  \n              </div>\n          \n         \n<p-dialog header=\"Confeccionar receta\" [(visible)]=\"display\" [contentStyle]=\"{'overflow':'visible'}\"  [responsive]=\"true\" [style]=\"{width: '90%', height: '400px'}\" [minY]=\"70\" \n[maximizable]=\"true\" [baseZIndex]=\"10000\">                  \n<div class=\"row ml-2\"><label class=\"mr-2\">REDACTAR RECETA</label> </div>\n<div class=\"row\">\n  \n    <div> <p-multiSelect class=\"mt-2 ml-2\" [options]=\"listarecetas\" [(ngModel)]=\"selectedReceta\"  defaultLabel=\"SELECCIONE ACCION\" [panelStyle]=\"{minWidth:'12em'}\" [filter]=\"true\" filterBy=\"label,value.name\" >      </p-multiSelect></div> \n  <div class=\"ml-2\"><p-dropdown [options]=\"listaindicacionesmedicas\" optionLabel=\"name\" [(ngModel)]=\"selectedIndicaciones\" placeholder=\"INDICACIONES MEDICAS\" optionLabel=\"name\" [showClear]=\"true\"></p-dropdown></div>\n</div> \n<hr>\n<textarea [style]=\"{width: '100%', height: '250px'}\" [(ngModel)]=\"diagnostico_receta\" class=\"pt-1 col-11\"  rows=\"3\" cols=\"40\" pInputTextarea placeholder=\"DIAGNOSTICO PRESUNTIVO\"></textarea>\n<hr>\n<textarea [style]=\"{width: '100%', height: '250px'}\" [(ngModel)]=\"historia_clinica_resumen \" class=\"pt-1 col-11\"  rows=\"3\" cols=\"40\" pInputTextarea  placeholder=\"RESUMEN HISTORIA CLINICA\"></textarea>\n<div class=\"mt-2\">\n  <button class=\"btn btn-info btn-sm mt-3\" (click)=\"imprimirRecetaEscrita()\"><i class=\"fas fa-file-signature \"></i>  Imprimir receta</button>\n</div>\n\n</p-dialog>\n          \n        <hr>\n\n\n  <!-- FIN ENCABEZADO-->\n  \n\n  <!--CUERPO DERECHO DATOS PERSONALES-->\n  \n<div>\n\n\n      <p-scrollPanel [style]=\"{width: '100%', height: '700px'}\" styleClass=\"custom\">\n        <div *ngFor=\"let elemento of elementos\">\n            <div class=\"card mt-2 col-12\" >\n              <div class=\"card-body\">\n                  <button    class=\"btn  btn-warning btn-sm float-right mr-2\" (click)=\"imprimirRenglon(elemento)\" ><i class=\"fas fa-file-signature \"></i> Imprimir</button>   \n                <div  *ngIf=\"elemento.FECHA\" class='head-border' style=\"   border-radius: 6px 6px 0px 0px;\n                -moz-border-radius: 6px 6px 0px 0px;\n                -webkit-border-radius: 6px 6px 0px 0px;\n                border: 1px  #AED581!important;\"><h6 class=\"text-danger\"> FECHA : {{elemento.FECHA | date: 'dd/MM/yyyy hh:mm'}}</h6></div>\n                <hr class=\"mt-3 mb-3\">\n                <div  *ngIf=\"elemento.MEDICONOM\"><label>MEDICO : {{elemento.MEDICONOM}}</label></div>        \n                <div  *ngIf=\"elemento.MC\"><label>MC : {{elemento.MC}}</label></div>    \n                <div  *ngIf=\"elemento.AEA\"><label>AEA : {{elemento.AEA}}</label></div>    \n                <div  *ngIf=\"elemento.APP\"><label>APP : {{elemento.APP}}</label></div>    \n                <div  *ngIf=\"elemento.AF\"><label>AF : {{elemento.AF}}</label></div>    \n                <div  *ngIf=\"elemento.SINTOMAS\"><label>SINTOMAS : {{elemento.SINTOMAS}}</label></div>  \n                <div  *ngIf=\"elemento.SINTOMAS_SIGNOS\"><label>SINTOMAS Y SIGNOS : {{elemento.SINTOMAS_SIGNOS}}</label></div>      \n                <div  *ngIf=\"elemento.TRATAMIENT\"><label>TRATAMIENTO : {{elemento.TRATAMIENT}}</label></div>  \n                <div  *ngIf=\"elemento.DIAGNOSTIC\"><label>DIAGNOSTICO : {{elemento.DIAGNOSTIC}}</label></div>  \n                <div  *ngIf=\"elemento.BIO\"><label>BIO : {{elemento.BIO}}</label></div>    \n                <div  *ngIf=\"elemento.COMENTARIO\"><label>COMENTARIO : {{elemento.COMENTARIO}}</label></div>    \n                <div  *ngIf=\"elemento.OBS_LENTES\"><label>OBS LENTES : {{elemento.OBS_LENTES}}</label></div>    \n                <div  *ngIf=\"elemento.OBSERVACIO\"><label>OBSERVACIO : {{elemento.OBSERVACIO}}</label></div>    \n                <div  *ngIf=\"elemento.FO\"><label>FO : {{elemento.FO}}</label></div>    \n                <div  *ngIf=\"elemento.FO\"><label>FO : {{elemento.SINTOMAS_SIGNOS}}</label></div>    \n               \n          </div>\n          </div>\n\n          <div class=\"card mt-2\" *ngIf=\"elemento.estudio_id\">\n              <div class=\"card-body\">\n                <div class=\"row\">\n              <div  *ngIf=\"elemento.estudio_nombre\">  <label>ESTUDIO : {{elemento.estudio_nombre}}</label></div>\n             <div class=\"col-3\">  <button    class=\"btn  btn-danger btn-md float-left mr-2 ml-2\" (click)=\"verEstudios(elemento.estudio_id)\" ><i class=\"fas fa-camera \"></i>  Ver estudio</button>                      </div>                  \n            </div>\n          </div>\n          </div>\n  \n  \n          <div class=\"card mt-2\" *ngIf=\"elemento.AV_LEJOS_O || elemento.AV_LEJOS_2 || elemento.AV_LEJOS_3 || elemento.AV_LEJOS_4 ||elemento.AV_LEJOS_5 || elemento.AV_LEJOS_6 || elemento.AV_LEJOS_7 || elemento.AV_LEJOS_8\">\n              <div class=\"card-body\">\n                  <label class=\"card-title text-info\">EXAMEN</label>\n               <div class=\"row\">\n                 <div class=\"col-1\">\n                   <div>\n                      \n                   </div>       \n                 </div>\n                 <div class=\"col-10\">\n                    <div class=\"row\">\n                        <label class=\"pt-1 form-control-label col-md-1\" ></label>\n                        <label class=\"  col-md-2 form-control-sm text-secondary ml-2 mr-2\"  >AV s/c</label>\n                        <label class=\"  col-md-2 form-control-sm text-secondary mr-2\" >Autorefractometro</label>\n                        <label class=\"  col-md-2 form-control-sm text-secondary mr-2\" >AV c/c</label>\n                        <label class=\"  col-md-2 form-control-sm text-secondary mr-2\" >AV c/e</label>                       \n                     </div>\n                   <div class=\"row\">\n                      <label class=\"pt-1 form-control-label col-md-1\" >OD : </label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info ml-2 mr-2\"  >{{elemento.AV_LEJOS_O}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.AV_LEJOS_2}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.AV_LEJOS_3}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.AV_LEJOS_4}}</label>                       \n                   </div>\n                   <div class=\"row\">\n                      <label class=\"pt-1  form-control-label col-md-1 mt-1\" >OI : </label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info ml-2 mr-2 mt-1\" >{{elemento.AV_LEJOS_5}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.AV_LEJOS_6}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.AV_LEJOS_7}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.AV_LEJOS_8}}</label>    \n                   </div>\n                 </div>       \n               </div>         \n              \n              </div>\n            </div>\n        \n     \n  \n  \n  \n          <div class=\"card mt-1\" *ngIf=\"elemento.LEJOS_OD_E || elemento.LEJOS_OD_C || elemento.LEJOS_OD_2 || elemento.LEJOS_OD_P || elemento.LEJOS_OD_B || elemento.LEJOS_OI_E || elemento.LEJOS_OI_C || elemento.LEJOS_OI_2 || elemento.LEJOS_OI_P || elemento.LEJOS_OI_B || elemento.CERCA_OD_E || elemento.CERCA_OD_C || elemento.CERCA_OD_2 || elemento.CERCA_OD_P || elemento.CERCA_OD_B || elemento.CERCA_OI_E || elemento.CERCA_OI_C || elemento.CERCA_OI_2 || elemento.CERCA_OI_P || elemento.CERCA_OI_B\">\n              <div class=\"card-body\">\n                  <label class=\"card-title text-info\" >LENTE</label>\n               <div class=\"row\">\n                 <div class=\"col-1\">\n                   <div>\n                      <label>LEJOS</label>\n                   </div>       \n                 </div>\n                 <div class=\"col-10\">\n                    <div class=\"row\">\n                        <label class=\"pt-1 form-control-label col-md-1\" ></label>\n                        <label class=\"  col-md-2 form-control-sm text-secondary ml-2 mr-2\"  >Esférico</label>\n                        <label class=\"  col-md-2 form-control-sm text-secondary mr-2\" >Cilíndrico</label>\n                        <label class=\"  col-md-2 form-control-sm text-secondary mr-2\" >Eje</label>\n                        <label class=\"  col-md-2 form-control-sm text-secondary mr-2\" >Prisma</label>                       \n                        <label class=\"  col-md-2 form-control-sm text-secondary mr-2\" >Base</label>                       \n                    \n                     </div>\n                   <div class=\"row\">\n                      <label class=\"pt-1 form-control-label col-md-1\" >OD : </label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info ml-2 mr-2\" >{{elemento.LEJOS_OD_E}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.LEJOS_OD_C}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.LEJOS_OD_2}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.LEJOS_OD_P}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.LEJOS_OD_B}}</label>           \n                   </div>\n                   <div class=\"row\">\n                      <label class=\"pt-1  form-control-label col-md-1 mt-1\" >OI : </label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info ml-2 mr-2 mt-1\" >{{elemento.LEJOS_OI_E}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.LEJOS_OI_C}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.LEJOS_OI_2}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.LEJOS_OI_P}}</label>\n                      <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.LEJOS_OI_B}}</label>              \n                   </div>\n                 </div>       \n               </div>\n               <hr>\n               <div class=\"row\">\n                  <div class=\"col-1\">\n                    <div>\n                       <label>CERCA</label>\n                    </div>       \n                  </div>\n                  <div class=\"col-10\">\n                    <div class=\"row\">\n                       <label class=\"pt-1 form-control-label col-md-1\" >OD : </label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info ml-2 mr-2\" >{{elemento.CERCA_OD_E}}</label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.CERCA_OD_C}}</label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.CERCA_OD_2}}</label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.CERCA_OD_P}}</label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info mr-2\" >{{elemento.CERCA_OD_B}}</label>           \n                    </div>\n                    <div class=\"row\">\n                       <label class=\"pt-1  form-control-label col-md-1 mt-1\" >OI : </label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info ml-2 mr-2 mt-1\" >{{elemento.CERCA_OI_E}}</label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.CERCA_OI_C}}</label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.CERCA_OI_2}}</label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.CERCA_OI_P}}</label>\n                       <label class=\" form-control col-md-2 form-control-sm text-info mr-2 mt-1\" >{{elemento.CERCA_OI_B}}</label>              \n                    </div>\n                  </div>       \n                </div>\n              </div>\n            </div>\n            \n\n            <div class=\"card mt-2 col-12\" *ngIf=\"elemento.REFRACCION_OD || elemento.REFRACCION_OI || elemento.CICLOPEGIA_OD || elemento.CICLOPEGIA_OI || elemento.FONDO_OD || elemento.FONDO_OI || elemento.PIO_OD || elemento.PIO_OI || elemento.BIO_OD || elemento.BIO_OI || elemento.DIAGNOSTICO_OD || elemento.DIAGNOSTICO_OI || elemento.TRATAMIENTO_MEDICO || elemento.TRATAMIENTO_QUIRURGICO || elemento.ESTUDIOSES\" >\n              <div class=\"card-body\">\n\n            <label *ngIf=\"elemento.REFRACCION_OD || elemento.REFRACCION_OI\" class=\"text-info\" >AUTOREFRACTOMETRO</label>\n            \n            <div *ngIf=\"elemento.REFRACCION_OD || elemento.REFRACCION_OI\" class=\"row col-4 mt-3  mb-3\">\n                <div class=\"col-6\" *ngIf=\"elemento.REFRACCION_OD\"><label>REFRACCION OD : {{elemento.REFRACCION_OD}}</label></div>   \n                <div class=\"col-6\" *ngIf=\"elemento.REFRACCION_OI\"><label>REFRACCION OI : {{elemento.REFRACCION_OI}}</label></div>   \n\n            </div>  \n            <hr *ngIf=\"elemento.CICLOPEGIA_OD || elemento.CICLOPEGIA_OI\">\n            <label *ngIf=\"elemento.CICLOPEGIA_OD || elemento.CICLOPEGIA_OI\" class=\"text-info\" >CICLOPEGIA</label>            \n            <div *ngIf=\"elemento.CICLOPEGIA_OD || elemento.CICLOPEGIA_OI\" class=\"row col-4  mt-3  mb-3\">\n                <div class=\"col-6\" *ngIf=\"elemento.CICLOPEGIA_OD\"><label>CICLOPEGIA OD : {{elemento.CICLOPEGIA_OD}}</label></div>   \n                <div class=\"col-6\" *ngIf=\"elemento.CICLOPEGIA_OI\"><label>CICLOPEGIA OI : {{elemento.CICLOPEGIA_OI}}</label></div>   \n            </div>\n            <hr *ngIf=\"elemento.FONDO_OD || elemento.FONDO_OI\">\n            <label *ngIf=\"elemento.FONDO_OD || elemento.FONDO_OI\" class=\"text-info\" >FONDO DE OJO</label>\n            <div *ngIf=\"elemento.FONDO_OD || elemento.FONDO_OI\" class=\"row col-4  mt-3  mb-3\">\n                <div class=\"col-6\" *ngIf=\"elemento.FONDO_OD\"><label>FO OD : {{elemento.FONDO_OD}}</label></div>   \n                <div class=\"col-6\" *ngIf=\"elemento.FONDO_OI\"><label>FO OI : {{elemento.FONDO_OI}}</label></div>   \n            </div>\n            <hr  *ngIf=\"elemento.PIO_OD || elemento.PIO_OI\" >\n            <label *ngIf=\"elemento.PIO_OD || elemento.PIO_OI\" class=\"text-info\" >PRESION INTRAOCULAR</label>\n            <div *ngIf=\"elemento.PIO_OD || elemento.PIO_OI\" class=\"row col-4  mt-3  mb-3\">\n                <div class=\"col-6\" *ngIf=\"elemento.PIO_OD\"><label>PIO OD : {{elemento.PIO_OD}}</label></div>   \n                <div class=\"col-6\" *ngIf=\"elemento.PIO_OI\"><label>PIO OI : {{elemento.PIO_OI}}</label></div>   \n            </div>\n            <hr *ngIf=\"elemento.BIO_OD || elemento.BIO_OI\">\n            <label *ngIf=\"elemento.BIO_OD || elemento.BIO_OI\" class=\"text-info\" >BIOMICROSCOPIA</label>\n            <div *ngIf=\"elemento.BIO_OD || elemento.BIO_OI\" class=\"row col-4 mt-3 mb-3\">\n                <div class=\"col-6\" *ngIf=\"elemento.BIO_OD\"><label>BIO OD : {{elemento.BIO_OD}}</label></div>   \n                <div class=\"col-6\" *ngIf=\"elemento.BIO_OI\"><label>BIO OI : {{elemento.BIO_OI}}</label></div>   \n            </div>\n            <hr *ngIf=\"elemento.DIAGNOSTICO_OD || elemento.DIAGNOSTICO_OI\">\n            <label *ngIf=\"elemento.DIAGNOSTICO_OD || elemento.DIAGNOSTICO_OI\" class=\"text-info\" >DIAGNOSTICO</label>\n            <div *ngIf=\"elemento.DIAGNOSTICO_OI || elemento.DIAGNOSTICO_OI\" class=\"row col-4 mt-3  mb-3\">\n                <div class=\"col-6\" *ngIf=\"elemento.DIAGNOSTICO_OD\"><label>DIAGNOSTICO OD : {{elemento.DIAGNOSTICO_OD}}</label></div>   \n                <div class=\"col-6\" *ngIf=\"elemento.DIAGNOSTICO_OI\"><label>DIAGNOSTICO OI : {{elemento.DIAGNOSTICO_OI}}</label></div>   \n            </div>\n            <hr *ngIf=\"elemento.TRATAMIENTO_MEDICO || elemento.TRATAMIENTO_QUIRURGICO\">\n            <label *ngIf=\"elemento.TRATAMIENTO_MEDICO || elemento.TRATAMIENTO_QUIRURGICO\" class=\"text-info\" >TRATAMIENTO QUIRURGICO</label>\n            <div  *ngIf=\"elemento.TRATAMIENTO_MEDICO\"><label>MEDICO : {{elemento.TRATAMIENTO_MEDICO}}</label></div> \n            <div  *ngIf=\"elemento.TRATAMIENTO_QUIRURGICO\"><label>QUIRURGICO : {{elemento.TRATAMIENTO_QUIRURGICO}}</label></div> \n            <div  *ngIf=\"elemento.ESTUDIOSES\"><label>ESTUDIOS FONDO DE OJO : {{elemento.ESTUDIOSES}}</label></div> \n            \n          </div>\n        </div>\n        \n          </div>\n    </p-scrollPanel>\n  \n  </div>\n    \n  \n"
 
 /***/ }),
 
@@ -18270,6 +19890,8 @@ var HistoriaClinicaComponent = /** @class */ (function () {
         }
         this.listarecetas = [
             { label: 'TEXTO', value: { id: 1, name: 'TEXTO', code: 'TEXTO' } },
+            { label: 'TEXTO CON DIAGNOSTICO', value: { id: 1, name: 'TEXTO CON DIAGNOSTICO', code: 'TEXTO CON DIAGNOSTICO' } },
+            { label: 'RECETA', value: { id: 1, name: 'RECETA', code: 'RECETA' } },
             { label: 'RG', value: { id: 2, name: 'RG', code: 'RG' } },
             { label: 'RFG', value: { id: 3, name: 'RFG', code: 'RFG' } },
             { label: 'CVC', value: { id: 4, name: 'CVC', code: 'CVC' } },
@@ -18644,7 +20266,13 @@ var HistoriaClinicaComponent = /** @class */ (function () {
         var x = 20;
         var y = 40;
         var haytexto = false;
+        var haytextoDiagnostico = false;
         doc.setFontSize(8);
+        /****
+         *
+         * *ENCABEZADO
+         *
+         * */
         doc.text('Nombre: ' + this.formPaciente.value.paciente_nombre + '      DNI: ' + this.formPaciente.value.dni, 10 + x, 5 + y);
         doc.text('Domicilio: ' + this.formPaciente.value.domicilio, 10 + x, 10 + y);
         doc.text('Obra social: ' + this.formPaciente.value.obra_social_nombre, 10 + x, 15 + y);
@@ -18665,8 +20293,13 @@ var HistoriaClinicaComponent = /** @class */ (function () {
                 doc.text('Numero: ' + this.formPaciente.value.numero_afiliado + '      Plan: ' + this.formPaciente.value.plan, 10 + x, 20 + y);
             }
         }
+        /*****
+         *
+         *  FIN ENCABEZADO
+         *
+         * */
         var esY = 0;
-        if (this.selectedReceta["name"] === 'TEXTO') {
+        if ((this.selectedReceta[0]["name"] === 'TEXTO') || (this.selectedReceta[0]["name"] === 'TEXTO CON DIAGNOSTICO')) {
         }
         else {
             for (var j = 0; j < this.selectedReceta.length; j++) {
@@ -18675,7 +20308,10 @@ var HistoriaClinicaComponent = /** @class */ (function () {
                 }
             }
             if (!haytexto) {
-                doc.text('Solicito: ', 10 + x, 35 + y);
+                // SI ESTA MARCADO TEXTO CON DIAGNOSTICO AGREGO DIAGNOSTICO
+                if (this.selectedReceta[0]['name'] !== 'TEXTO CON DIAGNOSTICO') {
+                    doc.text('Solicito: ', 10 + x, 35 + y);
+                }
                 for (var j = 0; j < this.selectedReceta.length; j++) {
                     doc.text(' - ' + this.selectedReceta[j]["name"], 15 + x, 45 + esY + y);
                     esY = esY + 5;
@@ -18701,7 +20337,10 @@ var HistoriaClinicaComponent = /** @class */ (function () {
             var xy_diagnostico = 65;
             if (this.diagnostico_receta != '') {
                 var splitTitle_diagnostico = doc.splitTextToSize(this.diagnostico_receta, +60);
-                doc.text('Diagnostico presuntivo :', 10 + x, 60 + y);
+                // SI ES DISTINTO DE TEXTO COMUN NO COLOCO DIAGNOSTICO PRESUNTIVO
+                if (this.selectedReceta[0]['name'] !== 'TEXTO CON DIAGNOSTICO') {
+                    doc.text('Diagnostico presuntivo :', 10 + x, 60 + y);
+                }
                 for (var i = 0; i < splitTitle_diagnostico.length; i++) {
                     doc.text(10 + x, xy_diagnostico + y, splitTitle_diagnostico[i]);
                     y = y + 5;
@@ -20080,7 +21719,7 @@ module.exports = "<div class=\"container row clearfix\">\r\n  \r\n    <div class
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "@import url(https://fonts.googleapis.com/css?family=Lato:400,700);\n*, *:before, *:after {\n  box-sizing: border-box; }\nbody {\n  background: #C5DDEB;\n  font: 14px/20px \"Lato\", Arial, sans-serif;\n  padding: 40px 0;\n  color: white; }\n.container {\n  margin: 0 auto;\n  width: auto;\n  background: #444753;\n  border-radius: 5px; }\n.people-list {\n  width: 260px;\n  float: left; }\n.people-list .search {\n    padding: 20px; }\n.people-list input {\n    border-radius: 3px;\n    border: none;\n    padding: 14px;\n    color: white;\n    background: #6A6C75;\n    width: 90%;\n    font-size: 14px; }\n.people-list .fa-search {\n    position: relative;\n    left: -25px; }\n.people-list ul {\n    padding: 20px;\n    height: 350px; }\n.people-list ul li {\n      padding-bottom: 20px; }\n.people-list img {\n    float: left; }\n.people-list .about {\n    float: left;\n    margin-top: 8px; }\n.people-list .about {\n    padding-left: 8px; }\n.people-list .status {\n    color: #92959E; }\n.chat {\n  width: 490px;\n  float: left;\n  background: #F2F5F8;\n  border-top-right-radius: 5px;\n  border-bottom-right-radius: 5px;\n  color: #434651; }\n.chat .chat-header {\n    padding: 20px;\n    border-bottom: 2px solid white; }\n.chat .chat-header img {\n      float: left; }\n.chat .chat-header .chat-about {\n      float: left;\n      padding-left: 10px;\n      margin-top: 6px; }\n.chat .chat-header .chat-with {\n      font-weight: bold;\n      font-size: 16px; }\n.chat .chat-header .chat-num-messages {\n      color: #92959E; }\n.chat .chat-header .fa-star {\n      float: right;\n      color: #D8DADF;\n      font-size: 20px;\n      margin-top: 12px; }\n.chat .chat-history {\n    padding: 30px 30px 20px;\n    border-bottom: 2px solid white;\n    overflow-y: scroll;\n    height: 350px; }\n.chat .chat-history .message-data {\n      margin-bottom: 15px; }\n.chat .chat-history .message-data-time {\n      color: #a8aab1;\n      padding-left: 6px; }\n.chat .chat-history .message {\n      color: white;\n      padding: 18px 20px;\n      line-height: 26px;\n      font-size: 16px;\n      border-radius: 7px;\n      margin-bottom: 30px;\n      width: 90%;\n      position: relative; }\n.chat .chat-history .message:after {\n        bottom: 100%;\n        left: 7%;\n        border: solid transparent;\n        content: \" \";\n        height: 0;\n        width: 0;\n        position: absolute;\n        pointer-events: none;\n        border-bottom-color: #86BB71;\n        border-width: 10px;\n        margin-left: -10px; }\n.chat .chat-history .my-message {\n      background: #86BB71; }\n.chat .chat-history .other-message {\n      background: #94C2ED; }\n.chat .chat-history .other-message:after {\n        border-bottom-color: #94C2ED;\n        left: 93%; }\n.chat .chat-message {\n    padding: 30px; }\n.chat .chat-message textarea {\n      width: 100%;\n      border: none;\n      padding: 10px 20px;\n      font: 14px/22px \"Lato\", Arial, sans-serif;\n      margin-bottom: 10px;\n      border-radius: 5px;\n      resize: none; }\n.chat .chat-message .fa-file-o, .chat .chat-message .fa-file-image-o {\n      font-size: 16px;\n      color: gray;\n      cursor: pointer; }\n.chat .chat-message button {\n      float: right;\n      color: #94C2ED;\n      font-size: 16px;\n      text-transform: uppercase;\n      border: none;\n      cursor: pointer;\n      font-weight: bold;\n      background: #F2F5F8; }\n.chat .chat-message button:hover {\n        color: #75b1e8; }\n.online, .offline, .me {\n  margin-right: 3px;\n  font-size: 10px; }\n.online {\n  color: #86BB71; }\n.offline {\n  color: #E38968; }\n.me {\n  color: #94C2ED; }\n.align-left {\n  text-align: left; }\n.align-right {\n  text-align: right; }\n.float-right {\n  float: right; }\n.clearfix:after {\n  visibility: hidden;\n  display: block;\n  font-size: 0;\n  content: \" \";\n  clear: both;\n  height: 0; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvbm90aWZpY2FjaW9uL3BvcHVwLWNoYXQvYzpcXHByb3llY3Rvc1xcdmlzaW9uLWZyb250ZW5kL3NyY1xcYXBwXFxwYWdlc1xcbm90aWZpY2FjaW9uXFxwb3B1cC1jaGF0XFxwb3B1cC1jaGF0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGlFQUFZO0FBT1o7RUFDRSxzQkFBc0IsRUFBQTtBQUd4QjtFQUNFLG1CQUFtQjtFQUNuQix5Q0FBeUM7RUFDekMsZUFBZTtFQUNmLFlBQVksRUFBQTtBQUdkO0VBQ0UsY0FBYztFQUNkLFdBQVc7RUFDWCxtQkFBbUI7RUFDbkIsa0JBQWtCLEVBQUE7QUFHcEI7RUFDRSxZQUFXO0VBQ1gsV0FBVyxFQUFBO0FBRmI7SUFLSSxhQUFhLEVBQUE7QUFMakI7SUFTSSxrQkFBa0I7SUFDbEIsWUFBWTtJQUNaLGFBQWE7SUFDYixZQUFZO0lBQ1osbUJBQW1CO0lBQ25CLFVBQVU7SUFDVixlQUFlLEVBQUE7QUFmbkI7SUFtQkksa0JBQWtCO0lBQ2xCLFdBQVcsRUFBQTtBQXBCZjtJQXdCSSxhQUFhO0lBQ2IsYUFBYSxFQUFBO0FBekJqQjtNQStCTSxvQkFBb0IsRUFBQTtBQS9CMUI7SUFvQ0ksV0FBVyxFQUFBO0FBcENmO0lBd0NJLFdBQVc7SUFDWCxlQUFlLEVBQUE7QUF6Q25CO0lBNkNJLGlCQUFpQixFQUFBO0FBN0NyQjtJQWlESSxjQXJFVSxFQUFBO0FBMEVkO0VBQ0UsWUFBWTtFQUNaLFdBQVU7RUFDVixtQkFBbUI7RUFDbkIsNEJBQTRCO0VBQzVCLCtCQUErQjtFQUUvQixjQUFjLEVBQUE7QUFQaEI7SUFVSSxhQUFhO0lBQ2IsOEJBQThCLEVBQUE7QUFYbEM7TUFjTSxXQUFXLEVBQUE7QUFkakI7TUFrQk0sV0FBVztNQUNYLGtCQUFrQjtNQUNsQixlQUFlLEVBQUE7QUFwQnJCO01Bd0JNLGlCQUFpQjtNQUNqQixlQUFlLEVBQUE7QUF6QnJCO01BNkJNLGNBdkdRLEVBQUE7QUEwRWQ7TUFpQ00sWUFBWTtNQUNaLGNBQWM7TUFDZCxlQUFlO01BQ2YsZ0JBQWdCLEVBQUE7QUFwQ3RCO0lBeUNJLHVCQUF1QjtJQUN2Qiw4QkFBOEI7SUFDOUIsa0JBQWtCO0lBQ2xCLGFBQWEsRUFBQTtBQTVDakI7TUErQ00sbUJBQW1CLEVBQUE7QUEvQ3pCO01BbURNLGNBQXlCO01BQ3pCLGlCQUFpQixFQUFBO0FBcER2QjtNQXdETSxZQUFZO01BQ1osa0JBQWtCO01BQ2xCLGlCQUFpQjtNQUNqQixlQUFlO01BQ2Ysa0JBQWtCO01BQ2xCLG1CQUFtQjtNQUNuQixVQUFVO01BQ1Ysa0JBQWtCLEVBQUE7QUEvRHhCO1FBa0VRLFlBQVk7UUFDWixRQUFRO1FBQ1IseUJBQXlCO1FBQ3pCLFlBQVk7UUFDWixTQUFTO1FBQ1QsUUFBUTtRQUNSLGtCQUFrQjtRQUNsQixvQkFBb0I7UUFDcEIsNEJBdkpPO1FBd0pQLGtCQUFrQjtRQUNsQixrQkFBa0IsRUFBQTtBQTVFMUI7TUFpRk0sbUJBOUpTLEVBQUE7QUE2RWY7TUFxRk0sbUJBaktRLEVBQUE7QUE0RWQ7UUF3RlEsNEJBcEtNO1FBcUtOLFNBQVMsRUFBQTtBQXpGakI7SUFnR0ksYUFBYSxFQUFBO0FBaEdqQjtNQW1HTSxXQUFXO01BQ1gsWUFBWTtNQUNaLGtCQUFrQjtNQUNsQix5Q0FBeUM7TUFDekMsbUJBQW1CO01BQ25CLGtCQUFrQjtNQUNsQixZQUFZLEVBQUE7QUF6R2xCO01BOEdNLGVBQWU7TUFDZixXQUFXO01BQ1gsZUFBZSxFQUFBO0FBaEhyQjtNQXFITSxZQUFZO01BQ1osY0FsTVE7TUFtTVIsZUFBZTtNQUNmLHlCQUF5QjtNQUN6QixZQUFZO01BQ1osZUFBZTtNQUNmLGlCQUFpQjtNQUNqQixtQkFBbUIsRUFBQTtBQTVIekI7UUErSFEsY0FBd0IsRUFBQTtBQU1oQztFQUNJLGlCQUFpQjtFQUNqQixlQUFlLEVBQUE7QUFHbkI7RUFDRSxjQXhOYSxFQUFBO0FBMk5mO0VBQ0UsY0ExTmMsRUFBQTtBQTZOaEI7RUFDRSxjQS9OWSxFQUFBO0FBa09kO0VBQ0UsZ0JBQWdCLEVBQUE7QUFHbEI7RUFDRSxpQkFBaUIsRUFBQTtBQUduQjtFQUNFLFlBQVksRUFBQTtBQUdkO0VBQ0Msa0JBQWtCO0VBQ2xCLGNBQWM7RUFDZCxZQUFZO0VBQ1osWUFBWTtFQUNaLFdBQVc7RUFDWCxTQUFTLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9ub3RpZmljYWNpb24vcG9wdXAtY2hhdC9wb3B1cC1jaGF0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCB1cmwoaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3M/ZmFtaWx5PUxhdG86NDAwLDcwMCk7XHJcblxyXG4kZ3JlZW46ICM4NkJCNzE7XHJcbiRibHVlOiAjOTRDMkVEO1xyXG4kb3JhbmdlOiAjRTM4OTY4O1xyXG4kZ3JheTogIzkyOTU5RTtcclxuXHJcbiosICo6YmVmb3JlLCAqOmFmdGVyIHtcclxuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG59XHJcblxyXG5ib2R5IHtcclxuICBiYWNrZ3JvdW5kOiAjQzVEREVCO1xyXG4gIGZvbnQ6IDE0cHgvMjBweCBcIkxhdG9cIiwgQXJpYWwsIHNhbnMtc2VyaWY7XHJcbiAgcGFkZGluZzogNDBweCAwO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxufVxyXG5cclxuLmNvbnRhaW5lciB7XHJcbiAgbWFyZ2luOiAwIGF1dG87XHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgYmFja2dyb3VuZDogIzQ0NDc1MztcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbn1cclxuXHJcbi5wZW9wbGUtbGlzdCB7XHJcbiAgd2lkdGg6MjYwcHg7XHJcbiAgZmxvYXQ6IGxlZnQ7XHJcbiAgXHJcbiAgLnNlYXJjaCB7XHJcbiAgICBwYWRkaW5nOiAyMHB4O1xyXG4gIH1cclxuICBcclxuICBpbnB1dCB7XHJcbiAgICBib3JkZXItcmFkaXVzOiAzcHg7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBwYWRkaW5nOiAxNHB4O1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG4gICAgYmFja2dyb3VuZDogIzZBNkM3NTtcclxuICAgIHdpZHRoOiA5MCU7XHJcbiAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5mYS1zZWFyY2gge1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgbGVmdDogLTI1cHg7XHJcbiAgfVxyXG4gIFxyXG4gIHVsIHtcclxuICAgIHBhZGRpbmc6IDIwcHg7XHJcbiAgICBoZWlnaHQ6IDM1MHB4O1xyXG4gXHJcbiAgICBcclxuICAgIFxyXG4gICAgXHJcbiAgICBsaSB7XHJcbiAgICAgIHBhZGRpbmctYm90dG9tOiAyMHB4O1xyXG4gICAgfVxyXG4gIH1cclxuICBcclxuICBpbWcge1xyXG4gICAgZmxvYXQ6IGxlZnQ7XHJcbiAgfVxyXG4gIFxyXG4gIC5hYm91dCB7XHJcbiAgICBmbG9hdDogbGVmdDtcclxuICAgIG1hcmdpbi10b3A6IDhweDtcclxuICB9XHJcbiAgXHJcbiAgLmFib3V0IHtcclxuICAgIHBhZGRpbmctbGVmdDogOHB4O1xyXG4gIH1cclxuICBcclxuICAuc3RhdHVzIHtcclxuICAgIGNvbG9yOiAkZ3JheTtcclxuICB9XHJcbiAgXHJcbn1cclxuXHJcbi5jaGF0IHtcclxuICB3aWR0aDogNDkwcHg7XHJcbiAgZmxvYXQ6bGVmdDtcclxuICBiYWNrZ3JvdW5kOiAjRjJGNUY4O1xyXG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiA1cHg7XHJcbiAgYm9yZGVyLWJvdHRvbS1yaWdodC1yYWRpdXM6IDVweDtcclxuICBcclxuICBjb2xvcjogIzQzNDY1MTtcclxuICBcclxuICAuY2hhdC1oZWFkZXIge1xyXG4gICAgcGFkZGluZzogMjBweDtcclxuICAgIGJvcmRlci1ib3R0b206IDJweCBzb2xpZCB3aGl0ZTtcclxuICAgIFxyXG4gICAgaW1nIHtcclxuICAgICAgZmxvYXQ6IGxlZnQ7XHJcbiAgICB9XHJcbiAgICBcclxuICAgIC5jaGF0LWFib3V0IHtcclxuICAgICAgZmxvYXQ6IGxlZnQ7XHJcbiAgICAgIHBhZGRpbmctbGVmdDogMTBweDtcclxuICAgICAgbWFyZ2luLXRvcDogNnB4O1xyXG4gICAgfVxyXG4gICAgXHJcbiAgICAuY2hhdC13aXRoIHtcclxuICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICAgIGZvbnQtc2l6ZTogMTZweDtcclxuICAgIH1cclxuICAgIFxyXG4gICAgLmNoYXQtbnVtLW1lc3NhZ2VzIHtcclxuICAgICAgY29sb3I6ICRncmF5O1xyXG4gICAgfVxyXG4gICAgXHJcbiAgICAuZmEtc3RhciB7XHJcbiAgICAgIGZsb2F0OiByaWdodDtcclxuICAgICAgY29sb3I6ICNEOERBREY7XHJcbiAgICAgIGZvbnQtc2l6ZTogMjBweDtcclxuICAgICAgbWFyZ2luLXRvcDogMTJweDtcclxuICAgIH1cclxuICB9XHJcbiAgXHJcbiAgLmNoYXQtaGlzdG9yeSB7XHJcbiAgICBwYWRkaW5nOiAzMHB4IDMwcHggMjBweDtcclxuICAgIGJvcmRlci1ib3R0b206IDJweCBzb2xpZCB3aGl0ZTtcclxuICAgIG92ZXJmbG93LXk6IHNjcm9sbDtcclxuICAgIGhlaWdodDogMzUwcHg7XHJcbiAgICBcclxuICAgIC5tZXNzYWdlLWRhdGEge1xyXG4gICAgICBtYXJnaW4tYm90dG9tOiAxNXB4O1xyXG4gICAgfVxyXG4gICAgXHJcbiAgICAubWVzc2FnZS1kYXRhLXRpbWUge1xyXG4gICAgICBjb2xvcjogbGlnaHRlbigkZ3JheSwgOCUpO1xyXG4gICAgICBwYWRkaW5nLWxlZnQ6IDZweDtcclxuICAgIH1cclxuICAgIFxyXG4gICAgLm1lc3NhZ2UgeyAgICAgIFxyXG4gICAgICBjb2xvcjogd2hpdGU7XHJcbiAgICAgIHBhZGRpbmc6IDE4cHggMjBweDtcclxuICAgICAgbGluZS1oZWlnaHQ6IDI2cHg7XHJcbiAgICAgIGZvbnQtc2l6ZTogMTZweDtcclxuICAgICAgYm9yZGVyLXJhZGl1czogN3B4O1xyXG4gICAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xyXG4gICAgICB3aWR0aDogOTAlO1xyXG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICAgIFxyXG4gICAgICAmOmFmdGVyIHtcclxuICAgICAgICBib3R0b206IDEwMCU7XHJcbiAgICAgICAgbGVmdDogNyU7XHJcbiAgICAgICAgYm9yZGVyOiBzb2xpZCB0cmFuc3BhcmVudDtcclxuICAgICAgICBjb250ZW50OiBcIiBcIjtcclxuICAgICAgICBoZWlnaHQ6IDA7XHJcbiAgICAgICAgd2lkdGg6IDA7XHJcbiAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgICAgIHBvaW50ZXItZXZlbnRzOiBub25lO1xyXG4gICAgICAgIGJvcmRlci1ib3R0b20tY29sb3I6ICRncmVlbjtcclxuICAgICAgICBib3JkZXItd2lkdGg6IDEwcHg7XHJcbiAgICAgICAgbWFyZ2luLWxlZnQ6IC0xMHB4O1xyXG4gICAgICB9XHJcbiAgICB9XHJcbiAgICBcclxuICAgIC5teS1tZXNzYWdlIHtcclxuICAgICAgYmFja2dyb3VuZDogJGdyZWVuO1xyXG4gICAgfVxyXG4gICAgXHJcbiAgICAub3RoZXItbWVzc2FnZSB7XHJcbiAgICAgIGJhY2tncm91bmQ6ICRibHVlO1xyXG4gICAgICBcclxuICAgICAgJjphZnRlciB7XHJcbiAgICAgICAgYm9yZGVyLWJvdHRvbS1jb2xvcjogJGJsdWU7XHJcbiAgICAgICAgbGVmdDogOTMlO1xyXG4gICAgICB9XHJcbiAgICB9XHJcbiAgICBcclxuICB9XHJcbiAgXHJcbiAgLmNoYXQtbWVzc2FnZSB7XHJcbiAgICBwYWRkaW5nOiAzMHB4O1xyXG4gICAgXHJcbiAgICB0ZXh0YXJlYSB7XHJcbiAgICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgICBib3JkZXI6IG5vbmU7XHJcbiAgICAgIHBhZGRpbmc6IDEwcHggMjBweDtcclxuICAgICAgZm9udDogMTRweC8yMnB4IFwiTGF0b1wiLCBBcmlhbCwgc2Fucy1zZXJpZjtcclxuICAgICAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICAgICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gICAgICByZXNpemU6IG5vbmU7XHJcbiAgICAgIFxyXG4gICAgfVxyXG4gICAgXHJcbiAgICAuZmEtZmlsZS1vLCAuZmEtZmlsZS1pbWFnZS1vIHtcclxuICAgICAgZm9udC1zaXplOiAxNnB4O1xyXG4gICAgICBjb2xvcjogZ3JheTtcclxuICAgICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgICBcclxuICAgIH1cclxuICAgIFxyXG4gICAgYnV0dG9uIHtcclxuICAgICAgZmxvYXQ6IHJpZ2h0O1xyXG4gICAgICBjb2xvcjogJGJsdWU7XHJcbiAgICAgIGZvbnQtc2l6ZTogMTZweDtcclxuICAgICAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcclxuICAgICAgYm9yZGVyOiBub25lO1xyXG4gICAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgICBiYWNrZ3JvdW5kOiAjRjJGNUY4O1xyXG4gICAgICBcclxuICAgICAgJjpob3ZlciB7XHJcbiAgICAgICAgY29sb3I6IGRhcmtlbigkYmx1ZSwgNyUpO1xyXG4gICAgICB9XHJcbiAgICB9XHJcbiAgfVxyXG59XHJcblxyXG4ub25saW5lLCAub2ZmbGluZSwgLm1lIHtcclxuICAgIG1hcmdpbi1yaWdodDogM3B4O1xyXG4gICAgZm9udC1zaXplOiAxMHB4O1xyXG4gIH1cclxuICBcclxuLm9ubGluZSB7XHJcbiAgY29sb3I6ICRncmVlbjtcclxufVxyXG4gIFxyXG4ub2ZmbGluZSB7XHJcbiAgY29sb3I6ICRvcmFuZ2U7XHJcbn1cclxuXHJcbi5tZSB7XHJcbiAgY29sb3I6ICRibHVlO1xyXG59XHJcblxyXG4uYWxpZ24tbGVmdCB7XHJcbiAgdGV4dC1hbGlnbjogbGVmdDtcclxufVxyXG5cclxuLmFsaWduLXJpZ2h0IHtcclxuICB0ZXh0LWFsaWduOiByaWdodDtcclxufVxyXG5cclxuLmZsb2F0LXJpZ2h0IHtcclxuICBmbG9hdDogcmlnaHQ7XHJcbn1cclxuXHJcbi5jbGVhcmZpeDphZnRlciB7XHJcblx0dmlzaWJpbGl0eTogaGlkZGVuO1xyXG5cdGRpc3BsYXk6IGJsb2NrO1xyXG5cdGZvbnQtc2l6ZTogMDtcclxuXHRjb250ZW50OiBcIiBcIjtcclxuXHRjbGVhcjogYm90aDtcclxuXHRoZWlnaHQ6IDA7XHJcbn1cclxuXHJcbiJdfQ== */"
+module.exports = "@import url(https://fonts.googleapis.com/css?family=Lato:400,700);\n*, *:before, *:after {\n  box-sizing: border-box; }\nbody {\n  background: #C5DDEB;\n  font: 14px/20px \"Lato\", Arial, sans-serif;\n  padding: 40px 0;\n  color: white; }\n.container {\n  margin: 0 auto;\n  width: auto;\n  background: #444753;\n  border-radius: 5px; }\n.people-list {\n  width: 260px;\n  float: left; }\n.people-list .search {\n    padding: 20px; }\n.people-list input {\n    border-radius: 3px;\n    border: none;\n    padding: 14px;\n    color: white;\n    background: #6A6C75;\n    width: 90%;\n    font-size: 14px; }\n.people-list .fa-search {\n    position: relative;\n    left: -25px; }\n.people-list ul {\n    padding: 20px;\n    height: 350px; }\n.people-list ul li {\n      padding-bottom: 20px; }\n.people-list img {\n    float: left; }\n.people-list .about {\n    float: left;\n    margin-top: 8px; }\n.people-list .about {\n    padding-left: 8px; }\n.people-list .status {\n    color: #92959E; }\n.chat {\n  width: 490px;\n  float: left;\n  background: #F2F5F8;\n  border-top-right-radius: 5px;\n  border-bottom-right-radius: 5px;\n  color: #434651; }\n.chat .chat-header {\n    padding: 20px;\n    border-bottom: 2px solid white; }\n.chat .chat-header img {\n      float: left; }\n.chat .chat-header .chat-about {\n      float: left;\n      padding-left: 10px;\n      margin-top: 6px; }\n.chat .chat-header .chat-with {\n      font-weight: bold;\n      font-size: 16px; }\n.chat .chat-header .chat-num-messages {\n      color: #92959E; }\n.chat .chat-header .fa-star {\n      float: right;\n      color: #D8DADF;\n      font-size: 20px;\n      margin-top: 12px; }\n.chat .chat-history {\n    padding: 30px 30px 20px;\n    border-bottom: 2px solid white;\n    overflow-y: scroll;\n    height: 350px; }\n.chat .chat-history .message-data {\n      margin-bottom: 15px; }\n.chat .chat-history .message-data-time {\n      color: #a8aab1;\n      padding-left: 6px; }\n.chat .chat-history .message {\n      color: white;\n      padding: 18px 20px;\n      line-height: 26px;\n      font-size: 16px;\n      border-radius: 7px;\n      margin-bottom: 30px;\n      width: 90%;\n      position: relative; }\n.chat .chat-history .message:after {\n        bottom: 100%;\n        left: 7%;\n        border: solid transparent;\n        content: \" \";\n        height: 0;\n        width: 0;\n        position: absolute;\n        pointer-events: none;\n        border-bottom-color: #86BB71;\n        border-width: 10px;\n        margin-left: -10px; }\n.chat .chat-history .my-message {\n      background: #86BB71; }\n.chat .chat-history .other-message {\n      background: #94C2ED; }\n.chat .chat-history .other-message:after {\n        border-bottom-color: #94C2ED;\n        left: 93%; }\n.chat .chat-message {\n    padding: 30px; }\n.chat .chat-message textarea {\n      width: 100%;\n      border: none;\n      padding: 10px 20px;\n      font: 14px/22px \"Lato\", Arial, sans-serif;\n      margin-bottom: 10px;\n      border-radius: 5px;\n      resize: none; }\n.chat .chat-message .fa-file-o, .chat .chat-message .fa-file-image-o {\n      font-size: 16px;\n      color: gray;\n      cursor: pointer; }\n.chat .chat-message button {\n      float: right;\n      color: #94C2ED;\n      font-size: 16px;\n      text-transform: uppercase;\n      border: none;\n      cursor: pointer;\n      font-weight: bold;\n      background: #F2F5F8; }\n.chat .chat-message button:hover {\n        color: #75b1e8; }\n.online, .offline, .me {\n  margin-right: 3px;\n  font-size: 10px; }\n.online {\n  color: #86BB71; }\n.offline {\n  color: #E38968; }\n.me {\n  color: #94C2ED; }\n.align-left {\n  text-align: left; }\n.align-right {\n  text-align: right; }\n.float-right {\n  float: right; }\n.clearfix:after {\n  visibility: hidden;\n  display: block;\n  font-size: 0;\n  content: \" \";\n  clear: both;\n  height: 0; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvbm90aWZpY2FjaW9uL3BvcHVwLWNoYXQvQzpcXHByb3llY3Rvc1xcdmlzaW9uLWZyb250ZW5kL3NyY1xcYXBwXFxwYWdlc1xcbm90aWZpY2FjaW9uXFxwb3B1cC1jaGF0XFxwb3B1cC1jaGF0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGlFQUFZO0FBT1o7RUFDRSxzQkFBc0IsRUFBQTtBQUd4QjtFQUNFLG1CQUFtQjtFQUNuQix5Q0FBeUM7RUFDekMsZUFBZTtFQUNmLFlBQVksRUFBQTtBQUdkO0VBQ0UsY0FBYztFQUNkLFdBQVc7RUFDWCxtQkFBbUI7RUFDbkIsa0JBQWtCLEVBQUE7QUFHcEI7RUFDRSxZQUFXO0VBQ1gsV0FBVyxFQUFBO0FBRmI7SUFLSSxhQUFhLEVBQUE7QUFMakI7SUFTSSxrQkFBa0I7SUFDbEIsWUFBWTtJQUNaLGFBQWE7SUFDYixZQUFZO0lBQ1osbUJBQW1CO0lBQ25CLFVBQVU7SUFDVixlQUFlLEVBQUE7QUFmbkI7SUFtQkksa0JBQWtCO0lBQ2xCLFdBQVcsRUFBQTtBQXBCZjtJQXdCSSxhQUFhO0lBQ2IsYUFBYSxFQUFBO0FBekJqQjtNQStCTSxvQkFBb0IsRUFBQTtBQS9CMUI7SUFvQ0ksV0FBVyxFQUFBO0FBcENmO0lBd0NJLFdBQVc7SUFDWCxlQUFlLEVBQUE7QUF6Q25CO0lBNkNJLGlCQUFpQixFQUFBO0FBN0NyQjtJQWlESSxjQXJFVSxFQUFBO0FBMEVkO0VBQ0UsWUFBWTtFQUNaLFdBQVU7RUFDVixtQkFBbUI7RUFDbkIsNEJBQTRCO0VBQzVCLCtCQUErQjtFQUUvQixjQUFjLEVBQUE7QUFQaEI7SUFVSSxhQUFhO0lBQ2IsOEJBQThCLEVBQUE7QUFYbEM7TUFjTSxXQUFXLEVBQUE7QUFkakI7TUFrQk0sV0FBVztNQUNYLGtCQUFrQjtNQUNsQixlQUFlLEVBQUE7QUFwQnJCO01Bd0JNLGlCQUFpQjtNQUNqQixlQUFlLEVBQUE7QUF6QnJCO01BNkJNLGNBdkdRLEVBQUE7QUEwRWQ7TUFpQ00sWUFBWTtNQUNaLGNBQWM7TUFDZCxlQUFlO01BQ2YsZ0JBQWdCLEVBQUE7QUFwQ3RCO0lBeUNJLHVCQUF1QjtJQUN2Qiw4QkFBOEI7SUFDOUIsa0JBQWtCO0lBQ2xCLGFBQWEsRUFBQTtBQTVDakI7TUErQ00sbUJBQW1CLEVBQUE7QUEvQ3pCO01BbURNLGNBQXlCO01BQ3pCLGlCQUFpQixFQUFBO0FBcER2QjtNQXdETSxZQUFZO01BQ1osa0JBQWtCO01BQ2xCLGlCQUFpQjtNQUNqQixlQUFlO01BQ2Ysa0JBQWtCO01BQ2xCLG1CQUFtQjtNQUNuQixVQUFVO01BQ1Ysa0JBQWtCLEVBQUE7QUEvRHhCO1FBa0VRLFlBQVk7UUFDWixRQUFRO1FBQ1IseUJBQXlCO1FBQ3pCLFlBQVk7UUFDWixTQUFTO1FBQ1QsUUFBUTtRQUNSLGtCQUFrQjtRQUNsQixvQkFBb0I7UUFDcEIsNEJBdkpPO1FBd0pQLGtCQUFrQjtRQUNsQixrQkFBa0IsRUFBQTtBQTVFMUI7TUFpRk0sbUJBOUpTLEVBQUE7QUE2RWY7TUFxRk0sbUJBaktRLEVBQUE7QUE0RWQ7UUF3RlEsNEJBcEtNO1FBcUtOLFNBQVMsRUFBQTtBQXpGakI7SUFnR0ksYUFBYSxFQUFBO0FBaEdqQjtNQW1HTSxXQUFXO01BQ1gsWUFBWTtNQUNaLGtCQUFrQjtNQUNsQix5Q0FBeUM7TUFDekMsbUJBQW1CO01BQ25CLGtCQUFrQjtNQUNsQixZQUFZLEVBQUE7QUF6R2xCO01BOEdNLGVBQWU7TUFDZixXQUFXO01BQ1gsZUFBZSxFQUFBO0FBaEhyQjtNQXFITSxZQUFZO01BQ1osY0FsTVE7TUFtTVIsZUFBZTtNQUNmLHlCQUF5QjtNQUN6QixZQUFZO01BQ1osZUFBZTtNQUNmLGlCQUFpQjtNQUNqQixtQkFBbUIsRUFBQTtBQTVIekI7UUErSFEsY0FBd0IsRUFBQTtBQU1oQztFQUNJLGlCQUFpQjtFQUNqQixlQUFlLEVBQUE7QUFHbkI7RUFDRSxjQXhOYSxFQUFBO0FBMk5mO0VBQ0UsY0ExTmMsRUFBQTtBQTZOaEI7RUFDRSxjQS9OWSxFQUFBO0FBa09kO0VBQ0UsZ0JBQWdCLEVBQUE7QUFHbEI7RUFDRSxpQkFBaUIsRUFBQTtBQUduQjtFQUNFLFlBQVksRUFBQTtBQUdkO0VBQ0Msa0JBQWtCO0VBQ2xCLGNBQWM7RUFDZCxZQUFZO0VBQ1osWUFBWTtFQUNaLFdBQVc7RUFDWCxTQUFTLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9ub3RpZmljYWNpb24vcG9wdXAtY2hhdC9wb3B1cC1jaGF0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCB1cmwoaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3M/ZmFtaWx5PUxhdG86NDAwLDcwMCk7XHJcblxyXG4kZ3JlZW46ICM4NkJCNzE7XHJcbiRibHVlOiAjOTRDMkVEO1xyXG4kb3JhbmdlOiAjRTM4OTY4O1xyXG4kZ3JheTogIzkyOTU5RTtcclxuXHJcbiosICo6YmVmb3JlLCAqOmFmdGVyIHtcclxuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG59XHJcblxyXG5ib2R5IHtcclxuICBiYWNrZ3JvdW5kOiAjQzVEREVCO1xyXG4gIGZvbnQ6IDE0cHgvMjBweCBcIkxhdG9cIiwgQXJpYWwsIHNhbnMtc2VyaWY7XHJcbiAgcGFkZGluZzogNDBweCAwO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxufVxyXG5cclxuLmNvbnRhaW5lciB7XHJcbiAgbWFyZ2luOiAwIGF1dG87XHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgYmFja2dyb3VuZDogIzQ0NDc1MztcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbn1cclxuXHJcbi5wZW9wbGUtbGlzdCB7XHJcbiAgd2lkdGg6MjYwcHg7XHJcbiAgZmxvYXQ6IGxlZnQ7XHJcbiAgXHJcbiAgLnNlYXJjaCB7XHJcbiAgICBwYWRkaW5nOiAyMHB4O1xyXG4gIH1cclxuICBcclxuICBpbnB1dCB7XHJcbiAgICBib3JkZXItcmFkaXVzOiAzcHg7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBwYWRkaW5nOiAxNHB4O1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG4gICAgYmFja2dyb3VuZDogIzZBNkM3NTtcclxuICAgIHdpZHRoOiA5MCU7XHJcbiAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5mYS1zZWFyY2gge1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgbGVmdDogLTI1cHg7XHJcbiAgfVxyXG4gIFxyXG4gIHVsIHtcclxuICAgIHBhZGRpbmc6IDIwcHg7XHJcbiAgICBoZWlnaHQ6IDM1MHB4O1xyXG4gXHJcbiAgICBcclxuICAgIFxyXG4gICAgXHJcbiAgICBsaSB7XHJcbiAgICAgIHBhZGRpbmctYm90dG9tOiAyMHB4O1xyXG4gICAgfVxyXG4gIH1cclxuICBcclxuICBpbWcge1xyXG4gICAgZmxvYXQ6IGxlZnQ7XHJcbiAgfVxyXG4gIFxyXG4gIC5hYm91dCB7XHJcbiAgICBmbG9hdDogbGVmdDtcclxuICAgIG1hcmdpbi10b3A6IDhweDtcclxuICB9XHJcbiAgXHJcbiAgLmFib3V0IHtcclxuICAgIHBhZGRpbmctbGVmdDogOHB4O1xyXG4gIH1cclxuICBcclxuICAuc3RhdHVzIHtcclxuICAgIGNvbG9yOiAkZ3JheTtcclxuICB9XHJcbiAgXHJcbn1cclxuXHJcbi5jaGF0IHtcclxuICB3aWR0aDogNDkwcHg7XHJcbiAgZmxvYXQ6bGVmdDtcclxuICBiYWNrZ3JvdW5kOiAjRjJGNUY4O1xyXG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiA1cHg7XHJcbiAgYm9yZGVyLWJvdHRvbS1yaWdodC1yYWRpdXM6IDVweDtcclxuICBcclxuICBjb2xvcjogIzQzNDY1MTtcclxuICBcclxuICAuY2hhdC1oZWFkZXIge1xyXG4gICAgcGFkZGluZzogMjBweDtcclxuICAgIGJvcmRlci1ib3R0b206IDJweCBzb2xpZCB3aGl0ZTtcclxuICAgIFxyXG4gICAgaW1nIHtcclxuICAgICAgZmxvYXQ6IGxlZnQ7XHJcbiAgICB9XHJcbiAgICBcclxuICAgIC5jaGF0LWFib3V0IHtcclxuICAgICAgZmxvYXQ6IGxlZnQ7XHJcbiAgICAgIHBhZGRpbmctbGVmdDogMTBweDtcclxuICAgICAgbWFyZ2luLXRvcDogNnB4O1xyXG4gICAgfVxyXG4gICAgXHJcbiAgICAuY2hhdC13aXRoIHtcclxuICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICAgIGZvbnQtc2l6ZTogMTZweDtcclxuICAgIH1cclxuICAgIFxyXG4gICAgLmNoYXQtbnVtLW1lc3NhZ2VzIHtcclxuICAgICAgY29sb3I6ICRncmF5O1xyXG4gICAgfVxyXG4gICAgXHJcbiAgICAuZmEtc3RhciB7XHJcbiAgICAgIGZsb2F0OiByaWdodDtcclxuICAgICAgY29sb3I6ICNEOERBREY7XHJcbiAgICAgIGZvbnQtc2l6ZTogMjBweDtcclxuICAgICAgbWFyZ2luLXRvcDogMTJweDtcclxuICAgIH1cclxuICB9XHJcbiAgXHJcbiAgLmNoYXQtaGlzdG9yeSB7XHJcbiAgICBwYWRkaW5nOiAzMHB4IDMwcHggMjBweDtcclxuICAgIGJvcmRlci1ib3R0b206IDJweCBzb2xpZCB3aGl0ZTtcclxuICAgIG92ZXJmbG93LXk6IHNjcm9sbDtcclxuICAgIGhlaWdodDogMzUwcHg7XHJcbiAgICBcclxuICAgIC5tZXNzYWdlLWRhdGEge1xyXG4gICAgICBtYXJnaW4tYm90dG9tOiAxNXB4O1xyXG4gICAgfVxyXG4gICAgXHJcbiAgICAubWVzc2FnZS1kYXRhLXRpbWUge1xyXG4gICAgICBjb2xvcjogbGlnaHRlbigkZ3JheSwgOCUpO1xyXG4gICAgICBwYWRkaW5nLWxlZnQ6IDZweDtcclxuICAgIH1cclxuICAgIFxyXG4gICAgLm1lc3NhZ2UgeyAgICAgIFxyXG4gICAgICBjb2xvcjogd2hpdGU7XHJcbiAgICAgIHBhZGRpbmc6IDE4cHggMjBweDtcclxuICAgICAgbGluZS1oZWlnaHQ6IDI2cHg7XHJcbiAgICAgIGZvbnQtc2l6ZTogMTZweDtcclxuICAgICAgYm9yZGVyLXJhZGl1czogN3B4O1xyXG4gICAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xyXG4gICAgICB3aWR0aDogOTAlO1xyXG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICAgIFxyXG4gICAgICAmOmFmdGVyIHtcclxuICAgICAgICBib3R0b206IDEwMCU7XHJcbiAgICAgICAgbGVmdDogNyU7XHJcbiAgICAgICAgYm9yZGVyOiBzb2xpZCB0cmFuc3BhcmVudDtcclxuICAgICAgICBjb250ZW50OiBcIiBcIjtcclxuICAgICAgICBoZWlnaHQ6IDA7XHJcbiAgICAgICAgd2lkdGg6IDA7XHJcbiAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgICAgIHBvaW50ZXItZXZlbnRzOiBub25lO1xyXG4gICAgICAgIGJvcmRlci1ib3R0b20tY29sb3I6ICRncmVlbjtcclxuICAgICAgICBib3JkZXItd2lkdGg6IDEwcHg7XHJcbiAgICAgICAgbWFyZ2luLWxlZnQ6IC0xMHB4O1xyXG4gICAgICB9XHJcbiAgICB9XHJcbiAgICBcclxuICAgIC5teS1tZXNzYWdlIHtcclxuICAgICAgYmFja2dyb3VuZDogJGdyZWVuO1xyXG4gICAgfVxyXG4gICAgXHJcbiAgICAub3RoZXItbWVzc2FnZSB7XHJcbiAgICAgIGJhY2tncm91bmQ6ICRibHVlO1xyXG4gICAgICBcclxuICAgICAgJjphZnRlciB7XHJcbiAgICAgICAgYm9yZGVyLWJvdHRvbS1jb2xvcjogJGJsdWU7XHJcbiAgICAgICAgbGVmdDogOTMlO1xyXG4gICAgICB9XHJcbiAgICB9XHJcbiAgICBcclxuICB9XHJcbiAgXHJcbiAgLmNoYXQtbWVzc2FnZSB7XHJcbiAgICBwYWRkaW5nOiAzMHB4O1xyXG4gICAgXHJcbiAgICB0ZXh0YXJlYSB7XHJcbiAgICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgICBib3JkZXI6IG5vbmU7XHJcbiAgICAgIHBhZGRpbmc6IDEwcHggMjBweDtcclxuICAgICAgZm9udDogMTRweC8yMnB4IFwiTGF0b1wiLCBBcmlhbCwgc2Fucy1zZXJpZjtcclxuICAgICAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICAgICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gICAgICByZXNpemU6IG5vbmU7XHJcbiAgICAgIFxyXG4gICAgfVxyXG4gICAgXHJcbiAgICAuZmEtZmlsZS1vLCAuZmEtZmlsZS1pbWFnZS1vIHtcclxuICAgICAgZm9udC1zaXplOiAxNnB4O1xyXG4gICAgICBjb2xvcjogZ3JheTtcclxuICAgICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgICBcclxuICAgIH1cclxuICAgIFxyXG4gICAgYnV0dG9uIHtcclxuICAgICAgZmxvYXQ6IHJpZ2h0O1xyXG4gICAgICBjb2xvcjogJGJsdWU7XHJcbiAgICAgIGZvbnQtc2l6ZTogMTZweDtcclxuICAgICAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcclxuICAgICAgYm9yZGVyOiBub25lO1xyXG4gICAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgICBiYWNrZ3JvdW5kOiAjRjJGNUY4O1xyXG4gICAgICBcclxuICAgICAgJjpob3ZlciB7XHJcbiAgICAgICAgY29sb3I6IGRhcmtlbigkYmx1ZSwgNyUpO1xyXG4gICAgICB9XHJcbiAgICB9XHJcbiAgfVxyXG59XHJcblxyXG4ub25saW5lLCAub2ZmbGluZSwgLm1lIHtcclxuICAgIG1hcmdpbi1yaWdodDogM3B4O1xyXG4gICAgZm9udC1zaXplOiAxMHB4O1xyXG4gIH1cclxuICBcclxuLm9ubGluZSB7XHJcbiAgY29sb3I6ICRncmVlbjtcclxufVxyXG4gIFxyXG4ub2ZmbGluZSB7XHJcbiAgY29sb3I6ICRvcmFuZ2U7XHJcbn1cclxuXHJcbi5tZSB7XHJcbiAgY29sb3I6ICRibHVlO1xyXG59XHJcblxyXG4uYWxpZ24tbGVmdCB7XHJcbiAgdGV4dC1hbGlnbjogbGVmdDtcclxufVxyXG5cclxuLmFsaWduLXJpZ2h0IHtcclxuICB0ZXh0LWFsaWduOiByaWdodDtcclxufVxyXG5cclxuLmZsb2F0LXJpZ2h0IHtcclxuICBmbG9hdDogcmlnaHQ7XHJcbn1cclxuXHJcbi5jbGVhcmZpeDphZnRlciB7XHJcblx0dmlzaWJpbGl0eTogaGlkZGVuO1xyXG5cdGRpc3BsYXk6IGJsb2NrO1xyXG5cdGZvbnQtc2l6ZTogMDtcclxuXHRjb250ZW50OiBcIiBcIjtcclxuXHRjbGVhcjogYm90aDtcclxuXHRoZWlnaHQ6IDA7XHJcbn1cclxuXHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -22305,14 +23944,9 @@ var AgendaRecepcionComponent = /** @class */ (function () {
         try {
             this.miServico.putItem(this.popItemAgenda, this.popItemAgenda.agenda_dia_horario_atencion_id)
                 .subscribe(function (resp) {
-                // this.agendaTurno = resp;
                 console.log(resp);
                 _this.loading = false;
-                // this.document.doc = 'llamando';
-                // this.document.usuario_id = this.popItemAgenda.usuario_id;
-                //  console.log(this.document.doc);
                 _this.documentService.sendMessage('llamando-recepcion');
-                // this.editDoc();
                 _this.loadList();
             }, function (error) {
                 console.log(error.message);
@@ -22896,8 +24530,6 @@ var AgendaComponent = /** @class */ (function () {
                     else {
                         _this.agendaTurno = null;
                     }
-                    //this.newDoc();
-                    //  this.loadDoc('llamando');
                     _this.loading = false;
                 }, function (error) {
                     console.log(error.message);
@@ -25552,15 +27184,6 @@ var DocumentService = /** @class */ (function () {
             });
         };
     }
-    DocumentService.prototype.getDocument = function (id) {
-        this.socket.emit('getDoc', this.docId);
-    };
-    DocumentService.prototype.newDocument = function () {
-        this.socket.emit('addDoc', { id: this.docId(), doc: '' });
-    };
-    DocumentService.prototype.editDocument = function (document) {
-        this.socket.emit('editDoc', document);
-    };
     DocumentService.prototype.docId = function () {
         /*  let text = '';
           const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -25664,6 +27287,96 @@ var ExcelService = /** @class */ (function () {
     function ExcelService() {
     }
     return ExcelService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/facturacion.service.ts":
+/*!*************************************************!*\
+  !*** ./src/app/services/facturacion.service.ts ***!
+  \*************************************************/
+/*! exports provided: FacturacionService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FacturacionService", function() { return FacturacionService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config/config */ "./src/app/config/config.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var FacturacionService = /** @class */ (function () {
+    function FacturacionService(http) {
+        this.http = http;
+        this.url = _config_config__WEBPACK_IMPORTED_MODULE_2__["URL_SERVICIOS"];
+    }
+    /******DATOS SOBRE FACTURACION******/
+    FacturacionService.prototype.GetLastVoucher = function (punto_vta, comprobante_tipo, medico_id) {
+        return this.http.get(this.url + 'afip/data/getlastvoucher?punto_vta=' + punto_vta + '&comprobante_tipo=' + comprobante_tipo + '&medico_id=' + medico_id);
+    };
+    FacturacionService.prototype.getIformacionComprobante = function (punto_vta, comprobante_tipo, medico_id, comprobante_nro) {
+        return this.http.get(this.url + 'afip/data/getiformacioncomprobante?punto_vta=' + punto_vta + '&comprobante_nro=' + comprobante_tipo + '&medico_id=' + medico_id + '&comprobante_tipo=' + comprobante_tipo);
+    };
+    FacturacionService.prototype.TipoComprobantesDisponibles = function (medico_id) {
+        return this.http.get(this.url + 'afip/data/tipocomprobantesdisponibles?medico_id=' + medico_id);
+    };
+    FacturacionService.prototype.TipoConceptosDisponibles = function (medico_id) {
+        return this.http.get(this.url + 'afip/data/tipoconceptosdisponibles?medico_id=' + medico_id);
+    };
+    FacturacionService.prototype.TipoDocumentosDisponibles = function (medico_id) {
+        return this.http.get(this.url + 'afip/data/tipodocumentosdisponibles?medico_id=' + medico_id);
+    };
+    FacturacionService.prototype.TipoAlicuotasDisponibles = function (medico_id) {
+        return this.http.get(this.url + 'afip/data/tipoalicuotasdisponibles?medico_id=' + medico_id);
+    };
+    FacturacionService.prototype.GetOptionsTypes = function (medico_id) {
+        return this.http.get(this.url + 'afip/data/getoptionstypes?medico_id=' + medico_id);
+    };
+    FacturacionService.prototype.ObetenerEstadoDelServidor = function (medico_id) {
+        return this.http.get(this.url + 'afip/data/obetenerestadodelservidor?medico_id=' + medico_id);
+    };
+    /******REALIZACION DE FACTURACION******/
+    FacturacionService.prototype.testAfipGetLastVoucher = function (medico_id) {
+        return this.http.get(this.url + 'afip/lastvoucher?medico_id=' + medico_id);
+    };
+    FacturacionService.prototype.CrearFacturaA = function (medico_id) {
+        return this.http.get(this.url + 'afip/factura/a?medico_id=' + medico_id);
+    };
+    FacturacionService.prototype.CrearFacturaB = function (medico_id) {
+        return this.http.get(this.url + 'afip/factura/b?medico_id=' + medico_id);
+    };
+    FacturacionService.prototype.CrearFacturaC = function (medico_id) {
+        return this.http.get(this.url + 'afip/factura/c?medico_id=' + medico_id);
+    };
+    FacturacionService.prototype.CrearNotaCreditoA = function (medico_id) {
+        return this.http.get(this.url + 'afip/notacredito/a?medico_id=' + medico_id);
+    };
+    FacturacionService.prototype.CrearNotaCreditoB = function (medico_id) {
+        return this.http.get(this.url + 'afip/notacredito/b?medico_id=' + medico_id);
+    };
+    FacturacionService.prototype.CrearNotaCreditoC = function (medico_id) {
+        return this.http.get(this.url + 'afip/notacredito/c?medico_id=' + medico_id);
+    };
+    FacturacionService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], FacturacionService);
+    return FacturacionService;
 }());
 
 
@@ -26925,6 +28638,7 @@ var NavbarComponent = /** @class */ (function () {
                             { label: 'Gestion de turnos', 'routerLink': 'recepcion/turnos' },
                         ]
                     },
+                    { label: 'Factura electrónica', visible: !this.recepcion_consulta, 'routerLink': 'recepcion/factura/electronica' },
                     { label: 'Operación de cobro', visible: !this.recepcion_consulta, 'routerLink': 'recepcion/operacioncobro' },
                     { label: 'Detalle de operaciones de cobro', visible: !this.recepcion_consulta, 'routerLink': 'liquidacion/operacioncobro/detalle' },
                     { label: 'Historia clínica', visible: !this.recepcion_consulta, 'routerLink': 'medico/historiaclinica/consulta' },
@@ -26970,6 +28684,7 @@ var NavbarComponent = /** @class */ (function () {
                 items: [
                     { label: 'Agenda consulta', visible: !this.gerencia_control, 'routerLink': 'gerencia/agenda/consulta' },
                     { label: 'Operacion cobro consulta', visible: !this.gerencia_control, 'routerLink': 'gerencia/operacioncobro/consulta' },
+                    { label: 'Detalle de operaciones de cobro', visible: !this.gerencia_control, 'routerLink': 'gerencia/operacioncobro/detalle' },
                 ]
             },
             {
@@ -34151,6 +35866,7 @@ var PopupOperacionCobroDistribucionComponent = /** @class */ (function () {
         this.elemento_temp = null;
         this.popItemMedico = null;
         this._id = 0;
+        this.completado = 'NO';
         this.cols = [
             { field: 'accion', header: 'Accion', width: '6%' },
             { field: 'liquidacion_numero', header: 'Exp. Nº', width: '5%' },
@@ -34247,6 +35963,12 @@ var PopupOperacionCobroDistribucionComponent = /** @class */ (function () {
         for (i = 0; i < vals.length; i++) {
             this.total_original = this.total_original + Number(vals[i]['valor_original']);
             this.total_facturado = this.total_facturado + Number(vals[i]['valor_facturado']);
+            if (vals[i]['es_distribuido'] === 'SI') {
+                this.completado = 'INCOMPLETO';
+            }
+            else {
+                this.completado = 'COMPLETO';
+            }
         }
         this.cantidad_practica = vals.length;
         console.log(this.total_facturado);
@@ -37126,7 +38848,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n <!-- <button  *ngIf=\"loading\"   class=\"btn btn-lg btn-success btn-sm float-right mr-2\" (click)=\"loadTurnoTodos()\" >Actualizar</button>-->\n</div>\n\n<div>\n  <div >\n     \n      <div class='sidenav'>\n           <!--   <span (click)='newDoc()'>New Document</span>\n        <span [class.selected]='docId === currentDocId' (click)='loadDoc(docId)' *ngFor='let docId of documents | async'>{{ docId }}</span> \n      </div>\n      <textarea  [(ngModel)]='document.doc' (keyup)='editDoc()' placeholder='Start typing...'></textarea> -->\n  </div>\n  <div class=\" d-flex justify-content-sm-start\" >\n          <div  class=\"input-group input-group-sm \">\n                  <form  [formGroup]=\"DateForm\">\n                  <div class=\"btn-group\" role=\"group\">\n              <p-calendar class=\"mr-2 \"formControlName=\"fechaHoy\" [monthNavigator]=\"true\"   (onSelect)=\"actualizarFecha($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                 <ng-template pTemplate=\"date\" let-date>\n                      <span  [ngClass]=\"colorRow(date)\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                  </ng-template> \n                </p-calendar>\n              \n\n          </div>\n                  </form>   \n                  <div class=\"row pl-4 pr-4 \">\n                          <div class=\"d-flex justify-content-sm-end\">\n                                  <div  class=\"btn-group btn-sm \" role=\"group\" aria-label=\"First group\">                                                     \n                                     <button    class=\"btn  btn-danger btn-sm  float-right mr-2\" (click)=\"darSobreTurno()\" >Dar sobre turno</button>                                     \n                                     <button    class=\"btn  btn-success btn-sm float-right \"  (click)=\"loadTurno()\" >Buscar turnos</button>\n                                  </div>\n                          </div>    \n                  </div>     \n          </div>\n      </div>\n     \n    \n   \n  <div>\n     \n      <div >\n          <hr>\n            \n\n          <p-table  #dt class=\"pt-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\"  [value]=\"agendaTurno\" [(selection)]=\"selecteditems\"   columnResizeMode=\"expand\" [responsive]=\"true\"\n          scrollHeight=\"500px\" [scrollable]=\"true\" (onFilter)=\"filtered($event)\">\n         \n\n             <ng-template pTemplate=\"header\" let-columns #mipoprow>\n            \n                        <tr >\n                             \n                          <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\n                                  {{col.header}}\n                                  <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activar para ordenar en forma descendente\" ariaLabelAsc=\"Activar para ordenar en forma ascendente\"></p-sortIcon>\n                              </th>\n                              \n                          </tr>\n                          <tr>\n                          <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\" >\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'boton1'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">   \n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'agenda_dia_horario_atencion_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                 \n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'operacion_cobro_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_apellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                               \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_dni'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'telefono_cel'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'hora_desde'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'estado'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'nombreyapellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'dia_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                             \n                              <input class=\"form-control form-control-sm col-md-12\"  *ngSwitchCase=\"'llegada'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'atendido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'boton2'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">   \n                          </th>\n                          \n                      </tr>\n                  </ng-template>\n              \n              <ng-template pTemplate=\"body\" let-agendaTurno> \n                   \n              <tr style=\"height:20px\" [ngClass]=\"colorRow(agendaTurno.estado)\" >\n                      <td style=\"width: 4%\">                       \n                             <a   (click)=\"accion($event,op,agendaTurno)\"   ><i class=\"far fa-edit fa-2x icon-color-purple my-hover\" ></i></a>            \n                      </td>\n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 5%\">{{agendaTurno.agenda_dia_horario_atencion_id}}</td>  \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 5%\"><a class=\"my-hover\" (click)=\"verDetalle(agendaTurno)\">{{agendaTurno.operacion_cobro_id}}</a></td>   \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_apellido}}</td>                          \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_nombre}}</td>\n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_dni}}</td>                                    \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_obra_social_nombre}}</td>  \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.telefono_cel}}</td>                          \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 10%\">{{agendaTurno.hora_desde}}</td>                           \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.estado}}</td>  \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 15%\">{{agendaTurno.nombreyapellido}}</td>  \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 6%\">{{agendaTurno.dia_nombre}}</td> \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\" >{{agendaTurno.presente | date: 'HH:mm:ss'}}</td>   \n                      <td style=\"width: 4%\" >\n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-astronaut fa-2x icon-color-orange-light\" *ngIf=\"agendaTurno.es_observacion === 'CONTROL PREQUIRURGICO'\"  ></i></a>\n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-md fa-2x icon-color-blue\" *ngIf=\"agendaTurno.es_observacion === 'CONTROL POSQUIRURGICO'\"  ></i></a>\n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer far fa-bell fa-2x icon-color-green\" *ngIf=\"agendaTurno.es_observacion === 'ESTUDIOS'\"  ></i></a>\n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-first-aid fa-2x icon-color-green \" *ngIf=\"agendaTurno.es_observacion === 'ASESORAMIENTO QUIRURGICO'\"  ></i></a> \n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-exclamation-circle fa-2x icon-color-red\" *ngIf=\"agendaTurno.es_observacion === 'ADVERTENCIA'\"  ></i></a>\n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-plus fa-2x icon-color-red-light \" *ngIf=\"agendaTurno.es_observacion === 'PACIENTE NUEVO'\"  ></i></a>\n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fas fa-syringe fa-2x icon-color-purple \" *ngIf=\"agendaTurno.es_observacion === 'ANESTESIA'\"  ></i></a>     \n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer far fa-address-card fa-2x icon-color-green-light\" *ngIf=\"agendaTurno.es_observacion === 'SOLICITUD DE TURNO'\"  ></i></a>                      \n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-procedures fa-2x icon-color-green-light\" *ngIf=\"agendaTurno.es_observacion === 'CIRUGIA'\"  ></i></a>                      \n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-briefcase-medical fa-2x icon-color-blue\" *ngIf=\"agendaTurno.es_observacion === 'CONSULTA'\"  ></i></a>                                            \n                      </td>                                                                   \n                      <td style=\"width: 8%\">\n                          <button  [disabled]=\"agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'ESPERA' ||  agendaTurno.estado == 'CANCELADO' ||  agendaTurno.estado == 'LLAMANDO'\" type=\"button\" class=\"btn btn-outline-warning btn-sm\" (click)=\"pacienteIngresado(agendaTurno)\"    ><i class=\"fas fa-volume-up\"></i></button>\n                      </td>            \n              </tr>\n              </ng-template>\n           \n              </p-table>\n             \n              <p-overlayPanel #op  appendTo=\"body\" [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" [showCloseIcon]=\"true\">                          \n                      <b><label class=\"text-info\"> Paciente</label></b>  \n                      <span>   <a class=\"nav-link azul my-hover\" (click)=\"editarRegistro('observacion')\">  Ver observación</a></span>\n                      <span>   <a class=\"nav-link azul my-hover\" (click)=\"editarRegistro('paciente')\">  Ver / editar paciente</a></span>\n                      <hr>\n                      <b><label class=\"text-info\"> Acciones</label></b>                           \n                      <span>   <a class=\"nav-link azul es-llamando my-hover\" (click)=\"editarRegistro('llamando')\"> <i class=\"fas fa-volume-up\"> </i> Llamar</a></span>\n                      <span>   <a class=\"nav-link azul es-llamando my-hover\" (click)=\"editarRegistro('rellamar')\"> <i class=\"fas fa-volume-up\"> </i> Volver a llamar</a></span>                               \n                      <span>   <a class=\"nav-link azul es-presente my-hover\" (click)=\"editarRegistro('presente')\">  Presente</a></span>\n                      <span>   <b><a class=\"nav-link azul es-espera my-hover \" (click)=\"editarRegistro('espera')\">  Espera</a></b></span>   \n                      <hr>\n                      <span>   <a class=\"nav-link azul text-danger my-hover \" (click)=\"editarRegistro('ausente')\">  Ausente</a></span>    \n                      <span>   <a class=\"nav-link azul text-danger my-hover \" (click)=\"editarRegistro('cancelado')\">  Cancelar</a></span>  \n                      \n                      <hr>\n\n                      <span>   <a class=\" text-info nav-link azul my-hover\" (click)=\"editarRegistro('operacioncobro')\">  Operacion de cobro</a></span>\n              </p-overlayPanel>  \n      \n      </div>\n    \n\n       \n  </div>\n</div>\n\n<p-dialog header=\"Observación\" class=\"text-secondary\" [(visible)]=\"display\" class=\"p-2\" [baseZIndex]=\"10000\" [responsive]=\"true\"> \n  <label>MOTIVO :  {{motivo}}</label>        \n  <textarea [rows]=\"5\" [cols]=\"30\" pInputTextarea class=\"form-control form-control-sm col-md-12\"[(ngModel)]=\"observacion\"></textarea>   \n \n  </p-dialog>\n\n\n  "
+module.exports = "\n<div >\n  <app-loading *ngIf=\"loading\"> </app-loading> \n <!-- <button  *ngIf=\"loading\"   class=\"btn btn-lg btn-success btn-sm float-right mr-2\" (click)=\"loadTurnoTodos()\" >Actualizar</button>-->\n</div>\n\n<div>\n  <div >\n     \n  <div class=\" d-flex justify-content-sm-start\" >\n          <div  class=\"input-group input-group-sm \">\n                  <form  [formGroup]=\"DateForm\">\n                  <div class=\"btn-group\" role=\"group\">\n              <p-calendar class=\"mr-2 \"formControlName=\"fechaHoy\" [monthNavigator]=\"true\"   (onSelect)=\"actualizarFecha($event)\" tabindex=\"0\" [disabledDates]=\"invalidDates\" [dataType]=\"yy-mm-dd\" [locale]=\"es\" dateFormat=\"dd/mm/yy\"   [readonlyInput]=\"true\">\n                 <ng-template pTemplate=\"date\" let-date>\n                      <span  [ngClass]=\"colorRow(date)\"  style=\"border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;\">{{date.day}}</span>\n                  </ng-template> \n                </p-calendar>\n              \n\n          </div>\n                  </form>   \n                  <div class=\"row pl-4 pr-4 \">\n                          <div class=\"d-flex justify-content-sm-end\">\n                                  <div  class=\"btn-group btn-sm \" role=\"group\" aria-label=\"First group\">                                                     \n                                     <button    class=\"btn  btn-danger btn-sm  float-right mr-2\" (click)=\"darSobreTurno()\" >Dar sobre turno</button>                                     \n                                     <button    class=\"btn  btn-success btn-sm float-right \"  (click)=\"loadTurno()\" >Buscar turnos</button>\n                                  </div>\n                          </div>    \n                  </div>     \n          </div>\n      </div>\n     \n    \n   \n  <div>\n     \n      <div >\n          <hr>\n            \n\n          <p-table  #dt class=\"pt-2\"  tableStyleClass=\"prime-table\" selectionMode=\"single\" [columns]=\"cols\"  [value]=\"agendaTurno\" [(selection)]=\"selecteditems\"   columnResizeMode=\"expand\" [responsive]=\"true\"\n          scrollHeight=\"500px\" [scrollable]=\"true\" (onFilter)=\"filtered($event)\">\n         \n\n             <ng-template pTemplate=\"header\" let-columns #mipoprow>\n            \n                        <tr >\n                             \n                          <th  *ngFor=\"let col of columns\" [pSortableColumn]=\"col.field\"  [ngStyle]=\"{'width': col.width}\">\n                                  {{col.header}}\n                                  <p-sortIcon [field]=\"col.field\" ariaLabel=\"Activate to sort\" ariaLabelDesc=\"Activar para ordenar en forma descendente\" ariaLabelAsc=\"Activar para ordenar en forma ascendente\"></p-sortIcon>\n                              </th>\n                              \n                          </tr>\n                          <tr>\n                          <th *ngFor=\"let col of columns\" [ngSwitch]=\"col.field\" >\n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'boton1'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">   \n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'agenda_dia_horario_atencion_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                 \n                                <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'operacion_cobro_id'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_apellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                               \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_dni'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'paciente_obra_social_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'telefono_cel'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'hora_desde'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'estado'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'nombreyapellido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'dia_nombre'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">                                             \n                              <input class=\"form-control form-control-sm col-md-12\"  *ngSwitchCase=\"'llegada'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'atendido'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">             \n                              \n                              <input class=\"form-control form-control-sm col-md-12\" *ngSwitchCase=\"'boton2'\" pInputText type=\"text\" (input)=\"dt.filter($event.target.value, col.field, col.filterMatchMode)\">   \n                          </th>\n                          \n                      </tr>\n                  </ng-template>\n              \n              <ng-template pTemplate=\"body\" let-agendaTurno> \n                   \n              <tr style=\"height:20px\" [ngClass]=\"colorRow(agendaTurno.estado)\" >\n                      <td style=\"width: 4%\">                       \n                             <a   (click)=\"accion($event,op,agendaTurno)\"   ><i class=\"far fa-edit fa-2x icon-color-purple my-hover\" ></i></a>            \n                      </td>\n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 5%\">{{agendaTurno.agenda_dia_horario_atencion_id}}</td>  \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 5%\"><a class=\"my-hover\" (click)=\"verDetalle(agendaTurno)\">{{agendaTurno.operacion_cobro_id}}</a></td>   \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_apellido}}</td>                          \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_nombre}}</td>\n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_dni}}</td>                                    \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.paciente_obra_social_nombre}}</td>  \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.telefono_cel}}</td>                          \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 10%\">{{agendaTurno.hora_desde}}</td>                           \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\">{{agendaTurno.estado}}</td>  \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 15%\">{{agendaTurno.nombreyapellido}}</td>  \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 6%\">{{agendaTurno.dia_nombre}}</td> \n                      <td [ngClass]=\"colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)\" style=\"width: 8%\" >{{agendaTurno.presente | date: 'HH:mm:ss'}}</td>   \n                      <td style=\"width: 4%\" >\n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-astronaut fa-2x icon-color-orange-light\" *ngIf=\"agendaTurno.es_observacion === 'CONTROL PREQUIRURGICO'\"  ></i></a>\n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-md fa-2x icon-color-blue\" *ngIf=\"agendaTurno.es_observacion === 'CONTROL POSQUIRURGICO'\"  ></i></a>\n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer far fa-bell fa-2x icon-color-green\" *ngIf=\"agendaTurno.es_observacion === 'ESTUDIOS'\"  ></i></a>\n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-first-aid fa-2x icon-color-green \" *ngIf=\"agendaTurno.es_observacion === 'ASESORAMIENTO QUIRURGICO'\"  ></i></a> \n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-exclamation-circle fa-2x icon-color-red\" *ngIf=\"agendaTurno.es_observacion === 'ADVERTENCIA'\"  ></i></a>\n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-user-plus fa-2x icon-color-red-light \" *ngIf=\"agendaTurno.es_observacion === 'PACIENTE NUEVO'\"  ></i></a>\n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fas fa-syringe fa-2x icon-color-purple \" *ngIf=\"agendaTurno.es_observacion === 'ANESTESIA'\"  ></i></a>     \n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer far fa-address-card fa-2x icon-color-green-light\" *ngIf=\"agendaTurno.es_observacion === 'SOLICITUD DE TURNO'\"  ></i></a>                      \n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-procedures fa-2x icon-color-green-light\" *ngIf=\"agendaTurno.es_observacion === 'CIRUGIA'\"  ></i></a>                      \n                        <a   (click)=\"verMotivo($event,op,agendaTurno)\"   >    <i class=\"pointer fas fa-briefcase-medical fa-2x icon-color-blue\" *ngIf=\"agendaTurno.es_observacion === 'CONSULTA'\"  ></i></a>                                            \n                      </td>                                                                   \n                      <td style=\"width: 8%\">\n                          <button  [disabled]=\"agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'ESPERA' ||  agendaTurno.estado == 'CANCELADO' ||  agendaTurno.estado == 'LLAMANDO'\" type=\"button\" class=\"btn btn-outline-warning btn-sm\" (click)=\"pacienteIngresado(agendaTurno)\"    ><i class=\"fas fa-volume-up\"></i></button>\n                      </td>            \n              </tr>\n              </ng-template>\n           \n              </p-table>\n             \n              <p-overlayPanel #op  appendTo=\"body\" [showTransitionOptions]=\"'400ms'\" [hideTransitionOptions]=\"'300ms'\"  [dismissable]=\"true\" [showCloseIcon]=\"true\">                          \n                      <b><label class=\"text-info\"> Paciente</label></b>  \n                      <span>   <a class=\"nav-link azul my-hover\" (click)=\"editarRegistro('observacion')\">  Ver observación</a></span>\n                      <span>   <a class=\"nav-link azul my-hover\" (click)=\"editarRegistro('paciente')\">  Ver / editar paciente</a></span>\n                      <hr>\n                      <b><label class=\"text-info\"> Acciones</label></b>                           \n                      <span>   <a class=\"nav-link azul es-llamando my-hover\" (click)=\"editarRegistro('llamando')\"> <i class=\"fas fa-volume-up\"> </i> Llamar</a></span>\n                      <span>   <a class=\"nav-link azul es-llamando my-hover\" (click)=\"editarRegistro('rellamar')\"> <i class=\"fas fa-volume-up\"> </i> Volver a llamar</a></span>                               \n                      <span>   <a class=\"nav-link azul es-presente my-hover\" (click)=\"editarRegistro('presente')\">  Presente</a></span>\n                      <span>   <b><a class=\"nav-link azul es-espera my-hover \" (click)=\"editarRegistro('espera')\">  Espera</a></b></span>   \n                      <hr>\n                      <span>   <a class=\"nav-link azul text-danger my-hover \" (click)=\"editarRegistro('ausente')\">  Ausente</a></span>    \n                      <span>   <a class=\"nav-link azul text-danger my-hover \" (click)=\"editarRegistro('cancelado')\">  Cancelar</a></span>  \n                      \n                      <hr>\n\n                      <span>   <a class=\" text-info nav-link azul my-hover\" (click)=\"editarRegistro('operacioncobro')\">  Operacion de cobro</a></span>\n              </p-overlayPanel>  \n      \n      </div>\n    \n\n       \n  </div>\n</div>\n\n<p-dialog header=\"Observación\" class=\"text-secondary\" [(visible)]=\"display\" class=\"p-2\" [baseZIndex]=\"10000\" [responsive]=\"true\"> \n  <label>MOTIVO :  {{motivo}}</label>        \n  <textarea [rows]=\"5\" [cols]=\"30\" pInputTextarea class=\"form-control form-control-sm col-md-12\"[(ngModel)]=\"observacion\"></textarea>   \n \n  </p-dialog>\n\n\n  "
 
 /***/ }),
 
@@ -37148,17 +38870,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
-/* harmony import */ var _popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component */ "./src/app/shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component.ts");
-/* harmony import */ var _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../../../../models/liquidacion.model */ "./src/app/models/liquidacion.model.ts");
-/* harmony import */ var _services_document_service_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../../../../services/document-service.service */ "./src/app/services/document-service.service.ts");
-/* harmony import */ var _popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./../popup-paciente-consulta/popup-paciente-consulta.component */ "./src/app/shared/components/popups/popup-paciente-consulta/popup-paciente-consulta.component.ts");
-/* harmony import */ var _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./../../../../models/agenda-turno.model */ "./src/app/models/agenda-turno.model.ts");
-/* harmony import */ var _models_paciente_model__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./../../../../models/paciente.model */ "./src/app/models/paciente.model.ts");
-/* harmony import */ var _popup_paciente_obrasocial_popup_paciente_obrasocial_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./../popup-paciente-obrasocial/popup-paciente-obrasocial.component */ "./src/app/shared/components/popups/popup-paciente-obrasocial/popup-paciente-obrasocial.component.ts");
-/* harmony import */ var _services_agenda_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./../../../../services/agenda.service */ "./src/app/services/agenda.service.ts");
-/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./../../../../config/config */ "./src/app/config/config.ts");
+/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
+/* harmony import */ var _popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component */ "./src/app/shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component.ts");
+/* harmony import */ var _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../../../models/liquidacion.model */ "./src/app/models/liquidacion.model.ts");
+/* harmony import */ var _services_document_service_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../../../../services/document-service.service */ "./src/app/services/document-service.service.ts");
+/* harmony import */ var _popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../popup-paciente-consulta/popup-paciente-consulta.component */ "./src/app/shared/components/popups/popup-paciente-consulta/popup-paciente-consulta.component.ts");
+/* harmony import */ var _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./../../../../models/agenda-turno.model */ "./src/app/models/agenda-turno.model.ts");
+/* harmony import */ var _models_paciente_model__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./../../../../models/paciente.model */ "./src/app/models/paciente.model.ts");
+/* harmony import */ var _popup_paciente_obrasocial_popup_paciente_obrasocial_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./../popup-paciente-obrasocial/popup-paciente-obrasocial.component */ "./src/app/shared/components/popups/popup-paciente-obrasocial/popup-paciente-obrasocial.component.ts");
+/* harmony import */ var _services_agenda_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./../../../../services/agenda.service */ "./src/app/services/agenda.service.ts");
+/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./../../../../config/config */ "./src/app/config/config.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -37211,7 +38932,6 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 var jsPDF = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.min.js");
 __webpack_require__(/*! jspdf-autotable */ "./node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.js");
-
 
 
 
@@ -37281,14 +39001,14 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
             'fechaHoy': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required),
             'medico_nombre': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('')
         });
-        this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_12__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '');
+        this.popItemAgenda = new _models_agenda_turno_model__WEBPACK_IMPORTED_MODULE_11__["AgendaTurno"]('', new Date(), new Date(), new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '', '', '', '', '');
     }
     PopupPacienteEsperaComponent.prototype.ngOnInit = function () {
         var _this = this;
         console.log(this.config.data);
         this.userData = JSON.parse(localStorage.getItem('userData'));
-        this.popItemPaciente = new _models_paciente_model__WEBPACK_IMPORTED_MODULE_13__["Paciente"]('0', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '0', '0', '', '', '0', '', '', '', '', '', '');
-        this.es = _config_config__WEBPACK_IMPORTED_MODULE_16__["calendarioIdioma"];
+        this.popItemPaciente = new _models_paciente_model__WEBPACK_IMPORTED_MODULE_12__["Paciente"]('0', '', '', '', '', '', new Date(), '', '', '', '', '', '', '', '', '0', '0', '', '', '0', '', '', '', '', '', '');
+        this.es = _config_config__WEBPACK_IMPORTED_MODULE_15__["calendarioIdioma"];
         this.fechaHoy = new Date();
         this.fecha = new Date();
         this.pacienteForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
@@ -37297,17 +39017,8 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
             'dni': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required),
         });
         this.DateForm.patchValue({ fechaHoy: this.fechaHoy });
-        this.documents = this.documentService.documents;
-        this._docSub = this.documentService.currentDocument.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["startWith"])({ id: 'VISION123456787890', doc: '', usuario_id: '', data: [] })).subscribe(function (document) {
-            _this.document = document;
-            console.log(_this.document);
-            if ((document.doc === 'llamando')) {
-                //  this.loadList();
-            }
-        });
-        this.newDoc();
         this.loadList();
-        var timer = rxjs_Rx__WEBPACK_IMPORTED_MODULE_7__["Observable"].timer(180000, 180000); //180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
+        var timer = rxjs_Rx__WEBPACK_IMPORTED_MODULE_6__["Observable"].timer(180000, 180000); //180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
         timer.subscribe(function (t) {
             console.log('bucando turnos');
             _this.loadList();
@@ -37319,21 +39030,6 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
         this.ref.close();
     };
     PopupPacienteEsperaComponent.prototype.ngOnDestroy = function () {
-        this._docSub.unsubscribe();
-    };
-    PopupPacienteEsperaComponent.prototype.loadDoc = function (id) {
-        if (this.document.doc) {
-            console.log('load doc ' + this.document.doc);
-            this.documentService.getDocument(id);
-        }
-    };
-    PopupPacienteEsperaComponent.prototype.newDoc = function () {
-        this.documentService.newDocument();
-    };
-    PopupPacienteEsperaComponent.prototype.editDoc = function () {
-        console.log('edit doc ' + this.document.doc);
-        //if()
-        this.documentService.editDocument(this.document);
     };
     PopupPacienteEsperaComponent.prototype.actualizarFecha = function (event) {
         console.log(event);
@@ -37349,14 +39045,39 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
     PopupPacienteEsperaComponent.prototype.loadTurnoTodos = function () {
         this.loadList();
     };
+    PopupPacienteEsperaComponent.prototype.ActualizarTurnoLlamando = function () {
+        var _this = this;
+        try {
+            this.miServico.ActualizarTurnoLlamando(this.popItemAgenda.paciente_id, this.popItemAgenda.usuario_id, this.userData['puesto'])
+                .subscribe(function (resp) {
+                _this.loading = false;
+                _this.documentService.sendMessage('llamando-pantalla');
+                _this.actualizarTurno();
+            }, function (error) {
+                console.log(error.message);
+                console.log(error.status);
+                console.log(error);
+                sweetalert2__WEBPACK_IMPORTED_MODULE_4___default()({
+                    toast: false,
+                    type: 'warning',
+                    title: error.status,
+                    text: error.message,
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            });
+        }
+        catch (error) {
+        }
+    };
     PopupPacienteEsperaComponent.prototype.pacienteIngresado = function (event) {
-        // console.log(event);
         this.popItemAgenda = event;
         this.popItemAgenda.agenda_estado_id = '9';
-        //this.popItemAgenda.puesto_estado = 'LLAMANDO' ;
-        //this.popItemAgenda.puesto_llamado = this.userData['puesto'];
-        console.log(this.popItemAgenda);
-        this.actualizarTurno();
+        this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+        this.popItemAgenda.puesto_estado = 'LLAMANDO';
+        this.popItemAgenda.llamando = this._fechaHoy;
+        console.log(event);
+        this.ActualizarTurnoLlamando();
     };
     PopupPacienteEsperaComponent.prototype.pacienteAtendido = function (event) {
         console.log(event);
@@ -37370,7 +39091,7 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
     };
     PopupPacienteEsperaComponent.prototype.buscarPaciente = function () {
         var data;
-        var ref = this.dialogService.open(_popup_paciente_obrasocial_popup_paciente_obrasocial_component__WEBPACK_IMPORTED_MODULE_14__["PopupPacienteObrasocialComponent"], {
+        var ref = this.dialogService.open(_popup_paciente_obrasocial_popup_paciente_obrasocial_component__WEBPACK_IMPORTED_MODULE_13__["PopupPacienteObrasocialComponent"], {
             data: data,
             header: 'Buscar paciente',
             width: '98%',
@@ -37385,14 +39106,14 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
         var _this = this;
         var data;
         data = this.popItemAgenda;
-        var ref = this.dialogService.open(_popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_11__["PopupPacienteConsultaComponent"], {
+        var ref = this.dialogService.open(_popup_paciente_consulta_popup_paciente_consulta_component__WEBPACK_IMPORTED_MODULE_10__["PopupPacienteConsultaComponent"], {
             data: data,
             header: 'Consultar paciente',
             width: '98%',
             height: '90%'
         });
         ref.onClose.subscribe(function (PopupPacienteConsultaComponent) {
-            if (_popup_paciente_obrasocial_popup_paciente_obrasocial_component__WEBPACK_IMPORTED_MODULE_14__["PopupPacienteObrasocialComponent"]) {
+            if (_popup_paciente_obrasocial_popup_paciente_obrasocial_component__WEBPACK_IMPORTED_MODULE_13__["PopupPacienteObrasocialComponent"]) {
                 _this.loadList();
             }
         });
@@ -37476,7 +39197,7 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
     };
     PopupPacienteEsperaComponent.prototype.loadList = function () {
         var _this = this;
-        this.es = _config_config__WEBPACK_IMPORTED_MODULE_16__["calendarioIdioma"];
+        this.es = _config_config__WEBPACK_IMPORTED_MODULE_15__["calendarioIdioma"];
         this.loading = true;
         this._fechaHoy = Object(_angular_common__WEBPACK_IMPORTED_MODULE_1__["formatDate"])(this.fechaHoy, 'yyyy-MM-dd', 'en');
         // console.log(this.popItemAgenda);
@@ -37500,8 +39221,6 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
                     else {
                         _this.agendaTurno = null;
                     }
-                    //this.newDoc();
-                    //  this.loadDoc('llamando');
                     _this.loading = false;
                 }, function (error) {
                     console.log(error.message);
@@ -37520,7 +39239,7 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
     };
     PopupPacienteEsperaComponent.prototype.loadListByMedico = function () {
         var _this = this;
-        this.es = _config_config__WEBPACK_IMPORTED_MODULE_16__["calendarioIdioma"];
+        this.es = _config_config__WEBPACK_IMPORTED_MODULE_15__["calendarioIdioma"];
         this.loading = true;
         this._fechaHoy = Object(_angular_common__WEBPACK_IMPORTED_MODULE_1__["formatDate"])(this.fechaHoy, 'yyyy-MM-dd', 'en');
         console.log(this.popItemAgenda);
@@ -37558,7 +39277,7 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
     };
     PopupPacienteEsperaComponent.prototype.actualizarTurno = function () {
         var _this = this;
-        this.es = _config_config__WEBPACK_IMPORTED_MODULE_16__["calendarioIdioma"];
+        this.es = _config_config__WEBPACK_IMPORTED_MODULE_15__["calendarioIdioma"];
         this.loading = true;
         console.log(this.popItemAgenda);
         try {
@@ -37567,10 +39286,6 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
                 // this.agendaTurno = resp;
                 console.log(resp);
                 _this.loading = false;
-                _this.document.doc = 'llamando';
-                _this.document.usuario_id = _this.popItemAgenda.usuario_id;
-                console.log(_this.document.doc);
-                _this.editDoc();
                 _this.loadList();
             }, function (error) {
                 console.log(error.message);
@@ -37601,10 +39316,10 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
     PopupPacienteEsperaComponent.prototype.verDetalle = function (agendaTurno) {
         console.log(agendaTurno);
         var liquidacion;
-        liquidacion = new _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_9__["Liquidacion"](agendaTurno['operacion_cobro_id'], '', '', '', '', '', '', 0, 0, '', '', [], '', '', '');
+        liquidacion = new _models_liquidacion_model__WEBPACK_IMPORTED_MODULE_8__["Liquidacion"](agendaTurno['operacion_cobro_id'], '', '', '', '', '', '', 0, 0, '', '', [], '', '', '');
         var data;
         data = liquidacion;
-        var ref = this.dialogService.open(_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_8__["PopupOperacionCobroDetalleComponent"], {
+        var ref = this.dialogService.open(_popup_operacion_cobro_detalle_popup_operacion_cobro_detalle_component__WEBPACK_IMPORTED_MODULE_7__["PopupOperacionCobroDetalleComponent"], {
             data: data,
             header: 'Ver detalle de presentación',
             width: '98%',
@@ -37627,7 +39342,7 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
         /** valores de la pagina**/
         var pageSize = doc.internal.pageSize;
         var pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
-        doc.addImage(_config_config__WEBPACK_IMPORTED_MODULE_16__["logo_clinica"], 'PNG', 10, 10, 40, 11);
+        doc.addImage(_config_config__WEBPACK_IMPORTED_MODULE_15__["logo_clinica"], 'PNG', 10, 10, 40, 11);
         doc.setLineWidth(0.4);
         doc.line(10, 30, pageWidth - 10, 30);
         doc.setFontSize(12);
@@ -37723,7 +39438,7 @@ var PopupPacienteEsperaComponent = /** @class */ (function () {
             providers: [primeng_api__WEBPACK_IMPORTED_MODULE_0__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_0__["DialogService"], _angular_common__WEBPACK_IMPORTED_MODULE_1__["DatePipe"]],
             styles: [__webpack_require__(/*! ./popup-paciente-espera.component.css */ "./src/app/shared/components/popups/popup-paciente-espera/popup-paciente-espera.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_document_service_service__WEBPACK_IMPORTED_MODULE_10__["DocumentService"], _services_agenda_service__WEBPACK_IMPORTED_MODULE_15__["AgendaService"], primeng_api__WEBPACK_IMPORTED_MODULE_0__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_0__["DynamicDialogConfig"],
+        __metadata("design:paramtypes", [_services_document_service_service__WEBPACK_IMPORTED_MODULE_9__["DocumentService"], _services_agenda_service__WEBPACK_IMPORTED_MODULE_14__["AgendaService"], primeng_api__WEBPACK_IMPORTED_MODULE_0__["MessageService"], primeng_api__WEBPACK_IMPORTED_MODULE_0__["DynamicDialogConfig"],
             primeng_api__WEBPACK_IMPORTED_MODULE_0__["DialogService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"], primeng_api__WEBPACK_IMPORTED_MODULE_0__["DynamicDialogRef"]])
     ], PopupPacienteEsperaComponent);
     return PopupPacienteEsperaComponent;
@@ -39030,7 +40745,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! c:\proyectos\vision-frontend\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\proyectos\vision-frontend\src\main.ts */"./src/main.ts");
 
 
 /***/ }),

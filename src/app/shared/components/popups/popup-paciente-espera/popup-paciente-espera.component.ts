@@ -147,19 +147,6 @@ ngOnInit() {
 this.DateForm.patchValue({fechaHoy: this.fechaHoy});
 
 
-
- 
-this.documents = this.documentService.documents;
-this._docSub = this.documentService.currentDocument.pipe(
-  startWith({ id: 'VISION123456787890', doc: '',usuario_id: '', data: []})
-).subscribe(document => {
-  this.document = document;
-  console.log(this.document);
-  if((document.doc === 'llamando')){
-  //  this.loadList();
-    }
-});
-this.newDoc();
 this.loadList();
 
 let timer = Observable.timer(180000,180000);//180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
@@ -177,25 +164,11 @@ darTurno(){
 }
 
 ngOnDestroy() {
-  this._docSub.unsubscribe();
+
 }
 
-loadDoc(id: string) {
-  if(this.document.doc){
-  console.log('load doc '+this.document.doc);
-  this.documentService.getDocument(id);
-  }
-}
 
-newDoc() {
-  this.documentService.newDocument();
-}
 
-editDoc() {
-  console.log('edit doc '+this.document.doc);
-  //if()
-  this.documentService.editDocument(this.document);
-}
 
 actualizarFecha(event){
   console.log(event);
@@ -217,16 +190,46 @@ loadTurnoTodos(){
 
 
 
+ActualizarTurnoLlamando(){
+
+  try {
+    this.miServico.ActualizarTurnoLlamando(this.popItemAgenda.paciente_id,this.popItemAgenda.usuario_id, this.userData['puesto'])
+    .subscribe(resp => {   
+ 
+        this.loading = false;
+        this.documentService.sendMessage('llamando-pantalla');
+        this.actualizarTurno();
+
+
+    },
+    error => { // error path
+        console.log(error.message);
+        console.log(error.status);
+        console.log(error);
+        swal({
+          toast: false,
+          type: 'warning',
+          title: error.status,
+          text: error.message,
+          showConfirmButton: false,
+          timer: 2000
+        });
+     });    
+} catch (error) {
+
+}  
+}
 
 
 pacienteIngresado(event:AgendaTurno){
- // console.log(event);
   this.popItemAgenda = event;
   this.popItemAgenda.agenda_estado_id = '9';
-  //this.popItemAgenda.puesto_estado = 'LLAMANDO' ;
-  //this.popItemAgenda.puesto_llamado = this.userData['puesto'];
-  console.log(this.popItemAgenda);
-  this.actualizarTurno();
+      this.popItemAgenda.puesto_llamado = this.userData['puesto'];
+      this.popItemAgenda.puesto_estado = 'LLAMANDO';
+      this.popItemAgenda.llamando = this._fechaHoy;
+      console.log(event)      ;
+  this.ActualizarTurnoLlamando();
+  
 }
 
 pacienteAtendido(event:AgendaTurno){
@@ -399,9 +402,7 @@ if(this._fechaHoy!=''){
             }else{
               this.agendaTurno =null;
             }
-            //this.newDoc();
-          //  this.loadDoc('llamando');
-      
+
           this.loading = false;
       },
       error => { // error path
@@ -477,11 +478,8 @@ try {
    // this.agendaTurno = resp;
         console.log(resp);    
         this.loading = false;
-        
-      this.document.doc = 'llamando';
-      this.document.usuario_id = this.popItemAgenda.usuario_id;
-      console.log(this.document.doc);
-        this.editDoc();
+     
+    
         this.loadList(); 
     },
     error => { // error path

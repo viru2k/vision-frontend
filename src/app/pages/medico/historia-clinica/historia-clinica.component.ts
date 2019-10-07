@@ -80,6 +80,8 @@ export class HistoriaClinicaComponent implements OnInit {
     
     this.listarecetas = [
       {label:'TEXTO', value:{id:1, name: 'TEXTO', code: 'TEXTO'}},
+      {label:'TEXTO CON DIAGNOSTICO', value:{id:1, name: 'TEXTO CON DIAGNOSTICO', code: 'TEXTO CON DIAGNOSTICO'}},
+      {label:'RECETA', value:{id:1, name: 'RECETA', code: 'RECETA'}},
       {label:'RG', value:{id:2, name: 'RG', code: 'RG'}},
       {label:'RFG', value:{id:3, name: 'RFG', code: 'RFG'}},
       {label:'CVC', value:{id:4, name: 'CVC', code: 'CVC'}},
@@ -91,10 +93,7 @@ export class HistoriaClinicaComponent implements OnInit {
       {label:'VERION', value:{id:10, name: 'VERION', code: 'VERION'}},
       {label:'YAG LASER', value:{id:10, name: 'VERION', code: 'YAG LASER'}},
       {label:'LASER ARGON', value:{id:10, name: 'VERION', code: 'LASER ARGON'}},
-      
-      
-      
-     
+
   ];
 
   this.listaindicacionesmedicas = [
@@ -556,10 +555,15 @@ imprimirRecetaEscrita(){
 let x:number = 20;
 let y:number = 40;
 let haytexto:boolean= false;
+let haytextoDiagnostico:boolean= false;
 
   doc.setFontSize(8);
   
-
+          /****
+           * 
+           * *ENCABEZADO 
+           * 
+           * */
   doc.text('Nombre: '+this.formPaciente.value.paciente_nombre+'      DNI: '+this.formPaciente.value.dni, 10 +x, 5+y);  
   doc.text('Domicilio: '+this.formPaciente.value.domicilio, 10 +x, 10+y);  
   doc.text('Obra social: '+this.formPaciente.value.obra_social_nombre, 10+x, 15+y);
@@ -579,9 +583,17 @@ let haytexto:boolean= false;
       doc.text('Numero: '+this.formPaciente.value.numero_afiliado+'      Plan: '+this.formPaciente.value.plan, 10+x, 20+y);
     }
   }
+
+  /*****
+   * 
+   *  FIN ENCABEZADO 
+   * 
+   * */
+
+
   let esY:number= 0;
  
-  if(this.selectedReceta["name"] === 'TEXTO'){
+  if((this.selectedReceta[0]["name"] === 'TEXTO') || (this.selectedReceta[0]["name"] === 'TEXTO CON DIAGNOSTICO')){
   
   }else{
     
@@ -591,10 +603,16 @@ let haytexto:boolean= false;
       if(this.selectedReceta[j]["name"] ==='TEXTO'){        
         haytexto = true;
     }
+
+  
     }
 
     if(!haytexto){
+      // SI ESTA MARCADO TEXTO CON DIAGNOSTICO AGREGO DIAGNOSTICO
+      if(this.selectedReceta[0]['name'] !== 'TEXTO CON DIAGNOSTICO'){
+      
       doc.text('Solicito: ', 10 +x, 35+y);  
+      }
     for(let j= 0;j< this.selectedReceta.length;j++){
       doc.text(' - '+this.selectedReceta[j]["name"] , 15 +x, 45+esY+y);   
       esY = esY+5;
@@ -603,6 +621,7 @@ let haytexto:boolean= false;
     console.log(this.selectedReceta);
    
   }
+
  
 
   
@@ -626,8 +645,10 @@ let haytexto:boolean= false;
   var xy_diagnostico = 65;
   if(this.diagnostico_receta != ''){
     var splitTitle_diagnostico = doc.splitTextToSize(this.diagnostico_receta, +60);
+    // SI ES DISTINTO DE TEXTO COMUN NO COLOCO DIAGNOSTICO PRESUNTIVO
+    if(this.selectedReceta[0]['name'] !== 'TEXTO CON DIAGNOSTICO'){
     doc.text('Diagnostico presuntivo :', 10+x, 60+y);   
-    
+    }
   for (var i = 0; i < splitTitle_diagnostico.length; i++) {                
     
     doc.text(10+x, xy_diagnostico+y, splitTitle_diagnostico[i]);

@@ -56,6 +56,7 @@ import { AgendaBloqueoEdicionComponent } from './pages/mantenimiento/agenda/agen
 import { AgendaRecepcionComponent } from './pages/recepcion/agenda/agenda-recepcion/agenda-recepcion.component';
 import { ListadoCirugiaQuirofanoConsultaComponent } from './pages/quirofano/listado-cirugia-quirofano-consulta/listado-cirugia-quirofano-consulta.component';
 import { FacturaElectronicaComponent } from './pages/facturacion/factura/factura-electronica/factura-electronica.component';
+import { GerenciaDetalleOperacionCobroComponent } from './pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component';
 
 export const ROUTES: Routes = [
     /** principal **/
@@ -123,7 +124,7 @@ export const ROUTES: Routes = [
      /** gerencia **/
      { path: 'gerencia/agenda/consulta', component: AgendaConsultaComponent, canActivate: [AuthGuard], data: {role: 'gerencia_control'}  },
      { path: 'gerencia/operacioncobro/consulta', component: OperacionCobroConsultaGerenciaComponent, canActivate: [AuthGuard], data: {role: 'gerencia_control'}  },
-
+     { path: 'gerencia/operacioncobro/detalle', component: GerenciaDetalleOperacionCobroComponent, canActivate: [AuthGuard], data: {role: 'gerencia_control'}  },
      /** quirofano */
      { path: 'medico/cirugia/listado/cirugia', component: ListadoCirugiaEditarComponent, canActivate: [AuthGuard], data: {role: 'quirofano_control'}  },
      { path: 'quirofona/cirugia/listado/cirugia', component: ListadoCirugiaQuirofanoConsultaComponent, canActivate: [AuthGuard], data: {role: 'quirofano_control'}  },

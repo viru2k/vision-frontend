@@ -390,8 +390,7 @@ async editarRegistro(cond:string,selecteditems:AgendaTurno){
               }else{
                 this.agendaTurno =null;
               }
-              //this.newDoc();
-            //  this.loadDoc('llamando');
+  
         
             this.loading = false;
         },

@@ -18,7 +18,28 @@ export class EditObraSocialComponent implements OnInit {
   updateDataForm: FormGroup;
   popItem:ObraSocial = null;
   newItem:boolean;
-  constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig,private messageService: MessageService ,public dialogService: DialogService  ) { }
+  listaCategoriaIva:any[];
+  constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig,private messageService: MessageService ,public dialogService: DialogService  ) {
+
+    this.listaCategoriaIva = [
+      {label:'IVA Responsable Inscripto', value:{id:1, name: 'IVA Responsable Inscripto', code: 'IVA Responsable Inscripto'}},
+      {label:'IVA Responsable no Inscripto', value:{id:2, name: 'IVA Responsable no Inscripto', code: 'IVA Responsable no Inscripto'}},
+      {label:'IVA no Responsable', value:{id:3, name: 'IVA no Responsable', code: 'IVA no Responsable'}},
+      {label:'IVA Sujeto Exento', value:{id:4, name: 'IVA Sujeto Exento', code: 'IVA Sujeto Exento'}},
+      {label:'Consumidor Final', value:{id:5, name: 'Consumidor Final', code: 'Consumidor Final'}},
+      {label:'Responsable Monotributo', value:{id:6, name: 'Responsable Monotributo', code: 'Responsable Monotributo'}},
+      {label:'Sujeto no Categorizado', value:{id:7, name: 'Sujeto no Categorizado', code: 'Sujeto no Categorizado'}},
+      {label:'Proveedor del Exterior', value:{id:8, name: 'Proveedor del Exterior', code: 'Proveedor del Exterior'}},
+      {label:'Cliente del Exterior', value:{id:9, name: 'Cliente del Exterior', code: 'Cliente del Exterior'}},
+      {label:'IVA Liberado – Ley Nº 19.640', value:{id:10, name: 'IVA Liberado – Ley Nº 19.640', code: 'IVA Liberado – Ley Nº 19.640'}},
+      {label:'IVA Responsable Inscripto – Agente de Percepción', value:{id:11, name: 'IVA Responsable Inscripto – Agente de Percepción', code: 'IVA Responsable Inscripto – Agente de Percepción'}},
+      {label:'Pequeño Contribuyente Eventual', value:{id:12, name: 'Pequeño Contribuyente Eventual', code: 'Pequeño Contribuyente Eventual'}},
+      {label:'Monotributista Social', value:{id:13, name: 'Monotributista Social', code: 'Monotributista Social'}},
+      {label:'Pequeño Contribuyente Eventual Social', value:{id:14, name: 'Pequeño Contribuyente Eventual Social', code: 'Pequeño Contribuyente Eventual Social'}},
+
+
+  ];
+   }
 
   ngOnInit() {
  

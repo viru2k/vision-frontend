@@ -15,11 +15,10 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 declare const require: any;
 const jsPDF = require('jspdf');
 require('jspdf-autotable');
-import { Document } from 'src/app/models/document';
+
 import { startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs/Rx';
 import { Subscription } from 'rxjs';
-import { DocumentService } from './../../../../services/document-service.service';
 
 
 //import { ExcelService } from './../../../../services/excel.service';
@@ -66,7 +65,7 @@ export class AgendaConsultaComponent implements OnInit {
   documents: Observable<string[]>;
   currentDoc: string;
   private _docSub: Subscription;
-  document: Document;
+ 
   motivo:string;
 
   fechaDesde:Date;
@@ -74,7 +73,7 @@ export class AgendaConsultaComponent implements OnInit {
   fechaHasta:Date;
   _fechaHasta:string;
 
-  constructor(private liquidacionService:LiquidacionService ,private documentService: DocumentService, private miServico:AgendaService, private messageService: MessageService ,public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router ) {
+  constructor(private liquidacionService:LiquidacionService , private miServico:AgendaService, private messageService: MessageService ,public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router ) {
    
     this.cols = [
         {field: 'operacion_cobro_id', header: 'OC', width: '5%' }, 
@@ -146,40 +145,13 @@ export class AgendaConsultaComponent implements OnInit {
   this.DateForm.patchValue({fechaHoy: this.fechaHoy});
   this.loadListByMedico();
 
-
-  
-  this.documents = this.documentService.documents;
-  this._docSub = this.documentService.currentDocument.pipe(
-    startWith({ id: 'VISION123456787890', doc: '', usuario_id: '', data: []})
-  ).subscribe(document => {
-    this.document = document;
-    console.log(this.document);
-    if(document.doc === 'llamando'){
-    this.loadListByMedico();
-    }
-  });
   }
 
   ngOnDestroy() {
-    this._docSub.unsubscribe();
+   
   }
 
-  loadDoc(id: string) {
-    if(this.document.doc){
-    console.log('load doc '+this.document.doc);
-    this.documentService.getDocument(id);
-    }
-  }
-
-  newDoc() {
-    this.documentService.newDocument();
-  }
-
-  editDoc() {
-    console.log('edit doc '+this.document.doc);
-    //if()
-    this.documentService.editDocument(this.document);
-  }
+  
 
   actualizarFecha(event){
     console.log(event);
@@ -349,8 +321,7 @@ if(this._fechaHoy!=''){
             }else{
               this.agendaTurno =null;
             }
-          this.newDoc();
-          this.loadDoc('llamando');
+  
           this.loading = false;
       },
       error => { // error path
@@ -397,8 +368,7 @@ loadListByDates(){
             }else{
               this.agendaTurno =null;
             }
-          this.newDoc();
-          this.loadDoc('llamando');
+  
           this.loading = false;
       },
       error => { // error path
@@ -431,8 +401,7 @@ if(this._fechaHoy!=''){
             }else{
               this.agendaTurno =null;
             }
-            this.newDoc();
-            this.loadDoc('llamando');
+
       
           this.loading = false;
       },

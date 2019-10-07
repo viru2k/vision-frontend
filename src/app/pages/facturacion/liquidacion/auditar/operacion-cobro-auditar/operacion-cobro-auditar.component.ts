@@ -321,8 +321,8 @@ export class OperacionCobroAuditarComponent implements OnInit {
         console.log(this.elementosFiltrados);
     }*/
     swal({
-        title: '¿Desea afectar estos  registros?',
-        text: 'Va a afectar una liquidacion con fecha desde '+td+' y fecha hasta '+th+' para la obra social '+ this.formObraSocial.value.nombre,
+        title: '¿Desea auditar estos  registros?',
+        text: 'Va a auditar una liquidacion con fecha desde '+td+' y fecha hasta '+th+' para la obra social '+ this.formObraSocial.value.nombre,
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#C5E1A5',

@@ -38,11 +38,14 @@ export class ObraSocialComponent implements OnInit {
   
     this.cols = [
     { field: 'nombre', header: 'Nombre',  width: '20%' },
-        {field: 'descripcion', header: 'Descripcion' ,  width: '30%'},
-        { field: 'es_habilitada', header: 'Habilitada',  width: '10%' },
+        {field: 'descripcion', header: 'Descripcion' ,  width: '10%'},
+        { field: 'es_habilitada', header: 'Habilitada',  width: '8%' },
         { field: 'entidad_nombre', header: 'Entidad factura',  width: '20%' },
-        { field: 'tiene_distribucion', header: 'Distribución',  width: '10%' },
-        { field: 'es_coseguro', header: 'Es coseguro',  width: '10%' },
+        { field: 'cuit', header: 'C.U.I.T',  width: '10%' },
+        { field: 'categoria_iva', header: 'Cat. IVA',  width: '20%' },
+        { field: 'domicilio', header: 'Domicilio',  width: '20%' },
+        { field: 'tiene_distribucion', header: 'Distribución',  width: '8%' },
+        { field: 'es_coseguro', header: 'Es coseguro',  width: '8%' },
      ];
     }
 

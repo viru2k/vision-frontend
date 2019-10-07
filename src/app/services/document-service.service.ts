@@ -12,17 +12,7 @@ export class DocumentService {
 
   constructor(private socket: Socket) { }
 
-  getDocument(id: string) {
-    this.socket.emit('getDoc', this.docId);
-  }
 
-  newDocument() {
-    this.socket.emit('addDoc', { id: this.docId(), doc: '' });
-  }
-
-  editDocument(document: Document) {
-    this.socket.emit('editDoc', document);
-  }
 
   private docId() {
   /*  let text = '';

@@ -1,3 +1,112 @@
-<p>
-  factura-electronica works!
-</p>
+<div class="row ml-5 mr-5 mt-3">
+    <label class=" mr-2 mt-1">Fecha :</label>
+    <p-calendar  [inputStyle]="{'height':'35.1px'}"    class="mr-2 " [(ngModel)]="fecha"  (onSelect)="actualizarFecha($event)" tabindex="0"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+      <ng-template pTemplate="date" let-date>
+           <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
+       </ng-template> 
+     </p-calendar>
+        <div><label class="mr-1">Punto : </label> <p-dropdown class="col-1" [options]="elementosPtoVta" [(ngModel)]="elementoPtoVta" (onHide)="obtenerPuntoVta($event)" optionLabel="punto_vta" placeholder="Pto venta"></p-dropdown></div>
+    
+  <div class="col-7">
+    <div><label class="mr-1">Factura : </label> 
+    <p-dropdown class="mr-3" [options]="elementosComprobante" [(ngModel)]="elementoComprobante" (onHide)="obtenerUltimaFactura($event)" optionLabel="descripcion" placeholder="Factura"></p-dropdown>
+    <p-progressSpinner class="mr-2 mt-2" *ngIf="loadingspinner" [style]="{width: '24px', height: '24px'}" strokeWidth="6" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+    <b><label>Nº : {{pto_vta}} - {{factura_numero_ceros}}</label></b>
+    
+    <p-dropdown class="ml-3" [options]="elementosConcepto" [(ngModel)]="elementoConcepto"  optionLabel="descripcion" placeholder="Concepto"></p-dropdown>
+    
+  </div>
+  </div> 
+</div> 
+
+
+<hr>
+<div class="row ml-5 mr-2 mt-3">
+    <label class=" mr-2 mt-1">Condición IVA :</label>
+  <p-dropdown class="mr-2 "  [options]="elementosCondicionIva" [(ngModel)]="elementoCondicionIva"  optionLabel="categoria_iva" placeholder="Categoria"></p-dropdown>
+  <p-dropdown class="mr-2 "  [options]="elementosDocumento" [(ngModel)]="elementoDocumento"  optionLabel="descripcion" placeholder="Documento"></p-dropdown>
+  <input type="text" class="form-control col-2 form-control-md" [(ngModel)]="nrodocumento">
+  <label class="mr-1 ml-2 mt-1">Cliente :</label> 
+  <input type="text" class="form-control col-4 form-control-md" [(ngModel)]="cliente" placeholder="Cliente">
+</div>
+
+<hr>
+<div class="row ml-5 mr-5 mt-3">
+  <label class=" mr-2 mt-1">Periodo desde :</label>
+  <p-calendar  [inputStyle]="{'height':'35.1px'}"    class="mr-2 " [(ngModel)]="fechaDesde"  (onSelect)="actualizarFechaDesde($event)" tabindex="0"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+    <ng-template pTemplate="date" let-date>
+         <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
+     </ng-template> 
+   
+   </p-calendar>
+   <label class=" mr-2 mt-1">Periodo hasta :</label>
+   <p-calendar  [inputStyle]="{'height':'35.1px'}"    class="mr-2 " [(ngModel)]="fechaHasta"  (onSelect)="actualizarFechaHasta($event)" tabindex="0"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+    <ng-template pTemplate="date" let-date>
+         <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
+     </ng-template> 
+   </p-calendar>
+</div>
+
+
+<div class="row ml-5 mr-5 mt-3">
+<p-table  #dt class="pt-2 "  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  (onEditComplete)="editRow($event)" [(selection)]="selecteditems" columnResizeMode="expand" [responsive]="true"
+scrollHeight="200px" [scrollable]="true"  (onFilter)="filtered($event)"  >
+<ng-template pTemplate="caption">
+  <div class="row">
+          <div class="col-md-12 row" style="text-align:left ">
+            <div class="pr-2 pl-2"  style="text-align:left ">    <button    class="btn  btn-success btn-sm float-right mr-2"  (click)="agregarRenglon()" >Agregar renglon</button>  </div>           
+          </div>
+
+</div>
+</ng-template>
+
+           <ng-template pTemplate="header" let-columns >
+          
+                      <tr >
+                           
+                        <th  *ngFor="let col of columns" [pSortableColumn]="col.field"  [ngStyle]="{'width': col.width}">
+                            {{col.header}}
+                            <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                        </th> 
+                       
+                    </tr> 
+                    <tr>
+                    <th *ngFor="let col of columns" [ngSwitch]="col.field"  >
+                        <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'descripcion'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <input style=" font-size: 12px;"  class="form-control col-md-12 form-control-sm" *ngSwitchCase="'cantidad'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'precio_unitario'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'alicuota_descripcion'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                      
+                        <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'iva'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                      
+                        <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'total_renglon'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                                                    
+                    </th>
+                    <th></th>
+                </tr>
+            </ng-template>
+          
+    <ng-template pTemplate="body" let-elementos  >
+        <tr style="height:20px">
+                <td style="width: 55%">{{elementos.descripcion}}</td>
+                <td style="width: 10%">{{elementos.cantidad}}</td>
+                <td style="width: 10%">{{elementos.precio_unitario}}</td>
+                <td style="font-size: 10px;width: 9%">{{elementos.alicuota_descripcion}}</td>
+                <td style="font-size: 10px;width: 10%">{{elementos.iva}}</td>
+                <td style="font-size: 10px;width: 10%">{{elementos.total_renglon}}</td>
+                <td style="width: 6%" >                   
+            <a   class=" mr-1   my-hover" (click)="eliminarRegistro(elementos)"    ><i class="far fa-trash-alt fa-2x icon-color-red" ></i></a>       
+                </td>
+        </tr> 
+    </ng-template>
+    <ng-template pTemplate="summary">
+           <ul>
+              <div class="row float-right mr-2">
+                  <b><h6 class="pr-2 mt-1">Cantidad  : {{cantidad}}  - </h6></b>
+                  <b><h6 class="text-secondary pr-2 mt-1"> Subtotal : {{subtotal|  number : '1.2-2' }} $ - </h6></b>                  
+                  <b><h6 class="text-info pr-2 mt-1"> Imp. IVA : {{subtotal_iva|  number : '1.2-2' }} $</h6></b>
+                  <h5 class="text-success"> <b>Total : {{total|  number : '1.2-2' }} $ </b></h5>
+              </div>
+            </ul>
+        </ng-template> 
+</p-table>
+<button class="mt-2 btn btn-info btn-block btn-lg" (click)="guardarDatos()"> Guardar factura</button> 
+</div>
+

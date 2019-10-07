@@ -15,7 +15,6 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 declare const require: any;
 const jsPDF = require('jspdf');
 require('jspdf-autotable');
-import { Document } from 'src/app/models/document';
 import { startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs/Rx';
 import { Subscription } from 'rxjs';
@@ -62,7 +61,7 @@ export class AgendaAtencionMedicoComponent implements OnInit {
   documents: Observable<string[]>;
   currentDoc: string;
   private _docSub: Subscription;
-  document: Document;
+
   motivo:string;
   message: string;
 

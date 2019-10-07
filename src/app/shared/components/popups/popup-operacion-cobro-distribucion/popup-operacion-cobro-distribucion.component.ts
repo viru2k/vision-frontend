@@ -35,6 +35,7 @@ import { Liquidacion } from '../../../../models/liquidacion.model';
 import { PopupOperacionCobroPresentacionEditarRegistroComponent } from '../popup-operacion-cobro-presentacion-editar-registro/popup-operacion-cobro-presentacion-editar-registro.component';
 import { PopupMedicoComponent } from './../popup-medico/popup-medico.component';
 import { PopupDetalleOperacionCobroDistribucionComponent } from '../popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-popup-operacion-cobro-distribucion',
@@ -79,7 +80,7 @@ export class PopupOperacionCobroDistribucionComponent implements OnInit {
   DateForm:FormGroup;
   popItemObraSocial:ObraSocial;
   liquidacion:Liquidacion;
-  
+  completado:string = 'NO';
 
     constructor(private miServicio:PracticaService,public config: DynamicDialogConfig, private messageService: MessageService ,public dialogService: DialogService,private cp: CurrencyPipe  ) {
   
@@ -200,6 +201,11 @@ export class PopupOperacionCobroDistribucionComponent implements OnInit {
     for(i=0;i<vals.length;i++){
         this.total_original = this.total_original+ Number(vals[i]['valor_original']);
         this.total_facturado = this.total_facturado+ Number(vals[i]['valor_facturado']);
+        if(vals[i]['es_distribuido'] === 'SI'){
+          this.completado = 'INCOMPLETO';
+        }else{
+          this.completado = 'COMPLETO'
+        }
     }
     this.cantidad_practica = vals.length;
     console.log(this.total_facturado);

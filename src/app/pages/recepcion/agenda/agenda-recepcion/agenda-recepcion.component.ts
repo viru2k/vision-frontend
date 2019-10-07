@@ -20,8 +20,6 @@ declare const require: any;
 const jsPDF = require('jspdf');
 require('jspdf-autotable');
 
-
-import { Document } from 'src/app/models/document';
 import { startWith } from 'rxjs/operators';
 import { DocumentService } from './../../../../services/document-service.service';
 import { Observable } from 'rxjs/Rx';
@@ -74,8 +72,8 @@ export class AgendaRecepcionComponent implements OnInit {
    userData:any;
   documents: Observable<string[]>;
   currentDoc: string;
-  private _docSub: Subscription;
-  document: Document;
+  
+ 
   motivo:string;
   presentes:number = 0;
 
@@ -740,15 +738,9 @@ console.log(this.popItemAgenda);
 try {
     this.miServico.putItem(this.popItemAgenda, this.popItemAgenda.agenda_dia_horario_atencion_id)
     .subscribe(resp => {
-   // this.agendaTurno = resp;
         console.log(resp);    
         this.loading = false;
-        
-     // this.document.doc = 'llamando';
-     // this.document.usuario_id = this.popItemAgenda.usuario_id;
-    //  console.log(this.document.doc);
     this.documentService.sendMessage('llamando-recepcion');    
-       // this.editDoc();
         this.loadList(); 
     },
     error => { // error path
