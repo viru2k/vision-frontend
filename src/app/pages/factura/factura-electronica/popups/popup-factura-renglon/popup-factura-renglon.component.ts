@@ -11,7 +11,8 @@ import { BuscarConceptoFacturaComponent } from '../../../../facturacion/factura-
 @Component({
   selector: 'app-popup-factura-renglon',
   templateUrl: './popup-factura-renglon.component.html',
-  styleUrls: ['./popup-factura-renglon.component.css']
+  styleUrls: ['./popup-factura-renglon.component.css'],
+  providers: [MessageService,DialogService]
 })
 export class PopupFacturaRenglonComponent implements OnInit {
   cols: any[];
@@ -76,7 +77,8 @@ export class PopupFacturaRenglonComponent implements OnInit {
   
     ref.onClose.subscribe((BuscarConceptoFacturaComponent:any) => {
         if (BuscarConceptoFacturaComponent) {
-          console.log(BuscarConceptoFacturaComponent);    
+          console.log(BuscarConceptoFacturaComponent);
+          this.concepto = BuscarConceptoFacturaComponent.descripcion;
         }
     });
   }

@@ -38,7 +38,7 @@ import { OperacionCobroDetalle } from '../../../../../models/operacion-cobro-det
 })
 export class OperacionCobroAfectarComponent implements OnInit {
 
-    
+  total_seleccionado:number=0;
   cantidad_practica:number=0;
   total_facturado:number=0;
   total_original:number=0;
@@ -184,6 +184,7 @@ export class OperacionCobroAfectarComponent implements OnInit {
         console.log(new Date(this.fechaPeriodo));
       }
 
+ 
     /** CARGA LA LISTA **/
 
       editRow(row){
@@ -222,6 +223,24 @@ export class OperacionCobroAfectarComponent implements OnInit {
       } catch (error) {
           this.throwAlert('error','error','Error: '+error.status+'  Error al cargar los registros',error.message);
       }  
+      }
+
+
+      sumarValoresSeleccionados(vals:any){
+        // SUMO LO FILTRADO
+        console.log(vals);
+        this.total_seleccionado = 0;
+        let i:number;
+        let total_facturado = 0;
+        let total_original = 0;
+        let total_categoria = 0;
+        let cantidad_practica = 0;
+    for(i=0;i<vals.length;i++){
+     
+      total_facturado = total_facturado+ Number(vals[i]['valor_facturado']);
+      total_categoria = total_categoria+ Number(vals[i]['categorizacion']);
+  }
+  this.total_seleccionado = total_facturado+ total_categoria;
       }
 
   sumarValores(vals:any){
@@ -545,6 +564,13 @@ for(let i=0;i<this.selecteditems.length;i++){
                  this.liquidacion.obra_social_id =  '';
                  this.liquidacion.total = 0;
                  this.liquidacion.cant_orden = 0;
+                 this.total_seleccionado = 0;
+                 this.selecteditemRegistro = null;
+                 this.selectedItem = null;
+                 this.total_categoria = 0;
+                 this.total_facturado = 0;
+                 this.total_final = 0;
+                 this.total_original = 0;                 
                  this.selecteditems = [];
 
                  const Toast = swal({
@@ -771,8 +797,11 @@ generarPdfListado(filtro:string) {
     {
         margin: {horizontal: 5, vertical: 42},
         bodyStyles: {valign: 'top'},
-        styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify'},
-        columnStyles: {text: {cellWidth: 'auto'}}
+        styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},       
+        columnStyles: {operacion_cobro_id: {columnWidth: 11}, operacion_cobro_numero_bono: {columnWidth: 15}, apellido: {columnWidth: 20},
+        nombre: {columnWidth: 25},  dni: {columnWidth: 15}, obra_social_nombre: {columnWidth: 30},  codigo: {columnWidth: 12},
+        descripcion: {columnWidth: 40}, fecha_cobro: {columnWidth: 20},cantidad: {columnWidth: 10},
+        valor_facturado: {columnWidth: 13},distribucion: {columnWidth: 13},forma_pago: {columnWidth: 23},usuario_cobro_nombre: {columnWidth: 20}}
     });
  // doc.save('rendicion-de-caja'+_fechaEmision+'.pdf');
  window.open(doc.output('bloburl'));  

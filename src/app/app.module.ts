@@ -218,6 +218,7 @@ import { GenerarNotaCreditoComponent } from './pages/facturacion/factura-electro
 import { BuscarClienteFacturaComponent } from './pages/facturacion/factura-electronica/popups/buscar-cliente-factura/buscar-cliente-factura.component';
 import { PopupFacturaRenglonComponent } from './pages/factura/factura-electronica/popups/popup-factura-renglon/popup-factura-renglon.component';
 import { BuscarConceptoFacturaComponent } from './pages/facturacion/factura-electronica/popups/buscar-concepto-factura/buscar-concepto-factura.component';
+import { PopupOperacionCobroDistribucionDetalleComponent } from './shared/components/popups/popup-operacion-cobro-distribucion-detalle/popup-operacion-cobro-distribucion-detalle.component';
 
 
 
@@ -368,6 +369,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     BuscarClienteFacturaComponent,
     PopupFacturaRenglonComponent,
     BuscarConceptoFacturaComponent,
+    PopupOperacionCobroDistribucionDetalleComponent,
     
   ],
   imports: [
@@ -431,7 +433,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupOperacionCobroRegistroBuscarTodosComponent, PopupDetalleOperacionCobroDistribucionComponent, 
     PopupOperacionCobroDistribucionComponent,PopupPacienteEsperaComponent, PopupNotificacionComponent,
     PopupChatComponent ,   PopupListadoUsuarioComponent, PopupNotificacionNuevaComponent,
-    PopupFacturaRenglonComponent,BuscarConceptoFacturaComponent
+    PopupFacturaRenglonComponent,BuscarConceptoFacturaComponent,PopupOperacionCobroDistribucionDetalleComponent
 
   ],
   providers: [CurrencyPipe,DecimalPipe,NumberToWordsPipe,PacienteService,PushNotificationService,ExcelService,{ provide: LOCALE_ID, useValue: 'es-Ar' },

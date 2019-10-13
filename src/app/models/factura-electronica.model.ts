@@ -24,6 +24,7 @@ export class FacturaElectronica {
     facturaElectronicaRenglon: FacturaElectronicaRenglon[];
     cae:string;
     cae_vto:string;
+    medico_id:string;
 
     constructor(  
       id:string,
@@ -44,7 +45,8 @@ export class FacturaElectronica {
       facturaAlicuotaAsociada: FacturaAlicuotaAsociada[],
       facturaElectronicaRenglon: FacturaElectronicaRenglon[],
       cae:string,
-      cae_vto:string
+      cae_vto:string,
+      medico_id:string
           ) {
         
             this.id = id;
@@ -66,5 +68,6 @@ export class FacturaElectronica {
             this.facturaElectronicaRenglon = facturaElectronicaRenglon;
             this.cae = cae;
             this.cae_vto = cae_vto;
+            this.medico_id = medico_id;
     }
 }

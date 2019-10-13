@@ -119,7 +119,7 @@
                               <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
                           </th> 
                           <th style="width: 3em">
-                                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                            <p-tableHeaderCheckbox  (onChange)="sumarValoresSeleccionados(selecteditems)"></p-tableHeaderCheckbox>
                           </th>
                       </tr> 
                       <tr>
@@ -170,26 +170,31 @@
                   <td style="font-size: 10px;width: 8%">{{elementos.usuario_cobro_nombre}}</td> 
                   <td style="width: 8%">{{elementos.fecha_cobro | date: 'dd/MM/yyyy'}}</td>       
                   <td style="width: 6%" [ngClass]="colorRowPago(elementos.forma_pago)">{{elementos.cantidad}}</td>      
-                  <td style="width: 6%" [ngClass]="colorRowPago(elementos.forma_pago)">{{elementos.categorizacion}}</td>                                       
-                  <td style="width: 6%" [ngClass]="colorRowPago(elementos.forma_pago)">{{elementos.valor_facturado}}</td>    
+                  <td style="width: 6%" [ngClass]="colorRowPago(elementos.forma_pago)">{{elementos.categorizacion |number : '1.2-2'}}</td>                                       
+                  <td style="width: 6%" [ngClass]="colorRowPago(elementos.forma_pago)">{{elementos.valor_facturado |number : '1.2-2'}}</td>    
                   <td style="width: 6%" >{{elementos.valor_final}}</td>  
                   <td style="font-size: 10px;width: 10%" [ngClass]="colorRowPago(elementos.forma_pago)">{{elementos.forma_pago}}</td>    
                               
                   <td style="width: 3em">
-                          <p-tableCheckbox [value]="elementos"></p-tableCheckbox>
+                    <p-tableCheckbox [value]="elementos" (click)="sumarValoresSeleccionados(selecteditems)"></p-tableCheckbox>
                       </td>
           </tr>
       </ng-template>
-      <ng-template pTemplate="summary">
-             <ul>
-                <div class="row float-right mr-2">
-                    <h6 class="text-info pr-2">CANTIDAD PRACTICAS : {{cantidad_practica}}  - </h6>
-                    <h6 class="text-success"> TOTAL CATEGORIA : {{total_categoria|  number : '1.2-2' }} $ - </h6>
-                    <h6 class="text-danger"> VALOR : {{total_facturado|  number : '1.2-2' }} $ - </h6>
-                    <h6 class="text-info"> TOTAL : {{total_final|  number : '1.2-2' }} $</h6>
-                </div>
-              </ul>
-          </ng-template> 
+
+      <ng-template pTemplate="footer">
+        <tr class="mt-3">
+                  <td style="width: 15%"></td>
+                  <td style="font-size: 10px;width: 20% " class="text-info font-weight-bold text-lg">SELECCIONADO</td> 
+                  <td style="width: 15%" class="text-info font-weight-bold text-lg"> {{total_seleccionado|  number : '1.2-2'}}</td>       
+                  <td style="width: 10%" class="text-success font-weight-bold text-lg">CANT. {{cantidad_practica}}</td>      
+                  <td style="width: 20%" class="text-success font-weight-bold text-lg">CATEGORIA: {{total_categoria|  number : '1.2-2' }}</td>                                                         
+                  <td style="width: 20%" class="text-success font-weight-bold text-lg-center">FACTURADO: {{total_final|  number : '1.2-2' }}</td>                                         
+        <td style="width: 3em">            
+            </td>
+        </tr>
+     
+        </ng-template> 
+   
   </p-table>
 </div>
 
@@ -204,4 +209,7 @@
   
   
   
+  
+
+
   

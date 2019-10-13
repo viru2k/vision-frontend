@@ -126,7 +126,22 @@ export class FacturacionService {
       }
 
       crearFactura(facturaElectronica:FacturaElectronica){
-        return this.http.post<any[]>(this.url+'afip/elementos/factura/nueva', facturaElectronica);
+        return this.http.post<any>(this.url+'afip/elementos/factura/nueva', facturaElectronica);
       }
 
+      GetFacturaByArticuloTipo(){
+        return this.http.get<any[]>(this.url+'afip/elementos/articulo/tipo');
+      }
+
+      FacturaArticulo(){
+        return this.http.get<any[]>(this.url+'afip/elementos/articulo');
+      }
+
+      getMedicosFacturan(){
+        return this.http.get<any[]>(this.url+'afip/data/medicos/facturan');
+      }
+
+
+      
+      
 }

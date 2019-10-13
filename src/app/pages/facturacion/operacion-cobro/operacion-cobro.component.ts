@@ -118,7 +118,9 @@ export class OperacionCobroComponent implements OnInit {
   operacioncobro_id:string;
   operacioncobrodistribucion:PracticaDistribucion[] = [];
 
-  constructor(private miServico:PracticaService,private pacienteService:PacienteService,private obraSocialService:ObraSocialService,private practicaDistribucionService:PracticaDistribucionService,public agendaService:AgendaService, private messageService: MessageService ,public dialogService: DialogService,  private router: Router) {
+  constructor(private miServico:PracticaService,private pacienteService:PacienteService,private obraSocialService:ObraSocialService,
+    private practicaDistribucionService:PracticaDistribucionService,public agendaService:AgendaService,
+     private messageService: MessageService ,public dialogService: DialogService,  private router: Router) {
 
     if(this.router.getCurrentNavigation().extras.state != undefined){
       console.log(this.router.getCurrentNavigation().extras.state.paciente); 

@@ -58,7 +58,7 @@
                               <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
                           </th> 
                           <th style="width: 3em">
-                                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                            <p-tableHeaderCheckbox  (onChange)="sumarValoresSeleccionados(selecteditems)"></p-tableHeaderCheckbox>
                           </th>
                       </tr> 
                       <tr>
@@ -76,6 +76,7 @@
                             <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'usuario_cobro_nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                      
                             <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'fecha_cobro'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                      
                             <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'cantidad'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                                             
+                            <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'categorizacion'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                                             
                             <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'valor_original'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                       
                             <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'valor_facturado'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                       
                             <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'distribucion'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                                                                                         
@@ -104,33 +105,31 @@
                     <td style="font-size: 11px;width: 10%">{{elementos.medico_nombre}}</td>  
                     <td style="font-size: 11px;width: 8%">{{elementos.usuario_cobro_nombre}}</td> 
                     <td style="font-size: 11px;width: 8%">{{elementos.fecha_cobro | date: 'dd/MM/yyyy'}}</td>       
-                    <td [ngClass]="colorRow(elementos.forma_pago)" style="font-size: 11px; font-weight:bold;width: 6%">{{elementos.cantidad}}</td>                                         
-                    <td [ngClass]="colorRow(elementos.forma_pago)" style="font-size: 11px; font-weight:bold;width: 6%" >{{elementos.valor_original}}</td>    
-                    <td style="font-size: 11px;width: 6%" >{{elementos.valor_facturado}}</td>    
+                    <td [ngClass]="colorRow(elementos.forma_pago)" style="font-size: 11px; font-weight:bold;width: 6%">{{elementos.cantidad}}</td>      
+                    <td style="width: 6%" [ngClass]="colorRow(elementos.forma_pago)">{{elementos.categorizacion |number : '1.2-2'}}</td>                                           
+                    <td [ngClass]="colorRow(elementos.forma_pago)" style="font-size: 11px; font-weight:bold;width: 6%" >{{elementos.valor_original | number : '1.2-2'}}</td>    
+                    <td style="font-size: 11px;width: 6%" >{{elementos.valor_facturado |number : '1.2-2'}}</td>    
                     <td [ngClass]="colorRowNivel(elementos.complejidad)" style="font-size: 11px;width: 6%" >{{elementos.distribucion |  number : '1.2-2'}}</td>    
                     <td style="font-size: 11px;width: 10%">{{elementos.forma_pago}}</td>
                   <td style="width: 3em">
-                          <p-tableCheckbox [value]="elementos"></p-tableCheckbox>
+                    <p-tableCheckbox [value]="elementos" (click)="sumarValoresSeleccionados(selecteditems)"></p-tableCheckbox>
                       </td>
           </tr>
       </ng-template>
-      <ng-template pTemplate="summary">
-              <ul>
-             <!--      <li *ngFor="let sel of selecteditems" style="text-align: left">
-                      {{sel.obra_social_nombre + ' - ' + sel.descripcion + ' - ' + sel.fecha_cobro + ' - ' + sel.medico_nombre}}
-                  </li>-->
-              </ul>
-          </ng-template> 
+      <ng-template pTemplate="footer">
+        <tr class="mt-3">
+                  <td style="width: 15%"></td>
+                  <td style="font-size: 10px;width: 20% " class="text-info font-weight-bold text-lg">SELECCIONADO</td> 
+                  <td style="width: 15%" class="text-info font-weight-bold text-lg"> {{total_seleccionado|  number : '1.2-2'}}</td>       
+                  <td style="width: 10%" class="text-success font-weight-bold text-lg">CANT. {{cantidad_practica}}</td>      
+                  <td style="width: 20%" class="text-success font-weight-bold text-lg">CATEGORIA: {{total_categoria|  number : '1.2-2' }}</td>                                                         
+                  <td style="width: 20%" class="text-success font-weight-bold text-lg-center">FACTURADO: {{total_final|  number : '1.2-2' }}</td>                                         
+        <td style="width: 3em">            
+            </td>
+        </tr>
+     
+        </ng-template> 
   </p-table>
- 
-<div class="container-fluid pt-4">
-      <hr>
-  <div class="row float-right">
-      <h6 class="text-info pr-2">CANTIDAD PRACTICAS : {{cantidad_practica}}  -</h6>
-      <h6 class="text-danger"> TOTAL REAL : {{total_original|  number : '1.2-2' }} $ -</h6>
-      <h6 class="text-info"> TOTAL : {{total_facturado|  number : '1.2-2' }} $</h6>
-  </div>
-</div>
 </div>
 
 <p-overlayPanel #op [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >                          

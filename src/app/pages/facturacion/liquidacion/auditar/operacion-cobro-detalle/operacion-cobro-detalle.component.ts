@@ -977,9 +977,16 @@ generarPdfListado(filtro:string) {
   doc.autoTable(this.columns, _selecteditems,
     {
         margin: {horizontal: 5, vertical: 42},
-        bodyStyles: {valign: 'top'},
-        styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify'},
-        columnStyles: {text: {cellWidth: 'auto'}}
+        bodyStyles: {valign: 'top'},        
+        styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},       
+        columnStyles: {operacion_cobro_id: {columnWidth: 11}, operacion_cobro_numero_bono: {columnWidth: 15}, apellido: {columnWidth: 20},
+        nombre: {columnWidth: 25},  dni: {columnWidth: 15}, obra_social_nombre: {columnWidth: 30},  codigo: {columnWidth: 12},
+        descripcion: {columnWidth: 40}, fecha_cobro: {columnWidth: 20},cantidad: {columnWidth: 10},
+        valor_facturado: {columnWidth: 13},distribucion: {columnWidth: 13},forma_pago: {columnWidth: 23},usuario_cobro_nombre: {columnWidth: 20}}
+
+
+
+
     });
  // doc.save('rendicion-de-caja'+_fechaEmision+'.pdf');
  window.open(doc.output('bloburl'));

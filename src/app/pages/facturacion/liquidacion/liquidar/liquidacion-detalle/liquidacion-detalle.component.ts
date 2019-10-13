@@ -319,7 +319,7 @@ this.DateForm = new FormGroup({
     this.loading = true;
   
     try {
-        this.miServicio.getLiquidacionDetalle()    
+        this.miServicio.getLiquidacionDetalle('AFE')    
         .subscribe(resp => {
           if (resp[0]) {
             this.elementos = resp;

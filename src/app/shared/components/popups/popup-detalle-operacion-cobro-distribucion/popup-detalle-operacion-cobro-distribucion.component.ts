@@ -64,6 +64,12 @@ export class PopupDetalleOperacionCobroDistribucionComponent implements OnInit {
     console.log(this.config.data);
     this.liquidacionDistribucion = new LiquidacionDistribucion('','',0,0,'',0,0,'',0,0,'',0,0,0,0,'','','','',this.config.data);
     this.selecteditems = this.config.data;
+    console.log(this.config.data['0']['nombre']);
+    console.log(this.config.data['0']['liquidacion_distribucion_id']);
+    console.log(this.config.data['0']); 
+    if(this.config.data['0']['liquidacion_distribucion_id'] > 0){
+      console.log('tiene distribucion');
+    }
 
    this.sumarValores();
     this.calcularPorcentaje();

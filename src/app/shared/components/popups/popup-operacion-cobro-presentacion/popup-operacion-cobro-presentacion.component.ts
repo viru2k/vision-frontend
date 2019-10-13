@@ -576,10 +576,7 @@ generarPdfListado(filtro:string) {
   doc.text(pageWidth-60, 15, 'CLINICA DE LA VISION' );      
   doc.text(pageWidth-60, 20, 'Usuario : ' + userData['nombreyapellido']);
   doc.text(pageWidth-60, 25, 'Desde : ' + _fechaDesde);
-  doc.text(pageWidth-60, 30, 'Hasta : ' + _fechaHasta);
-  doc.setFontSize(10);
-  doc.text(pageWidth-100, 30, 'Prácticas : ' +this.cp.transform(testudio_medico, '', 'symbol-narrow', '1.2-2') ); 
-  doc.setFontSize(8);
+  doc.text(pageWidth-60, 30, 'Hasta : ' + _fechaHasta);  
 }
   doc.setFontSize(10);
   

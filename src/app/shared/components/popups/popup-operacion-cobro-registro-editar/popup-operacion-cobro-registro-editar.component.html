@@ -82,25 +82,18 @@
                         <label  >Valor Facturado</label>
                         <input class="form-control col-md-12 form-control-sm" formControlName="valor_facturado"   />
                     </div>
+
+                    <div class="form-group">
+                      <label  >Categorización</label>
+                      <input class="form-control col-md-12 form-control-sm" formControlName="categorizacion"    />                     
+                     </div>
                   </div>
                  
                   <div class="col-md-6">
 
                                       
-                          <div class="form-group">
-                              <div >
-                              <label  >Fecha de cobro</label>
-                            </div>                               
-                          <!--     <p-calendar formControlName="fecha_cobro" [locale]="es" dateFormat="dd/mm/yy" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2100" ></p-calendar> -->
-                              
-                      </div>
-                   
 
-                     
-                    <div class="form-group">
-                      <label  >Categorización</label>
-                      <input class="form-control col-md-12 form-control-sm" formControlName="categorizacion"    />                     
-                     </div>
+                  
 
                      <div class="form-group">
                       <label  >Observación</label>
@@ -129,9 +122,10 @@
                     <div class="form-group ui-g-12">
                         <label  >Estado</label>
                         <div class="row">
-                          <div class="col-4"><p-radioButton name="groupname" formControlName="estado_liquidacion"   value="PEN" label="PENDIENTE"  inputId="opt1"></p-radioButton></div>
-                          <div class="col-4"><p-radioButton name="groupname"  formControlName="estado_liquidacion"   value="AUD" label="AUDITADO"  inputId="opt2"></p-radioButton></div>
-                          <div class="col-4"><p-radioButton name="groupname"  formControlName="estado_liquidacion"   value="AFE" label="AFECTADO"  inputId="opt2"></p-radioButton></div>
+                          <div class="col-3"><p-radioButton name="groupname" formControlName="estado_liquidacion"   value="PEN" label="PENDIENTE"  inputId="opt1"></p-radioButton></div>
+                          <div class="col-3"><p-radioButton name="groupname"  formControlName="estado_liquidacion"   value="AUD" label="AUDITADO"  inputId="opt2"></p-radioButton></div>
+                          <div class="col-3"><p-radioButton name="groupname"  formControlName="estado_liquidacion"   value="AFE" label="AFECTADO"  inputId="opt2"></p-radioButton></div>
+                          <div class="col-3"><p-radioButton name="groupname"  formControlName="estado_liquidacion"   value="DIS" label="DISTRIBUIDO"  inputId="opt2"></p-radioButton></div>
                           
                         </div>  
                                             
@@ -163,8 +157,8 @@
   
           </form>
           <p-footer>
-                  <div class="ui-dialog-buttonpane ui-helper-clearfix">
-                          <button    class="btn btn-primary" type="submit" (click)="actualizarDatos()" >Actualizar</button>                        
+                  <div class="ui-dialog-buttonpane ui-helper-clearfix mt-2">
+                          <button    class="btn btn-primary btn-block" type="submit" (click)="actualizarDatos()" >Actualizar</button>                        
                   </div>
               </p-footer>
      

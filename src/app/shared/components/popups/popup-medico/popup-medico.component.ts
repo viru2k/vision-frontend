@@ -4,13 +4,15 @@ import { Paciente } from './../../../../models/paciente.model';
 import { Component, OnInit} from '@angular/core';
 import { calendarioIdioma } from '../../../../config/config';
 import swal from 'sweetalert2';
-import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/api';
+import { DynamicDialogConfig, DynamicDialogRef, MessageService } from 'primeng/api';
 import { MedicoObraSocial } from './../../../../models/medico-obrasocial.model';
+import { DialogService } from 'primeng/components/common/api';
 
 @Component({
   selector: 'app-popup-medico',
   templateUrl: './popup-medico.component.html',
-  styleUrls: ['./popup-medico.component.css']
+  styleUrls: ['./popup-medico.component.css'],
+  providers: [MessageService,DialogService]
 })
 export class PopupMedicoComponent implements OnInit {
 
@@ -23,7 +25,7 @@ export class PopupMedicoComponent implements OnInit {
   elemento:MedicoObraSocial = null;
   elementos:MedicoObraSocial[] = null;
 
-  constructor(private miServico:MedicoObraSocialService, public ref: DynamicDialogRef, public config: DynamicDialogConfig ) {
+  constructor(private miServico:MedicoObraSocialService, public ref: DynamicDialogRef, public config: DynamicDialogConfig,private messageService: MessageService ,public dialogService: DialogService ) {
     this.cols = [
         {field: 'apellido', header: 'Apellido',   width: '20%'  },
         { field: 'nombre', header: 'Nombre' ,  width: '20%' },      

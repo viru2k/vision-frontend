@@ -39,7 +39,7 @@ import { PopupOperacionCobroDistribucionComponent } from '../../../../../shared/
   providers: [MessageService,DialogService]
 })
 export class ConfeccionFacturaComponent implements OnInit {
-
+  total_seleccionado:number=0;
   cols: any[];
   columns: any[];
   columnsListadoMedico: any[];
@@ -294,7 +294,7 @@ this.DateForm = new FormGroup({
     this.loading = true;
   
     try {
-        this.miServicio.getLiquidacionDetalle()
+        this.miServicio.getLiquidacionDetalle('AFE')
         .subscribe(resp => {
           if (resp[0]) {
             this.elementos = resp;
@@ -607,6 +607,23 @@ sumarValores(vals:any){
   
 }
 
+sumarValoresSeleccionados(vals:any){
+  // SUMO LO FILTRADO
+  console.log(vals);
+  this.total_seleccionado = 0;
+  let i:number;
+  let total_facturado = 0;
+  let total_original = 0;
+  let total_categoria = 0;
+  let cantidad_practica = 0;
+for(i=0;i<vals.length;i++){
+
+total_facturado = total_facturado+ Number(vals[i]['valor_facturado']);
+total_categoria = total_categoria+ Number(vals[i]['categorizacion']);
+}
+this.total_seleccionado = total_facturado+ total_categoria;
+}
+
 
 filtered(event){
     console.log(event.filteredValue);
@@ -616,42 +633,24 @@ filtered(event){
 
 
 actualizarRegistros(){
-  let userData = JSON.parse(localStorage.getItem('userData'));
-  let td = formatDate(this.fechaDesde, 'dd/MM/yyyy', 'en');  
-  let th = formatDate(this.fechaHasta, 'dd/MM/yyyy', 'en');
-  swal({
-    title: '¿Desea actualizar estos  registros?',
-    text: 'Va a actualizar registros',
-    type: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#C5E1A5',
-    cancelButtonColor: '#FF8A65',
-    confirmButtonText: 'Si, actualizar!',
-    cancelButtonText: 'No'
-  }).then((result) => {
-    if (result.value) {
-      this.selecteditems.forEach(element => {            
-          element['usuario_audita_id']= userData['id']; 
-      }); 
-      this.actualizarRegistrosObraSocial();
-    }
-
-  })
-}
-
-actualizarRegistrosObraSocial(){
-
-
+  
 if(this.selecteditems){
 
   this.loading = true;
   console.log(this.selecteditems);
   try {
-      this.practicaService.actualizarValoresPracticasByConvenio(this.selecteditems)    
+      this.miServicio.DistribuirOperacionCobro(this.selecteditems)    
       .subscribe(resp => {
         
           
-        this.throwAlert('success','Se actualizaron los registros con éxito','','');
+        swal({
+          toast: false,
+          type: 'success',
+          title: 'Registros marcados como afecados',
+          showConfirmButton: false,
+          timer: 3000
+        });
+        this.loadlist();
           this.loading = false;
           console.log(resp);
       },
@@ -667,6 +666,8 @@ if(this.selecteditems){
   this.throwAlert('warning','No se selecciono ninguna ficha','','');
 }
 }
+
+
 
 
 

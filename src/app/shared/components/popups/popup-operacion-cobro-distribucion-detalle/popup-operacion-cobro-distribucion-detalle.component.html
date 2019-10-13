@@ -1,0 +1,89 @@
+
+  <p-table  #dt class="pt-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  (onEditComplete)="editRow($event)" [(selection)]="selecteditems" columnResizeMode="expand" [responsive]="true"
+  scrollHeight="600px" [scrollable]="true"  (onFilter)="filtered($event)"  >
+ 
+
+             <ng-template pTemplate="header" let-columns >
+            
+                        <tr >
+                             
+                          <th  *ngFor="let col of columns" [pSortableColumn]="col.field"  [ngStyle]="{'width': col.width}">
+                              {{col.header}}
+                              <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                          </th> 
+                          <th style="width: 3em">
+                                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                          </th>
+                      </tr> 
+                      <tr>
+                      <th *ngFor="let col of columns" [ngSwitch]="col.field"  >
+                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'medico_opera'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'medico_opera_valor'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'medico_opera_porcentaje'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                          <input style=" font-size: 12px;"  class="form-control col-md-12 form-control-sm" *ngSwitchCase="'medico_ayuda'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'medico_ayuda_valor'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'medico_ayuda_porcentaje'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                      
+                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm"  *ngSwitchCase="'medico_ayuda2'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                                  
+                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm"  *ngSwitchCase="'medico_ayuda2_valor'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                                  
+                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'medico_ayuda2_porcentaje'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                       
+                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'medico_clinica'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'medico_clinica_valor'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'medico_clinica_porcentaje'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'valor_distribuido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                                    
+                      </th>
+                      <th></th>
+                  </tr>
+              </ng-template>
+            
+      <ng-template pTemplate="body" let-elementos  >
+          <tr style="height:20px"  >                 
+                <!--   <td style="width: 6%" >                   
+                      <a  class="my-hover" (click)="verDetalle(elementos)"    ><i class="far fa-edit fa-2x icon-color-purple"></i></a>                   
+                  </td> -->
+                  <td style="width: 15%">{{elementos.medico_opera}}</td>
+                  <td style="width: 10%">{{elementos.medico_opera_valor}}</td>
+                  <td style="width: 8%">{{elementos.medico_opera_porcentaje}}</td>
+
+                  <td style="width: 15%">{{elementos.medico_ayuda}}</td>
+                  <td style="width: 10%">{{elementos.medico_ayuda_valor}}</td>
+                  <td style="width: 8%">{{elementos.medico_ayuda_porcentaje}}</td>
+
+                  <td style="width: 15%">{{elementos.medico_ayuda2}}</td>                                                    
+                  <td style="width: 10%">{{elementos.medico_ayuda2_valor}}</td>                            
+                  <td style="width: 8%">{{elementos.medico_ayuda2_porcentaje}}</td>  
+
+                  <td style="width: 15%">{{elementos.medico_clinica}}</td>                                
+                  <td style="width: 10%">{{elementos.medico_clinica_valor}}</td>      
+                  <td style="width: 8%">{{elementos.medico_clinica_porcentaje}}</td>   
+                  <td style="width: 10%">{{elementos.valor_distribuido}}</td>   
+                  <td style="width: 3em">
+                          <p-tableCheckbox [value]="elementos"></p-tableCheckbox>
+                      </td>
+
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="footer">
+          <tr class="mt-3">
+              <td style="width: 15%" class="text-secondary font-weight-bold text-lg">TOTAL OPERA</td>
+                  <td style="width: 10% " class="text-info font-weight-bold text-lg">{{TOTAL_OPERA |  number : '1.2-2'}}</td>
+                  <td style="width: 8%" class="text-secondary font-weight-bold"></td>
+
+                  <td style="width: 15%" class="text-secondary font-weight-bold text-lg">TOTAL AYUDA</td>
+                  <td style="width: 10%" class="text-info font-weight-bold text-lg">{{TOTAL_AYUDA |  number : '1.2-2'}}</td>
+                  <td style="width: 8%" class="text-secondary font-weight-bold"></td>
+
+                  <td style="width: 15%" class="text-secondary font-weight-bold text-lg">TOTAL AYUDA 2</td>                                                    
+                  <td style="width: 10%" class="text-info font-weight-bold text-lg">{{TOTAL_AYUDA2 |  number : '1.2-2'}}</td>                            
+                  <td style="width: 8%"></td>  
+
+                  <td style="width: 15%" class="text-secondary font-weight-bold text-lg">TOTAL  CLINICA</td>                                
+                  <td style="width: 10%" class="text-info font-weight-bold text-lg">{{TOTAL_CLINICA |  number : '1.2-2'}}</td>      
+                  <td style="width: 8%" class="text-success font-weight-bold text-lg">TOTAL</td>   
+                  <td style="width: 10% " class="text-success font-weight-bold text-lg-center">{{TOTAL |  number : '1.2-2'}}</td>  
+                  <td style="width: 3em">
+                    
+                  </td>
+          </tr>
+       
+          </ng-template> 
+  </p-table>

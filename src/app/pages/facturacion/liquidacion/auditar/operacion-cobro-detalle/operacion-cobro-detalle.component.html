@@ -116,8 +116,8 @@
                     <td style="font-size: 10px;width: 8%">{{elementos.usuario_cobro_nombre}}</td>  
                     <td style="font-size: 10px;width: 8%">{{elementos.fecha_cobro | date: 'dd/MM/yyyy'}}</td>       
                     <td style="font-size: 10px;width: 6%">{{elementos.cantidad}}</td>                                             
-                    <td [ngClass]="colorRow(elementos.forma_pago)" style="font-size: 10px;width: 6%" >{{elementos.valor_facturado}}</td>     
-                    <td [ngClass]="colorRow(elementos.forma_pago)" style="font-size: 10px;width: 6%">{{elementos.distribucion }}</td>   
+                    <td [ngClass]="colorRow(elementos.forma_pago)" style="font-size: 10px;width: 6%" >{{elementos.valor_facturado | number : '1.2-2'}}</td>     
+                    <td [ngClass]="colorRow(elementos.forma_pago)" style="font-size: 10px;width: 6%">{{elementos.distribucion  |number : '1.2-2'}}</td>   
                     <td style="font-size: 10px;width: 10%">{{elementos.forma_pago}}</td>   
                     <td style="width: 3em">
                         <p-tableCheckbox [value]="elementos"></p-tableCheckbox>

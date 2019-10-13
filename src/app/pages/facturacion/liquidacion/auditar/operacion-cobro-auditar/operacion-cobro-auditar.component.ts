@@ -36,7 +36,9 @@ import { LiquidacionService } from './../../../../../services/liquidacion.servic
 })
 export class OperacionCobroAuditarComponent implements OnInit {
 
-    
+  total_seleccionado:number=0;
+  total_categoria:number=0;
+  total_final:number=0;
   cantidad_practica:number=0;
   total_facturado:number=0;
   total_original:number=0;
@@ -107,6 +109,7 @@ export class OperacionCobroAuditarComponent implements OnInit {
               { field: 'usuario_cobro_nombre', header: 'Usuario' , width: '8%'},
               { field: 'fecha_cobro' , header: 'Fecha' , width: '8%'},
               { field: 'cantidad', header: 'Cant.' , width: '6%'},
+              { field: 'categorizacion', header: 'Categ.' , width: '6%'},
               { field: 'valor_original', header: 'Orig.' , width: '6%'},
               { field: 'valor_facturado', header: 'Fact.' , width: '6%'},
               { field: 'distribucion', header: 'Dis/Cat' , width: '6%'},
@@ -203,17 +206,40 @@ export class OperacionCobroAuditarComponent implements OnInit {
     
 
 
+
+      sumarValoresSeleccionados(vals:any){
+        // SUMO LO FILTRADO
+        console.log(vals);
+        this.total_seleccionado = 0;
+        let i:number;
+        let total_facturado = 0;
+        let total_original = 0;
+        let total_categoria = 0;
+        let cantidad_practica = 0;
+    for(i=0;i<vals.length;i++){
+     
+      total_facturado = total_facturado+ Number(vals[i]['valor_facturado']);
+      total_categoria = total_categoria+ Number(vals[i]['categorizacion']);
+  }
+  this.total_seleccionado = total_facturado+ total_categoria;
+      }
+
   sumarValores(vals:any){
     let i:number;
     //console.log(vals[1]['valor_facturado']);
-    console.log(vals.length);
+    console.log(vals !== undefined);
     this.total_facturado = 0;
     this.total_original = 0;
+    this.total_categoria = 0;
     this.cantidad_practica = 0;
+    this.total_final=0;
     for(i=0;i<vals.length;i++){
         this.total_original = this.total_original+ Number(vals[i]['valor_original']);
         this.total_facturado = this.total_facturado+ Number(vals[i]['valor_facturado']);
+        this.total_categoria = this.total_categoria+ Number(vals[i]['categorizacion']);
+        
     }
+    this.total_final =   this.total_facturado+ this.total_categoria;
     this.cantidad_practica = vals.length;
     console.log(this.total_facturado);
   }
@@ -1007,8 +1033,11 @@ generarPdfListado(filtro:string) {
     {
         margin: {horizontal: 5, vertical: 42},
         bodyStyles: {valign: 'top'},
-        styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify'},
-        columnStyles: {pmo_descripcion: {columnWidth: 25}},
+        styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},       
+        columnStyles: {operacion_cobro_id: {columnWidth: 11}, operacion_cobro_numero_bono: {columnWidth: 15}, apellido: {columnWidth: 20},
+        nombre: {columnWidth: 25},  dni: {columnWidth: 15}, obra_social_nombre: {columnWidth: 30},  codigo: {columnWidth: 12},
+        descripcion: {columnWidth: 40}, fecha_cobro: {columnWidth: 20},cantidad: {columnWidth: 10},
+        valor_facturado: {columnWidth: 13},distribucion: {columnWidth: 13},forma_pago: {columnWidth: 23},usuario_cobro_nombre: {columnWidth: 20}}
     });
  // doc.save('rendicion-de-caja'+_fechaEmision+'.pdf');
  window.open(doc.output('bloburl'));  

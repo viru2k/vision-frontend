@@ -121,6 +121,7 @@ getOperacionCobroRegistrosBetweenDatesAndMedico(fecha_desde:string,fecha_hasta:s
   }
 
 
+
   postOperacionCobro(val:OperacionCobro){
     console.log(val); 
 

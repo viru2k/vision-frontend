@@ -86,10 +86,9 @@ export class PopupOperacionCobroDistribucionComponent implements OnInit {
   
           this.cols = [
               
-            { field: 'accion', header: 'Accion' , width: '6%'} ,
+            { field: 'accion', header: 'Accion' , width: '5%'} ,
             { field: 'liquidacion_numero', header: 'Exp. Nº',  width: '5%' },
             { field: 'operacion_cobro_id', header: 'O.C Nº',  width: '5%' },
-            { field: 'id', header: 'Reg. Nº',  width: '5%' },
             { field: 'apellido', header: 'Apellido',  width: '10%' },
             {field: 'nombre', header: 'Nombre' , width: '10%' },
             { field: 'dni', header: 'DNI',  width: '7%' },
@@ -97,10 +96,10 @@ export class PopupOperacionCobroDistribucionComponent implements OnInit {
             { field: 'descripcion', header: 'Descrpición',  width: '20%' },
             { field: 'complejidad', header: 'nivel' , width: '5%'}, 
             { field: 'codigo', header: 'Codigo' , width: '8%'},
-            { field: 'medico_nombre', header: 'Médico' , width: '10%'},
-            { field: 'usuario_cobro_nombre', header: 'Usuario' , width: '8%'},
+            { field: 'medico_nombre', header: 'Médico' , width: '10%'},            
             { field: 'fecha_cobro' , header: 'Fecha' , width: '8%'},
             { field: 'cantidad', header: 'Cant.' , width: '6%'},
+            { field: 'categorizacion', header: 'Categ.' , width: '6%'},
             { field: 'valor_facturado', header: 'Fact.' , width: '6%'},
             { field: 'es_distribuido', header: 'Dist' , width: '6%'},
             { field: 'liquidacion_distribucion_id', header: 'Dis. Nº' , width: '5%'} 
@@ -360,6 +359,15 @@ export class PopupOperacionCobroDistribucionComponent implements OnInit {
         this.miServicio.getOperacionCobroRegistrosBetweenDates(this._fechaDesde, this._fechaHasta, 'AFE')
         .subscribe(resp => {
           if (resp[0]) {
+            let i:number = 0;
+            let resultado = resp;
+            resultado.forEach(element => {
+              resp[i]['dni'] = resp[i]['dni'] +' - '+resp[i]['numero_afiliado'] +' / '+resp[i]['barra_afiliado'] ;
+              resp[i]['valor_final'] = (Number(resp[i]['valor_facturado']) +Number(resp[i]['categorizacion'])) ;
+          //    let t = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+          
+              i++;
+            });
             this.elementos = resp;
             console.log(this.elementos);
               }else{
@@ -453,16 +461,30 @@ cargarDistribucion(){
    height: '60%'
   });
   ref.onClose.subscribe((PopupDetalleOperacionCobroDistribucionComponent:any) => {   
+    this.loadRegistroByIdLiquidacion();
       if (PopupDetalleOperacionCobroDistribucionComponent) {
         console.log(PopupDetalleOperacionCobroDistribucionComponent);    
-      //  this.popItemOperacionCobro = PopupOperacionCobroEditarComponent;
-       
-      //  this.formObraSocial.patchValue({id: this.popItemObraSocial.id});
-       // this.formObraSocial.patchValue({nombre: this.popItemObraSocial.nombre});
-       
       }
   });
+}
 
+verRegistro(){
+  console.log(this.selecteditems);
+  console.log(this.selecteditemRegistro);
+  let data:any; 
+  data = this.selecteditems;
+  const ref = this.dialogService.open(PopupDetalleOperacionCobroDistribucionComponent, {
+  data,
+   header: 'Agregar distribución a práctica', 
+   width: '70%',
+   height: '60%'
+  });
+  ref.onClose.subscribe((PopupDetalleOperacionCobroDistribucionComponent:any) => {   
+    this.loadRegistroByIdLiquidacion();
+      if (PopupDetalleOperacionCobroDistribucionComponent) {
+        console.log(PopupDetalleOperacionCobroDistribucionComponent);    
+      }
+  });
 }
 
 

@@ -79,7 +79,7 @@ export class GerenciaDetalleOperacionCobroComponent implements OnInit {
   liquidacion:Liquidacion;
   formasPago:any[];
   nivel:any[];
-  busqueda:string = 'AUD';
+  busqueda:string = 'PEN';
   result_distribucion:any[];
 
     constructor(private miServicio:PracticaService,private messageService: MessageService ,private liquidacionService:LiquidacionService,public dialogService: DialogService,private cp: CurrencyPipe, private dp: DecimalPipe  ) {
@@ -134,11 +134,13 @@ export class GerenciaDetalleOperacionCobroComponent implements OnInit {
             {title: 'Código', dataKey: 'codigo'},
             {title: 'Descripción', dataKey: 'descripcion'},
             {title: 'Fecha', dataKey: 'fecha_cobro'},
-            {title: 'Nivel', dataKey: 'complejidad'},
-            {title: 'Cobro', dataKey: 'fecha_cobro'},
-            {title: 'Cant', dataKey: 'cantidad'},
-            {title: 'Nivel', dataKey: 'complejidad'},            
-            {title: 'Valor F.', dataKey: 'valor_facturado'}
+            {title: 'Cant', dataKey: 'cantidad'},                      
+            {title: 'Categor.', dataKey: 'categorizacion'}, 
+            {title: 'Valor F.', dataKey: 'valor_facturado'},
+            {title: 'Total', dataKey: 'valor_final'},
+            {title: 'Medio', dataKey: 'forma_pago'},
+            {title: 'Usuario', dataKey: 'usuario_cobro_nombre'},
+            
         ];
           
 
@@ -469,7 +471,8 @@ auditarRegistros(){
             let resultado = resp;
             resultado.forEach(element => {
               resp[i]['dni'] = resp[i]['dni'] +' - '+resp[i]['numero_afiliado'] +' / '+resp[i]['barra_afiliado'] ;
-              resp[i]['valor_final'] = (Number(resp[i]['valor_facturado']) +Number(resp[i]['categorizacion'])) ;
+              
+              resp[i]['valor_final'] =  (Number(resp[i]['valor_facturado']) +Number(resp[i]['categorizacion'])) ;
           //    let t = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
           
               i++;
@@ -805,13 +808,17 @@ generarPdfListado(filtro:string) {
     {
         margin: {horizontal: 5, vertical: 42},
         bodyStyles: {valign: 'top'},
-        styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify'},
-        columnStyles: {text: {cellWidth: 'auto'}}
-    });
+        styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},       
+        columnStyles: {operacion_cobro_id: {columnWidth: 11},  apellido: {columnWidth: 20},
+        nombre: {columnWidth: 25},  dni: {columnWidth: 25}, obra_social_nombre: {columnWidth: 30},  codigo: {columnWidth: 12}, 
+        descripcion: {columnWidth: 40}, fecha_cobro: {columnWidth: 20},cantidad: {columnWidth: 10},
+        categorizacion: {columnWidth: 13}, valor_facturado: {columnWidth: 13},valor_final: {columnWidth: 13},
+        forma_pago: {columnWidth: 23},usuario_cobro_nombre: {columnWidth: 20}}    });
  // doc.save('rendicion-de-caja'+_fechaEmision+'.pdf');
  window.open(doc.output('bloburl'));  
   }
 }
+
 
 
 
