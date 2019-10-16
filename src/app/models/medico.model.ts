@@ -15,9 +15,13 @@ export class Medico {
     public ing_brutos:string;
     public usuario_id:string;
     public id:string;
-    
     public obra_social:ObraSocial[];
     public codigo_old:string;
+    public categoria_iva_id:string;
+    public factura_documento_comprador_id:string;
+    public punto_vta_id:string; 
+    public factura_comprobante_id:string; 
+
     constructor(
          apellido:string,
          nombre:string,
@@ -32,8 +36,11 @@ export class Medico {
          usuario_id:string,
          id:string,
          obra_social:ObraSocial[],
-         codigo_old:string
-
+         codigo_old:string,
+         categoria_iva_id:string,
+         factura_documento_comprador_id:string,
+         punto_vta_id:string,
+         factura_comprobante_id:string,
     ) {
         
        
@@ -51,5 +58,9 @@ export class Medico {
         this.usuario_id = usuario_id;
         this.obra_social = obra_social;
         this.codigo_old = codigo_old;
+        this.categoria_iva_id = categoria_iva_id ;
+        this.factura_documento_comprador_id = factura_documento_comprador_id ;
+        this.punto_vta_id = punto_vta_id ;
+        this.factura_comprobante_id = factura_comprobante_id ;
     }
 }

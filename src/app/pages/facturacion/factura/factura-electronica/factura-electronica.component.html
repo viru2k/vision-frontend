@@ -2,16 +2,18 @@
     <label class=" mr-2 mt-1">Médico - Clínica:</label>
     <p-dropdown class="mr-2 "  [options]="elementosMedicos" [(ngModel)]="elementoMedicos"  optionLabel="nombreyapellido" placeholder="Medico / Clínica"></p-dropdown>  
   <label *ngIf="elementoMedicos" class=" mr-2 mt-1">Condición : {{elementoMedicos.categoria_iva}}</label>
-</div> 
 
-<hr>
-<div class="row ml-5 mr-5 mt-3">
-  <label class=" mr-2 mt-1">Fecha :</label>
+  <label class=" ml-2 mr-2 mt-1">Fecha :</label>
   <p-calendar  [inputStyle]="{'height':'35.1px'}"    class="mr-2 " [(ngModel)]="fecha"  (onSelect)="actualizarFecha($event)" tabindex="0"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
     <ng-template pTemplate="date" let-date>
          <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
      </ng-template> 
    </p-calendar>
+</div> 
+
+<hr>
+<div class="row ml-5 mr-5 mt-3">
+ 
       <div><label class="mr-1">Punto : </label> <p-dropdown class="col-1" [options]="elementosPtoVta" [(ngModel)]="elementoPtoVta" (onHide)="obtenerPuntoVta($event)" optionLabel="punto_vta" placeholder="Pto venta"></p-dropdown></div>
   
 <div class="col-7">
@@ -30,7 +32,7 @@
 <div class="row ml-5 mr-2 mt-3">
     <label class=" mr-2 mt-1">Condición IVA :</label>
   <p-dropdown class="mr-2 "  [options]="elementosCondicionIva" [(ngModel)]="elementoCondicionIva"  optionLabel="categoria_iva" placeholder="Categoria"></p-dropdown>
-  <p-dropdown class="mr-2 "  [options]="elementosDocumento" [(ngModel)]="elementoDocumento"  optionLabel="descripcion" placeholder="Documento"></p-dropdown>
+  <p-dropdown class="mr-2 "  [options]="elementosDocumento" [(ngModel)]="elementoDocumento" (onHide)="onElementoDocumento($event)"  optionLabel="descripcion" placeholder="Documento"></p-dropdown>
   <input type="text" class="form-control col-2 form-control-md" [(ngModel)]="nrodocumento">
   <label class="mr-1 ml-2 mt-1">Cliente :</label> 
   <input type="text" class="form-control col-4 form-control-md" [(ngModel)]="cliente" placeholder="Cliente">
@@ -38,14 +40,14 @@
 
 <hr>
 <div class="row ml-5 mr-5 mt-3">
-  <label class=" mr-2 mt-1">Periodo desde :</label>
+  <label class=" mr-2 mt-1">Período desde :</label>
   <p-calendar  [inputStyle]="{'height':'35.1px'}"    class="mr-2 " [(ngModel)]="fechaDesde"  (onSelect)="actualizarFechaDesde($event)" tabindex="0"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
     <ng-template pTemplate="date" let-date>
          <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
      </ng-template> 
    
    </p-calendar>
-   <label class=" mr-2 mt-1">Periodo hasta :</label>
+   <label class=" mr-2 mt-1">Período hasta :</label>
    <p-calendar  [inputStyle]="{'height':'35.1px'}"    class="mr-2 " [(ngModel)]="fechaHasta"  (onSelect)="actualizarFechaHasta($event)" tabindex="0"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
     <ng-template pTemplate="date" let-date>
          <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
@@ -56,11 +58,12 @@
 
 <div class="row ml-5 mr-5 mt-3">
 <p-table  #dt class="pt-2 "  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  (onEditComplete)="editRow($event)" [(selection)]="selecteditems" columnResizeMode="expand" [responsive]="true"
-scrollHeight="200px" [scrollable]="true"  (onFilter)="filtered($event)"  >
+scrollHeight="200px" [scrollable]="true"  >
 <ng-template pTemplate="caption">
   <div class="row">
           <div class="col-md-12 row" style="text-align:left ">
             <div class="pr-2 pl-2"  style="text-align:left ">    <button    class="btn  btn-success btn-sm float-right mr-2"  (click)="agregarRenglon()" >Agregar renglon</button>  </div>           
+            <div class="pr-2 pl-2"  style="text-align:left ">    <button    class="btn  btn-info btn-sm float-right mr-2"  (click)="agregarRenglonOS()" >Presentación a O.S</button>  </div>           
           </div>
 
 </div>
@@ -93,10 +96,10 @@ scrollHeight="200px" [scrollable]="true"  (onFilter)="filtered($event)"  >
         <tr style="height:20px">
                 <td style="width: 55%">{{elementos.descripcion}}</td>
                 <td style="width: 10%">{{elementos.cantidad}}</td>
-                <td style="width: 10%">{{elementos.precio_unitario}}</td>
+                <td style="width: 10%">{{elementos.precio_unitario | number : '1.2-2'}}</td>
                 <td style="font-size: 10px;width: 9%">{{elementos.alicuota_descripcion}}</td>
-                <td style="font-size: 10px;width: 10%">{{elementos.iva}}</td>
-                <td style="font-size: 10px;width: 10%">{{elementos.total_renglon}}</td>
+                <td style="font-size: 10px;width: 10%">{{elementos.iva | number : '1.2-2'}}</td>
+                <td style="font-size: 10px;width: 10%">{{elementos.total_renglon | number : '1.2-2'}}</td>
                 <td style="width: 6%" >                   
             <a   class=" mr-1   my-hover" (click)="eliminarRegistro(elementos)"    ><i class="far fa-trash-alt fa-2x icon-color-red" ></i></a>       
                 </td>

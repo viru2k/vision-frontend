@@ -18,6 +18,7 @@ export class Liquidacion {
     public medico_id :string;
     public honorarios:string;
     public gastos:string;
+    public total_factura:number;
     constructor(
         obra_social_id:string,
         numero:string,
@@ -33,7 +34,8 @@ export class Liquidacion {
         registros:OperacionCobroDetalle[],
         medico_id:string,
         honorarios:string,
-        gastos:string
+        gastos:string,
+        total_factura:number
     ) {
         
        
@@ -51,5 +53,6 @@ export class Liquidacion {
         this.medico_id = medico_id;
         this.honorarios = honorarios;
         this.gastos = gastos;
+        this,total_factura = total_factura;
     }
 }

@@ -11,8 +11,9 @@ import { MessageService } from 'primeng/api';
 import { OverlayPanel } from 'primeng/overlaypanel';
 import { FacturaElectronicaRenglon } from './../../../../models/factura-electronica-renglon.model';
 import { FacturaElectronica } from './../../../../models/factura-electronica.model';
-import { formatDate } from '@angular/common';
+import { formatDate, CurrencyPipe } from '@angular/common';
 import { FacturaAlicuotaAsociada } from '../../../../models/factura_alicuota_asociada.model';
+import { PopupLiquidacionDetalleComponent } from '../../../../shared/components/popups/popup-liquidacion-detalle/popup-liquidacion-detalle.component';
 
 @Component({
   selector: 'app-factura-electronica',
@@ -26,6 +27,7 @@ export class FacturaElectronicaComponent implements OnInit {
   loading: boolean;
   loadingspinner: boolean;
   elementos:FacturaElectronicaRenglon[] = [];
+  elementosPDF:any[] = [];
   
   elementosAlicuota:any[] = null;
   elementosMedicos:any[] = null;
@@ -60,7 +62,7 @@ export class FacturaElectronicaComponent implements OnInit {
   _fechaDesde:string;
   fechaHasta:Date;
   _fechaHasta:string;
-
+  columns: any[];
   /***valores totales */
   cantidad:number = 0;
   subtotal:number = 0;
@@ -68,7 +70,7 @@ export class FacturaElectronicaComponent implements OnInit {
   subtotal_iva:number = 0;
   total:number = 0;
 
-  constructor(private facturacionService: FacturacionService, public dialogService: DialogService,private messageService: MessageService ) { 
+  constructor(private facturacionService: FacturacionService, public dialogService: DialogService,private messageService: MessageService, private cp: CurrencyPipe ) { 
 
     this.cols = [
 
@@ -80,6 +82,16 @@ export class FacturaElectronicaComponent implements OnInit {
       { field: 'total_renglon', header: 'Subtotal',  width: '10%' },
       { field: 'accion', header: 'Accion' , width: '6%'} ,
      ];  
+
+     
+     this.columns = [
+      {title: 'Descripcion', dataKey: 'descripcion'},
+      {title: 'Cant', dataKey: 'cantidad'},
+      {title: 'Precio unit.', dataKey: 'precio_unitario'},
+      {title: 'Alic.', dataKey: 'alicuota_descripcion'},
+      {title: 'Iva', dataKey: 'iva'},
+      {title: 'Importe', dataKey: 'total_renglon'},
+  ];
   }
 
   ngOnInit() {
@@ -87,12 +99,9 @@ export class FacturaElectronicaComponent implements OnInit {
     this.fecha = new Date();
     this.fechaDesde = new Date();
     this.fechaHasta = new Date();
-    this.Alicuota();
+    
    this.getMedicosFacturan();
-    this.Concepto();
-    this.Documento();
-    this.PtoVta();
-    this.CategoriaIva();
+   
     
   }
 
@@ -242,6 +251,14 @@ export class FacturaElectronicaComponent implements OnInit {
           this.loading = false;
           console.log( this.elementosMedicos);
           this.elementoMedicos = this.elementosMedicos['0'];
+
+          // UNA VEZ QUE TENGO EL DATO DEL MEDICO PROCEDO A BUSCAR TODOS LOS DEMAS CAMPOS
+
+          this.Alicuota();
+          this.Concepto();
+          this.Documento();
+          this.PtoVta();
+          this.CategoriaIva();
       },
       error => { // error path
           console.log(error.message);
@@ -270,7 +287,8 @@ export class FacturaElectronicaComponent implements OnInit {
          
           this.loading = false;
           console.log( this.elementosComprobante);
-          this.elementoComprobante = this.elementosComprobante[3];
+          //this.elementoComprobante = this.elementosComprobante[3];
+          this.elementoComprobante =  this.elementosComprobante.find(x => x.id == this.elementoMedicos['factura_comprobante_id']);
           if(this.elementoPtoVta){
             this.obtenerUltimaFactura();
           }
@@ -329,7 +347,8 @@ export class FacturaElectronicaComponent implements OnInit {
           this.elementosDocumento = resp;
           this.loading = false;
           console.log(  this.elementosDocumento);
-           this.elementoDocumento = this.elementosDocumento[7];
+         //  this.elementoDocumento = this.elementosDocumento[7];
+           this.elementoDocumento =  this.elementosDocumento.find(x => x.id == this.elementoMedicos['factura_documento_comprador_id']);
       },
       error => { // error path
           console.log(error.message);
@@ -362,8 +381,10 @@ export class FacturaElectronicaComponent implements OnInit {
               i++;
             });
           this.elementosPtoVta = resp;
-          this.elementoPtoVta = this.elementosPtoVta[2];
-          this.pto_vta = this.elementosPtoVta[2]['punto_vta'];
+          // DE ACUERDO AL PUNTO DE VENTA POR DEFECTO LO PRE SELECCIONO
+        // console.log( this.elementosPtoVta.find(x => x.id == this.elementoMedicos['factura_punto_vta_id']));
+          this.elementoPtoVta =  this.elementosPtoVta.find(x => x.id == this.elementoMedicos['factura_punto_vta_id']);
+          this.pto_vta =  this.elementoPtoVta['punto_vta'];
           this.loading = false;
           console.log(this.elementosPtoVta);
           this.Comprobante();
@@ -393,6 +414,7 @@ export class FacturaElectronicaComponent implements OnInit {
       this.facturacionService.CategoriaIva()
       .subscribe(resp => {      
           this.elementosCondicionIva = resp;
+        
           this.elementoCondicionIva = this.elementosCondicionIva[4];
           this.loading = false;
           console.log(resp);
@@ -425,11 +447,54 @@ guardarDatos(){
   this._fecha = formatDate(this.fecha, 'yyyy-MM-dd', 'en');
   this._fechaDesde = formatDate(this.fechaDesde, 'yyyy-MM-dd', 'en');
   this._fechaHasta = formatDate(this.fechaHasta, 'yyyy-MM-dd', 'en');
+  console.log('elemento documento '+ this.elementoDocumento);
+  console.log('elemento comprobate '+ this.elementoComprobante);
+  console.log('elemento concepto '+ this.elementoConcepto);
+  console.log('elemento pto venta '+ this.pto_vta);
   let facturaElectronica = new FacturaElectronica('0', this.pto_vta, this.elementoComprobante['id'], this.elementoConcepto['id'],
   this.elementoDocumento['id'],this.nrodocumento,
   this.cliente,this.factura_numero, this._fecha, this._fechaDesde, this._fechaHasta,
    this.subtotal, this.subtotal_excento, this.subtotal_iva, this.total,this.facturaAlicuotaAsociada,this.elementos, '','', this.elementoMedicos['id']);
    console.log(facturaElectronica);
+  
+  
+   if((Number(this.elementoDocumento['id']) === 86 )||(Number(this.elementoDocumento['id']) === 80)){
+     console.log(Number(this.elementoDocumento['id']));
+     console.log(this.nrodocumento.length);
+     if(this.nrodocumento.length === 11){
+      console.log(Number(this.elementoDocumento['id']));
+      this.generarPDF();
+     }else{
+    
+      swal({
+        toast: false,
+        type: 'warning',
+        text: 'Error en la cantidad de dígitos del  CUIT / CUIL',
+        title: 'Digitos incorrectos',
+        showConfirmButton: false,
+        timer: 3000
+       });
+
+     }
+   }
+
+   if((Number(this.elementoDocumento['id']) != 86 )&&(Number(this.elementoDocumento['id']) != 80)){
+    console.log(Number(this.elementoDocumento['id']));
+    console.log(this.nrodocumento.length);
+    if((this.nrodocumento.length <=8)&&(this.nrodocumento.length >=5)){
+      console.log(Number(this.elementoDocumento['id']));
+      this.generarPDF();
+    }else{
+     swal({
+       toast: false,
+       type: 'warning',
+       text: 'Error en la cantidad de dígitos',
+       title: 'Digitos incorrectos',
+       showConfirmButton: false,
+       timer: 3000
+     });
+    }
+  }
 /*
    try {
     this.facturacionService.crearFactura(facturaElectronica)
@@ -462,7 +527,7 @@ guardarDatos(){
 }
 
 */
-this.generarPDF();
+
 }
 
 
@@ -472,6 +537,10 @@ obtenerPuntoVta(){
   this.obtenerUltimaFactura();
 }
 
+onElementoDocumento(){
+
+  console.log(this.elementoDocumento);
+}
 
 obtenerUltimaFactura(){
   
@@ -534,6 +603,34 @@ agregarRenglon(){
 }
 
 
+agregarRenglonOS(){
+  let data:any; 
+  //data = this.selecteditemRegistro;
+  const ref = this.dialogService.open(PopupLiquidacionDetalleComponent, {
+  data,
+   header: 'Agregar registro de factura', 
+   width: '98%',
+   height: '90%'
+  });
+
+  ref.onClose.subscribe((PopupLiquidacionDetalleComponent:FacturaElectronicaRenglon) => {
+      if (PopupLiquidacionDetalleComponent) {
+        console.log(PopupLiquidacionDetalleComponent);    
+  //      let movimiento:FacturaElectronicaRenglon;
+   //     movimiento= PopupLiquidacionDetalleComponent;
+    // this.elementos.push(movimiento);
+       console.log(this.elementos);
+       // GUARDO LAS ALICUOTAS ASOCIADAS
+
+       // SE DEBE SEPARAR POR ALICUOTAS Y SUMAR LOS VALORES---- CORREGIR
+  /*     let _factura_alicuota_asociada = new FacturaAlicuotaAsociada(movimiento['alicuota_id'],movimiento['iva'],movimiento['precio_unitario'],'0' );
+        this.facturaAlicuotaAsociada.push(_factura_alicuota_asociada);
+        this.sumarValores();*/
+      }
+  });
+}
+
+
 eliminarRegistro(result:any){
   console.log(result);
   this.elementos = this.elementos.filter(item => item !== result);
@@ -571,81 +668,146 @@ for(i=0;i < this.facturaAlicuotaAsociada.length;i++){
 }
 
 generarPDF(){
+
+
+  // GENERO EL FORMATO DE LOS COBROS
+
+  this.elementosPDF = this.elementos;
+  let i = 0;
+  for(i= 0; i< this.elementosPDF.length; i++){
+      this.elementosPDF[i]['alicuota'] = this.cp.transform(this.elementosPDF[i]['alicuota'], '', 'symbol-narrow', '1.2-2');
+      this.elementosPDF[i]['iva'] = this.cp.transform(this.elementosPDF[i]['iva'], '', 'symbol-narrow', '1.2-2');
+      this.elementosPDF[i]['precio_unitario'] = this.cp.transform(this.elementosPDF[i]['precio_unitario'], '', 'symbol-narrow', '1.2-2');
+      this.elementosPDF[i]['total_renglon'] = this.cp.transform(this.elementosPDF[i]['total_renglon'], '', 'symbol-narrow', '1.2-2');
+      this.elementosPDF[i]['total_sin_iva'] = this.cp.transform(this.elementosPDF[i]['total_sin_iva'], '', 'symbol-narrow', '1.2-2');
+      
+  }
+
   this._fecha = formatDate(this.fecha, 'dd/MM/yyyy', 'en');
   let inicio_actividades =  formatDate(this.elementoMedicos['fecha_matricula'], 'dd/MM/yyyy', 'en'); 
   var doc = new jsPDF();  
   /** valores de la pagina**/
   const pageSize = doc.internal.pageSize;
   const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+  const pageHeight = pageSize.height ? pageSize.height : pageSize.getHeight();
   //borde contenedor
   doc.setLineWidth(0.3);
   doc.setDrawColor(207, 216, 220);
   doc.line(10, 10, pageWidth - 10, 10); //linea superior horizontal
-  doc.line(10, 10, 10, 40); // linea vertical izquierda
-  doc.line(pageWidth - 10, 10, pageWidth - 10, 40); // linea vertical derecha
-  doc.line(10, 40, pageWidth - 10, 40); //linea inferior horizontal
+  doc.line(10, 10, 10, 50); // linea vertical izquierda
+  doc.line(pageWidth - 10, 10, pageWidth - 10, 50); // linea vertical derecha
+  doc.line(10, 50, pageWidth - 10, 50); //linea inferior horizontal
   
   //borde factura letra  
-  doc.line((pageWidth/2)-6,10 , (pageWidth/2)-6, 20);  // linea vertical izquierda
-  doc.line((pageWidth/2)+6,10 , (pageWidth/2)+6, 20);  // linea vertical derecha
-  doc.line((pageWidth/2)-6,20 , (pageWidth/2)+6, 20); //linea inferior horizontal
+  doc.line((pageWidth/2)-6,10 , (pageWidth/2)-6, 23);  // linea vertical izquierda
+  doc.line((pageWidth/2)+6,10 , (pageWidth/2)+6, 23);  // linea vertical derecha
+  doc.line((pageWidth/2)-6,23 , (pageWidth/2)+6, 23); //linea inferior horizontal
+
+  //borde fecha emision desde hasta
+
+  doc.line(10, 55, pageWidth - 10, 55); //linea superior horizontal
+  doc.line(10, 55, 10, 63); // linea vertical izquierda
+  doc.line(pageWidth - 10, 55, pageWidth - 10, 63); // linea vertical derecha
+  doc.line(10, 63, pageWidth - 10, 63); //linea inferior horizontal
+
+  // borde datos del clinete
+
+  doc.line(10, 65, pageWidth - 10, 65); //linea superior horizontal
+  doc.line(10, 65, 10, 90); // linea vertical izquierda
+  doc.line(pageWidth - 10, 65, pageWidth - 10, 90); // linea vertical derecha
+  doc.line(10, 90, pageWidth - 10, 90); //linea inferior horizontal
+
+
+
+  doc.line(10, pageHeight - 25,  10 , pageHeight - 15); // linea vertical izquierda
+  doc.line(pageWidth - 10, pageHeight -25, pageWidth - 10, pageHeight -15); // linea vertical derecha
+  doc.line(10, pageHeight -25, pageWidth - 10, pageHeight -25); //linea superior horizontal
+  doc.line(10, pageHeight -15, pageWidth - 10, pageHeight -15); //linea inferior horizontal
+
+  
+
 // linea divisoria
-doc.line(pageWidth/2, 20, pageWidth /2, 40);
-  doc.setFontSize(15);
+doc.line(pageWidth/2, 23, pageWidth /2, 50);
+  doc.setFontSize(19);
   doc.setFontStyle("bold");
-  doc.text('B', (pageWidth/2)-2, 16); 
+  doc.text(this.elementoComprobante['letra'], (pageWidth/2)-2.5, 17); 
   doc.setFontStyle("normal");
-  doc.setFontSize(5);
-  doc.text('COD. 06', (pageWidth/2)-3, 19); 
-  doc.addImage(logo_clinica, 'PNG', 15, 12, 42, 9);
-  doc.setFontSize(8);
-  doc.setFontStyle("bold");
-  doc.text(this.elementoMedicos['nombreyapellido'], 15, 26); 
+  doc.setFontSize(6);
+  doc.text('COD. '+this.elementoComprobante['comprobante_codigo'], (pageWidth/2)-4.5, 21); 
+  doc.addImage(logo_clinica, 'PNG', 15, 12, 60.06, 12.87);
+  doc.setFontSize(9);
+  
+  doc.text(this.elementoMedicos['nombreyapellido'], 15, 35); 
   doc.setFontStyle("normal");
-  doc.setFontSize(7);
-  doc.text('Domicilio Comercial: '+this.elementoMedicos['domicilio'], 15, 30); 
-  doc.text('Condición frente al IVA: '+this.elementoMedicos['categoria_iva'],15 , 35); 
+  doc.setFontSize(9);
+  doc.text(this.elementoMedicos['domicilio'], 15, 40); 
+  doc.text(this.elementoMedicos['categoria_iva'],15 , 45); 
   // izquierda
   doc.setFontSize(9);
-  doc.text('Comprobante: '+ this.pto_vta+' - '+ this.factura_numero_ceros, (pageWidth/2)+20, 15); 
-  doc.setFontSize(7);
-  doc.text('Fecha Emisión: '+ this._fecha, (pageWidth/2)+20, 20); 
-  doc.text('C.U.I.T.: '+ this.elementoMedicos['cuit'], (pageWidth/2)+20, 25); 
-  doc.text('Ingresos brutos: '+ this.elementoMedicos['ing_brutos'], (pageWidth/2)+20, 30); 
-  doc.text('Inicio de actividades: '+ inicio_actividades, (pageWidth/2)+20, 35); 
+  doc.text('Comprobante: '+ this.pto_vta+' - '+ this.factura_numero_ceros, (pageWidth/2)+20, 20); 
+  doc.setFontSize(9);
+  doc.text('Fecha Emisión: '+ this._fecha, (pageWidth/2)+20, 25); 
+  doc.text('C.U.I.T.: '+ this.elementoMedicos['cuit'], (pageWidth/2)+20, 30); 
+  doc.text('Ingresos brutos: '+ this.elementoMedicos['ing_brutos'], (pageWidth/2)+20, 35); 
+  doc.text('Inicio de actividades: '+ inicio_actividades, (pageWidth/2)+20, 40); 
   doc.setLineWidth(0.4);
-/*
-  doc.line(10, 33, pageWidth - 10, 33);
-  doc.setFontSize(12);
-  doc.text('LISTADO DE ORDENES', pageWidth/2, 15, null, null, 'center');
-  doc.setFontSize(6);
-  doc.text('Emitido : '+_fechaEmision, pageWidth/2, 20, null, null, 'center');
-  doc.setFontSize(8);
-  doc.text('Fecha de cobro: '+fecha_chirugia, 10, 30, null, null, 'left');
-  
-  doc.setFontSize(6);
-    doc.text(15, 38, 'Tarjeta : ' +this.cp.transform(tcredito, '', 'symbol-narrow', '1.2-2') ); 
-    doc.text(45, 38, 'Debito: ' +this.cp.transform(tdebito, '', 'symbol-narrow', '1.2-2') ); 
-    doc.text(75, 38, 'Efectivo: ' +this.cp.transform(tefectivo, '', 'symbol-narrow', '1.2-2') ); 
-    doc.text(105, 38, 'Transferencia: ' +this.cp.transform(ttransferencia, '', 'symbol-narrow', '1.2-2') ); 
-    doc.text(135, 38, 'Total : ' +this.cp.transform(tfacturado, '', 'symbol-narrow', '1.2-2') );  
-    doc.setFontSize(8);
-  
+
+  //DATOS DE FECHA
+
+  this._fechaDesde = formatDate(this.fechaDesde, 'yyyy-MM-dd', 'en');
+  this._fechaHasta = formatDate(this.fechaHasta, 'yyyy-MM-dd', 'en');
+  doc.text('Período Facturado   Desde: '+formatDate(this.fechaDesde, 'dd/MM/yyyy', 'en'), 15, 60); 
+  doc.text('Hasta: '+formatDate(this.fechaHasta, 'dd/MM/yyyy', 'en'), pageWidth/2, 60); 
+
+  //DATOS DEL CLIENTE
+
+  doc.text(this.elementoDocumento['descripcion']+' : '+ this.nrodocumento, 15, 73); 
+  doc.text('Cliente: '+ this.cliente, 15, 78); 
+  doc.text('Condición frente al IVA: '+ this.elementoCondicionIva['categoria_iva'], 15, 83); 
+
+  // TOTAL DE LA FACTURA
   doc.setFontSize(10);
-  
-  doc.setFontSize(8);
-  doc.autoTable(this.columns, this.selecteditems,
-    {
-        margin: {horizontal: 5, vertical: 42},
-        bodyStyles: {valign: 'top'},
-        styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},       
-        columnStyles: {operacion_cobro_id: {columnWidth: 11}, operacion_cobro_numero_bono: {columnWidth: 15}, apellido: {columnWidth: 20},
-        nombre: {columnWidth: 25},  dni: {columnWidth: 15}, obra_social_nombre: {columnWidth: 30},  codigo: {columnWidth: 12},
-        descripcion: {columnWidth: 40}, fecha_cobro: {columnWidth: 20},cantidad: {columnWidth: 10},
-        valor_facturado: {columnWidth: 13},distribucion: {columnWidth: 13},forma_pago: {columnWidth: 23},usuario_cobro_nombre: {columnWidth: 20}}
-    });
- */
+  doc.setFontStyle("bold");
+  doc.text('Subtotal: '+ this.cp.transform(this.subtotal, '', 'symbol-narrow', '1.2-2'), 15, pageHeight -18); 
+  doc.text('Imp. IVA: '+ this.cp.transform(this.subtotal_iva, '', 'symbol-narrow', '1.2-2'), 75, pageHeight -18); 
+  doc.text('Total: '+ this.cp.transform(this.total, '', 'symbol-narrow', '1.2-2'), pageWidth-50, pageHeight -18); 
+  // PIE DE LA FACTURA
+  doc.text('CAE: '+ this._fecha, 15, pageHeight -5); 
+  doc.text('Fecha de vencimiento de CAE: '+ this._fecha, (pageWidth/2)+20, pageHeight -5); 
+  doc.setFontStyle("normal");
+doc.autoTable(this.columns, this.elementosPDF,
+  {
+    
+      margin: {vertical: 95, right:0,horizontal: -10},
+      bodyStyles: {valign: 'top'},
+      styles: {fontSize: 8,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},       
+      columnStyles: {descripcion: {columnWidth: 88}, cantidad: {columnWidth: 10}, precio_unitario: {columnWidth: 25},
+      alicuota_descripcion: {columnWidth: 12},  iva: {columnWidth: 25}, total_renglon: {columnWidth: 25} }
+  });
  window.open(doc.output('bloburl'));  
+  this.limpiarDatos();
+  }
+
+
+  limpiarDatos(){
+
+  this.elementosPDF = [];
+  this.elementos = [];   
+  this.pto_vta = '0';
+  this.factura_numero = '0';
+  this.factura_numero_ceros = '0';
+  this.nrodocumento = '0';
+  this.cliente = '';
+  this.CAE = '';
+  this.fecha = new Date();
+  this.fechaDesde = new Date();
+  this.fechaHasta = new Date();
+  this.cantidad = 0;
+  this.subtotal = 0;
+  this.subtotal_excento = 0;
+  this.subtotal_iva = 0;
+  this.total = 0;
+   this.getMedicosFacturan();
   }
 
 }

@@ -68,7 +68,7 @@ export class MedicoComponent implements OnInit {
     
       
       showDialogToAdd() {
-        this.popItem = new Medico("","","",new Date(),"","","","","","","","",[],'');
+        this.popItem = new Medico("","","",new Date(),"","","","","","","","",[],'','','','','');
           let data:any; 
           data = this.popItem;
           const ref = this.dialogService.open(PopupMedicoEditComponent, {
@@ -93,7 +93,8 @@ export class MedicoComponent implements OnInit {
     showDialogToUpdate(event) {
         console.log(event);
         this.popItem = new Medico(event.data.apellido,event.data.nombre,event.data.domicilio,event.data.fecha_matricula,event.data.telefono, event.data.telefono_cel,
-            event.data.email,event.data.email_laboral,event.data.cuit, event.data.ing_brutos,event.data.usuario_id,event.data.id,event.data.ObraSocial,event.data.codgo_old);
+            event.data.email,event.data.email_laboral,event.data.cuit, event.data.ing_brutos,event.data.usuario_id,event.data.id,event.data.ObraSocial,event.data.codgo_old,
+             event.data.categoria_iva_id, event.data.factura_documento_comprador_id,event.data.punto_vta_id,event.data.factura_comprobante_id);
                     
         let data:any; 
         console.log(this.popItem);

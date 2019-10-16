@@ -176,7 +176,7 @@ verDetalle(agendaTurno:any){
 
   console.log(agendaTurno);
 let liquidacion:Liquidacion;
-liquidacion = new Liquidacion(agendaTurno['operacion_cobro_id'],'','','','','','',0,0,'','',[],'','','');
+liquidacion = new Liquidacion(agendaTurno['operacion_cobro_id'],'','','','','','',0,0,'','',[],'','','',0);
   let data:any; 
   data = liquidacion;
   const ref = this.dialogService.open(PopupOperacionCobroDetalleComponent, {

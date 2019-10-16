@@ -147,7 +147,7 @@ export class PopupOperacionCobroPresentacionComponent implements OnInit {
         this.DateForm.patchValue({fecha_desde: this.fechaDesde});
         this.DateForm.patchValue({fecha_hasta: this.fechaHasta});
         this.popItemOperacionCobro =  new OperacionCobroDetalle('','',0,0,0,'','','','','','','','','','','',0,0,0,'','','',0);
-       this.liquidacion = new Liquidacion('','','','','','','',0,0,'','',[],'','','');
+       this.liquidacion = new Liquidacion('','','','','','','',0,0,'','',[],'','','',0);
        this.loadRegistroByIdLiquidacion();
     }
   
