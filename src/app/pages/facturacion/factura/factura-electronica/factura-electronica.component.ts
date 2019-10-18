@@ -55,6 +55,7 @@ export class FacturaElectronicaComponent implements OnInit {
   cliente:string = '';
   CAE:string;
   CAE_vto:string;
+  factura_nro:string;
   es:any;
   fecha:Date;
   _fecha:string;
@@ -454,7 +455,7 @@ guardarDatos(){
   let facturaElectronica = new FacturaElectronica('0', this.pto_vta, this.elementoComprobante['id'], this.elementoConcepto['id'],
   this.elementoDocumento['id'],this.nrodocumento,
   this.cliente,this.factura_numero, this._fecha, this._fechaDesde, this._fechaHasta,
-   this.subtotal, this.subtotal_excento, this.subtotal_iva, this.total,this.facturaAlicuotaAsociada,this.elementos, '','', this.elementoMedicos['id']);
+  (Math.round(this.subtotal * 100) / 100), this.subtotal_excento,(Math.round(this.subtotal_iva * 100) / 100),(Math.round(this.total * 100) / 100) ,this.facturaAlicuotaAsociada,this.elementos, '','', this.elementoMedicos['id']);
    console.log(facturaElectronica);
   
   
@@ -463,7 +464,8 @@ guardarDatos(){
      console.log(this.nrodocumento.length);
      if(this.nrodocumento.length === 11){
       console.log(Number(this.elementoDocumento['id']));
-      this.generarPDF();
+     // this.generarPDF();
+     this.CrearFactura(facturaElectronica);
      }else{
     
       swal({
@@ -483,7 +485,8 @@ guardarDatos(){
     console.log(this.nrodocumento.length);
     if((this.nrodocumento.length <=8)&&(this.nrodocumento.length >=5)){
       console.log(Number(this.elementoDocumento['id']));
-      this.generarPDF();
+     // this.generarPDF();
+     this.CrearFactura(facturaElectronica);
     }else{
      swal({
        toast: false,
@@ -496,45 +499,55 @@ guardarDatos(){
     }
   }
 /*
-   try {
-    this.facturacionService.crearFactura(facturaElectronica)
-    .subscribe(resp => {             
-        this.loading = false;
-        console.log(resp);
-        swal({
-          toast: false,
-          type: 'success',
-          text: 'CAE: '+resp['CAE']+' Vto: '+resp['CAEFchVto'],
-          title: 'Factura generada',
-          showConfirmButton: false,
-          timer: 2000
-        });
-    },
-    error => { // error path
-        console.log(error.message);
-        console.log(error.status);
-        swal({
-          toast: false,
-          type: 'error',
-          text: error.message,
-          title: 'error.status',
-          showConfirmButton: false,
-          timer: 2000
-        });
-     });    
-} catch (error) {
-
-}
+  
 
 */
 
 }
 
 
+CrearFactura(facturaElectronica){
+  try {
+    this.facturacionService.crearFactura(facturaElectronica)
+    .subscribe(resp => {             
+        this.loading = false;
+        this.CAE = resp[0]['cae'];
+        this.CAE_vto = resp[0]['cae_vto'];
+        this.factura_nro =  this.padLeft(String(resp[0]['factura_numero']),'0',8);
+        swal({
+          toast: false,
+          type: 'success',
+          text: 'confeccionando PDF',
+          title: 'FACTURA Nº '+this.factura_nro +' GENERADA CORRETAMENTE',
+          showConfirmButton: false,
+          timer: 4000,
+          onClose: () => {
+            this.generarPDF();
+          }
+        });
+     //   this.generarPDF();
+    },
+    error => { // error path
+        console.log(error);
+        console.log(error.message);
+        swal({
+          toast: false,
+          type: 'error',
+          text: error,
+
+          showConfirmButton: false,
+          timer: 4000
+        });
+     });    
+} catch (error) {
+
+}
+}
+
 obtenerPuntoVta(){
   this.pto_vta = this.padLeft(this.elementoPtoVta['punto_vta'], '0', 4); 
   console.log(this.pto_vta);
-  this.obtenerUltimaFactura();
+  //this.obtenerUltimaFactura();
 }
 
 onElementoDocumento(){
@@ -595,13 +608,39 @@ agregarRenglon(){
        // GUARDO LAS ALICUOTAS ASOCIADAS
 
        // SE DEBE SEPARAR POR ALICUOTAS Y SUMAR LOS VALORES---- CORREGIR
-       let _factura_alicuota_asociada = new FacturaAlicuotaAsociada(movimiento['alicuota_id'],movimiento['iva'],movimiento['precio_unitario'],'0' );
+       let alicuota_id = '0';
+       let iva = 0;
+       let precio_unitario = 0;
+       let existe:Boolean = false;
+
+        // ITERO PARA VERIFICAR SI EXISTE EL RENGLON CON LA ALICUOTA, SI EXISTE SUMO SUS VALORES
+       for (let index = 0; index < this.facturaAlicuotaAsociada.length; index++) {
+         console.log(movimiento['alicuota_id']);
+         console.log(this.facturaAlicuotaAsociada[index]['id']);
+         if(this.facturaAlicuotaAsociada){
+          if(Number(movimiento['alicuota_id']) === Number(this.facturaAlicuotaAsociada[index]['id'])){
+            console.log('valor existente')
+            existe = true;
+            precio_unitario = Number(this.facturaAlicuotaAsociada[index]['Importe']) + movimiento['precio_unitario'];
+            iva = Number(this.facturaAlicuotaAsociada[index]['importe_gravado']) + movimiento['iva'];
+            this.facturaAlicuotaAsociada[index]['importe_gravado'] = (Math.round(iva* 100) / 100);
+            this.facturaAlicuotaAsociada[index]['Importe'] =  (Math.round(precio_unitario* 100) / 100);
+          }
+        }
+       } 
+       // SI EL RENGLON  DE ALICUOTA NO EXISTE LO CREO UNA UNICA VEZ
+       if(!existe){
+        //let _factura_alicuota_asociada = new FacturaAlicuotaAsociada(movimiento['alicuota_id'],Number(movimiento['iva']),Number(movimiento['precio_unitario']),'0' );
+        let _factura_alicuota_asociada = new FacturaAlicuotaAsociada(movimiento['alicuota_id'],(Math.round(Number(movimiento['iva']) * 100) / 100), (Math.round(Number(movimiento['precio_unitario'])* 100) / 100),'0' );
         this.facturaAlicuotaAsociada.push(_factura_alicuota_asociada);
+       }
+      
         this.sumarValores();
       }
   });
 }
 
+// 20300712144
 
 agregarRenglonOS(){
   let data:any; 
@@ -613,19 +652,51 @@ agregarRenglonOS(){
    height: '90%'
   });
 
-  ref.onClose.subscribe((PopupLiquidacionDetalleComponent:FacturaElectronicaRenglon) => {
+  ref.onClose.subscribe((PopupLiquidacionDetalleComponent:FacturaElectronicaRenglon[]) => {
       if (PopupLiquidacionDetalleComponent) {
         console.log(PopupLiquidacionDetalleComponent);    
-  //      let movimiento:FacturaElectronicaRenglon;
-   //     movimiento= PopupLiquidacionDetalleComponent;
-    // this.elementos.push(movimiento);
-       console.log(this.elementos);
-       // GUARDO LAS ALICUOTAS ASOCIADAS
+        let movimiento:FacturaElectronicaRenglon[];
+        movimiento= PopupLiquidacionDetalleComponent;
 
-       // SE DEBE SEPARAR POR ALICUOTAS Y SUMAR LOS VALORES---- CORREGIR
-  /*     let _factura_alicuota_asociada = new FacturaAlicuotaAsociada(movimiento['alicuota_id'],movimiento['iva'],movimiento['precio_unitario'],'0' );
+
+        
+
+        for (let index = 0; index < movimiento.length; index++) {
+         this.elementos.push(movimiento[index]);
+          
+        }
+        console.log(this.elementos);
+        let alicuota_id = '0';
+       let iva = 0;
+       let precio_unitario = 0;
+       let existe:Boolean = false;
+       for (let j = 0; j < movimiento.length; j++) {
+        // ITERO PARA VERIFICAR SI EXISTE EL RENGLON CON LA ALICUOTA, SI EXISTE SUMO SUS VALORES
+       for (let index = 0; index < this.facturaAlicuotaAsociada.length; index++) {
+         console.log(movimiento[j]['alicuota_id']);
+         console.log(movimiento[j]);
+         console.log(this.facturaAlicuotaAsociada[index]['id']);
+         if(this.facturaAlicuotaAsociada){
+          if(Number(movimiento[j]['alicuota_id']) === Number(this.facturaAlicuotaAsociada[index]['id'])){
+            console.log('valor existente')
+            existe = true;
+            precio_unitario = Number(this.facturaAlicuotaAsociada[index]['Importe']) + Number(movimiento[j]['total_sin_iva']);
+            iva = Number(this.facturaAlicuotaAsociada[index]['importe_gravado']) + Number(movimiento[j]['iva']);
+            this.facturaAlicuotaAsociada[index]['importe_gravado'] = (Math.round(iva* 100) / 100);
+            this.facturaAlicuotaAsociada[index]['Importe'] =  (Math.round(precio_unitario* 100) / 100);
+          }
+        }
+       } 
+       // SI EL RENGLON  DE ALICUOTA NO EXISTE LO CREO UNA UNICA VEZ
+       if(!existe){
+        //let _factura_alicuota_asociada = new FacturaAlicuotaAsociada(movimiento['alicuota_id'],Number(movimiento['iva']),Number(movimiento['precio_unitario']),'0' );
+        let _factura_alicuota_asociada = new FacturaAlicuotaAsociada(movimiento[j]['alicuota_id'],(Math.round(Number(movimiento[j]['iva']) * 100) / 100), (Math.round(Number(movimiento[j]['precio_unitario'])* 100) / 100),'0' );
         this.facturaAlicuotaAsociada.push(_factura_alicuota_asociada);
-        this.sumarValores();*/
+       }
+      }
+    
+         this.sumarValores();
+       
       }
   });
 }
@@ -744,7 +815,7 @@ doc.line(pageWidth/2, 23, pageWidth /2, 50);
   doc.text(this.elementoMedicos['categoria_iva'],15 , 45); 
   // izquierda
   doc.setFontSize(9);
-  doc.text('Comprobante: '+ this.pto_vta+' - '+ this.factura_numero_ceros, (pageWidth/2)+20, 20); 
+  doc.text('Comprobante: '+ this.pto_vta+' - '+ this.factura_nro, (pageWidth/2)+20, 20); 
   doc.setFontSize(9);
   doc.text('Fecha Emisión: '+ this._fecha, (pageWidth/2)+20, 25); 
   doc.text('C.U.I.T.: '+ this.elementoMedicos['cuit'], (pageWidth/2)+20, 30); 
@@ -772,8 +843,8 @@ doc.line(pageWidth/2, 23, pageWidth /2, 50);
   doc.text('Imp. IVA: '+ this.cp.transform(this.subtotal_iva, '', 'symbol-narrow', '1.2-2'), 75, pageHeight -18); 
   doc.text('Total: '+ this.cp.transform(this.total, '', 'symbol-narrow', '1.2-2'), pageWidth-50, pageHeight -18); 
   // PIE DE LA FACTURA
-  doc.text('CAE: '+ this._fecha, 15, pageHeight -5); 
-  doc.text('Fecha de vencimiento de CAE: '+ this._fecha, (pageWidth/2)+20, pageHeight -5); 
+  doc.text('CAE: '+ this.CAE, 15, pageHeight -5); 
+  doc.text('Fecha de vencimiento de CAE: '+ formatDate(this.CAE_vto, 'dd/MM/yyyy', 'en') , (pageWidth/2)+20, pageHeight -5); 
   doc.setFontStyle("normal");
 doc.autoTable(this.columns, this.elementosPDF,
   {
@@ -807,7 +878,11 @@ doc.autoTable(this.columns, this.elementosPDF,
   this.subtotal_excento = 0;
   this.subtotal_iva = 0;
   this.total = 0;
-   this.getMedicosFacturan();
+  this.facturaAlicuotaAsociada = [];
+  this.getMedicosFacturan();
+ 
+  
   }
 
+  
 }

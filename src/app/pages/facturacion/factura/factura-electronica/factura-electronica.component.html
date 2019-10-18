@@ -20,7 +20,7 @@
   <div><label class="mr-1">Factura : </label> 
   <p-dropdown class="mr-3" [options]="elementosComprobante" [(ngModel)]="elementoComprobante" (onHide)="obtenerUltimaFactura($event)" optionLabel="descripcion" placeholder="Factura"></p-dropdown>
   <p-progressSpinner class="mr-2 mt-2" *ngIf="loadingspinner" [style]="{width: '24px', height: '24px'}" strokeWidth="6" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
-  <b><label>Nº : {{pto_vta}} - {{factura_numero_ceros}}</label></b>
+  <b><label class="text-info">Nº : {{pto_vta}}</label></b>
   
   <p-dropdown class="ml-3" [options]="elementosConcepto" [(ngModel)]="elementoConcepto"  optionLabel="descripcion" placeholder="Concepto"></p-dropdown>
   
@@ -57,7 +57,7 @@
 
 
 <div class="row ml-5 mr-5 mt-3">
-<p-table  #dt class="pt-2 "  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  (onEditComplete)="editRow($event)" [(selection)]="selecteditems" columnResizeMode="expand" [responsive]="true"
+<p-table  #dt class="pt-2 "  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"   [(selection)]="selecteditems" columnResizeMode="expand" [responsive]="true"
 scrollHeight="200px" [scrollable]="true"  >
 <ng-template pTemplate="caption">
   <div class="row">
@@ -94,7 +94,15 @@ scrollHeight="200px" [scrollable]="true"  >
           
     <ng-template pTemplate="body" let-elementos  >
         <tr style="height:20px">
-                <td style="width: 55%">{{elementos.descripcion}}</td>
+                <td style="width: 55%" pEditableColumn > 
+                  <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input type="text" class="form-control" [(ngModel)]="elementos.descripcion">
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                      {{elementos.descripcion}}
+                    </ng-template>
+                </p-cellEditor></td>
                 <td style="width: 10%">{{elementos.cantidad}}</td>
                 <td style="width: 10%">{{elementos.precio_unitario | number : '1.2-2'}}</td>
                 <td style="font-size: 10px;width: 9%">{{elementos.alicuota_descripcion}}</td>
@@ -116,6 +124,6 @@ scrollHeight="200px" [scrollable]="true"  >
             </ul>
         </ng-template> 
 </p-table>
-<button class="mt-2 btn btn-info btn-block btn-lg" (click)="guardarDatos()"> Guardar factura</button> 
+<button class="mt-2 m-2 btn btn-info btn-block btn-lg" (click)="guardarDatos()"> Guardar factura</button> 
 </div>
 

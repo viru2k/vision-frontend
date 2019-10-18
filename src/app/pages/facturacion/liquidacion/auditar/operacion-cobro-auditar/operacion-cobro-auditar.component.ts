@@ -331,7 +331,7 @@ export class OperacionCobroAuditarComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: '#FF8A65',
       cancelButtonColor: '#C5E1A5',
-      confirmButtonText: 'Si, guardar!'
+      confirmButtonText: 'Si, eliminar!'
     }).then((result) => {
       if (result.value) {
         this.deleteRegistro(this.selecteditemRegistro.id);        
@@ -353,7 +353,7 @@ export class OperacionCobroAuditarComponent implements OnInit {
         showCancelButton: true,
         confirmButtonColor: '#C5E1A5',
         cancelButtonColor: '#FF8A65',
-        confirmButtonText: 'Si, guardar!'
+        confirmButtonText: 'Si, afectar!'
       }).then((result) => {
         if (result.value) {
           let userData = JSON.parse(localStorage.getItem('userData'));

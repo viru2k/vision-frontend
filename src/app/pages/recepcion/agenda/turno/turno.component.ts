@@ -144,7 +144,7 @@ export class TurnoComponent implements OnInit {
 
   ngOnInit() {
   
-        this.fechaHoy = new Date();
+        //this.fechaHoy = new Date();
         let today = new Date();
         let invalidDate = new Date();
         let invalidDate2 = new Date();
@@ -375,13 +375,13 @@ loadSobreTurno(){
 
 calendarioBloqueo(){
   let tempdatebloque;
-  this._fechaHoy = formatDate(this.fechaHoy, 'yyyy-MM-dd', 'en');
+  this._fechaHoy = formatDate(new Date(), 'yyyy-MM-dd', 'en');
  if(this._fechaHoy!=''){
   let _fechaHoy = this.parse(this.fechaHoy);
  //console.log(this.fechaHoy);
     this.loading = true;
     try {
-        this.miServico.getCalendarioBloqueoByMedico(this.usuario_id,this._fechaHoy)    
+        this.miServico.getCalendarioBloqueoByMedico(this.usuario_id,formatDate(new Date(), 'yyyy-MM-dd', 'en'))    
         .subscribe(resp => {
           
         this.calendarioBloqueado = resp;   
@@ -624,7 +624,7 @@ nuevoItemPaciente(){
       console.log(this.elementoPaciente);    
       this.formPaciente.patchValue(this.elementoPaciente);
       this.popItemPaciente = this.elementoPaciente;
-      this.showToast('exito','Se creo el paciente ','Exito al modificar');
+      
       this.loading = false;                  
       //this.loadList();
       this.resultSave = true;
@@ -669,7 +669,7 @@ editarItemPaciente(){
       this.elementoPaciente = resp;
       console.log(this.elementoPaciente);    
       this.formPaciente.patchValue(this.elementoPaciente);
-      this.showToast('exito','Registro modificado','Exito al modificar');
+      
       this.loading = false;                  
       this.throwAlert('success','Se modificó agendo el paciente '+this.popItemPaciente.apellido,'','200');
       this.resultSave = true;
@@ -943,22 +943,6 @@ parse(value: any): string | null {
   }
 }
 
-showToast(estado:string ,mensaje:string, encabezado:string){
-
-  if(estado =='exito'){
-      this.messageService.add({severity:'success', summary: mensaje, detail:encabezado});
-  }
-  if(estado =='info'){
-      this.messageService.add({severity:'info', summary: 'El campo no es correcto', detail:'Los datos del campo son incorrectos'});
-  }
-  if(estado =='warning'){
-      this.messageService.add({severity:'warning', summary: 'El campo no es correcto', detail:'Los datos del campo son incorrectos'});
-  }
-  if(estado =='error'){
-      this.messageService.add({severity:'error', summary: 'Error', detail:'No se pudo modificar el registro'});
-  }
-
-}
 
 
 throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string){

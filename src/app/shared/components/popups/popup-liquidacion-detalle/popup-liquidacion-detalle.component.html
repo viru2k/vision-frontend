@@ -6,12 +6,15 @@
 
 
 
-    
+    <div class="row ml-3">
+        <label class="mr-2 mt-2">Alícuota</label>
+        <p-dropdown   [options]="elementosAlicuota"  [(ngModel)]="elementoAlicuota"  optionLabel="descripcion"></p-dropdown>
+    </div>
 
   
   <div class="row m-3">
   <p-table  #dt class="pt-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"   [(selection)]="selecteditems" columnResizeMode="expand" [responsive]="true"
-  scrollHeight="600px" [scrollable]="true"  (onFilter)="filtered($event)"  >
+  scrollHeight="300px" [scrollable]="true"  (onFilter)="filtered($event)"  >
  
 
              <ng-template pTemplate="header" let-columns >
@@ -57,16 +60,7 @@
                   <td style="width: 10%">{{elementos.cant_orden}}</td>                            
                   <td style="width: 20%">{{elementos.total}}</td>  
                   <td style="width: 15%">{{elementos.medico_nombre}}</td>     
-                  <td pEditableColumn style="width: 10%">
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <p-dropdown  [style]="{'width':'75%','min-width':'75%'}" [options]="elementosAlicuota" (onHide)="calcularRenglon(elementos)" [(ngModel)]="elementoAlicuota" [style]="{'width':'100%'}" optionLabel="descripcion"></p-dropdown>
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            {{elementos.descripcion}}
-                        </ng-template>
-                    </p-cellEditor>
-                </td>      
+               
                 <td style="width: 20%">{{elementos.total_factura}}</td>                                    
                   <td style="width: 3em">
                           <p-tableCheckbox [value]="elementos"></p-tableCheckbox>
@@ -92,5 +86,5 @@
   </p-overlayPanel>  
 
   
-  <div style="position: absolute; opacity: 0.0; height: 0%;">  <canvas id="barcode"></canvas></div> 
+  <div class="row"> <button class="btn btn-info btn-block" (click)="calcularRenglon()">Agregar</button>  </div> 
  
