@@ -79,6 +79,11 @@ export class PopupFacturaRenglonComponent implements OnInit {
         if (BuscarConceptoFacturaComponent) {
           console.log(BuscarConceptoFacturaComponent);
           this.concepto = BuscarConceptoFacturaComponent.descripcion;
+          this.elementoAlicuota =  this.elementosAlicuota.find(x => x.iva_id == BuscarConceptoFacturaComponent.iva_id);
+          this.importe_unitario = BuscarConceptoFacturaComponent.importe;
+          console.log(this.elementoAlicuota);
+          this.calcularRenglon();
+        //  this.elementoAlicuota  = this.elementosAlicuota[BuscarConceptoFacturaComponent.factura_alicuota_id];
         }
     });
   }

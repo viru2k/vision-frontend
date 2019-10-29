@@ -7,39 +7,41 @@
 
 <div class="row m-1" >
     
-  <div class="row m-1" role="toolbar" aria-label="Toolbar with button groups">
+  <div class=" m-1" role="toolbar" aria-label="Toolbar with button groups">
       <div  class="input-group input-group-sm ">
               <form  [formGroup]="DateForm">
-              <div class="btn-group " role="group">
-                      <span class="pr-1 pt-1"><h6>Desde:</h6></span>
-          <p-calendar [inputStyle]="{'height':'29.1px'}" [styleClass]="form-control"  [showTime]="true"  class="mr-2 " formControlName="fecha_desde"  (onSelect)="actualizarFechaDesde($event)" tabindex="0"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
-             <ng-template pTemplate="date" let-date>
-                  <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
-              </ng-template> 
-            </p-calendar>
-            <span class="pr-1 pt-1"><h6>Hasta:</h6></span>
-            <p-calendar [inputStyle]="{'height':'29.1px'}"  [showTime]="true"  class="mr-2 " formControlName="fecha_hasta"  (onSelect)="actualizarFechaHasta($event)" tabindex="0"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
-              <ng-template pTemplate="date" let-date>
-                   <span  inputStyle="{'height':'29.5px'}"  style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
-               </ng-template> 
-             </p-calendar>               
-                        
-            
-                <span class="pr-1 pt-1"><h6>Periodo:</h6></span>       
-              <p-calendar [inputStyle]="{'height':'29.1px'}" [styleClass]="form-control"  [showTime]="true"  class="mr-2 " formControlName="numero"  (onSelect)="actualizarFechaPeriodo($event)" tabindex="0"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
-                <ng-template pTemplate="date" let-date>
-                     <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
-                 </ng-template>  
-               </p-calendar>       
-           
-
-            <div class="col-1 input-group input-group-sm ">           
+                <div class=" row btn-group ml-1" role="group">
+                    <span class="pr-1 pt-1"><h6>Desde:</h6></span>
+                    <p-calendar [inputStyle]="{'height':'29.1px'}" [styleClass]="form-control"  [showTime]="true"  class="mr-2 " formControlName="fecha_desde"  (onSelect)="actualizarFechaDesde($event)" tabindex="0"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+                       <ng-template pTemplate="date" let-date>
+                            <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
+                        </ng-template> 
+                      </p-calendar>
+                      <span class="pr-1 pt-1"><h6>Hasta:</h6></span>
+                      <p-calendar [inputStyle]="{'height':'29.1px'}"  [showTime]="true"  class="mr-2 " formControlName="fecha_hasta"  (onSelect)="actualizarFechaHasta($event)" tabindex="0"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+                        <ng-template pTemplate="date" let-date>
+                             <span  inputStyle="{'height':'29.5px'}"  style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
+                         </ng-template> 
+                       </p-calendar>               
+                         <div class="pr-2 pl-2">    <button    class="btn  btn-secondary btn-sm float-right mr-2"  (click)="loadRegistro()" >Buscar Registros</button>  </div>
+                </div>
+                <div class=" row  ml-1 mt-2" >
+                  
+       
+              
+                  <span class="pr-1 pt-1"><h6>Periodo:</h6></span>       
+                  <p-calendar [inputStyle]="{'height':'29.1px'}" [styleClass]="form-control"  [showTime]="true"  class="mr-2 " formControlName="numero"  (onSelect)="actualizarFechaPeriodo($event)" tabindex="0"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+                    <ng-template pTemplate="date" let-date>
+                         <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
+                     </ng-template>  
+                   </p-calendar>     
+            <div class="col-1 input-group input-group-sm mr-2">           
                 <input  placeholder="Nivel" class="form-control col-md-12 form-control-sm" formControlName="nivel"  />        
             </div> 
 
-          <div class=" col-6  ml-2 row" >
-                  <div class="form-group  col-4 mr-4 ">
-                          <div class="row">
+  
+                  <div class="form-group   mr-4 ">
+                          <div class="row mr-2">
                            
                             <div class=" input-group input-group-sm ">
                                 <input  (keyup.enter)="buscarObraSocial()" class="form-control col-md-12 form-control-sm" formControlName="obra_social_nombre" placeholder="Obra social"  />   
@@ -54,7 +56,7 @@
                             </div>    
                       </div>
                     </div>
-                    <div class="form-group col-4 ">
+                    <div class="form-group  mr-2">
                       <div class="row">
                        
                         <div class=" input-group input-group-sm ">
@@ -70,13 +72,15 @@
                         </div>    
                   </div>
                 </div>
-                <div class="form-group col-3 ">
-                <button    class="btn  btn-danger btn-sm float-right mr-2" (click)="afectarRegistros()" >Afectar registros</button>       
+               
+               
+                <div >
+                    <div class="form-group   ml-3">
+                        <button    class="btn  btn-danger btn-sm " (click)="afectarRegistros()" >Afectar registros</button>       
+                    </div>
               </div>                                                     
-                  </div>
-          
-      </div>
-           
+                    
+                </div>
               </form>      
  
       </div>
@@ -90,24 +94,30 @@
   <ng-template pTemplate="caption">
     <div class="row">
             <div class="col-md-12 row" style="text-align:left ">
-              <div class="pr-2 pl-2">    <button    class="btn  btn-secondary btn-sm float-right mr-2"  (click)="loadRegistro()" >Buscar Registros</button>  </div>
+           
+              <div>  <button    class="ml-2 btn  btn-outline-secondary btn-sm float-right "  (click)="buscarPracticaPaciente()" >Buscar registros por paciente</button></div> 
+              <div>  <button    class="ml-2 btn  btn-outline-secondary btn-sm float-right "  (click)="buscarPractica()" >Buscar otros registros</button></div> 
+              <div>  <button    class="ml-2 btn  btn  btn-outline-info btn-sm float-right "  (click)="generarPreFactura()" >Imprimir pre-factura</button></div>    
              <div class="pr-2 pl-2">   <button    class="btn  btn-outline-info btn-sm   "  (click)="generarPdfListado('todos')" >Imprimir resumen</button></div>
-             <div><button    class="btn  btn-outline-success btn-sm "  (click)="generarPdfListado('medico')" >Imprimir resumen por médico</button></div>  
-             <div>  <button    class="ml-2 btn  btn-outline-danger btn-sm float-right "  (click)="buscarPractica()" >Buscar otros registros</button></div> 
-             <div>  <button    class="ml-2 btn  btn-outline-danger btn-sm float-right "  (click)="buscarPracticaPaciente()" >Buscar registros por paciente</button></div> 
-             <div>  <button    class="ml-2 btn  btn  btn-outline-info btn-sm float-right "  (click)="generarPreFactura()" >Imprimir pre-factura</button></div>    
+             <div><button    class="btn  btn-outline-info btn-sm "  (click)="generarPdfListado('medico')" >Imprimir resumen por médico</button></div>  
+             
+          
+          
                
              <hr width="1" size="50">
               <div class="row ml-2 ">
-                  <label class="text-info mt-1"  >Prestación</label>
+                  <label class="text-info mt-1"  >Prestación :</label>
                 <div class="ml-2 mt-1"><p-radioButton name="groupname12" class="text-info text-sm" [(ngModel)]="internacion_tipo"   value="A" label="Ambulatorio"  inputId="opt12"></p-radioButton></div>
                 <div class="ml-2 mr-4 mt-1"><p-radioButton name="groupname22" class="text-info" [(ngModel)]="internacion_tipo"   value="I" label="Internación"  inputId="opt22"></p-radioButton></div>
                
               </div>                       
               <button   class="btn  btn-outline-success btn-sm  ml-2"  (click)="actualizarPrestacion()" >Actualizar prestación</button>
             </div>
-
  </div>
+ <div class=" ml-2 row mt-2">  
+ <label class="ml-1 mr-2 mt-1"> Acciones sobre D.O.S : </label> 
+ <div class="ml-2"><button    class="btn  btn-outline-danger btn-sm float-right  pr-2" (click)="actualizarDistribucion()" >Actualizar valores de distribución (Período de fecha) </button>   </div>                           
+</div>
 </ng-template>
 
              <ng-template pTemplate="header" let-columns >

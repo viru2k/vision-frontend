@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { URL_SERVICIOS, PARAMS } from '../config/config';
 import { FacturaElectronica } from './../models/factura-electronica.model';
+import { FacturaArticulo } from './../models/articulo.model';
 
 @Injectable({
   providedIn: 'root'
@@ -137,11 +138,33 @@ export class FacturacionService {
         return this.http.get<any[]>(this.url+'afip/elementos/articulo');
       }
 
+      CrearFacturaArticulo(articulo:FacturaArticulo){
+        return this.http.post<any[]>(this.url+'afip/elementos/articulo',articulo);
+      }
+      
+      ActualizarFacturaArticulo(articulo:FacturaArticulo){
+        return this.http.put<any[]>(this.url+'afip/elementos/articulo/'+articulo.id,articulo);
+      }
+
+      crearFacturaNotaCredito(facturaElectronica:FacturaElectronica){
+        return this.http.post<any>(this.url+'afip/elementos/factura/nota/credito', facturaElectronica);
+      }
+
       getMedicosFacturan(){
         return this.http.get<any[]>(this.url+'afip/data/medicos/facturan');
       }
 
+      GetFacturaBetweenDates(fecha_desde:string, fecha_hasta:string){
+        return this.http.get<any[]>(this.url+'afip/elementos/factura/by/fecha?fecha_desde='+fecha_desde+'&fecha_hasta='+fecha_hasta);
+      }
 
+      GetFacturaByNameOrDocumento(factura_documento:string ){
+        return this.http.get<any[]>(this.url+'afip/elementos/factura/by/cliente?factura_cliente='+factura_documento+'&factura_documento='+factura_documento);
+      }
       
-      
+      GetFacturaById(factura_numero:string ){
+        return this.http.get<any[]>(this.url+'afip/elementos/factura/by/id?factura_numero='+factura_numero);
+      }
+
+     
 }

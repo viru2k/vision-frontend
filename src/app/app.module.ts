@@ -219,6 +219,11 @@ import { BuscarClienteFacturaComponent } from './pages/facturacion/factura-elect
 import { PopupFacturaRenglonComponent } from './pages/factura/factura-electronica/popups/popup-factura-renglon/popup-factura-renglon.component';
 import { BuscarConceptoFacturaComponent } from './pages/facturacion/factura-electronica/popups/buscar-concepto-factura/buscar-concepto-factura.component';
 import { PopupOperacionCobroDistribucionDetalleComponent } from './shared/components/popups/popup-operacion-cobro-distribucion-detalle/popup-operacion-cobro-distribucion-detalle.component';
+import { OtrasAccionesComponent } from './pages/facturacion/factura/otras-acciones/otras-acciones.component';
+import { LenteCirugiaComponent } from './pages/asesoramiento/lente-cirugia/lente-cirugia.component';
+import { FacturacionArticuloComponent } from './pages/mantenimiento/facturacion-articulo/facturacion-articulo.component';
+import { PopupArticuloComponent } from './shared/components/popups/popup-articulo/popup-articulo.component';
+
 
 
 
@@ -370,10 +375,14 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupFacturaRenglonComponent,
     BuscarConceptoFacturaComponent,
     PopupOperacionCobroDistribucionDetalleComponent,
+    OtrasAccionesComponent,
+    LenteCirugiaComponent,
+    FacturacionArticuloComponent,
+    PopupArticuloComponent,
     
   ],
   imports: [
-    PdfViewerModule,
+
     GalleriaModule,
     FileUploadModule,
     BrowserModule,
@@ -434,7 +443,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupOperacionCobroDistribucionComponent,PopupPacienteEsperaComponent, PopupNotificacionComponent,
     PopupChatComponent ,   PopupListadoUsuarioComponent, PopupNotificacionNuevaComponent,
     PopupFacturaRenglonComponent,BuscarConceptoFacturaComponent,PopupOperacionCobroDistribucionDetalleComponent,
-    PopupLiquidacionDetalleComponent
+    PopupLiquidacionDetalleComponent, PopupArticuloComponent
 
   ],
   providers: [CurrencyPipe,DecimalPipe,NumberToWordsPipe,PacienteService,PushNotificationService,ExcelService,{ provide: LOCALE_ID, useValue: 'es-Ar' },

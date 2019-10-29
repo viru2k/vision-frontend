@@ -21,10 +21,11 @@ export class BuscarConceptoFacturaComponent implements OnInit {
 
   constructor(private miServico:FacturacionService, public ref: DynamicDialogRef, public config: DynamicDialogConfig ) { 
     this.cols = [
-      {field: 'descripcion', header: 'Descripcion',   width: '60%'  },
-      { field: 'tipo_articulo', header: 'Tipo' ,  width: '10%'  },
-      { field: 'factura_tipo_articulo_dscripcion', header: 'Tipo' ,  width: '15%'  },
-      { field: 'tipo_movimiento', header: 'Movimiento' ,  width: '15%'  },
+      {field: 'descripcion', header: 'Descripcion',   width: '70%'  },
+      { field: 'factura_alicuota_descripcion', header: 'Alícuota' ,  width: '10%'  },
+      { field: 'cantidad', header: 'Cantidad' ,  width: '10%'  },
+      { field: 'importe', header: 'Importe' ,  width: '%'  },
+      
    ];
   
 

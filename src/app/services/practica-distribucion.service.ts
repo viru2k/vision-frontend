@@ -37,4 +37,9 @@ postItem(val:PracticaDistribucion){
   return this.http.post<PracticaDistribucion>(this.url, val);
 }
 
+updateValoresDistribucionBetwenDates(fecha_desde: string, fecha_hasta:string) {    
+  return this.http.get<PracticaDistribucion[]>(URL_SERVICIOS + "operacioncobro/distribucion/recalcular/by/fecha?fecha_desde="+ fecha_desde+'&fecha_hasta='+fecha_hasta);
+}
+
+
 }

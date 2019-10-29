@@ -80,8 +80,7 @@ export class FacturaElectronicaComponent implements OnInit {
       {field: 'precio_unitario', header: 'P. unitario' , width: '10%' },
       { field: 'alicuota_descripcion', header: 'Alícuota',  width: '9%' },
       { field: 'iva', header: 'IVA',  width: '10%' },
-      { field: 'total_renglon', header: 'Subtotal',  width: '10%' },
-      { field: 'accion', header: 'Accion' , width: '6%'} ,
+      { field: 'total_renglon', header: 'Subtotal',  width: '10%' },      
      ];  
 
      
@@ -374,7 +373,7 @@ export class FacturaElectronicaComponent implements OnInit {
     try {
       this.facturacionService.PtoVta()
       .subscribe(resp => {      
-        let i:number = 0;
+            let i:number = 0;
             let resultado = resp;
            
             resultado.forEach(element => {
@@ -534,9 +533,8 @@ CrearFactura(facturaElectronica){
           toast: false,
           type: 'error',
           text: error,
-
-          showConfirmButton: false,
-          timer: 4000
+          showConfirmButton: true,
+          confirmButtonColor: '#3085d6'
         });
      });    
 } catch (error) {
@@ -603,6 +601,16 @@ agregarRenglon(){
         console.log(PopupOperacionCobroRegistroEditarComponent);    
         let movimiento:FacturaElectronicaRenglon;
         movimiento= PopupOperacionCobroRegistroEditarComponent;
+        console.log()
+        if((this.elementoComprobante['id'] === 6)||(this.elementoComprobante['id'] === 11)){
+          movimiento['total_renglon'] = movimiento['total_renglon'] / movimiento['alicuota'];
+          movimiento['iva'] = 0;
+          movimiento['alicuota_descripcion'] = '0%';
+          movimiento['iva_id'] = 3;
+          movimiento['alicuota_id'] = '3';
+          
+          
+      }
      this.elementos.push(movimiento);
        console.log(this.elementos);
        // GUARDO LAS ALICUOTAS ASOCIADAS
@@ -621,7 +629,7 @@ agregarRenglon(){
           if(Number(movimiento['alicuota_id']) === Number(this.facturaAlicuotaAsociada[index]['id'])){
             console.log('valor existente')
             existe = true;
-            precio_unitario = Number(this.facturaAlicuotaAsociada[index]['Importe']) + movimiento['precio_unitario'];
+            precio_unitario = Number(this.facturaAlicuotaAsociada[index]['Importe']) + Number(movimiento['precio_unitario']);
             iva = Number(this.facturaAlicuotaAsociada[index]['importe_gravado']) + movimiento['iva'];
             this.facturaAlicuotaAsociada[index]['importe_gravado'] = (Math.round(iva* 100) / 100);
             this.facturaAlicuotaAsociada[index]['Importe'] =  (Math.round(precio_unitario* 100) / 100);
@@ -704,7 +712,7 @@ agregarRenglonOS(){
 
 eliminarRegistro(result:any){
   console.log(result);
-  this.elementos = this.elementos.filter(item => item !== result);
+  this.elementos = [];
   this.sumarValores();
 }
 
@@ -840,7 +848,10 @@ doc.line(pageWidth/2, 23, pageWidth /2, 50);
   doc.setFontSize(10);
   doc.setFontStyle("bold");
   doc.text('Subtotal: '+ this.cp.transform(this.subtotal, '', 'symbol-narrow', '1.2-2'), 15, pageHeight -18); 
-  doc.text('Imp. IVA: '+ this.cp.transform(this.subtotal_iva, '', 'symbol-narrow', '1.2-2'), 75, pageHeight -18); 
+  if((this.elementoComprobante['id'] === 6)||(this.elementoComprobante['id'] === 11)){}else{
+    doc.text('Imp. IVA: '+ this.cp.transform(this.subtotal_iva, '', 'symbol-narrow', '1.2-2'), 75, pageHeight -18); 
+  }
+  
   doc.text('Total: '+ this.cp.transform(this.total, '', 'symbol-narrow', '1.2-2'), pageWidth-50, pageHeight -18); 
   // PIE DE LA FACTURA
   doc.text('CAE: '+ this.CAE, 15, pageHeight -5); 

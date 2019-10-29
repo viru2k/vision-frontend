@@ -218,7 +218,7 @@ export class PopupLiquidacionDetalleComponent implements OnInit {
 
       
 
-      descripcion = 'PRESENTACION '+facturacion+' '+' - '+prestacion+' '+cirugia+' '+this.selecteditems[index]['obra_social_nombre']+ ' '+  this.selecteditems[index]['numero'];
+      descripcion = 'PRESENTACION '+facturacion+' '+' - '+prestacion+' '+cirugia+' '+this.selecteditems[index]['obra_social_nombre']+ ' '+ formatDate(this.selecteditems[index]['numero'], 'MM-yyyy', 'en') ;
 
        item = new FacturaElectronicaRenglon('0','0',descripcion,
        1,this.selecteditems[index]['total'], this.selecteditems[index]['total'], this.elementoAlicuota['iva_id'],this.elementoAlicuota['porcentaje'], this.elementoAlicuota['descripcion'],

@@ -29,6 +29,7 @@ import { PopupOperacionCobroEditarComponent } from '../../../../../shared/compon
 import { PopupOperacionCobroRegistroBuscarComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-registro-buscar/popup-operacion-cobro-registro-buscar.component';
 import { PopupOperacionCobroRegistroBuscarTodosComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component';
 import { OperacionCobroDetalle } from '../../../../../models/operacion-cobro-detalle.model';
+import { PracticaDistribucionService } from './../../../../../services/PracticaDistribucionService';
 
 @Component({
   selector: 'app-operacion-cobro-afectar',
@@ -78,7 +79,8 @@ export class OperacionCobroAfectarComponent implements OnInit {
   internacion_tipo:string = 'A';
   result_distribucion:any[];
 
-    constructor(private miServicio:PracticaService,private messageService: MessageService ,public dialogService: DialogService,private cp: CurrencyPipe, private dp: DecimalPipe  ) {
+    constructor(private miServicio:PracticaService,private messageService: MessageService ,
+      private practicaDistribucionService:PracticaDistribucionService,public dialogService: DialogService,private cp: CurrencyPipe, private dp: DecimalPipe  ) {
   
 
       this.formasPago = [
@@ -361,6 +363,61 @@ export class OperacionCobroAfectarComponent implements OnInit {
 
 
   
+
+actualizarDistribucion(){
+  
+  swal({
+    title: '¿Desea actualizar estos  registros?',
+    text: 'Va a actualizar registros',
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#C5E1A5',
+    cancelButtonColor: '#FF8A65',
+    confirmButtonText: 'Si, actualizar!',
+    cancelButtonText: 'No'
+  }).then((result) => {
+    if (result.value) {
+      this.actualizarRegistrosDistribucion();
+    }
+
+  })
+
+}
+
+
+actualizarRegistrosDistribucion(){
+
+  let userData = JSON.parse(localStorage.getItem('userData'));
+  let td = formatDate(this.fechaDesde, 'dd/MM/yyyy HH:mm', 'en');  
+  let th = formatDate(this.fechaHasta, 'dd/MM/yyyy HH:mm', 'en');
+  if(this.selecteditems){
+  
+    this.loading = true;
+    console.log(this.selecteditems);
+    try {
+        this.practicaDistribucionService.updateValoresDistribucionBetwenDates(td, th)    
+        .subscribe(resp => {
+          
+            
+          this.throwAlert('success','Se actualizaron los registros con éxito','','');
+            this.loading = false;
+            console.log(resp);
+        },
+        error => { // error path
+            console.log(error.message);
+            console.log(error.status);
+            this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+         });    
+    } catch (error) {
+    this.throwAlert('error','Error al cargar los registros',error,error.status);
+    }  
+  }else{
+    this.throwAlert('warning','No se selecciono ninguna ficha','','');
+  }
+  }
+  
+
+
   buscarPractica(){
     let data:any; 
     const ref = this.dialogService.open(PopupOperacionCobroRegistroBuscarComponent, {

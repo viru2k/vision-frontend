@@ -1,5 +1,4 @@
-
-    <p-menubar  [model]="general" *ngIf="loggedIn" autoZIndex="false" styleClass="my-navbar  "  [autoDisplay]="false"  >
+<p-menubar  [model]="general" *ngIf="loggedIn" autoZIndex="false" styleClass="my-navbar  "  [autoDisplay]="false"  >
             
                
                 <div class="flexbox " >     
@@ -28,7 +27,9 @@
               
             </div>
     </div>
-   
+    <div class="m-2 fondo-body   main-div " *ngIf="loggedIn">
+                <router-outlet ></router-outlet> 
+        </div>
 
     <div class="wrapper fadeInDown" *ngIf="!loggedIn">
       <!--   <div id="formContent">
@@ -52,6 +53,7 @@
                         <div class="container-login100">
                                 <div class="wrap-login100"> 
                                         <form [formGroup]="loginForm"  class="login100-form validate-form" (ngSubmit)="onSubmit()">
+                                                <img src="assets/images/logo_clinicaz.png" width="90%" height="75" class="mt-5 mb-5 center-img"> 
                                                 <span class="login100-form-title p-b-43">
                                                         Bienvenido
                                                 </span>

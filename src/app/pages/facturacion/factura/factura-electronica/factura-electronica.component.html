@@ -65,7 +65,7 @@ scrollHeight="200px" [scrollable]="true"  >
             <div class="pr-2 pl-2"  style="text-align:left ">    <button    class="btn  btn-success btn-sm float-right mr-2"  (click)="agregarRenglon()" >Agregar renglon</button>  </div>           
             <div class="pr-2 pl-2"  style="text-align:left ">    <button    class="btn  btn-info btn-sm float-right mr-2"  (click)="agregarRenglonOS()" >Presentación a O.S</button>  </div>           
           </div>
-
+          <a   class=" mr-1   my-hover" (click)="eliminarRegistro()"    ><i class="far fa-trash-alt fa-2x icon-color-red" ></i></a>    
 </div>
 </ng-template>
 
@@ -88,7 +88,7 @@ scrollHeight="200px" [scrollable]="true"  >
                         <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'iva'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                      
                         <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'total_renglon'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                                                    
                     </th>
-                    <th></th>
+              
                 </tr>
             </ng-template>
           
@@ -108,9 +108,7 @@ scrollHeight="200px" [scrollable]="true"  >
                 <td style="font-size: 10px;width: 9%">{{elementos.alicuota_descripcion}}</td>
                 <td style="font-size: 10px;width: 10%">{{elementos.iva | number : '1.2-2'}}</td>
                 <td style="font-size: 10px;width: 10%">{{elementos.total_renglon | number : '1.2-2'}}</td>
-                <td style="width: 6%" >                   
-            <a   class=" mr-1   my-hover" (click)="eliminarRegistro(elementos)"    ><i class="far fa-trash-alt fa-2x icon-color-red" ></i></a>       
-                </td>
+
         </tr> 
     </ng-template>
     <ng-template pTemplate="summary">

@@ -57,6 +57,8 @@ import { AgendaRecepcionComponent } from './pages/recepcion/agenda/agenda-recepc
 import { ListadoCirugiaQuirofanoConsultaComponent } from './pages/quirofano/listado-cirugia-quirofano-consulta/listado-cirugia-quirofano-consulta.component';
 import { FacturaElectronicaComponent } from './pages/facturacion/factura/factura-electronica/factura-electronica.component';
 import { GerenciaDetalleOperacionCobroComponent } from './pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component';
+import { OtrasAccionesComponent } from './pages/facturacion/factura/otras-acciones/otras-acciones.component';
+import { FacturacionArticuloComponent } from './pages/mantenimiento/facturacion-articulo/facturacion-articulo.component';
 
 export const ROUTES: Routes = [
     /** principal **/
@@ -77,6 +79,8 @@ export const ROUTES: Routes = [
     { path: 'agenda/medico', component: AgendaMedicoComponent, canActivate: [AuthGuard], data: {role: 'medico_control'}  },
     { path: 'agenda/medico/bloquear', component: AgendaBloqueoComponent, canActivate: [AuthGuard], data: {role: 'medico_control'}  },
     { path: 'agenda/medico/desbloquear', component: AgendaBloqueoEdicionComponent, canActivate: [AuthGuard], data: {role: 'medico_control'}  },
+    /** factura **/
+    { path: 'factura/articulo', component: FacturacionArticuloComponent, canActivate: [AuthGuard], data: {role: 'medico_control'}  },
     /** asesoramiento **/
 
     { path: 'asesoramiento/cirugia/ficha', component: FichaQuirurgicaComponent, canActivate: [AuthGuard], data: {role: 'asesoramiento_consulta'}  },
@@ -98,6 +102,7 @@ export const ROUTES: Routes = [
     { path: 'facturacion/liquidacion/presentacion', component:LiquidacionDetalleComponent , canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
 
     { path: 'recepcion/factura/electronica', component: FacturaElectronicaComponent , canActivate: [AuthGuard], data: {role: 'recepcion_consulta'} },
+    { path: 'recepcion/factura/acciones', component: OtrasAccionesComponent , canActivate: [AuthGuard], data: {role: 'recepcion_consulta'} },
     /** recepcion **/
     { path: 'recepcion/agenda', component: AgendaRecepcionComponent , canActivate: [AuthGuard], data: {role: 'recepcion_consulta'} },
     { path: 'recepcion/telefonista/agenda', component: AgendaComponent , canActivate: [AuthGuard], data: {role: 'recepcion_consulta'} },

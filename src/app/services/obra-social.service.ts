@@ -46,6 +46,13 @@ insertarCoseguro(){
 actualizarCoseguro(){
   return this.http.get<ObraSocial>(URL_SERVICIOS+"obrasocialby/actualizarcoseguro");
   }
+
+  
+  ActualizarValoresDistribucion(){
+  return this.http.get<ObraSocial>(URL_SERVICIOS+"obrasocialby/actualizar/distribucion");
+  }
     
+    
+  
 
 }

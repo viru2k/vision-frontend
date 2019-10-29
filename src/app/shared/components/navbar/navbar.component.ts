@@ -10,6 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { User } from './../../../models/user.model';
 import { UserService } from './../../../services/user.service';
 import swal from 'sweetalert2';
+import * as $ from 'jquery';
 import { PopupChatComponent } from './../../../pages/notificacion/popup-chat/popup-chat.component';
 import { PopupNotificacionComponent } from '../../../pages/notificacion/popup-notificacion/popup-notificacion.component';
 import { DialogService } from 'primeng/components/common/api';
@@ -74,6 +75,80 @@ export class NavbarComponent implements OnInit {
     this.navbarOpen = !this.navbarOpen;
   }
   ngOnInit() {
+
+   /*======== JQUERY DEL LOGUIN =========*/
+   $(document).ready
+   (function ($) {
+     "use strict";
+ 
+ 
+     /*==================================================================
+     [ Focus Contact2 ]*/
+     $('.input100').each(function(){
+         $(this).on('blur', function(){
+             if($(this).val().trim() != "") {
+                 $(this).addClass('has-val');
+             }
+             else {
+                 $(this).removeClass('has-val');
+             }
+         })    
+     })
+   
+   
+     /*==================================================================
+     [ Validate ]*/
+     var input = $('.validate-input .input100');
+ 
+     $('.validate-form').on('submit',function(){
+         var check = true;
+ 
+         for(var i=0; i<input.length; i++) {
+             if(validate(input[i]) == false){
+                 showValidate(input[i]);
+                 check=false;
+             }
+         }
+ 
+         return check;
+     });
+ 
+ 
+     $('.validate-form .input100').each(function(){
+         $(this).focus(function(){
+            hideValidate(this);
+         });
+     });
+ 
+     function validate (input) {
+         if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+             if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+                 return false;
+             }
+         }
+         else {
+             if($(input).val().trim() == ''){
+                 return false;
+             }
+         }
+     }
+ 
+     function showValidate(input) {
+         var thisAlert = $(input).parent();
+ 
+         $(thisAlert).addClass('alert-validate');
+     }
+ 
+     function hideValidate(input) {
+         var thisAlert = $(input).parent();
+ 
+         $(thisAlert).removeClass('alert-validate');
+     }
+     
+ 
+ });
+ 
+     /*======== FIN JQUERY DEL LOGUIN =========*/
 
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -187,14 +262,16 @@ asignarModulos(modulos: any){
 cerrarSesion(){
 
   swal({
+  title: 'Cerrando sesión',
+  text: '¿Desea finalizar la sesión actual?',
   showCancelButton: true,
-  confirmButtonColor: '#448AFF',
-  cancelButtonColor: '#AD1457',
+  confirmButtonColor: '#AD1457',
+  cancelButtonColor: '#0277BD',
   cancelButtonText: 'Permanecer',
   confirmButtonText: 'Cerrar sesión',
-    backdrop: `
-    rgba(26, 188, 156,0.7)
-    no-repeat `
+  imageUrl: '../../../../../assets/icons/logout1.png',
+  imageHeight: 128,
+  imageWidth: 128,
 }).then((result) => {
   if (result.value) {
    
@@ -321,7 +398,15 @@ menuList(){
                 {label: 'Gestion de turnos', 'routerLink': 'recepcion/turnos'},
               ]
           },
-          {label: 'Factura electrónica',visible:!this.recepcion_consulta, 'routerLink': 'recepcion/factura/electronica'},
+
+          {
+            label: 'Factura electrónica',
+            items: [
+              {label: 'Realizar factura',visible:!this.recepcion_consulta, 'routerLink': 'recepcion/factura/electronica'},
+              {label: 'Otras acciones',visible:!this.recepcion_consulta, 'routerLink': 'recepcion/factura/acciones'},
+            ]
+        },
+         
           {label: 'Operación de cobro',visible:!this.recepcion_consulta, 'routerLink': 'recepcion/operacioncobro'},
           {label: 'Detalle de operaciones de cobro',visible:! this.recepcion_consulta, 'routerLink': 'liquidacion/operacioncobro/detalle'},
           {label: 'Historia clínica',visible:!this.recepcion_consulta, 'routerLink': 'medico/historiaclinica/consulta'},
@@ -510,6 +595,10 @@ menuList(){
           label: 'Usuario',
           visible:! this.administrador,
          'routerLink': 'usuario'},
+         {
+          label: 'Facturación articulo',
+          visible:! this.administrador,
+         'routerLink': 'factura/articulo'},
         {
           label: 'Stock',          
           items: [
@@ -694,16 +783,9 @@ getNotificacionesByUsuario(){
           
       },
       error => { // error path
-          console.log(error.message);
-          console.log(error.status);
-          swal({
-            toast: false,
-            type: 'error',
-            title: error.status,
-            text: error.message,
-            showConfirmButton: false,
-            timer: 2000
-          });
+          console.log(error);
+
+         
        });    
   } catch (error) {
  // this.throwAlert('error','Error al cargar los registros',error,error.status);

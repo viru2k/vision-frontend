@@ -11,6 +11,14 @@
     top: 0;
 }
 
+/****************** TAG A ************************/
+
+.a-success {
+    background-color: rgb(38, 166, 154);
+    color: rgb(232, 245, 233);
+    border-radius: 8;
+  }
+
 
 /******* PROPIEDADES DE FLEX BOX **/
 .flexbox{

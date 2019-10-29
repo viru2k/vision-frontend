@@ -36,8 +36,8 @@ export class DistribucionPracticaComponent implements OnInit {
   elementos:Convenio[] = null;
   resultSave:boolean;
   _id:number = 0;
-
-  constructor(private miServico:ConvenioService,private messageService: MessageService ,public dialogService: DialogService ) {
+//37524.08 - 100% -02.01.08 --gastos 19533.01
+  constructor(private miServico:ConvenioService,private miServicoOs:ObraSocialService,private messageService: MessageService ,public dialogService: DialogService ) {
   
     this.cols = [
     { field: 'obra_social_nombre', header: 'Obra social',  width: '30%' },
@@ -76,6 +76,34 @@ loadList(){
     this.throwAlert("error","Error al cargar los registros",error,error.status);
     }  
 }
+
+
+
+ActualizarValoresDistribucion(){
+
+    this.es = calendarioIdioma;
+    this.loading = true;
+    
+    try {
+
+        this.miServicoOs.ActualizarValoresDistribucion()    
+        .subscribe(resp => {
+          this.throwAlert('success','Se actualizaron los registros con éxito','','');
+          this.loading = false;
+            this.loadList();
+            console.log(resp);
+        },
+        error => { // error path
+            console.log(error.message);
+            console.log(error.status);
+            this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message, error.status);
+         });    
+    } catch (error) {
+    this.throwAlert("error","Error al cargar los registros",error,error.status);
+    }  
+    
+  }
+
 
 showDialog(event) {    
      console.log(event);

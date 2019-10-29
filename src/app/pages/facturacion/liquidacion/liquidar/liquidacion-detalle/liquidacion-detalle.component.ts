@@ -32,6 +32,7 @@ import { PopupOperacionCobroPresentacionComponent } from '../../../../../shared/
 import { PopupPresentacionEditarComponent } from '../../../../../shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component';
 //import { ExcelService } from '../../../../../services/excel.service';
 import { FacturacionService } from '../../../../../services/facturacion.service';
+import { PracticaDistribucionService } from './../../../../../services/practica-distribucion.service';
 
 
 @Component({
@@ -76,7 +77,9 @@ export class LiquidacionDetalleComponent implements OnInit {
   resp_factura:any[];
   
    value:string;
-  constructor(private facturacionService:FacturacionService,private miServicio:LiquidacionService,private practicaService:PracticaService, private messageService: MessageService ,public dialogService: DialogService,public numberToWordsPipe:NumberToWordsPipe,private cp: CurrencyPipe, private dp: DecimalPipe) {
+  constructor(private facturacionService:FacturacionService,private miServicio:LiquidacionService,private practicaService:PracticaService,
+    private practicaDistribucionService:PracticaDistribucionService, private messageService: MessageService ,public dialogService: DialogService,
+    public numberToWordsPipe:NumberToWordsPipe,private cp: CurrencyPipe, private dp: DecimalPipe) {
 
     this.impresiones = [
       {name: 'Presentación todos', code: '1'},
@@ -707,6 +710,26 @@ actualizarRegistros(){
   })
 }
 
+
+actualizarDistribucion(){
+  
+  swal({
+    title: '¿Desea actualizar estos  registros?',
+    text: 'Va a actualizar registros',
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#C5E1A5',
+    cancelButtonColor: '#FF8A65',
+    confirmButtonText: 'Si, actualizar!',
+    cancelButtonText: 'No'
+  }).then((result) => {
+    
+      this.actualizarRegistrosDistribucion();
+
+  })
+
+}
+
 actualizarRegistrosObraSocial(){
 
 
@@ -736,6 +759,40 @@ if(this.selecteditems){
 }
 }
 
+
+
+
+actualizarRegistrosDistribucion(){
+
+  let userData = JSON.parse(localStorage.getItem('userData'));
+  let td = formatDate(this.fechaDesde, 'dd/MM/yyyy', 'en');  
+  let th = formatDate(this.fechaHasta, 'dd/MM/yyyy', 'en');
+  if(this.selecteditems){
+  
+    this.loading = true;
+    console.log(this.selecteditems);
+    try {
+        this.practicaDistribucionService.updateValoresDistribucionBetwenDates(td, th)    
+        .subscribe(resp => {
+          
+            
+          this.throwAlert('success','Se actualizaron los registros con éxito','','');
+            this.loading = false;
+            console.log(resp);
+        },
+        error => { // error path
+            console.log(error.message);
+            console.log(error.status);
+            this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+         });    
+    } catch (error) {
+    this.throwAlert('error','Error al cargar los registros',error,error.status);
+    }  
+  }else{
+    this.throwAlert('warning','No se selecciono ninguna ficha','','');
+  }
+  }
+  
 
 
 loadPresentacionMedicoACLISA(){

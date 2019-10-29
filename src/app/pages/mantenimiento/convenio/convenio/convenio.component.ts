@@ -266,30 +266,6 @@ export class ConvenioComponent implements OnInit {
         }  
       }
  
-      ActualizarValoresDistribucion(){
-
-        this.es = calendarioIdioma;
-        this.loading = true;
-        /*
-        try {
-            this.miServicoOs.actualizarCoseguro()    
-            .subscribe(resp => {
-              this.showToast('exito',"Registros actualizados","Exito al actualizar");          
-                this.loading = false;
-                this.loadList();
-                console.log(resp);
-            },
-            error => { // error path
-                console.log(error.message);
-                console.log(error.status);
-                this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message, error.status);
-             });    
-        } catch (error) {
-        this.throwAlert("error","Error al cargar los registros",error,error.status);
-        }  
-        */
-      }
-
       generarPdf(){
         var a:any;
         var doc = new jsPDF('l', 'pt');
