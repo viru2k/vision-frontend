@@ -24,7 +24,7 @@
                           <div  class="btn-group btn-sm " role="group" aria-label="First group">                 
                              <button    class="btn  btn-danger btn-sm  float-right mr-2" (click)="darSobreTurno()" >Dar sobre turno</button>
                              <button    class="btn  btn-info btn-sm float-right mr-2"  (click)="loadListTodosTurnos()" >Ver todos los turnos</button>
-                             <button    class="btn  btn-success btn-sm float-right "  (click)="loadListByMedico()" >Buscar turnos</button>
+                             
                           </div>   
                   </div>    
              
@@ -69,8 +69,9 @@
                   
             </div>    
         </div>
-          <p-table  #dt class="pt-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols"  [value]="agendaTurno" [(selection)]="selecteditems"   columnResizeMode="expand" [responsive]="true"
-          scrollHeight="600px" [scrollable]="true" (onFilter)="filtered($event)">
+        <p-table  #dt class="pt-4"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols"  [value]="agendaTurno" [(selection)]="selecteditems"   columnResizeMode="expand" [responsive]="true"
+        scrollHeight="500px" [scrollable]="true" (onFilter)="filtered($event)" [loading]="loading" loadingIcon="fas fa-spinner fa-3x icon-color-loader">
+
           <ng-template pTemplate="caption">
                   <div class="row">
                           <div class="col-md-7" style="text-align:left">
@@ -148,7 +149,19 @@
                     
               </tr>
               </ng-template>
-           
+              <ng-template pTemplate="footer">
+                <tr class="mt-3">                            
+                          <td style="width: 14.3%" class="es-">PENDIENTE: {{pendiente}}</td>    
+                          <td style="width: 14.3%" class="es-presente">PRESENTE: {{presente}}</td>     
+                          <td style="width: 14.3%" class="es-sobreturno">SOBRE TURNO: {{sobreturno}}</td>   
+                          <td style="width: 14.3%" class="es-llamando">LLAMANDO: {{llamando}}</td>      
+                          <td style="width: 14.3%" class="es-espera">ESPERA: {{espera }}</td>                                                         
+                          <td style="width: 14.3%" class="es-ingresado">INGRESADO: {{ingresado}}</td>                                         
+                          <td style="width: 14.3%" class="es-atendido">ATENDIDO: {{atendido }}</td>                                         
+
+                </tr>
+             
+                </ng-template> 
               </p-table>
              
               <p-overlayPanel #op [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >                          

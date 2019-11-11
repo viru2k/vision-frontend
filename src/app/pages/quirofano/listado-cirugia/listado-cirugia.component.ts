@@ -28,7 +28,7 @@ import { formatDate } from '@angular/common';
 
 
 
-import { HistoriaClinicaComponent } from './../../../../../../optica/src/app/pages/historia-clinica/historia-clinica.component';
+
 import { calendarioIdioma } from './../../../../../../vision-totem2/src/app/config/config';
 import { HistoriaClinica } from './../../../models/historia-clinica.model';
 import { CirugiaFicha } from './../../../models/cirugia-ficha.model';

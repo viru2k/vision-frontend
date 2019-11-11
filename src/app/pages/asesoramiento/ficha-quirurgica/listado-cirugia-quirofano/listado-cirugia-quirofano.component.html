@@ -70,7 +70,7 @@
           
     <ng-template pTemplate="body" let-elementos  >
         <tr style="height:20px">
-             <td style="width: 4%">   <a   class=" mr-1   my-hover" (click)="eliminar(elementos)"    ><i class="far fa-trash-alt fa-2x icon-color-red" ></i></a>        </td>   
+             <td style="width: 5%">   <a   class=" mr-1   my-hover" (click)="eliminar(elementos)"    ><i class="far fa-trash-alt fa-2x icon-color-red" ></i></a>        </td>   
                 <td style="font-size: 9px;width: 6%">{{elementos.cirugia_ficha_id}}</td>
                 <td style="font-size: 9px;width: 5%">{{elementos.orden}}</td>
                 <td style="font-size: 9px;width: 8%">{{elementos.fecha_hora | date: 'HH:mm'}}</td>   
@@ -82,11 +82,13 @@
                 <td style="font-size: 9px;width: 5%">{{elementos.ojo}}</td>     
                 <td style="font-size: 9px;width: 5%">{{elementos.dioptria}}</td>  
                 <td style="font-size: 9px;width: 10%">{{elementos.lente_tipo}}</td>                        
-                <td style="font-size: 9px;width: 8%">{{elementos.lote}}</td>   
+                <td style="font-size: 9px;width: 15%">{{elementos.lote}}</td>   
                 <td style="font-size: 9px;width: 12%">{{elementos.usuario_medico_opera_nombre}}</td>    
-                <td style="font-size: 9px;width: 12%">{{elementos.usuario_medico_ayuda_nombre}}</td>  
-                <td style="font-size: 9px;width: 8%">{{elementos.usuario_medico_anestesista_nombre}}</td>   
-                <td style="width: 4%">   <a   class="    my-hover" (click)="editar(elementos)"    ><i class="far fa-edit fa-2x icon-color-purple" ></i></a>        </td>   
+                <td style="font-size: 9px;width: 12%">{{elementos.usuario_medico_ayuda_nombre}}</td>                   
+                <td style="width: 5%" >
+                  <a   (click)="verObservacion($event,op,elementos)"   >    <i class="pointer far fa-eye fa-2x icon-color-green" *ngIf="elementos.tiene_observacion === 'SI'"  ></i></a>
+               </td>
+                <td style="width: 5%">   <a   class="    my-hover" (click)="editar(elementos)"    ><i class="far fa-edit fa-2x icon-color-purple" ></i></a>        </td>   
 
 
                 
@@ -98,3 +100,9 @@
 
 
 </div>
+<p-dialog header="Observaciones" class="text-secondary" [(visible)]="display" class="p-2" [baseZIndex]="10000" [responsive]="true"> 
+  <label>OBSERVACION </label>        
+  <textarea [rows]="5" [cols]="30" pInputTextarea class="form-control form-control-sm col-md-12"[(ngModel)]="observacion"></textarea>   
+ 
+  </p-dialog>
+    

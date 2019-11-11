@@ -908,14 +908,29 @@ generarPdfListadoMedico() {
   doc.setFontSize(8);
   //doc.line(15, 35, pageWidth - 15, 35);
   let pageNumber = doc.internal.getNumberOfPages();
+  const totalPagesExp = '{total_pages_count_string}';
   doc.autoTable(this.columnsListadoTodos, this.elementosPreFactura,
     {
         margin: {horizontal: 5, vertical: 38},
         bodyStyles: {valign: 'top'},
         showHead: 'always',
         styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
-        columnStyles: {descripcion: {columnWidth: 20}}
-    });
+        columnStyles: {descripcion: {columnWidth: 20}},
+        addPageContent: data => {
+          let footerStr = "Pagina " + doc.internal.getNumberOfPages();
+          if (typeof doc.putTotalPages === 'function') {
+            footerStr = footerStr + " of " + totalPagesExp;
+          }
+          doc.setFontSize(10);
+          doc.text(footerStr, data.settings.margin.left, doc.internal.pageSize.height - 10);
+        }
+         
+      
+      });
+      
+      if (typeof doc.putTotalPages === 'function') {
+        doc.putTotalPages(totalPagesExp);
+      }
    
     doc.setFontSize(8);
     let finalY = doc.autoTable.previous.finalY;
@@ -927,7 +942,7 @@ generarPdfListadoMedico() {
     //doc.text(15, finalY+10, 'en letras : $' + this.numberToWordsPipe.transform(13) ); 
  
     
-  const totalPagesExp = '{total_pages_count_string}';
+ 
   console.log(doc.putTotalPages);
   const footer = function(data) {
     let str = 'Page ' + data.pageCount;
@@ -994,6 +1009,7 @@ generarPdfListadoTodos() {
  
   doc.setFontSize(8);
   //doc.line(15, 35, pageWidth - 15, 35);
+  const totalPagesExp = '{total_pages_count_string}';
   let pageNumber = doc.internal.getNumberOfPages();
   doc.autoTable(this.columnsListadoTodos, this.elementosPreFactura,
     {
@@ -1001,8 +1017,22 @@ generarPdfListadoTodos() {
         bodyStyles: {valign: 'top'},
         showHead: 'always',
         styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
-        columnStyles: {text: {cellWidth: 'auto'}}
-    });
+        columnStyles: {text: {cellWidth: 'auto'}},
+        addPageContent: data => {
+          let footerStr = "Pagina " + doc.internal.getNumberOfPages();
+          if (typeof doc.putTotalPages === 'function') {
+            footerStr = footerStr + " of " + totalPagesExp;
+          }
+          doc.setFontSize(10);
+          doc.text(footerStr, data.settings.margin.left, doc.internal.pageSize.height - 10);
+        }
+         
+      
+      });
+      
+      if (typeof doc.putTotalPages === 'function') {
+        doc.putTotalPages(totalPagesExp);
+      }
    
     doc.setFontSize(8);
     let finalY = doc.autoTable.previous.finalY;
@@ -1014,7 +1044,7 @@ generarPdfListadoTodos() {
     //doc.text(15, finalY+10, 'en letras : $' + this.numberToWordsPipe.transform(13) ); 
  
     
-  const totalPagesExp = '{total_pages_count_string}';
+ 
   console.log(doc.putTotalPages);
   const footer = function(data) {
     let str = 'Page ' + data.pageCount;
@@ -1065,7 +1095,7 @@ generarPdfListadoCirugiaTodos() {
   for(i=0;i<this.elementosPreFactura.length;i++){
 
     let practica = this.elementosPreFactura[i]['convenio_os_pmo_id'];
-
+    let _complejidad_original:number = 0; // obtengo la complejidad del arreglo original
     for(j=0;j<this.elementosPreFactura.length;j++){
 
       if(this.elementosPreFactura[j]['convenio_os_pmo_id'] === practica){
@@ -1076,10 +1106,10 @@ generarPdfListadoCirugiaTodos() {
           }else{
             
             if(this.selecteditems[0]['obra_social_nombre']=== 'DOS - OBRA SOCIAL PROVINCIA'){
-              console.log('obra social honorarios');
+            //  console.log('obra social honorarios');
               this.elementosPreFactura[i]['honorarios'] =  this.elementosPreFactura[j]['operacion_cobro_distribucion_total'];
-             
-              console.log(this.elementosPreFactura[j]['complejidad']+' cirugia '+this.elementosPreFactura[j]['descripcion'] );
+           
+          //    console.log(this.elementosPreFactura[j]['complejidad']+' cirugia '+this.elementosPreFactura[j]['descripcion'] );
             }else{
               console.log('coseguro honorarios');
               let t_hono =  this.cp.transform((((this.elementosPreFactura[j]['operacion_cobro_distribucion_total'])*20)/80), '', '', '1.2-2'); 
@@ -1090,14 +1120,18 @@ generarPdfListadoCirugiaTodos() {
           }
        
         }
+
+        // SI NO ES NIVEL 2 O SEA 3 Y 4 SUMO PARA GASTOS Y HONORARIOS
         if((this.elementosPreFactura[j]['obra_social_practica_nombre'] === 'GASTOS')&&(this.elementosPreFactura[j]['complejidad'] !== 2)){
+
           if(this.elementosPreFactura[j]['operacion_cobro_distribucion_total'] === null){
+
             this.elementosPreFactura[i]['operacion_cobro_distribucion_total'] = 0;
-          }else{
-           // console.log(this.selecteditems[0]['obra_social_id']);
+
+          }else{           
+
             if(this.selecteditems[0]['obra_social_nombre'] === 'DOS - OBRA SOCIAL PROVINCIA'){
-         //    console.log('obra social');
-         console.log('obra social gastos');
+
             this.elementosPreFactura[i]['categoria'] =  this.cp.transform(0, '', '', '1.2-2');  
              this.elementosPreFactura[i]['gastos'] =  this.elementosPreFactura[j]['operacion_cobro_distribucion_total'];
           //   total_gastos = total_gastos +Number( this.elementosPreFactura[i]['gastos']);
@@ -1105,13 +1139,28 @@ generarPdfListadoCirugiaTodos() {
             }else{
               console.log('coseguro gastos');
               this.elementosPreFactura[i]['categoria'] =  this.cp.transform(0, '', '', '1.2-2');
-              this.elementosPreFactura[i]['gastos'] =  this.cp.transform((((this.elementosPreFactura[j]['operacion_cobro_distribucion_total'])*20)/80), '', 'symbol-narrow', '1.2-2'); 
+              
+              this.elementosPreFactura[i]['gastos'] =  String(((this.elementosPreFactura[j]['operacion_cobro_distribucion_total'])*20)/80); 
               
               
             }
           
           }
         }
+
+             // SI ES COMPLEJIDAD 4 , NO TIENE GASTOS  PERO ES UN GASTO. POR CONSIGUIENTE DEBE ACOMODARSE A ESA COLUMNA
+             _complejidad_original = this.elementosPreFactura[i]['complejidad'];
+             console.log(this.elementosPreFactura[i]['complejidad']);
+             if(_complejidad_original=== 4){
+              if(this.selecteditems[0]['obra_social_nombre']=== 'DOS - OBRA SOCIAL PROVINCIA'){           
+               this.elementosPreFactura[i]['gastos'] =  this.elementosPreFactura[i]['valor_facturado'];
+              }else{
+                let gasto:string = String(((this.elementosPreFactura[j]['valor_facturado'])*20)/80);
+                this.elementosPreFactura[i]['gastos'] = gasto; 
+              }
+              
+             }
+             
         if(this.elementosPreFactura[j]['complejidad'] === 2){ 
           
           // CAMBIO EL VALOR FACTURADO POR GASTO PARA QUE DE
@@ -1147,32 +1196,84 @@ generarPdfListadoCirugiaTodos() {
   
   console.log(filteredArr);
   this.elementosFiltradosDos =filteredArr;
+  let _complejidad:number = 0; // paso variable a validar
+  let _total:number = 0;
+  
   for(i=0;i<filteredArr.length;i++){
-    if(filteredArr[i]['valor_facturado']['complejidad'] === 2){
+    _complejidad = Number(filteredArr[i]['complejidad']);   
+    console.log(_complejidad) ;
+    if(filteredArr[i]['complejidad'] === 2){
       filteredArr[i]['categorizacion'] = 0;
       
       total_facturado =total_facturado+ Number(filteredArr[i]['gastos']);
-      filteredArr[i]['valor_facturado']=   this.cp.transform(Number(filteredArr[i]['gastos']), '', 'symbol-narrow', '1.2-2') ;
+      filteredArr[i]['valor_facturado']=   String(filteredArr[i]['gastos']) ;
     }else{
-      //total_honorario = total_honorario +Number( filteredArr[i]['honorarios']);
-    //total_honorario = total_honorario +Number(filteredArr[i]['operacion_cobro_distribucion_total'])+Number(filteredArr[i]['categorizacion']);
-    total_honorario = total_honorario +Number( filteredArr[i]['honorarios'])+Number( filteredArr[i]['categorizacion']);
-    total_gastos = total_gastos +Number(filteredArr[i]['gastos']);
-    total_facturado =total_facturado+ Number(filteredArr[i]['valor_facturado'])+Number(filteredArr[i]['categorizacion']);
-   
-    filteredArr[i]['valor_facturado']=   this.cp.transform(Number(filteredArr[i]['valor_facturado'])+Number(filteredArr[i]['categorizacion']), '', 'symbol-narrow', '1.2-2') ;
+
+
+      if(_complejidad === 4){        
+        total_gastos = total_gastos +Number(filteredArr[i]['gastos']);
+        
+      }
+
+      if(_complejidad === 3){
+        total_honorario = total_honorario +Number( filteredArr[i]['honorarios'])+Number( filteredArr[i]['categorizacion']);
+        total_gastos = total_gastos +Number(filteredArr[i]['gastos']);
+       
+       
+
+      }
+     // total_facturado =total_facturado+ Number(filteredArr[i]['valor_facturado'])+Number(filteredArr[i]['categorizacion']);
+ console.log(filteredArr[i]);
+      console.log('previo');
+      console.log('gastos '+filteredArr[i]['gastos']);
+      console.log('honorarios '+filteredArr[i]['honorarios']);
+      console.log('categoria '+filteredArr[i]['categorizacion']);
+
+      if((filteredArr[i]['gastos'] === undefined) || (filteredArr[i]['gastos'] === NaN)){
+        filteredArr[i]['gastos'] = 0;
+      }
+      if((filteredArr[i]['honorarios'] === undefined) || (filteredArr[i]['honorarios'] === NaN)){
+        filteredArr[i]['honorarios'] = 0;
+      }      
+      if((filteredArr[i]['categorizacion'] === undefined) || (filteredArr[i]['categorizacion'] === NaN)){
+        filteredArr[i]['categorizacion'] = 0;
+      }
+      console.log('modificado');
+      console.log('gastos '+filteredArr[i]['gastos']);
+      console.log('honorarios '+filteredArr[i]['honorarios']);
+      console.log('categoria '+filteredArr[i]['categorizacion']);
+      
+      if((_complejidad === 4 )&&(this.selecteditems[0]['obra_social_nombre'] === 'DOS - OBRA SOCIAL PROVINCIA')){
+        console.log('gastoooos');
+        _total = _total+ Number(filteredArr[i]['gastos']);
+       // total_gastos = _total;
+        console.log(total_gastos);
+      }
+      //  SUMO HONORIARIO + CATEGORIA + GASTO , !!!!!!!!!! YA ESTA FORMATEADO Y NO SE PUEDE RECALCULAR DESPUES
+
+      filteredArr[i]['valor_facturado']=   this.cp.transform(Number(filteredArr[i]['honorarios'])+Number(filteredArr[i]['categorizacion'])+Number(filteredArr[i]['gastos']), '', 'symbol-narrow', '1.2-2') ;     
+      total_facturado = total_facturado+ Number(filteredArr[i]['honorarios'])+Number(filteredArr[i]['categorizacion'])+Number(filteredArr[i]['gastos']);
+      filteredArr[i]['gastos']=   this.cp.transform(Number(filteredArr[i]['gastos']), '', 'symbol-narrow', '1.2-2');
+      filteredArr[i]['honorarios']=   this.cp.transform(Number(filteredArr[i]['honorarios']), '', 'symbol-narrow', '1.2-2');
+      filteredArr[i]['categorizacion']=   this.cp.transform(Number(filteredArr[i]['categorizacion']), '', 'symbol-narrow', '1.2-2');
+     
     }
-    if(!total_honorario){
+     if(!total_honorario){
       total_honorario = 0;
     }
 
     if(!total_gastos){
       total_gastos = 0;
-    }
-    console.log(total_gastos);
+    } 
+  //  console.log(total_gastos);
     total_cantidad = total_cantidad+Number(filteredArr[i]['cantidad']);
     
   }
+
+
+
+
+  
     total_cantidad_impresion = this.dp.transform(total_cantidad, '1.0-0');
   if(this.selecteditems){
   var doc = new jsPDF('l');
@@ -1191,7 +1292,7 @@ generarPdfListadoCirugiaTodos() {
   if(nivel_facturacion=== 'F'){doc.text('FACTURACION', pageWidth-60, 20, null, null, 'left');}
   if(nivel_facturacion=== 'R'){doc.text('REFACTURACION', pageWidth-60, 20, null, null, 'left');}
   if(nivel_facturacion=== 'C'){doc.text('COMPLEMENTARIA', pageWidth-60, 20, null, null, 'left');}
-  if(nivel_facturacion=== 'T'){doc.text('TRANSPANTE', pageWidth-60, 20, null, null, 'left');}
+  if(nivel_facturacion=== 'T'){doc.text('TRANSPLANTE', pageWidth-60, 20, null, null, 'left');}
   doc.text('Emitido : '+_fechaEmision, pageWidth-60, 35, null, null, 'left');
   doc.setFontSize(9);
   doc.text('Presentación a Obras Sociales', 60, 20, null, null, 'left');
@@ -1199,30 +1300,48 @@ generarPdfListadoCirugiaTodos() {
   doc.text(this.elementosPreFactura[0]['entidad_nombre'], 60, 25, null, null, 'left');
   doc.text('Obra social: '+this.elementosPreFactura[0]['obra_social_nombre'], 60, 30, null, null, 'left');
 
+ console.log(filteredArr);
+
  
   doc.setFontSize(8);
   //doc.line(15, 35, pageWidth - 15, 35);
-  let pageNumber = doc.internal.getNumberOfPages();
-  doc.autoTable(this.columnsListadoCirugiaTodos, filteredArr,
+ 
+  /* doc.autoTable(this.columnsListadoCirugiaTodos, filteredArr,
     {
         margin: {horizontal: 5, vertical: 38},
         bodyStyles: {valign: 'top'},
         showHead: 'firstPage',
         styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
         columnStyles: {text: {cellWidth: 'auto'}}
-    });
+    }); */
    
-    doc.setFontSize(8);
-    let finalY = doc.autoTable.previous.finalY;
-    doc.line(15, finalY+3, pageWidth - 15, finalY+3);
-    doc.text(15, finalY+8,'Cantidad : ' +  total_cantidad_impresion); 
-    doc.text(pageWidth-130, finalY+8,  'Honorarios : ' + this.cp.transform(total_honorario, '', 'symbol-narrow', '1.2-2')); 
-    doc.text(pageWidth-90, finalY+8, 'Gastos : ' +  this.cp.transform(total_gastos, '', 'symbol-narrow', '1.2-2')); 
-    doc.text(pageWidth-50, finalY+8, 'Total : ' + this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2')); 
-    //doc.text(15, finalY+10, 'en letras : $' + this.numberToWordsPipe.transform(13) ); 
- 
-    
+
   const totalPagesExp = '{total_pages_count_string}';
+  
+
+doc.autoTable(this.columnsListadoCirugiaTodos, filteredArr, {
+  margin: {horizontal: 5, vertical: 38},
+  bodyStyles: {valign: 'top'},
+  showHead: 'firstPage',
+  styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
+  columnStyles: {text: {cellWidth: 'auto'}},
+  addPageContent: data => {
+    let footerStr = "Pagina " + doc.internal.getNumberOfPages();
+    if (typeof doc.putTotalPages === 'function') {
+      footerStr = footerStr + " of " + totalPagesExp;
+    }
+    doc.setFontSize(10);
+    doc.text(footerStr, data.settings.margin.left, doc.internal.pageSize.height - 10);
+  }
+   
+
+});
+
+if (typeof doc.putTotalPages === 'function') {
+  doc.putTotalPages(totalPagesExp);
+}
+
+
   console.log(doc.putTotalPages);
   const footer = function(data) {
     let str = 'Page ' + data.pageCount;
@@ -1233,6 +1352,18 @@ generarPdfListadoCirugiaTodos() {
     }
     doc.text(str, data.settings.margin.left, doc.internal.pageSize.height - 30);
   };
+    doc.internal.getNumberOfPages();
+    console.log('paginas '+ doc.internal.getNumberOfPages());
+    
+
+    doc.setFontSize(8);
+    let finalY = doc.autoTable.previous.finalY;
+    doc.line(15, finalY+3, pageWidth - 15, finalY+3);
+    doc.text(15, finalY+8,'Cantidad : ' +  total_cantidad_impresion); 
+    doc.text(pageWidth-130, finalY+8,  'Honorarios : ' + this.cp.transform(total_honorario, '', 'symbol-narrow', '1.2-2')); 
+    doc.text(pageWidth-90, finalY+8, 'Gastos : ' +  this.cp.transform(total_gastos, '', 'symbol-narrow', '1.2-2')); 
+    doc.text(pageWidth-50, finalY+8, 'Total : ' + this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2')); 
+
     window.open(doc.output('bloburl'));  
  
   }
@@ -1292,15 +1423,31 @@ generarPdfListadoMedicoIVA() {
  
   doc.setFontSize(8);
   //doc.line(15, 35, pageWidth - 15, 35);
+  const totalPagesExp = '{total_pages_count_string}';
   let pageNumber = doc.internal.getNumberOfPages();
+  
   doc.autoTable(this.columnsListadoTodos, this.elementosPreFactura,
     {
         margin: {horizontal: 5, vertical: 38},
         bodyStyles: {valign: 'top'},
         showHead: 'firstPage',
         styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
-        columnStyles: {text: {cellWidth: 'auto'}}
-    });
+        columnStyles: {text: {cellWidth: 'auto'}},
+        addPageContent: data => {
+          let footerStr = "Pagina " + doc.internal.getNumberOfPages();
+          if (typeof doc.putTotalPages === 'function') {
+            footerStr = footerStr + " of " + totalPagesExp;
+          }
+          doc.setFontSize(10);
+          doc.text(footerStr, data.settings.margin.left, doc.internal.pageSize.height - 10);
+        }
+         
+      
+      });
+      
+      if (typeof doc.putTotalPages === 'function') {
+        doc.putTotalPages(totalPagesExp);
+      }
    
     doc.setFontSize(8);
     let finalY = doc.autoTable.previous.finalY;
@@ -1311,8 +1458,6 @@ generarPdfListadoMedicoIVA() {
     doc.text(pageWidth-50, finalY+8, 'Total : ' + this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2')); 
     //doc.text(15, finalY+10, 'en letras : $' + this.numberToWordsPipe.transform(13) ); 
  
-    
-  const totalPagesExp = '{total_pages_count_string}';
   console.log(doc.putTotalPages);
   const footer = function(data) {
     let str = 'Page ' + data.pageCount;

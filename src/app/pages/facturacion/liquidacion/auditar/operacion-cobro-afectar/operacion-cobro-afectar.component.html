@@ -1,8 +1,4 @@
 
-<div >
-  <app-loading *ngIf="loading"> </app-loading> 
- 
-</div>
 <p-toast (life)="100" styleClass="custom-toast" [style]="{marginTop: '100px'}"></p-toast>
 
 <div class="row m-1" >
@@ -90,9 +86,10 @@
   </div>
 
   <p-table  #dt class="pt-2 m-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  (onEditComplete)="editRow($event)" [(selection)]="selecteditems" columnResizeMode="expand" [responsive]="true"
-  scrollHeight="500px" [scrollable]="true"  (onFilter)="filtered($event)"  >
+  scrollHeight="500px" [scrollable]="true"  (onFilter)="filtered($event)" [loading]="loading" loadingIcon="fas fa-spinner fa-2x icon-color-green" >
+ 
   <ng-template pTemplate="caption">
-    <div class="row">
+    <div class="row" >
             <div class="col-md-12 row" style="text-align:left ">
            
               <div>  <button    class="ml-2 btn  btn-outline-secondary btn-sm float-right "  (click)="buscarPracticaPaciente()" >Buscar registros por paciente</button></div> 

@@ -169,6 +169,7 @@ export class AgendaComponent implements OnInit {
     console.log(event);
     this.fechaHoy = event;
     console.log(new Date(this.fechaHoy));
+    this.loadTurno();
   }
 
   actualizarBusqueda(event){
@@ -663,12 +664,10 @@ generarPdf(){
   
   let _fechaEmision = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'en');
   console.log(this.elementos);
-  if(!this.elementosFiltrados){
-    this.elementosFiltradosImpresion = this.agendaTurno;
-  }else{
-    this.elementosFiltradosImpresion = this.elementosFiltrados;
-  }
-  let fecha = formatDate(this.fechaHoy, 'dd/MM/yyyy', 'en');
+  if(this.selecteditems !== undefined){
+    console.log(this.selecteditems);
+
+    let fecha = formatDate(this.fechaHoy, 'dd/MM/yyyy', 'en');
   var doc = new jsPDF('landscape');
 
   /** valores de la pagina**/
@@ -684,7 +683,7 @@ generarPdf(){
   doc.text('Emitido : '+_fechaEmision, pageWidth-40, 18, null, null, 'left');
 
 
-   doc.autoTable(this.columns, this.elementosFiltradosImpresion,
+   doc.autoTable(this.columns, this.selecteditems,
       {
          
         margin: {horizontal: 5, vertical: 35},
@@ -695,6 +694,19 @@ generarPdf(){
       }
       );
       window.open(doc.output('bloburl'));  
+
+      
+  }else{
+    swal({
+      title: 'TURNOS NO SELECCIONADOS' ,
+      text: 'Debe seleccionar al menos un turno para poder imprimir',
+      type: 'warning',
+      showConfirmButton: false,
+      timer: 4000
+         
+    })
+  }
+  
 }
 
 /** ACCIONES */

@@ -211,7 +211,51 @@ buscarPaciente(){
 
   }
 
-  realizarNotaCredito(){}
+  realizarNotaCredito(){
+
+
+    this.loading = true; 
+    try { 
+        this.facturacionService.crearFacturaNotaCredito(this.selecteditemRegistro)
+        .subscribe(resp => {
+          let i:number = 0;
+          let resultado = resp;
+        
+          console.log(resp);
+          this.loading = false;          
+          
+      
+       
+        },
+        error => { // error path
+            console.log(error.message);
+            console.log(error.status);
+            swal({
+              toast: false,
+              type: 'error',
+              title: 'Algo salio mal...',
+              text:error.status+' '+error.message ,
+              showConfirmButton: false,
+              timer: 2000
+            });
+            this.loading = false;
+          });    
+    } catch (error) {
+      swal({
+        toast: false,
+        type: 'error',
+        title: 'Algo salio mal...',
+        text:error.status+' '+error.message ,
+        showConfirmButton: false,
+        timer: 2000
+      });
+    }
+    
+
+
+  }
+
+
 
   imprimir(){
 

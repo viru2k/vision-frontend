@@ -77,6 +77,14 @@ export class AgendaRecepcionComponent implements OnInit {
   motivo:string;
   presentes:number = 0;
 
+  sobreturno:number = 0;
+  pendiente:number = 0;
+  presente:number = 0;
+  llamando:number = 0;
+  espera:number = 0;
+  ingresado:number = 0;
+  atendido:number = 0;
+
   constructor(private documentService: DocumentService,private miServico:AgendaService, private messageService: MessageService ,public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router ) {
  
  
@@ -171,6 +179,7 @@ actualizarFecha(event){
   console.log(event);
   this.fechaHoy = event;
   console.log(new Date(this.fechaHoy));
+  this.loadList();
 }
 
 actualizarBusqueda(event){
@@ -332,6 +341,7 @@ verMotivo(evt:any,overlaypanel:OverlayPanel,event:AgendaTurno){
 filtered(event){
   console.log(event.filteredValue);
   this.elementosFiltrados  = event.filteredValue;
+  this.sumarValores();
 }
 
 async editarRegistro(cond:string,selecteditems:AgendaTurno){
@@ -474,6 +484,7 @@ this.popItemAgenda = this.selectedagendaTurno;
 }
 
 loadList(){
+
   this.es = calendarioIdioma;
   this.loading = true;
   this._fechaHoy = formatDate(this.fechaHoy, 'yyyy-MM-dd', 'en');
@@ -486,6 +497,9 @@ if(this._fechaHoy!=''){
       .subscribe(resp => {
         if (resp[0]) {
           this.agendaTurno = resp;
+          this.elementosFiltrados = resp;
+          // AL TENER LA RESPUESTA, ACTUALIZO LA CANTIDAD DE TURNOS Y LOS CALCULO
+          this.sumarValores();
           console.log(this.agendaTurno);
           this.sumarPresente();
             }else{
@@ -894,11 +908,51 @@ colorRow(estado:string){
   if(estado == 'LLAMANDO') {
     return {'es-llamando'  :'null' };
   }
+
+}
+
+
+
+
+sumarValores(){
+  let i:number;
+  this.sobreturno = 0;
+  this.pendiente = 0;
+  this.presente = 0;
+  this.llamando = 0;
+  this.espera = 0;
+  this.ingresado = 0;
+  this.atendido = 0;
+  let estado:string;
+console.log(this.elementosFiltrados);
+  for(i=0;i<this.elementosFiltrados.length;i++){
+    
+    
+    if(this.elementosFiltrados[i]['estado']=== 'SOBRETURNO'){
+      this.sobreturno++;
+    }
+    if(this.elementosFiltrados[i]['estado']=== 'PENDIENTE'){
+      this.pendiente++;
+    }
+    if(this.elementosFiltrados[i]['estado']=== 'PRESENTE') {
+      this.presente++;
+    }
+    if(this.elementosFiltrados[i]['estado']=== 'LLAMANDO') {
+      this.llamando++;
+    }
+    if(this.elementosFiltrados[i]['estado']=== 'ESPERA')   {
+      this.espera++;
+    }
+    if(this.elementosFiltrados[i]['estado']=== 'INGRESADO'){
+      this.ingresado++;
+    }
+    if(this.elementosFiltrados[i]['estado']=== 'ATENDIDO') {
+      this.atendido++;
+    }
+    
+      
+  }
  
-  
-  
-
-
 }
 
 colorString(estado:string){

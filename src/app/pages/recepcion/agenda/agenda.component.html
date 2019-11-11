@@ -11,7 +11,7 @@
             <div  class="input-group input-group-sm ">
                     <form  [formGroup]="DateForm">
                     <div class="btn-group" role="group">
-                <p-calendar class="mr-2 "formControlName="fechaHoy" [monthNavigator]="true"   (onSelect)="actualizarFecha($event)" tabindex="0" [disabledDates]="invalidDates" [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+                <p-calendar class="mr-2 "formControlName="fechaHoy"  [monthNavigator]="true"   (onSelect)="actualizarFecha($event)" tabindex="0"   [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
                    <ng-template pTemplate="date" let-date>
                         <span  [ngClass]="colorRow(date)"  style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
                     </ng-template> 
@@ -26,7 +26,7 @@
                                        <button    class="btn  btn-info btn-sm  float-right mr-2" (click)="loadAgendaCancelada()" >Turnos cancelados</button>
                                        <button    class="btn  btn-danger btn-sm  float-right mr-2" (click)="darSobreTurno()" >Dar sobre turno</button>
                                        <button    class="btn  btn-warning btn-sm float-right mr-2" (click)="loadListTodosTurnos()" >Buscar todos los turnos</button>
-                                       <button    class="btn  btn-success btn-sm float-right "  (click)="loadTurno()" >Buscar turnos</button>
+                                       
                                     </div>
                             </div>    
                     </div>     
@@ -62,17 +62,21 @@
             scrollHeight="500px" [scrollable]="true" (onFilter)="filtered($event)">
           
 
+            
+
                <ng-template pTemplate="header" let-columns >
               
-                          <tr >
-                               
-                            <th  *ngFor="let col of columns" [pSortableColumn]="col.field"  [ngStyle]="{'width': col.width}">
-                                    {{col.header}}
-                                    <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activar para ordenar en forma descendente" ariaLabelAsc="Activar para ordenar en forma ascendente"></p-sortIcon>
-                                </th>
-                                
-                            </tr>
-                            <tr>
+                <tr >
+                             
+                    <th  *ngFor="let col of columns" [pSortableColumn]="col.field"  [ngStyle]="{'width': col.width}">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                    </th> 
+                    <th style="width: 3em">
+                      <p-tableHeaderCheckbox  ></p-tableHeaderCheckbox>
+                    </th>
+                </tr> 
+                <tr>
                             <th *ngFor="let col of columns" [ngSwitch]="col.field" >
                                 <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'operacion_cobro_id'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">             
                                 <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'paciente_apellido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">             
@@ -90,7 +94,7 @@
                                 <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'boton1'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">   
                                 <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'boton2'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">   
                             </th>
-                            
+                            <th></th>
                         </tr>
                     </ng-template>
                 
@@ -129,7 +133,9 @@
                          <a   (click)="accion($event,op,agendaTurno)"   ><i class="far fa-edit fa-2x icon-color-purple my-hover" ></i></a>            
                                       
                            </td>
-                                
+                           <td style="width: 3em">
+                            <p-tableCheckbox [value]="agendaTurno"></p-tableCheckbox>
+                        </td>    
                 </tr>
                 </ng-template>
              

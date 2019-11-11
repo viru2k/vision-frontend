@@ -55,11 +55,13 @@ export class ListadoCirugiaQuirofanoComponent implements OnInit {
   fechaHoy:Date;
   _fechaHoy:string;
   formPaciente:FormGroup;
+  observacion:string;
+  display:boolean;
 
   constructor(private miServicio:CirugiaService,private medicoService:MedicoService,private messageService: MessageService ,public dialogService: DialogService) {
 
     this.cols = [
-      { field: '', header: '' , width: '4%'} ,
+      { field: '', header: '' , width: '5%'} ,
       { field: 'cirugia_ficha_id', header: 'Nº' , width: '6%'} ,
       { field: 'orden', header: 'Orden' , width: '5%'},
       { field: 'fecha_hora', header: 'Hora' , width: '8%'},
@@ -71,11 +73,11 @@ export class ListadoCirugiaQuirofanoComponent implements OnInit {
       { field: 'ojo', header: 'Ojo' , width: '5%'},
       { field: 'dioptria', header: 'Diop.' , width: '5%'},
       { field: 'lente_tipo', header: 'Lente' , width: '10%'},
-      { field: 'lote', header: 'Lote' , width: '8%'},
+      { field: 'lote', header: 'Lote' , width: '15%'},
       { field: 'usuario_medico_opera_nombre', header: 'Opera' , width: '12%'} ,
-      { field: 'usuario_medico_ayuda_nombre', header: 'Ayuda' , width: '12%'} ,
-      { field: 'usuario_medico_anestesista_nombre', header: 'Anestesia' , width: '8%'} ,
-      { field: '', header: '' , width: '4%'} ,
+      { field: 'usuario_medico_ayuda_nombre', header: 'Ayuda' , width: '12%'} ,      
+      { field: '', header: '' , width: '5%'} ,
+      { field: '', header: '' , width: '5%'} ,
    ];
 
 
@@ -167,6 +169,16 @@ editRow(row){
   }*/
 }
 
+
+verObservacion(evt:any,overlaypanel:OverlayPanel,event:any){    
+  if(event){
+
+      this.observacion = event.quirofano_observacion;        
+  }
+  this.display = true;
+}
+
+
   accion(event: any,overlaypanel: OverlayPanel,elementos: CirugiaFicha) {
     if(elementos){
       this.selecteditem = elementos;
@@ -180,6 +192,7 @@ editRow(row){
       console.log(event);
       this.fechaHoy = event;
       console.log(new Date(this.fechaHoy));
+      this.loadList();
     }
 
 

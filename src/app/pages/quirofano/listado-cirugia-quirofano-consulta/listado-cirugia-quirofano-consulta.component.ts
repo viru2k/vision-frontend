@@ -28,7 +28,6 @@ import { formatDate } from '@angular/common';
 
 
 
-import { HistoriaClinicaComponent } from './../../../../../../optica/src/app/pages/historia-clinica/historia-clinica.component';
 import { calendarioIdioma } from './../../../../../../vision-totem2/src/app/config/config';
 import { HistoriaClinica } from './../../../models/historia-clinica.model';
 import { CirugiaFicha } from './../../../models/cirugia-ficha.model';
@@ -89,10 +88,9 @@ export class ListadoCirugiaQuirofanoConsultaComponent implements OnInit {
       { field: 'ojo', header: 'Ojo' , width: '6%'},
       { field: 'dioptria', header: 'Diop.' , width: '6%'},
       { field: 'lente_tipo', header: 'Lente' , width: '10%'},
-      { field: 'lote', header: 'Lote' , width: '8%'},
+      { field: 'lote', header: 'Lote' , width: '15%'},
       { field: 'usuario_medico_opera_nombre', header: 'Opera' , width: '12%'} ,
-      { field: 'usuario_medico_ayuda_nombre', header: 'Ayuda' , width: '12%'} ,
-      { field: 'usuario_medico_anestesista_nombre', header: 'Anestesista' , width: '12%'} ,
+      { field: 'usuario_medico_ayuda_nombre', header: 'Ayuda' , width: '12%'} ,      
       { field: '', header: 'Editar' , width: '6%'} ,
    ];
 
@@ -215,6 +213,7 @@ colorEstado(estado:string){
       console.log(event);
       this.fechaHoy = event;
       console.log(new Date(this.fechaHoy));
+      this.loadList();
     }
 
 

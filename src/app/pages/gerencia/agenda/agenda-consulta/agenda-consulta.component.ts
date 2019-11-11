@@ -73,6 +73,14 @@ export class AgendaConsultaComponent implements OnInit {
   fechaHasta:Date;
   _fechaHasta:string;
 
+  sobreturno:number = 0;
+  pendiente:number = 0;
+  presente:number = 0;
+  llamando:number = 0;
+  espera:number = 0;
+  ingresado:number = 0;
+  atendido:number = 0;
+
   constructor(private liquidacionService:LiquidacionService , private miServico:AgendaService, private messageService: MessageService ,public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router ) {
    
     this.cols = [
@@ -157,6 +165,7 @@ export class AgendaConsultaComponent implements OnInit {
     console.log(event);
     this.fechaHoy = event;
     console.log(new Date(this.fechaHoy));
+    this.loadListByMedico();
   }
 
   actualizarBusqueda(event){
@@ -256,7 +265,8 @@ let result = this.elementosFiltrados as any;
   
   filtered(event){
     console.log(event.filteredValue);
-    this.elementosFiltrados  = event.filteredValue;      
+    this.elementosFiltrados  = event.filteredValue;     
+    this.sumarValores() ;
 }
 
 async editarRegistro(cond:string,selecteditems:AgendaTurno){
@@ -365,6 +375,8 @@ loadListByDates(){
       if (resp[0]) {
           this.agendaTurno = resp;
           console.log(this.agendaTurno);
+          this.elementosFiltrados = resp;
+          this.sumarValores();
             }else{
               this.agendaTurno =null;
             }
@@ -515,6 +527,48 @@ colorRow(estado:string){
       return {'es-cancelado'  :'null' };
   }  
 
+}
+
+
+sumarValores(){
+  let i:number;
+  this.sobreturno = 0;
+  this.pendiente = 0;
+  this.presente = 0;
+  this.llamando = 0;
+  this.espera = 0;
+  this.ingresado = 0;
+  this.atendido = 0;
+  let estado:string;
+console.log(this.elementosFiltrados);
+  for(i=0;i<this.elementosFiltrados.length;i++){
+    
+    
+    if(this.elementosFiltrados[i]['estado']=== 'SOBRETURNO'){
+      this.sobreturno++;
+    }
+    if(this.elementosFiltrados[i]['estado']=== 'PENDIENTE'){
+      this.pendiente++;
+    }
+    if(this.elementosFiltrados[i]['estado']=== 'PRESENTE') {
+      this.presente++;
+    }
+    if(this.elementosFiltrados[i]['estado']=== 'LLAMANDO') {
+      this.llamando++;
+    }
+    if(this.elementosFiltrados[i]['estado']=== 'ESPERA')   {
+      this.espera++;
+    }
+    if(this.elementosFiltrados[i]['estado']=== 'INGRESADO'){
+      this.ingresado++;
+    }
+    if(this.elementosFiltrados[i]['estado']=== 'ATENDIDO') {
+      this.atendido++;
+    }
+    
+      
+  }
+ 
 }
 
 
