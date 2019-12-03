@@ -33,6 +33,7 @@ import { PopupPresentacionEditarComponent } from '../../../../../shared/componen
 //import { ExcelService } from '../../../../../services/excel.service';
 import { FacturacionService } from '../../../../../services/facturacion.service';
 import { PracticaDistribucionService } from './../../../../../services/practica-distribucion.service';
+import { PopupOperacionCobroEditarDistribucionComponent } from './../../../../../shared/components/popups/popup-operacion-cobro-editar-distribucion/popup-operacion-cobro-editar-distribucion.component';
 
 
 @Component({
@@ -316,6 +317,25 @@ this.DateForm = new FormGroup({
   
     }
 
+
+    
+  editarDistribucion(){
+    let data:any; 
+    data = this.selecteditemRegistro;
+    const ref = this.dialogService.open(PopupOperacionCobroEditarDistribucionComponent, {
+    data,
+     header: 'Editar distribución', 
+     width: '98%',
+     height: '90%'
+    });
+    ref.onClose.subscribe((PopupOperacionCobroEditarDistribucionComponent: any) => {
+     
+        if (PopupOperacionCobroEditarDistribucionComponent) {
+          console.log(PopupOperacionCobroEditarDistribucionComponent);
+         
+        }
+    });
+  }
 
   loadlist(){
 

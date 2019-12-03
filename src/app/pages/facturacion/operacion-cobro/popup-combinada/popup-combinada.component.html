@@ -4,7 +4,7 @@
       </div>
 
 <div class="row">
-  <div class="col-3"><button class="btn btn-outline-info btn-sm float-left" (click)="agregarRegistro()">Agregar combinación</button></div>
+  <div class="col-3"><button class="btn btn-info btn-sm float-left" (click)="agregarRegistro()">Agregar combinación</button></div>
   <div class="col-6"></div>
   
 </div>
@@ -46,7 +46,7 @@
                     <td style="width: 8%">{{elementos.practica_distribucion_valor |  number : '1.2-2'}}</td>     
                     <td style="width: 8%">{{elementos.practica_distribucion_porcentaje}}</td>         
                     <td style="width: 8%">{{elementos.practica_distribucion_total |  number : '1.2-2'}}</td>     
-                    <td style="width: 10%" >  <button type="button" class="btn btn-outline-danger btn-sm" (click)="eliminarRegistro(elementos)"    >Eliminar</button></td>                                             
+                    <td style="width: 10%" >  <button type="button" class="btn btn-danger btn-sm" (click)="eliminarRegistro(elementos)"    >Eliminar</button></td>                                             
                 </tr>
     </ng-template> 
 </p-table>

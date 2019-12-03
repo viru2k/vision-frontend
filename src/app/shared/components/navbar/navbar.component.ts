@@ -53,6 +53,8 @@ export class NavbarComponent implements OnInit {
   elementoModulo:[] = null;
   loginForm: FormGroup;
   loading = false;
+  loading_mensaje:string;
+  loading_error:boolean;
   submitted = false;
   returnUrl: string;
   error = '';
@@ -167,13 +169,13 @@ if(currentUser['access_token'] != ''){
      this.puesto = userData['puesto'];
      console.log(userData['access_list']);
      this.asignarModulos(userData['access_list']);
-     this.getNotificacionesByUsuario();
+   //  this.getNotificacionesByUsuario();
      /*** busco notificaciones si esta logueado*/
-     let timer = Observable.timer(180000,180000);//180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
+    /* let timer = Observable.timer(180000,180000);//180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
      timer.subscribe(t=> {
        console.log('listando notificaciones');
        this.getNotificacionesByUsuario();
-   });
+   });*/
      this.menuList();
 }else{
   console.log("sin credenciales");
@@ -317,6 +319,7 @@ onSubmit() {
   }
 
   this.loading = true;
+  this.loading_mensaje = 'Validando usuario';
   this.authenticationService.login(this.f.username.value, this.f.password.value)
      // .pipe(first())
       .subscribe(
@@ -330,10 +333,19 @@ onSubmit() {
             this.loadUser();
           },
           error => {
-         
+            
             console.log(error);
-              this.error = error;
+            
+            if(error === 'The user credentials were incorrect.'){
+              this.loading_error = true; 
               this.loading = false;
+              this.loading_mensaje = '';
+            }else{
+              this.loading = false;
+              this.loading_mensaje = '';
+            }
+              this.error = error;
+              
           });
 }
 
@@ -346,6 +358,7 @@ loadUser(){
 
 this.loading = true;
 try {
+  this.loading_mensaje = 'Obteniendo modulos del usuario';
   this.miServico.getItemInfoAndMenu(this.f.username.value)
     .subscribe(resp => {
     this.elemento = resp;
@@ -363,6 +376,7 @@ try {
        this.asignarModulos(this.elementoModulo);
      // console.log(this.user);
         this.loading = false;
+        this.loading_mensaje = '';
         console.log('logueado');
         this.loggedIn = true;
       this.menuList();
@@ -372,7 +386,7 @@ try {
         console.log(error.status);
         localStorage.removeItem('error');
         localStorage.setItem('error', JSON.stringify(error));
-         
+        this.loading_mensaje = '';
     //    this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message);
      });    
 } catch (error) {

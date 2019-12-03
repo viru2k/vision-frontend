@@ -108,7 +108,7 @@
                         <a   (click)="verMotivo($event,op,agendaTurno)"   >    <i class="pointer fas fa-briefcase-medical fa-2x icon-color-blue" *ngIf="agendaTurno.es_observacion === 'CONSULTA'"  ></i></a>                                            
                       </td>                                                                   
                       <td style="width: 8%">
-                          <button  [disabled]="agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'ESPERA' ||  agendaTurno.estado == 'CANCELADO' ||  agendaTurno.estado == 'LLAMANDO'" type="button" class="btn btn-outline-warning btn-sm" (click)="pacienteIngresado(agendaTurno)"    ><i class="fas fa-volume-up"></i></button>
+                          <button  [disabled]="agendaTurno.estado == 'INGRESADO' || agendaTurno.estado == 'ESPERA' ||  agendaTurno.estado == 'CANCELADO' ||  agendaTurno.estado == 'LLAMANDO'" type="button" class="btn btn-warning btn-sm" (click)="pacienteIngresado(agendaTurno)"    ><i class="fas fa-volume-up"></i></button>
                       </td>            
               </tr>
               </ng-template>
@@ -141,7 +141,7 @@
   </div>
 </div>
 
-<p-dialog header="Observación" class="text-secondary" [(visible)]="display" class="p-2" [baseZIndex]="10000" [responsive]="true"> 
+<p-dialog header="Observación" class="text-primary" [(visible)]="display" class="p-2" [baseZIndex]="10000" [responsive]="true"> 
   <label>MOTIVO :  {{motivo}}</label>        
   <textarea [rows]="5" [cols]="30" pInputTextarea class="form-control form-control-sm col-md-12"[(ngModel)]="observacion"></textarea>   
  

@@ -12,20 +12,20 @@
             <p-dropdown [options]="impresiones" [(ngModel)]="selectedImpresion" optionLabel="name" ></p-dropdown>
                       <div class="ml-2 mr-2 row" >                         
                         <div class=" input-group input-group-sm ">
-                          <label class="mr-2 mt-1">Médico </label>
-                          <input  (keyup.enter)="buscarMedico()" class="form-control col-md-12 form-control-sm" [(ngModel)]="apellido" placeholder="Medico"  />   
+                      <!--     <label class="mr-2 mt-1">Médico </label>
+                          <input  (keyup.enter)="buscarMedico()" class="form-control col-md-12 form-control-sm" [(ngModel)]="apellido" placeholder="Medico"  />    -->
                       
-                          <div class="input-group-append">
+                      <!--     <div class="input-group-append">
                             <span class=" input-group-text form-control-sm">
                               <a  (click)="buscarMedico()">
                                   <img class="pointer float-left" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
                               </a>
                           </span>
-                          </div>
+                          </div> -->
                       </div>     
                   </div>                                          
                     <div class=" ml-2 row">                         
-                       <div class="ml-2"><button    class="btn  btn-success btn-sm float-right  pr-2" (click)="imprimir()" >Imprimir</button>   </div>                                                  
+                       <div class="ml-2"><button    class="btn  btn-success btn-sm float-right  pr-2" (click)="imprimir()" >Buscar</button>   </div>                                                  
                       </div>     
                  
   </div>   

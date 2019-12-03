@@ -1,5 +1,5 @@
 
-      <button class="btn btn-secondary btn-md mb-2" (click)="sinLente()">Cirugia sin lente</button>
+      <button class="btn btn-primary btn-md mb-2" (click)="sinLente()">Cirugia sin lente</button>
 <p-table  #dt class="pt-2" scrollHeight="500px"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  [(selection)]="elementos" columnResizeMode="expand" [responsive]="true"
   scrollHeight="600px" [scrollable]="true"   >
   
@@ -40,7 +40,7 @@
         <td style="width: 20%">{{elementos.estado}}</td>      
         
         <td style="width: 10%">
-          <button class="btn btn-outline-success btn-sm" (click)="seleccionarLente(elementos)">Seleccionar</button>
+          <button class="btn btn-success btn-sm" (click)="seleccionarLente(elementos)">Seleccionar</button>
           </td>   
 </tr>
 

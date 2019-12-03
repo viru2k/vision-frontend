@@ -154,7 +154,8 @@ this.documentService
 .subscribe((message: string) => {
   console.log(message);
   if(message ==='llamando-agendas'){
-    this.loadList();    
+    console.log(' invocacion llamando agendas');
+ //   this.loadList();    
   }
 });
 
@@ -162,9 +163,9 @@ this.documentService
 
 this.loadList();
 
-let timer = Observable.timer(180000,180000);//180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
+let timer = Observable.timer(60000,180000);//180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
 timer.subscribe(t=> {
-  console.log('bucando turnos');
+  console.log('llamando turnos desde timer');
   this.loadList();
 });
 

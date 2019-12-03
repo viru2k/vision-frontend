@@ -43,9 +43,9 @@
   <ng-template pTemplate="caption">
     <div class="row">
             <div class="col-md-7 row" style="text-align:left ">
-              <div class="pr-2 pl-2">    <button    class="btn  btn-outline-secondary btn-sm float-right mr-2"  (click)="loadRegistro()" >Buscar Registros</button>  </div>
-             <div class="pr-2 pl-2">   <button    class="btn  btn-outline-info btn-sm   "  (click)="generarPdfListado('todos')" >Imprimir resumen</button></div>
-             <div><button    class="btn  btn-outline-success btn-sm "  (click)="generarPdfListado('medico')" >Imprimir resumen por médico</button></div>  
+              <div class="pr-2 pl-2">    <button    class="btn  btn-primary btn-sm float-right mr-2"  (click)="loadRegistro()" >Buscar Registros</button>  </div>
+             <div class="pr-2 pl-2">   <button    class="btn  btn-info btn-sm   "  (click)="generarPdfListado('todos')" >Imprimir resumen</button></div>
+             <div><button    class="btn  btn-success btn-sm "  (click)="generarPdfListado('medico')" >Imprimir resumen por médico</button></div>  
                                       
             </div>
 
@@ -134,7 +134,7 @@
 
 <p-overlayPanel #op [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >                          
     <span>   <a class="nav-link azul text-info  my-hover" (click)="editarRegistro(selecteditems)">Editar registro</a></span>
-    <span>   <a class="nav-link azul text-danger  my-hover" (click)="editarOperacionCobro(selecteditems)">Editar operacion cobro</a></span>
+    <span>   <a class="nav-link azul text-danger  my-hover" (click)="editarOperacionCobro(selecteditems)">Editar operación cobro</a></span>
     <span> <hr></span>
     <span>   <a class="nav-link azul text-info my-hover" (click)="eliminarRegistro(selecteditems)">Eliminar registro</a></span>
   </p-overlayPanel>  

@@ -4,10 +4,10 @@
 
 
       <div class="col-md-4 col-xl-4">    
-          <div class="row">
+          <div class="row card-header mb-2">
               <h6 >Agenda</h6>
           </div>
-          <hr class="row">  
+         
                  
               <div class="form-group  row pb-2 pt-1">
                 <button    class="btn btn-warning btn-block btn-md"  (click)="buscarAgenda()" > <i class="fas fa-clipboard-list "></i> Buscar paciente en agenda</button>
@@ -19,7 +19,7 @@
                           <label  >Fecha práctica</label>
                         </div> 
                         <div class="row">
-                        <p-calendar formControlName="fechaHoy" [showTime]="true"  (onSelect)="actualizarFecha($event)" tabindex="0"  [disabledDates]="invalidDates" [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+                        <p-calendar formControlName="fechaHoy" [showTime]="true"  (onSelect)="actualizarFecha($event)" tabindex="0"    [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
                           <ng-template pTemplate="date" let-date>
                                <span   style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
                            </ng-template> 
@@ -30,46 +30,42 @@
                        
 
             <form [formGroup]="formMedico">
-                
-                  <div class="form-group ">
-                    <div class="row">
-                      <div >
-                        <label>Médico</label>
+                <div class="form-group ">
+                    <div >
+                        <label  class="mt-2" >Médico</label>
                       </div> 
-                      
-                      <div class=" input-group input-group-sm mb-3">
-                          <input  (keyup.enter)="buscarMedico()" class="form-control col-md-12 form-control-sm text-danger" formControlName="apellido"  autofocus />   
-                          <div *ngIf="formMedico.controls.apellido.errors?.required && formMedico.controls.apellido.touched" class="error">
-                              * Este campo es requerido
-                      </div>
-                          <div class="input-group-append">
-                            <span class="input-group input-group-text form-control-sm">
-                              <a  (click)="buscarMedico()">
-                                  <img class="pointer float-left" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
-                              </a>
-                          </span>
-                          </div>
-                      </div> 
-                    </div>
-                </div>    
+
+                      <div class=" d-flex align-items-center">
+                            <button class="btn btn-primary btn-sm btn-round  mr-2" type="button" (click)="buscarMedico()">
+                                <i class="fas fa-search"></i> Buscar médico
+                            </button>
+ 
+                         <label class="mt-2 mr-2">{{formMedico.value.apellido}}</label>  
+                        <!--  <div *ngIf="formDatosObraSocial.controls['apellido'].errors?.required && formDatosObraSocial.controls['apellido'].touched" class="alert alert-warning">
+                            * Este campo es requerido
+                        </div> -->
+                      </div>  
+                </div>
+               
+     
                 
                 
               </form>
               <form [formGroup]="formDatosObraSocial">
                
-                  <div class="row">
+                  <div class="row card-header mb-2">
                       <h6 >Datos de obra social</h6>
                   </div>
-                  <hr class="row">
+                  
                 <div class="form-group ">
                     <div class="row">
                       <div >
                         <label  >Número afiliado</label>
                       </div>          
                         <input   class="form-control col-md-12 form-control-sm" formControlName="numero_afiliado"  />                  
-                    <div *ngIf="formDatosObraSocial.controls.numero_afiliado.errors?.required && formDatosObraSocial.controls.numero_afiliado.touched" class="error">
+                    <!-- <div *ngIf="formDatosObraSocial.controls['numero_afiliado'].errors?.required && formDatosObraSocial.controls['numero_afiliado'].touched" class="alert alert-warning">
                             * Este campo es requerido
-                    </div>
+                    </div> -->
                   </div>
                   </div>
       
@@ -80,9 +76,9 @@
                         </div>          
                      
                           <input  class="form-control col-md-12 form-control-sm" formControlName="barra_afiliado"  />                  
-                      <div *ngIf="formDatosObraSocial.controls.barra_afiliado.errors?.required && formDatosObraSocial.controls.barra_afiliado.touched" class="error">
+                      <!-- <div *ngIf="formDatosObraSocial.controls['barra_afiliado'].errors?.required && formDatosObraSocial.controls['barra_afiliado'].touched" class="alert alert-warning">
                               * Este campo es requerido
-                      </div>
+                      </div> -->
                     </div>
                     </div>
       
@@ -93,9 +89,9 @@
                           </div>          
                         
                             <input  class="form-control col-md-12 form-control-sm" formControlName="bono_afiliado"  />                  
-                        <div *ngIf="formDatosObraSocial.controls.bono_afiliado.errors?.required && formDatosObraSocial.controls.bono_afiliado.touched" class="error">
+                       <!--  <div *ngIf="formDatosObraSocial.controls['bono_afiliado'].errors?.required && formDatosObraSocial.controls['bono_afiliado'].touched" class="alert alert-warning">
                                 * Este campo es requerido
-                        </div> 
+                        </div>  -->
                       </div>
                       </div>
               
@@ -105,47 +101,43 @@
       <div class="col-md-4 col-xl-4 ">
        
         <form class="ml-2" [formGroup]="formPaciente">
-            <div class="row">
+            <div class="row card-header mb-2">
                 <h6 >Paciente</h6>
             </div>
-            <hr class="row">
+           
             <div class="form-group ">
-              <div class="row">
                 <div >
-                  <label  >Documento</label>
-                </div>  
-                <div class=" input-group input-group-sm mb-3">
-                    <input  (keyup.enter)="buscarPaciente()" class="form-control col-md-12 form-control-sm" formControlName="dni"  />   
-                    <div *ngIf="formPaciente.controls.dni.errors?.required && formPaciente.controls.dni.touched" class="error">
+                    <label  class="mt-2" >Documento</label>
+                  </div> 
+
+                  <div class=" d-flex align-items-center">
+                        <button class="btn btn-primary btn-sm btn-round  mr-2" type="button" (click)="buscarPaciente()">
+                            <i class="fas fa-search"></i> Buscar paciente
+                        </button>
+
+                     <label class="mt-2 mr-2">{{formPaciente.value.dni}}</label>  
+                     <!-- <div *ngIf="formDatosObraSocial.controls['dni'].errors?.required && formDatosObraSocial.controls['dni'].touched" class="alert alert-warning">
                         * Este campo es requerido
-                </div>
-                    <div class="input-group-append">
-                      <span class="input-group input-group-text form-control-sm">
-                        <a  (click)="buscarPaciente()">
-                            <img class="pointer float-left" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
-                        </a>
-                    </span>
-                    </div>
-                </div>  
-              </div> 
-          </div>
+                      </div> -->
+                  </div>  
+            </div>
+    
 
           <div class="form-group ">
             <div class="row">
               <div >
-                <label  >Apellido</label>
+                <label  >Apellido: </label>
               </div>          
-            
-                <input  class="form-control col-md-12 form-control-sm" formControlName="apellido"  />                  
+              <label class=" ml-2">{{formPaciente.value.apellido}}</label>        
               </div>
           </div>
 
           <div class="form-group ">
             <div class="row">
               <div>
-                <label  >Nombre</label>
-              </div>          
-                <input  class="form-control col-md-12 form-control-sm" formControlName="nombre"  /> 
+                <label  >Nombre: </label>
+              </div>   
+              <label class=" ml-2">{{formPaciente.value.nombre}}</label>                         
               </div>                 
           </div>
 
@@ -154,7 +146,7 @@
         
 
           <div class=" form-group row">
-              <button    class="btn btn-outline-info float-right btn-sm" type="submit" (click)="CrearEditarPaciente()" >Editar datos de paciente</button>
+              <button    class="btn btn-info float-right btn-sm" type="submit" (click)="CrearEditarPaciente()" >Editar datos de paciente</button>
           </div>
          
         </form>
@@ -162,52 +154,47 @@
       
        
         <form class="  ml-2" [formGroup]="formObraSocial">
-            <div class="row">
+            <div class="row card-header mb-2">
                 <h6 >Obra social</h6>
                 
             </div>
-            <hr class="row">
-              <div class="form-group ">
-                <div class="row">
-                  <div >
+          
+
+            <div class="form-group  ">
+                <div >
                     <label  >Obra social</label>
                   </div> 
-                  <div class=" input-group input-group-sm mb-3">
-                      <input  (keyup.enter)="buscarObraSocial()" class="form-control col-md-12 form-control-sm" formControlName="nombre"  />   
-                      <div *ngIf="formObraSocial.controls.nombre.errors?.required && formObraSocial.controls.nombre.touched" class="error">
-                          * Este campo es requerido
-                  </div>
-                      <div class="input-group-append">
-                        <span class="input-group input-group-text form-control-sm">
-                          <a  (click)="buscarObraSocial()">
-                              <img class="pointer float-left" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
-                          </a>
-                      </span>
-                      </div>
-                  </div>    
+
+                  <div class=" d-flex align-items-center">
+                        <button class="btn btn-primary btn-sm btn-round  mr-2" type="button" (click)="buscarObraSocial()">
+                            <i class="fas fa-search"></i> Buscar Obra social
+                        </button>
+
+                     <label class="mt-2 mr-2">{{formObraSocial.value.nombre}}</label>  
+                    <!--  <div *ngIf="formObraSocial.controls['nombre'].errors?.required && formObraSocial.controls['nombre'].touched" class="alert alert-warning">
+                        * Este campo es requerido
+                     </div> -->
+                  </div>  
             </div>
-          </div>
 
             <div class="form-group ">
-              <div class="row">
                 <div >
-                  <label  >Coseguro</label>
-                </div>   
-                <div class=" input-group input-group-sm mb-3">
-                    <input  (keyup.enter)="buscarObraSocialCoseguro()" class="form-control col-md-12 form-control-sm" formControlName="coseguro_nombre"  />   
-                    <div *ngIf="formObraSocial.controls.coseguro_nombre.errors?.required && formObraSocial.controls.coseguro_nombre.touched" class="error">
+                    <label  >Obra social</label>
+                  </div> 
+
+                  <div class=" d-flex align-items-center">
+                        <button class="btn btn-primary btn-sm btn-round  mr-2" type="button" (click)="buscarObraSocialCoseguro()">
+                            <i class="fas fa-search"></i> Buscar Coseguro
+                        </button>
+
+                     <label class="mt-2 mr-2">{{formObraSocial.value.coseguro_nombre}}</label>  
+                    <!--  <div *ngIf="formObraSocial.controls['coseguro_nombre'].errors?.required && formObraSocial.controls['coseguro_nombre'].touched" class="alert alert-warning">
                         * Este campo es requerido
-                </div>
-                    <div class="input-group-append">
-                      <span class="input-group input-group-text form-control-sm">
-                        <a  (click)="buscarObraSocialCoseguro()">
-                            <img class="pointer float-left" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
-                        </a>
-                    </span>
-                    </div>
-                </div> 
-            </div>                            
+                      </div> -->
+                  </div>  
             </div>
+
+
           </form>
 
       </div>
@@ -216,17 +203,17 @@
              
                  
 
-                  
+             <div class="card-header mb-2">  
         <div >
             <h6 class="pb-2">Prácticas</h6>
-          <hr>   
+           
 
         <div class="pt-2 pb-2"  *ngIf="operacionCobroPracticas.length>0" >
-            <button    class="btn btn-block  btn-outline-danger btn-sm " (click)="removePractica()" >Borrar listado</button>
+            <button    class="btn btn-block  btn-danger btn-sm " (click)="removePractica()" ><i class="fas fa-minus pr-2"></i>Borrar listado</button>
         </div>
 
           <div>
-            <p-table  #dt class="pt-2" [columns]="cols" tableStyleClass="prime-table"   [value]="operacionCobroPracticas"  [(selection)]="selectedItem" columnResizeMode="expand" [scrollable]="true" scrollHeight="200px" >               
+            <p-table  #dt class="pt-2" [columns]="cols" tableStyleClass="prime-table"   [value]="operacionCobroPracticas"   columnResizeMode="expand" [scrollable]="true" scrollHeight="200px" [loading]="loading" loadingIcon="fas fa-spinner fa-2x icon-color-green" [loading]="loading" loadingIcon="fas fa-spinner fa-2x icon-color-green">               
 
                 <ng-template pTemplate="header" let-columns >
                   <tr >
@@ -249,8 +236,8 @@
                         <div></div>
                         </div> -->
                         <div>                    
-                          <button type="button" *ngIf="operacionCobroPracticas.tiene_distribucion =='S' && operacionCobroPracticas.es_coseguro =='N' && operacionCobroPracticas.pmo_nivel == 3"   class="btn btn-outline-success btn-sm mr-2 " (click)="buscarDistribucion(operacionCobroPracticas)"><i class="far fa-eye"></i></button>                        
-                       <!--  <button type="button" class="btn btn-outline-danger btn-sm " (click)="removePractica(operacionCobroPracticas)">X</button> -->
+                          <button type="button" *ngIf="operacionCobroPracticas.tiene_distribucion =='S' && operacionCobroPracticas.es_coseguro =='N' && operacionCobroPracticas.pmo_nivel == 3"   class="btn btn-success btn-sm mr-2 " (click)="buscarDistribucion(operacionCobroPracticas)"><i class="far fa-eye"></i></button>                        
+                       <!--  <button type="button" class="btn btn-danger btn-sm " (click)="removePractica(operacionCobroPracticas)">X</button> -->
                         </div>
                         
                         
@@ -267,19 +254,19 @@
                
               </div>      
    
-            <div class="form-group ">     
-             <small> Observación         </small>
+            <!-- <div class="form-group ">     
+             <label> Observación del cobro</label>
                 <input type="text" [ngModel]="observacion" (ngModelChange)="observacionChange($event)" class="form-control col-md-12 form-control-sm" placeholder="Observación" > 
-        </div>
+        </div> -->
         <div class="pt-2 pb-2">
           
       </div>
             
             <div class="row">
               <div class="col-4" *ngIf="tieneDistribucion">
-               <small> <label>Obra social</label></small>
+              <label>Obra social</label>
                 <div>
-                  <label class=" text-success ">{{total_obra_social|  number : '1.2-2'}} $</label>
+                  <label class="">{{total_obra_social|  number : '1.2-2'}} $</label>
                 </div>
                            
                          
@@ -293,10 +280,10 @@
 
               </div>
               <div class="col-4" *ngIf="tieneDistribucion" >
-                <small><label>Coseguro</label></small>
+              <label>Coseguro</label>
                   
                 <div>
-                    <label class=" text-success ">{{total_coseguro |  number : '1.2-2'}} $</label>               
+                    <label class=" ">{{total_coseguro |  number : '1.2-2'}} $</label>               
                 </div>   
                   <!-- 
                   <label>Categoria coseguro</label>
@@ -311,9 +298,9 @@
               </div>
 
               <div class="col-4" *ngIf="tieneDistribucion && total_categoria!=0">
-               <small> <label>Categ. OS + CO</label></small>
+               <label>Categ. OS + CO</label>
                 <div>
-                    <label class=" text-success ">{{total_categoria |  number : '1.2-2'}} $</label>                                  
+                    <label class="  ">{{total_categoria |  number : '1.2-2'}} $</label>                                  
                 </div>
           
               </div>
@@ -325,7 +312,7 @@
             <div class="row">
               <div class="col-4" *ngIf="tieneDistribucion && total_categoria!=0">               
                 <div>
-                  <label class=" text-success ">{{categoria_obra_social|  number : '1.2-2'}} $</label>
+                  <label class="">{{categoria_obra_social|  number : '1.2-2'}} $</label>
                 </div>
                            
        
@@ -334,7 +321,7 @@
               <div class="col-4" *ngIf="tieneDistribucion && total_categoria!=0" >
                 
                 <div>
-                    <label class=" text-success ">{{categoria_coseguro |  number : '1.2-2'}} $</label>               
+                    <label class="  ">{{categoria_coseguro |  number : '1.2-2'}} $</label>               
                 </div>   
                
               </div>
@@ -350,7 +337,7 @@
                 <div class="col-4" *ngIf="tieneDistribucion && total_categoria!=0">        
                     <hr class="pr-2 pl-2">
                   <div>
-                    <label class=" text-info ">{{categoria_obra_social+total_obra_social|  number : '1.2-2'}} $</label>
+                    <label class="  ">{{categoria_obra_social+total_obra_social|  number : '1.2-2'}} $</label>
                   </div>
                              
                   
@@ -359,7 +346,7 @@
                 <div class="col-4" *ngIf="tieneDistribucion && total_categoria!=0" >
                     <hr class="pr-2 pl-2">
                   <div>
-                      <label class=" text-info ">{{categoria_coseguro+total_coseguro |  number : '1.2-2'}} $</label>               
+                      <label class="  ">{{categoria_coseguro+total_coseguro |  number : '1.2-2'}} $</label>               
                   </div>   
                  
                 </div>
@@ -371,7 +358,7 @@
   
             <hr>
             
-            <div class="flexbox-max-height flexbox"><h5 class="text-info ">Totales</h5></div>
+            <div class="flexbox-max-height flexbox"><h5 class="text-primary ">Totales</h5></div>
             <div class="flexbox">
               <div class="flex-sidebar-columnas flexbox-margin-left">
                   <div class="float-left ">
@@ -392,10 +379,10 @@
                   </div>
               </div>
             </div>
-          
+      </div>
 
-            <div class="form-group pt-5">
-                <button (click)="confirmarOperacion()"  type="button" class="btn btn-info btn-lg btn-block  text-lg"><h5> <i class="far fa-check-circle fa-2x pr-2"
+            <div class="form-group">
+                <button (click)="confirmarOperacion()"  type="button" class="btn btn-info btn-md btn-block  text-lg "><h5 class="d-flex align-items-center  justify-content-center"> <i class="far fa-check-circle fa-2x pr-2"
                   aria-hidden="true"></i>Realizar operación de cobro</h5></button>
                
           </div>  

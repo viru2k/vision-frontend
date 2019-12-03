@@ -44,8 +44,8 @@
               <ng-template pTemplate="caption">
                   <div class="row">
                           <div class="col-md-7 row" style="text-align:left ">
-                           <div class="pr-2 pl-2">   <button    class="btn  btn-outline-info btn-sm   "  (click)="generarPdfListado('todos')" >Imprimir resumen</button></div>
-                           <div><button    class="btn  btn-outline-success btn-sm "  (click)="generarPdfListado('medico')" >Imprimir resumen por médico</button></div>                            
+                           <div class="pr-2 pl-2">   <button    class="btn  btn-info btn-sm   "  (click)="generarPdfListado('todos')" >Imprimir resumen</button></div>
+                           <div><button    class="btn  btn-success btn-sm "  (click)="generarPdfListado('medico')" >Imprimir resumen por médico</button></div>                            
                           </div>
                   <div class="col-md-5" style="text-align:right">                                
                       <input  class="form-control col-md-12 form-control-sm" type="text"  placeholder="Buscar en toda la tabla" (input)="dt.filterGlobal($event.target.value, 'contains')"  >

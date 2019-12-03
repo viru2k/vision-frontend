@@ -1,106 +1,81 @@
 
 <div >
-    <app-loading *ngIf="loading"> </app-loading> 
+    <app-loading *ngIf="loadingAccion"> </app-loading> 
 </div>
 
 <div>
   <div class="row m-1">
 
 
-      <div class=" col-6">
+      <div class=" col-md-6 col-sm-12">
 
           <form [formGroup]="formPaciente">
               <h6>Buscar paciente</h6>
               
         <hr>
 
-            <div class="form-group ">
-                <div class="col-12">
-                    <label  >Documento</label>
-                  </div> 
-                <div class="col-12 input-group input-group-sm mb-3">
-                    <input (keyup.enter)="buscarPaciente()" placeholder="Buscar documento" class="form-control col-md-12 form-control-sm" formControlName="dni"  autofocus />                  
-                    <div class="input-group-append">
-                      <span class="input-group-text form-control-sm">
-                        <a  (click)="buscarPaciente()">
-                            <img class="pointer float-left" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
-                        </a>
-                    </span>
-                    </div>
-                </div>  
-                <div *ngIf="formPaciente.controls.dni.errors?.required && formPaciente.controls.dni.touched" class="error">
-                    * Este campo es requerido
+            <div class="d-flex justify-content-between mb-3">
+                <div class="d-flex justify-content-start">
+                    <h6  class="mr-2" >Documento :</h6>
+                    <h6>{{formPaciente.value.dni}}</h6>
                 </div>
-            </div>
-
-
-            <div class="form-group ">
-                <div class="col-12">
-                    <label  >Apellido</label>
-                  </div> 
-                <div class="col-12 input-group mb-3">
-                    <input (keyup.enter)="buscarPaciente()" placeholder="Apellido" class="form-control col-md-12 form-control-sm" formControlName="apellido" />                  
-                    <div class="input-group-append">
-                     
-                    </div>
-                </div>  
-               
-            </div>
-
-            
-            <div class="form-group ">
-                <div class="col-12">
-                    <label  >Nombre</label>
-                  </div> 
-                <div class="col-12 input-group mb-3">
-                    <input (keyup.enter)="buscarPaciente()" placeholder="Nombre" class="form-control col-md-12 form-control-sm" formControlName="nombre" />                  
-                    <div class="input-group-append">
-                     
-                    </div>
-                </div>  
-            </div>
-            <div class="form-group ">
-                    <div class="col-12">
-                        <label  >Obra social</label>
-                      </div> 
-                    <div class="col-12 input-group mb-3">
-                        <input (keyup.enter)="buscarPaciente()" placeholder="Obra social" class="form-control col-md-12 form-control-sm" formControlName="obra_social_nombre" />                  
-                        <div class="input-group-append">
-                         
-                        </div>
-                    </div>  
+                <div class="d-flex justify-content-center">
+                    <h6  class="mr-2">Obra social :</h6> 
+                    <h6>{{formPaciente.value.obra_social_nombre}}</h6>
                 </div>
+                <div></div>
+        </div>
+
+        <div class="d-flex justify-content-between mb-3">
+            <div class="d-flex justify-content-start">
+                <h6  class="mr-2">Apellido y nombre : </h6>
+                <h6 class="mr-2">{{formPaciente.value.apellido}}</h6> <h6>{{formPaciente.value.nombre}}</h6>
+            </div>
+            <div class="d-flex justify-content-center">
+                <h6  class="mr-2 texto-monserrat-alternat">Nacimiento :</h6> 
+                <h6 class="mr-2">{{formPaciente.value.fecha_nacimiento | date: 'dd/MM/yyyy'}}</h6>
+            </div>
+            <div></div>
+    </div>
+
+
          
           </form>
           <p-footer>
-              <div class="form-group col-12 row pb-2 float -right ">
-                    
-                    <div class="pr-2">  <button    class="btn btn-info  btn-sm " type="submit" (click)="nuevoPaciente()" >Crear paciente</button></div>
-                    <div class="">   <button    class="btn btn-success  btn-sm " type="submit" (click)="editarPaciente()" >Editar paciente</button></div>
+              <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-start">
+                            <div class=" d-flex justify-content-start pr-2">  <button    class="btn btn-info  btn-sm " type="submit" (click)="nuevoPaciente()" >Crear paciente</button></div>
+                            <div class="d-flex justify-content-end ">   <button    class="btn btn-success  btn-sm " type="submit" (click)="editarPaciente()" >Editar paciente</button></div>
+                    </div>
+                   
+                    <div class="d-flex justify-content-end">
+                            <button class="btn btn-primary btn-sm btn-round" type="button" (click)="buscarPaciente()" pInputText pTooltip="Buscar datos del paciente" placeholder="Right" tooltipEvent="hover">
+                                    <i class="fas fa-search"></i> Buscar paciente
+                                </button>
+                    </div>
               </div>
           </p-footer>
 
           
           <form [formGroup]="AgendaForm ">
-            <h6>Agenda</h6>
+            <h6>Buscar médico</h6>
       <hr>
 
        
            
        <div class="form-group ">
-           <div class="col-12">
-               <label  >Médico</label>
-             </div> 
-           <div class="col-12 input-group input-group-sm mb-3">
-               <input (keyup.enter)="buscarUsuarioObraSocial()" placeholder="Buscar médico" class="form-control col-sm-12 form-control-sm" formControlName="medico_nombre"  />                  
-               <div class="input-group-append">
-                 <span class="input-group-text form-control-sm">
-                   <a  (click)="buscarUsuarioObraSocial()">
-                       <img class="pointer float-left" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
-                   </a>
-               </span>
-               </div>
-           </div>           
+           <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-start">
+                        <h6  class="mr-2">MEDICO :</h6> 
+                        <h6>{{medico_nombre}}</h6>
+                       </div>  
+                      <div class="d-flex justify-content-end">
+                        <button class="btn btn-primary btn-sm btn-round" type="button" (click)="buscarUsuarioObraSocial()" pInputText pTooltip="Buscar datos del paciente" placeholder="Right" tooltipEvent="hover">
+                           <i class="fas fa-search"></i> Buscar médico
+                        </button>
+                     </div>
+           </div>
+                       
        </div>
       
 
@@ -116,56 +91,51 @@
       </div>
 
       
-      <div class="col-6 ">
+      <div class="col-md-6 col-sm-12 ">
         <h6>Buscar turno</h6>
         <hr>
         <!-- [ngStyle]="{backgroundColor: (date.day < 21 && date.day > 10) ? '#81C784' : 'inherit'}" -->
        
         <div class="justify-content-between mb-2" >
-            <div  class="row">
-                <div class="col-12">
-                    <form  [formGroup]="DateForm">
-                <p-calendar formControlName="fechaHoy" [showTime]="true"   (onSelect)="actualizarFecha($event)" tabindex="0" [disabledDates]="invalidDates" [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy "   [readonlyInput]="true">
-                   <ng-template pTemplate="date" let-date>
-                        <span  [ngClass]="colorRow(date)"  style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
-                    </ng-template> 
+            <div  class="d-flex justify-content-between">
+                <div class="d-flex justify-content-start">
+                    <form  [formGroup]="DateForm">                           
+                    <p-calendar formControlName="fechaHoy"   (onSelect)="actualizarFecha($event)" tabindex="0"  [locale]="es" dateFormat="dd/mm/yy "  [disabledDates]="invalidDates" [readonlyInput]="true">
+                        <ng-template pTemplate="date" let-date>
+                            <span  [ngClass]="colorRow(date)"  style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
+                        </ng-template> 
                   </p-calendar>
-                  <div  class="btn-group ml-2 " role="group" aria-label="First group">                 
-                        <button    class="btn btn-lg btn-outline-danger btn-sm float-right mr-2" (click)="loadSobreTurno()" >Sobre turno</button>
-                        <button    class="btn btn-lg btn-outline-info btn-sm float-right mr-2" (click)="loadTurnoTodos()" >Turnos para ugencias</button>
-                        <button    class="btn btn-lg btn-success btn-sm float-right "  (click)="loadTurno()" >Buscar turnos</button>
-                      </div>    
-                    </form>
-                   
+                </form>
                 </div>
-                <div class="ml-2">
-                       
-                    <!-- <button    class="btn btn-lg btn-outline-secondary btn-sm float-right mr-2" (click)="AgregarMotivosAtencion()"> Agregar motivos de atención </button> -->
-                </div>    
+                <div class="d-flex justify-content-end">                  
+                        <button    class="btn btn-link btn-warning btn-lg " (click)="loadSobreTurno()" >Sobre turno</button>
+                        <button    class="btn btn-link btn-danger   btn-lg" (click)="loadTurnoTodos()" >Turnos para ugencias</button>        
+                </div>                      
             </div>
             <div class="mt-2">
-                    <h6 >Motivo</h6>
+                    <h6 >Motivo del turno</h6>
             </div>
             
             <hr>
 
-            <div class="container-fluid">
+            <div class="col-md-12 col-sm-12">
+                    <label>Motivo</label>
                     <div>
-                        <textarea [rows]="1" [cols]="30" pInputTextarea class="mt-1 mb-2 form-control form-control-sm col-md-12"[(ngModel)]="observacion"></textarea>   
+                        <textarea [rows]="1" [cols]="30" pInputTextarea class="mt-1 mb-4 form-control form-control-sm "[(ngModel)]="observacion"></textarea>   
                     </div>
                     <div class="row container-fluid" >
                     <div >
-                        <label>Estudios</label>
-                        <p-dropdown class="mt-1 mb-2 col-12" [options]="estudios" [(ngModel)]="selectedEstudio" optionLabel="name" ></p-dropdown> 
+                        <label class="texto-monserrat  mr-1">Estudios</label>
+                        <p-dropdown class="mt-1 mb-2 " [options]="estudios" [(ngModel)]="selectedEstudio" optionLabel="name" ></p-dropdown> 
                     </div>
-                    <div >
-                        <label>Médico solicitante</label>
-                        <p-dropdown class="mt-1 mb-2 col-12 " [options]="usuarios" [(ngModel)]="selectedMedicoEfector" optionLabel="nombreyapellido" ></p-dropdown>  
+                    <div class=" row  container-fluid mt-2 mr-2">
+                        <label class="texto-monserrat mt-2 mr-1 ">Médico solicitante</label>
+                        <p-dropdown class="mt-1 mb-2  " [options]="usuarios" [(ngModel)]="selectedMedicoEfector" optionLabel="nombreyapellido" ></p-dropdown>  
                     </div>
-                    <div class="row  container-fluid mt-2" >
+                    <div class="row  container-fluid mt-2 mr-2" >
                         <div>
-                                <label>Motivo observacion</label>
-                                <p-dropdown class="mt-1 mb-2 col-12" [options]="motivos" [(ngModel)]="selectedMotivo" optionLabel="name" ></p-dropdown>  
+                                <label class="mr-1">Motivo del turno</label>
+                                <p-dropdown class="mt-1 mb-2 mt-1" [options]="motivos" [(ngModel)]="selectedMotivo" optionLabel="name" ></p-dropdown>  
    
                             </div>
                           
@@ -185,20 +155,11 @@
           
        <hr>
         <div>
-        <h6 >Turnos disponibles</h6>
+        <h6 class="texto-monserrat">Turnos disponibles</h6>
        
        
 <div >
-    <p-table  #dt  tableStyleClass="prime-table" class="pt-2" [columns]="colsAgenda" [value]="agendaTurno"   [(selection)]="selectedItemMedico" columnResizeMode="expand" [scrollable]="true" scrollHeight="250px" >
-      <ng-template pTemplate="caption">
-          <div class="row">
-                  <div class="col-md-7" style="text-align:left">
-                              </div>
-          <div class="col-md-5" style="text-align:right">                                
-              <input  class="form-control col-md-12 form-control-sm" type="text"  placeholder="Buscar en toda la tabla" (input)="dt.filterGlobal($event.target.value, 'contains')"  >
-          </div>
-       </div>
-      </ng-template>
+    <p-table  #dt  tableStyleClass="prime-table" class="pt-2" [columns]="colsAgenda" [value]="agendaTurno"    columnResizeMode="expand" [scrollable]="true" scrollHeight="250px" [loading]="loading" loadingIcon="fas fa-spinner fa-2x icon-color-green">    
   
       <ng-template pTemplate="header" let-columns >
   
@@ -227,8 +188,8 @@
           <td>{{agendaTurno.hora_desde}}</td>                          
           <td>{{agendaTurno.nombreyapellido}}</td>              
           <td>
-             <!--    <button type="button" class="btn btn-outline-success btn-sm" (click)="generarTurno(agendaTurno)"  [disabled]="agendaTurno.nombreyapellido == 'HERNANDEZ JUAN MARCOS'"   >Agendar</button> -->
-              <button type="button" class="btn btn-outline-success btn-sm" (click)="generarTurno(agendaTurno)"    >Agendar</button>
+             <!--    <button type="button" class="btn btn-success btn-sm" (click)="generarTurno(agendaTurno)"  [disabled]="agendaTurno.nombreyapellido == 'HERNANDEZ JUAN MARCOS'"   >Agendar</button> -->
+              <button type="button" class=" btn btn-info  btn-sm" (click)="generarTurno(agendaTurno)"    >Agendar</button>
           </td>
   </tr>
   </ng-template>

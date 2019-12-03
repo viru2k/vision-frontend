@@ -17,8 +17,8 @@
   
   
             <div  class="btn-group ml-2" role="group" aria-label="First group">                 
-                <button    class="btn btn-lg btn-outline-success btn-sm float-right "  (click)="loadList()" >Listado cirugia</button>    
-              <button    class="btn btn-lg btn-outline-secondary btn-sm float-right mr-2" (click)="generarPdfListadoMedico()" > Imprimir listado</button>                
+                <button    class="btn btn-lg btn-success btn-sm float-right "  (click)="loadList()" >Listado cirugia</button>    
+              <button    class="btn btn-lg btn-primary btn-sm float-right mr-2" (click)="generarPdfListadoMedico()" > Imprimir listado</button>                
                           
             </div>
           </div>
@@ -100,7 +100,7 @@
 
 
 </div>
-<p-dialog header="Observaciones" class="text-secondary" [(visible)]="display" class="p-2" [baseZIndex]="10000" [responsive]="true"> 
+<p-dialog header="Observaciones" class="text-primary" [(visible)]="display" class="p-2" [baseZIndex]="10000" [responsive]="true"> 
   <label>OBSERVACION </label>        
   <textarea [rows]="5" [cols]="30" pInputTextarea class="form-control form-control-sm col-md-12"[(ngModel)]="observacion"></textarea>   
  

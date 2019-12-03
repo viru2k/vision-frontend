@@ -180,4 +180,18 @@ getOperacionCobroRegistrosBetweenDatesAndMedico(fecha_desde:string,fecha_hasta:s
     return this.http.get<OperacionCobroDetalle[]>(this.URL_OPERACION_COBRO+'distribucion/by/operacioncobro?operacion_cobro_id='+operacion_cobro_id);
   }
   
+  getOperacionCobroByDistribucion(fecha_desde:string, fecha_hasta:String){  
+    return this.http.get<any[]>(this.URL_OPERACION_COBRO+'consulta/varios/distribucion?fecha_desde='+fecha_desde+'&fecha_hasta='+fecha_hasta);
+  }
+
+  updateOperacionCobroDistribucion(registro:any){
+    
+    return this.http.put<any>(this.URL_OPERACION_COBRO+'practica/editar/distribucion/'+registro['id'], registro);
+  }
+
+  updateOperacionCobroDistribucionOperacionCobro(registro:any){
+    
+    return this.http.put<any>(this.URL_OPERACION_COBRO+'practica/editar/distribucion/operacioncobro/'+registro['operacion_cobro_id'], registro);
+  }
+  
 }

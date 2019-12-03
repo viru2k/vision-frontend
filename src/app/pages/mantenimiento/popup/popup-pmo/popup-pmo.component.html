@@ -3,11 +3,11 @@
   <div class="row col-md-12 animated fadeIn slow" >
         <div class="row ">
                 <div class="col-md-7" style="text-align:left">
-                    <button type="button" class="btn btn-outline-info btn-md" (click)="showDialogToAdd()" >Nuevo</button>
+                    <button type="button" class="btn btn-info btn-md" (click)="showDialogToAdd()" >Nuevo</button>
                 </div>
                 
         <div class="col-md-5" style="text-align:right">                                
-                <button type="button" class="btn btn-outline-success btn-md" (click)="generarPdf()" ><i class="fas fa-print"></i></button>
+                <button type="button" class="btn btn-success btn-md" (click)="generarPdf()" ><i class="fas fa-print"></i></button>
         </div>
         </div>
       <p-table #dt class="pt-2" [columns]="cols"  [value]="elementos" selectionMode="single" [resizableColumns]="true"

@@ -35,6 +35,7 @@ import { Liquidacion } from '../../../../models/liquidacion.model';
 import { PopupOperacionCobroPresentacionEditarRegistroComponent } from '../popup-operacion-cobro-presentacion-editar-registro/popup-operacion-cobro-presentacion-editar-registro.component';
 import { PopupMedicoComponent } from './../popup-medico/popup-medico.component';
 import { PopupOperacionCobroDistribucionComponent } from './../popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component';
+import { PopupOperacionCobroEditarDistribucionComponent } from './../popup-operacion-cobro-editar-distribucion/popup-operacion-cobro-editar-distribucion.component';
 
 @Component({
   selector: 'app-popup-operacion-cobro-presentacion',
@@ -245,6 +246,26 @@ export class PopupOperacionCobroPresentacionComponent implements OnInit {
     const ref = this.dialogService.open(PopupOperacionCobroEditarComponent, {
     data,
      header: 'Editar registro', 
+     width: '98%',
+     height: '90%'
+    });
+    ref.onClose.subscribe((PopupOperacionCobroEditarComponent: OperacionCobroDetalle) => {
+     
+        if (PopupOperacionCobroEditarComponent) {
+          console.log(PopupOperacionCobroEditarComponent);
+          this.loadRegistroByIdLiquidacion();
+        }
+    });
+  }
+
+
+
+  editarDistribucion(){
+    let data:any; 
+    data = this.selecteditemRegistro;
+    const ref = this.dialogService.open(PopupOperacionCobroEditarDistribucionComponent, {
+    data,
+     header: 'Editar distribución 111', 
      width: '98%',
      height: '90%'
     });

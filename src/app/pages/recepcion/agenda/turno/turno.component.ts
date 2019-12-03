@@ -15,7 +15,7 @@ import { FormControl, Validators, FormGroup, Form } from '@angular/forms';
 import swal from 'sweetalert2';
 import { AgendaMedico } from '../../../../models/agenda-medico.model';
 import { DatePipe, formatDate } from '@angular/common';
-import { PopupUsuarioComponent } from '../../../../shared/components/popups/popup-usuario/popup-usuario.component';
+
 import { DynamicDialogConfig, MessageService, DynamicDialogRef } from 'primeng/api';
 import { DialogService } from 'primeng/components/common/api';
 import { PopupObrasocialComponent } from '../../../mantenimiento/popup/popup-obrasocial/popup-obrasocial.component';
@@ -27,6 +27,7 @@ import { PopupAgendaObservacionComponent } from '../../../../shared/components/p
 
 import { User } from '../../../../models/user.model';
 import { UserService } from './../../../../services/user.service';
+
 
 
 @Component({
@@ -45,6 +46,7 @@ export class TurnoComponent implements OnInit {
   es:any;
   agendaMedico:AgendaMedico;
   loading: boolean;
+  loadingAccion:boolean;
   elemento:AgendaTurno = null;
   elementoPaciente:Paciente = null;
   elementoPacienteInicio:AgendaTurno = null;
@@ -83,6 +85,12 @@ export class TurnoComponent implements OnInit {
  estudios:any[];  
  motivos:any[];
  usuarios:User[];
+ medico_nombre:string;
+ apellido:string;
+ nombre:string;
+ obra_social_nombre:string;
+ dni:string;
+ fecha_nacimiento:Date;
 
   constructor(private miServicoPaciente:PacienteService ,private miUserServico:UserService, private miServico:AgendaService, private datePipe: DatePipe,  private messageService: MessageService ,public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router ) {
 
@@ -91,6 +99,7 @@ export class TurnoComponent implements OnInit {
       console.log(this.router.getCurrentNavigation().extras.state.paciente); 
       this.elementoPacienteInicio = this.router.getCurrentNavigation().extras.state.paciente;
       this.esInvocado = true;
+      //console.log('es invocado '+ this.esInvocado);
       console.log(this.elementoPacienteInicio);
     }
      this.es = calendarioIdioma;
@@ -160,7 +169,8 @@ export class TurnoComponent implements OnInit {
       'nombre': new FormControl(''),
       'apellido': new FormControl(''),
       'dni': new FormControl('', Validators.required),
-      'obra_social_nombre': new FormControl('')
+      'obra_social_nombre': new FormControl(''),
+      'fecha_nacimiento': new FormControl('')
   });
   this.AgendaForm = new FormGroup({
     'medico_nombre': new FormControl(''),
@@ -172,6 +182,7 @@ this.getUsuarioMedico();
   let newDate = new Date();
   this.DateForm.patchValue({fechaHoy: this.fechaHoy});
     if(this.esInvocado){
+     // console.log(this.elementoPacienteInicio);
     this.cargarAgendaInicio(this.elementoPacienteInicio);
     }
   }
@@ -223,6 +234,7 @@ this.getUsuarioMedico();
     this.formPaciente.patchValue({obra_social_nombre: agenda.paciente_obra_social_nombre});
     this.usuario_id = agenda.usuario_id;
     this.AgendaForm.patchValue({medico_nombre: agenda.nombreyapellido});
+    this.formPaciente.patchValue({fecha_nacimiento: agenda.paciente_fecha_nacimiento});
     this.calendarioBloqueo();
   }
 
@@ -232,6 +244,7 @@ this.getUsuarioMedico();
     console.log(new Date(this.fechaHoy));
     this._fechaHoy = formatDate(new Date(this.fechaHoy), 'yyyy-MM-dd HH:mm', 'en');
     console.log(this.fechaHoy);
+    this.loadListTurno();
   }
 
 
@@ -379,7 +392,7 @@ calendarioBloqueo(){
  if(this._fechaHoy!=''){
   let _fechaHoy = this.parse(this.fechaHoy);
  //console.log(this.fechaHoy);
-    this.loading = true;
+    this.loadingAccion = true;
     try {
         this.miServico.getCalendarioBloqueoByMedico(this.usuario_id,formatDate(new Date(), 'yyyy-MM-dd', 'en'))    
         .subscribe(resp => {
@@ -397,10 +410,10 @@ calendarioBloqueo(){
        
         });
         console.log(this.invalidDates);
-            this.loading = false;
+            this.loadingAccion = false;
             console.log(resp);
       }
-      this.loading = false;
+      this.loadingAccion = false;
     }
         },
         error => { // error path
@@ -449,6 +462,11 @@ buscarUsuarioObraSocial(){
       this.usuario_id = PopupTurnoUsuarioObraSocialComponent.usuario_id;
       this.popItemMedicoObraSocial = PopupTurnoUsuarioObraSocialComponent;
       this.AgendaForm.patchValue({medico_nombre: PopupTurnoUsuarioObraSocialComponent.apellido +' '+  PopupTurnoUsuarioObraSocialComponent.nombre});
+      this.apellido = PopupTurnoUsuarioObraSocialComponent.apellido;
+      this.nombre = PopupTurnoUsuarioObraSocialComponent.nombre;
+      this.obra_social_nombre = PopupTurnoUsuarioObraSocialComponent.obra_social_nombre;
+      this.medico_nombre = PopupTurnoUsuarioObraSocialComponent.apellido +' '+  PopupTurnoUsuarioObraSocialComponent.nombre;
+     // this.dni =  PopupTurnoUsuarioObraSocialComponent.;
       this.calendarioBloqueo();
     }
 });
@@ -480,15 +498,17 @@ AgregarMotivosAtencion(){
 
 
 getUsuarioMedico(){
-    
+    this.loadingAccion = true;
   try {
       this.miUserServico.getItems()    
       .subscribe(resp => {
       this.usuarios = resp;                             
           console.log(resp);
           this.selectedMedicoEfector = resp[0]['nombreyapellido'] ;
+          this.loadingAccion = false;
       },
       error => { // error path
+        this.loadingAccion = false;
           console.log(error.message);
           console.log(error.status);
           swal({
@@ -540,10 +560,12 @@ buscarPaciente(){
       
         console.log(PopupPacienteObrasocialComponent);
        this.popItemPaciente = PopupPacienteObrasocialComponent;
-       this.formPaciente.patchValue(this.popItemPaciente); 
-       this.formPaciente.patchValue({obra_social_nombre: this.popItemPaciente.obra_social_nombre});   
-       this.formPaciente.patchValue({paciente_id:this.popItemPaciente.id});  
-      console.log( this.formPaciente.value);     
+        this.formPaciente.patchValue(PopupPacienteObrasocialComponent);
+       this.apellido = PopupPacienteObrasocialComponent.apellido;
+       this.nombre = PopupPacienteObrasocialComponent.nombre;
+       this.obra_social_nombre = PopupPacienteObrasocialComponent.obra_social_nombre;
+       this.dni =  PopupPacienteObrasocialComponent.dni;       
+       this.fecha_nacimiento =  PopupPacienteObrasocialComponent.fecha_nacimiento;       
       }
   });
 
@@ -616,7 +638,7 @@ editarPaciente(){
 
 
 nuevoItemPaciente(){ 
-  this.loading = true; 
+  this.loadingAccion = true; 
   try { 
       this.miServicoPaciente.postItem(this.popItemPaciente)
       .subscribe(resp => {
@@ -625,7 +647,7 @@ nuevoItemPaciente(){
       this.formPaciente.patchValue(this.elementoPaciente);
       this.popItemPaciente = this.elementoPaciente;
       
-      this.loading = false;                  
+      this.loadingAccion = false;                  
       //this.loadList();
       this.resultSave = true;
       
@@ -642,7 +664,7 @@ nuevoItemPaciente(){
             timer: 2000
           });
           this.resultSave = false;
-          this.loading = false;
+          this.loadingAccion = false;
         });    
   } catch (error) {
     swal({
@@ -661,7 +683,7 @@ nuevoItemPaciente(){
 
 
 editarItemPaciente(){ 
-  this.loading = true;
+  this.loadingAccion = true;
   try {
     console.log(this.popItemPaciente);
       this.miServicoPaciente.putItem(this.popItemPaciente,this.popItemPaciente.id)
@@ -670,7 +692,7 @@ editarItemPaciente(){
       console.log(this.elementoPaciente);    
       this.formPaciente.patchValue(this.elementoPaciente);
       
-      this.loading = false;                  
+      this.loadingAccion = false;                  
       this.throwAlert('success','Se modificó agendo el paciente '+this.popItemPaciente.apellido,'','200');
       this.resultSave = true;
       },
@@ -686,7 +708,7 @@ editarItemPaciente(){
             timer: 2000
           });
           this.resultSave = false;
-          this.loading = false;
+          this.loadingAccion = false;
         });
   } catch (error) {
     swal({
@@ -787,7 +809,7 @@ generarTurno(event:AgendaTurno){
     console.log(this.elemento);
   try { 
     // valido datos del paciente y observacion
-    this.loading = true;  
+    this.loadingAccion = true;  
     if(this.elemento.paciente_id !== '0'){
       datos_validos = true;
     }else{
@@ -801,6 +823,7 @@ generarTurno(event:AgendaTurno){
     if(datos_validos){
     this.miServico.agendarTurno(this.elemento)
     .subscribe(resp => {
+      this.loadingAccion = false;
       this.throwAlert('success','Se creo agendo el paciente '+this.popItemPaciente.apellido+' '+this.popItemPaciente.nombre+' con el medico '+event.nombreyapellido,'','200');
     
       swal({
@@ -858,7 +881,7 @@ generarTurno(event:AgendaTurno){
       })
     
     
-      this.loading = false;
+      this.loadingAccion = false;
     this.loadTurno();
     this.resultSave = true;
     },
@@ -874,11 +897,11 @@ generarTurno(event:AgendaTurno){
           timer: 2000
         });
         this.resultSave = false;
-        this.loading = false;
+        this.loadingAccion = false;
       });    
     }
 } catch (error) {
-  this.loading = false;   
+  this.loadingAccion = false;   
   swal({
     toast: false,
     type: 'error',

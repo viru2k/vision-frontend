@@ -1,5 +1,5 @@
     <div class="row col-12">        
-              <button class="btn btn-outline-success btn-sm" (click)="agregarLente()">Agregar lente</button>          
+              <button class="btn btn-success btn-sm" (click)="agregarLente()">Agregar lente</button>          
     </div>
           <div class="row">
             
@@ -8,8 +8,8 @@
             <ng-template pTemplate="caption">
                 <div class="row">
                         <div class="col-md-7" style="text-align:left">
-                                <button class="btn btn-outline-info btn-sm " (click)="buscarLentes()">Buscar lentes</button>
-            <button class="ml-2 btn btn-outline-secondary btn-sm" (click)="buscarLentesBaja()">Buscar lentes de baja</button>
+                                <button class="btn btn-info btn-sm " (click)="buscarLentes()">Buscar lentes</button>
+            <button class="ml-2 btn btn-primary btn-sm" (click)="buscarLentesBaja()">Buscar lentes de baja</button>
                                     </div>
                 <div class="col-md-5" style="text-align:right">                                
                     <input  class="form-control col-md-12 form-control-sm" type="text"  placeholder="Buscar en toda la tabla" (input)="dt.filterGlobal($event.target.value, 'contains')"  >
@@ -53,7 +53,7 @@
                   <td style="width: 20%">{{elementos.estado}}</td>      
                   
                   <td style="width: 10%">
-                    <button class="btn btn-outline-success btn-sm" (click)="editar(elementos)">Editar</button>
+                    <button class="btn btn-success btn-sm" (click)="editar(elementos)">Editar</button>
                     </td>   
           </tr>
          

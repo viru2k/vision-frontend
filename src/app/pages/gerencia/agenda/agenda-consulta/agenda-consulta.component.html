@@ -56,9 +56,9 @@
                               </p-calendar>       
                                                                    
                               <div class=" ml-2 row">                                                      
-                                 <div class="ml-2"><button    class="btn  btn-outline-secondary btn-sm float-right  pr-2" (click)="loadListByDates()" >Buscar entre fechas</button>   </div>                           
+                                 <div class="ml-2"><button    class="btn  btn-primary btn-sm float-right  pr-2" (click)="loadListByDates()" >Buscar entre fechas</button>   </div>                           
                                  <button    class="btn  btn-success btn-sm float-right mr-2 pr-2"  (click)="exportarExcel()" >Exportar a excel</button>    
-                                 <button    class="ml-2 btn  btn-secondary btn-sm float-right mr-2"  (click)="generarPdf()" >Imprimir</button>
+                                 <button    class="ml-2 btn  btn-primary btn-sm float-right mr-2"  (click)="generarPdf()" >Imprimir</button>
                                 </div>     
                                    <div class="form-group ">
                        
@@ -126,7 +126,7 @@
                       <td style="width: 8%">{{agendaTurno.nombreyapellido}}</td>  
                       <td style="width: 8%">{{agendaTurno.fecha_turno}}</td>     
                       <td style="width: 10%">{{agendaTurno.hora_desde}}</td>                          
-                      <td class="font-weight-bold text-secondary" style="width: 7%"  >{{agendaTurno.llegada | date: 'HH:mm:ss'}}</td>  
+                      <td class="font-weight-bold text-primary" style="width: 7%"  >{{agendaTurno.llegada | date: 'HH:mm:ss'}}</td>  
                       <td style="width: 7%" >{{agendaTurno.atendido | date: 'HH:mm:ss'}}</td> 
                       <td style="width: 8%">{{agendaTurno.estado}}</td>                            
                       <td style="width: 8%">{{agendaTurno.dia_nombre}}</td> 
@@ -141,8 +141,8 @@
                                   
                               </td> 
                       <td style="width: 4%">
-                       <!--    <button type="button"   class="btn btn-outline-success btn-md p-1 pr-1" (click)="accion($event,op,agendaTurno)"    ><i class="far fa-edit fa-2x icon-color-purple"></i></button> -->
-                       <a   (click)="accion($event,op,agendaTurno)"   ><i class="far fa-edit fa-2x icon-color-purple my-hover" ></i></a>            
+                       <!--    <button type="button"   class="btn btn-success btn-md p-1 pr-1" (click)="accion($event,op,agendaTurno)"    ><i class="far fa-edit fa-2x icon-color-purple"></i></button> -->
+                       <a   (click)="accion($event,op,agendaTurno)"   ><i class="far fa-edit fa-2x  my-hover" ></i></a>            
                                     
                          </td>
                   
@@ -178,7 +178,7 @@
   </div>
 </div>
 
-<p-dialog header="Observación" class="text-secondary" [(visible)]="display" class="p-2" [baseZIndex]="10000" [responsive]="true"> 
+<p-dialog header="Observación" class="text-primary" [(visible)]="display" class="p-2" [baseZIndex]="10000" [responsive]="true"> 
       <label>MOTIVO :  {{motivo}}</label>        
       <textarea [rows]="5" [cols]="30" pInputTextarea class="form-control form-control-sm col-md-12"[(ngModel)]="observacion"></textarea>   
      

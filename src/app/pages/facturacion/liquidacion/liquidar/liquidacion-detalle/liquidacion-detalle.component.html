@@ -10,7 +10,7 @@
   <div class="row m-2" role="toolbar" aria-label="Toolbar with button groups">
       <div  class="input-group input-group-sm "> 
           <p-dropdown [options]="impresiones" [(ngModel)]="selectedImpresion" optionLabel="name" ></p-dropdown>
-          <button    class="ml-2 btn  btn-secondary btn-sm float-right mr-2 pr-2" (click)="imprimir()" >Ver</button> 
+          <button    class="ml-2 btn  btn-primary btn-sm float-right mr-2 pr-2" (click)="imprimir()" >Ver</button> 
           <button    class="ml-2 btn  btn-success btn-sm float-right mr-2 pr-2" (click)="loadlist()" ><i class="fas fa-sync"></i></button> 
               <form  [formGroup]="DateForm">
 
@@ -48,8 +48,8 @@
                           </div>    
                     </div>                                          
                       <div class=" ml-2 row">                         
-                         <div class="ml-2"><button    class="btn  btn-danger btn-sm float-right  pr-2" (click)="actualizarRegistros()" >Actualizar valores de convenio</button>   </div>                           
-                       
+                         <div class="ml-2"><button    class="btn  btn-danger btn-sm float-right  pr-2" (click)="actualizarRegistros()" >Actualizar valores de convenio</button>   </div>  
+                         <div class="ml-2"><button    class="btn  btn-danger btn-sm float-right  pr-2" (click)="editarDistribucion(selecteditems)" >Editar distribución</button>   </div>                                                         
                         </div>    
                         
                       
@@ -64,7 +64,7 @@
 </div>
 <div class=" ml-2 row">  
         <label class="ml-1 mr-2 mt-1"> Acciones sobre D.O.S : </label>
-        <div class="ml-2"><button    class="btn  btn-outline-danger btn-sm float-right  pr-2" (click)="actualizarRegistros()" >Actualizar valores (Registros seleccionados)</button>   </div>                                   
+        <div class="ml-2"><button    class="btn  btn-danger btn-sm float-right  pr-2" (click)="actualizarRegistros()" >Actualizar valores (Registros seleccionados)</button>   </div>                                   
       </div>
   <div class="row">
   <p-table  #dt class="pt-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  (onEditComplete)="editRow($event)" [(selection)]="selecteditems" columnResizeMode="expand" [responsive]="true"
@@ -140,6 +140,7 @@
     <span>   <a class="nav-link azul text-info  my-hover" (click)="desafectarPresentacion(selecteditems)">Desafectar registro</a></span>
     <span> <hr></span>
     <span>   <a class="nav-link azul text-info my-hover" (click)="verDetalle(selecteditems)">Ver detalle</a></span>
+    
   </p-overlayPanel>  
 
   

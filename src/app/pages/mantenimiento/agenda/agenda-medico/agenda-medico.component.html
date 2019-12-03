@@ -4,8 +4,8 @@
 </div>
 
 <div class="row col-md-12 animated fadeIn slow pb-2" >
-    <div class="d-flex justify-content-start pr-2"><button [disabled]="!botonEnabled" class="btn btn-outline-success" (click)="verDias()">Listar dias</button></div>
-    <div class="d-flex justify-content-end"><button [disabled]="!botonDiaEnabled"  class="btn btn-outline-danger" (click)="guardarDatos()">Agregar dias a agenda</button></div>
+    <div class="d-flex justify-content-start pr-2"><button [disabled]="!botonEnabled" class="btn btn-success" (click)="verDias()">Listar dias</button></div>
+    <div class="d-flex justify-content-end"><button [disabled]="!botonDiaEnabled"  class="btn btn-danger" (click)="guardarDatos()">Agregar dias a agenda</button></div>
 </div>
 <hr>
 <div class="row col-md-12 animated fadeIn slow" *ngIf="!loading">
@@ -89,7 +89,7 @@
         <td>{{agendaMedico.hora_desde_hasta}}</td>                          
         <td>{{agendaMedico.es_habilitado}}</td>    
         <td>
-            <button type="button" class="btn btn-outline-dark btn-sm" (click)="habilitar(agendaMedico)"    >Habilitar / deshabilitar</button>
+            <button type="button" class="btn btn-dark btn-sm" (click)="habilitar(agendaMedico)"    >Habilitar / deshabilitar</button>
         </td>
 </tr>
 </ng-template>

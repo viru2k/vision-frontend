@@ -223,6 +223,9 @@ import { OtrasAccionesComponent } from './pages/facturacion/factura/otras-accion
 import { LenteCirugiaComponent } from './pages/asesoramiento/lente-cirugia/lente-cirugia.component';
 import { FacturacionArticuloComponent } from './pages/mantenimiento/facturacion-articulo/facturacion-articulo.component';
 import { PopupArticuloComponent } from './shared/components/popups/popup-articulo/popup-articulo.component';
+import { PopupOperacionCobroEditarDistribucionComponent } from './shared/components/popups/popup-operacion-cobro-editar-distribucion/popup-operacion-cobro-editar-distribucion.component';
+import { PopupAccesoAutorizacionOsComponent } from './shared/components/popups/popup-acceso-autorizacion-os/popup-acceso-autorizacion-os.component';
+import { PopupAccesoAutorizacionOsEditarComponent } from './shared/components/popups/popup-acceso-autorizacion-os-editar/popup-acceso-autorizacion-os-editar.component';
 
 
 
@@ -379,6 +382,9 @@ registerLocaleData(localeEsAR, 'es-Ar');
     LenteCirugiaComponent,
     FacturacionArticuloComponent,
     PopupArticuloComponent,
+    PopupOperacionCobroEditarDistribucionComponent,
+    PopupAccesoAutorizacionOsComponent,
+    PopupAccesoAutorizacionOsEditarComponent,
     
   ],
   imports: [
@@ -443,7 +449,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupOperacionCobroDistribucionComponent,PopupPacienteEsperaComponent, PopupNotificacionComponent,
     PopupChatComponent ,   PopupListadoUsuarioComponent, PopupNotificacionNuevaComponent,
     PopupFacturaRenglonComponent,BuscarConceptoFacturaComponent,PopupOperacionCobroDistribucionDetalleComponent,
-    PopupLiquidacionDetalleComponent, PopupArticuloComponent
+    PopupLiquidacionDetalleComponent, PopupArticuloComponent, PopupOperacionCobroEditarDistribucionComponent
 
   ],
   providers: [CurrencyPipe,DecimalPipe,NumberToWordsPipe,PacienteService,PushNotificationService,ExcelService,{ provide: LOCALE_ID, useValue: 'es-Ar' },
