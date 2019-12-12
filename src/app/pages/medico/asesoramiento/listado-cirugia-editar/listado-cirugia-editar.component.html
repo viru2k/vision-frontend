@@ -3,11 +3,11 @@
   <app-loading *ngIf="loading"> </app-loading> 
 </div>
 <h6>historia medico</h6>
-<div class="row">
+<div class="ml-2">
       <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
               <div  class="input-group input-group-sm ">
                       <form  [formGroup]="DateForm">
-                  <p-calendar formControlName="fechaHoy"  (onSelect)="actualizarFecha($event)" tabindex="0"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+                  <p-calendar formControlName="fechaHoy"  (onSelect)="actualizarFecha($event)" tabindex="0"   [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
                      <ng-template pTemplate="date" let-date>
                           <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
                       </ng-template> 
@@ -16,15 +16,41 @@
               </div>
   
   
-            <div  class="btn-group ml-2" role="group" aria-label="First group">                 
+            <div  class="btn-group ml-2" role="group" aria-label="First group">  
+                            
               <button    class="btn btn-lg btn-success btn-sm float-right mr-2"  (click)="loadListByMedico()" >Listar cirugia</button>   
               <button    class="btn btn-lg btn-info btn-sm float-right mr-2"  (click)="loadList()" >Listar todas las cirugias</button>            
               <button    class="btn btn-lg btn-primary btn-sm float-right mr-2" (click)="generarPdfListadoMedico()" >Imprimir listado</button>  
             </div>
           </div>
 
-          
-          <p-table  #dt class="pt-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  (onEditComplete)="editRow($event)" [(selection)]="elementos"  columnResizeMode="expand" [responsive]="true"
+          <div class="btn-toolbar justify-content-start d-flex align-items-center" role="toolbar" aria-label="Toolbar with button groups">
+              <label>Periódo de fechas</label>
+            <div  class="input-group input-group-sm mr-2 ml-2">
+                    <form  [formGroup]="DateForm">
+                <p-calendar formControlName="fechaDesde"  (onSelect)="actualizarFechaDesde($event)" tabindex="0"   [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+                   <ng-template pTemplate="date" let-date>
+                        <span style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;" >{{date.day}}</span>
+                    </ng-template> 
+                  </p-calendar>
+                    </form>
+            </div>
+
+            <div  class="input-group input-group-sm mr-2  d-flex align-items-center">
+              <form  [formGroup]="DateForm">
+          <p-calendar formControlName="fechaHasta"  (onSelect)="actualizarFechaHasta($event)" tabindex="0"   [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+             <ng-template pTemplate="date" let-date>
+                  <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
+              </ng-template> 
+            </p-calendar>
+              </form>
+              <button    class="btn btn-lg btn-success btn-sm float-right ml-2 mb-2"  (click)="loadListByMedicoByPeriodo()" >Listar cirugia por periodo</button> 
+      </div>
+      
+        </div>
+
+          <div class="m-2">
+          <p-table  #dt class="pt-2 p-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  (onEditComplete)="editRow($event)" [(selection)]="elementos"  columnResizeMode="expand" [responsive]="true"
           scrollHeight="600px" [scrollable]="true"  (onFilter)="filtered($event)"  >
            
 
@@ -93,7 +119,7 @@
        
     </ng-template>  
 </p-table>
-
+</div>
 
 <p-overlayPanel #op [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >                          
     <span>   <a class="nav-link text-success my-hover " (click)="verHistoriaClinica()"> historia clínica</a></span>                        

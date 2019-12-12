@@ -87,6 +87,7 @@ export class LiquidacionDetalleComponent implements OnInit {
       {name: 'Presentación a médico', code: '2'},
       {name: 'Presentación medico ACLISA', code: '3'},        
       {name: 'Presentación DOS Cirugia', code: '4'},        
+      {name: 'Presentación COSEGURO Cirugia', code: '10'},  
       {name: 'Presentación con IVA', code: '5'},
       {name: 'Exportar Excel', code: '6'},
       {name: 'Txt práctica y estudios DOS', code: '7'},
@@ -250,6 +251,9 @@ this.DateForm = new FormGroup({
     if( this.selectedImpresion['code'] === '9'){
       this.generarFactura();
     }
+    if( this.selectedImpresion['code'] === '10'){
+      this.loadPresentacionCirugiaCoseguroTodos();
+    }
   }
 
     buscarObraSocial(){
@@ -404,6 +408,42 @@ loadPresentacionCirugiaTodos(){
   console.log(this.selecteditems);
   try {
       this.miServicio.getListadoPreFacturaCirugia(this.selecteditems)    
+      .subscribe(resp => {
+        let i:number = 0;
+        let resultado = resp;
+        resultado.forEach(element => {
+          
+          resp[i]['fecha_cobro'] = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+          if(( resp[i]['paciente_barra_afiliado'] !== '0')){
+            resp[i]['numero_afiliado'] = resp[i]['numero_afiliado']+'/'+resp[i]['paciente_barra_afiliado'] ;
+          }
+          
+          console.log(resp[i]['fecha_cobro']);
+          i++;
+        });
+          this.elementosPreFactura = resp;
+         console.log(this.elementosPreFactura);
+          this.generarPdfListadoCirugiaTodos();
+          this.loading = false;
+          console.log(resp);
+      },
+      error => { // error path
+          console.log(error.message);
+          console.log(error.status);
+          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+       });    
+  } catch (error) {
+  this.throwAlert('error','Error al cargar los registros',error,error.status);
+  }  
+}
+
+
+loadPresentacionCirugiaCoseguroTodos(){
+   console.log('GENERANDO COSEGURO LISTADO');
+  this.loading = true;
+  console.log(this.selecteditems);
+  try {
+      this.miServicio.getListadoPreFacturaCirugiaCoseguro(this.selecteditems)    
       .subscribe(resp => {
         let i:number = 0;
         let resultado = resp;

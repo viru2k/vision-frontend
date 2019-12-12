@@ -8,7 +8,7 @@
     <div class="row container-fluid animated fadeIn slow" >
 
         <div class="d-flex justify-content-start flex-column">
-            <p-calendar class="pb-2" [ngModel]="fechaHoy"  (onSelect)="actualizarFecha($event)" tabindex="0"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true"></p-calendar>
+            <p-calendar class="pb-2" [ngModel]="fechaHoy"  (onSelect)="actualizarFecha($event)" tabindex="0"   [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true"></p-calendar>
          <p-listbox [options]="usuarios" [(ngModel)]="selectedItemUsuario"  filter="filter"  optionLabel="nombreyapellido" (onChange)="onRowUsuario()" [style]="{'min-width':'200px'}" [listStyle]="{'max-height':'250px'}">
             <p-header>
               Usuarios
@@ -66,7 +66,7 @@
 <br>
 <h6 class="mt-2">DIAS BLOQUEADOS</h6>
 <hr>
-        <p-table  #dt class="pt-2" [columns]="colsAgendaDia" [value]="agendaMedicoDia"   [(selection)]="selectedItemMedico" columnResizeMode="expand" [scrollable]="true" scrollHeight="300px" >
+        <p-table  #dt class="pt-2" [columns]="colsAgendaDia" [value]="agendaMedicoDia"  columnResizeMode="expand" [scrollable]="true" scrollHeight="300px" >
            
         
           <ng-template pTemplate="header" let-columns >

@@ -65,6 +65,7 @@ export class TurnoComponent implements OnInit {
   invalidDates:Date[]=[];
   invalidDatesCompleta: Array<Date>;
   usuario_id:string;
+  usuario_medico_factura_id:string;
   paciente_id:string;
   observaciones:string;
   motivo_atencion:string = '';
@@ -86,6 +87,7 @@ export class TurnoComponent implements OnInit {
  motivos:any[];
  usuarios:User[];
  medico_nombre:string;
+ medico_nombre_factura:string;
  apellido:string;
  nombre:string;
  obra_social_nombre:string;
@@ -175,6 +177,7 @@ export class TurnoComponent implements OnInit {
   this.AgendaForm = new FormGroup({
     'medico_nombre': new FormControl(''),
     'obra_social': new FormControl(''),
+    'medico_nombre_factura': new FormControl(''),
 });
 
 this.getUsuarioMedico();
@@ -445,6 +448,7 @@ calendarioBloqueo(){
   }
 }
 
+
 buscarUsuarioObraSocial(){
 
   let data:any; 
@@ -466,6 +470,40 @@ buscarUsuarioObraSocial(){
       this.nombre = PopupTurnoUsuarioObraSocialComponent.nombre;
       this.obra_social_nombre = PopupTurnoUsuarioObraSocialComponent.obra_social_nombre;
       this.medico_nombre = PopupTurnoUsuarioObraSocialComponent.apellido +' '+  PopupTurnoUsuarioObraSocialComponent.nombre;
+      this.usuario_medico_factura_id = PopupTurnoUsuarioObraSocialComponent.usuario_id;
+      this.medico_nombre_factura = PopupTurnoUsuarioObraSocialComponent.apellido +' '+  PopupTurnoUsuarioObraSocialComponent.nombre;
+     // this.dni =  PopupTurnoUsuarioObraSocialComponent.;
+      this.calendarioBloqueo();
+    }
+});
+
+}
+
+
+
+buscarUsuarioObraSocialFactura(){
+
+  let data:any; 
+  const ref = this.dialogService.open(PopupTurnoUsuarioObraSocialComponent, {
+  data,
+   header: 'Buscar Medico por obra social', 
+   width: '900px',
+   height: '90%'
+  });
+  ref.onClose.subscribe((PopupTurnoUsuarioObraSocialComponent:MedicoObraSocial) => {
+    if (PopupTurnoUsuarioObraSocialComponent) {
+      this.invalidDate = null;
+      this.invalidDates = [];
+      console.log(PopupTurnoUsuarioObraSocialComponent);
+      this.usuario_medico_factura_id = PopupTurnoUsuarioObraSocialComponent.usuario_id;
+      this.medico_nombre_factura = PopupTurnoUsuarioObraSocialComponent.apellido +' '+  PopupTurnoUsuarioObraSocialComponent.nombre;
+     // this.popItemMedicoObraSocial = PopupTurnoUsuarioObraSocialComponent;
+    //  this.AgendaForm.patchValue({medico_nombre: PopupTurnoUsuarioObraSocialComponent.apellido +' '+  PopupTurnoUsuarioObraSocialComponent.nombre});
+    
+    //  this.apellido = PopupTurnoUsuarioObraSocialComponent.apellido;
+     // this.nombre = PopupTurnoUsuarioObraSocialComponent.nombre;
+     // this.obra_social_nombre = PopupTurnoUsuarioObraSocialComponent.obra_social_nombre;
+     // this.medico_nombre = PopupTurnoUsuarioObraSocialComponent.apellido +' '+  PopupTurnoUsuarioObraSocialComponent.nombre;
      // this.dni =  PopupTurnoUsuarioObraSocialComponent.;
       this.calendarioBloqueo();
     }
@@ -728,7 +766,7 @@ generarTurno(event:AgendaTurno){
   this.guardarObservacion();
   console.log(this.motivoObservaciones);
   console.log(this.popItemPaciente.id);
- 
+
   let fecha = new Date(this.fechaHoy);
   console.log(fecha);
   this._fechaHoy = formatDate(fecha, 'yyyy-MM-dd', 'en');
@@ -799,6 +837,9 @@ generarTurno(event:AgendaTurno){
   }
 
   this.elemento = event;
+  console.log(this.usuario_medico_factura_id);
+  console.log(this.elemento);
+ this.elemento.usuario_medico_factura_id = this.usuario_medico_factura_id;
   this.elemento.observacion = this.observaciones;
   this.elemento.es_observacion = this.motivo_atencion;
   this.elemento.usuario_id =  userData['id'];
@@ -821,6 +862,8 @@ generarTurno(event:AgendaTurno){
       this.throwAlert('warning','la observacion no fue definida correctamente, verifique los datos','Observación con datos undefined','500');
     }
     if(datos_validos){
+      console.log('turno');
+      console.log(this.elemento);
     this.miServico.agendarTurno(this.elemento)
     .subscribe(resp => {
       this.loadingAccion = false;

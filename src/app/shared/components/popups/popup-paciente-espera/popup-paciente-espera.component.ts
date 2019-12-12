@@ -128,7 +128,7 @@ export class PopupPacienteEsperaComponent implements OnInit {
       'fechaHoy': new FormControl('', Validators.required), 
       'medico_nombre': new FormControl('')
       });
-this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','','','','','');
+this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','','','','','','');
 }
 
 ngOnInit() {
@@ -296,7 +296,7 @@ this.popItemAgenda = event;
 }
 
 
-async editarRegistro(cond:string,selecteditems:AgendaTurno){
+async editarRegistro(cond:string){
   this._fechaHoy = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en');
   console.log(cond);
   this.condicion = cond;

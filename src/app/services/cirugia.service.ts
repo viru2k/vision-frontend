@@ -124,6 +124,11 @@ getLenteTipo(){
     return this.http.get<any[]>(this.url+"/listado/quirofano/by/medico?estado=PENDIENTE&fecha="+fecha_hoy+'&medico_id='+medico_id);
   } 
 
+  getListadoQuirofanoByMedicoByPeriodo(fecha_desde:string,fecha_hasta:string,medico_id:string){  
+    console.log(this.url+"/listado/quirofano/by/medico?estado=PENDIENTE&fecha_desde="+fecha_desde+'&fecha_hasta='+fecha_hasta+'&medico_id='+medico_id);
+    return this.http.get<any[]>(this.url+"/listado/quirofano/by/medico/by/periodo?estado=PENDIENTE&fecha_desde="+fecha_desde+'&fecha_hasta='+fecha_hasta+'&medico_id='+medico_id);
+  } 
+
   getListadoQurifanoRealizado(){  
     return this.http.get<any[]>(this.url+"/listado/quirofano/realizado");
   } 

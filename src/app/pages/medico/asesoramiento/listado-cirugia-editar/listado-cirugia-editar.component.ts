@@ -58,6 +58,10 @@ export class ListadoCirugiaEditarComponent implements OnInit {
   cols: any[];
   fechaHoy:Date;
   _fechaHoy:string;
+  fechaDesde:Date;
+  _fechaDesde:string;
+  fechaHasta:Date;
+  _fechaHasta:string;
   formPaciente:FormGroup;
   observacion:string;
   display:boolean;
@@ -111,9 +115,13 @@ export class ListadoCirugiaEditarComponent implements OnInit {
   ngOnInit() {
     this.es = calendarioIdioma;
     this.fechaHoy = new Date();
+    this.fechaDesde = new Date();
+    this.fechaHasta = new Date();
 
     this.DateForm = new FormGroup({
       'fechaHoy': new FormControl("", Validators.required), 
+      'fechaDesde': new FormControl("", Validators.required), 
+      'fechaHasta': new FormControl("", Validators.required), 
       'medico_nombre': new FormControl("")
       });
 
@@ -206,6 +214,20 @@ colorEstado(estado:string){
       console.log(new Date(this.fechaHoy));
     }
 
+    actualizarFechaDesde(event){
+      console.log(event);
+      this.fechaDesde = event;
+      console.log(new Date(this.fechaDesde));
+    }
+
+
+    actualizarFechaHasta(event){
+      console.log(event);
+      this.fechaHasta = event;
+      console.log(new Date(this.fechaHasta));
+    }
+
+
     
   loadList() {
  this.loading = true;
@@ -238,10 +260,44 @@ colorEstado(estado:string){
 }
 
 
+loadListByMedicoByPeriodo() {
+  let userData = JSON.parse(localStorage.getItem('userData'));
+  this.loading = true;
+  let _fechaDesde = formatDate(this.fechaDesde, 'dd/MM/yyyy HH:mm:ss', 'en');
+  let _fechaHasta = formatDate(this.fechaHasta, 'dd/MM/yyyy HH:mm:ss', 'en');
+  console.log(_fechaHasta);
+     try {
+         this.miServicio.getListadoQuirofanoByMedicoByPeriodo(_fechaDesde,_fechaHasta, userData['id'])
+         .subscribe(resp => {
+           let i:number = 0;
+           let resultado = resp;
+           resultado.forEach(element => {
+             resp[i]['obra_social_nombre'] = resp[i]['obra_social_nombre'] +' / '+resp[i]['coseguro_nombre'] ;
+             resp[i]['hora'] = formatDate( element['fecha_hora'], 'HH:mm', 'en');
+         //    let t = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+             
+             i++;
+           });
+             this.elementos = resp;
+             console.log(resp);
+             this.loading = false;
+         },
+         error => { // error path
+             console.log(error);
+             console.log(error.status);
+             this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+             this.loading = false;
+          });
+     } catch (error) {
+     this.throwAlert('error','Error al cargar los registros',error,error.status);
+     }
+ }
+
 loadListByMedico() {
   let userData = JSON.parse(localStorage.getItem('userData'));
   this.loading = true;
   let _fechaDesde = formatDate(this.fechaHoy, 'dd/MM/yyyy HH:mm:ss', 'en');
+  
      try {
          this.miServicio.getListadoQuirofanoByMedico(_fechaDesde, userData['id'])
          .subscribe(resp => {

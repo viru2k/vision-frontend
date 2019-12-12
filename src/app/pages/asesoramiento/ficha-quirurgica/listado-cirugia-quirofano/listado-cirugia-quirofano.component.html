@@ -7,7 +7,7 @@
       <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
               <div  class="input-group input-group-sm ">
                       <form  [formGroup]="DateForm">
-                  <p-calendar formControlName="fechaHoy"  (onSelect)="actualizarFecha($event)" tabindex="0"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+                  <p-calendar formControlName="fechaHoy"  (onSelect)="actualizarFecha($event)" tabindex="0"   [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
                      <ng-template pTemplate="date" let-date>
                           <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
                       </ng-template> 

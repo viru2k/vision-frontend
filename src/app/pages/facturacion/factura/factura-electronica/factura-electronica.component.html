@@ -4,7 +4,7 @@
   <label *ngIf="elementoMedicos" class=" mr-2 mt-1">Condición : {{elementoMedicos.categoria_iva}}</label>
 
   <label class=" ml-2 mr-2 mt-1">Fecha :</label>
-  <p-calendar  [inputStyle]="{'height':'35.1px'}"    class="mr-2 " [(ngModel)]="fecha"  (onSelect)="actualizarFecha($event)" tabindex="0"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+  <p-calendar  [inputStyle]="{'height':'35.1px'}"    class="mr-2 " [(ngModel)]="fecha"  (onSelect)="actualizarFecha($event)" tabindex="0"   [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
     <ng-template pTemplate="date" let-date>
          <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
      </ng-template> 
@@ -14,11 +14,11 @@
 <hr>
 <div class="row ml-5 mr-5 mt-3">
  
-      <div><label class="mr-1">Punto : </label> <p-dropdown class="col-1" [options]="elementosPtoVta" [(ngModel)]="elementoPtoVta" (onHide)="obtenerPuntoVta($event)" optionLabel="punto_vta" placeholder="Pto venta"></p-dropdown></div>
+      <div><label class="mr-1">Punto : </label> <p-dropdown class="col-1" [options]="elementosPtoVta" [(ngModel)]="elementoPtoVta" (onHide)="obtenerPuntoVta()" optionLabel="punto_vta" placeholder="Pto venta"></p-dropdown></div>
   
 <div class="col-7">
   <div><label class="mr-1">Factura : </label> 
-  <p-dropdown class="mr-3" [options]="elementosComprobante" [(ngModel)]="elementoComprobante" (onHide)="obtenerUltimaFactura($event)" optionLabel="descripcion" placeholder="Factura"></p-dropdown>
+  <p-dropdown class="mr-3" [options]="elementosComprobante" [(ngModel)]="elementoComprobante" (onHide)="obtenerUltimaFactura()" optionLabel="descripcion" placeholder="Factura"></p-dropdown>
   <p-progressSpinner class="mr-2 mt-2" *ngIf="loadingspinner" [style]="{width: '24px', height: '24px'}" strokeWidth="6" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
   <b><label class="text-info">Nº : {{pto_vta}}</label></b>
   
@@ -32,7 +32,7 @@
 <div class="row ml-5 mr-2 mt-3">
     <label class=" mr-2 mt-1">Condición IVA :</label>
   <p-dropdown class="mr-2 "  [options]="elementosCondicionIva" [(ngModel)]="elementoCondicionIva"  optionLabel="categoria_iva" placeholder="Categoria"></p-dropdown>
-  <p-dropdown class="mr-2 "  [options]="elementosDocumento" [(ngModel)]="elementoDocumento" (onHide)="onElementoDocumento($event)"  optionLabel="descripcion" placeholder="Documento"></p-dropdown>
+  <p-dropdown class="mr-2 "  [options]="elementosDocumento" [(ngModel)]="elementoDocumento" (onHide)="onElementoDocumento()"  optionLabel="descripcion" placeholder="Documento"></p-dropdown>
   <input type="text" class="form-control col-2 form-control-md" [(ngModel)]="nrodocumento">
   <label class="mr-1 ml-2 mt-1">Cliente :</label> 
   <input type="text" class="form-control col-4 form-control-md" [(ngModel)]="cliente" placeholder="Cliente">
@@ -41,14 +41,14 @@
 <hr>
 <div class="row ml-5 mr-5 mt-3">
   <label class=" mr-2 mt-1">Período desde :</label>
-  <p-calendar  [inputStyle]="{'height':'35.1px'}"    class="mr-2 " [(ngModel)]="fechaDesde"  (onSelect)="actualizarFechaDesde($event)" tabindex="0"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+  <p-calendar  [inputStyle]="{'height':'35.1px'}"    class="mr-2 " [(ngModel)]="fechaDesde"  (onSelect)="actualizarFechaDesde($event)" tabindex="0"   [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
     <ng-template pTemplate="date" let-date>
          <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
      </ng-template> 
    
    </p-calendar>
    <label class=" mr-2 mt-1">Período hasta :</label>
-   <p-calendar  [inputStyle]="{'height':'35.1px'}"    class="mr-2 " [(ngModel)]="fechaHasta"  (onSelect)="actualizarFechaHasta($event)" tabindex="0"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+   <p-calendar  [inputStyle]="{'height':'35.1px'}"    class="mr-2 " [(ngModel)]="fechaHasta"  (onSelect)="actualizarFechaHasta($event)" tabindex="0"   [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
     <ng-template pTemplate="date" let-date>
          <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
      </ng-template> 

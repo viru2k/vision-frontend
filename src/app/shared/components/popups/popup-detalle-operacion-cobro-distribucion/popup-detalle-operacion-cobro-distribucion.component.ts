@@ -194,7 +194,7 @@ sumarValores(){
   this.TOTAL_DISTRIBUCION = 0;
 
   for(i=0;i<this.selecteditems.length;i++){
-      this.TOTAL_DISTRIBUCION = this.TOTAL_DISTRIBUCION+ Number(this.selecteditems[i]['valor_facturado']);      
+      this.TOTAL_DISTRIBUCION = this.TOTAL_DISTRIBUCION+ Number(this.selecteditems[i]['valor_facturado'])+Number(this.selecteditems[i]['categorizacion']);      
   }
 
   console.log(this.TOTAL_DISTRIBUCION);

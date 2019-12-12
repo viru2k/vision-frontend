@@ -122,7 +122,7 @@ export class AgendaComponent implements OnInit {
         'fechaHoy': new FormControl('', Validators.required), 
         'medico_nombre': new FormControl('')
         });
-  this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','','','','','');
+  this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','','','', '','','','','','','','','');
   }
 
   ngOnInit() {
@@ -329,9 +329,22 @@ async editarRegistro(cond:string,selecteditems:AgendaTurno){
       this.cancelarTurno();
     }
     if(cond == 'reasignar'){
-      this.popItemAgenda.agenda_estado_id = '7';
-      this.popItemAgenda.atendido = this._fechaHoy;
-     await  this.cancelarTurno();
+      await  swal({
+        title: 'Reasignar turno',
+        text: '¿Desea reasignar el turno?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#A5D6A7',
+        cancelButtonColor: '#FF5733',
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (result.value) {
+          this.popItemAgenda.agenda_estado_id = '7';
+          this.popItemAgenda.atendido = this._fechaHoy;
+           this.cancelarTurno();
+        }
+      });
      
     }
     if(cond == 'atendido'){
@@ -535,7 +548,7 @@ console.log(this.condicion);
       if(this.condicion ==='reasignar'){
         this.router.navigate(['/recepcion/turnos'],{ state: { paciente: this.popItemAgenda } });
       }else{
-        this.loadList();
+       // this.loadList();
       }
   },
   error => { // error path

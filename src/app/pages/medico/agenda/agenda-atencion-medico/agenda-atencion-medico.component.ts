@@ -111,7 +111,7 @@ export class AgendaAtencionMedicoComponent implements OnInit {
         'fechaHoy': new FormControl('', Validators.required), 
         'medico_nombre': new FormControl('')
         });
-  this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','', '', '', '','','','','','','','');
+  this.popItemAgenda = new AgendaTurno('',new Date(),new Date(), new Date(), '','', '', '', '','','','','','','','','','','','','','','','','','','','','',new Date(),'','','', '', '', '','','','','','','','','');
   
   }
 

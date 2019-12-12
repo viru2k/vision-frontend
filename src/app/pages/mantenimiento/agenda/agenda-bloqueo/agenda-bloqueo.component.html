@@ -17,7 +17,7 @@
                       <div class="col-5 float-left">
                       <!--       <p-calendar [(ngModel)]="dates" selectionMode="range" (onSelect)="actualizarFechaBloqueo($event)" (onClearClick)="limpiarFecha($event)" showButtonBar="true" [locale]="es" dateFormat="dd/mm/yy" ></p-calendar> -->
                       <p-calendar [(ngModel)]="dates" selectionMode="multiple" [readonlyInput]="true"  dateFormat="dd/mm/yy"  [locale]="es"  showButtonBar="true"></p-calendar>
-                        <!--   <p-calendar (onChange)="bloquerAgenda($event)"  onSelect[(ngModel)]="dates" placeholder="Seleccione fechas a bloquear"  [dataType]="yy-mm-dd"  [monthNavigator]="true"  [yearNavigator]="true" yearRange="1900:2100" selectionMode="range"  [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true"></p-calendar> -->
+                        <!--   <p-calendar (onChange)="bloquerAgenda($event)"  onSelect[(ngModel)]="dates" placeholder="Seleccione fechas a bloquear"    [monthNavigator]="true"  [yearNavigator]="true" yearRange="1900:2100" selectionMode="range"  [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true"></p-calendar> -->
                       </div>
                       <div class="col-1">
                           <button    class="btn  btn-danger btn-md float-left ml-1 pt-1" (click)="confirmarBloqueo()" >Bloquear</button>  
@@ -35,7 +35,7 @@
                         </div>
                       <div class="col-5 float-left">
                           
-                            <p-calendar [ngModel]="fechaHoy"  (onSelect)="actualizarFecha($event)" tabindex="0" [disabledDates]="invalidDates" [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true"></p-calendar>
+                            <p-calendar [ngModel]="fechaHoy"  (onSelect)="actualizarFecha($event)" tabindex="0" [disabledDates]="invalidDates"  [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true"></p-calendar>
                       </div>
                       <div class="col-1">
                             <button    class="btn  btn-info btn-md float-left ml-1 pt-1" (click)="loadHorarios()" >Listar horarios</button>  

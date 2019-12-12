@@ -63,6 +63,10 @@ getLiquidacionDetalle(estado:string){
     return this.http.post<any[]>(this.url+"/detalle/prefactura/cirugia",selected);
     } 
 
+    getListadoPreFacturaCirugiaCoseguro(selected:any){
+      return this.http.post<any[]>(this.url+"/detalle/prefactura/cirugia/coseguro",selected);
+      } 
+
   generarTxt(selected:any){
     return this.http.post<any[]>(URL_SERVICIOS+"multiuploads/texto",selected);
     } 

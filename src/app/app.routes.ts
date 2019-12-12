@@ -17,7 +17,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { QuirofanoComponent } from './pages/quirofano/quirofano.component';
 import { MedicoComponent } from './pages/medico/medico.component';
 
-import { EstadisticaComponent } from './pages/estadistica/estadistica.component';
+
 import { PacienteComponent } from './pages/paciente/paciente.component';
 import { PmoComponent } from './pages/mantenimiento/convenio/obra-social/pmo/pmo.component';
 import { ObraSocialComponent } from './pages/mantenimiento/convenio/obra-social/obra-social.component';
@@ -31,8 +31,7 @@ import { AgendaComponent } from './pages/recepcion/agenda/agenda.component';
 import { DistribucionPracticaComponent } from './pages/mantenimiento/distribucion-practica/distribucion-practica.component';
 import { OperacionCobroDetalleComponent } from './pages/facturacion/liquidacion/auditar/operacion-cobro-detalle/operacion-cobro-detalle.component';
 import { OperacionCobroAfectarComponent } from './pages/facturacion/liquidacion/auditar/operacion-cobro-afectar/operacion-cobro-afectar.component';
-import { FichaQuirurgicaComponent } from './pages/asesoramiento/ficha-quirurgica/ficha-quirurgica.component';
-import { RendicionCajaComponent } from './pages/asesoramiento/rendicion-caja/rendicion-caja.component';
+
 import { AgendaAtencionMedicoComponent } from './pages/medico/agenda/agenda-atencion-medico/agenda-atencion-medico.component';
 import { HistoriaClinicaComponent } from './pages/medico/historia-clinica/historia-clinica.component';
 import { ChatListaComponent } from './shared/components/chat/chat-lista/chat-lista.component';
@@ -64,8 +63,7 @@ export const ROUTES: Routes = [
     /** principal **/
     { path: 'inicio', component: EmptyComponent },
     { path: '404', component: NotFoundComponent },    
-    { path: 'quirofano', component: QuirofanoComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
-    { path: 'estadistica', component: EstadisticaComponent, canActivate: [AuthGuard], data: {role: 'quirofano_consulta'}  },
+    { path: 'quirofano', component: QuirofanoComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },    
     /** mantenimiento **/
     { path: 'medico', component: MedicoComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     { path: 'usuario', component: UsuarioModuloComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
@@ -83,26 +81,35 @@ export const ROUTES: Routes = [
     { path: 'factura/articulo', component: FacturacionArticuloComponent, canActivate: [AuthGuard], data: {role: 'medico_control'}  },
     /** asesoramiento **/
 
-    { path: 'asesoramiento/cirugia/ficha', component: FichaQuirurgicaComponent, canActivate: [AuthGuard], data: {role: 'asesoramiento_consulta'}  },
+    
     { path: 'asesoramiento/cirugia/listado/cirugia', component: ListadoCirugiaComponent, canActivate: [AuthGuard], data: {role: 'asesoramiento_control'}  },
     { path: 'asesoramiento/cirugia/cirugia/listas', component: ListadoCirugiaQuirofanoComponent , canActivate: [AuthGuard], data: {role: 'asesoramiento_control'}  },
     { path: 'asesoramiento/operacioncobro', component: OperacionCobroComponent, canActivate: [AuthGuard], data: {role: 'asesoramiento_consulta'}  },    
-    { path: 'asesoramiento/facturacion/rendicion', component: RendicionCajaComponent , canActivate: [AuthGuard], data: {role: 'asesoramiento_control'} },
+    
 
     /** facturacion**/
     { path: 'facturacion/liquidacion/generada', component: LiquidacionGeneradaComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     { path: 'facturacion/liquidacion/liquidacion', component: LiquidacionComponent , canActivate: [AuthGuard], data: {role: 'facturacion_control'} },
-    { path: 'facturacion/liquidacion/liquidar', component: LiquidarComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
-    { path: 'facturacion/operacioncobro', component: OperacionCobroComponent, canActivate: [AuthGuard], data: {role: 'facturacion_consulta'}  },
-    { path: 'liquidacion/operacioncobro/detalle', component: OperacionCobroDetalleComponent, canActivate: [AuthGuard], data: {role: 'facturacion_consulta'}  },
-    { path: 'liquidacion/operacioncobro/auditar', component: OperacionCobroAuditarComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
-    { path: 'liquidacion/operacioncobro/afectar', component: OperacionCobroAfectarComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
-    { path: 'facturacion/liquidacion/confeccion', component: ConfeccionFacturaComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
-    { path: 'facturacion/liquidacion/provincia', component: LiquidacionProvinciaComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
-    { path: 'facturacion/liquidacion/presentacion', component:LiquidacionDetalleComponent , canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
+    { path: 'facturacion/liquidacion/liquidar', component: LiquidarComponent,
+     canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
+    { path: 'facturacion/operacioncobro', component: OperacionCobroComponent,
+     canActivate: [AuthGuard], data: {role: 'facturacion_consulta'}  },
+    { path: 'liquidacion/operacioncobro/detalle', component: OperacionCobroDetalleComponent,
+     canActivate: [AuthGuard], data: {role: 'facturacion_consulta'}  },
+    { path: 'liquidacion/operacioncobro/auditar', component: OperacionCobroAuditarComponent,
+     canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
+    { path: 'liquidacion/operacioncobro/afectar', component: OperacionCobroAfectarComponent,
+     canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
+    { path: 'facturacion/liquidacion/confeccion', component: ConfeccionFacturaComponent,
+     canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
+    { path: 'facturacion/liquidacion/provincia', component: LiquidacionProvinciaComponent,
+     canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
+    { path: 'facturacion/liquidacion/presentacion', component:LiquidacionDetalleComponent , 
+    canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
 
     { path: 'recepcion/factura/electronica', component: FacturaElectronicaComponent , canActivate: [AuthGuard], data: {role: 'recepcion_consulta'} },
-    { path: 'recepcion/factura/acciones', component: OtrasAccionesComponent , canActivate: [AuthGuard], data: {role: 'recepcion_consulta'} },
+    { path: 'recepcion/factura/acciones', component: OtrasAccionesComponent ,
+     canActivate: [AuthGuard], data: {role: 'recepcion_consulta'} },
     /** recepcion **/
     { path: 'recepcion/agenda', component: AgendaRecepcionComponent , canActivate: [AuthGuard], data: {role: 'recepcion_consulta'} },
     { path: 'recepcion/telefonista/agenda', component: AgendaComponent , canActivate: [AuthGuard], data: {role: 'recepcion_consulta'} },

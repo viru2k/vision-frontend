@@ -45,6 +45,7 @@ export class AgendaTurno {
     puesto_llamado:string;
     puesto_estado:string;
     llama_pantalla:string;
+    usuario_medico_factura_id:string;
 
     constructor( 
         id:string,
@@ -89,7 +90,8 @@ export class AgendaTurno {
         edad:string,
         puesto_llamado:string,
         puesto_estado:string,
-        llama_pantalla:string
+        llama_pantalla:string,
+        usuario_medico_factura_id:string
         ) {
        
         this.id = id;
@@ -135,5 +137,6 @@ export class AgendaTurno {
         this.puesto_estado = puesto_estado;
         this.puesto_llamado = puesto_llamado;
         this.llama_pantalla = llama_pantalla;
+        this.usuario_medico_factura_id = usuario_medico_factura_id;
    }
 }

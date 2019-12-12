@@ -23,7 +23,6 @@ import { MedicoService } from '../../../../services/medico.service';
 import { HistoriaClinica } from '../../../../models/historia-clinica.model';
 import { PopupDerivarAsesoramientoListadoComponent } from './../../../../shared/components/popups/popup-derivar-asesoramiento-listado/popup-derivar-asesoramiento-listado.component';
 import { formatDate } from '@angular/common';
-import { PopupListadoCirugiaQuirofanoComponent } from '../popup-listado-cirugia-quirofano/popup-listado-cirugia-quirofano.component';
 import { PopupListadoCirugiaQuirofanoEditarComponent } from './../../../../shared/components/popups/popup-listado-cirugia-quirofano-editar/popup-listado-cirugia-quirofano-editar.component';
 import { logo_clinica,calendarioIdioma } from './../../../../config/config';
 

@@ -59,7 +59,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { QuirofanoComponent } from './pages/quirofano/quirofano.component';
 import { MedicoComponent } from './pages/medico/medico.component';
 
-import { EstadisticaComponent } from './pages/estadistica/estadistica.component';
 
 import { PacienteComponent } from './pages/paciente/paciente.component';
 import {PopupMedicoComponent} from './shared/components/popups/popup-medico/popup-medico.component';
@@ -81,7 +80,6 @@ import { PacienteService } from './services/paciente.service';
 import { ObraSocialComponent } from './pages/mantenimiento/convenio/obra-social/obra-social.component';
 import { PmoComponent } from './pages/mantenimiento/convenio/obra-social/pmo/pmo.component';
 import { ConvenioComponent } from './pages/mantenimiento/convenio/convenio/convenio.component';
-import { PopupEditarMedicoComponent } from './pages/mantenimiento/medico/popup-medico/popup-edit-medico.component';
 /** MEDICO **/
 
 
@@ -131,14 +129,12 @@ import { from } from 'rxjs';
 import { AgendaBloqueoComponent } from './pages/mantenimiento/agenda/agenda-bloqueo/agenda-bloqueo.component';
 import { OperacionCobroAuditarComponent } from './pages/facturacion/liquidacion/auditar/operacion-cobro-auditar/operacion-cobro-auditar.component';
 import { OperacionCobroEditarComponent } from './pages/facturacion/liquidacion/auditar/operacion-cobro-editar/operacion-cobro-editar.component';
-import { FichaQuirurgicaComponent } from './pages/asesoramiento/ficha-quirurgica/ficha-quirurgica.component';
 
 import { PopupTurnoEditarComponent } from './shared/components/popups/popup-turno-editar/popup-turno-editar.component';
 import { OperacionCobroDetalleComponent } from './pages/facturacion/liquidacion/auditar/operacion-cobro-detalle/operacion-cobro-detalle.component';
 import { PopupHistoriaClinicaResumenComponent } from './shared/popups/medico/popup-historia-clinica-resumen/popup-historia-clinica-resumen.component';
 import { PopupOperacionCobroRegistroEditarComponent } from './shared/components/popups/popup-operacion-cobro-registro-editar/popup-operacion-cobro-registro-editar.component';
 import { OperacionCobroAfectarComponent } from './pages/facturacion/liquidacion/auditar/operacion-cobro-afectar/operacion-cobro-afectar.component';
-import { RendicionCajaComponent } from './pages/asesoramiento/rendicion-caja/rendicion-caja.component';
 import { StockLenteComponent } from './pages/stock/lentes/stock-lente/stock-lente.component';
 import { AltaLenteComponent } from './pages/stock/lentes/alta-lente/alta-lente.component';
 import { PopupDetalleLenteComponent } from './pages/stock/lentes/popup/popup-detalle-lente/popup-detalle-lente.component';
@@ -187,7 +183,6 @@ import { PopupOperacionCobroPresentacionComponent } from './shared/components/po
 import { PopupOperacionCobroPresentacionEditarRegistroComponent } from './shared/components/popups/popup-operacion-cobro-presentacion-editar-registro/popup-operacion-cobro-presentacion-editar-registro.component';
 import { PopupPresentacionEditarComponent } from './shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component';
 import { ListadoCirugiaQuirofanoComponent } from './pages/asesoramiento/ficha-quirurgica/listado-cirugia-quirofano/listado-cirugia-quirofano.component';
-import { PopupListadoCirugiaQuirofanoComponent } from './pages/asesoramiento/ficha-quirurgica/popup-listado-cirugia-quirofano/popup-listado-cirugia-quirofano.component';
 import { PopupDerivarAsesoramientoListadoComponent } from './shared/components/popups/popup-derivar-asesoramiento-listado/popup-derivar-asesoramiento-listado.component';
 import { PopupListadoCirugiaQuirofanoEditarComponent } from './shared/components/popups/popup-listado-cirugia-quirofano-editar/popup-listado-cirugia-quirofano-editar.component';
 import { PopupCobroDistribucionEditarComponent } from './shared/components/popups/popup-cobro-distribucion-editar/popup-cobro-distribucion-editar.component';
@@ -209,7 +204,6 @@ import { PopupListadoUsuarioComponent } from './pages/notificacion/popup-notific
 import { PopupNotificacionNuevaComponent } from './pages/notificacion/popup-notificacion/popup-notificacion-nueva/popup-notificacion-nueva.component';
 import { ListadoCirugiaQuirofanoConsultaComponent } from './pages/quirofano/listado-cirugia-quirofano-consulta/listado-cirugia-quirofano-consulta.component';
 import { FacturaElectronicaComponent } from './pages/facturacion/factura/factura-electronica/factura-electronica.component';
-import { CategoriaIvaComponent } from './pages/facturacion/factura-electronica/popups/categoria-iva/categoria-iva.component';
 import { EntidadComponent } from './pages/mantenimiento/entidad/entidad.component';
 import { EditEntidadComponent } from './pages/mantenimiento/entidad/edit-entidad/edit-entidad.component';
 import { GerenciaDetalleOperacionCobroComponent } from './pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component';
@@ -220,13 +214,13 @@ import { PopupFacturaRenglonComponent } from './pages/factura/factura-electronic
 import { BuscarConceptoFacturaComponent } from './pages/facturacion/factura-electronica/popups/buscar-concepto-factura/buscar-concepto-factura.component';
 import { PopupOperacionCobroDistribucionDetalleComponent } from './shared/components/popups/popup-operacion-cobro-distribucion-detalle/popup-operacion-cobro-distribucion-detalle.component';
 import { OtrasAccionesComponent } from './pages/facturacion/factura/otras-acciones/otras-acciones.component';
-import { LenteCirugiaComponent } from './pages/asesoramiento/lente-cirugia/lente-cirugia.component';
 import { FacturacionArticuloComponent } from './pages/mantenimiento/facturacion-articulo/facturacion-articulo.component';
 import { PopupArticuloComponent } from './shared/components/popups/popup-articulo/popup-articulo.component';
 import { PopupOperacionCobroEditarDistribucionComponent } from './shared/components/popups/popup-operacion-cobro-editar-distribucion/popup-operacion-cobro-editar-distribucion.component';
 import { PopupAccesoAutorizacionOsComponent } from './shared/components/popups/popup-acceso-autorizacion-os/popup-acceso-autorizacion-os.component';
 import { PopupAccesoAutorizacionOsEditarComponent } from './shared/components/popups/popup-acceso-autorizacion-os-editar/popup-acceso-autorizacion-os-editar.component';
-
+import { PopupPacienteAmpliadoComponent } from './pages/mantenimiento/popup/popup-paciente/popup-paciente-ampliado.component';
+import { ListadoCirugiaSinUsoComponent } from './pages/quirofano/listado-cirugia/listado-cirugia-sin-uso.component';
 
 
 
@@ -244,9 +238,6 @@ registerLocaleData(localeEsAR, 'es-Ar');
     LoginComponent,
     QuirofanoComponent,
     MedicoComponent,
-
-    EstadisticaComponent,
-  
     PacienteComponent,
     LoadingComponent,
     ObraSocialComponent,
@@ -296,14 +287,11 @@ registerLocaleData(localeEsAR, 'es-Ar');
     AgendaBloqueoComponent,
     OperacionCobroAuditarComponent,
     OperacionCobroEditarComponent,
-    FichaQuirurgicaComponent,
-
     PopupTurnoEditarComponent,
     OperacionCobroDetalleComponent,
     PopupHistoriaClinicaResumenComponent,
     PopupOperacionCobroRegistroEditarComponent,
     OperacionCobroAfectarComponent,
-    RendicionCajaComponent,
     StockLenteComponent,
     AltaLenteComponent,
     PopupDetalleLenteComponent,
@@ -327,7 +315,6 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupPacienteEstudioComponent,
     PopupLenteTipoComponent,
     PopupHistoriaClinicaListaConsultaComponent,
-  
     PopupLiquidacionDetalleComponent,
     PopupHistoriaClinicaRegistroComponent,
     PopupHistoriaClinicaRegistroNuevoComponent,
@@ -347,7 +334,6 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupOperacionCobroPresentacionEditarRegistroComponent,
     PopupPresentacionEditarComponent,
     ListadoCirugiaQuirofanoComponent,
-    PopupListadoCirugiaQuirofanoComponent,
     PopupDerivarAsesoramientoListadoComponent,
     PopupListadoCirugiaQuirofanoEditarComponent,
     PopupCobroDistribucionEditarComponent,
@@ -368,7 +354,6 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupNotificacionNuevaComponent,
     ListadoCirugiaQuirofanoConsultaComponent,
     FacturaElectronicaComponent,
-    CategoriaIvaComponent,
     EntidadComponent,
     EditEntidadComponent,
     GerenciaDetalleOperacionCobroComponent,
@@ -379,15 +364,18 @@ registerLocaleData(localeEsAR, 'es-Ar');
     BuscarConceptoFacturaComponent,
     PopupOperacionCobroDistribucionDetalleComponent,
     OtrasAccionesComponent,
-    LenteCirugiaComponent,
     FacturacionArticuloComponent,
     PopupArticuloComponent,
     PopupOperacionCobroEditarDistribucionComponent,
     PopupAccesoAutorizacionOsComponent,
     PopupAccesoAutorizacionOsEditarComponent,
-    
+    PopupPacienteComponent,
+    PopupArticuloComponent,
+    PopupPacienteAmpliadoComponent,
+    ListadoCirugiaSinUsoComponent
   ],
   imports: [
+
 
     GalleriaModule,
     FileUploadModule,
@@ -449,7 +437,8 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupOperacionCobroDistribucionComponent,PopupPacienteEsperaComponent, PopupNotificacionComponent,
     PopupChatComponent ,   PopupListadoUsuarioComponent, PopupNotificacionNuevaComponent,
     PopupFacturaRenglonComponent,BuscarConceptoFacturaComponent,PopupOperacionCobroDistribucionDetalleComponent,
-    PopupLiquidacionDetalleComponent, PopupArticuloComponent, PopupOperacionCobroEditarDistribucionComponent
+    PopupLiquidacionDetalleComponent, PopupArticuloComponent, PopupOperacionCobroEditarDistribucionComponent,
+    PopupPacienteComponent, ListadoCirugiaComponent, PopupArticuloComponent
 
   ],
   providers: [CurrencyPipe,DecimalPipe,NumberToWordsPipe,PacienteService,PushNotificationService,ExcelService,{ provide: LOCALE_ID, useValue: 'es-Ar' },

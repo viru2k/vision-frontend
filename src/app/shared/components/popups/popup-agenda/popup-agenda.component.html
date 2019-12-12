@@ -9,7 +9,7 @@
             <div  class="input-group input-group-sm ">
                     <form  [formGroup]="DateForm">
                     <div class="btn-group" role="group">
-                <p-calendar class="mr-2 "formControlName="fechaHoy"  (onSelect)="actualizarFecha($event)" tabindex="0" [disabledDates]="invalidDates" [monthNavigator]="true"  [dataType]="yy-mm-dd" [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+                <p-calendar class="mr-2 "formControlName="fechaHoy"  (onSelect)="actualizarFecha($event)" tabindex="0" [disabledDates]="invalidDates" [monthNavigator]="true"   [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
                    <ng-template pTemplate="date" let-date>
                         <span  [ngClass]="colorRow(date)"  style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
                     </ng-template> 
