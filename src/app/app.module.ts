@@ -221,6 +221,16 @@ import { PopupAccesoAutorizacionOsComponent } from './shared/components/popups/p
 import { PopupAccesoAutorizacionOsEditarComponent } from './shared/components/popups/popup-acceso-autorizacion-os-editar/popup-acceso-autorizacion-os-editar.component';
 import { PopupPacienteAmpliadoComponent } from './pages/mantenimiento/popup/popup-paciente/popup-paciente-ampliado.component';
 import { ListadoCirugiaSinUsoComponent } from './pages/quirofano/listado-cirugia/listado-cirugia-sin-uso.component';
+import { UsuarioComponent } from './pages/mantenimiento/usuario/usuario/usuario.component';
+import { PopupUsuarioEditarComponent } from './pages/mantenimiento/usuario/popup-usuario-editar/popup-usuario-editar.component';
+import { PopupUsuarioEditarPasswordComponent } from './pages/mantenimiento/usuario/popup-usuario-editar-password/popup-usuario-editar-password.component';
+import { CirugiaEditarComponent } from './pages/lista/cirugia-editar/cirugia-editar.component';
+import { EstudioComponent } from './pages/lista/estudio/estudio.component';
+import { EstudioEditarComponent } from './pages/lista/estudio-editar/estudio-editar.component';
+import { RecetaEditarComponent } from './pages/lista/receta-editar/receta-editar.component';
+import { RecetaComponent } from './pages/lista/receta/receta.component';
+import { ObrasocialAutorizacionWebEditarComponent } from './pages/lista/obrasocial-autorizacion-web-editar/obrasocial-autorizacion-web-editar.component';
+import { ObrasocialAutorizacionWebComponent } from './pages/lista/obrasocial-autorizacion-web/obrasocial-autorizacion-web.component';
 
 
 
@@ -372,7 +382,17 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupPacienteComponent,
     PopupArticuloComponent,
     PopupPacienteAmpliadoComponent,
-    ListadoCirugiaSinUsoComponent
+    ListadoCirugiaSinUsoComponent,
+    UsuarioComponent,
+    PopupUsuarioEditarComponent,
+    PopupUsuarioEditarPasswordComponent,
+    CirugiaEditarComponent,
+    EstudioComponent,
+    EstudioEditarComponent,
+    RecetaEditarComponent,
+    RecetaComponent,
+    ObrasocialAutorizacionWebEditarComponent,
+    ObrasocialAutorizacionWebComponent
   ],
   imports: [
 

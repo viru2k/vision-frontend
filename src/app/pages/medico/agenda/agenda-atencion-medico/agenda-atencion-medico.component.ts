@@ -192,16 +192,22 @@ liquidacion = new Liquidacion(agendaTurno['operacion_cobro_id'],'','','','','','
 
 }
   
-colorEsSobreturno(sobreturno:string, estado:string){
-  
-  if((estado === 'SOBRETURNO')) {
 
+
+colorEsSobreturno(sobreturno:string, estado:string){
+
+  if((estado === 'SOBRETURNO')) {
+  
   }else{
     if((sobreturno === 'SI')) {
-      return {'text-danger-bold'  :'null' };
+      return {'es-sobreturno-texto'  :'null' };
+    }
   }
-}
-}
+  
+  if((estado === 'TURNO')) {
+    return {'text-white'  :'null' };
+  }
+  }
 
   loadTurnoTodosLosEstados(){}
 

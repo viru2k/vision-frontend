@@ -81,7 +81,7 @@
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 16%">{{agendaTurno.paciente_obra_social_nombre}}</td>  
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 10%">{{agendaTurno.hora_desde}}</td>                          
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 7%" >{{agendaTurno.presente | date: 'HH:mm:ss'}}</td> 
-                        <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" class="font-weight-bold text-primary" style="width: 7%"  >{{agendaTurno.llegada | date: 'HH:mm:ss'}}</td>  
+                        <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" class="font-weight-bold text-info" style="width: 7%"  >{{agendaTurno.llegada | date: 'HH:mm:ss'}}</td>  
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 7%" >{{agendaTurno.atendido | date: 'HH:mm:ss'}}</td> 
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.estado}}</td>                            
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.dia_nombre}}</td> 

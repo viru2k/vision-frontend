@@ -12,7 +12,6 @@ import { DialogService } from 'primeng/components/common/api';
 import { formatDate, CurrencyPipe, DecimalPipe } from '@angular/common';
 import {OverlayPanelModule, OverlayPanel} from 'primeng/overlaypanel';
 import { FacturaElectronica } from '../../../../models/factura-electronica.model';
-import { Paciente } from '../../../../../../../psicologo-gestion/src/app/models/paciente.model';
 import { PopupPacienteObrasocialComponent } from '../../../../shared/components/popups/popup-paciente-obrasocial/popup-paciente-obrasocial.component';
 import { FacturacionService } from './../../../../services/facturacion.service';
 @Component({

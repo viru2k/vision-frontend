@@ -1171,9 +1171,10 @@ generarPdfListadoCirugiaTodos() {
            
           //    console.log(this.elementosPreFactura[j]['complejidad']+' cirugia '+this.elementosPreFactura[j]['descripcion'] );
             }else{
-              console.log('coseguro honorarios');
-              let t_hono =  this.cp.transform((((this.elementosPreFactura[j]['operacion_cobro_distribucion_total'])*20)/80), '', '', '1.2-2'); 
-              this.elementosPreFactura[i]['honorarios'] = t_hono;
+              this.elementosPreFactura[i]['honorarios'] =  String(((this.elementosPreFactura[j]['operacion_cobro_distribucion_total'])*20)/80); 
+              //let t_hono =  this.cp.transform((((this.elementosPreFactura[j]['operacion_cobro_distribucion_total'])*20)/80), '', '', '1.2-2'); 
+            //  this.elementosPreFactura[i]['honorarios'] = t_hono;
+            //  console.log( 'coseguro honorarios '+  this.elementosPreFactura[i]['honorarios']);
               
             }
             
@@ -1197,7 +1198,7 @@ generarPdfListadoCirugiaTodos() {
           //   total_gastos = total_gastos +Number( this.elementosPreFactura[i]['gastos']);
           //   console.log(this.elementosPreFactura[j]['complejidad']+' cirugia '+this.elementosPreFactura[j]['descripcion'] );
             }else{
-              console.log('coseguro gastos');
+            //  console.log('coseguro gastos');
               this.elementosPreFactura[i]['categoria'] =  this.cp.transform(0, '', '', '1.2-2');
               
               this.elementosPreFactura[i]['gastos'] =  String(((this.elementosPreFactura[j]['operacion_cobro_distribucion_total'])*20)/80); 
@@ -1209,14 +1210,14 @@ generarPdfListadoCirugiaTodos() {
         }
 
              // SI ES COMPLEJIDAD 4 , NO TIENE GASTOS  PERO ES UN GASTO. POR CONSIGUIENTE DEBE ACOMODARSE A ESA COLUMNA
-             _complejidad_original = this.elementosPreFactura[i]['complejidad'];
-             console.log(this.elementosPreFactura[i]['complejidad']);
+             _complejidad_original = this.elementosPreFactura[i]['complejidad'];          
              if(_complejidad_original=== 4){
               if(this.selecteditems[0]['obra_social_nombre']=== 'DOS - OBRA SOCIAL PROVINCIA'){           
                this.elementosPreFactura[i]['gastos'] =  this.elementosPreFactura[i]['valor_facturado'];
               }else{
-                let gasto:string = String(((this.elementosPreFactura[j]['valor_facturado'])*20)/80);
+                let gasto:string = String((this.elementosPreFactura[j]['valor_facturado']));
                 this.elementosPreFactura[i]['gastos'] = gasto; 
+                this.elementosPreFactura[i]['honorarios'] = '0'; 
               }
               
              }
@@ -1284,10 +1285,10 @@ generarPdfListadoCirugiaTodos() {
       }
      // total_facturado =total_facturado+ Number(filteredArr[i]['valor_facturado'])+Number(filteredArr[i]['categorizacion']);
  console.log(filteredArr[i]);
-      console.log('previo');
-      console.log('gastos '+filteredArr[i]['gastos']);
-      console.log('honorarios '+filteredArr[i]['honorarios']);
-      console.log('categoria '+filteredArr[i]['categorizacion']);
+    //  console.log('previo');
+     // console.log('gastos '+filteredArr[i]['gastos']);
+     // console.log('honorarios '+filteredArr[i]['honorarios']);
+     // console.log('categoria '+filteredArr[i]['categorizacion']);
 
       if((filteredArr[i]['gastos'] === undefined) || (filteredArr[i]['gastos'] === NaN)){
         filteredArr[i]['gastos'] = 0;
@@ -1304,6 +1305,13 @@ generarPdfListadoCirugiaTodos() {
       console.log('categoria '+filteredArr[i]['categorizacion']);
       
       if((_complejidad === 4 )&&(this.selecteditems[0]['obra_social_nombre'] === 'DOS - OBRA SOCIAL PROVINCIA')){
+        console.log('gastoooos');
+        _total = _total+ Number(filteredArr[i]['gastos']);
+       // total_gastos = _total;
+        console.log(total_gastos);
+      }
+
+      if((_complejidad === 4 )&&(this.selecteditems[0]['obra_social_nombre'] !== 'DOS - OBRA SOCIAL PROVINCIA')){
         console.log('gastoooos');
         _total = _total+ Number(filteredArr[i]['gastos']);
        // total_gastos = _total;
@@ -1330,7 +1338,7 @@ generarPdfListadoCirugiaTodos() {
     
   }
 
-
+console.log()
 
 
   

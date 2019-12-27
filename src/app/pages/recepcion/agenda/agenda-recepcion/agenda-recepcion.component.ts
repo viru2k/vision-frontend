@@ -868,8 +868,8 @@ doc.text('Emitido : '+_fechaEmision, pageWidth-40, 18, null, null, 'left');
 /** ACCIONES */
 
 colorRow(estado:string){
-  
-
+ 
+    
   if(estado == 'ATENDIDO') {
     return {'es-atendido'  :'null' };
   }
@@ -912,6 +912,16 @@ colorRow(estado:string){
 
 }
 
+
+colorString(estado:string){
+  
+  if((estado === '0')||(estado === null)) {
+    return {'es-transferencia'  :'null' };
+  }else{
+    return {'es-tarjeta-debito'  :'null' };
+  }
+
+}
 
 
 
@@ -956,14 +966,8 @@ console.log(this.elementosFiltrados);
  
 }
 
-colorString(estado:string){
 
-if((estado === '0')||(estado === null)) {
-  return {'es-transferencia'  :'null' };
-}else{
-  return {'es-tarjeta-debito'  :'null' };
-}
-}
+
 
 colorEsSobreturno(sobreturno:string, estado:string){
 

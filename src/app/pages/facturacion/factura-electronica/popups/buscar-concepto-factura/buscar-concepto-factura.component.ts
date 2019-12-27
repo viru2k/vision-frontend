@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/api';
 import { FacturacionService } from './../../../../../services/facturacion.service';
 import swal from 'sweetalert2';
-import { calendarioIdioma } from './../../../../../../../../optica/src/app/config/config';
+import { calendarioIdioma } from './../../../../../config/config';
+
 
 @Component({
   selector: 'app-buscar-concepto-factura',

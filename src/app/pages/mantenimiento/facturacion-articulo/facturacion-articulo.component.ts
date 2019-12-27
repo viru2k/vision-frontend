@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef, MessageService } from 'primeng/api';
 import { FacturacionService } from './../../../services/facturacion.service';
 import swal from 'sweetalert2';
-import { calendarioIdioma } from './../../../../../../optica/src/app/config/config';
 import { DialogService } from 'primeng/components/common/api';
 import { DecimalPipe, CurrencyPipe } from '@angular/common';
 import { PopupArticuloComponent } from './../../../shared/components/popups/popup-articulo/popup-articulo.component';
+import { calendarioIdioma } from './../../../config/config';
 
 @Component({
   selector: 'app-facturacion-articulo',
