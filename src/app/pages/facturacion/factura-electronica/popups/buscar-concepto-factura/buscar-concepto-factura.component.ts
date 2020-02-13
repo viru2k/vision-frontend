@@ -5,6 +5,7 @@ import swal from 'sweetalert2';
 import { calendarioIdioma } from './../../../../../config/config';
 
 
+
 @Component({
   selector: 'app-buscar-concepto-factura',
   templateUrl: './buscar-concepto-factura.component.html',

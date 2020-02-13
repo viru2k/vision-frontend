@@ -36,30 +36,35 @@ export class PopupMedicoEditComponent implements OnInit {
   ngOnInit() {
     console.log(this.config.data);
     this.updateDataForm = new FormGroup({
-      'apellido': new FormControl(""),
-      'nombre': new FormControl(""),      
-      'domicilio': new FormControl("San Juan"),      
-      'email_laboral': new FormControl("sin_correo@delavision.com.ar"),
-      'email': new FormControl("sin_correo@delavision.com.ar"),
-      'fecha_matricula': new FormControl(""),
-      'cuit': new FormControl("0"),
-      'telefono_cel': new FormControl("0"),
-      'telefono': new FormControl("0"),
-      'ing_brutos': new FormControl("0"),
-      'usuario_id': new FormControl("0"),
-      'id': new FormControl("0"),     
+      'apellido': new FormControl(''),
+      'nombre': new FormControl(''),      
+      'domicilio': new FormControl('San Juan'),      
+      'email_laboral': new FormControl('sin_correo@delavision.com.ar'),
+      'email': new FormControl('sin_correo@delavision.com.ar'),
+      'fecha_matricula': new FormControl(''),
+      'cuit': new FormControl('0'),
+      'telefono_cel': new FormControl('0'),
+      'telefono': new FormControl('0'),
+      'ing_brutos': new FormControl('0'),
+      'usuario_id': new FormControl('0'),
+      'id': new FormControl('0'),     
       'categoria_iva_id': new FormControl(),   
       'factura_documento_comprador_id': new FormControl(),   
       'punto_vta_id': new FormControl(),   
       'factura_comprobante_id': new FormControl(),   
+      'fecha_alta_afip': new FormControl(''),   
+      'factura_key': new FormControl(''),   
+      'factura_crt': new FormControl(''),   
   });
-    if(this.config.data.id !=""){
-      let newDate = new Date( this.config.data.fecha_matricula);     
+    if(this.config.data.id !=''){
+      let newDate = new Date( this.config.data.fecha_matricula);
+      let newDateAltaAfip = new Date( this.config.data.fecha_alta_afip);
      this.config.data.fecha_matricula = newDate;
+     this.config.data.fecha_alta_afip = newDateAltaAfip;
       this.updateDataForm.patchValue(this.config.data);
     }
     this.config.data.fecha_matricula = new Date();
-
+    this.config.data.fecha_alta_afip = new Date();
     this.PtoVta();
     this.CategoriaIva();
     this.Documento();
@@ -228,7 +233,7 @@ PtoVta(){
 }
 
   buscarObraSocial(){
-    this.popItem = new ObraSocial("","","","","","","","");
+    this.popItem = new ObraSocial('','','','','','','','');
       let data:any; 
       const ref = this.dialogService.open(PopupObrasocialComponent, {
       data,
@@ -250,7 +255,7 @@ PtoVta(){
   }
 
   agregarObraSocial(){
-    this.popItem = new ObraSocial("","","","","","","","");
+    this.popItem = new ObraSocial('','','','','','','','');
       let data:any; 
       data =this.config.data;
       const ref = this.dialogService.open(PopupObraSocialMedicoComponent, {
@@ -281,7 +286,7 @@ PtoVta(){
   throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string){
     let tipoerror:string;
   
-    if(estado== "success"){
+    if(estado== 'success'){
         swal({
             type: 'success',
             title: 'Exito',
@@ -291,40 +296,40 @@ PtoVta(){
   
   
   
-    if(estado== "warning"){
+    if(estado== 'warning'){
       swal({
           type: 'warning',
           title: 'Cuidado!',
           text: mensaje
         })
   }
-    if(estado== "error"){
-      if(errorNumero =="422"){
-          mensaje ="Los datos que esta tratando de guardar son iguales a los que ya poseia";
+    if(estado== 'error'){
+      if(errorNumero =='422'){
+          mensaje ='Los datos que esta tratando de guardar son iguales a los que ya poseia';
       }
-      if(errorNumero =="400 "){
-          mensaje ="Bad Request ";
+      if(errorNumero =='400 '){
+          mensaje ='Bad Request ';
       }
-      if(errorNumero =="404"){
-          mensaje ="No encontrado ";
+      if(errorNumero =='404'){
+          mensaje ='No encontrado ';
       }
-      if(errorNumero =="401"){
-          mensaje ="Sin autorización";
+      if(errorNumero =='401'){
+          mensaje ='Sin autorización';
       }
-      if(errorNumero =="403"){
-          mensaje =" Prohibido : La consulta fue valida, pero el servidor rechazo la accion. El usuario puede no tener los permisos necesarios, o necesite una cuenta para operar ";
+      if(errorNumero =='403'){
+          mensaje =' Prohibido : La consulta fue valida, pero el servidor rechazo la accion. El usuario puede no tener los permisos necesarios, o necesite una cuenta para operar ';
       }
-      if(errorNumero =="405"){
-          mensaje ="Método no permitido";
+      if(errorNumero =='405'){
+          mensaje ='Método no permitido';
       }
-      if(errorNumero =="500"){
-          mensaje ="Error interno en el servidor";
+      if(errorNumero =='500'){
+          mensaje ='Error interno en el servidor';
       }
-      if(errorNumero =="503"){
-          mensaje ="Servidor no disponible";
+      if(errorNumero =='503'){
+          mensaje ='Servidor no disponible';
       }
-      if(errorNumero =="502"){
-          mensaje ="Bad gateway";
+      if(errorNumero =='502'){
+          mensaje ='Bad gateway';
       }
       
         swal({   

@@ -84,7 +84,12 @@
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.paciente_dni}}</td>              
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 5%">{{agendaTurno.edad}}</td>   
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.paciente_obra_social_nombre}}</td>  
-                        <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.telefono_cel}}</td>                          
+                        <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">
+                            {{agendaTurno.telefono_fijo}}
+                            <a *ngIf="agendaTurno.tiene_whatsapp ==='true'" href="https://api.whatsapp.com/send?l=es&phone='549{{agendaTurno.telefono_cel}}'&text=Buen%20dia%20Le%20recordamos%20que%20el%20dia%20{{agendaTurno.dia_nombre}}%20{{agendaTurno.fecha_turno  | date: 'dd/MM'}}%20tiene%20un%20turno%20con%20el%20doctor%20{{agendaTurno.nombreyapellido}}&source=&data=" class="float my-hover navbar-font hvr-shrink pt-1" target="_blank">
+                                <i class="fa fa-whatsapp my-float fa-2x"></i>
+                            </a>
+                        </td>                          
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 10%">{{agendaTurno.hora_desde}}</td>                           
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 8%">{{agendaTurno.estado}}</td>  
                         <td [ngClass]="colorEsSobreturno(agendaTurno.es_sobreturno,agendaTurno.estado)" style="width: 15%">{{agendaTurno.nombreyapellido}}</td>  

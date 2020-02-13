@@ -76,7 +76,8 @@ export class AgendaRecepcionComponent implements OnInit {
  
   motivo:string;
   presentes:number = 0;
-
+  derivados:number = 0;
+  asesoramiento:number = 0;
   sobreturno:number = 0;
   pendiente:number = 0;
   presente:number = 0;
@@ -84,7 +85,7 @@ export class AgendaRecepcionComponent implements OnInit {
   espera:number = 0;
   ingresado:number = 0;
   atendido:number = 0;
-
+   timer;
   constructor(private documentService: DocumentService,private miServico:AgendaService, private messageService: MessageService ,public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router ) {
  
  
@@ -163,8 +164,8 @@ this.documentService
 
 this.loadList();
 
-let timer = Observable.timer(60000,180000);//180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
-timer.subscribe(t=> {
+ this.timer = Observable.timer(60000,180000);//180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
+this.timer.subscribe(t=> {
   console.log('llamando turnos desde timer');
   this.loadList();
 });
@@ -172,7 +173,8 @@ timer.subscribe(t=> {
 } 
 
 ngOnDestroy() {
- 
+ // this.documentService.getMessages().unsubscribe();
+  //this.timer.unsubscribe();
 }
 
 
@@ -815,12 +817,22 @@ ref.onClose.subscribe((PopupOperacionCobroDetalleComponent:any) => {
 
 sumarPresente(){
   this.presentes = 0;
+  this.derivados = 0;
+  this.asesoramiento = 0;
   let i:number;
   this.agendaTurnos = this.agendaTurno;
   if(this.agendaTurnos){
   for(i=0;i<this.agendaTurnos.length;i++){
     if((this.agendaTurnos[i]['presente'] !== null ) &&(this.agendaTurnos[i]['presente'] !== '2099-12-31 00:00:00' ) && (this.agendaTurno[i]['llegada'] === '2099-12-31 00:00:00' )&& (this.agendaTurno[i]['estado'] !== 'LLAMANDO')&& (this.agendaTurno[i]['estado'] !== 'ATENDIDO' )){
       this.presentes = this.presentes+1;
+    }
+
+    if((this.agendaTurnos[i]['presente'] !== null ) &&(this.agendaTurnos[i]['estado'] === 'DERIVADO' )){
+      this.derivados = this.derivados+1;
+    }
+
+    if((this.agendaTurnos[i]['presente'] !== null ) &&(this.agendaTurnos[i]['estado'] === 'ASESORAMIENTO' ) ){
+      this.asesoramiento = this.asesoramiento+1;
     }
   }
 }
@@ -900,6 +912,10 @@ colorRow(estado:string){
 
   if(estado == 'DERIVADO') {
     return {'es-turno'  :'null' };
+  }
+
+  if(estado == 'ASESORAMIENTO') {
+    return {'es-asesoramiento'  :'null' };
   }
 
   if(estado == 'CANCELADO') {  

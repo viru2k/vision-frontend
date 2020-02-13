@@ -61,14 +61,15 @@ export class HistoriaClinicaComponent implements OnInit {
   selectedHistoriaClinica:HistoriaClinica;
   popItemAgenda:AgendaTurno;
   display:boolean;
-  historia_clinica_resumen:string;
-  diagnostico_receta:string;
+  historia_clinica_resumen:string = '';
+  diagnostico_receta:string = '';
   listarecetas:any[];
   listaindicacionesmedicas:any[];
   selectedReceta:string[] = [];
   selectedIndicaciones:string;
+  historia_clinicadiagnostico:string = '';
 
-  constructor(private miServico:MedicoService,private router: Router,private messageService: MessageService ,public dialogService: DialogService ) {
+  constructor(private miServicio:MedicoService,private router: Router,private messageService: MessageService ,public dialogService: DialogService ) {
     if(this.router.getCurrentNavigation().extras.state != undefined){
       console.log(this.router.getCurrentNavigation().extras.state.paciente);
       // si es llamado desde la agenda del paciente busco los datos
@@ -163,6 +164,7 @@ export class HistoriaClinicaComponent implements OnInit {
     'estudio_id': new FormControl('', Validators.required),
     'estudio_nombre': new FormControl('', Validators.required), 
     'ESTUDIOSES': new FormControl('', Validators.required),
+    'MEDICONOM': new FormControl('', Validators.required),
     
     });
 
@@ -343,6 +345,69 @@ verHistoriaClinicaListado(){
 }
 
 
+
+guardarHistoria(){
+  
+  /* console.log(this.dataForm.value);
+  this.dataForm.patchValue({PACIENTE: this.elemento_temp.PACIENTE});
+  this.dataForm.patchValue({medico_id: this.elemento_temp.medico_id});
+  this.dataForm.patchValue({paciente_id: this.elemento_temp.paciente_id});
+  this.dataForm.patchValue({MEDICONOM: this.elemento_temp.MEDICONOM});
+  this.dataForm.patchValue({MEDICO: this.elemento_temp.MEDICO});
+  this.dataForm.patchValue({nombreyapellido: this.elemento_temp.nombreyapellido});
+  this.dataForm.patchValue({numero_afiliado: this.elemento.numero_afiliado});
+  this.dataForm.patchValue({domicilio: this.elemento.domicilio});
+  this.dataForm.patchValue({edad: this.elemento.edad});
+  this.dataForm.patchValue({obra_social_nombre: this.elemento.obra_social_nombre});
+  this.dataForm.patchValue({paciente_nombre: this.elemento.paciente_nombre});
+  this.dataForm.patchValue({plan: this.elemento.plan}); */
+  if(this.formPaciente.value){
+    
+    let userData = JSON.parse(localStorage.getItem('userData'));
+    console.log(userData["nombreyapellido"]);
+    let _medico = userData["nombreyapellido"];
+    this.formPaciente.patchValue({MEDICONOM: _medico});
+    this.formPaciente.patchValue({medico_id: userData['id']});
+    this.formPaciente.patchValue({nombreyapellido: userData['nombreyapellido']});
+    this.formPaciente.patchValue({medico_nombre: userData['nombreyapellido']});
+    console.log(this.diagnostico_receta);
+  this.formPaciente.patchValue({TRATAMIENTO_MEDICO: this.historia_clinicadiagnostico});
+     try {
+        this.miServicio.setHistoriaClinicaFicha(this.formPaciente.value)
+        .subscribe(resp => {
+          swal({
+            toast: false,
+            type: 'success',
+            title: 'Guardado',
+            text: 'Se guardo la receta en  historia clínica',
+            showConfirmButton: true,            
+          });       
+            console.log(resp);
+            this.historia_clinica_resumen = '';
+            this.diagnostico_receta = '';
+            this.selectedReceta = [];
+            this.historia_clinicadiagnostico = '';
+            this.loadhistoriaClinica();
+        },
+        error => { // error path
+            console.log(error.message);
+            console.log(error.status);
+            swal({
+              toast: false,
+              type: 'warning',
+              title: error.status,
+              text: error.message,
+              showConfirmButton: false,
+              timer: 2000
+            });
+         });    
+    } catch (error) {
+    
+    }  
+}
+}
+
+
 derivarAsesoramiento(){
   
   let userData = JSON.parse(localStorage.getItem('userData'));
@@ -369,7 +434,7 @@ derivarAsesoramiento(){
 loadhistoriaClinica(){ 
   this.loading = true; 
   try { 
-      this.miServico.getHistoriaClinicaByPaciente(this.paciente.paciente_dni)
+      this.miServicio.getHistoriaClinicaByPaciente(this.paciente.paciente_dni)
       .subscribe(resp => {
       this.elementos = resp;
       console.log(resp);      
@@ -593,6 +658,19 @@ let haytextoDiagnostico:boolean= false;
 
   let esY:number= 0;
  
+  if(this.selectedReceta){
+    this.display = false;
+    swal({
+      toast: false,
+      type: 'warning',
+      title: 'No se puede imprimir',
+      text: 'Debe seleccionar una acción ',
+      showConfirmButton: true
+    })
+    .then((result) => {
+      this.display = true;
+      });  
+  }
   if((this.selectedReceta[0]["name"] === 'TEXTO') || (this.selectedReceta[0]["name"] === 'TEXTO CON DIAGNOSTICO')){
   
   }else{
@@ -602,38 +680,33 @@ let haytextoDiagnostico:boolean= false;
     for(let j= 0;j< this.selectedReceta.length;j++){
       if(this.selectedReceta[j]["name"] ==='TEXTO'){        
         haytexto = true;
+       
     }
-
-  
     }
 
     if(!haytexto){
       // SI ESTA MARCADO TEXTO CON DIAGNOSTICO AGREGO DIAGNOSTICO
-      if(this.selectedReceta[0]['name'] !== 'TEXTO CON DIAGNOSTICO'){
-      
+      if(this.selectedReceta[0]['name'] !== 'TEXTO CON DIAGNOSTICO'){      
       doc.text('Solicito: ', 10 +x, 35+y);  
       }
     for(let j= 0;j< this.selectedReceta.length;j++){
       doc.text(' - '+this.selectedReceta[j]["name"] , 15 +x, 45+esY+y);   
+      this.historia_clinicadiagnostico =  this.historia_clinicadiagnostico+ ' - '+this.selectedReceta[j]["name"];
       esY = esY+5;
     }
   }
     console.log(this.selectedReceta);
-   
   }
 
- 
-
-  
   //doc.text('Solicita: '+medico, 10+x, 115+y);   
   doc.text('Firma ', 70+x, 130+y);   
   doc.text( _fechaEmision, 10+x, 130+y);  
-
- 
   var pageHeight = doc.internal.pageSize.height;
   if(haytexto){
     if(this.diagnostico_receta != ''){
     var splitTitle_texto = doc.splitTextToSize(this.diagnostico_receta, +60);
+       // VARIABLE PARA GUARDAR EN HC
+       this.historia_clinicadiagnostico = this.historia_clinicadiagnostico+'  '+ splitTitle_texto;
   for (var i = 0; i < splitTitle_texto.length; i++) 
   {
     doc.text(10+x, 45+esY+y, splitTitle_texto[i]);
@@ -643,11 +716,14 @@ let haytextoDiagnostico:boolean= false;
   }else{
   var xy = 80;
   var xy_diagnostico = 65;
-  if(this.diagnostico_receta != ''){
+  if((this.diagnostico_receta != '')|| (this.diagnostico_receta)){
     var splitTitle_diagnostico = doc.splitTextToSize(this.diagnostico_receta, +60);
+    // VARIABLE PARA GUARDAR EN HC
+    this.historia_clinicadiagnostico = 'Diagnostico presuntivo :'+ splitTitle_diagnostico+ '  ';
     // SI ES DISTINTO DE TEXTO COMUN NO COLOCO DIAGNOSTICO PRESUNTIVO
     if(this.selectedReceta[0]['name'] !== 'TEXTO CON DIAGNOSTICO'){
     doc.text('Diagnostico presuntivo :', 10+x, 60+y);   
+    
     }
   for (var i = 0; i < splitTitle_diagnostico.length; i++) {                
     
@@ -665,11 +741,14 @@ let haytextoDiagnostico:boolean= false;
   var splitTitle_historia_clinica = doc.splitTextToSize(this.historia_clinica_resumen, 90);
   doc.text('Resumen historia clínica :', 10+x, 90+y); 
   let medico:string = '';
+      // VARIABLE PARA GUARDAR EN HC
+      this.historia_clinicadiagnostico = this.historia_clinicadiagnostico+' Resumen historia clínica : '+ splitTitle_historia_clinica;
   if(this.formPaciente.value.nombreyapellido=== undefined){
     medico= '';
   }else{
     medico = this.formPaciente.value.nombreyapellido;
   }
+  
   for (var i = 0; i < splitTitle_historia_clinica.length; i++) {                
       if (xy > 80) {
           xy = 10;
@@ -683,9 +762,9 @@ let haytextoDiagnostico:boolean= false;
   //doc.save('my.pdf');
  // doc.autoPrint();
  window.open(doc.output('bloburl'));
- this.historia_clinica_resumen = '';
- this.diagnostico_receta = '';
- this.selectedReceta = [];
+this.guardarHistoria();
+
+
 }
 
 

@@ -606,6 +606,11 @@ colorRow(estado:string){
     return {'es-turno'  :'null' };
   }
 
+  if(estado == 'ASESORAMIENTO') {
+    return {'es-asesoramiento'  :'null' };
+  }
+
+
   if(estado == 'CANCELADO') {  
     return {'es-cancelado'  :'null' };
   }  

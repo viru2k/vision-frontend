@@ -52,11 +52,11 @@ export class MedicoComponent implements OnInit {
     
              
         this.columns = [
-            {title: "Nombre", dataKey: "nombre"},
-            {title: "Apellido", dataKey: "apellido"},            
-            {title: "Fecha nacimiento", dataKey: "fecha_matricula"},
-            {title: "Domicilio", dataKey: "domicilio"},
-            {title: "Celular", dataKey: "telefono_cel"}
+            {title: 'Nombre', dataKey: 'nombre'},
+            {title: 'Apellido', dataKey: 'apellido'},            
+            {title: 'Fecha nacimiento', dataKey: 'fecha_matricula'},
+            {title: 'Domicilio', dataKey: 'domicilio'},
+            {title: 'Celular', dataKey: 'telefono_cel'}
         ];
      
             }
@@ -68,7 +68,7 @@ export class MedicoComponent implements OnInit {
     
       
       showDialogToAdd() {
-        this.popItem = new Medico("","","",new Date(),"","","","","","","","",[],'','','','','');
+        this.popItem = new Medico('','','',new Date(),'','','','','','','','',[],'','','','','','','','');
           let data:any; 
           data = this.popItem;
           const ref = this.dialogService.open(PopupMedicoEditComponent, {
@@ -83,7 +83,7 @@ export class MedicoComponent implements OnInit {
            console.log(PopupMedicoComponent);    
                 this.popItem = PopupMedicoComponent;
            if( this.nuevoItem()){
-              this.throwAlert("success","Se creo el registro con éxito","","");
+              this.throwAlert('success','Se creo el registro con éxito','','');
              } 
            }
        });
@@ -94,7 +94,7 @@ export class MedicoComponent implements OnInit {
         console.log(event);
         this.popItem = new Medico(event.data.apellido,event.data.nombre,event.data.domicilio,event.data.fecha_matricula,event.data.telefono, event.data.telefono_cel,
             event.data.email,event.data.email_laboral,event.data.cuit, event.data.ing_brutos,event.data.usuario_id,event.data.id,event.data.ObraSocial,event.data.codgo_old,
-             event.data.categoria_iva_id, event.data.factura_documento_comprador_id,event.data.punto_vta_id,event.data.factura_comprobante_id);
+             event.data.categoria_iva_id, event.data.factura_documento_comprador_id,event.data.punto_vta_id,event.data.factura_comprobante_id,event.data.fecha_alta_afip,event.data.factura_key,event.data.factura_crt);
                     
         let data:any; 
         console.log(this.popItem);
@@ -111,7 +111,7 @@ export class MedicoComponent implements OnInit {
           console.log(PopupMedicoComponent);
           this.popItem = PopupMedicoComponent;
          if( this.actualizarDatos()){
-          this.throwAlert("success","Se modifico el registro con éxito","","");
+          this.throwAlert('success','Se modifico el registro con éxito','','');
          }
           }
       });
@@ -132,10 +132,10 @@ export class MedicoComponent implements OnInit {
             error => { // error path
                 console.log(error.message);
                 console.log(error.status);
-                this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message, error.status);
+                this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
              });    
         } catch (error) {
-        this.throwAlert("error","Error al cargar los registros",error,error.status);
+        this.throwAlert('error','Error al cargar los registros',error,error.status);
         }  
     }
      
@@ -159,11 +159,11 @@ export class MedicoComponent implements OnInit {
             error => { // error path
                 console.log(error.message);
            //     console.log(error.status);
-                this.throwAlert("error","Error: "+error.status,"  Error al insertar los registros",error.status);
+                this.throwAlert('error','Error: '+error.status,'  Error al insertar los registros',error.status);
                 this.resultSave = false;
      });    
         } catch (error) {
-            this.throwAlert("error","Error al cargar los registros",error,error.status);
+            this.throwAlert('error','Error al cargar los registros',error,error.status);
         }
         return this.resultSave;
     }
@@ -183,11 +183,11 @@ export class MedicoComponent implements OnInit {
             error => { // error path
                 console.log(error.message);
                 console.log(error.status);
-                this.throwAlert("error","Error: "+error.status,  "Error al cargar los registros",error.status);
+                this.throwAlert('error','Error: '+error.status,  'Error al cargar los registros',error.status);
                 this.resultSave = false;
               });    
         } catch (error) {
-            this.throwAlert("error","Error al cargar los registros",error,error.status);
+            this.throwAlert('error','Error al cargar los registros',error,error.status);
         }
         return this.resultSave;
             
@@ -200,7 +200,7 @@ export class MedicoComponent implements OnInit {
         }
     
         imprimirRenglon(){
-          //  this.throwAlert("success","Se creo el registro con éxito","");
+          //  this.throwAlert('success','Se creo el registro con éxito','');
         }
     
     
@@ -219,7 +219,7 @@ export class MedicoComponent implements OnInit {
                     columnStyles: {text: {columnWidth: 'auto'}}
                 }
                 );
-            doc.save("table.pdf");    
+            doc.save('table.pdf');    
         }
     
        
@@ -227,7 +227,7 @@ export class MedicoComponent implements OnInit {
         throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string){
             let tipoerror:string;
     
-            if(estado== "success"){
+            if(estado== 'success'){
                 swal({
                     type: 'success',
                     title: 'Exito',
@@ -235,8 +235,8 @@ export class MedicoComponent implements OnInit {
                   })
             }
     
-            if(errorNumero =="422"){
-              mensaje ="Los datos que esta tratando de guardar son iguales a los que ya poseia";
+            if(errorNumero =='422'){
+              mensaje ='Los datos que esta tratando de guardar son iguales a los que ya poseia';
               swal({   
                   type: 'warning',
                   title: 'Atención..',
@@ -245,33 +245,33 @@ export class MedicoComponent implements OnInit {
                 })
           }
             
-            if((estado== "error")&&(errorNumero!="422")){
-              if(errorNumero =="422"){
-                  mensaje ="Los datos que esta tratando de guardar son iguales a los que ya poseia";
+            if((estado== 'error')&&(errorNumero!='422')){
+              if(errorNumero =='422'){
+                  mensaje ='Los datos que esta tratando de guardar son iguales a los que ya poseia';
               }
-              if(errorNumero =="400 "){
-                  mensaje ="Bad Request ";
+              if(errorNumero =='400 '){
+                  mensaje ='Bad Request ';
               }
-              if(errorNumero =="404"){
-                  mensaje ="No encontrado ";
+              if(errorNumero =='404'){
+                  mensaje ='No encontrado ';
               }
-              if(errorNumero =="401"){
-                  mensaje ="Sin autorización";
+              if(errorNumero =='401'){
+                  mensaje ='Sin autorización';
               }
-              if(errorNumero =="403"){
-                  mensaje =" Prohibido : La consulta fue valida, pero el servidor rechazo la accion. El usuario puede no tener los permisos necesarios, o necesite una cuenta para operar ";
+              if(errorNumero =='403'){
+                  mensaje =' Prohibido : La consulta fue valida, pero el servidor rechazo la accion. El usuario puede no tener los permisos necesarios, o necesite una cuenta para operar ';
               }
-              if(errorNumero =="405"){
-                  mensaje ="Método no permitido";
+              if(errorNumero =='405'){
+                  mensaje ='Método no permitido';
               }
-              if(errorNumero =="500"){
-                  mensaje ="Error interno en el servidor";
+              if(errorNumero =='500'){
+                  mensaje ='Error interno en el servidor';
               }
-              if(errorNumero =="503"){
-                  mensaje ="Servidor no disponible";
+              if(errorNumero =='503'){
+                  mensaje ='Servidor no disponible';
               }
-              if(errorNumero =="502"){
-                  mensaje ="Bad gateway";
+              if(errorNumero =='502'){
+                  mensaje ='Bad gateway';
               }
               
                 swal({   

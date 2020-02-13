@@ -21,6 +21,7 @@ import { Subscription } from 'rxjs';
 import { DocumentService } from './../../../../services/document-service.service';
 import { PopupOperacionCobroDetalleComponent } from '../../../../shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component';
 import { Liquidacion } from '../../../../models/liquidacion.model';
+import { PopupPacienteEsperaComponent } from './../../../../shared/components/popups/popup-paciente-espera/popup-paciente-espera.component';
 
 @Component({
   selector: 'app-agenda-atencion-medico',
@@ -61,7 +62,8 @@ export class AgendaAtencionMedicoComponent implements OnInit {
   documents: Observable<string[]>;
   currentDoc: string;
   private _docSub: Subscription;
-
+  derivados:number = 0;
+  asesoramiento:number = 0;
   motivo:string;
   message: string;
 
@@ -193,6 +195,45 @@ liquidacion = new Liquidacion(agendaTurno['operacion_cobro_id'],'','','','','','
 }
   
 
+verListadoEspera(){
+  let data:any; 
+  data = this.popItemAgenda;  
+  const ref = this.dialogService.open(PopupPacienteEsperaComponent, {
+  data,
+   header: 'Listado de pacientes en espera', 
+   width: '98%',
+   height: '80%'
+  });
+
+  ref.onClose.subscribe((PopupPacienteConsultaComponent:Paciente) => {
+      if (PopupPacienteEsperaComponent) {
+        this.loadListByMedico();
+      }
+  });
+}
+
+
+
+sumarPresente(){  
+  this.derivados = 0;
+  this.asesoramiento = 0;
+  let i:number;
+  this.agendaTurnos = this.agendaTurno;
+  if(this.agendaTurnos){
+  for(i=0;i<this.agendaTurnos.length;i++){
+
+
+    if((this.agendaTurnos[i]['presente'] !== null ) &&(this.agendaTurnos[i]['estado'] !== 'DERIVADO' ) && (this.agendaTurno[i]['llegada'] !== '2099-12-31 00:00:00' )){
+      this.derivados = this.derivados+1;
+    }
+
+    if((this.agendaTurnos[i]['presente'] !== null ) &&(this.agendaTurnos[i]['estado'] !== 'ASESORAMIENTO' ) && (this.agendaTurno[i]['llegada'] !== '2099-12-31 00:00:00' )){
+      this.asesoramiento = this.asesoramiento+1;
+    }
+  }
+}
+  
+}
 
 colorEsSobreturno(sobreturno:string, estado:string){
 
@@ -304,9 +345,44 @@ ActualizarTurnoLlamando(){
 }
 
   pacienteDerivado(event:AgendaTurno){
-    // console.log(event);
+     console.log(event);
      this.popItemAgenda = event;              
-     this.popItemAgenda.agenda_estado_id = '11';
+     this.selectedagendaTurno.agenda_estado_id = '11';  
+  this.es = calendarioIdioma;
+  this.loading = true;
+
+  console.log(this.selectedagendaTurno);  
+  try {
+      this.miServico.pacienteDerivado(this.selectedagendaTurno, this.selectedagendaTurno.agenda_dia_horario_atencion_id)
+      .subscribe(resp => {
+     // this.agendaTurno = resp;
+          console.log(resp);    
+          this.loading = false;
+          this.loadListByMedico(); 
+      },
+      error => { // error path
+          console.log(error.message);
+          console.log(error.status);
+          console.log(error);
+          swal({
+            toast: false,
+            type: 'warning',
+            title: error.status,
+            text: error.message,
+            showConfirmButton: false,
+            timer: 2000
+          });
+       });    
+  } catch (error) {  
+  }  
+   }
+
+
+   
+  pacienteDerivadoAsesoramiento(event:AgendaTurno){
+     console.log(event);
+     this.popItemAgenda = event;              
+     this.selectedagendaTurno.agenda_estado_id = '12';
      console.log(this.popItemAgenda);
 
     
@@ -316,7 +392,7 @@ ActualizarTurnoLlamando(){
 
   console.log(this.popItemAgenda);  
   try {
-      this.miServico.pacienteDerivado(this.popItemAgenda, this.popItemAgenda.agenda_dia_horario_atencion_id)
+      this.miServico.pacienteDerivado(this.selectedagendaTurno, this.selectedagendaTurno.agenda_dia_horario_atencion_id)
       .subscribe(resp => {
      // this.agendaTurno = resp;
           console.log(resp);    
@@ -441,6 +517,7 @@ if(this._fechaHoy!=''){
       if (resp[0]) {
           this.agendaTurno = resp;
           console.log(this.agendaTurno);
+          this.sumarPresente();
             }else{
               this.agendaTurno =null;
             }    
@@ -606,6 +683,11 @@ colorRow(estado:string){
 
   if(estado == 'DERIVADO') {
     return {'es-turno'  :'null' };
+  }
+
+  
+  if(estado == 'ASESORAMIENTO') {
+    return {'es-asesoramiento'  :'null' };
   }
 
   if(estado == 'CANCELADO') {  

@@ -95,6 +95,7 @@ export class OperacionCobroDetalleComponent implements OnInit {
       {label: '2',value: 2},
       {label: '3',value:3},
       {label: '4',value:4},
+      {label: '5',value:5},
       
   ];
 
@@ -124,7 +125,8 @@ export class OperacionCobroDetalleComponent implements OnInit {
             {title: 'Orden', dataKey: 'operacion_cobro_numero_bono'},
             {title: 'Apellido', dataKey: 'apellido'},
             {title: 'Nombre', dataKey: 'nombre'},
-            {title: 'DNI', dataKey: 'dni'},
+            //{title: 'DNI', dataKey: 'dni'},
+            {title: 'Médico', dataKey: 'medico_nombre'},
             {title: 'Obra social', dataKey: 'obra_social_nombre'},
             {title: 'Código', dataKey: 'codigo'},
             {title: 'Descripción', dataKey: 'descripcion'},
@@ -132,7 +134,7 @@ export class OperacionCobroDetalleComponent implements OnInit {
             {title: 'Cant', dataKey: 'cantidad'},
             {title: 'Valor', dataKey: 'valor_facturado'},
             {title: 'Dist', dataKey: 'distribucion'},
-            {title: 'Medio', dataKey: 'forma_pago'},
+            {title: 'Medio pago', dataKey: 'forma_pago'},
             {title: 'Usuario', dataKey: 'usuario_cobro_nombre'}
             
             
@@ -142,6 +144,8 @@ export class OperacionCobroDetalleComponent implements OnInit {
           { label: '1', value: '1' },
           { label: '2', value: '2' },
           { label: '3', value: '3' },
+          { label: '4', value: '4' },
+          { label: '5', value: '5' },
          
       ];
 

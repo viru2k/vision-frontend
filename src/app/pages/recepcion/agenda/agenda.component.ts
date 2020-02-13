@@ -395,7 +395,7 @@ async editarRegistro(cond:string,selecteditems:AgendaTurno){
             let i:number = 0;
             let resultado = resp;
             resultado.forEach(element => {
-              resp[i]['telefono_cel'] =  resp[i]['telefono_cel']+' / '+resp[i]['telefono_fijo'];
+              resp[i]['telefono_fijo'] =  resp[i]['telefono_cel']+' / '+resp[i]['telefono_fijo'];
               resp[i]['edad'] =String((new Date()).getFullYear() - (new Date(resp[i]['paciente_fecha_nacimiento'])).getFullYear());
               i++;
             });

@@ -101,6 +101,11 @@ getItembyDni(dni:string){
     return this.http.get<AgendaTurno[]>(this.url_agenda+"horarios/turno/presente?fecha_turno="+agendaTurno.fecha_turno+"&agenda_estado_id="+agendaTurno.agenda_estado_id+"&usuario_id="+agendaTurno.usuario_id);
   }
 
+  getAgendaAtencionOtrosEstados(agendaTurno:AgendaTurno){
+    console.log(this.url_agenda+"horarios/turno/otrosestados?fecha_turno="+agendaTurno.fecha_turno+"&agenda_estado_id="+agendaTurno.agenda_estado_id+"&usuario_id="+agendaTurno.usuario_id);
+    return this.http.get<AgendaTurno[]>(this.url_agenda+"horarios/turno/otrosestados?fecha_turno="+agendaTurno.fecha_turno+"&agenda_estado_id="+agendaTurno.agenda_estado_id+"&usuario_id="+agendaTurno.usuario_id);
+  }
+
   getHorarioTurno(agendaTurno:AgendaTurno){
     return this.http.get<AgendaTurno[]>(this.url_agenda+"horarios/turno?fecha_turno="+agendaTurno.fecha_turno+"&agenda_estado_id="+agendaTurno.agenda_estado_id+"&usuario_id="+agendaTurno.usuario_id);
   }

@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/api';
-
+import { DynamicDialogConfig, DynamicDialogRef, MessageService, DialogService } from 'primeng/api';
+import { formatDate, CurrencyPipe, DecimalPipe } from '@angular/common';
+import { LiquidacionService } from './../../../../services/liquidacion.service';
+import { Liquidacion } from './../../../../models/liquidacion.model';
+import { PopupOperacionCobroDetalleComponent } from './../popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component';
 @Component({
   selector: 'app-popup-operacion-cobro-distribucion-detalle',
   templateUrl: './popup-operacion-cobro-distribucion-detalle.component.html',
-  styleUrls: ['./popup-operacion-cobro-distribucion-detalle.component.css']
+  styleUrls: ['./popup-operacion-cobro-distribucion-detalle.component.css'],
+  providers: [MessageService,DialogService]
 })
 export class PopupOperacionCobroDistribucionDetalleComponent implements OnInit {
   cols: any[];
@@ -15,25 +19,31 @@ export class PopupOperacionCobroDistribucionDetalleComponent implements OnInit {
   TOTAL_CLINICA:number = 0;
   TOTAL:number = 0;
   elementosFiltrados:any[] = null;
+  selecteditems:any[] = [];
 
-  constructor( public ref: DynamicDialogRef, public config: DynamicDialogConfig) { 
+  constructor( public ref: DynamicDialogRef, public config: DynamicDialogConfig, private liquidacionService:LiquidacionService, private messageService: MessageService ,public dialogService: DialogService) { 
 
     this.cols = [    
+      { field: 'operacion_cobro_id', header: 'O.C', width: '8%'} ,
+      { field: 'paciente_apellido', header: 'Paciente', width: '15%'} ,
+      { field: 'dni', header: 'DNI', width: '8%'} ,
+      { field: 'fecha_cobro', header: 'Fecha', width: '10%'} ,
+
       { field: 'medico_opera', header: 'Médico opera', width: '15%'} ,  
       { field: 'medico_opera_valor', header: 'Médico opera $', width: '10%'} ,
-      { field: 'medico_opera_porcentaje', header: 'Médico opera %' , width: '8%'} ,
+      { field: 'medico_opera_porcentaje', header: 'Médico opera %' , width: '6%'} ,
 
       { field: 'medico_ayuda', header: 'Médico ayuda' , width: '15%'} ,
       { field: 'medico_ayuda_valor', header: 'Médico ayuda $' , width: '10%'} ,
-      { field: 'medico_ayuda_porcentaje', header: 'Médico ayuda %',  width: '8%' },
+      { field: 'medico_ayuda_porcentaje', header: 'Médico ayuda %',  width: '6%' },
 
       { field: 'medico_ayuda2', header: 'Médico ayuda 2' , width: '15%'} ,
       { field: 'medico_ayuda2_valor', header: 'Médico ayuda 2 $',  width: '10%' },
-      {field: 'medico_ayuda2_porcentaje', header: 'Médico ayuda 2 %' , width: '8%' },
+      {field: 'medico_ayuda2_porcentaje', header: 'Médico ayuda 2 %' , width: '6%' },
 
       { field: 'medico_clinica', header: 'Clínica ',  width: '15%' },
       { field: 'medico_clinica_valor', header: 'Clínica $',  width: '10%' },
-      { field: 'medico_clinica_porcentaje', header: 'Clínica %',  width: '8%' },
+      { field: 'medico_clinica_porcentaje', header: 'Clínica %',  width: '6%' },
       { field: 'valor_distribuido', header: 'Total',  width: '10%' },
    ];     
   }
@@ -71,4 +81,31 @@ sumarValores(vals:any){
   }
 
 }
+
+
+verDetalle(agendaTurno:any){
+
+  console.log(agendaTurno);
+  let liquidacion:Liquidacion;
+  liquidacion = new Liquidacion(agendaTurno['operacion_cobro_id'],'','','','','','',0,0,'','',[],'','','',0);
+  let data:any; 
+  data = liquidacion;
+  const ref = this.dialogService.open(PopupOperacionCobroDetalleComponent, {
+  data,
+   header: 'Ver detalle de presentación', 
+   width: '98%',
+   height: '100%'
+  });
+  
+  ref.onClose.subscribe((PopupOperacionCobroDetalleComponent:any) => {
+     
+  });
+  
+  }
+
+public exportarExcel(){
+  const fecha_impresion = formatDate(new Date(), 'dd-MM-yyyy-mm', 'es-Ar');  
+  this.liquidacionService.exportAsExcelFile(  this.selecteditems, 'listado_presentacion'+fecha_impresion);
+}
+
 }

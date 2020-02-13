@@ -1,7 +1,18 @@
 
-  <p-table  #dt class="pt-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  columnResizeMode="expand" [responsive]="true"
+  <p-table  #dt class="pt-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  columnResizeMode="expand" [responsive]="true" [(selection)]="selecteditems"
   scrollHeight="600px" [scrollable]="true"  (onFilter)="filtered($event)"  >
- 
+  <ng-template pTemplate="caption">
+    <div class="row">
+            <div class="col-md-12 row" style="text-align:left ">             
+             <div class="pr-2 pl-2">   <button    class="btn  btn-info btn-sm   "  (click)="generarPdfListado('todos')" >Imprimir resumen</button></div>
+             <div>  <button    class="ml-2  btn  btn-excel btn-sm float-right "  (click)="exportarExcel()" > <i class="fa fa-file-excel-o  mr-1" aria-hidden="true"> </i> Exportar a excel</button></div> 
+               
+             <hr width="1" size="50">
+         
+            </div>
+
+ </div>
+</ng-template>
 
              <ng-template pTemplate="header" let-columns >
             
@@ -40,21 +51,26 @@
                 <!--   <td style="width: 6%" >                   
                       <a  class="my-hover" (click)="verDetalle(elementos)"    ><i class="far fa-edit fa-2x icon-color-purple"></i></a>                   
                   </td> -->
+                  <td style="width: 8%"><a class="my-hover" (click)="verDetalle(elementos)">{{elementos.operacion_cobro_id}}</a></td>                     
+                  <td style="width: 15%">{{elementos.paciente_apellido}}</td>
+                  <td style="width: 8%">{{elementos.dni}}</td>
+                  <td style="width: 10%">{{elementos.fecha_cobro | date :'dd/MM/yyyy'}}</td>
+
                   <td style="width: 15%">{{elementos.medico_opera}}</td>
                   <td style="width: 10%">{{elementos.medico_opera_valor}}</td>
-                  <td style="width: 8%">{{elementos.medico_opera_porcentaje}}</td>
+                  <td style="width: 6%">{{elementos.medico_opera_porcentaje}}</td>
 
                   <td style="width: 15%">{{elementos.medico_ayuda}}</td>
                   <td style="width: 10%">{{elementos.medico_ayuda_valor}}</td>
-                  <td style="width: 8%">{{elementos.medico_ayuda_porcentaje}}</td>
+                  <td style="width: 6%">{{elementos.medico_ayuda_porcentaje}}</td>
 
                   <td style="width: 15%">{{elementos.medico_ayuda2}}</td>                                                    
                   <td style="width: 10%">{{elementos.medico_ayuda2_valor}}</td>                            
-                  <td style="width: 8%">{{elementos.medico_ayuda2_porcentaje}}</td>  
+                  <td style="width: 6%">{{elementos.medico_ayuda2_porcentaje}}</td>  
 
                   <td style="width: 15%">{{elementos.medico_clinica}}</td>                                
                   <td style="width: 10%">{{elementos.medico_clinica_valor}}</td>      
-                  <td style="width: 8%">{{elementos.medico_clinica_porcentaje}}</td>   
+                  <td style="width: 6%">{{elementos.medico_clinica_porcentaje}}</td>   
                   <td style="width: 10%">{{elementos.valor_distribuido}}</td>   
                   <td style="width: 3em">
                           <p-tableCheckbox [value]="elementos"></p-tableCheckbox>

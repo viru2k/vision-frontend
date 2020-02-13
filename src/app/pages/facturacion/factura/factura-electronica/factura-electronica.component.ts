@@ -52,6 +52,7 @@ export class FacturaElectronicaComponent implements OnInit {
   factura_numero:string = '0';
   factura_numero_ceros:string = '0';
   nrodocumento:string = '0';
+  obrasocial:string = '';
   cliente:string = '';
   CAE:string;
   CAE_vto:string;
@@ -70,7 +71,9 @@ export class FacturaElectronicaComponent implements OnInit {
   subtotal_excento:number = 0;
   subtotal_iva:number = 0;
   total:number = 0;
-
+  userData;
+  medico_id:string; 
+  peticion:string;
   constructor(private facturacionService: FacturacionService, public dialogService: DialogService,private messageService: MessageService, private cp: CurrencyPipe ) { 
 
     this.cols = [
@@ -99,7 +102,7 @@ export class FacturaElectronicaComponent implements OnInit {
     this.fecha = new Date();
     this.fechaDesde = new Date();
     this.fechaHasta = new Date();
-    
+    this.userData  = JSON.parse(localStorage.getItem('userData'));
    this.getMedicosFacturan();
    
     
@@ -136,15 +139,20 @@ export class FacturaElectronicaComponent implements OnInit {
   }
 
   TipoComprobantesDisponibles(){
-
+    this.loading = true;
+    this.peticion = 'Cargando comprobante';
     try {
-      this.facturacionService.TipoComprobantesDisponibles('24')
+      this.facturacionService.TipoComprobantesDisponibles(this.medico_id)
       .subscribe(resp => {      
           this.elementos = resp;        
           this.loading = false;
           console.log(resp);
+          this.loading = false;
+          this.peticion = '';
       },
       error => { // error path
+        this.loading = false;
+        this.peticion = '';
           console.log(error.message);
           console.log(error.status);
           swal({
@@ -162,15 +170,20 @@ export class FacturaElectronicaComponent implements OnInit {
   }
 
   TipoConceptosDisponibles(){
-
+    this.loading = true;
+    this.peticion = 'Cargando conceptos';
     try {
-      this.facturacionService.TipoConceptosDisponibles('24')
+      this.facturacionService.TipoConceptosDisponibles(this.medico_id)
       .subscribe(resp => {      
+        this.loading = false;
           this.elementos = resp;
           this.loading = false;
+          this.peticion = '';
           console.log(resp);
       },
       error => { // error path
+        this.loading = false;
+        this.peticion = '';
           console.log(error.message);
           console.log(error.status);
           swal({
@@ -188,15 +201,20 @@ export class FacturaElectronicaComponent implements OnInit {
   }
 
   TipoDocumentosDisponibles(){
-
+    this.loading = true;
+    this.peticion = 'Cargando documentos';
     try {
-      this.facturacionService.TipoDocumentosDisponibles('24')
+      this.facturacionService.TipoDocumentosDisponibles(this.medico_id)
       .subscribe(resp => {      
+        
           this.elementos = resp;
           this.loading = false;
+          this.peticion = '';
           console.log(resp);
       },
       error => { // error path
+        this.loading = false;
+        this.peticion = '';
           console.log(error.message);
           console.log(error.status);
           swal({
@@ -214,16 +232,20 @@ export class FacturaElectronicaComponent implements OnInit {
   }
 
   Alicuota(){
-
+    this.loading = true;
+    this.peticion = 'Cargando alícuota';
     try {
       this.facturacionService.Alicuota()
       .subscribe(resp => {      
           this.elementosAlicuota = resp;
           this.loading = false;
+          this.peticion = '';
           console.log( this.elementosAlicuota);
           
       },
       error => { // error path
+        this.loading = false;
+        this.peticion = '';
           console.log(error.message);
           console.log(error.status);
           swal({
@@ -243,15 +265,18 @@ export class FacturaElectronicaComponent implements OnInit {
 
   
   getMedicosFacturan(){
-
+    this.loading = true;
+    this.peticion = 'Cargando médicos';
     try {
       this.facturacionService.getMedicosFacturan()
       .subscribe(resp => {      
           this.elementosMedicos = resp;
           this.loading = false;
+          this.peticion = '';
           console.log( this.elementosMedicos);
           this.elementoMedicos = this.elementosMedicos['0'];
-
+          console.log(this.elementoMedicos['id']);
+        this.medico_id = this.elementoMedicos['id'];
           // UNA VEZ QUE TENGO EL DATO DEL MEDICO PROCEDO A BUSCAR TODOS LOS DEMAS CAMPOS
 
           this.Alicuota();
@@ -261,6 +286,8 @@ export class FacturaElectronicaComponent implements OnInit {
           this.CategoriaIva();
       },
       error => { // error path
+        this.loading = false;
+        this.peticion = '';
           console.log(error.message);
           console.log(error.status);
           swal({
@@ -279,13 +306,15 @@ export class FacturaElectronicaComponent implements OnInit {
 
   
   Comprobante(){
-
+    this.loading = true;
+    this.peticion = 'Cargando comprobantes';
     try {
       this.facturacionService.Comprobante()
       .subscribe(resp => {      
           this.elementosComprobante = resp;
          
           this.loading = false;
+          this.peticion = '';
           console.log( this.elementosComprobante);
           //this.elementoComprobante = this.elementosComprobante[3];
           this.elementoComprobante =  this.elementosComprobante.find(x => x.id == this.elementoMedicos['factura_comprobante_id']);
@@ -294,6 +323,8 @@ export class FacturaElectronicaComponent implements OnInit {
           }
       },
       error => { // error path
+        this.loading = false;
+        this.peticion = '';
           console.log(error.message);
           console.log(error.status);
           swal({
@@ -312,16 +343,20 @@ export class FacturaElectronicaComponent implements OnInit {
 
   
   Concepto(){
-
+    this.loading = true;
+    this.peticion = 'Cargando concepto';
     try {
       this.facturacionService.Concepto()
       .subscribe(resp => {      
           this.elementosConcepto = resp;
           this.loading = false;
+          this.peticion = '';
           console.log(this.elementosConcepto);
           this.elementoConcepto = this.elementosConcepto[2];
       },
       error => { // error path
+        this.loading = false;
+        this.peticion = '';
           console.log(error.message);
           console.log(error.status);
           swal({
@@ -340,17 +375,21 @@ export class FacturaElectronicaComponent implements OnInit {
 
   
   Documento(){
-
+    this.loading = true;
+    this.peticion = 'Cargando documento';
     try {
       this.facturacionService.Documento()
       .subscribe(resp => {      
           this.elementosDocumento = resp;
           this.loading = false;
+          this.peticion = '';
           console.log(  this.elementosDocumento);
          //  this.elementoDocumento = this.elementosDocumento[7];
            this.elementoDocumento =  this.elementosDocumento.find(x => x.id == this.elementoMedicos['factura_documento_comprador_id']);
       },
       error => { // error path
+        this.loading = false;
+        this.peticion = '';
           console.log(error.message);
           console.log(error.status);
           swal({
@@ -369,7 +408,8 @@ export class FacturaElectronicaComponent implements OnInit {
 
   
   PtoVta(){
-
+    this.loading = true;
+    this.peticion = 'Cargando punto de venta';
     try {
       this.facturacionService.PtoVta()
       .subscribe(resp => {      
@@ -386,10 +426,13 @@ export class FacturaElectronicaComponent implements OnInit {
           this.elementoPtoVta =  this.elementosPtoVta.find(x => x.id == this.elementoMedicos['factura_punto_vta_id']);
           this.pto_vta =  this.elementoPtoVta['punto_vta'];
           this.loading = false;
+          this.peticion = '';
           console.log(this.elementosPtoVta);
           this.Comprobante();
       },
       error => { // error path
+        this.loading = false;
+        this.peticion = '';
           console.log(error.message);
           console.log(error.status);
           swal({
@@ -409,7 +452,8 @@ export class FacturaElectronicaComponent implements OnInit {
 
   
   CategoriaIva(){
-
+    this.loading = true;
+    this.peticion = 'Cargando categoria';
     try {
       this.facturacionService.CategoriaIva()
       .subscribe(resp => {      
@@ -417,9 +461,12 @@ export class FacturaElectronicaComponent implements OnInit {
         
           this.elementoCondicionIva = this.elementosCondicionIva[4];
           this.loading = false;
+          this.peticion = '';
           console.log(resp);
       },
       error => { // error path
+        this.loading = false;
+        this.peticion = '';
           console.log(error.message);
           console.log(error.status);
           swal({
@@ -454,7 +501,7 @@ guardarDatos(){
   let facturaElectronica = new FacturaElectronica('0', this.pto_vta, this.elementoComprobante['id'], this.elementoConcepto['id'],
   this.elementoDocumento['id'],this.nrodocumento,
   this.cliente,this.factura_numero, this._fecha, this._fechaDesde, this._fechaHasta,
-  (Math.round(this.subtotal * 100) / 100), this.subtotal_excento,(Math.round(this.subtotal_iva * 100) / 100),(Math.round(this.total * 100) / 100) ,this.facturaAlicuotaAsociada,this.elementos, '','', this.elementoMedicos['id']);
+  (Math.round(this.subtotal * 100) / 100), this.subtotal_excento,(Math.round(this.subtotal_iva * 100) / 100),(Math.round(this.total * 100) / 100) ,this.facturaAlicuotaAsociada,this.elementos, '','', this.elementoMedicos['id'], this.obrasocial);
    console.log(facturaElectronica);
   
   
@@ -506,10 +553,13 @@ guardarDatos(){
 
 
 CrearFactura(facturaElectronica){
+  this.loading = true;
+  this.peticion = 'Creando factura';
   try {
     this.facturacionService.crearFactura(facturaElectronica)
     .subscribe(resp => {             
         this.loading = false;
+        this.peticion = '';
         this.CAE = resp[0]['cae'];
         this.CAE_vto = resp[0]['cae_vto'];
         this.factura_nro =  this.padLeft(String(resp[0]['factura_numero']),'0',8);
@@ -527,6 +577,8 @@ CrearFactura(facturaElectronica){
      //   this.generarPDF();
     },
     error => { // error path
+      this.loading = false;
+      this.peticion = '';
         console.log(error);
         console.log(error.message);
         swal({
@@ -542,6 +594,11 @@ CrearFactura(facturaElectronica){
 }
 }
 
+obtenerMedico(){
+  console.log(this.elementoMedicos)
+  this.medico_id = this.elementoMedicos['id'];
+}
+
 obtenerPuntoVta(){
   this.pto_vta = this.padLeft(this.elementoPtoVta['punto_vta'], '0', 4); 
   console.log(this.pto_vta);
@@ -554,30 +611,32 @@ onElementoDocumento(){
 }
 
 obtenerUltimaFactura(){
-  
+  this.loading = true;
+  this.peticion = 'Obteniendo ultima factura y punto de venta';
    console.log(this.elementoComprobante);
   try {
-    this.loadingspinner = true;
-    this.facturacionService.GetLastVoucher(this.pto_vta,this.elementoComprobante['id'],'24')
+    
+    this.facturacionService.GetLastVoucher(this.pto_vta,this.elementoComprobante['id'],this.medico_id)
     .subscribe(resp => {      
    
-      this.loadingspinner = false;
-        
+      this.loading = false;
+      this.peticion = '';
         resp = resp+1;
         console.log(  resp);
         this.factura_numero = String(resp);
         this.factura_numero_ceros =this.padLeft(String(resp),'0',8);
     },
     error => { // error path
-        console.log(error.message);
+      this.loading = false;
+      this.peticion = '';
+        console.log(error);
         console.log(error.status);
         swal({
           toast: false,
           type: 'error',
-          text: error.message,
-          title: 'error.status',
-          showConfirmButton: false,
-          timer: 2000
+          text: error,
+          title: 'Algo no esta bien....',
+          showConfirmButton: true,          
         });
      });    
 } catch (error) {

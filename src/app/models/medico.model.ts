@@ -21,6 +21,9 @@ export class Medico {
     public factura_documento_comprador_id:string;
     public punto_vta_id:string; 
     public factura_comprobante_id:string; 
+    public fecha_alta_afip:string; 
+    public factura_key:string; 
+    public factura_crt:string; 
 
     constructor(
          apellido:string,
@@ -41,6 +44,9 @@ export class Medico {
          factura_documento_comprador_id:string,
          punto_vta_id:string,
          factura_comprobante_id:string,
+         fecha_alta_afip:string,
+         factura_key:string, 
+         factura_crt:string
     ) {
         
        
@@ -62,5 +68,8 @@ export class Medico {
         this.factura_documento_comprador_id = factura_documento_comprador_id ;
         this.punto_vta_id = punto_vta_id ;
         this.factura_comprobante_id = factura_comprobante_id ;
+        this.fecha_alta_afip = fecha_alta_afip;
+        this.factura_key = factura_key;
+        this.factura_crt = factura_crt;
     }
 }

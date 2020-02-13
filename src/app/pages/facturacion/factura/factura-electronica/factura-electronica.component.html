@@ -1,6 +1,11 @@
+<div  class="flex-container center m-3">
+  <p-progressSpinner *ngIf="loading" [style]="{width: '32px', height: '32px'}" strokeWidth="6" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+  <label class="ml-2">{{peticion}}</label>
+</div>
+
 <div class="row ml-5 mr-5 mt-3">
     <label class=" mr-2 mt-1">Médico - Clínica:</label>
-    <p-dropdown class="mr-2 "  [options]="elementosMedicos" [(ngModel)]="elementoMedicos"  optionLabel="nombreyapellido" placeholder="Medico / Clínica"></p-dropdown>  
+    <p-dropdown class="mr-2 "  [options]="elementosMedicos" [(ngModel)]="elementoMedicos"  optionLabel="nombreyapellido"  (onHide)="obtenerMedico()" placeholder="Medico / Clínica"></p-dropdown>  
   <label *ngIf="elementoMedicos" class=" mr-2 mt-1">Condición : {{elementoMedicos.categoria_iva}}</label>
 
   <label class=" ml-2 mr-2 mt-1">Fecha :</label>
@@ -19,8 +24,8 @@
 <div class="col-7">
   <div><label class="mr-1">Factura : </label> 
   <p-dropdown class="mr-3" [options]="elementosComprobante" [(ngModel)]="elementoComprobante" (onHide)="obtenerUltimaFactura()" optionLabel="descripcion" placeholder="Factura"></p-dropdown>
-  <p-progressSpinner class="mr-2 mt-2" *ngIf="loadingspinner" [style]="{width: '24px', height: '24px'}" strokeWidth="6" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
-  <b><label class="text-info">Nº : {{pto_vta}}</label></b>
+
+  
   
   <p-dropdown class="ml-3" [options]="elementosConcepto" [(ngModel)]="elementoConcepto"  optionLabel="descripcion" placeholder="Concepto"></p-dropdown>
   
@@ -40,6 +45,8 @@
 
 <hr>
 <div class="row ml-5 mr-5 mt-3">
+  <label class="mr-1 ml-2 mt-1">Obra social :</label> 
+  <input type="text" class="form-control col-2 form-control-md mr-2" [(ngModel)]="obrasocial">
   <label class=" mr-2 mt-1">Período desde :</label>
   <p-calendar  [inputStyle]="{'height':'35.1px'}"    class="mr-2 " [(ngModel)]="fechaDesde"  (onSelect)="actualizarFechaDesde($event)" tabindex="0"   [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
     <ng-template pTemplate="date" let-date>

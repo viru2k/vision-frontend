@@ -98,6 +98,7 @@ export class OperacionCobroAfectarComponent implements OnInit {
       {label: '2',value: 2},
       {label: '3',value:3},
       {label: '4',value:4},
+      {label: '5',value: 5}
       
   ];
           this.cols = [
@@ -811,7 +812,7 @@ generarPdfListado(filtro:string) {
 
   doc.line(10, 33, pageWidth - 10, 33);
   doc.setFontSize(12);
-  doc.text('LISTADO DE ORDENES', pageWidth/2, 15, null, null, 'center');
+  doc.text('LISTADO DE ORDENES A AFECTAR', pageWidth/2, 15, null, null, 'center');
   doc.setFontSize(6);
   doc.text('Emitido : '+_fechaEmision, pageWidth/2, 20, null, null, 'center');
   doc.setFontSize(8);
