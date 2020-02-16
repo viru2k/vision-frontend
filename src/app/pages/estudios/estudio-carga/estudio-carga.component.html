@@ -94,12 +94,12 @@
 
 <label>Cargar estudio</label>
 
-<p-fileUpload name="images[]" url=" {{url}}api/multiuploads/estudios" (onUpload)="onUpload($event)"
+<p-fileUpload name="images[]" url=" {{url}}api/multiuploads/estudios" (onUpload)="onUpload($event)" chooseLabel="Seleccionar archivo"  uploadLabel="Subir"	cancelLabel="Cancelar"
         multiple="multiple" accept="image/*" >
     
 </p-fileUpload>
 <label>Cargar estudio pdf</label>
-<p-fileUpload name="images[]" url=" {{url}}api/multiuploads/estudios" (onUpload)="onUpload($event)"
+<p-fileUpload name="images[]" url=" {{url}}api/multiuploads/estudios" (onUpload)="onUpload($event)" chooseLabel="Seleccionar archivo"  uploadLabel="Subir"	cancelLabel="Cancelar"
         multiple="multiple"  >
     
 </p-fileUpload>
