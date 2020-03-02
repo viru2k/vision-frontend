@@ -162,7 +162,7 @@ export class PopupLiquidacionDetalleComponent implements OnInit {
 
 
   
-  calcularRenglon(result:any){
+  calcularRenglon(){
     //valido  datos antes de calcular
     
     let item:FacturaElectronicaRenglon;

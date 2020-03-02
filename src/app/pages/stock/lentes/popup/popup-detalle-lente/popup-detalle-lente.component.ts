@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert2';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { calendarioIdioma } from './../../../../../../../../psicologos-web/src/app/config/config';
+import { calendarioIdioma } from './../../../../../config/config';
 import { CirugiaService } from '../../../../../services/cirugia.service';
 import { PopupLenteTipoComponent } from '../../../../../shared/components/popups/popup-lente-tipo/popup-lente-tipo.component';
 import { CirugiaLente } from '../../../../../models/cirugia-lente.model';

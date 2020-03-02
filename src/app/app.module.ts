@@ -1,6 +1,6 @@
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
-import { PopupMedicoEditComponent } from './pages/medico/popup-medico-edit/popup-medico-edit.component';
+
 
 import { SwPush } from '@angular/service-worker'
 
@@ -58,7 +58,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { QuirofanoComponent } from './pages/quirofano/quirofano.component';
 import { MedicoComponent } from './pages/medico/medico.component';
-
+import { PopupMedicoEditComponent } from './pages/medico/popup-medico-edit/popup-medico-edit.component';
 
 import { PacienteComponent } from './pages/paciente/paciente.component';
 import {PopupMedicoComponent} from './shared/components/popups/popup-medico/popup-medico.component';
@@ -462,8 +462,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
 
   ],
   providers: [CurrencyPipe,DecimalPipe,NumberToWordsPipe,PacienteService,PushNotificationService,ExcelService,{ provide: LOCALE_ID, useValue: 'es-Ar' },
-  MultiSelectModule,
- // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  MultiSelectModule, 
  {
   provide: HTTP_INTERCEPTORS,
   useFactory: function(injector: Injector) {

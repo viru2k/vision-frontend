@@ -11,7 +11,7 @@ const jsPDF = require('jspdf');
 require('jspdf-autotable');
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { calendarioIdioma } from './../../../../../../../psicologos-web/src/app/config/config';
+import { calendarioIdioma } from './../../../../config/config';
 import { CirugiaService } from './../../../../services/cirugia.service';
 import { CirugiaLente } from 'src/app/models/cirugia-lente.model';
 import { PopupDetalleLenteComponent } from './../popup/popup-detalle-lente/popup-detalle-lente.component';

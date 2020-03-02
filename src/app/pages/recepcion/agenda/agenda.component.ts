@@ -318,7 +318,7 @@ export class AgendaComponent implements OnInit {
     this.elementosFiltrados  = event.filteredValue;
 }
 
-async editarRegistro(cond:string,selecteditems:AgendaTurno){
+async editarRegistro(cond:string){
   this._fechaHoy = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en');
   console.log(cond);
   this.condicion = cond;

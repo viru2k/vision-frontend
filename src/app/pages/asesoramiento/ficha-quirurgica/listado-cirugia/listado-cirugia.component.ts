@@ -10,7 +10,7 @@ const jsPDF = require('jspdf');
 require('jspdf-autotable');
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { calendarioIdioma } from './../../../../../../../psicologos-web/src/app/config/config';
+import { calendarioIdioma } from './../../../../config/config';
 import { CirugiaService } from './../../../../services/cirugia.service';
 import { PopupLentesComponent } from '../../../../shared/components/popups/popup-lentes/popup-lentes.component';
 import { CirugiaLente } from 'src/app/models/cirugia-lente.model';
@@ -310,7 +310,7 @@ anularCirugia(){
   console.log(this.selecteditem);
 }
 
-verLente(selecteditems:any){
+verLente(){
   console.log(this.selecteditem);
   let data:any; 
   data = this.selecteditem;
@@ -334,7 +334,7 @@ verLente(selecteditems:any){
 }
  
 
-verHistoriaClinica(selecteditems){
+verHistoriaClinica(){
  this.loading = true;
  console.log(this.selecteditem);
   try { 
@@ -377,7 +377,7 @@ verHistoriaClinica(selecteditems){
   
 }
 
-nuevoRegistroListado(selecteditems){
+nuevoRegistroListado(){
   this.loading = true;
   console.log(this.selecteditem);
   this.selecteditem['es_nuevo'] = 'SI';
@@ -404,7 +404,7 @@ loadhistoriaClinica(){
 
 }
 
-verAnestesia(selecteditems){
+verAnestesia(){
 
   console.log(this.selecteditem);
   let data:any; 
@@ -425,8 +425,7 @@ verAnestesia(selecteditems){
   });
 }
 
-verMedico(selecteditems){
-  console.log(selecteditems);
+verMedico(){
   let data:any = this.selecteditem; 
   const ref = this.dialogService.open(PopupFichaQuirurgicaMedicoGrupoComponent, {
   data,
@@ -447,8 +446,8 @@ verMedico(selecteditems){
 imprimirListado(){}
 verTodasLasCirugias(){}
 
-verListadoCirugiaAtencion(selecteditems){
-  console.log(selecteditems);
+verListadoCirugiaAtencion(){
+  
   let data:any = this.selecteditem; 
   const ref = this.dialogService.open(PopupDerivarAsesoramientoListadoComponent, {
   data,

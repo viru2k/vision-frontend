@@ -6,7 +6,7 @@ import { formatDate, DatePipe } from '@angular/common';
 import { AgendaTurno } from './../../../../models/agenda-turno.model';
 import { AgendaService } from './../../../../services/agenda.service';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Paciente } from './../../../../models/paciente.model';
 import { calendarioIdioma,logo_clinica } from '../../../../config/config';
@@ -37,7 +37,7 @@ import { PopupPacienteEsperaComponent } from '../../../../shared/components/popu
   styleUrls: ['./agenda-recepcion.component.css'],
   providers: [MessageService,DialogService,DatePipe]
 })
-export class AgendaRecepcionComponent implements OnInit {
+export class AgendaRecepcionComponent implements OnInit , OnDestroy{
 
   display: boolean = false;
   cols: any[];
@@ -85,7 +85,10 @@ export class AgendaRecepcionComponent implements OnInit {
   espera:number = 0;
   ingresado:number = 0;
   atendido:number = 0;
-   timer;
+   timer:any;
+   subscription: any;
+
+   
   constructor(private documentService: DocumentService,private miServico:AgendaService, private messageService: MessageService ,public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router ) {
  
  
@@ -165,16 +168,26 @@ this.documentService
 this.loadList();
 
  this.timer = Observable.timer(60000,180000);//180000 -- 3 minutos inicia y en 3 minutos vuelve a llamar
-this.timer.subscribe(t=> {
+ this.subscription = this.timer.subscribe(t =>{
   console.log('llamando turnos desde timer');
   this.loadList();
-});
+ }
+ 
+ );
+
+/* this.timer.subscribe(t=> {
+  console.log('llamando turnos desde timer');
+  this.loadList();
+}); */
 
 } 
 
 ngOnDestroy() {
  // this.documentService.getMessages().unsubscribe();
-  //this.timer.unsubscribe();
+ this.subscription.unsubscribe();
+  //this.documentService.getMessages().unsus;
+  console.log("destruido");
+  //this.documentService.getMessages().unsubscribe();
 }
 
 

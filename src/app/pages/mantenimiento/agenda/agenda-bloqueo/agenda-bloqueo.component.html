@@ -35,7 +35,7 @@
                         </div>
                       <div class="col-5 float-left">
                           
-                            <p-calendar [ngModel]="fechaHoy"  (onSelect)="actualizarFecha($event)" tabindex="0" [disabledDates]="invalidDates"  [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true"></p-calendar>
+                            <p-calendar [ngModel]="fechaHoy"  (onSelect)="actualizarFecha($event)" tabindex="0"   [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true"></p-calendar>
                       </div>
                       <div class="col-1">
                             <button    class="btn  btn-info btn-md float-left ml-1 pt-1" (click)="loadHorarios()" >Listar horarios</button>  
@@ -68,7 +68,7 @@
         
         
         <div class="col-9">
-          <p-table  #dt class="pt-2" [columns]="colsAgenda" [value]="agendaMedico"   [(selection)]="selectedItemMedico" columnResizeMode="expand" [scrollable]="true" scrollHeight="400px" >
+          <p-table  #dt class="pt-2" [columns]="colsAgenda" [value]="agendaMedico"    columnResizeMode="expand" [scrollable]="true" scrollHeight="400px" >
            
         
             <ng-template pTemplate="header" let-columns >

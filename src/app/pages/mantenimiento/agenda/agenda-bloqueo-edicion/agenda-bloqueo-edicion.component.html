@@ -29,9 +29,9 @@
             <br>
             <h6>HORARIOS BLOQUEADOS</h6>
             <hr>
-          <p-table  #dt class="pt-2 " [columns]="colsAgenda" [value]="agendaMedico"   [(selection)]="selectedItemMedico" columnResizeMode="expand" [scrollable]="true" scrollHeight="300px" >
+          <!-- <p-table  #dt class="pt-2 " [columns]="colsAgenda" [value]="agendaMedico"   [(selection)]="selectedItemMedico" columnResizeMode="expand" [scrollable]="true" scrollHeight="300px" > -->
            
-        
+            <p-table  #dt class="pt-2 " [columns]="colsAgenda" [value]="agendaMedico"    columnResizeMode="expand" [scrollable]="true" scrollHeight="300px" >
             <ng-template pTemplate="header" let-columns >
         
                     <tr>
@@ -53,7 +53,7 @@
             </ng-template>
         
         <ng-template pTemplate="body" let-agendaMedico>
-        <tr [pSelectableRow]="elementos" >
+        <tr [pSelectableRow]="agendaMedico" >
                 <td>{{agendaMedico.dia_nombre}}</td>
                 <td>{{agendaMedico.hora_desde_hasta}}</td>                          
                 <td>{{agendaMedico.fecha | date:'dd/MM/yyyy'}}</td>    
@@ -87,7 +87,7 @@
           </ng-template>
       
       <ng-template pTemplate="body" let-agendaMedico>
-      <tr [pSelectableRow]="elementos" >
+      <tr [pSelectableRow]="agendaMedico" >
               <td>{{agendaMedico.fecha | date:'dd/MM/yyyy'}}</td>                                    
               <td>
                       <button type="button" class="btn btn-danger btn-sm" (click)="confirmarBloqueoAgendaDia(agendaMedico)"    >Desbloquear fecha</button>

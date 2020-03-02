@@ -23,6 +23,8 @@
   
 <div class="col-7">
   <div><label class="mr-1">Factura : </label> 
+    <div><label class="mr-1">{{this.pto_vta}} - {{this.factura_nro}} </label> 
+    
   <p-dropdown class="mr-3" [options]="elementosComprobante" [(ngModel)]="elementoComprobante" (onHide)="obtenerUltimaFactura()" optionLabel="descripcion" placeholder="Factura"></p-dropdown>
 
   
@@ -40,13 +42,14 @@
   <p-dropdown class="mr-2 "  [options]="elementosDocumento" [(ngModel)]="elementoDocumento" (onHide)="onElementoDocumento()"  optionLabel="descripcion" placeholder="Documento"></p-dropdown>
   <input type="text" class="form-control col-2 form-control-md" [(ngModel)]="nrodocumento">
   <label class="mr-1 ml-2 mt-1">Cliente :</label> 
-  <input type="text" class="form-control col-4 form-control-md" [(ngModel)]="cliente" placeholder="Cliente">
+  <input type="text" class="form-control col-3 form-control-md" [(ngModel)]="cliente" placeholder="Cliente">
+  <button class="btn btn-info btn-sm  form-control-md ml-1 pb-1" (click)="buscarPaciente()">Buscar</button>
 </div>
 
 <hr>
 <div class="row ml-5 mr-5 mt-3">
-  <label class="mr-1 ml-2 mt-1">Obra social :</label> 
-  <input type="text" class="form-control col-2 form-control-md mr-2" [(ngModel)]="obrasocial">
+  <label class="mr-1 ml-2 mt-1">Observación :</label>   
+  <input type="text" class="form-control col-4 form-control-md" [(ngModel)]="observacion" placeholder="Observación">
   <label class=" mr-2 mt-1">Período desde :</label>
   <p-calendar  [inputStyle]="{'height':'35.1px'}"    class="mr-2 " [(ngModel)]="fechaDesde"  (onSelect)="actualizarFechaDesde($event)" tabindex="0"   [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
     <ng-template pTemplate="date" let-date>
@@ -68,11 +71,14 @@
 scrollHeight="200px" [scrollable]="true"  >
 <ng-template pTemplate="caption">
   <div class="row">
-          <div class="col-md-12 row" style="text-align:left ">
+          <div class="col-md-11 row" style="text-align:left ">
             <div class="pr-2 pl-2"  style="text-align:left ">    <button    class="btn  btn-success btn-sm float-right mr-2"  (click)="agregarRenglon()" >Agregar renglon</button>  </div>           
             <div class="pr-2 pl-2"  style="text-align:left ">    <button    class="btn  btn-info btn-sm float-right mr-2"  (click)="agregarRenglonOS()" >Presentación a O.S</button>  </div>           
           </div>
-          <a   class=" mr-1   my-hover" (click)="eliminarRegistro()"    ><i class="far fa-trash-alt fa-2x icon-color-red" ></i></a>    
+          <div class=" col-md-1  my-hover" (click)="eliminarRegistro()" style="text-align:right " >
+            <a      ><i class="far fa-trash-alt fa-2x icon-color-red" ></i></a>    
+          </div>
+          
 </div>
 </ng-template>
 

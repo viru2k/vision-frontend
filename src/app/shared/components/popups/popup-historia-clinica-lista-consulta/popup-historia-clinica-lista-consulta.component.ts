@@ -18,7 +18,7 @@ import { Paciente } from '../../../../models/paciente.model';
 export class PopupHistoriaClinicaListaConsultaComponent implements OnInit {
 
   elementos:HistoriaClinica[];
-
+  loading;
   constructor(private miServico:CirugiaService ,public config: DynamicDialogConfig,private messageService: MessageService ,public ref: DynamicDialogRef,public dialogService: DialogService ) { }
 
   ngOnInit() {

@@ -7,7 +7,7 @@
         <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                 <div  class="input-group input-group-sm ">
                         <form  [formGroup]="DateForm">
-                    <p-calendar formControlName="fechaHoy"  (onSelect)="actualizarFecha($event)" tabindex="0" [disabledDates]="invalidDates"  [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+                    <p-calendar formControlName="fechaHoy"  (onSelect)="actualizarFecha($event)" tabindex="0"  [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
                        <ng-template pTemplate="date" let-date>
                             <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
                         </ng-template> 
@@ -98,16 +98,16 @@
 
 </div>
 <p-overlayPanel #op1 [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >                          
-  <span>   <a class="nav-link azul my-hover text-warning" (click)="verEstadoCirugia(selecteditems)">Estado de cirugia</a></span>
+  <span>   <a class="nav-link azul my-hover text-warning" (click)="verEstadoCirugia()">Estado de cirugia</a></span>
   <hr>    
-  <span>   <a class="nav-link azul my-hover text-info" (click)="asociarOperacionCobro(selecteditems)">Asociar operación de cobro</a></span>    
-  <span>   <a class="nav-link azul my-hover text-danger" (click)="anularCirugia(selecteditems)">Anular cirugia</a></span>         
+  <span>   <a class="nav-link azul my-hover text-info" (click)="asociarOperacionCobro()">Asociar operación de cobro</a></span>    
+  <span>   <a class="nav-link azul my-hover text-danger" (click)="anularCirugia()">Anular cirugia</a></span>         
 </p-overlayPanel>  
 
 <p-overlayPanel #op [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >                          
-      <span>   <a class="nav-link azul my-hover text-info" (click)="verLente(selecteditems)">Lentes</a></span>          
-      <span>   <a class="nav-link azul my-hover text-info" (click)="verAnestesia(selecteditems)">Anestesia</a></span>    
-      <span>   <a class="nav-link azul my-hover text-info" (click)="verMedico(selecteditems)">Medicos</a></span>    
-      <span>   <a class="nav-link azul my-hover text-info" (click)="verHistoriaClinica(selecteditems)">Historia clínica</a></span>    
-      <span>   <a class="nav-link azul my-hover text-info" (click)="nuevoRegistroListado(selecteditems)">Agregar a listado de cirugia</a></span>    
+      <span>   <a class="nav-link azul my-hover text-info" (click)="verLente()">Lentes</a></span>          
+      <span>   <a class="nav-link azul my-hover text-info" (click)="verAnestesia()">Anestesia</a></span>    
+      <span>   <a class="nav-link azul my-hover text-info" (click)="verMedico()">Medicos</a></span>    
+      <span>   <a class="nav-link azul my-hover text-info" (click)="verHistoriaClinica()">Historia clínica</a></span>    
+      <span>   <a class="nav-link azul my-hover text-info" (click)="nuevoRegistroListado()">Agregar a listado de cirugia</a></span>    
     </p-overlayPanel>  

@@ -29,7 +29,7 @@ import { formatDate } from '@angular/common';
 
 
 
-import { calendarioIdioma } from '../../../../../../vision-totem2/src/app/config/config';
+import { calendarioIdioma } from '../../../config/config';
 import { HistoriaClinica } from '../../../models/historia-clinica.model';
 import { CirugiaFicha } from '../../../models/cirugia-ficha.model';
 import { CirugiaService } from '../../../services/cirugia.service';
@@ -40,7 +40,7 @@ import { PopupHistoriaClinicaListaConsultaComponent } from '../../../shared/comp
 import { PopupFichaQuirurgicaMedicoGrupoComponent } from '../../../shared/components/popups/popup-ficha-quirurgica-medico-grupo/popup-ficha-quirurgica-medico-grupo.component';
 import { CirugiaFichaMedico } from '../../../models/cirugia-ficha-medico.model';
 import { PopupDerivarAsesoramientoListadoComponent } from '../../../shared/components/popups/popup-derivar-asesoramiento-listado/popup-derivar-asesoramiento-listado.component';
-import { logo_clinica } from '../../../../../../vision-totem2/vision-totem2-win32-x64/resources/app/src/app/config/config';
+import { logo_clinica } from '../../../config/config';
 
 
 @Component({

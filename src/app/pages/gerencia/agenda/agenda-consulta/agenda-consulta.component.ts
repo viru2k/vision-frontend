@@ -269,7 +269,7 @@ let result = this.elementosFiltrados as any;
     this.sumarValores() ;
 }
 
-async editarRegistro(cond:string,selecteditems:AgendaTurno){
+async editarRegistro(cond:string){
   console.log(cond);
   this.popItemAgenda = this.selectedagendaTurno;
     if(cond == 'historia'){

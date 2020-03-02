@@ -54,6 +54,12 @@ export class FacturacionService {
       return this.http.get<any[]>(this.url+'afip/data/obetenerestadodelservidor?medico_id='+medico_id);
       }
 
+
+    getDatoMedico(medico_id:string){
+      return this.http.get<any[]>(this.url+'afip/data/medico/dato?medico_id='+medico_id);
+      }
+
+
   /******REALIZACION DE FACTURACION******/
 
 

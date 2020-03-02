@@ -133,14 +133,14 @@
                 </ng-template>
              
                 </p-table>
-                <p-overlayPanel #bn [appendTo]="mirow" [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" [showCloseIcon]="true" >                          
+                <p-overlayPanel #bn [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" [showCloseIcon]="true" >                          
                     <label class="text-info">Derivar a</label>                      
                     <hr>
                      <span>   <a class="nav-link azul my-hover" (click)="pacienteDerivado(agendaTurno)" >Recepción</a></span>                    
                      <hr>
                      <span>   <a class="nav-link azul my-hover" (click)="pacienteDerivadoAsesoramiento(agendaTurno)" >Asesoramiento</a></span>    
              </p-overlayPanel>  
-                <p-overlayPanel #op [appendTo]="mirow" [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" [showCloseIcon]="true" >                          
+                <p-overlayPanel #op  [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" [showCloseIcon]="true" >                          
                         <span>   <a class="nav-link azul my-hover " (click)="editarRegistro('historia')"> Historia clínica</a></span>                        
                         <span>   <a class="nav-link azul my-hover" (click)="editarRegistro('turno')">  Dar turno</a></span>                    
                         <hr>

@@ -268,7 +268,7 @@ this.DateForm = new FormGroup({
 
     }
 
-    verDetalle(elementos:Liquidacion){
+    verDetalle(elementos:any){
       if(elementos){
         this.selecteditemRegistro = elementos;
       }

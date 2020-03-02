@@ -165,7 +165,7 @@ loadHorarios(){
 }
 }
 
-confirmarBloqueo(res){
+confirmarBloqueo(){
  console.log(this.dates);
 
   swal({

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert2';
 import { CirugiaService } from '../../../services/cirugia.service';
 import { MessageService, DialogService } from 'primeng/api';
-import { URL_SERVICIOS } from './../../../../../../psicologos-web/src/app/config/config';
 import { URL_ARCHIVO,calendarioIdioma } from './../../../config/config';
 
 import { HistoriaClinica } from '../../../models/historia-clinica.model';

@@ -291,7 +291,7 @@ for(i=0;i<vals.length;i++){
 
     }
 
-    verDetalle(elementos:Liquidacion){
+    verDetalle(elementos:any){
       if(elementos){
         this.selecteditemRegistro = elementos;
       }

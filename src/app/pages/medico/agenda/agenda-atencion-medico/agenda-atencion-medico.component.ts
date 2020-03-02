@@ -344,7 +344,7 @@ ActualizarTurnoLlamando(){
 }  
 }
 
-  pacienteDerivado(event:AgendaTurno){
+  pacienteDerivado(event:any){
      console.log(event);
      this.popItemAgenda = event;              
      this.selectedagendaTurno.agenda_estado_id = '11';  
@@ -379,7 +379,7 @@ ActualizarTurnoLlamando(){
 
 
    
-  pacienteDerivadoAsesoramiento(event:AgendaTurno){
+  pacienteDerivadoAsesoramiento(event:any){
      console.log(event);
      this.popItemAgenda = event;              
      this.selectedagendaTurno.agenda_estado_id = '12';
@@ -458,7 +458,7 @@ ActualizarTurnoLlamando(){
     this.elementosFiltrados  = event.filteredValue;      
 }
 
-async editarRegistro(cond:string,selecteditems:AgendaTurno){
+async editarRegistro(cond:string){
   console.log(cond);
   this.popItemAgenda = this.selectedagendaTurno;
     if(cond == 'historia'){

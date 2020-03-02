@@ -14,6 +14,8 @@ import { FacturaElectronica } from './../../../../models/factura-electronica.mod
 import { formatDate, CurrencyPipe } from '@angular/common';
 import { FacturaAlicuotaAsociada } from '../../../../models/factura_alicuota_asociada.model';
 import { PopupLiquidacionDetalleComponent } from '../../../../shared/components/popups/popup-liquidacion-detalle/popup-liquidacion-detalle.component';
+import { PopupPacienteObrasocialComponent } from './../../../../shared/components/popups/popup-paciente-obrasocial/popup-paciente-obrasocial.component';
+import { Paciente } from './../../../../models/paciente.model';
 
 @Component({
   selector: 'app-factura-electronica',
@@ -52,7 +54,7 @@ export class FacturaElectronicaComponent implements OnInit {
   factura_numero:string = '0';
   factura_numero_ceros:string = '0';
   nrodocumento:string = '0';
-  obrasocial:string = '';
+  observacion:string = '';
   cliente:string = '';
   CAE:string;
   CAE_vto:string;
@@ -74,6 +76,7 @@ export class FacturaElectronicaComponent implements OnInit {
   userData;
   medico_id:string; 
   peticion:string;
+     movimiento:FacturaElectronicaRenglon;
   constructor(private facturacionService: FacturacionService, public dialogService: DialogService,private messageService: MessageService, private cp: CurrencyPipe ) { 
 
     this.cols = [
@@ -89,7 +92,7 @@ export class FacturaElectronicaComponent implements OnInit {
      
      this.columns = [
       {title: 'Descripcion', dataKey: 'descripcion'},
-      {title: 'Cant', dataKey: 'cantidad'},
+      {title: 'Can', dataKey: 'cantidad'},
       {title: 'Precio unit.', dataKey: 'precio_unitario'},
       {title: 'Alic.', dataKey: 'alicuota_descripcion'},
       {title: 'Iva', dataKey: 'iva'},
@@ -495,13 +498,13 @@ guardarDatos(){
   this._fechaDesde = formatDate(this.fechaDesde, 'yyyy-MM-dd', 'en');
   this._fechaHasta = formatDate(this.fechaHasta, 'yyyy-MM-dd', 'en');
   console.log('elemento documento '+ this.elementoDocumento);
-  console.log('elemento comprobate '+ this.elementoComprobante);
+  console.log('elemento comprobante '+ this.elementoComprobante);
   console.log('elemento concepto '+ this.elementoConcepto);
-  console.log('elemento pto venta '+ this.pto_vta);
+  console.log('elemento pto. venta '+ this.pto_vta);
   let facturaElectronica = new FacturaElectronica('0', this.pto_vta, this.elementoComprobante['id'], this.elementoConcepto['id'],
   this.elementoDocumento['id'],this.nrodocumento,
   this.cliente,this.factura_numero, this._fecha, this._fechaDesde, this._fechaHasta,
-  (Math.round(this.subtotal * 100) / 100), this.subtotal_excento,(Math.round(this.subtotal_iva * 100) / 100),(Math.round(this.total * 100) / 100) ,this.facturaAlicuotaAsociada,this.elementos, '','', this.elementoMedicos['id'], this.obrasocial);
+  (Math.round(this.subtotal * 100) / 100), this.subtotal_excento,(Math.round(this.subtotal_iva * 100) / 100),(Math.round(this.total * 100) / 100) ,this.facturaAlicuotaAsociada,this.elementos, '','', this.elementoMedicos['id'], this.observacion);
    console.log(facturaElectronica);
   
   
@@ -560,20 +563,44 @@ CrearFactura(facturaElectronica){
     .subscribe(resp => {             
         this.loading = false;
         this.peticion = '';
-        this.CAE = resp[0]['cae'];
-        this.CAE_vto = resp[0]['cae_vto'];
-        this.factura_nro =  this.padLeft(String(resp[0]['factura_numero']),'0',8);
-        swal({
-          toast: false,
-          type: 'success',
-          text: 'confeccionando PDF',
-          title: 'FACTURA Nº '+this.factura_nro +' GENERADA CORRETAMENTE',
-          showConfirmButton: false,
-          timer: 4000,
-          onClose: () => {
-            this.generarPDF();
-          }
-        });
+
+/* -------------------------------------------------------------------------- */
+/*                 SI ES RECIBO , NO ES OFICIAL Y NO TRAE CAE                 */
+/* -------------------------------------------------------------------------- */
+        if(facturaElectronica['factura_comprobante_id']=== 15){
+          this.CAE = '';
+          this.CAE_vto = '';
+          this.factura_nro =  this.padLeft(String(resp),'0',8);
+          swal({
+            toast: false,
+            type: 'success',
+            text: 'confeccionando PDF',
+            title: 'FACTURA Nº '+this.factura_nro +' GENERADA CORRETAMENTE',
+            showConfirmButton: false,
+            timer: 4000,
+            onClose: () => {
+              this.generarPDF();
+            }
+          });
+        }else{
+
+          this.CAE = resp[0]['cae'];
+          this.CAE_vto = resp[0]['cae_vto'];
+          this.factura_nro =  this.padLeft(String(resp[0]['factura_numero']),'0',8);
+          swal({
+            toast: false,
+            type: 'success',
+            text: 'confeccionando PDF',
+            title: 'FACTURA Nº '+this.factura_nro +' GENERADA CORRETAMENTE',
+            showConfirmButton: false,
+            timer: 4000,
+            onClose: () => {
+              this.generarPDF();
+            }
+          });
+
+        }
+      
      //   this.generarPDF();
     },
     error => { // error path
@@ -597,6 +624,50 @@ CrearFactura(facturaElectronica){
 obtenerMedico(){
   console.log(this.elementoMedicos)
   this.medico_id = this.elementoMedicos['id'];
+  this.loading = true;
+  this.peticion = 'Obteniendo ultima factura y punto de venta';
+   console.log(this.elementoComprobante);
+  try {
+    
+    this.facturacionService.getDatoMedico(this.medico_id)
+    .subscribe(resp => {      
+   
+      this.loading = false;
+      this.peticion = '';
+        console.log(  resp);
+
+/* -------------------------------------------------------------------------- */
+/*                      OBTENGO MUESTRO EL PUNTO DE VENTA                     */
+/* -------------------------------------------------------------------------- */
+
+        this.elementoPtoVta =  this.elementosPtoVta.find(x => x.id == resp[0]['punto_vta']);
+        this.pto_vta =  this.elementoPtoVta['punto_vta'];
+        console.log(resp[0]['punto_vta']);
+
+/* -------------------------------------------------------------------------- */
+/*                           OBTENGO EL COMPROBANTE                           */
+/* -------------------------------------------------------------------------- */
+
+this.elementoComprobante =  this.elementosComprobante.find(x => x.id == resp[0]['factura_comprobante_id']);
+
+    },
+    error => { // error path
+      this.loading = false;
+      this.peticion = '';
+        console.log(error);
+        console.log(error.status);
+        swal({
+          toast: false,
+          type: 'error',
+          text: error,
+          title: 'Algo no esta bien....',
+          showConfirmButton: true,          
+        });
+     });    
+} catch (error) {
+
+}  
+  
 }
 
 obtenerPuntoVta(){
@@ -660,16 +731,13 @@ agregarRenglon(){
         console.log(PopupOperacionCobroRegistroEditarComponent);    
         let movimiento:FacturaElectronicaRenglon;
         movimiento= PopupOperacionCobroRegistroEditarComponent;
-        console.log()
-        if((this.elementoComprobante['id'] === 6)||(this.elementoComprobante['id'] === 11)){
-          movimiento['total_renglon'] = movimiento['total_renglon'] / movimiento['alicuota'];
-          movimiento['iva'] = 0;
-          movimiento['alicuota_descripcion'] = '0%';
-          movimiento['iva_id'] = 3;
-          movimiento['alicuota_id'] = '3';
-          
-          
-      }
+        console.log();
+
+/* -------------------------------------------------------------------------- */
+/*        COMPROBANTES FACTURA B Y C CON SUS NOTAS DE CREDITO Y DEBITO        */
+/* -------------------------------------------------------------------------- */
+
+       
      this.elementos.push(movimiento);
        console.log(this.elementos);
        // GUARDO LAS ALICUOTAS ASOCIADAS
@@ -799,11 +867,38 @@ for(i=0;i < this.facturaAlicuotaAsociada.length;i++){
   if(Number(this.facturaAlicuotaAsociada[i]['id']) ===3){
   this.subtotal_excento = this.subtotal_excento+ Number(this.facturaAlicuotaAsociada[i]['importe_gravado']);
   console.log('exento '+this.subtotal_excento);
+
+
   }
 
 }
 
 }
+
+
+buscarPaciente(){
+
+  let data:any; 
+  const ref = this.dialogService.open(PopupPacienteObrasocialComponent, {
+  data,
+   header: 'Buscar paciente', 
+   width: '98%',
+   height: '90%'
+  });
+
+  ref.onClose.subscribe((PopupPacienteObrasocialComponent: Paciente) => {
+      if (PopupPacienteObrasocialComponent) {
+        console.log(PopupPacienteObrasocialComponent);
+
+       this.cliente =  PopupPacienteObrasocialComponent.apellido + ' ' + PopupPacienteObrasocialComponent.nombre;
+       this.nrodocumento = String(PopupPacienteObrasocialComponent.dni);
+       this.elementoDocumento =  this.elementosDocumento.find(x => x.id == 96);
+       console.log(this.nrodocumento);
+      }
+  });
+
+}
+ 
 
 generarPDF(){
 
@@ -882,28 +977,45 @@ doc.line(pageWidth/2, 23, pageWidth /2, 50);
   doc.text(this.elementoMedicos['categoria_iva'],15 , 45); 
   // izquierda
   doc.setFontSize(9);
-  doc.text('Comprobante: '+ this.pto_vta+' - '+ this.factura_nro, (pageWidth/2)+20, 20); 
+
+/* -------------------------------------------------------------------------- */
+/*                               DATOS DEL EMISO                              */
+/* -------------------------------------------------------------------------- */
+doc.setFontStyle("bold");
+  doc.setFontSize(11);
+  doc.text(this.elementoComprobante['descripcion'], (pageWidth/2)+20, 20); 
+  doc.text('Comprobante: '+ this.pto_vta+' - '+ this.factura_nro, (pageWidth/2)+20, 25); 
+  doc.setFontStyle("normal");
   doc.setFontSize(9);
-  doc.text('Fecha Emisión: '+ this._fecha, (pageWidth/2)+20, 25); 
-  doc.text('C.U.I.T.: '+ this.elementoMedicos['cuit'], (pageWidth/2)+20, 30); 
-  doc.text('Ingresos brutos: '+ this.elementoMedicos['ing_brutos'], (pageWidth/2)+20, 35); 
-  doc.text('Inicio de actividades: '+ inicio_actividades, (pageWidth/2)+20, 40); 
+  doc.text('Fecha Emisión: '+ this._fecha, (pageWidth/2)+20, 30); 
+  doc.text('C.U.I.T.: '+ this.elementoMedicos['cuit'], (pageWidth/2)+20, 35); 
+  doc.text('Ingresos brutos: '+ this.elementoMedicos['ing_brutos'], (pageWidth/2)+20, 40); 
+  doc.text('Inicio de actividades: '+ inicio_actividades, (pageWidth/2)+20, 45); 
   doc.setLineWidth(0.4);
 
-  //DATOS DE FECHA
+
+/* -------------------------------------------------------------------------- */
+/*                              PERIODO DE FECHAS                             */
+/* -------------------------------------------------------------------------- */
 
   this._fechaDesde = formatDate(this.fechaDesde, 'yyyy-MM-dd', 'en');
   this._fechaHasta = formatDate(this.fechaHasta, 'yyyy-MM-dd', 'en');
   doc.text('Período Facturado   Desde: '+formatDate(this.fechaDesde, 'dd/MM/yyyy', 'en'), 15, 60); 
   doc.text('Hasta: '+formatDate(this.fechaHasta, 'dd/MM/yyyy', 'en'), pageWidth/2, 60); 
 
-  //DATOS DEL CLIENTE
+/* -------------------------------------------------------------------------- */
+/*                              DATOS DEL CLIENTE                             */
+/* -------------------------------------------------------------------------- */
 
   doc.text(this.elementoDocumento['descripcion']+' : '+ this.nrodocumento, 15, 73); 
-  doc.text('Cliente: '+ this.cliente, 15, 78); 
-  doc.text('Condición frente al IVA: '+ this.elementoCondicionIva['categoria_iva'], 15, 83); 
+  doc.text('Cliente: '+ this.cliente, 60, 73); 
+  doc.text('Condición frente al IVA: '+ this.elementoCondicionIva['categoria_iva'], 15, 78); 
+  doc.text('Observación: '+ this.observacion, 15, 83); 
 
-  // TOTAL DE LA FACTURA
+/* -------------------------------------------------------------------------- */
+/*                             DATOS DE LA FACTURA                            */
+/* -------------------------------------------------------------------------- */
+
   doc.setFontSize(10);
   doc.setFontStyle("bold");
   doc.text('Subtotal: '+ this.cp.transform(this.subtotal, '', 'symbol-narrow', '1.2-2'), 15, pageHeight -18); 
@@ -914,14 +1026,37 @@ doc.line(pageWidth/2, 23, pageWidth /2, 50);
   doc.text('Total: '+ this.cp.transform(this.total, '', 'symbol-narrow', '1.2-2'), pageWidth-50, pageHeight -18); 
   // PIE DE LA FACTURA
   doc.text('CAE: '+ this.CAE, 15, pageHeight -5); 
-  doc.text('Fecha de vencimiento de CAE: '+ formatDate(this.CAE_vto, 'dd/MM/yyyy', 'en') , (pageWidth/2)+20, pageHeight -5); 
+  if(this.CAE === ''){}else{
+    doc.text('Fecha de vencimiento de CAE: '+ formatDate(this.CAE_vto, 'dd/MM/yyyy', 'en') , (pageWidth/2)+20, pageHeight -5); 
+  }
+ 
   doc.setFontStyle("normal");
+  console.log(this.elementosPDF);
+
+/* -------------------------------------------------------------------------- */
+/*              SI ES FACTURA B O SIMILAR OMITO EL VALOR DEL IVA              */
+/* -------------------------------------------------------------------------- */
+
+  if((this.elementoComprobante['id'] === 6)||(this.elementoComprobante['id'] === 7)
+    ||(this.elementoComprobante['id'] === 8)||(this.elementoComprobante['id'] === 11)
+    ||(this.elementoComprobante['id'] === 12)||(this.elementoComprobante['id'] === 13)){
+    for(i=0;i<this.elementosPDF.length;i++){
+      this.elementosPDF[i]['alicuota'] = '';
+      this.elementosPDF[i]['precio_unitario'] = this.elementosPDF[i]['total_renglon'];
+      this.elementosPDF[i]['total_sin_iva'] = this.elementosPDF[i]['total_renglon'];
+      this.elementosPDF[i]['iva'] = '0';
+      this.elementosPDF[i]['alicuota_descripcion'] = '';
+    }
+  }
+
+
+  
 doc.autoTable(this.columns, this.elementosPDF,
   {
     
       margin: {vertical: 95, right:0,horizontal: -10},
       bodyStyles: {valign: 'top'},
-      styles: {fontSize: 8,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},       
+      styles: {fontSize: 10,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},       
       columnStyles: {descripcion: {columnWidth: 88}, cantidad: {columnWidth: 10}, precio_unitario: {columnWidth: 25},
       alicuota_descripcion: {columnWidth: 12},  iva: {columnWidth: 25}, total_renglon: {columnWidth: 25} }
   });

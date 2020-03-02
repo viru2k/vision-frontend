@@ -19,7 +19,7 @@
                       
                   </div>
                 </div>
-
+<!-- 
                 <div class="row">
                     <div class="col-10 input-group input-group-sm mb-3">
                         <input (keyup.enter)="buscarConcepto()" placeholder="Agregar concepto" class="form-control col-md-12 form-control-sm" formControlName="concepto"  autofocus />                  
@@ -37,7 +37,7 @@
                     <div class="col-2">
                        
                     </div>
-                  </div>
+                  </div> -->
                    
             </div>    
                    
@@ -51,7 +51,7 @@
                   </div>                     
                 </div>    
                 <div class="col-8 input-group input-group-sm mb-3  ">  
-                  <input class="form-control col-md-12 form-control-sm" placeholder="Monto abonado" type="number" formControlName="monto" (change)="guardarMonto()"  >
+                  <input class="form-control col-md-12 form-control-sm" placeholder="Monto abonado" type="number" formControlName="monto"   >
                   <div class="input-group-append">
                     <span class="input-group input-group-text form-control-sm">$</span>
                   </div>
@@ -89,8 +89,8 @@
           </div>
           </form>
           <hr>
-          <p-table #dt class="pt-2" [columns]="cols"  [value]="elementos" selectionMode="single" [resizableColumns]="true"
-          [(selection)]="selectedItem" (onRowSelect)="showDialogToUpdate($event)" [scrollable]="true" scrollHeight="400px" >
+          <p-table #dt class="pt-2" [columns]="cols"   selectionMode="single" [resizableColumns]="true"
+           [scrollable]="true" scrollHeight="400px" >
       
          <ng-template pTemplate="header" let-columns >
  

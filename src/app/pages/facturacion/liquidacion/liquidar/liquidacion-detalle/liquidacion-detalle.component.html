@@ -49,7 +49,7 @@
                     </div>                                          
                       <div class=" ml-2 row">                         
                          <div class="ml-2"><button    class="btn  btn-danger btn-sm float-right  pr-2" (click)="actualizarRegistros()" >Actualizar valores de convenio</button>   </div>  
-                         <div class="ml-2"><button    class="btn  btn-info btn-sm float-right  pr-2" (click)="editarDistribucion(selecteditems)" >Editar distribución</button>   </div>                                                                     
+                         <div class="ml-2"><button    class="btn  btn-info btn-sm float-right  pr-2" (click)="editarDistribucion()" >Editar distribución</button>   </div>                                                                     
                         </div>    
                         
                       
@@ -67,7 +67,7 @@
         <div class="ml-2"><button    class="btn  btn-danger btn-sm float-right  pr-2" (click)="actualizarRegistros()" >Actualizar valores (Registros seleccionados)</button>   </div>                                   
       </div>
   <div class="row ml-2 mr-2">
-  <p-table  #dt class="pt-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  (onEditComplete)="editRow($event)" [(selection)]="selecteditems" columnResizeMode="expand" [responsive]="true"
+  <p-table  #dt class="pt-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos" [(selection)]="selecteditems" columnResizeMode="expand" [responsive]="true"
   scrollHeight="600px" [scrollable]="true"  (onFilter)="filtered($event)"  >
  
 
@@ -136,10 +136,10 @@
 
 
 <p-overlayPanel #op [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >                          
-    <span>   <a class="nav-link azul text-info  my-hover" (click)="editarRegistro(selecteditems)">Modificar registro</a></span>
-    <span>   <a class="nav-link azul text-info  my-hover" (click)="desafectarPresentacion(selecteditems)">Desafectar registro</a></span>
+    <span>   <a class="nav-link azul text-info  my-hover" (click)="editarRegistro()">Modificar registro</a></span>
+    <span>   <a class="nav-link azul text-info  my-hover" (click)="desafectarPresentacion()">Desafectar registro</a></span>
     <span> <hr></span>
-    <span>   <a class="nav-link azul text-info my-hover" (click)="verDetalle(selecteditems)">Ver detalle</a></span>
+    <span>   <a class="nav-link azul text-info my-hover" (click)="verDetalle()">Ver detalle</a></span>
     
   </p-overlayPanel>  
 

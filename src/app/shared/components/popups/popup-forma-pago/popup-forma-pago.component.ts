@@ -10,7 +10,7 @@ export class PopUpFormaPagoComponent implements OnInit {
   tipoPago: any[];
   formPago: FormGroup;
   cols: any[];
-
+  loading;
 
   constructor() { }
 

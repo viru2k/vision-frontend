@@ -23,17 +23,17 @@
           <p-header>
             Obra social
           </p-header>
-          <ng-template let-usuarios   ui-listbox="btn bt-success">
+          <ng-template let-obrasocial   ui-listbox="btn bt-success">
               <span >{{obrasocial.nombre}}</span>
         
           </ng-template>
         </p-listbox>        
-      </div>
-    
+      </div> 
+  
       <div class="col-6">
 
-          <p-table #dt [columns]="cols" tableStyleClass="prime-table" [value]="medicoObraSocial" selectionMode="single" [resizableColumns]="true" columnResizeMode="expand"
-          [(selection)]="selectedItem" (onRowSelect)="onRowMedico($event)" [scrollable]="true" scrollHeight="400px"  [style]="{'min-width':'300px'}"  >
+         <p-table #dt [columns]="cols" tableStyleClass="prime-table" [value]="medicoObraSocial" selectionMode="single" [resizableColumns]="true" columnResizeMode="expand"
+         (onRowSelect)="onRowMedico($event)" [scrollable]="true" scrollHeight="400px"  [style]="{'min-width':'300px'}"  >
          
            
         
@@ -61,7 +61,7 @@
           </tr>
         </ng-template>
         </p-table>
-
+ 
      <!--    <p-listbox [options]="medicoObraSocial" [(ngModel)]="selectedItemMedico"  filter="filter"   (onChange)="onRowMedico()" [style]="{'min-width':'300px'}" [listStyle]="{'max-height':'400px' }">
           <p-header>
             Medico

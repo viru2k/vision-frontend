@@ -17,9 +17,10 @@ import swal from 'sweetalert2';
 export class LiquidacionComponent implements OnInit {
 
   cols: any[];
-
+  elementos:any[];
   newPopItem: boolean;
   es:any;
+  checked;
   // LOADING
   loading: boolean;
   updateDataForm: FormGroup;

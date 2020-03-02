@@ -17,9 +17,9 @@ export const URL_ARCHIVO = 'http://messageserver/api-vision/public/';
 
 // REMOTO WEB
 
-//export const URL_SERVICIOS = 'http://clinicaz.com.ar/api-vision/public/api/'; 
-//export const config: SocketIoConfig = { url: 'http://clinicaz.com.ar:4444', options: {} };
-//export const URL_ARCHIVO = 'http://clinicaz.com.ar/api-vision/public/';
+//export const URL_SERVICIOS = 'https://clinicaz.com.ar/api-vision/public/api/'; 
+//export const config: SocketIoConfig = { url: 'https://clinicaz.com.ar:4444', options: {} };
+//export const URL_ARCHIVO = 'https://clinicaz.com.ar/api-vision/public/';
 
 export const VAPID_PUBLIC ='BNOJyTgwrEwK9lbetRcougxkRgLpPs1DX0YCfA5ZzXu4z9p_Et5EnvMja7MGfCqyFCY4FnFnJVICM4bMUcnrxWg'; // SIN USO
 
