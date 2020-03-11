@@ -952,6 +952,8 @@ generarPdfListado(filtro:string) {
     doc.text(75, 38, 'Efectivo: ' +this.cp.transform(tefectivo, '', 'symbol-narrow', '1.2-2') ); 
     doc.text(105, 38, 'Transferencia: ' +this.cp.transform(ttransferencia, '', 'symbol-narrow', '1.2-2') ); 
     doc.text(135, 38, 'Total : ' +this.cp.transform(tfacturado, '', 'symbol-narrow', '1.2-2') );  
+    doc.setFontSize(10);
+    doc.text(pageWidth - 50, 38, 'Cantidad : ' + this.selecteditems.length );  
     doc.setFontSize(8);
   if(filtro === 'medico'){ 
   

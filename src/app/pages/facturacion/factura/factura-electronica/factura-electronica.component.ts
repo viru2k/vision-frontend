@@ -1025,9 +1025,9 @@ doc.setFontStyle("bold");
   
   doc.text('Total: '+ this.cp.transform(this.total, '', 'symbol-narrow', '1.2-2'), pageWidth-50, pageHeight -18); 
   // PIE DE LA FACTURA
-  doc.text('CAE: '+ this.CAE, 15, pageHeight -5); 
+  doc.text('CAE: '+ this.CAE, 15, pageHeight -10); 
   if(this.CAE === ''){}else{
-    doc.text('Fecha de vencimiento de CAE: '+ formatDate(this.CAE_vto, 'dd/MM/yyyy', 'en') , (pageWidth/2)+20, pageHeight -5); 
+    doc.text('Fecha de vencimiento de CAE: '+ formatDate(this.CAE_vto, 'dd/MM/yyyy', 'en') , (pageWidth/2)+20, pageHeight -10); 
   }
  
   doc.setFontStyle("normal");
@@ -1084,6 +1084,8 @@ doc.autoTable(this.columns, this.elementosPDF,
   this.subtotal_iva = 0;
   this.total = 0;
   this.facturaAlicuotaAsociada = [];
+  this.observacion = '';
+  this.cliente = '';
   this.getMedicosFacturan();
  
   

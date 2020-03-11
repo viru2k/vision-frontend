@@ -90,7 +90,7 @@ export class LiquidacionDetalleComponent implements OnInit {
       {name: 'Presentación COSEGURO Cirugia', code: '10'},  
       {name: 'Presentación con IVA', code: '5'},
       {name: 'Exportar Excel', code: '6'},
-      {name: 'Txt práctica y estudios DOS', code: '7'},
+     // {name: 'Txt práctica y estudios DOS', code: '7'},
       {name: 'Txt cirugia DOS', code: '8'},
       {name: 'Imprimir factura', code: '9'},
   ];
@@ -161,7 +161,7 @@ this.columnsListadoCirugiaTodos = [
   {title: 'Descripción', dataKey: 'descripcion'},
   {title: 'Fecha', dataKey: 'fecha_cobro'},
   {title: 'Cant', dataKey: 'cantidad'},
-  {title: 'Cat.', dataKey: 'categorizacion'},
+  //{title: 'Cat.', dataKey: 'categorizacion'},
   {title: 'Honor.', dataKey: 'honorarios'},
   {title: 'Gastos', dataKey: 'gastos'},
   {title: 'Total', dataKey: 'valor_facturado'},
@@ -411,16 +411,18 @@ loadPresentacionCirugiaTodos(){
       .subscribe(resp => {
         let i:number = 0;
         let resultado = resp;
+       
         resultado.forEach(element => {
-          
+        
           resp[i]['fecha_cobro'] = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
           if(( resp[i]['paciente_barra_afiliado'] !== '0')){
             resp[i]['numero_afiliado'] = resp[i]['numero_afiliado']+'/'+resp[i]['paciente_barra_afiliado'] ;
           }
           
-          console.log(resp[i]['fecha_cobro']);
+      
           i++;
         });
+        console.log(resp);
           this.elementosPreFactura = resp;
          console.log(this.elementosPreFactura);
           this.generarPdfListadoCirugiaTodos();
@@ -594,18 +596,10 @@ generarTxtCirugia(){
         });
           this.elementosPreFactura = resp;
          console.log(this.elementosPreFactura);
-          /***********
-           * 
-           * 
-           * 
-           * 
-           * 
-           * 
-           *   ORDENO LA FACTURACION  
-           * 
-           * 
-           * 
-           * */
+
+/* -------------------------------------------------------------------------- */
+/*                              ORDENO LA FACTURA                             */
+/* -------------------------------------------------------------------------- */
 
           
           let j = 0;
@@ -656,6 +650,9 @@ generarTxtCirugia(){
             }
           }, []);
           console.log(filteredArr);
+
+
+          
           try {
             this.miServicio.generarTxtCirugia(filteredArr)    
             .subscribe(resp => {
@@ -1199,11 +1196,9 @@ generarPdfListadoCirugiaTodos() {
           //   console.log(this.elementosPreFactura[j]['complejidad']+' cirugia '+this.elementosPreFactura[j]['descripcion'] );
             }else{
             //  console.log('coseguro gastos');
-              this.elementosPreFactura[i]['categoria'] =  this.cp.transform(0, '', '', '1.2-2');
+            //  this.elementosPreFactura[i]['categoria'] =  this.cp.transform(0, '', '', '1.2-2');
               
               this.elementosPreFactura[i]['gastos'] =  String(((this.elementosPreFactura[j]['operacion_cobro_distribucion_total'])*20)/80); 
-              
-              
             }
           
           }
@@ -1219,7 +1214,7 @@ generarPdfListadoCirugiaTodos() {
                 this.elementosPreFactura[i]['gastos'] = gasto; 
                 this.elementosPreFactura[i]['honorarios'] = '0'; 
               }
-              
+
              }
              
         if(this.elementosPreFactura[j]['complejidad'] === 2){ 
@@ -1232,9 +1227,7 @@ generarPdfListadoCirugiaTodos() {
             this.elementosPreFactura[i]['categoria'] =  0;//this.cp.transform(0, '', '', '1.2-2'); 
           //  console.log('categoria 2 '+this.elementosPreFactura[j]['categoria']+' gasto '+this.elementosPreFactura[j]['descripcion'] );        // CAMBIAR A 4 PARA INSUMOS
           }
-       
-        
-      
+
       }
     }
     
@@ -1278,6 +1271,7 @@ generarPdfListadoCirugiaTodos() {
 
       if(_complejidad === 3){
         total_honorario = total_honorario +Number( filteredArr[i]['honorarios'])+Number( filteredArr[i]['categorizacion']);
+        filteredArr[i]['honorarios'] = Number( filteredArr[i]['honorarios'])+Number( filteredArr[i]['categorizacion']);
         total_gastos = total_gastos +Number(filteredArr[i]['gastos']);
        
        
@@ -1305,22 +1299,24 @@ generarPdfListadoCirugiaTodos() {
       console.log('categoria '+filteredArr[i]['categorizacion']);
       
       if((_complejidad === 4 )&&(this.selecteditems[0]['obra_social_nombre'] === 'DOS - OBRA SOCIAL PROVINCIA')){
-        console.log('gastoooos');
+        
         _total = _total+ Number(filteredArr[i]['gastos']);
-       // total_gastos = _total;
-        console.log(total_gastos);
+
       }
 
       if((_complejidad === 4 )&&(this.selecteditems[0]['obra_social_nombre'] !== 'DOS - OBRA SOCIAL PROVINCIA')){
-        console.log('gastoooos');
+        
         _total = _total+ Number(filteredArr[i]['gastos']);
-       // total_gastos = _total;
-        console.log(total_gastos);
+
       }
       //  SUMO HONORIARIO + CATEGORIA + GASTO , !!!!!!!!!! YA ESTA FORMATEADO Y NO SE PUEDE RECALCULAR DESPUES
 
-      filteredArr[i]['valor_facturado']=   this.cp.transform(Number(filteredArr[i]['honorarios'])+Number(filteredArr[i]['categorizacion'])+Number(filteredArr[i]['gastos']), '', 'symbol-narrow', '1.2-2') ;     
-      total_facturado = total_facturado+ Number(filteredArr[i]['honorarios'])+Number(filteredArr[i]['categorizacion'])+Number(filteredArr[i]['gastos']);
+      /**  CODIGO FUNCIONANDO ANTES DE MODIFICAR filteredArr[i]['valor_facturado']=   this.cp.transform(Number(filteredArr[i]['honorarios'])+Number(filteredArr[i]['categorizacion'])+Number(filteredArr[i]['gastos']), '', 'symbol-narrow', '1.2-2') ;     
+       * 
+       * 
+       */
+      filteredArr[i]['valor_facturado']=   this.cp.transform(Number(filteredArr[i]['honorarios'])+Number(filteredArr[i]['gastos']), '', 'symbol-narrow', '1.2-2') ;     
+      total_facturado = total_facturado+ Number(filteredArr[i]['honorarios'])+Number(filteredArr[i]['gastos']);
       filteredArr[i]['gastos']=   this.cp.transform(Number(filteredArr[i]['gastos']), '', 'symbol-narrow', '1.2-2');
       filteredArr[i]['honorarios']=   this.cp.transform(Number(filteredArr[i]['honorarios']), '', 'symbol-narrow', '1.2-2');
       filteredArr[i]['categorizacion']=   this.cp.transform(Number(filteredArr[i]['categorizacion']), '', 'symbol-narrow', '1.2-2');

@@ -4,6 +4,7 @@ import { formatDate, CurrencyPipe, DecimalPipe } from '@angular/common';
 import { LiquidacionService } from './../../../../services/liquidacion.service';
 import { Liquidacion } from './../../../../models/liquidacion.model';
 import { PopupOperacionCobroDetalleComponent } from './../popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component';
+import { DistribucionMedico } from './../../../../models/distribucion-medico.model';
 @Component({
   selector: 'app-popup-operacion-cobro-distribucion-detalle',
   templateUrl: './popup-operacion-cobro-distribucion-detalle.component.html',
@@ -20,6 +21,8 @@ export class PopupOperacionCobroDistribucionDetalleComponent implements OnInit {
   TOTAL:number = 0;
   elementosFiltrados:any[] = null;
   selecteditems:any[] = [];
+  distribucionMedicos:any[] = [];
+  distribucionMedico:DistribucionMedico;
 
   constructor( public ref: DynamicDialogRef, public config: DynamicDialogConfig, private liquidacionService:LiquidacionService, private messageService: MessageService ,public dialogService: DialogService) { 
 
@@ -105,7 +108,29 @@ verDetalle(agendaTurno:any){
 
 public exportarExcel(){
   const fecha_impresion = formatDate(new Date(), 'dd-MM-yyyy-mm', 'es-Ar');  
-  this.liquidacionService.exportAsExcelFile(  this.selecteditems, 'listado_presentacion'+fecha_impresion);
+  for(let i=0; i<this.selecteditems.length; i++){
+    this.distribucionMedico = new DistribucionMedico(this.selecteditems[i]['medico_opera'],
+     this.selecteditems[i]['medico_opera_porcentaje'],
+      this.selecteditems[i]['medico_opera_valor'],
+      this.selecteditems[i]['medico_ayuda'],
+      this.selecteditems[i]['medico_ayuda_porcentaje'],
+      this.selecteditems[i]['medico_ayuda_valor'],
+      this.selecteditems[i]['medico_ayuda2'],
+      this.selecteditems[i]['medico_ayuda2_porcentaje'],this.selecteditems[i]['medico_ayuda2_valor'],
+      this.selecteditems[i]['medico_clinica'],
+      this.selecteditems[i]['medico_clinica_porcentaje'],
+      this.selecteditems[i]['medico_clinica_valor'],
+      this.selecteditems[i]['valor_distribuido'],
+      this.selecteditems[i]['total'],
+      this.selecteditems[i]['fecha_cobro'],
+      this.selecteditems[i]['operacion_cobro_id'],
+      this.selecteditems[i]['paciente_apellido'],
+      this.selecteditems[i]['dni']);
+      this.distribucionMedicos.push(this.distribucionMedico);
+
+  }
+  this.liquidacionService.exportAsExcelFile(  this.distribucionMedicos, 'listado_presentacion'+fecha_impresion);
 }
 
 }
+

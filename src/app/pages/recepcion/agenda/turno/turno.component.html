@@ -126,7 +126,7 @@
             <div  class="d-flex justify-content-between">
                 <div class="d-flex justify-content-start">
                     <form  [formGroup]="DateForm">                           
-                    <p-calendar formControlName="fechaHoy"   (onSelect)="actualizarFecha($event)" tabindex="0"  [locale]="es" dateFormat="dd/mm/yy "   [readonlyInput]="true">
+                    <p-calendar formControlName="fechaHoy"   (onSelect)="actualizarFecha($event)" tabindex="0"  [locale]="es" dateFormat="dd/mm/yy "  [disabledDates]="invalidDates" [readonlyInput]="true">
                         <ng-template pTemplate="date" let-date>
                             <span  [ngClass]="colorRow(date)"  style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
                         </ng-template> 
