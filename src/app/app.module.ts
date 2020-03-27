@@ -231,6 +231,9 @@ import { RecetaEditarComponent } from './pages/lista/receta-editar/receta-editar
 import { RecetaComponent } from './pages/lista/receta/receta.component';
 import { ObrasocialAutorizacionWebEditarComponent } from './pages/lista/obrasocial-autorizacion-web-editar/obrasocial-autorizacion-web-editar.component';
 import { ObrasocialAutorizacionWebComponent } from './pages/lista/obrasocial-autorizacion-web/obrasocial-autorizacion-web.component';
+import { ChatComponent } from './pages/chat/chat.component';
+import { ChatListComponent } from './pages/chat/chat-list/chat-list.component';
+import { ChatMessageComponent } from './pages/chat/chat-message/chat-message.component';
 
 
 
@@ -392,7 +395,10 @@ registerLocaleData(localeEsAR, 'es-Ar');
     RecetaEditarComponent,
     RecetaComponent,
     ObrasocialAutorizacionWebEditarComponent,
-    ObrasocialAutorizacionWebComponent
+    ObrasocialAutorizacionWebComponent,
+    ChatComponent,
+    ChatListComponent,
+    ChatMessageComponent
   ],
   imports: [
 

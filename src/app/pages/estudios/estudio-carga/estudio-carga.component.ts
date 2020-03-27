@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert2';
 import { CirugiaService } from '../../../services/cirugia.service';
 import { MessageService, DialogService } from 'primeng/api';
-import { URL_ARCHIVO,calendarioIdioma } from './../../../config/config';
+import { URL_ARCHIVO, calendarioIdioma } from './../../../config/config';
 
 import { HistoriaClinica } from '../../../models/historia-clinica.model';
 import { AgendaTurno } from '../../../models/agenda-turno.model';
@@ -20,66 +20,63 @@ import { formatDate, CurrencyPipe } from '@angular/common';
   selector: 'app-estudio-carga',
   templateUrl: './estudio-carga.component.html',
   styleUrls: ['./estudio-carga.component.css'],
-  providers: [MessageService,DialogService,DatePipe]
+  providers: [MessageService, DialogService, DatePipe]
 })
 export class EstudioCargaComponent implements OnInit {
-loading:boolean;
+loading: boolean;
 uplo: File;
 uploadedFiles: any[] = [];
-public url:string  = URL_ARCHIVO;
+public url: string  = URL_ARCHIVO;
 
 
-fechaHoy:Date;
-  _fechaHoy:string;
-  cols:any;
-  popItem:HistoriaClinica;
+fechaHoy: Date;
+  _fechaHoy: string;
+  cols: any;
+  popItem: HistoriaClinica;
   newPopItem: boolean;
-  resultSave:boolean;
-  es:any;
+  resultSave: boolean;
+  es: any;
   displayDialog: boolean;
   // LOADING
-  
   val1: number;
-  
-  elemento:HistoriaClinica;
-  elementos:HistoriaClinica[];
-  paciente:AgendaTurno = null;
-  selecteditems:HistoriaClinica[] = [];
+  elemento: HistoriaClinica;
+  elementos: HistoriaClinica[];
+  paciente: AgendaTurno = null;
+  selecteditems: HistoriaClinica[] = [];
   selectedItem: HistoriaClinica;
-  elementosFiltrados:HistoriaClinica[] = null;
-  edad:number;
-  popItemPaciente:Paciente;
-  formPaciente:FormGroup;
-  existe:boolean;
-  condicion:string;
-  selectedHistoriaClinica:HistoriaClinica;
-  popItemAgenda:AgendaTurno;
-  display:boolean;
-  receta:string;
-  listarecetas:any[];
-  listaindicacionesmedicas:any[];
-  selectedReceta:string[] = [];
-  selectedIndicaciones:string;
-  DateForm:FormGroup;
-  popItemMedico:MedicoObraSocial= null;
-  estudio:Estudios;
-  estudios:Estudios[] = [];
-  estudiosTexto:any[];  
-  selectedEstudio:string;
+  elementosFiltrados: HistoriaClinica[] = null;
+  edad: number;
+  popItemPaciente: Paciente;
+  formPaciente: FormGroup;
+  existe: boolean;
+  condicion: string;
+  selectedHistoriaClinica: HistoriaClinica;
+  popItemAgenda: AgendaTurno;
+  display: boolean;
+  receta: string;
+  listarecetas: any[];
+  listaindicacionesmedicas: any[];
+  selectedReceta: string[] = [];
+  selectedIndicaciones: string;
+  DateForm: FormGroup;
+  popItemMedico: MedicoObraSocial = null;
+  estudio: Estudios;
+  estudios: Estudios[] = [];
+  estudiosTexto: any[];
+  selectedEstudio: string;
   userData: any;
-  
 
-  constructor(private cirugiaService:CirugiaService, private messageService: MessageService,private router: Router,public dialogService: DialogService) {
+  constructor(private cirugiaService: CirugiaService, private messageService: MessageService,
+    private router: Router, public dialogService: DialogService) {
 
-  
     this.userData = JSON.parse(localStorage.getItem('userData'));
    this.formPaciente = new FormGroup({
-    
+
     'edad': new FormControl('', Validators.required),
     'numero_afiliado': new FormControl('', Validators.required),
     'plan': new FormControl('', Validators.required),
-    'dni': new FormControl('', Validators.required),  
-    'domicilio': new FormControl('', Validators.required),  
+    'dni': new FormControl('', Validators.required),
+    'domicilio': new FormControl('', Validators.required),
     'paciente_id': new FormControl('', Validators.required),
     'paciente_nombre': new FormControl('', Validators.required),
     'paciente_apellido': new FormControl('', Validators.required),
@@ -100,7 +97,7 @@ fechaHoy:Date;
     'TRATAMIENT': new FormControl('', Validators.required),
     'medico_nombre': new FormControl('', Validators.required),
     'medico_id': new FormControl('0', Validators.required),
-    'nombreyapellido': new FormControl('', Validators.required),    
+    'nombreyapellido': new FormControl('', Validators.required),
     'usuario_id': new FormControl('', Validators.required),
     'DIAGNOSTIC': new FormControl('', Validators.required),
     'REFRACCION_OD': new FormControl('', Validators.required),
@@ -118,20 +115,18 @@ fechaHoy:Date;
     'DIAGNOSTICO_OI': new FormControl('', Validators.required),
     'TRATAMIENTO_MEDICO': new FormControl('', Validators.required),
     'TRATAMIENTO_QUIRURGICO': new FormControl('', Validators.required),
-    'obra_social_id': new FormControl('', Validators.required),    
+    'obra_social_id': new FormControl('', Validators.required),
     'barra_afiliado': new FormControl('', Validators.required),
     'historia_clinica': new FormControl([], Validators.required),
     'selectedEstudio': new FormControl(''),
-    
-    
+
     });
 
 
 
 
   this.estudiosTexto = [
-    
-    
+
     {name: 'RG', code: '1'},
     {name: 'RFG', code: '2'},
     {name: 'OCT', code: '3'},
@@ -139,40 +134,40 @@ fechaHoy:Date;
     {name: 'PAQUIMETRIA CORNEAL', code: '4'},
     {name: 'TOPOGRAFIA CORNEAL', code: '5'},
     {name: 'RECUENTO ENDOTELIAL', code: '6'},
-    {name: 'OCT DE MACULA', code: '7'},        
+    {name: 'OCT DE MACULA', code: '7'},
     {name: 'OCT DE PAPILA', code: '8'},
     {name: 'VERION', code: '9'},
     {name: 'Lampara hendidura (im600)', code: '10'},
-    
+
 ];
 
    }
 
   ngOnInit() {
     this.es = calendarioIdioma;
-    this.fechaHoy = new Date();  
+    this.fechaHoy = new Date();
     this.selectedEstudio =  this.estudiosTexto[0];
     if(this.paciente != null){
       console.log(this.paciente);
       if(this.paciente.plan === '0'){
-        this.formPaciente.patchValue({plan: ''});   
+        this.formPaciente.patchValue({plan: ''});
       }
 
-      this.formPaciente.patchValue({FECHA:this.fechaHoy});
-      this.formPaciente.patchValue({paciente_nombre: this.paciente.paciente_apellido + ' '+this.paciente.paciente_nombre});   
-      this.formPaciente.patchValue({paciente_id:this.paciente.id});
-      this.formPaciente.patchValue({numero_afiliado:this.paciente.numero_afiliado});
-      this.formPaciente.patchValue({plan:this.paciente.plan});
-      this.formPaciente.patchValue({domicilio:this.paciente.domicilio});
-      this.formPaciente.patchValue({obra_social_nombre:this.paciente.paciente_obra_social_nombre});
-      this.formPaciente.patchValue({dni:this.paciente.paciente_dni});
-      this.formPaciente.patchValue({barra_afiliado:this.paciente.barra_afiliado});
-      this.formPaciente.patchValue({numero_afiliado:this.paciente.numero_afiliado});
-      this.formPaciente.patchValue({paciente_obra_social_id:this.paciente.paciente_obra_social_id});
-      
+      this.formPaciente.patchValue({FECHA: this.fechaHoy});
+      this.formPaciente.patchValue({paciente_nombre: this.paciente.paciente_apellido + ' ' + this.paciente.paciente_nombre});
+      this.formPaciente.patchValue({paciente_id: this.paciente.id});
+      this.formPaciente.patchValue({numero_afiliado: this.paciente.numero_afiliado});
+      this.formPaciente.patchValue({plan: this.paciente.plan});
+      this.formPaciente.patchValue({domicilio: this.paciente.domicilio});
+      this.formPaciente.patchValue({obra_social_nombre: this.paciente.paciente_obra_social_nombre});
+      this.formPaciente.patchValue({dni: this.paciente.paciente_dni});
+      this.formPaciente.patchValue({barra_afiliado: this.paciente.barra_afiliado});
+      this.formPaciente.patchValue({numero_afiliado: this.paciente.numero_afiliado});
+      this.formPaciente.patchValue({paciente_obra_social_id: this.paciente.paciente_obra_social_id});
+
     //  this.edad =(new Date()).getFullYear() - (new Date(this.paciente.paciente_fecha_nacimiento)).getFullYear();
-      let timeDiff = Math.abs(Date.now() - new Date(this.paciente.paciente_fecha_nacimiento).getTime());
-      let age = Math.floor((timeDiff / (1000 * 3600 * 24))/365.25);
+      const timeDiff = Math.abs(Date.now() - new Date(this.paciente.paciente_fecha_nacimiento).getTime());
+      const age = Math.floor((timeDiff / (1000 * 3600 * 24)) / 365.25);
       console.log(age)
       this.formPaciente.patchValue({edad: age});
       console.log(this.formPaciente);

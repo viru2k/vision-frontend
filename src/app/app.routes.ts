@@ -58,6 +58,7 @@ import { FacturaElectronicaComponent } from './pages/facturacion/factura/factura
 import { GerenciaDetalleOperacionCobroComponent } from './pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component';
 import { OtrasAccionesComponent } from './pages/facturacion/factura/otras-acciones/otras-acciones.component';
 import { FacturacionArticuloComponent } from './pages/mantenimiento/facturacion-articulo/facturacion-articulo.component';
+import { ChatComponent } from './pages/chat/chat.component';
 
 export const ROUTES: Routes = [
     /** principal **/
@@ -142,7 +143,7 @@ export const ROUTES: Routes = [
      { path: 'quirofona/cirugia/listado/cirugia', component: ListadoCirugiaQuirofanoConsultaComponent, canActivate: [AuthGuard], data: {role: 'quirofano_control'}  },
      
     /** otros **/
-    { path: 'chat', component: ChatListaComponent },
+    { path: 'chat', component: ChatComponent },
     { path: '', pathMatch: 'full', redirectTo: 'inicio' },
     { path: '**', pathMatch: 'full', redirectTo: 'inicio' }
 ];
