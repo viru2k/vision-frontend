@@ -854,15 +854,15 @@ sumarPresente(){
 
 generarPdf(){
 
-let _fechaEmision = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'en');
+const _fechaEmision = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'en');
 console.log(this.elementos);
 if(!this.elementosFiltrados){
   this.elementosFiltradosImpresion = this.agendaTurno;
-}else{
+} else{
   this.elementosFiltradosImpresion = this.elementosFiltrados;
 }
-let fecha = formatDate(this.fechaHoy, 'dd/MM/yyyy', 'en');
-var doc = new jsPDF('landscape');
+const fecha = formatDate(this.fechaHoy, 'dd/MM/yyyy', 'en');
+const doc = new jsPDF('landscape');
 
 /** valores de la pagina**/
 const pageSize = doc.internal.pageSize;
@@ -879,9 +879,9 @@ doc.text('Emitido : '+_fechaEmision, pageWidth-40, 18, null, null, 'left');
 
  doc.autoTable(this.columns, this.elementosFiltradosImpresion,
     {
-       
+
       margin: {horizontal: 5, vertical: 35},
-          
+
       bodyStyles: {valign: 'top'},
       styles: {fontSize: 8,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify'},
       columnStyles: {text: {cellWidth: 'auto'}}
@@ -892,50 +892,49 @@ doc.text('Emitido : '+_fechaEmision, pageWidth-40, 18, null, null, 'left');
 
 /** ACCIONES */
 
-colorRow(estado:string){
- 
-    
-  if(estado == 'ATENDIDO') {
+colorRow(estado:string) {
+
+  if(estado === 'ATENDIDO') {
     return {'es-atendido'  :'null' };
   }
-  if(estado == 'ATENDIDO') {
+  if(estado === 'ATENDIDO') {
       return {'es-atendido'  :'null' };
   }
-  if(estado == 'PENDIENTE') {
+  if(estado === 'PENDIENTE') {
       return {'es-pendiente'  :'null' };
   }
-  if(estado == 'AUSENTE') {
+  if(estado === 'AUSENTE') {
       return {'es-ausente'  :'null' };
   }
-  if(estado == 'INGRESADO') {
+  if(estado === 'INGRESADO') {
       return {'es-ingresado'  :'null' };
   }
-  if(estado == 'ESPERA') {
+  if(estado === 'ESPERA') {
       return {'es-espera'  :'null' };
   }
-  if(estado == 'PRESENTE') {
+  if(estado === 'PRESENTE') {
     return {'es-presente'  :'null' };
 }
-  if(estado == 'SOBRETURNO') {
+  if(estado === 'SOBRETURNO') {
     return {'es-sobreturno'  :'null' };
   }
-  if(estado == 'TURNO') {
+  if(estado === 'TURNO') {
     return {'es-turno'  :'null' };
   }
 
-  if(estado == 'DERIVADO') {
+  if(estado === 'DERIVADO') {
     return {'es-turno'  :'null' };
   }
 
-  if(estado == 'ASESORAMIENTO') {
+  if(estado === 'ASESORAMIENTO') {
     return {'es-asesoramiento'  :'null' };
   }
 
-  if(estado == 'CANCELADO') {  
+  if(estado === 'CANCELADO') {
     return {'es-cancelado'  :'null' };
-  }  
- 
-  if(estado == 'LLAMANDO') {
+  }
+
+  if(estado === 'LLAMANDO') {
     return {'es-llamando'  :'null' };
   }
 
@@ -943,10 +942,10 @@ colorRow(estado:string){
 
 
 colorString(estado:string){
-  
-  if((estado === '0')||(estado === null)) {
+
+  if((estado === '0') || (estado === null)) {
     return {'es-transferencia'  :'null' };
-  }else{
+  } else {
     return {'es-tarjeta-debito'  :'null' };
   }
 
@@ -963,7 +962,7 @@ sumarValores(){
   this.espera = 0;
   this.ingresado = 0;
   this.atendido = 0;
-  let estado:string;
+  let estado: string;
 console.log(this.elementosFiltrados);
   for(i=0;i<this.elementosFiltrados.length;i++){
     

@@ -15,6 +15,13 @@ export class ChatService {
   private url:string  = URL_SERVICIOS;
   constructor(public http: HttpClient) { }
 
+
+
+  getChatBySesion(id:string,sesion_id: string, grupo_nombre: string){
+    return this.http.get<any>(this.url+'chat/by/sesion?id='+id+'&sesion_id='+sesion_id+'&grupo_nombre='+grupo_nombre);
+  }
+
+
   altaUsuarioSesionLista(id:number){
     return this.http.get<any>(this.url+'/'+id);
   }

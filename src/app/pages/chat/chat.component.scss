@@ -19,7 +19,7 @@ body {
 .container {
   margin: 0 auto;
   width: 1024px;
-  background: #444753;
+  background: #cacaca;
   border-radius: 5px;
 }
 
@@ -36,7 +36,7 @@ body {
     border: none;
     padding: 14px;
     color: white;
-    background: #6A6C75;
+    background: #cacaca;
     width: 90%;
     font-size: 14px;
   }
@@ -84,7 +84,7 @@ body {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   
-  color: #434651;
+  color: #cacaca;
   
   .chat-header {
     padding: 20px;
@@ -120,7 +120,7 @@ body {
   .chat-history {
     padding: 30px 30px 20px;
     border-bottom: 2px solid white;
-    overflow-y: scroll;
+    //overflow-y: scroll;
     height: 575px;
     
     .message-data {
