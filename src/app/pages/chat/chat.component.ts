@@ -6,6 +6,12 @@ import { ChatService } from '../../services/chat-service.service';
 import swal from 'sweetalert2';
 import { ChatRenglon } from '../../models/chat-renglon.model';
 import { DocumentService } from '../../services/document-service.service';
+import { PopupAdjuntarArchivoComponent } from './popups/popup-adjuntar-archivo/popup-adjuntar-archivo.component';
+import { DialogService, MessageService } from 'primeng/api';
+import { URL_ARCHIVO } from './../../config/config';
+
+import { PopupUsuarioComponent } from './../../shared/components/popups/popup-usuario/popup-usuario.component';
+import { PopupAsociarUsuarioGrupoComponent } from './popups/popup-asociar-usuario-grupo/popup-asociar-usuario-grupo.component';
 
 @Component({
   selector: 'app-chat',
@@ -25,11 +31,15 @@ export class ChatComponent implements OnInit, AfterViewInit {
   lista_chat: any[] = [];
   selected_usuario: any = null;
   textoAenviar = '';
+  limite_historia:boolean = false;
+  limite:string = 'LIMIT 200';
   usuarioChat: any;
   habilitarTexto;
   private scrollContainer: any;
+  public url:string  = URL_ARCHIVO;
+  searchText;
 
-  constructor(private documentService: DocumentService, private chatService: ChatService) {
+  constructor(private documentService: DocumentService, private chatService: ChatService, private messageService: MessageService ,public dialogService: DialogService) {
     this.userData = JSON.parse(localStorage.getItem('userData'));
    }
 
@@ -83,6 +93,69 @@ this.documentService
 
 }
 
+limiteHistoria(){
+  if(this.limite_historia){
+    this.limite = '';
+  }else{
+    this.limite = 'LIMIT 200';
+  }
+}
+
+asociarArchivo() {
+
+  let data:any; 
+  data = this.selected_usuario;
+  const ref = this.dialogService.open(PopupAdjuntarArchivoComponent, {
+  data,
+   header: 'Adjuntar archivo', 
+   width: '60%',
+   height: '90%'
+  });
+  ref.onClose.subscribe((PopupAdjuntarArchivoComponent : any) => {
+    if (PopupAdjuntarArchivoComponent) {
+    console.log('subido ok');
+    this.loadChat(this.usuarioChat);
+    }
+});
+}
+
+agregarUsuario() {
+
+  let data:any; 
+  data = this.selected_usuario;
+  const ref = this.dialogService.open(PopupUsuarioComponent, {
+  data,
+   header: 'Asociar usuario', 
+   width: '60%',
+   height: '90%'
+  });
+  ref.onClose.subscribe((PopupUsuarioComponent : any) => {
+    if (PopupAdjuntarArchivoComponent) {
+    console.log('subido ok');
+    this.loadListaUsuario();
+    }
+});
+}
+
+
+
+gestionarGrupos() {
+console.log('ddd');
+  let data:any; 
+  data = this.selected_usuario;
+  const ref = this.dialogService.open(PopupAsociarUsuarioGrupoComponent, {
+  data,
+   header: 'Asociar usuario y grupos', 
+   width: '60%',
+   height: '90%'
+  });
+  ref.onClose.subscribe((PopupAsociarUsuarioGrupoComponent : any) => {
+    if (PopupAsociarUsuarioGrupoComponent) {
+    console.log('subido ok');
+    this.loadListaUsuario();
+    }
+});
+}
 
   loadListaUsuario() {
     this.loading = true;
@@ -108,6 +181,9 @@ this.documentService
 
 
   }
+
+
+  
 
 
   origenMensaje(usuario_id: string) {
@@ -139,7 +215,7 @@ this.documentService
     this.lista_usuarios[valor]['estado'] = 'LEIDO';
     try {
 
-        this.chatService.getChatBySesion(e.id, e.chat_sesion_id, e.grupo_nombre)
+        this.chatService.getChatBySesion(e.id, e.chat_sesion_id, e.grupo_nombre, this.limite)
         .subscribe(resp => {
         this.lista_chat = resp;
         console.log(resp);

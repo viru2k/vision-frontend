@@ -42,15 +42,17 @@ import {MenuItem, MessageService,DialogService,SelectItem} from 'primeng/api';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
 import {PanelModule} from 'primeng/panel';
 import {AutoCompleteModule} from 'primeng/autocomplete';
+import {InputSwitchModule} from 'primeng/inputswitch';
 import localeEsAR from '@angular/common/locales/es-AR';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { AutofocusModule } from 'angular-autofocus-fix'; 
 import localeEsAr from '@angular/common/locales/es-AR'; 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 registerLocaleData(localeEsAR, 'es-Ar');
 
 
 /****barcode para imprimir */
-import { NgxBarcodeModule } from 'ngx-barcode';
+
 
 /** COMPONENTES **/
 import { AppComponent } from './app.component';
@@ -234,6 +236,9 @@ import { ObrasocialAutorizacionWebComponent } from './pages/lista/obrasocial-aut
 import { ChatComponent } from './pages/chat/chat.component';
 import { ChatListComponent } from './pages/chat/chat-list/chat-list.component';
 import { ChatMessageComponent } from './pages/chat/chat-message/chat-message.component';
+import { PopupAsociarUsuarioComponent } from './pages/chat/popups/popup-asociar-usuario/popup-asociar-usuario.component';
+import { PopupAdjuntarArchivoComponent } from './pages/chat/popups/popup-adjuntar-archivo/popup-adjuntar-archivo.component';
+import { PopupAsociarUsuarioGrupoComponent } from './pages/chat/popups/popup-asociar-usuario-grupo/popup-asociar-usuario-grupo.component';
 
 
 
@@ -398,7 +403,10 @@ registerLocaleData(localeEsAR, 'es-Ar');
     ObrasocialAutorizacionWebComponent,
     ChatComponent,
     ChatListComponent,
-    ChatMessageComponent
+    ChatMessageComponent,
+    PopupAsociarUsuarioComponent,
+    PopupAdjuntarArchivoComponent,
+    PopupAsociarUsuarioGrupoComponent
   ],
   imports: [
 
@@ -431,10 +439,11 @@ registerLocaleData(localeEsAR, 'es-Ar');
     ScrollPanelModule,
     ProgressSpinnerModule,
     PanelModule,
+    InputSwitchModule,
     AutoCompleteModule,
+    Ng2SearchPipeModule,
     SweetAlert2Module.forRoot(),
     AutofocusModule,
-    NgxBarcodeModule,
     SocketIoModule.forRoot(config),
       RouterModule.forRoot( ROUTES, { useHash: true } ),
       SocketIoModule.forRoot(config),
@@ -464,7 +473,10 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupChatComponent ,   PopupListadoUsuarioComponent, PopupNotificacionNuevaComponent,
     PopupFacturaRenglonComponent,BuscarConceptoFacturaComponent,PopupOperacionCobroDistribucionDetalleComponent,
     PopupLiquidacionDetalleComponent, PopupArticuloComponent, PopupOperacionCobroEditarDistribucionComponent,
-    PopupPacienteComponent, ListadoCirugiaComponent, PopupArticuloComponent
+    PopupPacienteComponent, ListadoCirugiaComponent, PopupArticuloComponent,
+    PopupAsociarUsuarioComponent,
+    PopupAdjuntarArchivoComponent,
+    PopupAsociarUsuarioGrupoComponent
 
   ],
   providers: [CurrencyPipe,DecimalPipe,NumberToWordsPipe,PacienteService,PushNotificationService,ExcelService,{ provide: LOCALE_ID, useValue: 'es-Ar' },

@@ -5,10 +5,14 @@ $blue: #94C2ED;
 $orange: #E38968;
 $gray: #92959E;
 
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
 
+.label-size-sm{
+  font-size: 10px;
+}
 body {
   background: #C5DDEB;
   font: 14px/20px "Lato", Arial, sans-serif;
@@ -118,13 +122,13 @@ body {
   }
   
   .chat-history {
-    padding: 30px 30px 20px;
+    padding: 30px 20px 20px;
     border-bottom: 2px solid white;
     //overflow-y: scroll;
-    height: 575px;
+    height: 430px;
     
     .message-data {
-      margin-bottom: 15px;
+      margin-bottom: 5px;
     }
     
     .message-data-time {
@@ -134,11 +138,11 @@ body {
     
     .message {      
       color: white;
-      padding: 18px 20px;
+      padding: 18px 20px 10px;
       line-height: 26px;
-      font-size: 16px;
+      font-size: 14px;
       border-radius: 7px;
-      margin-bottom: 30px;
+      margin-bottom: 5px;
       width: 90%;
       position: relative;
       

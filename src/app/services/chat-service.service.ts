@@ -17,8 +17,8 @@ export class ChatService {
 
 
 
-  getChatBySesion(id:string,sesion_id: string, grupo_nombre: string){
-    return this.http.get<any>(this.url+'chat/by/sesion?id='+id+'&sesion_id='+sesion_id+'&grupo_nombre='+grupo_nombre);
+  getChatBySesion(id:string,sesion_id: string, grupo_nombre: string, limite:string){
+    return this.http.get<any>(this.url+'chat/by/sesion?id='+id+'&sesion_id='+sesion_id+'&grupo_nombre='+grupo_nombre+'&limite='+limite);
   }
 
 
@@ -31,16 +31,22 @@ export class ChatService {
     return this.http.get<any>(this.url+'/'+id);
   }
 
-  asociarUsuarioGrupo(id:number){
-    return this.http.get<any>(this.url+'/'+id);
+  asociarUsuarioGrupo(id:number, usuario_carga:number, grupo:string, sesion_id:string){
+    return this.http.get<any>(this.url+'chat/usuario/alta/sesion/grupo?usuario_id='+id+'&usuario_carga='+usuario_carga+'&grupo='+grupo+'&sesion_id='+sesion_id);
   }
 
-  crearSesionListadoGrupo(id:number){
-    return this.http.get<any>(this.url+'/'+id);
+  crearSesionListadoGrupo(grupo_nombre:string){
+    return this.http.get<any>(this.url+'chat/alta/sesion/grupo?grupo_nombre='+grupo_nombre);
   }
+
 
   getSesionListByUsuario(id:number){
     return this.http.get<any[]>(this.url+'chat/usuario/lista/sesion?id='+id);
+  }
+
+
+  getGrupos(){
+    return this.http.get<any[]>(this.url+'chat/grupos');
   }
 
 
