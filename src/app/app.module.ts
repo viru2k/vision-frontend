@@ -245,8 +245,6 @@ import { PopupNotificacionNuevaComponent } from './pages/notificacion/popup-noti
 // tslint:disable-next-line: max-line-length
 import { ListadoCirugiaQuirofanoConsultaComponent } from './pages/quirofano/listado-cirugia-quirofano-consulta/listado-cirugia-quirofano-consulta.component';
 import { FacturaElectronicaComponent } from './pages/facturacion/factura/factura-electronica/factura-electronica.component';
-import { EntidadComponent } from './pages/mantenimiento/entidad/entidad.component';
-import { EditEntidadComponent } from './pages/mantenimiento/entidad/edit-entidad/edit-entidad.component';
 // tslint:disable-next-line: max-line-length
 import { GerenciaDetalleOperacionCobroComponent } from './pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component';
 
@@ -288,9 +286,10 @@ import { ChatMessageComponent } from './pages/chat/chat-message/chat-message.com
 import { PopupAsociarUsuarioComponent } from './pages/chat/popups/popup-asociar-usuario/popup-asociar-usuario.component';
 import { PopupAdjuntarArchivoComponent } from './pages/chat/popups/popup-adjuntar-archivo/popup-adjuntar-archivo.component';
 import { PopupAsociarUsuarioGrupoComponent } from './pages/chat/popups/popup-asociar-usuario-grupo/popup-asociar-usuario-grupo.component';
-import { InsumoQuirurgicoComponent } from './pages/mantenimiento/insumo-quirurgico/insumo-quirurgico.component';
 import { InsumoStockComponent } from './pages/insumo/insumo-stock/insumo-stock.component';
 import { InsumoStockMovimientoComponent } from './pages/insumo/insumo-stock-movimiento/insumo-stock-movimiento.component';
+import { StockInsumoEditarComponent } from './pages/mantenimiento/stock/insumo/stock-insumo-editar/stock-insumo-editar.component';
+import { InsumoStockAgregarComponent } from './pages/insumo/insumo-stock/insumo-stock-agregar/insumo-stock-agregar.component';
 
 
 
@@ -422,8 +421,6 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupNotificacionNuevaComponent,
     ListadoCirugiaQuirofanoConsultaComponent,
     FacturaElectronicaComponent,
-    EntidadComponent,
-    EditEntidadComponent,
     GerenciaDetalleOperacionCobroComponent,
     BuscarClienteFacturaComponent,
     PopupFacturaRenglonComponent,
@@ -455,9 +452,10 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupAsociarUsuarioComponent,
     PopupAdjuntarArchivoComponent,
     PopupAsociarUsuarioGrupoComponent,
-    InsumoQuirurgicoComponent,
     InsumoStockComponent,
-    InsumoStockMovimientoComponent
+    InsumoStockMovimientoComponent,
+    StockInsumoEditarComponent,
+    InsumoStockAgregarComponent
   ],
   imports: [
 
@@ -528,7 +526,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupPacienteComponent, ListadoCirugiaComponent, PopupArticuloComponent,
     PopupAsociarUsuarioComponent,
     PopupAdjuntarArchivoComponent,
-    PopupAsociarUsuarioGrupoComponent
+    PopupAsociarUsuarioGrupoComponent, StockInsumoEditarComponent, InsumoStockAgregarComponent
 
   ],
   // tslint:disable-next-line: max-line-length
