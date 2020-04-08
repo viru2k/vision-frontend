@@ -504,7 +504,8 @@ guardarDatos(){
   let facturaElectronica = new FacturaElectronica('0', this.pto_vta, this.elementoComprobante['id'], this.elementoConcepto['id'],
   this.elementoDocumento['id'],this.nrodocumento,
   this.cliente,this.factura_numero, this._fecha, this._fechaDesde, this._fechaHasta,
-  (Math.round(this.subtotal * 100) / 100), this.subtotal_excento,(Math.round(this.subtotal_iva * 100) / 100),(Math.round(this.total * 100) / 100) ,this.facturaAlicuotaAsociada,this.elementos, '','', this.elementoMedicos['id'], this.observacion);
+  // tslint:disable-next-line: max-line-length
+  (Math.round(this.subtotal * 100) / 100), this.subtotal_excento,(Math.round(this.subtotal_iva * 100) / 100),(Math.round(this.total * 100) / 100) ,this.facturaAlicuotaAsociada,this.elementos, '','', this.elementoMedicos['id'], this.observacion,this.elementoCondicionIva['categoria_iva']);
    console.log(facturaElectronica);
   
   

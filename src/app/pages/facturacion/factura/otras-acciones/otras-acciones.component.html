@@ -9,23 +9,27 @@
       
     
         <div class="col-4"  class="input-group input-group-sm ">
+          <label class=" mr-2 ml-2 mt-3">Médico - Clínica:</label>
+          <p-dropdown class="mr-2 mt-2"  [options]="elementosMedicos" [(ngModel)]="elementoMedicos"  optionLabel="nombreyapellido"  (onHide)="obtenerMedico()" placeholder="Medico / Clínica"></p-dropdown>  
                 <form  [formGroup]="DateForm" class="mr-2">
                 <div class="btn-group " role="group">
-                        <span class="pr-1 pt-1"><h6>Desde:</h6></span>
+               
+                        <span class="pr-1 pt-1"><label>Desde:</label></span>
             <p-calendar [inputStyle]="{'height':'29.1px'}"  class="mr-2 " formControlName="fecha_desde"  (onSelect)="actualizarFechaDesde($event)" tabindex="0"   [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
                <ng-template pTemplate="date" let-date>
                     <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
                 </ng-template> 
               </p-calendar>
-              <span class="pr-1 pt-1"><h6>Hasta:</h6></span>
+              <span class="pr-1 pt-1"><label>Hasta:</label></span>
               <p-calendar [inputStyle]="{'height':'29.1px'}"   class="mr-2 " formControlName="fecha_hasta"  (onSelect)="actualizarFechaHasta($event)" tabindex="0"  [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
                 <ng-template pTemplate="date" let-date>
                      <span  inputStyle="{'height':'29.5px'}"  style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
                  </ng-template> 
                </p-calendar>               
-                                                      
+                                        
                     </div>
-             
+                    <button    class="btn    btn-excel " (click)="generarLibroIva()" > <i class="fa fa-file-excel-o  mr-1" aria-hidden="true"> </i>Generar libro IVA </button>   
+                    <button    class="btn    btg-danger " (click)="generarLibroIvaPdf()" > Generar libro IVA PDF </button>   
                 </form>   
 
         </div>   
@@ -48,6 +52,7 @@
         </div>  
         <div class="row col-3 float-right">
         <button    class="btn  btn-info  " (click)="buscar()" >Buscar </button>       
+      
       </div>
     </div>
      
@@ -117,7 +122,7 @@
   
   
   <p-overlayPanel #op [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >                          
-      <span>  <b> <a class="nav-link azul text-info  my-hover" (click)="realizarNotaCredito()">Realizar nota de crédito</a></b></span>
+      <!-- <span>  <b> <a class="nav-link azul text-info  my-hover" (click)="realizarNotaCredito()">Realizar nota de crédito</a></b></span> -->
       <span>   <a class="nav-link azul text-success  my-hover" (click)="imprimir()">Reimprimir factura</a></span>      
     </p-overlayPanel>  
     

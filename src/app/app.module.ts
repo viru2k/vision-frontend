@@ -2,7 +2,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 
 
-import { SwPush } from '@angular/service-worker'
+import { SwPush } from '@angular/service-worker';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule , LOCALE_ID, Injector} from '@angular/core';
@@ -10,9 +10,9 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData, LocationStrategy, HashLocationStrategy, CurrencyPipe, DecimalPipe } from '@angular/common';
-import { HTTP_INTERCEPTORS,HttpClientModule  } from '@angular/common/http';
- 
-/** LIBRERIAS 3RO**/ 
+import { HTTP_INTERCEPTORS, HttpClientModule  } from '@angular/common/http';
+
+/** LIBRERIAS 3RO**/
 
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import {GalleriaModule} from 'primeng/galleria';
@@ -34,19 +34,19 @@ import {MenubarModule} from 'primeng/menubar';
 import {MenuModule} from 'primeng/menu';
 import {SpinnerModule} from 'primeng/spinner';
 import {ToastModule} from 'primeng/toast';
-import { DynamicDialogModule } from "primeng/dynamicdialog";
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import {ListboxModule} from 'primeng/listbox';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {InputTextareaModule} from 'primeng/inputtextarea';
-import {MenuItem, MessageService,DialogService,SelectItem} from 'primeng/api';
+import {MenuItem, MessageService, DialogService, SelectItem} from 'primeng/api';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
 import {PanelModule} from 'primeng/panel';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import localeEsAR from '@angular/common/locales/es-AR';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
-import { AutofocusModule } from 'angular-autofocus-fix'; 
-import localeEsAr from '@angular/common/locales/es-AR'; 
+import { AutofocusModule } from 'angular-autofocus-fix';
+import localeEsAr from '@angular/common/locales/es-AR';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 registerLocaleData(localeEsAR, 'es-Ar');
 
@@ -112,13 +112,16 @@ import { PopupConvenioComponent } from './shared/components/popups/popup-conveni
 import { TurnoComponent } from './pages/recepcion/agenda/turno/turno.component';
 
 import { PopupCombinadaComponent } from './pages/facturacion/operacion-cobro/popup-combinada/popup-combinada.component';
+// tslint:disable-next-line: max-line-length
 import { PopupCombinadaItemComponent } from './pages/facturacion/operacion-cobro/popup-combinada/popup-combinada-item/popup-combinada-item.component';
 import { EditObraSocialComponent } from './pages/mantenimiento/convenio/obra-social/edit-obra-social/edit-obra-social.component';
 import { DistribucionPracticaComponent } from './pages/mantenimiento/distribucion-practica/distribucion-practica.component';
+// tslint:disable-next-line: max-line-length
 import { PopupCombinadaLecturaComponent } from './pages/facturacion/operacion-cobro/popup-combinada-lectura/popup-combinada-lectura.component';
 import { PopUpFormaPagoComponent } from './shared/components/popups/popup-forma-pago/popup-forma-pago.component';
 import { AgendaMedicoComponent } from './pages/mantenimiento/agenda/agenda-medico/agenda-medico.component';
 import { PopupUsuarioComponent } from './shared/components/popups/popup-usuario/popup-usuario.component';
+// tslint:disable-next-line: max-line-length
 import { PopupTurnoUsuarioObraSocialComponent } from './pages/recepcion/agenda/turno/popup-turno-usuario-obra-social/popup-turno-usuario-obra-social.component';
 import { PopupPacienteComponent } from './shared/components/popups/popup-paciente/popup-paciente.component';
 import { PopupPacienteNuevoComponent } from './pages/paciente/popup-paciente/popup-paciente.component';
@@ -129,13 +132,19 @@ import { PopupObraSocialMedicoComponent } from './pages/medico/popup-obra-social
 import { PopupObraSocialComponent } from './shared/components/popups/popup-obra-social/popup-obra-social.component';
 import { from } from 'rxjs';
 import { AgendaBloqueoComponent } from './pages/mantenimiento/agenda/agenda-bloqueo/agenda-bloqueo.component';
+// tslint:disable-next-line: max-line-length
 import { OperacionCobroAuditarComponent } from './pages/facturacion/liquidacion/auditar/operacion-cobro-auditar/operacion-cobro-auditar.component';
+// tslint:disable-next-line: max-line-length
 import { OperacionCobroEditarComponent } from './pages/facturacion/liquidacion/auditar/operacion-cobro-editar/operacion-cobro-editar.component';
 
 import { PopupTurnoEditarComponent } from './shared/components/popups/popup-turno-editar/popup-turno-editar.component';
+// tslint:disable-next-line: max-line-length
 import { OperacionCobroDetalleComponent } from './pages/facturacion/liquidacion/auditar/operacion-cobro-detalle/operacion-cobro-detalle.component';
+// tslint:disable-next-line: max-line-length
 import { PopupHistoriaClinicaResumenComponent } from './shared/popups/medico/popup-historia-clinica-resumen/popup-historia-clinica-resumen.component';
+// tslint:disable-next-line: max-line-length
 import { PopupOperacionCobroRegistroEditarComponent } from './shared/components/popups/popup-operacion-cobro-registro-editar/popup-operacion-cobro-registro-editar.component';
+// tslint:disable-next-line: max-line-length
 import { OperacionCobroAfectarComponent } from './pages/facturacion/liquidacion/auditar/operacion-cobro-afectar/operacion-cobro-afectar.component';
 import { StockLenteComponent } from './pages/stock/lentes/stock-lente/stock-lente.component';
 import { AltaLenteComponent } from './pages/stock/lentes/alta-lente/alta-lente.component';
@@ -150,30 +159,44 @@ import { NotFoundComponent } from './pages/info/not-found/not-found.component';
 import { ListadoCirugiaComponent } from './pages/asesoramiento/ficha-quirurgica/listado-cirugia/listado-cirugia.component';
 import { PopupLentesComponent } from './shared/components/popups/popup-lentes/popup-lentes.component';
 import { UsuarioModuloComponent } from './pages/mantenimiento/usuario/usuario-modulo/usuario-modulo.component';
+// tslint:disable-next-line: max-line-length
 import { LiquidacionProvinciaComponent } from './pages/facturacion/liquidacion/provincia/liquidacion-provincia/liquidacion-provincia.component';
 import { LiquidacionDetalleComponent } from './pages/facturacion/liquidacion/liquidar/liquidacion-detalle/liquidacion-detalle.component';
 import { ConfeccionFacturaComponent } from './pages/facturacion/liquidacion/liquidar/confeccion-factura/confeccion-factura.component';
+// tslint:disable-next-line: max-line-length
 import { PopupFichaQuirurgicaLenteComponent } from './shared/components/popups/popup-ficha-quirurgica-lente/popup-ficha-quirurgica-lente.component';
+// tslint:disable-next-line: max-line-length
 import { PopupFichaQuirurgicaMedicoGrupoComponent } from './shared/components/popups/popup-ficha-quirurgica-medico-grupo/popup-ficha-quirurgica-medico-grupo.component';
+// tslint:disable-next-line: max-line-length
 import { PopupFichaQuirurgicaEstadoComponent } from './shared/components/popups/popup-ficha-quirurgica-estado/popup-ficha-quirurgica-estado.component';
+// tslint:disable-next-line: max-line-length
 import { PopupFichaQuirurgicaAnesteciaComponent } from './shared/components/popups/popup-ficha-quirurgica-anestecia/popup-ficha-quirurgica-anestecia.component';
 import { PopupPacienteEstudioComponent } from './shared/components/popups/popup-paciente-estudio/popup-paciente-estudio.component';
 
 import { PopupLenteTipoComponent } from './shared/components/popups/popup-lente-tipo/popup-lente-tipo.component';
+// tslint:disable-next-line: max-line-length
 import { PopupHistoriaClinicaListaConsultaComponent } from './shared/components/popups/popup-historia-clinica-lista-consulta/popup-historia-clinica-lista-consulta.component';
 
 import { PopupLiquidacionDetalleComponent } from './shared/components/popups/popup-liquidacion-detalle/popup-liquidacion-detalle.component';
+// tslint:disable-next-line: max-line-length
 import { PopupHistoriaClinicaRegistroComponent } from './shared/components/popups/popup-historia-clinica-registro/popup-historia-clinica-registro.component';
+// tslint:disable-next-line: max-line-length
 import { PopupHistoriaClinicaRegistroNuevoComponent } from './shared/components/popups/popup-historia-clinica-registro-nuevo/popup-historia-clinica-registro-nuevo.component';
-
+// tslint:disable-next-line: max-line-length
 import { PopupDerivarAsesoramientoComponent } from './shared/components/popups/popup-derivar-asesoramiento/popup-derivar-asesoramiento.component';
+// tslint:disable-next-line: max-line-length
 import { HistoriaClinicaVisualizarComponent } from './pages/medico/historia-clinica/historia-clinica-visualizar/historia-clinica-visualizar.component';
 import { PopupAgendaObservacionComponent } from './shared/components/popups/popup-agenda-observacion/popup-agenda-observacion.component';
+// tslint:disable-next-line: max-line-length
 import { PopupOperacionCobroEditarComponent } from './shared/components/popups/popup-operacion-cobro-editar/popup-operacion-cobro-editar.component';
 import { PopupPacienteConsultaComponent } from './shared/components/popups/popup-paciente-consulta/popup-paciente-consulta.component';
+// tslint:disable-next-line: max-line-length
 import { OperacionCobroDetalleMedicoComponent } from './pages/medico/facturacion/operacion-cobro-detalle-medico/operacion-cobro-detalle-medico.component';
+// tslint:disable-next-line: max-line-length
 import { PopupOperacionCobroRegistroBuscarComponent } from './shared/components/popups/popup-operacion-cobro-registro-buscar/popup-operacion-cobro-registro-buscar.component';
+
 import { AgendaConsultaComponent } from './pages/gerencia/agenda/agenda-consulta/agenda-consulta.component';
+// tslint:disable-next-line: max-line-length
 import { OperacionCobroConsultaGerenciaComponent } from './pages/gerencia/operacioncobro/operacion-cobro-consulta-gerencia/operacion-cobro-consulta-gerencia.component';
 import {  NumberToWordsPipe } from './shared/pipes/number-to-words.pipe';
 import { EstudioCargaComponent } from './pages/estudios/estudio-carga/estudio-carga.component';
@@ -181,56 +204,82 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { PushNotificationService } from './services/push-notification.service';
 import { PopupEstudiosImagenComponent } from './shared/components/popups/popup-estudios-imagen/popup-estudios-imagen.component';
+// tslint:disable-next-line: max-line-length
 import { PopupOperacionCobroPresentacionComponent } from './shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component';
+// tslint:disable-next-line: max-line-length
 import { PopupOperacionCobroPresentacionEditarRegistroComponent } from './shared/components/popups/popup-operacion-cobro-presentacion-editar-registro/popup-operacion-cobro-presentacion-editar-registro.component';
 import { PopupPresentacionEditarComponent } from './shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component';
+// tslint:disable-next-line: max-line-length
 import { ListadoCirugiaQuirofanoComponent } from './pages/asesoramiento/ficha-quirurgica/listado-cirugia-quirofano/listado-cirugia-quirofano.component';
+// tslint:disable-next-line: max-line-length
 import { PopupDerivarAsesoramientoListadoComponent } from './shared/components/popups/popup-derivar-asesoramiento-listado/popup-derivar-asesoramiento-listado.component';
+// tslint:disable-next-line: max-line-length
 import { PopupListadoCirugiaQuirofanoEditarComponent } from './shared/components/popups/popup-listado-cirugia-quirofano-editar/popup-listado-cirugia-quirofano-editar.component';
+// tslint:disable-next-line: max-line-length
 import { PopupCobroDistribucionEditarComponent } from './shared/components/popups/popup-cobro-distribucion-editar/popup-cobro-distribucion-editar.component';
 import { ExcelService } from './services/excel.service';
+// tslint:disable-next-line: max-line-length
 import { PopupFichaQuirurgicaOperacionCobroComponent } from './shared/components/popups/popup-ficha-quirurgica-operacion-cobro/popup-ficha-quirurgica-operacion-cobro.component';
 import { ListadoCirugiaEditarComponent } from './pages/medico/asesoramiento/listado-cirugia-editar/listado-cirugia-editar.component';
+// tslint:disable-next-line: max-line-length
 import {  PopupListadoCirugiaQuirofanoObservacionEditarComponent } from './shared/components/popups/popup-listado-cirugia-quirofano-observacion-editar/popup-listado-cirugia-quirofano-observacion-editar.component';
 import { AgendaBloqueoEdicionComponent } from './pages/mantenimiento/agenda/agenda-bloqueo-edicion/agenda-bloqueo-edicion.component';
+// tslint:disable-next-line: max-line-length
 import { PopupOperacionCobroDetalleComponent } from './shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component';
+// tslint:disable-next-line: max-line-length
 import { PopupOperacionCobroDetallePacienteComponent } from './shared/components/popups/popup-operacion-cobro-detalle-paciente/popup-operacion-cobro-detalle-paciente.component';
+// tslint:disable-next-line: max-line-length
 import { PopupOperacionCobroRegistroBuscarTodosComponent } from './shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component';
+// tslint:disable-next-line: max-line-length
 import { PopupDetalleOperacionCobroDistribucionComponent } from './shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component';
+// tslint:disable-next-line: max-line-length
 import { PopupOperacionCobroDistribucionComponent } from './shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component';
 import { AgendaRecepcionComponent } from './pages/recepcion/agenda/agenda-recepcion/agenda-recepcion.component';
 import { PopupPacienteEsperaComponent } from './shared/components/popups/popup-paciente-espera/popup-paciente-espera.component';
 import { PopupNotificacionComponent } from './pages/notificacion/popup-notificacion/popup-notificacion.component';
 import { PopupChatComponent } from './pages/notificacion/popup-chat/popup-chat.component';
+// tslint:disable-next-line: max-line-length
 import { PopupListadoUsuarioComponent } from './pages/notificacion/popup-notificacion/popup-listado-usuario/popup-listado-usuario.component';
+// tslint:disable-next-line: max-line-length
 import { PopupNotificacionNuevaComponent } from './pages/notificacion/popup-notificacion/popup-notificacion-nueva/popup-notificacion-nueva.component';
+// tslint:disable-next-line: max-line-length
 import { ListadoCirugiaQuirofanoConsultaComponent } from './pages/quirofano/listado-cirugia-quirofano-consulta/listado-cirugia-quirofano-consulta.component';
 import { FacturaElectronicaComponent } from './pages/facturacion/factura/factura-electronica/factura-electronica.component';
 import { EntidadComponent } from './pages/mantenimiento/entidad/entidad.component';
 import { EditEntidadComponent } from './pages/mantenimiento/entidad/edit-entidad/edit-entidad.component';
+// tslint:disable-next-line: max-line-length
 import { GerenciaDetalleOperacionCobroComponent } from './pages/gerencia/gerencia-detalle-operacion-cobro/gerencia-detalle-operacion-cobro.component';
-import { GenerarFacturaComponent } from './pages/facturacion/factura-electronica/popups/generar-factura/generar-factura.component';
-import { GenerarNotaCreditoComponent } from './pages/facturacion/factura-electronica/popups/generar-nota-credito/generar-nota-credito.component';
+
+
+// tslint:disable-next-line: max-line-length
 import { BuscarClienteFacturaComponent } from './pages/facturacion/factura-electronica/popups/buscar-cliente-factura/buscar-cliente-factura.component';
+// tslint:disable-next-line: max-line-length
 import { PopupFacturaRenglonComponent } from './pages/factura/factura-electronica/popups/popup-factura-renglon/popup-factura-renglon.component';
+// tslint:disable-next-line: max-line-length
 import { BuscarConceptoFacturaComponent } from './pages/facturacion/factura-electronica/popups/buscar-concepto-factura/buscar-concepto-factura.component';
+// tslint:disable-next-line: max-line-length
 import { PopupOperacionCobroDistribucionDetalleComponent } from './shared/components/popups/popup-operacion-cobro-distribucion-detalle/popup-operacion-cobro-distribucion-detalle.component';
 import { OtrasAccionesComponent } from './pages/facturacion/factura/otras-acciones/otras-acciones.component';
 import { FacturacionArticuloComponent } from './pages/mantenimiento/facturacion-articulo/facturacion-articulo.component';
 import { PopupArticuloComponent } from './shared/components/popups/popup-articulo/popup-articulo.component';
+// tslint:disable-next-line: max-line-length
 import { PopupOperacionCobroEditarDistribucionComponent } from './shared/components/popups/popup-operacion-cobro-editar-distribucion/popup-operacion-cobro-editar-distribucion.component';
+// tslint:disable-next-line: max-line-length
 import { PopupAccesoAutorizacionOsComponent } from './shared/components/popups/popup-acceso-autorizacion-os/popup-acceso-autorizacion-os.component';
+// tslint:disable-next-line: max-line-length
 import { PopupAccesoAutorizacionOsEditarComponent } from './shared/components/popups/popup-acceso-autorizacion-os-editar/popup-acceso-autorizacion-os-editar.component';
 import { PopupPacienteAmpliadoComponent } from './pages/mantenimiento/popup/popup-paciente/popup-paciente-ampliado.component';
 import { ListadoCirugiaSinUsoComponent } from './pages/quirofano/listado-cirugia/listado-cirugia-sin-uso.component';
 import { UsuarioComponent } from './pages/mantenimiento/usuario/usuario/usuario.component';
 import { PopupUsuarioEditarComponent } from './pages/mantenimiento/usuario/popup-usuario-editar/popup-usuario-editar.component';
+// tslint:disable-next-line: max-line-length
 import { PopupUsuarioEditarPasswordComponent } from './pages/mantenimiento/usuario/popup-usuario-editar-password/popup-usuario-editar-password.component';
 import { CirugiaEditarComponent } from './pages/lista/cirugia-editar/cirugia-editar.component';
 import { EstudioComponent } from './pages/lista/estudio/estudio.component';
 import { EstudioEditarComponent } from './pages/lista/estudio-editar/estudio-editar.component';
 import { RecetaEditarComponent } from './pages/lista/receta-editar/receta-editar.component';
 import { RecetaComponent } from './pages/lista/receta/receta.component';
+// tslint:disable-next-line: max-line-length
 import { ObrasocialAutorizacionWebEditarComponent } from './pages/lista/obrasocial-autorizacion-web-editar/obrasocial-autorizacion-web-editar.component';
 import { ObrasocialAutorizacionWebComponent } from './pages/lista/obrasocial-autorizacion-web/obrasocial-autorizacion-web.component';
 import { ChatComponent } from './pages/chat/chat.component';
@@ -239,10 +288,13 @@ import { ChatMessageComponent } from './pages/chat/chat-message/chat-message.com
 import { PopupAsociarUsuarioComponent } from './pages/chat/popups/popup-asociar-usuario/popup-asociar-usuario.component';
 import { PopupAdjuntarArchivoComponent } from './pages/chat/popups/popup-adjuntar-archivo/popup-adjuntar-archivo.component';
 import { PopupAsociarUsuarioGrupoComponent } from './pages/chat/popups/popup-asociar-usuario-grupo/popup-asociar-usuario-grupo.component';
+import { InsumoQuirurgicoComponent } from './pages/mantenimiento/insumo-quirurgico/insumo-quirurgico.component';
+import { InsumoStockComponent } from './pages/insumo/insumo-stock/insumo-stock.component';
+import { InsumoStockMovimientoComponent } from './pages/insumo/insumo-stock-movimiento/insumo-stock-movimiento.component';
 
 
 
- 
+
 
 
 registerLocaleData(localeEsAR, 'es-Ar');
@@ -250,7 +302,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
 @NgModule({
   declarations: [
     AppComponent,
-    
+
 
     NavbarComponent,
     LoginComponent,
@@ -285,7 +337,6 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupPacienteComponent,
     PopupPacienteNuevoComponent,
     TurnoComponent,
-  
     PopupCombinadaComponent,
     PopupCombinadaItemComponent,
     EditObraSocialComponent,
@@ -296,7 +347,6 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupUsuarioComponent,
     PopupTurnoUsuarioObraSocialComponent,
     DateFormatPipe,
-  
     UsuarioModuloComponent,
     PopupPacienteObrasocialComponent,
     PopupPracticaPorcentajeComponent,
@@ -315,7 +365,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupDetalleLenteComponent,
     LenteComponent,
     InsumoComponent,
-    HistoriaClinicaComponent,    
+    HistoriaClinicaComponent,
     AgendaAtencionMedicoComponent,
     ChatListaComponent,
     EmptyComponent,
@@ -356,7 +406,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupListadoCirugiaQuirofanoEditarComponent,
     PopupCobroDistribucionEditarComponent,
     PopupFichaQuirurgicaOperacionCobroComponent,
-    ListadoCirugiaEditarComponent,    
+    ListadoCirugiaEditarComponent,
     PopupListadoCirugiaQuirofanoObservacionEditarComponent,
     AgendaBloqueoEdicionComponent,
     PopupOperacionCobroDetalleComponent,
@@ -375,8 +425,6 @@ registerLocaleData(localeEsAR, 'es-Ar');
     EntidadComponent,
     EditEntidadComponent,
     GerenciaDetalleOperacionCobroComponent,
-    GenerarFacturaComponent,
-    GenerarNotaCreditoComponent,
     BuscarClienteFacturaComponent,
     PopupFacturaRenglonComponent,
     BuscarConceptoFacturaComponent,
@@ -406,7 +454,10 @@ registerLocaleData(localeEsAR, 'es-Ar');
     ChatMessageComponent,
     PopupAsociarUsuarioComponent,
     PopupAdjuntarArchivoComponent,
-    PopupAsociarUsuarioGrupoComponent
+    PopupAsociarUsuarioGrupoComponent,
+    InsumoQuirurgicoComponent,
+    InsumoStockComponent,
+    InsumoStockMovimientoComponent
   ],
   imports: [
 
@@ -450,28 +501,29 @@ registerLocaleData(localeEsAR, 'es-Ar');
       NgxPopper,
       ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  
+
   entryComponents: [
-    PopupObrasocialComponent,PopupPmoComponent,PopupEntidadFacturaComponent,PopupMedicoComponent,
-    PopupPacienteComponent,PopupMedicoGrupoMedicoComponent,PopupMedicoGrupoComponent, EditConvenioComponent,EditObraSocialComponent,
-    PopupAgendaComponent,PopupConvenioComponent, PopupCombinadaComponent,PopupPacienteNuevoComponent,
+    PopupObrasocialComponent, PopupPmoComponent, PopupEntidadFacturaComponent, PopupMedicoComponent,
+    PopupPacienteComponent, PopupMedicoGrupoMedicoComponent, PopupMedicoGrupoComponent, EditConvenioComponent, EditObraSocialComponent,
+    PopupAgendaComponent, PopupConvenioComponent, PopupCombinadaComponent, PopupPacienteNuevoComponent,
     PopupCombinadaItemComponent , PopupCombinadaLecturaComponent, PopUpFormaPagoComponent , PopupUsuarioComponent ,
-    PopupTurnoUsuarioObraSocialComponent ,PopupPacienteObrasocialComponent , PopupPracticaPorcentajeComponent,
+    PopupTurnoUsuarioObraSocialComponent , PopupPacienteObrasocialComponent , PopupPracticaPorcentajeComponent,
     PopupObraSocialMedicoComponent,  PopupObraSocialComponent, PopupMedicoEditComponent,
-    PopupTurnoEditarComponent,PopupOperacionCobroRegistroEditarComponent,PopupFichaQuirurgicaLenteComponent,
-    PopupFichaQuirurgicaMedicoGrupoComponent,PopupDetalleLenteComponent,PopupLenteTipoComponent,
-    PopupFichaQuirurgicaEstadoComponent,PopupFichaQuirurgicaAnesteciaComponent,PopupPacienteEstudioComponent,
-    PopupHistoriaClinicaListaConsultaComponent,PopupHistoriaClinicaRegistroNuevoComponent,PopupLentesComponent,
-    PopupHistoriaClinicaRegistroComponent,PopupHistoriaClinicaRegistroComponent,PopupHistoriaClinicaListaConsultaComponent,
-    PopupDerivarAsesoramientoComponent,PopupAgendaObservacionComponent, PopupOperacionCobroEditarComponent,PopupPacienteConsultaComponent,
-    PopupOperacionCobroRegistroBuscarComponent, PopupEstudiosImagenComponent ,PopupOperacionCobroPresentacionComponent,
+    PopupTurnoEditarComponent, PopupOperacionCobroRegistroEditarComponent, PopupFichaQuirurgicaLenteComponent,
+    PopupFichaQuirurgicaMedicoGrupoComponent, PopupDetalleLenteComponent, PopupLenteTipoComponent,
+    PopupFichaQuirurgicaEstadoComponent, PopupFichaQuirurgicaAnesteciaComponent, PopupPacienteEstudioComponent,
+    PopupHistoriaClinicaListaConsultaComponent, PopupHistoriaClinicaRegistroNuevoComponent, PopupLentesComponent,
+    PopupHistoriaClinicaRegistroComponent, PopupHistoriaClinicaRegistroComponent, PopupHistoriaClinicaListaConsultaComponent,
+    PopupDerivarAsesoramientoComponent, PopupAgendaObservacionComponent, PopupOperacionCobroEditarComponent, PopupPacienteConsultaComponent,
+    PopupOperacionCobroRegistroBuscarComponent, PopupEstudiosImagenComponent , PopupOperacionCobroPresentacionComponent,
     PopupOperacionCobroPresentacionEditarRegistroComponent, PopupPresentacionEditarComponent, PopupDerivarAsesoramientoListadoComponent,
-    PopupListadoCirugiaQuirofanoEditarComponent, PopupCobroDistribucionEditarComponent,PopupFichaQuirurgicaOperacionCobroComponent,
-    PopupListadoCirugiaQuirofanoObservacionEditarComponent,PopupOperacionCobroDetalleComponent, PopupOperacionCobroDetallePacienteComponent,
-    PopupOperacionCobroRegistroBuscarTodosComponent, PopupDetalleOperacionCobroDistribucionComponent, 
-    PopupOperacionCobroDistribucionComponent,PopupPacienteEsperaComponent, PopupNotificacionComponent,
+    PopupListadoCirugiaQuirofanoEditarComponent, PopupCobroDistribucionEditarComponent, PopupFichaQuirurgicaOperacionCobroComponent,
+    // tslint:disable-next-line: max-line-length
+    PopupListadoCirugiaQuirofanoObservacionEditarComponent, PopupOperacionCobroDetalleComponent, PopupOperacionCobroDetallePacienteComponent,
+    PopupOperacionCobroRegistroBuscarTodosComponent, PopupDetalleOperacionCobroDistribucionComponent,
+    PopupOperacionCobroDistribucionComponent, PopupPacienteEsperaComponent, PopupNotificacionComponent,
     PopupChatComponent ,   PopupListadoUsuarioComponent, PopupNotificacionNuevaComponent,
-    PopupFacturaRenglonComponent,BuscarConceptoFacturaComponent,PopupOperacionCobroDistribucionDetalleComponent,
+    PopupFacturaRenglonComponent, BuscarConceptoFacturaComponent, PopupOperacionCobroDistribucionDetalleComponent,
     PopupLiquidacionDetalleComponent, PopupArticuloComponent, PopupOperacionCobroEditarDistribucionComponent,
     PopupPacienteComponent, ListadoCirugiaComponent, PopupArticuloComponent,
     PopupAsociarUsuarioComponent,
@@ -479,8 +531,9 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupAsociarUsuarioGrupoComponent
 
   ],
-  providers: [CurrencyPipe,DecimalPipe,NumberToWordsPipe,PacienteService,PushNotificationService,ExcelService,{ provide: LOCALE_ID, useValue: 'es-Ar' },
-  MultiSelectModule, 
+  // tslint:disable-next-line: max-line-length
+  providers: [CurrencyPipe, DecimalPipe, NumberToWordsPipe, PacienteService, PushNotificationService, ExcelService, { provide: LOCALE_ID, useValue: 'es-Ar' },
+  MultiSelectModule,
  {
   provide: HTTP_INTERCEPTORS,
   useFactory: function(injector: Injector) {

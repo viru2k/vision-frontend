@@ -14,6 +14,7 @@ import {OverlayPanelModule, OverlayPanel} from 'primeng/overlaypanel';
 import { FacturaElectronica } from '../../../../models/factura-electronica.model';
 import { PopupPacienteObrasocialComponent } from '../../../../shared/components/popups/popup-paciente-obrasocial/popup-paciente-obrasocial.component';
 import { FacturacionService } from './../../../../services/facturacion.service';
+import { LiquidacionService } from './../../../../services/liquidacion.service';
 @Component({
   selector: 'app-otras-acciones',
   templateUrl: './otras-acciones.component.html',
@@ -24,6 +25,7 @@ export class OtrasAccionesComponent implements OnInit {
   DateForm:FormGroup;
   tipo_busqueda:string = 'fecha';
   columns: any[];
+  columnsIva: any[];
   selecteditemRegistro:FacturaElectronica;
   selecteditems:FacturaElectronica[];
   elementos:FacturaElectronica[] = [];
@@ -40,8 +42,13 @@ export class OtrasAccionesComponent implements OnInit {
   es:any;
   loading: boolean;
   paciente_nombre:string;
+  medico_id:string;
+  medico_nombre:string;
+  elementosMedicos:any[] = null;
+  elementoMedicos:any= null;
 
-  constructor(private facturacionService:FacturacionService, private messageService: MessageService ,public dialogService: DialogService,private cp: CurrencyPipe, private dp: DecimalPipe) {
+  // tslint:disable-next-line: max-line-length
+  constructor(private facturacionService:FacturacionService, private messageService: MessageService ,public dialogService: DialogService,private cp: CurrencyPipe, private dp: DecimalPipe, private liquidacionService:LiquidacionService) {
 
     this.cols = [
               
@@ -58,7 +65,6 @@ export class OtrasAccionesComponent implements OnInit {
       { field: 'importe_gravado', header: 'Imp. grav' , width: '10%'},
       { field: 'importe_iva', header: 'IVA' , width: '8%'},
       { field: 'importe_total' , header: 'Total' , width: '10%'},
-        
      ];    
 
 
@@ -70,10 +76,28 @@ export class OtrasAccionesComponent implements OnInit {
       {title: 'Iva', dataKey: 'iva'},
       {title: 'Importe', dataKey: 'total_renglon'},
   ];
+
+  
+           
+  this.columnsIva = [
+    {title: 'Fecha', dataKey: 'fecha'},
+    {title: 'Tipo', dataKey: 'comprobante_tipo'},
+    {title: 'Comp. número', dataKey: 'numero'},
+    {title: 'Categoria', dataKey: 'categoria_iva'},
+    {title: 'Cliente', dataKey: 'factura_cliente'},
+    {title: 'CUIT/DNI', dataKey: 'descripcion'},
+    {title: 'Número', dataKey: 'factura_documento'},
+    {title: 'Alícuota', dataKey: 'alicuota'},
+    {title: 'Imp. IVA', dataKey: 'importe_iva'},
+    {title: 'Imp. sin IVA', dataKey: 'total_sin_iva'},
+    {title: 'Imp. gravado', dataKey: 'importe_gravado'},
+    {title: 'Imp. ex. IVA', dataKey: 'importe_excento_iva'},
+    {title: 'Total', dataKey: 'importe_total'}
+];
      
      this.DateForm = new FormGroup({
-      'fecha_desde': new FormControl('', Validators.required), 
-      'fecha_hasta': new FormControl('', Validators.required)      
+      'fecha_desde': new FormControl('', Validators.required),
+      'fecha_hasta': new FormControl('', Validators.required)
       });
 
    }
@@ -84,6 +108,9 @@ export class OtrasAccionesComponent implements OnInit {
     this.fechaHasta = new Date();
     this.DateForm.patchValue({fecha_desde: this.fechaDesde});
     this.DateForm.patchValue({fecha_hasta: this.fechaHasta});
+
+    console.log(this._fechaHasta);
+    this.getMedicosFacturan();
   }
 
   padLeft(text:string, padChar:string, size:number): string {
@@ -118,6 +145,43 @@ export class OtrasAccionesComponent implements OnInit {
 }
 
  
+getMedicosFacturan(){
+  this.loading = true;
+  try {
+    this.facturacionService.getMedicosFacturan()
+    .subscribe(resp => {
+        this.elementosMedicos = resp;
+        this.loading = false;
+        console.log( this.elementosMedicos);
+        this.elementoMedicos = this.elementosMedicos['0'];
+        console.log(this.elementoMedicos['id']);
+      this.medico_id = this.elementoMedicos['id'];
+
+    },
+    error => { // error path
+      this.loading = false;
+        console.log(error.message);
+        console.log(error.status);
+        swal({
+          toast: false,
+          type: 'error',
+          text: error.message,
+          title: 'error.status',
+          showConfirmButton: false,
+          timer: 2000
+        });
+     });
+} catch (error) {
+
+}
+}
+
+obtenerMedico(){
+  console.log(this.elementoMedicos)
+  this.medico_id = this.elementoMedicos['id'];
+  this.medico_nombre = this.elementoMedicos['nombreyapellido'];
+}
+
 
 buscarPaciente(){
   this.loading = true; 
@@ -208,6 +272,147 @@ buscarPaciente(){
     this.buscarPaciente();
   }
 
+  }
+
+  
+
+
+  generarLibroIva(){
+    this._fechaDesde = formatDate(this.fechaDesde, 'yyyy-MM-dd', 'en');
+    this._fechaHasta = formatDate(this.fechaHasta, 'yyyy-MM-dd', 'en');  
+    this.loading = true; 
+    try { 
+        this.facturacionService.getLibroIva(this._fechaDesde, this._fechaHasta,  this.medico_id)
+        .subscribe(resp => {
+          let i:number = 0;
+          let resultado = resp;
+           resultado.forEach(element => {
+            resp[i]['fecha'] =  formatDate( resp[i]['fecha'], 'dd/MM/yyyy', 'es-Ar');  
+         
+            i++;
+          }); 
+
+          const fecha_desde = formatDate(this.fechaDesde, 'dd/MM/yyyy', 'es-Ar');  
+          const fecha_hasta = formatDate(this.fechaHasta, 'dd/MM/yyyy', 'es-Ar');  
+          this.liquidacionService.exportAsExcelFile(  resp, 'libro IVA '+ this.medico_nombre+' desde '+fecha_desde+' a '+fecha_hasta);
+        this.elementos = resp;
+        this.loading = false;        
+        console.log(this.elementos);
+        },
+        error => { // error path
+            console.log(error.message);
+            console.log(error.status);
+            swal({
+              toast: false,
+              type: 'error',
+              title: 'Algo salio mal...',
+              text:error.status+' '+error.message ,
+              showConfirmButton: false,
+              timer: 2000
+            });
+            this.loading = false;
+          });    
+    } catch (error) {
+      swal({
+        toast: false,
+        type: 'error',
+        title: 'Algo salio mal...',
+        text:error.status+' '+error.message ,
+        showConfirmButton: false,
+        timer: 2000
+      });
+    }
+
+  }
+
+  generarLibroIvaPdf(){
+
+    this._fechaDesde = formatDate(this.fechaDesde, 'yyyy-MM-dd', 'en');
+    this._fechaHasta = formatDate(this.fechaHasta, 'yyyy-MM-dd', 'en');  
+
+    try { 
+      this.facturacionService.getLibroIva(this._fechaDesde, this._fechaHasta,  this.medico_id)
+      .subscribe(resp => {
+        let i:number = 0;
+        let resultado = resp;
+         resultado.forEach(element => {
+          resp[i]['fecha'] =  formatDate( resp[i]['fecha'], 'dd/MM/yyyy', 'es-Ar');
+          i++;
+        });
+
+
+        this.elementos = resp;
+        this.loading = false;
+      console.log(this.elementos);
+      },
+      error => { // error path
+          console.log(error.message);
+          console.log(error.status);
+          swal({
+            toast: false,
+            type: 'error',
+            title: 'Algo salio mal...',
+            text:error.status+' '+error.message ,
+            showConfirmButton: false,
+            timer: 2000
+          });
+          this.loading = false;
+        });    
+  } catch (error) {
+    swal({
+      toast: false,
+      type: 'error',
+      title: 'Algo salio mal...',
+      text:error.status+' '+error.message ,
+      showConfirmButton: false,
+      timer: 2000
+    });
+  }
+  console.log(this.elementos);
+    if(this.elementos) {
+      this._fechaDesde = formatDate(this.fechaDesde, 'dd/MM/yyyy', 'en');
+      this._fechaHasta = formatDate(this.fechaHasta, 'dd/MM/yyyy', 'en');  
+    
+    const doc = new jsPDF('landscape');
+    /** valores de la pagina**/
+    const pageSize = doc.internal.pageSize;
+    const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+    doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
+    doc.setLineWidth(0.4);
+
+    doc.line(10, 33, pageWidth - 10, 33);
+    doc.setFontSize(8);
+    doc.text(10, 25, 'Médico / Clínica : ' + this.medico_nombre);
+    doc.setFontSize(10);
+    doc.text('SUBDIARIO DE IVA VENTAS', pageWidth/2, 15, null, null, 'center');    
+      doc.setFontSize(8);
+
+   
+    doc.text(pageWidth-40, 10, 'Desde : ' + this._fechaDesde);
+    doc.text(pageWidth-40, 15, 'Hasta : ' + this._fechaHasta);
+    doc.setFontSize(8);
+    doc.autoTable(this.columnsIva, this.elementos,
+      {
+          margin: {horizontal: 5, vertical: 42},
+          bodyStyles: {valign: 'top'},
+          styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'left',overflow: 'linebreak'},       
+          columnStyles: {
+            fecha: {columnWidth: 18},
+            comprobante_tipo: {columnWidth: 20},
+            numero: {columnWidth: 20},
+            categoria_iva: {columnWidth: 25},
+            factura_clienta: {columnWidth: 35},
+            descripcion: {columnWidth: 15},
+            factura_documento: {columnWidth: 20},
+            alicuota: {columnWidth: 20},
+            importe_iva: {columnWidth: 20},
+            total_sin_iva: {columnWidth: 20},
+            importe_gravado: {columnWidth: 20},
+            importe_excento_iva: {columnWidth: 20},
+            importe_total: {columnWidth: 20}}
+      });
+   window.open(doc.output('bloburl'));
+    }
   }
 
   realizarNotaCredito(){
@@ -416,7 +621,8 @@ doc.line(pageWidth/2, 23, pageWidth /2, 50);
   }
   
   doc.text('Total: '+ this.cp.transform(this.elementosPDF[0]['importe_total'], '', 'symbol-narrow', '1.2-2'), pageWidth-50, pageHeight -18); 
-  // PIE DE LA FACTURA
+  // PIE DE LA FACTURAimport { LiquidacionService } from './../../../../services/liquidacion.service';
+
   doc.text('CAE: '+ this.elementosPDF[0]['cae'], 15, pageHeight -5); 
   doc.text('Fecha de vencimiento de CAE: '+ formatDate(this.elementosPDF[0]['cae_vto'], 'dd/MM/yyyy', 'en') , (pageWidth/2)+20, pageHeight -5); 
   doc.setFontStyle("normal");

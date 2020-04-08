@@ -172,5 +172,9 @@ export class FacturacionService {
         return this.http.get<any[]>(this.url+'afip/elementos/factura/by/id?factura_numero='+factura_numero);
       }
 
+      getLibroIva(fecha_desde:string, fecha_hasta:string, medico_id:string ){
+        return this.http.get<any[]>(this.url+'afip/elementos/factura/libro/iva?fecha_desde='+fecha_desde+'&fecha_hasta='+fecha_hasta+'&medico_id='+medico_id);
+      }
+
      
 }

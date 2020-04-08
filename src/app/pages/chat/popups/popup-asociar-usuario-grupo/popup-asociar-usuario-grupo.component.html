@@ -12,7 +12,7 @@
     <button (click)="crearGrupo()" class="btn btn-info col-4">Crear grupo</button>
   </div>
   <p-table #dt [columns]="cols_grupo"  [value]="elementos_grupos" selectionMode="single" [resizableColumns]="true" columnResizeMode="expand"
-  [(selection)]="selectedItem_grupo" (onRowSelect)="onRowSelectGrupo($event)" [scrollable]="true" scrollHeight="200px" >
+  [(selection)]="selectedItem_grupo" (onRowSelect)="onRowSelectGrupo()" [scrollable]="true" scrollHeight="200px" >
  
       <ng-template pTemplate="caption">
           <div class="row">
