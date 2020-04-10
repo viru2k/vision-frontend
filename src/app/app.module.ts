@@ -287,10 +287,13 @@ import { PopupAsociarUsuarioComponent } from './pages/chat/popups/popup-asociar-
 import { PopupAdjuntarArchivoComponent } from './pages/chat/popups/popup-adjuntar-archivo/popup-adjuntar-archivo.component';
 import { PopupAsociarUsuarioGrupoComponent } from './pages/chat/popups/popup-asociar-usuario-grupo/popup-asociar-usuario-grupo.component';
 import { InsumoStockComponent } from './pages/insumo/insumo-stock/insumo-stock.component';
-import { InsumoStockMovimientoComponent } from './pages/insumo/insumo-stock-movimiento/insumo-stock-movimiento.component';
+
 import { StockInsumoEditarComponent } from './pages/mantenimiento/stock/insumo/stock-insumo-editar/stock-insumo-editar.component';
 import { InsumoStockAgregarComponent } from './pages/insumo/insumo-stock/insumo-stock-agregar/insumo-stock-agregar.component';
 
+import { PopupInsumoMovimientoDetalleComponent } from './pages/insumo/popups/popup-insumo-movimiento-detalle/popup-insumo-movimiento-detalle.component';
+import { PopupInsumoAsociarComponent } from './pages/insumo/popups/popup-insumo-asociar/popup-insumo-asociar.component';
+import { PopupInsumoConsultaComponent } from './pages/insumo/popups/popup-insumo-consulta/popup-insumo-consulta.component';
 
 
 
@@ -453,11 +456,15 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupAdjuntarArchivoComponent,
     PopupAsociarUsuarioGrupoComponent,
     InsumoStockComponent,
-    InsumoStockMovimientoComponent,
     StockInsumoEditarComponent,
-    InsumoStockAgregarComponent
+    InsumoStockAgregarComponent,
+    PopupInsumoMovimientoDetalleComponent,
+    PopupInsumoAsociarComponent,
+    PopupInsumoConsultaComponent
+
   ],
   imports: [
+
 
 
     GalleriaModule,
@@ -524,9 +531,23 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupFacturaRenglonComponent, BuscarConceptoFacturaComponent, PopupOperacionCobroDistribucionDetalleComponent,
     PopupLiquidacionDetalleComponent, PopupArticuloComponent, PopupOperacionCobroEditarDistribucionComponent,
     PopupPacienteComponent, ListadoCirugiaComponent, PopupArticuloComponent,
+
+/* -------------------------------------------------------------------------- */
+/*                                    CHAT                                    */
+/* -------------------------------------------------------------------------- */
+
     PopupAsociarUsuarioComponent,
     PopupAdjuntarArchivoComponent,
-    PopupAsociarUsuarioGrupoComponent, StockInsumoEditarComponent, InsumoStockAgregarComponent
+    PopupAsociarUsuarioGrupoComponent,
+
+/* -------------------------------------------------------------------------- */
+/*                                   INSUMOS                                  */
+/* -------------------------------------------------------------------------- */
+
+    StockInsumoEditarComponent, InsumoStockAgregarComponent,
+    PopupInsumoMovimientoDetalleComponent,
+    PopupInsumoAsociarComponent,
+    PopupInsumoConsultaComponent
 
   ],
   // tslint:disable-next-line: max-line-length

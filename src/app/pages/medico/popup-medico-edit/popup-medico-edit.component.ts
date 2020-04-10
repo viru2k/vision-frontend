@@ -106,7 +106,7 @@ CategoriaIva(){
 
   try {
     this.facturacionService.CategoriaIva()
-    .subscribe(resp => {      
+    .subscribe(resp => {
         this.elementosCondicionIva = resp;
       console.log(resp);
         this.elementoCondicionIva =  this.elementosCondicionIva.find(x => x.id == this.config.data['categoria_iva_id']);    

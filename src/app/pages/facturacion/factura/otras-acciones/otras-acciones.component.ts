@@ -268,13 +268,13 @@ buscarPaciente(){
         timer: 2000
       });
     }
-  }else{
+  } else {
     this.buscarPaciente();
   }
 
   }
 
-  
+
 
 
   generarLibroIva(){
@@ -284,19 +284,30 @@ buscarPaciente(){
     try { 
         this.facturacionService.getLibroIva(this._fechaDesde, this._fechaHasta,  this.medico_id)
         .subscribe(resp => {
-          let i:number = 0;
+          let i: number = 0;
           let resultado = resp;
+          let total_factura:string = '';
+          console.log(resp);
            resultado.forEach(element => {
-            resp[i]['fecha'] =  formatDate( resp[i]['fecha'], 'dd/MM/yyyy', 'es-Ar');  
-         
+            resp[i]['fecha'] =  formatDate( resp[i]['fecha'], 'dd/MM/yyyy', 'es-Ar');
+            console.log('comprobante '+ resp[i]['numero']);
+            console.log('comprobante guardado '+ total_factura);
+            if (resp[i]['numero']  === total_factura) {
+              console.log('coincide ' + total_factura);
+              resp[i]['importe_total'] = 0;
+            } else {
+              total_factura = resp[i]['numero'];
+              console.log('nuevo total ' + total_factura);
+              
+            }
             i++;
-          }); 
+          });
 
           const fecha_desde = formatDate(this.fechaDesde, 'dd/MM/yyyy', 'es-Ar');  
           const fecha_hasta = formatDate(this.fechaHasta, 'dd/MM/yyyy', 'es-Ar');  
           this.liquidacionService.exportAsExcelFile(  resp, 'libro IVA '+ this.medico_nombre+' desde '+fecha_desde+' a '+fecha_hasta);
         this.elementos = resp;
-        this.loading = false;        
+        this.loading = false;
         console.log(this.elementos);
         },
         error => { // error path
@@ -335,8 +346,19 @@ buscarPaciente(){
       .subscribe(resp => {
         let i:number = 0;
         let resultado = resp;
-         resultado.forEach(element => {
+        let total_factura:string = '';
+        resultado.forEach(element => {
           resp[i]['fecha'] =  formatDate( resp[i]['fecha'], 'dd/MM/yyyy', 'es-Ar');
+          console.log('comprobante '+ resp[i]['numero']);
+          console.log('comprobante guardado '+ total_factura);
+          if (resp[i]['numero']  === total_factura) {
+            console.log('coincide ' + total_factura);
+            resp[i]['importe_total'] = 0;
+          } else {
+            total_factura = resp[i]['numero'];
+            console.log('nuevo total ' + total_factura);
+            
+          }
           i++;
         });
 

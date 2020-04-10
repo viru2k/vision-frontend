@@ -12,6 +12,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { calendarioIdioma } from './../../../config/config';
 import { InsumoService } from './../../../services/insumo.service';
 import { InsumoStockAgregarComponent } from './insumo-stock-agregar/insumo-stock-agregar.component';
+import { PopupInsumoMovimientoDetalleComponent } from '../popups/popup-insumo-movimiento-detalle/popup-insumo-movimiento-detalle.component';
+import { PopupInsumoAsociarComponent } from './../popups/popup-insumo-asociar/popup-insumo-asociar.component';
+import { PopupInsumoConsultaComponent } from '../popups/popup-insumo-consulta/popup-insumo-consulta.component';
 
 @Component({
   selector: 'app-insumo-stock',
@@ -29,7 +32,7 @@ export class InsumoStockComponent implements OnInit {
   es: any;
   columns: any[];
   cols: any[];
-  popItemLente: any;
+  
 
   constructor(private miServicio: InsumoService, private messageService: MessageService , public dialogService: DialogService) {
 
@@ -44,7 +47,7 @@ export class InsumoStockComponent implements OnInit {
       {field: 'cantidad_original', header: 'C. Orig.' , width: '15%' },
       {field: 'cantidad_usada', header: 'C Usada' , width: '15%' },
       {field: 'cantidad_existente', header: 'Existencia' , width: '20%' },
-      {field: 'nombreyapellido', header: 'cantidad' , width: '20%' },
+      {field: 'nombreyapellido', header: 'Usuario' , width: '20%' },
    ];
   }
 
@@ -52,28 +55,48 @@ export class InsumoStockComponent implements OnInit {
     this.es = calendarioIdioma;
     this.loadList();
   }
-/*
-  editar(event) {
-    console.log(event);
+
+  consultarInsumo() {
+    console.log(this.selecteditem);
+    let data: any;
+    data = this.selecteditem;
+    const ref = this.dialogService.open(PopupInsumoConsultaComponent, {
+    data,
+     header: 'Consultar historial de insumo',
+     width: '95%',
+     height: '90%'
+    });
+  
+    // tslint:disable-next-line: no-shadowed-variable
+    ref.onClose.subscribe((PopupInsumoAsociarComponent: any) => {
+  
+        if (PopupInsumoAsociarComponent) {
+          console.log(PopupInsumoAsociarComponent);
+          this.loadList();
+        }
+    });
+  }
+
+  cargarMovimiento(event) {
     console.log(this.selecteditem);
   let data: any;
-  data = event;
-  const ref = this.dialogService.open(StockInsumoEditarComponent, {
+  data = this.selecteditem;
+  const ref = this.dialogService.open(PopupInsumoAsociarComponent, {
   data,
-   header: 'Gestionar insumo',
-   width: '70%',
+   header: 'Agregar movimiento de insumo',
+   width: '60%',
    height: '90%'
   });
 
-  ref.onClose.subscribe((PopupDetalleLenteComponent: any) => {
+  // tslint:disable-next-line: no-shadowed-variable
+  ref.onClose.subscribe((PopupInsumoAsociarComponent: any) => {
 
-      if (PopupDetalleLenteComponent) {
-        console.log(PopupDetalleLenteComponent);
-        this.popItemLente = PopupDetalleLenteComponent;
+      if (PopupInsumoAsociarComponent) {
+        console.log(PopupInsumoAsociarComponent);
         this.loadList();
       }
   });
-  } */
+  }
 
   accion(event: any , overlaypanel: OverlayPanel, elementos: any) {
     if (elementos) {
@@ -85,10 +108,27 @@ export class InsumoStockComponent implements OnInit {
     }
 
 
-  cargarMovimiento(){}
+  verDetalle() {
 
-  verDetalle(){
+    console.log(this.selecteditem);
+  let data: any;
+  data = this.selecteditem;
+  const ref = this.dialogService.open(PopupInsumoMovimientoDetalleComponent, {
+  data,
+   header: 'Detalle de insumos usados',
+   width: '95%',
+   height: '90%'
+  });
 
+  // tslint:disable-next-line: no-shadowed-variable
+  ref.onClose.subscribe((PopupInsumoMovimientoDetalleComponent: any) => {
+
+      if (PopupInsumoMovimientoDetalleComponent) {
+        console.log(PopupInsumoMovimientoDetalleComponent);
+       // this.popItemLente = PopupDetalleLenteComponent;
+        this.loadList();
+      }
+  });
   }
 
   agregarInsumoStock() {
@@ -105,7 +145,7 @@ export class InsumoStockComponent implements OnInit {
     ref.onClose.subscribe((PopupDetalleLenteComponent: any) => {
         if (PopupDetalleLenteComponent) {
           console.log(PopupDetalleLenteComponent);
-          this.popItemLente = PopupDetalleLenteComponent;
+       //   this.popItemLente = PopupDetalleLenteComponent;
           this.loadList();
         }
     });

@@ -69,7 +69,6 @@ import { OtrasAccionesComponent } from './pages/facturacion/factura/otras-accion
 import { FacturacionArticuloComponent } from './pages/mantenimiento/facturacion-articulo/facturacion-articulo.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { InsumoStockComponent } from './pages/insumo/insumo-stock/insumo-stock.component';
-import { InsumoStockMovimientoComponent } from './pages/insumo/insumo-stock-movimiento/insumo-stock-movimiento.component';
 import { InsumoComponent } from './pages/mantenimiento/stock/insumo/insumo.component';
 
 export const ROUTES: Routes = [
@@ -171,8 +170,6 @@ export const ROUTES: Routes = [
       /** stock */
       { path: 'insumo/stock',
       component: InsumoStockComponent, canActivate: [AuthGuard], data: {role: 'quirofano_control'}  },
-      { path: 'insumo/movimiento',
-      component: InsumoStockMovimientoComponent, canActivate: [AuthGuard], data: {role: 'quirofano_control'}  },
 
     /** otros **/
     { path: 'chat', component: ChatComponent },
