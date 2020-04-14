@@ -26,6 +26,7 @@
             "styles": [
               "src/styles.scss",              
               "src/assets/sass/now-ui-kit.scss",
+               "src/assets/sass/mis-estilos/notificaciones.scss",
               "src/assets/css/demo.css",
               "node_modules/animate.css/animate.css",
               "node_modules/hover.css/css/hover-min.css",

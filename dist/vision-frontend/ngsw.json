@@ -9,11 +9,11 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.6b64cc2051daf39fffc2.js",
+        "/main.20be9d539508d9bd1f4d.js",
         "/polyfills.ff39dc1850bcfd56fc9d.js",
         "/runtime.26209474bfa8dc87a77c.js",
         "/scripts.42a89c411350c07e5f02.js",
-        "/styles.5ff59e40a96b760dee14.css"
+        "/styles.32c65f598806037c2afb.css"
       ],
       "patterns": []
     },
@@ -118,6 +118,7 @@
         "/assets/img/favicon.png",
         "/assets/img/login-user.jpg",
         "/assets/img/logo_clinica.png",
+        "/assets/sass/mis-estilos/notificaciones.scss",
         "/assets/sass/now-ui-kit.scss",
         "/assets/sass/now-ui-kit/_alerts.scss",
         "/assets/sass/now-ui-kit/_badges.scss",
@@ -296,6 +297,7 @@
     "/assets/img/favicon.png": "6e0003e3dfe4ef0cabd47e03db5d9971af1b8613",
     "/assets/img/login-user.jpg": "601d6643a641850ef448ae7b59a48ce2d6e63464",
     "/assets/img/logo_clinica.png": "c5e44ffc904f7c56262cc045c97776fe935f68d6",
+    "/assets/sass/mis-estilos/notificaciones.scss": "cacdad580661dbf59d75fcb67de79b1ca9aba3a8",
     "/assets/sass/now-ui-kit.scss": "e49634d71c8d9ca72192ac43187d21d5d776f2e3",
     "/assets/sass/now-ui-kit/_alerts.scss": "b686fdd41a10dd8de536dc85340cb30981f6e8d1",
     "/assets/sass/now-ui-kit/_badges.scss": "68f9fce1710a5dfa4d6a8928563542bef53dbe82",
@@ -346,10 +348,10 @@
     "/fontawesome-webfont.b06871f281fee6b241d6.ttf": "13b1eab65a983c7a73bc7997c479d66943f7c6cb",
     "/fontawesome-webfont.fee66e712a8a08eef580.woff": "28b782240b3e76db824e12c02754a9731a167527",
     "/hue.0614c27197fc3ce572e1.png": "f81ae627637a684614aa726e206c73ce099a01fd",
-    "/index.html": "60550f49b8068733e5c5f434300fa8479fe950f5",
+    "/index.html": "c964911a0d952b6d42dfd2b08fc71fe1df241ce8",
     "/line.567f57385ea3dde2c9ae.gif": "a2af20bd160ca9cfc2c85527663ff7429267519a",
     "/loading.8732a6660b528fadfaeb.gif": "72998a116936156dc7cace0606dab499fe4f3ce8",
-    "/main.6b64cc2051daf39fffc2.js": "846b794f59badd14a5751282cdeaf1914344a9bd",
+    "/main.20be9d539508d9bd1f4d.js": "06eb95f74ed6736df75ccf61ece9a26c6747294a",
     "/nucleo-outline.22a0bffe789c286a9d78.ttf": "4292e57a762b533eecee72c9b43d97e51571961d",
     "/nucleo-outline.24e2d6b43b1b0f84fdfa.woff": "ce7320d5772646cce6b34eb221be31603bd39abc",
     "/nucleo-outline.53a1bed7a3ec86d010fe.eot": "a1faab9e1cf198358d5dd9ed054ccdb089b0cdba",
@@ -378,7 +380,7 @@
     "/primeicons.b8eccb1059ea5faaf6d8.eot": "e74d8d740c6e7f4f6160c87f7a239cb3508269ae",
     "/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
     "/scripts.42a89c411350c07e5f02.js": "e4701fe063d457f4771295aab49966f414c1d109",
-    "/styles.5ff59e40a96b760dee14.css": "052537192e63227417f49ceba32e92d6d12f0521"
+    "/styles.32c65f598806037c2afb.css": "d61324b5eb0af1696f55d416e535548a872f23a2"
   },
   "navigationUrls": [
     {

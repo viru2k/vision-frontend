@@ -77,7 +77,7 @@ export class InsumoStockComponent implements OnInit {
     });
   }
 
-  cargarMovimiento(event) {
+  cargarMovimiento() {
     console.log(this.selecteditem);
   let data: any;
   data = this.selecteditem;

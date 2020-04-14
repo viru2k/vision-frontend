@@ -1,5 +1,7 @@
 export class DistribucionMedico {
 
+    obra_social_nombre:string;
+
     medico_opera:string;
     medico_opera_porcentaje:string;
     medico_opera_valor:string;
@@ -24,7 +26,10 @@ export class DistribucionMedico {
     dni:string;
 
 
-    constructor(  medico_opera:string,
+    constructor(
+        obra_social_nombre:string,
+
+        medico_opera:string,
         medico_opera_porcentaje:string,
         medico_opera_valor:string,
     
@@ -47,7 +52,7 @@ export class DistribucionMedico {
         paciente_apellido:string,
         dni:string){
        
-
+this.obra_social_nombre = obra_social_nombre;
 this.medico_opera = medico_opera;
 this.medico_opera_porcentaje = medico_opera_porcentaje;
 this.medico_opera_valor = medico_opera_valor;

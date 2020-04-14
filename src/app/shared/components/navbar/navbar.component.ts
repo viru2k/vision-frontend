@@ -148,6 +148,12 @@ export class NavbarComponent implements OnInit {
      
  
  });
+
+ $('.notification-icon').click(function(e) {
+	var that = $(this);
+	that.toggleClass("active "+ that.attr("data-active-icon") + " " + that.attr("data-icon"));
+});
+
  
      /*======== FIN JQUERY DEL LOGUIN =========*/
 

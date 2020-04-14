@@ -28,6 +28,7 @@
                       </tr> 
                       <tr>
                       <th *ngFor="let col of columns" [ngSwitch]="col.field"  >
+                        <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'obra_social_nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
                           <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'medico_opera'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
                           <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'medico_opera_valor'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
                           <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'medico_opera_porcentaje'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
@@ -51,7 +52,8 @@
                 <!--   <td style="width: 6%" >                   
                       <a  class="my-hover" (click)="verDetalle(elementos)"    ><i class="far fa-edit fa-2x icon-color-purple"></i></a>                   
                   </td> -->
-                  <td style="width: 8%"><a class="my-hover" (click)="verDetalle(elementos)">{{elementos.operacion_cobro_id}}</a></td>                     
+                  <td style="width: 8%"><a class="my-hover" (click)="verDetalle(elementos)">{{elementos.operacion_cobro_id}}</a></td>      
+                  <td style="width: 20%">{{elementos.obra_social_nombre}}</td>                  
                   <td style="width: 15%">{{elementos.paciente_apellido}}</td>
                   <td style="width: 8%">{{elementos.dni}}</td>
                   <td style="width: 10%">{{elementos.fecha_cobro | date :'dd/MM/yyyy'}}</td>

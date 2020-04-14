@@ -410,18 +410,14 @@ loadDistribucionMedico(){
       .subscribe(resp => {
         let i:number = 0;
         let resultado = resp;
-       /* resultado.forEach(element => {
-          
-          resp[i]['fecha_cobro'] = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
-      //    let t = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
-          console.log(resp[i]['fecha_cobro']);
+        resultado.forEach(element => {
+          console.log(this.selecteditems);
+          resp[i]['obra_social_nombre'] = this.selecteditems[0]['obra_social_nombre'];
           i++;
-        });*/
+        });
           this.elementosPreFactura = resp;
-         console.log(this.elementosPreFactura);
-      //    this.generarPdfListadoTodos();
+         console.log(resp);
           this.loading = false;
-        //  console.log(resp);
         this.verDistribucion(resp);
       },
       error => { // error path

@@ -26,8 +26,9 @@ export class PopupOperacionCobroDistribucionDetalleComponent implements OnInit {
 
   constructor( public ref: DynamicDialogRef, public config: DynamicDialogConfig, private liquidacionService:LiquidacionService, private messageService: MessageService ,public dialogService: DialogService) { 
 
-    this.cols = [    
+    this.cols = [
       { field: 'operacion_cobro_id', header: 'O.C', width: '8%'} ,
+      { field: 'obra_social_nombre', header: 'O.S',  width: '20%' },
       { field: 'paciente_apellido', header: 'Paciente', width: '15%'} ,
       { field: 'dni', header: 'DNI', width: '8%'} ,
       { field: 'fecha_cobro', header: 'Fecha', width: '10%'} ,
@@ -48,7 +49,7 @@ export class PopupOperacionCobroDistribucionDetalleComponent implements OnInit {
       { field: 'medico_clinica_valor', header: 'Clínica $',  width: '10%' },
       { field: 'medico_clinica_porcentaje', header: 'Clínica %',  width: '6%' },
       { field: 'valor_distribuido', header: 'Total',  width: '10%' },
-   ];     
+   ];
   }
 
   ngOnInit() {
@@ -109,14 +110,17 @@ verDetalle(agendaTurno:any){
 public exportarExcel(){
   const fecha_impresion = formatDate(new Date(), 'dd-MM-yyyy-mm', 'es-Ar');  
   for(let i=0; i<this.selecteditems.length; i++){
-    this.distribucionMedico = new DistribucionMedico(this.selecteditems[i]['medico_opera'],
-     this.selecteditems[i]['medico_opera_porcentaje'],
+    this.distribucionMedico = new DistribucionMedico(
+      this.selecteditems[i]['obra_social_nombre'],
+      this.selecteditems[i]['medico_opera'],
+      this.selecteditems[i]['medico_opera_porcentaje'],
       this.selecteditems[i]['medico_opera_valor'],
       this.selecteditems[i]['medico_ayuda'],
       this.selecteditems[i]['medico_ayuda_porcentaje'],
       this.selecteditems[i]['medico_ayuda_valor'],
       this.selecteditems[i]['medico_ayuda2'],
-      this.selecteditems[i]['medico_ayuda2_porcentaje'],this.selecteditems[i]['medico_ayuda2_valor'],
+      this.selecteditems[i]['medico_ayuda2_porcentaje'],
+      this.selecteditems[i]['medico_ayuda2_valor'],
       this.selecteditems[i]['medico_clinica'],
       this.selecteditems[i]['medico_clinica_porcentaje'],
       this.selecteditems[i]['medico_clinica_valor'],
