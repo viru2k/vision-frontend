@@ -13,7 +13,6 @@ import swal from 'sweetalert2';
 declare const require: any;
 const jsPDF = require('jspdf');
 require('jspdf-autotable'); 
-import  html2canvas from 'html2canvas';
 var JsBarcode = require('jsbarcode');
 var Canvas = require("canvas");
 import * as $ from 'jquery';
@@ -26,7 +25,7 @@ import {OverlayPanelModule, OverlayPanel} from 'primeng/overlaypanel';
 import { PopupObraSocialComponent } from 'src/app/shared/components/popups/popup-obra-social/popup-obra-social.component';
 import { Liquidacion } from '../../../../models/liquidacion.model';
 import { LiquidacionService } from '../../../../services/liquidacion.service';
-import { pipe } from '@angular/core/src/render3';
+
 import { NumberToWordsPipe } from '../../../../shared/pipes/number-to-words.pipe';
 import { PopupOperacionCobroPresentacionComponent } from '../../../../shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component';
 import { PopupPresentacionEditarComponent } from '../../../../shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component';
@@ -42,8 +41,7 @@ import { FacturacionService } from '../../../../services/facturacion.service';
 })
 export class PopupLiquidacionDetalleComponent implements OnInit {
 
- 
-  @ViewChild('codigobarra') canvas: ElementRef;
+
   cols: any[];
   columns: any[];
   columnsListadoMedico: any[];

@@ -5,6 +5,11 @@ import { LiquidacionService } from './../../../../services/liquidacion.service';
 import { Liquidacion } from './../../../../models/liquidacion.model';
 import { PopupOperacionCobroDetalleComponent } from './../popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component';
 import { DistribucionMedico } from './../../../../models/distribucion-medico.model';
+import { logo_clinica } from './../../../../config/config';
+declare const require: any;
+const jsPDF = require('jspdf');
+require('jspdf-autotable');
+
 @Component({
   selector: 'app-popup-operacion-cobro-distribucion-detalle',
   templateUrl: './popup-operacion-cobro-distribucion-detalle.component.html',
@@ -13,6 +18,7 @@ import { DistribucionMedico } from './../../../../models/distribucion-medico.mod
 })
 export class PopupOperacionCobroDistribucionDetalleComponent implements OnInit {
   cols: any[];
+  columns: any[];
   elementos:any[] = null;
   TOTAL_OPERA:number = 0;
   TOTAL_AYUDA:number = 0;
@@ -50,6 +56,19 @@ export class PopupOperacionCobroDistribucionDetalleComponent implements OnInit {
       { field: 'medico_clinica_porcentaje', header: 'Clínica %',  width: '6%' },
       { field: 'valor_distribuido', header: 'Total',  width: '10%' },
    ];
+
+   
+   this.columns = [
+    {title: 'Obra social', dataKey: 'obra_social_nombre'},
+    {title: 'Número', dataKey: 'numero'},
+    {title: 'Nivel', dataKey: 'nivel'},
+    {title: 'Desde', dataKey: 'fecha_desde'},
+    {title: 'Hasta', dataKey: 'fecha_hasta'},
+    {title: 'Cantidad', dataKey: 'cant_orden'},
+    {title: 'Total', dataKey: 'total'},
+    {title: 'Audito', dataKey: 'nombreyapellido'}
+];
+
   }
 
   ngOnInit() {
@@ -136,5 +155,71 @@ public exportarExcel(){
   this.liquidacionService.exportAsExcelFile(  this.distribucionMedicos, 'listado_presentacion'+fecha_impresion);
 }
 
+
+generarPdfListado(elemento) {
+
+  let _fechaEmision = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'en');
+  let rounded:string;
+  let total_facturado:number = 0;
+  let total_iva:number = 0;
+  let total_cantidad:number = 0;
+  let total_sin_iva:number = 0;
+  let total_cantidad_impresion:string = '';
+  let fecha_impresion = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');  
+  let i = 0;
+  let userData = JSON.parse(localStorage.getItem('userData'));
+  
+  console.log(elemento);
+
+  
+  if(this.selecteditems){
+  var doc = new jsPDF('l');
+  
+  const pageSize = doc.internal.pageSize;
+  const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+  doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
+  doc.setLineWidth(0.4);
+  doc.setFontSize(9);
+ 
+  doc.setFontSize(6);  
+  doc.line(60, 13, pageWidth - 15, 13);
+  doc.setFontSize(7);
+
+  
+
+ 
+  doc.setFontSize(8);
+  //doc.line(15, 35, pageWidth - 15, 35);
+  let pageNumber = doc.internal.getNumberOfPages();
+  doc.autoTable(this.columns, elemento,
+    {
+        margin: {horizontal: 5, vertical: 38},
+        bodyStyles: {valign: 'top'},
+        showHead: 'firstPage',
+        styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
+        columnStyles: {text: {cellWidth: 'auto'}}
+    });
+   
+    doc.setFontSize(8);
+    let finalY = doc.autoTable.previous.finalY;
+    doc.line(15, finalY+3, pageWidth - 15, finalY+3);
+   
+ 
+    
+  const totalPagesExp = '{total_pages_count_string}';
+  console.log(doc.putTotalPages);
+  const footer = function(data) {
+    let str = 'Page ' + data.pageCount;
+    // Total page number plugin only available in jspdf v1.0+
+    if (typeof doc.putTotalPages === 'function') {
+      str = str + ' of ' + totalPagesExp;
+      console.log('test');
+    }
+    doc.text(str, data.settings.margin.left, doc.internal.pageSize.height - 30);
+  };
+    window.open(doc.output('bloburl'));
+ 
+  }
+}
 }
 

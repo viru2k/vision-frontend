@@ -7,27 +7,25 @@
 <div class="row mt-2" role="toolbar" aria-label="Toolbar with button groups">
   <div  class="input-group input-group-sm ml-2">
          
-          <div class="btn-group mr-1 " role="group"> 
-            <label class="mr-2 mt-1 ml-2">Acción </label>
+          <div class="btn-group mr-1 m-2 " role="group"> 
+            <label class="mr-2 mt-2 ml-2">Acción </label>
             <p-dropdown [options]="impresiones" [(ngModel)]="selectedImpresion" optionLabel="name" ></p-dropdown>
-                      <div class="ml-2 mr-2 row" >                         
-                        <div class=" input-group input-group-sm ">
-                      <!--     <label class="mr-2 mt-1">Médico </label>
-                          <input  (keyup.enter)="buscarMedico()" class="form-control col-md-12 form-control-sm" [(ngModel)]="apellido" placeholder="Medico"  />    -->
-                      
-                      <!--     <div class="input-group-append">
-                            <span class=" input-group-text form-control-sm">
-                              <a  (click)="buscarMedico()">
-                                  <img class="pointer float-left" src="assets/icons/grey/outline_search_black_18dp.png" width="24px" height="24px"  >
-                              </a>
-                          </span>
-                          </div> -->
-                      </div>     
+                      <div class="ml-2 mr-2 row" >                            
                   </div>                                          
-                    <div class=" ml-2 row">                         
-                       <div class="ml-2"><button    class="btn  btn-success btn-sm float-right  pr-2" (click)="imprimir()" >Buscar</button>   </div>                                                  
+                    <div class=" ml-2 row mr-2">                         
+                       <div class="ml-2"><button    class="btn  btn-success  float-right  pr-2" (click)="imprimir()" >Buscar</button>   </div>                                                  
                       </div>     
-                 
+                      <div class=" input-group input-group-sm ">
+                        <span class="mt-2 mr-2 ml-2"><label>Liquidación número: </label></span>
+                        <input type="number" class="input-group-text form-control-sm mt-2" [(ngModel)]="liquidacion"> 
+                        <span class="mt-2 ml-2 mr-2"><label>Periodo liquidado:</label></span>
+                        <p-calendar [inputStyle]="{'height':'29.1px'}"  class="mr-2 mt-2 " [(ngModel)]="fechaLiquidacion"  (onSelect)="actualizarFechaLiquidacion($event)" tabindex="0"  [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true" showButtonBar="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="1950:2100">
+                          <ng-template pTemplate="date" let-date>
+                               <span  inputStyle="{'height':'29.5px'}"  style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
+                           </ng-template> 
+                         </p-calendar>     
+                         <button class="btn btn-info" (click)="generarLiquidacion()">Generar liquidación</button>
+                    </div>     
   </div>   
   
               

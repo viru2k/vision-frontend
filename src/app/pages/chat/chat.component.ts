@@ -22,7 +22,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
 
 
   //@ViewChild('scrollMe') private myScrollContainer: ElementRef;
-  @ViewChild('scrollMe') myScrollContainer: ElementRef;
+  @ViewChild('scrollMe',{ static: false }) myScrollContainer: ElementRef;
   loading;
   loading_chat;
   loadDetalle: string = '';

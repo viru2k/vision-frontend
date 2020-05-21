@@ -43,7 +43,6 @@ import { ListadoCirugiaComponent } from './pages/asesoramiento/ficha-quirurgica/
 import { UsuarioModuloComponent } from './pages/mantenimiento/usuario/usuario-modulo/usuario-modulo.component';
 import { LiquidacionDetalleComponent } from './pages/facturacion/liquidacion/liquidar/liquidacion-detalle/liquidacion-detalle.component';
 // tslint:disable-next-line: max-line-length
-import { LiquidacionProvinciaComponent } from './pages/facturacion/liquidacion/provincia/liquidacion-provincia/liquidacion-provincia.component';
 import { ConfeccionFacturaComponent } from './pages/facturacion/liquidacion/liquidar/confeccion-factura/confeccion-factura.component';
 import { AltaLenteComponent } from './pages/stock/lentes/alta-lente/alta-lente.component';
 import { StockLenteComponent } from './pages/stock/lentes/stock-lente/stock-lente.component';
@@ -121,8 +120,7 @@ export const ROUTES: Routes = [
      canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     { path: 'facturacion/liquidacion/confeccion', component: ConfeccionFacturaComponent,
      canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
-    { path: 'facturacion/liquidacion/provincia', component: LiquidacionProvinciaComponent,
-     canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
+
     { path: 'facturacion/liquidacion/presentacion', component: LiquidacionDetalleComponent ,
     canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
 

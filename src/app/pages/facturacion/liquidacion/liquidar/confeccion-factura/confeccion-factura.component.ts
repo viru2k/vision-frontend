@@ -23,7 +23,7 @@ import {OverlayPanelModule, OverlayPanel} from 'primeng/overlaypanel';
 import { PopupObraSocialComponent } from 'src/app/shared/components/popups/popup-obra-social/popup-obra-social.component';
 import { Liquidacion } from '../../../../../models/liquidacion.model';
 import { LiquidacionService } from '../../../../../services/liquidacion.service';
-import { pipe } from '@angular/core/src/render3';
+
 import { NumberToWordsPipe } from '../../../../../shared/pipes/number-to-words.pipe';
 import { PopupOperacionCobroPresentacionComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component';
 import { PopupPresentacionEditarComponent } from '../../../../../shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component';

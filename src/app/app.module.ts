@@ -1,7 +1,15 @@
+
+/* 
+In primeng/components/table/table.d.ts
+Replace
+import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
+With
+import { OnDestroy } from '@angular/core';
+
+ */
+
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
-
-
 import { SwPush } from '@angular/service-worker';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -160,7 +168,6 @@ import { ListadoCirugiaComponent } from './pages/asesoramiento/ficha-quirurgica/
 import { PopupLentesComponent } from './shared/components/popups/popup-lentes/popup-lentes.component';
 import { UsuarioModuloComponent } from './pages/mantenimiento/usuario/usuario-modulo/usuario-modulo.component';
 // tslint:disable-next-line: max-line-length
-import { LiquidacionProvinciaComponent } from './pages/facturacion/liquidacion/provincia/liquidacion-provincia/liquidacion-provincia.component';
 import { LiquidacionDetalleComponent } from './pages/facturacion/liquidacion/liquidar/liquidacion-detalle/liquidacion-detalle.component';
 import { ConfeccionFacturaComponent } from './pages/facturacion/liquidacion/liquidar/confeccion-factura/confeccion-factura.component';
 // tslint:disable-next-line: max-line-length
@@ -375,7 +382,6 @@ registerLocaleData(localeEsAR, 'es-Ar');
     ListadoCirugiaComponent,
     PopupLentesComponent,
     UsuarioModuloComponent,
-    LiquidacionProvinciaComponent,
     LiquidacionDetalleComponent,
     ConfeccionFacturaComponent,
     PopupFichaQuirurgicaLenteComponent,
@@ -566,3 +572,8 @@ registerLocaleData(localeEsAR, 'es-Ar');
 })
 export class AppModule { }
 
+
+
+/* -------------------------------------------------------------------------- */
+/*                             PRIME NG IMPORTANTE                            */
+/* -------------------------------------------------------------------------- */

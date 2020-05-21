@@ -347,16 +347,16 @@ async editarRegistro(cond:string){
       });
      
     }
-    if(cond == 'atendido'){
+    if (cond === 'atendido') {
       this.popItemAgenda.agenda_estado_id = '4';
       this.popItemAgenda.atendido = this._fechaHoy;
     }
-    if(cond == 'ausente'){
+    if(cond === 'ausente') {
       console.log('ausente');
       this.popItemAgenda.agenda_estado_id = '2';
       this.popItemAgenda.atendido = this._fechaHoy;
     } 
-    if(cond == 'observacion'){
+    if (cond === 'observacion'){
 
       console.log('observacion');
 
@@ -364,20 +364,26 @@ async editarRegistro(cond:string){
       
     } 
 
-    if(cond === 'paciente'){
+    if (cond === 'paciente') {
       this.buscarPacienteConsulta();
       
     } 
     
-    if(cond == 'operacioncobro'){
+    if (cond === 'operacioncobro') {
       console.log('ausente');
       this.router.navigate(['/recepcion/operacioncobro'], { state: { paciente: this.popItemAgenda } });
+    }
+
+    if (cond === 'comprobanteturno') {
+      this.generarComprobante();
     } 
 
     console.log(this.popItemAgenda);
-    if(cond != 'cancelado'){
+    if (cond !== 'cancelado') {
     this.actualizarTurno();
     }
+
+    
 }
 
   loadList(){
@@ -721,6 +727,46 @@ generarPdf(){
   }
   
 }
+
+
+
+
+generarComprobante(){
+  
+  console.log('turno');
+  console.log(this.selectedagendaTurno);
+  
+ 
+    console.log(this.selecteditems);
+
+    let fecha = formatDate(this.selectedagendaTurno['fecha_turno'], 'dd/MM/yyyy', 'en');
+  var doc = new jsPDF();
+  
+  const pageSize = doc.internal.pageSize;
+  const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+  doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
+  doc.setLineWidth(0.4);
+  doc.line(10, 35, pageWidth-10, 35);
+  
+  doc.setFontSize(25);
+  doc.text('COMPROBANTE DE TURNO', pageWidth/2, 30, null, null, 'center');
+  //doc.text(10,30,'COMPROBANTE DE TURNO');
+  doc.setFontSize(17);
+  doc.text(10, 45, 'FECHA :' + fecha);
+  doc.text(10, 55, 'HORA :' + this.selectedagendaTurno['hora_desde']);
+  doc.text(10, 65, 'MEDICO :' + this.selectedagendaTurno['nombreyapellido']);
+  doc.text(10, 75, 'PACIENTE :' + this.selectedagendaTurno['paciente_apellido']+' '+ this.selectedagendaTurno['paciente_nombre']);
+  doc.text(10, 85, 'DNI :' + this.selectedagendaTurno['paciente_dni']);
+  doc.line(10, 90, pageWidth-10, 90);
+  doc.setFontSize(15);
+  doc.text(10, 95, 'POR FAVOR EN CASO DE NO ASISTIR');
+  doc.text(10, 100, 'NOTIFICAR A NUESTRO WHATSAPP 2644128712');
+      window.open(doc.output('bloburl'));
+
+ 
+  
+}
+
 
 /** ACCIONES */
 

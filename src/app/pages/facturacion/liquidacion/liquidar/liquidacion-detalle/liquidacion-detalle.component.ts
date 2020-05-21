@@ -13,9 +13,7 @@ import swal from 'sweetalert2';
 declare const require: any;
 const jsPDF = require('jspdf');
 require('jspdf-autotable'); 
-import  html2canvas from 'html2canvas';
 var JsBarcode = require('jsbarcode');
-var Canvas = require("canvas");
 import * as $ from 'jquery';
 import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/components/common/api';
@@ -26,7 +24,7 @@ import {OverlayPanelModule, OverlayPanel} from 'primeng/overlaypanel';
 import { PopupObraSocialComponent } from 'src/app/shared/components/popups/popup-obra-social/popup-obra-social.component';
 import { Liquidacion } from '../../../../../models/liquidacion.model';
 import { LiquidacionService } from '../../../../../services/liquidacion.service';
-import { pipe } from '@angular/core/src/render3';
+
 import { NumberToWordsPipe } from '../../../../../shared/pipes/number-to-words.pipe';
 import { PopupOperacionCobroPresentacionComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component';
 import { PopupPresentacionEditarComponent } from '../../../../../shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component';
@@ -44,7 +42,7 @@ import { PopupOperacionCobroEditarDistribucionComponent } from './../../../../..
 })
 export class LiquidacionDetalleComponent implements OnInit {
 
-  @ViewChild('codigobarra') canvas: ElementRef;
+  @ViewChild('codigobarra',{ read: true, static: false }) canvas: ElementRef;
   cols: any[];
   columns: any[];
   columnsListadoMedico: any[];
@@ -528,13 +526,13 @@ generarFactura(){
         height:50,
         displayValue: true
       });
-      html2canvas(document.getElementById("barcode")).then(canvas => {
+   /*    html2canvas(document.getElementById("barcode")).then(canvas => {
         var imgData = canvas.toDataURL('image/png');
         console.log('Report Image URL: '+imgData);
         var doc = new jsPDF();//210mm wide and 297mm high
         doc.addImage(imgData, 'JPEG', 15, 15);
         window.open(doc.output('bloburl'));
-      });
+      }); */
       this.throwAlert('success', 'Se generó el archivo con éxito','','');
         this.loading = false;
         console.log(resp);

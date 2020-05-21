@@ -23,7 +23,6 @@ import {OverlayPanelModule, OverlayPanel} from 'primeng/overlaypanel';
 import { PopupObraSocialComponent } from 'src/app/shared/components/popups/popup-obra-social/popup-obra-social.component';
 import { Liquidacion } from '../../../../models/liquidacion.model';
 import { LiquidacionService } from '../../../../services/liquidacion.service';
-import { pipe } from '@angular/core/src/render3';
 import { NumberToWordsPipe } from '../../../../shared/pipes/number-to-words.pipe';
 import { PopupOperacionCobroPresentacionComponent } from '../../../../shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component';
 import { PopupPresentacionEditarComponent } from '../../../../shared/components/popups/popup-presentacion-editar/popup-presentacion-editar.component';
@@ -54,8 +53,8 @@ export class LiquidarComponent implements OnInit {
   resultSave:boolean;
   es:any;
   displayDialog: boolean;
-  fechaDesde:Date;
-  _fechaDesde:string;
+  fechaLiquidacion:Date;
+  _fechaLiquidacion:string;
   fechaHasta:Date;
   _fechaHasta:string;
   DateForm:FormGroup;
@@ -168,24 +167,26 @@ this.columnsListadoCirugiaTodos = [
   ngOnInit() {
     this.selectedImpresion = this.impresiones[0];
     this.es = calendarioIdioma;
-    this.fechaDesde = new Date();        
-    this.fechaHasta = new Date();
+    this.fechaLiquidacion = new Date();        
+    
    
     this.loadlist();
   }
 
 
+  generarLiquidacion() {}
+
   
   actualizarFechaDesde(event){
     console.log(event);
-    this.fechaDesde = event;    
-    console.log(new Date(this.fechaDesde));
+    this.fechaLiquidacion = event;
+    console.log(new Date(this.fechaLiquidacion));
   }
 
-  actualizarFechaHasta(event){
+  actualizarFechaLiquidacion(event){
     console.log(event);
-    this.fechaHasta = event;
-    console.log(new Date(this.fechaHasta));
+    this.fechaLiquidacion = event;
+    console.log(new Date(this.fechaLiquidacion));
   }
 
   sumarValoresSeleccionados(vals:any){
@@ -412,7 +413,7 @@ loadDistribucionMedico(){
         let resultado = resp;
         resultado.forEach(element => {
           console.log(this.selecteditems);
-          resp[i]['obra_social_nombre'] = this.selecteditems[0]['obra_social_nombre'];
+          //resp[i]['obra_social_nombre'] = this.selecteditems[0]['obra_social_nombre'];
           i++;
         });
           this.elementosPreFactura = resp;
@@ -453,41 +454,7 @@ loadPresentacionCirugiaTodos(){
         });
           this.elementosPreFactura = resp;
          console.log(this.elementosPreFactura);
-          this.generarPdfListadoCirugiaTodos();
-          this.loading = false;
-          console.log(resp);
-      },
-      error => { // error path
-          console.log(error.message);
-          console.log(error.status);
-          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
-       });    
-  } catch (error) {
-  this.throwAlert('error','Error al cargar los registros',error,error.status);
-  }  
-}
-
-
-loadPresentacionIva(){
-
-
-  this.loading = true;
-
-  try {
-      this.miServicio.getListadoPreFactura(this.selecteditems)    
-      .subscribe(resp => {
-        let i:number = 0;
-        let resultado = resp;
-        resultado.forEach(element => {
           
-          resp[i]['fecha_cobro'] = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
-      //    let t = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
-          console.log(resp[i]['fecha_cobro']);
-          i++;
-        });
-          this.elementosPreFactura = resp;
-         console.log(this.elementosPreFactura);
-          this.generarPdfListadoMedicoIVA();
           this.loading = false;
           console.log(resp);
       },
@@ -499,8 +466,9 @@ loadPresentacionIva(){
   } catch (error) {
   this.throwAlert('error','Error al cargar los registros',error,error.status);
   }  
-
 }
+
+
 
 generarTxt(){
 
@@ -660,7 +628,7 @@ loadPresentacionMedico(){
         this.sumarValores(resp);
           this.elementosPreFactura = resp;
          console.log(this.elementosPreFactura);
-          this.generarPdfListadoMedico();
+          
           this.loading = false;
           
       },
@@ -696,30 +664,6 @@ filtered(event){
     this.sumarValores(this.elementosFiltrados);
 }
 
-
-actualizarRegistros(){
-  let userData = JSON.parse(localStorage.getItem('userData'));
-  let td = formatDate(this.fechaDesde, 'dd/MM/yyyy', 'en');  
-  let th = formatDate(this.fechaHasta, 'dd/MM/yyyy', 'en');
-  swal({
-    title: '¿Desea actualizar estos  registros?',
-    text: 'Va a actualizar registros',
-    type: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#C5E1A5',
-    cancelButtonColor: '#FF8A65',
-    confirmButtonText: 'Si, actualizar!',
-    cancelButtonText: 'No'
-  }).then((result) => {
-    if (result.value) {
-      this.selecteditems.forEach(element => {            
-          element['usuario_audita_id']= userData['id']; 
-      }); 
-      this.actualizarRegistrosObraSocial();
-    }
-
-  })
-}
 
 actualizarRegistrosObraSocial(){
 
@@ -816,176 +760,7 @@ exportarExcel(){
 }
 
 
-generarPdfListadoMedico() {
-  let td = formatDate(this.fechaDesde, 'dd/MM/yyyy', 'en');  
-  let th = formatDate(this.fechaHasta, 'dd/MM/yyyy', 'en');
-  let _fechaEmision = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'en');
-  let rounded:string;
-  let total_facturado:number = 0;
-  let total_iva:number = 0;
-  let total_cantidad:number = 0;
-  let total_cantidad_impresion:string = '';
-  let fecha_impresion = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');  
-  let i = 0;
-  let userData = JSON.parse(localStorage.getItem('userData'));
-  
-  console.log(this.elementosPreFactura);
-  for(i=0;i<this.elementosPreFactura.length;i++){
-    total_cantidad = total_cantidad+Number(this.elementosPreFactura[i]['cantidad']);
-    total_facturado =total_facturado+Number(this.elementosPreFactura[i]['valor_facturado']);
-     //console.log( this.elementosPreFactura[i]['cantidad']);
-   }
-    total_cantidad_impresion = this.dp.transform(total_cantidad, '1.0-0');
-  if(this.selecteditems){
-  var doc = new jsPDF('l');
-  
-  const pageSize = doc.internal.pageSize;
-  const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
-  doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
-  doc.setLineWidth(0.4);
-  doc.setFontSize(9);
-  doc.text(this.elementosPreFactura[0]['medico_nombre'], 60, 10, null, null, 'left');
-  doc.setFontSize(6);
-  doc.text('Periodo: '+td+' al '+th, pageSize.width -60, 10, null, null);
-  doc.line(60, 13, pageWidth - 15, 13);
-  doc.setFontSize(7);
-  let nivel_facturacion = this.elementosPreFactura[0]['nivel'].substring(1,2);
-  if(nivel_facturacion=== 'F'){doc.text('FACTURACION', pageWidth-60, 20, null, null, 'left');}
-  if(nivel_facturacion=== 'R'){doc.text('REFACTURACION', pageWidth-60, 20, null, null, 'left');}
-  if(nivel_facturacion=== 'C'){doc.text('COMPLEMENTARIA', pageWidth-60, 20, null, null, 'left');}
-  if(nivel_facturacion=== 'T'){doc.text('TRANSPANTE', pageWidth-60, 20, null, null, 'left');}
-  doc.text('Emitido : '+_fechaEmision, pageWidth-60, 35, null, null, 'left');
-  doc.setFontSize(9);
-  doc.text('Presentación a Obras Sociales', 60, 20, null, null, 'left');
-  doc.setFontSize(7);
-  doc.text(this.elementosPreFactura[0]['entidad_nombre'], 60, 25, null, null, 'left');
-  doc.text('Obra social: '+this.elementosPreFactura[0]['obra_social_nombre'], 60, 30, null, null, 'left');
 
- 
-  doc.setFontSize(8);
-  //doc.line(15, 35, pageWidth - 15, 35);
-  let pageNumber = doc.internal.getNumberOfPages();
-  doc.autoTable(this.columnsListadoTodos, this.elementosPreFactura,
-    {
-        margin: {horizontal: 5, vertical: 38},
-        bodyStyles: {valign: 'top'},
-        showHead: 'always',
-        styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
-        columnStyles: {descripcion: {columnWidth: 20}}
-    });
-   
-    doc.setFontSize(8);
-    let finalY = doc.autoTable.previous.finalY;
-    doc.line(15, finalY+3, pageWidth - 15, finalY+3);
-    doc.text(15, finalY+8,'Cantidad : ' +  total_cantidad_impresion); 
-    doc.text(pageWidth-120, finalY+8,  'Importe : ' + this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2')); 
-    doc.text(pageWidth-80, finalY+8, 'IVA : ' +  this.cp.transform(total_iva, '', 'symbol-narrow', '1.2-2')); 
-    doc.text(pageWidth-50, finalY+8, 'Total : ' + this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2')); 
-    //doc.text(15, finalY+10, 'en letras : $' + this.numberToWordsPipe.transform(13) ); 
- 
-    
-  const totalPagesExp = '{total_pages_count_string}';
-  console.log(doc.putTotalPages);
-  const footer = function(data) {
-    let str = 'Page ' + data.pageCount;
-    // Total page number plugin only available in jspdf v1.0+
-    if (typeof doc.putTotalPages === 'function') {
-      str = str + ' of ' + totalPagesExp;
-      console.log('test');
-    }
-    doc.text(str, data.settings.margin.left, doc.internal.pageSize.height - 30);
-  };
-    window.open(doc.output('bloburl'));  
- 
-  }
-}
-
-
-
-generarPdfListadoTodos() {
-  let td = formatDate(this.fechaDesde, 'dd/MM/yyyy', 'en');  
-  let th = formatDate(this.fechaHasta, 'dd/MM/yyyy', 'en');
-  let _fechaEmision = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'en');
-  let rounded:string;
-  let total_facturado:number = 0;
-  let total_iva:number = 0;
-  let total_cantidad:number = 0;
-  let total_cantidad_impresion:string = '';
-  let fecha_impresion = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');  
-  let i = 0;
-  let userData = JSON.parse(localStorage.getItem('userData'));
-
-  for(i=0;i<this.elementosPreFactura.length;i++){
-    
-    total_cantidad = total_cantidad+Number(this.elementosPreFactura[i]['cantidad']);
-    
-    total_facturado =total_facturado+Number(this.elementosPreFactura[i]['valor_facturado']);
-     console.log( this.elementosPreFactura[i]['cantidad']);
-   }
-    total_cantidad_impresion = this.dp.transform(total_cantidad, '1.0-0');
-  if(this.selecteditems){
-  var doc = new jsPDF('l');
-  
-  const pageSize = doc.internal.pageSize;
-  const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
-  doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
-  doc.setLineWidth(0.4);
-  doc.setFontSize(9);
-  doc.text('Clínica de la Visión', 60, 10, null, null, 'left');
-  doc.setFontSize(6);
-  doc.text('Periodo: '+td+' al '+th, pageSize.width -60, 10, null, null);
-  doc.line(60, 13, pageWidth - 15, 13);
-  doc.setFontSize(7);
-  let nivel_facturacion = this.elementosPreFactura[0]['nivel'].substring(1,2);
-  if(nivel_facturacion=== 'F'){doc.text('FACTURACION', pageWidth-60, 20, null, null, 'left');}
-  if(nivel_facturacion=== 'R'){doc.text('REFACTURACION', pageWidth-60, 20, null, null, 'left');}
-  if(nivel_facturacion=== 'C'){doc.text('COMPLEMENTARIA', pageWidth-60, 20, null, null, 'left');}
-  if(nivel_facturacion=== 'T'){doc.text('TRANSPANTE', pageWidth-60, 20, null, null, 'left');}
-  doc.text('Emitido : '+_fechaEmision, pageWidth-60, 35, null, null, 'left');
-  doc.setFontSize(9);
-  doc.text('Presentación a Obras Sociales', 60, 20, null, null, 'left');
-  doc.setFontSize(7);
-  doc.text(this.elementosPreFactura[0]['entidad_nombre'], 60, 25, null, null, 'left');
-  doc.text('Obra social: '+this.elementosPreFactura[0]['obra_social_nombre'], 60, 30, null, null, 'left');
-
- 
-  doc.setFontSize(8);
-  //doc.line(15, 35, pageWidth - 15, 35);
-  let pageNumber = doc.internal.getNumberOfPages();
-  doc.autoTable(this.columnsListadoTodos, this.elementosPreFactura,
-    {
-        margin: {horizontal: 5, vertical: 38},
-        bodyStyles: {valign: 'top'},
-        showHead: 'always',
-        styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
-        columnStyles: {text: {cellWidth: 'auto'}}
-    });
-   
-    doc.setFontSize(8);
-    let finalY = doc.autoTable.previous.finalY;
-    doc.line(15, finalY+3, pageWidth - 15, finalY+3);
-    doc.text(15, finalY+8,'Cantidad : ' +  total_cantidad_impresion); 
-    doc.text(pageWidth-120, finalY+8,  'Importe : ' + this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2')); 
-    doc.text(pageWidth-80, finalY+8, 'IVA : ' +  this.cp.transform(total_iva, '', 'symbol-narrow', '1.2-2')); 
-    doc.text(pageWidth-50, finalY+8, 'Total : ' + this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2')); 
-    //doc.text(15, finalY+10, 'en letras : $' + this.numberToWordsPipe.transform(13) ); 
- 
-    
-  const totalPagesExp = '{total_pages_count_string}';
-  console.log(doc.putTotalPages);
-  const footer = function(data) {
-    let str = 'Page ' + data.pageCount;
-    // Total page number plugin only available in jspdf v1.0+
-    if (typeof doc.putTotalPages === 'function') {
-      str = str + ' of ' + totalPagesExp;
-      console.log('test');
-    }
-    doc.text(str, data.settings.margin.left, doc.internal.pageSize.height - 30);
-  };
-    window.open(doc.output('bloburl'));  
- 
-  }
-}
 
 removeDuplicateUsingSet(arr){
   let unique_array = arr.filter(function(elem, index, self) {
@@ -997,292 +772,9 @@ return unique_array
 
 
 
-generarPdfListadoCirugiaTodos() {
-  let td = formatDate(this.fechaDesde, 'dd/MM/yyyy', 'en');  
-  let th = formatDate(this.fechaHasta, 'dd/MM/yyyy', 'en');
-  let _fechaEmision = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'en');
-  let rounded:string;
-  let total_facturado:number = 0;
-  let tmp_elementosPrefactura:Liquidacion[]=[];
-  let tmp:any;
-  let total_iva:number = 0;
-  let total_cantidad:number = 0;
-  let total_gastos:number = 0;
-  let total_honorario:number = 0;
-  let total_cantidad_impresion:string = '';
-  let fecha_impresion = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');  
-  let i = 0;
-  let j = 0;
-  let k = 0;
-  let userData = JSON.parse(localStorage.getItem('userData'));
-  let existe:boolean; // valida si ya esta insertado el codigo
- 
-  console.log('listado sin modificar');
-  console.log(this.elementosPreFactura);
-  for(i=0;i<this.elementosPreFactura.length;i++){
-
-    let practica = this.elementosPreFactura[i]['convenio_os_pmo_id'];
-
-    for(j=0;j<this.elementosPreFactura.length;j++){
-
-      if(this.elementosPreFactura[j]['convenio_os_pmo_id'] === practica){
-    
-        if((this.elementosPreFactura[j]['obra_social_practica_nombre'] === 'HONORARIOS')&&(this.elementosPreFactura[j]['complejidad'] !== 2)){
-          if(this.elementosPreFactura[j]['operacion_cobro_distribucion_total'] === null){
-            this.elementosPreFactura[i]['operacion_cobro_distribucion_total'] = 0;
-          }else{
-            
-            if(this.selecteditems[0]['obra_social_nombre']=== 'DOS - OBRA SOCIAL PROVINCIA'){
-              console.log('obra social honorarios');
-              this.elementosPreFactura[i]['honorarios'] =  this.elementosPreFactura[j]['operacion_cobro_distribucion_total'];
-             
-              console.log(this.elementosPreFactura[j]['complejidad']+' cirugia '+this.elementosPreFactura[j]['descripcion'] );
-            }else{
-              console.log('coseguro honorarios');
-              let t_hono =  this.cp.transform((((this.elementosPreFactura[j]['operacion_cobro_distribucion_total'])*20)/80), '', '', '1.2-2'); 
-              this.elementosPreFactura[i]['honorarios'] = t_hono;
-              
-            }
-            
-          }
-       
-        }
-        if((this.elementosPreFactura[j]['obra_social_practica_nombre'] === 'GASTOS')&&(this.elementosPreFactura[j]['complejidad'] !== 2)){
-          if(this.elementosPreFactura[j]['operacion_cobro_distribucion_total'] === null){
-            this.elementosPreFactura[i]['operacion_cobro_distribucion_total'] = 0;
-          }else{
-           // console.log(this.selecteditems[0]['obra_social_id']);
-            if(this.selecteditems[0]['obra_social_nombre'] === 'DOS - OBRA SOCIAL PROVINCIA'){
-         //    console.log('obra social');
-         console.log('obra social gastos');
-            this.elementosPreFactura[i]['categoria'] =  this.cp.transform(0, '', '', '1.2-2');  
-             this.elementosPreFactura[i]['gastos'] =  this.elementosPreFactura[j]['operacion_cobro_distribucion_total'];
-          //   total_gastos = total_gastos +Number( this.elementosPreFactura[i]['gastos']);
-             console.log(this.elementosPreFactura[j]['complejidad']+' cirugia '+this.elementosPreFactura[j]['descripcion'] );
-            }else{
-              console.log('coseguro gastos');
-              this.elementosPreFactura[i]['categoria'] =  this.cp.transform(0, '', '', '1.2-2');
-              this.elementosPreFactura[i]['gastos'] =  this.cp.transform((((this.elementosPreFactura[j]['operacion_cobro_distribucion_total'])*20)/80), '', 'symbol-narrow', '1.2-2'); 
-              
-              
-            }
-          
-          }
-        }
-        if(this.elementosPreFactura[j]['complejidad'] === 2){ 
-          
-          // CAMBIO EL VALOR FACTURADO POR GASTO PARA QUE DE
-       //     this.elementosPreFactura[i]['gastos'] =  this.elementosPreFactura[j]['valor_facturado'];
-
-       this.elementosPreFactura[i]['gastos'] =  this.elementosPreFactura[j]['valor_facturado'];
-            this.elementosPreFactura[i]['honorarios'] ='0';// this.cp.transform(0, '', '', '1.2-2');  
-            this.elementosPreFactura[i]['categoria'] =  0;//this.cp.transform(0, '', '', '1.2-2'); 
-          //  console.log('categoria 2 '+this.elementosPreFactura[j]['categoria']+' gasto '+this.elementosPreFactura[j]['descripcion'] );        // CAMBIAR A 4 PARA INSUMOS
-          }
-       
-        
-      
-      }
-    }
-    
-     
-    }
-    
-
-    // vuelvo a generar un  arreglo quitando los repetidos
- //  let mp_elementosPrefactura = this.removeDuplicateUsingSet(this.elementosPreFactura);
-   //console.log(mp_elementosPrefactura);
-
-   const filteredArr = this.elementosPreFactura.reduce((acc, current) => {
-    const x = acc.find(item => item['operacion_cobro_practica_id'] === current['operacion_cobro_practica_id']);
-    if (!x) {
-      return acc.concat([current]);
-    } else {
-      return acc;
-    }
-  }, []);
-  
-  console.log(filteredArr);
-  for(i=0;i<filteredArr.length;i++){
-    if(filteredArr[i]['valor_facturado']['complejidad'] === 2){
-      filteredArr[i]['categorizacion'] = 0;
-      
-      total_facturado =total_facturado+ Number(filteredArr[i]['gastos']);
-      filteredArr[i]['valor_facturado']=   this.cp.transform(Number(filteredArr[i]['gastos']), '', 'symbol-narrow', '1.2-2') ;
-    }else{
-      //total_honorario = total_honorario +Number( filteredArr[i]['honorarios']);
-    //total_honorario = total_honorario +Number(filteredArr[i]['operacion_cobro_distribucion_total'])+Number(filteredArr[i]['categorizacion']);
-    total_honorario = total_honorario +Number( filteredArr[i]['honorarios'])+Number( filteredArr[i]['categorizacion']);
-    total_gastos = total_gastos +Number(filteredArr[i]['gastos']);
-    total_facturado =total_facturado+ Number(filteredArr[i]['valor_facturado'])+Number(filteredArr[i]['categorizacion']);
-   
-    filteredArr[i]['valor_facturado']=   this.cp.transform(Number(filteredArr[i]['valor_facturado'])+Number(filteredArr[i]['categorizacion']), '', 'symbol-narrow', '1.2-2') ;
-    }
-    if(!total_honorario){
-      total_honorario = 0;
-    }
-
-    if(!total_gastos){
-      total_gastos = 0;
-    }
-    console.log(total_gastos);
-    total_cantidad = total_cantidad+Number(filteredArr[i]['cantidad']);
-    
-  }
-    total_cantidad_impresion = this.dp.transform(total_cantidad, '1.0-0');
-  if(this.selecteditems){
-  var doc = new jsPDF('l');
-  
-  const pageSize = doc.internal.pageSize;
-  const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
-  doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
-  doc.setLineWidth(0.4);
-  doc.setFontSize(9);
-  doc.text('Clínica de la Visión', 60, 10, null, null, 'left');
-  doc.setFontSize(6);
-  doc.text('Periodo: '+td+' al '+th, pageSize.width -60, 10, null, null);
-  doc.line(60, 13, pageWidth - 15, 13);
-  doc.setFontSize(7);
-  let nivel_facturacion = this.elementosPreFactura[0]['nivel'].substring(1,2);
-  if(nivel_facturacion=== 'F'){doc.text('FACTURACION', pageWidth-60, 20, null, null, 'left');}
-  if(nivel_facturacion=== 'R'){doc.text('REFACTURACION', pageWidth-60, 20, null, null, 'left');}
-  if(nivel_facturacion=== 'C'){doc.text('COMPLEMENTARIA', pageWidth-60, 20, null, null, 'left');}
-  if(nivel_facturacion=== 'T'){doc.text('TRANSPANTE', pageWidth-60, 20, null, null, 'left');}
-  doc.text('Emitido : '+_fechaEmision, pageWidth-60, 35, null, null, 'left');
-  doc.setFontSize(9);
-  doc.text('Presentación a Obras Sociales', 60, 20, null, null, 'left');
-  doc.setFontSize(7);
-  doc.text(this.elementosPreFactura[0]['entidad_nombre'], 60, 25, null, null, 'left');
-  doc.text('Obra social: '+this.elementosPreFactura[0]['obra_social_nombre'], 60, 30, null, null, 'left');
-
- 
-  doc.setFontSize(8);
-  //doc.line(15, 35, pageWidth - 15, 35);
-  let pageNumber = doc.internal.getNumberOfPages();
-  doc.autoTable(this.columnsListadoCirugiaTodos, filteredArr,
-    {
-        margin: {horizontal: 5, vertical: 38},
-        bodyStyles: {valign: 'top'},
-        showHead: 'firstPage',
-        styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
-        columnStyles: {text: {cellWidth: 'auto'}}
-    });
-   
-    doc.setFontSize(8);
-    let finalY = doc.autoTable.previous.finalY;
-    doc.line(15, finalY+3, pageWidth - 15, finalY+3);
-    doc.text(15, finalY+8,'Cantidad : ' +  total_cantidad_impresion); 
-    doc.text(pageWidth-130, finalY+8,  'Honorarios : ' + this.cp.transform(total_honorario, '', 'symbol-narrow', '1.2-2')); 
-    doc.text(pageWidth-90, finalY+8, 'Gastos : ' +  this.cp.transform(total_gastos, '', 'symbol-narrow', '1.2-2')); 
-    doc.text(pageWidth-50, finalY+8, 'Total : ' + this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2')); 
-    //doc.text(15, finalY+10, 'en letras : $' + this.numberToWordsPipe.transform(13) ); 
- 
-    
-  const totalPagesExp = '{total_pages_count_string}';
-  console.log(doc.putTotalPages);
-  const footer = function(data) {
-    let str = 'Page ' + data.pageCount;
-    // Total page number plugin only available in jspdf v1.0+
-    if (typeof doc.putTotalPages === 'function') {
-      str = str + ' of ' + totalPagesExp;
-      console.log('test');
-    }
-    doc.text(str, data.settings.margin.left, doc.internal.pageSize.height - 30);
-  };
-    window.open(doc.output('bloburl'));  
- 
-  }
-}
 
 
 
-generarPdfListadoMedicoIVA() {
-  let _fechaEmision = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'en');
-  let td = formatDate(this.fechaDesde, 'dd/MM/yyyy', 'en');  
-  let th = formatDate(this.fechaHasta, 'dd/MM/yyyy', 'en');
-  let rounded:string;
-  let total_facturado:number = 0;
-  let total_iva:number = 0;
-  let total_cantidad:number = 0;
-  let total_sin_iva:number = 0;
-  let total_cantidad_impresion:string = '';
-  let fecha_impresion = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');  
-  let i = 0;
-  let userData = JSON.parse(localStorage.getItem('userData'));
-  
-  console.log(this.elementosPreFactura);
-  for(i=0;i<this.elementosPreFactura.length;i++){
-    total_cantidad = total_cantidad+Number(this.elementosPreFactura[i]['cantidad']);
-    total_facturado =total_facturado+Number(this.elementosPreFactura[i]['valor_facturado']);
-     console.log( this.elementosPreFactura[i]['cantidad']);
-   }
-   total_iva = total_facturado*0.105;
-   total_sin_iva = total_facturado;
-   total_facturado = total_facturado+total_iva;
-    total_cantidad_impresion = this.dp.transform(total_cantidad, '1.0-0');
-  if(this.selecteditems){
-  var doc = new jsPDF('l');
-  
-  const pageSize = doc.internal.pageSize;
-  const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
-  doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
-  doc.setLineWidth(0.4);
-  doc.setFontSize(9);
-  doc.text(this.elementosPreFactura[0]['medico_nombre'], 60, 10, null, null, 'left');
-  doc.setFontSize(6);
-  doc.text('Periodo: '+td+' al '+th, pageSize.width -60, 10, null, null);
-  doc.line(60, 13, pageWidth - 15, 13);
-  doc.setFontSize(7);
-  let nivel_facturacion = this.elementosPreFactura[0]['nivel'].substring(1,2);
-  if(nivel_facturacion=== 'F'){doc.text('FACTURACION', pageWidth-60, 20, null, null, 'left');}
-  if(nivel_facturacion=== 'R'){doc.text('REFACTURACION', pageWidth-60, 20, null, null, 'left');}
-  if(nivel_facturacion=== 'C'){doc.text('COMPLEMENTARIA', pageWidth-60, 20, null, null, 'left');}
-  if(nivel_facturacion=== 'T'){doc.text('TRANSPANTE', pageWidth-60, 20, null, null, 'left');}
-  doc.text('Emitido : '+_fechaEmision, pageWidth-60, 35, null, null, 'left');
-  doc.setFontSize(9);
-  doc.text('Presentación a Obras Sociales', 60, 20, null, null, 'left');
-  doc.setFontSize(7);
-  doc.text(this.elementosPreFactura[0]['entidad_nombre'], 60, 25, null, null, 'left');
-  doc.text('Obra social: '+this.elementosPreFactura[0]['obra_social_nombre'], 60, 30, null, null, 'left');
-
- 
-  doc.setFontSize(8);
-  //doc.line(15, 35, pageWidth - 15, 35);
-  let pageNumber = doc.internal.getNumberOfPages();
-  doc.autoTable(this.columnsListadoTodos, this.elementosPreFactura,
-    {
-        margin: {horizontal: 5, vertical: 38},
-        bodyStyles: {valign: 'top'},
-        showHead: 'firstPage',
-        styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
-        columnStyles: {text: {cellWidth: 'auto'}}
-    });
-   
-    doc.setFontSize(8);
-    let finalY = doc.autoTable.previous.finalY;
-    doc.line(15, finalY+3, pageWidth - 15, finalY+3);
-    doc.text(15, finalY+8,'Cantidad : ' +  total_cantidad_impresion); 
-    doc.text(pageWidth-120, finalY+8,  'Importe : ' + this.cp.transform(total_sin_iva, '', 'symbol-narrow', '1.2-2')); 
-    doc.text(pageWidth-80, finalY+8, 'IVA : ' +  this.cp.transform(total_iva, '', 'symbol-narrow', '1.2-2')); 
-    doc.text(pageWidth-50, finalY+8, 'Total : ' + this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2')); 
-    //doc.text(15, finalY+10, 'en letras : $' + this.numberToWordsPipe.transform(13) ); 
- 
-    
-  const totalPagesExp = '{total_pages_count_string}';
-  console.log(doc.putTotalPages);
-  const footer = function(data) {
-    let str = 'Page ' + data.pageCount;
-    // Total page number plugin only available in jspdf v1.0+
-    if (typeof doc.putTotalPages === 'function') {
-      str = str + ' of ' + totalPagesExp;
-      console.log('test');
-    }
-    doc.text(str, data.settings.margin.left, doc.internal.pageSize.height - 30);
-  };
-    window.open(doc.output('bloburl'));  
- 
-  }
-}
 
 
 

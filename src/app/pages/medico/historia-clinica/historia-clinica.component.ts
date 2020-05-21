@@ -25,7 +25,7 @@ import { PopupMedicoComponent } from '../../../shared/components/popups/popup-me
 import { Medico } from '../../../models/medico.model';
 import { MedicoObraSocial } from '../../../models/medico-obrasocial.model';
 import { PopupDerivarAsesoramientoComponent } from '../../../shared/components/popups/popup-derivar-asesoramiento/popup-derivar-asesoramiento.component';
-import { pipe } from '@angular/core/src/render3';
+
 import { PopupEstudiosImagenComponent } from '../../../shared/components/popups/popup-estudios-imagen/popup-estudios-imagen.component';
 @Component({
   selector: 'app-historia-clinica',
