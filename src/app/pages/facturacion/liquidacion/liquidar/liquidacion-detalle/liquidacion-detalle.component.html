@@ -8,10 +8,10 @@
 
     
   <div class="row m-2" role="toolbar" aria-label="Toolbar with button groups">
-      <div  class="input-group input-group-sm "> 
+      <div  class="input-group input-group-sm d-flex align-items-center"> 
           <p-dropdown [options]="impresiones" [(ngModel)]="selectedImpresion" optionLabel="name" ></p-dropdown>
-          <button    class="ml-2 btn  btn-primary btn-md float-right mr-2 pr-2" (click)="imprimir()" >Generar</button> 
-          <button    class="ml-2 btn  btn-success btn-sm float-right mr-2 pr-2" (click)="loadlist()" ><i class="fas fa-sync"></i></button> 
+          <button    class="ml-2 btn  btn-primary btn-md float-right mr-2 " (click)="imprimir()" >Generar</button> 
+          <button    class="ml-2 btn  btn-success btn-md float-right mr-2 " (click)="loadlist()" ><i class="fas fa-sync"></i></button> 
               <form  [formGroup]="DateForm">
 
               </form>            
@@ -21,7 +21,7 @@
   <div class="row ml-1 mt-2" role="toolbar" aria-label="Toolbar with button groups">
     <div  class="input-group input-group-sm ">
             <form  [formGroup]="DateForm">
-            <div class="btn-group mr-1" role="group">
+            <div class="btn-group mr-1 d-flex align-items-center" role="group">
                     <span class="pr-1 pt-1"><h6>Desde:</h6></span>
                     <p-calendar [inputStyle]="{'height':'29.1px'}" [showTime]="true"   class="mr-2 " formControlName="fecha_desde"  (onSelect)="actualizarFechaDesde($event)" tabindex="0"  [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
                       <ng-template pTemplate="date" let-date>
@@ -34,8 +34,8 @@
                               <span  inputStyle="{'height':'29.5px'}"  style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
                           </ng-template> 
                       </p-calendar>       
-                        <div class="ml-2 mr-2 row">                         
-                          <div class=" input-group input-group-sm mb-3">
+                        <div class="ml-2 mr-2 row mt-3">                         
+                          <div class=" input-group input-group-sm ">
                               <input  (keyup.enter)="buscarObraSocial()" class="form-control col-md-12 form-control-sm" formControlName="obra_social_nombre" placeholder="Obra social" />   
                             
                               <div class="input-group-append">
@@ -49,7 +49,8 @@
                     </div>                                          
                       <div class=" ml-2 row">                         
                          <div class="ml-2"><button    class="btn  btn-danger btn-sm float-right  pr-2" (click)="actualizarRegistros()" >Actualizar valores de convenio</button>   </div>  
-                         <div class="ml-2"><button    class="btn  btn-info btn-sm float-right  pr-2" (click)="editarDistribucion()" >Editar distribución</button>   </div>                                                                     
+                         <div class="ml-2"><button    class="btn  btn-info btn-sm float-right  pr-2" (click)="editarDistribucion()" >Editar distribución</button>   </div>   
+                         <div class="ml-5"><button    class="btn  btn-danger btn-sm float-right  pr-2" (click)="clonarDistribucion()" >Clonar distribución</button>   </div>                                                                    
                         </div>    
                         
                       
@@ -62,7 +63,7 @@
           
     </div>    
 </div>
-<div class=" ml-2 row">  
+<div class=" ml-2 row d-flex align-items-center">  
         <label class="ml-1 mr-2 mt-1"> Acciones sobre D.O.S : </label>
         <div class="ml-2"><button    class="btn  btn-danger btn-sm float-right  pr-2" (click)="actualizarRegistros()" >Actualizar valores (Registros seleccionados)</button>   </div>                                   
       </div>

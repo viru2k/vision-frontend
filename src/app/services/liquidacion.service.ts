@@ -88,8 +88,11 @@ getLiquidacionDetalle(estado:string){
       }
 
       GetDistribucionByMedico(liquidacion:Liquidacion[]){  
-        return this.http.post<any>(URL_SERVICIOS+'operacioncobro/distribucion/medico',liquidacion);
+        return this.http.post<any>(URL_SERVICIOS+'operacioncobro/distribucion/medico', liquidacion);
         }
-    
   
+        clonarLiquidacion(liquidacion: Liquidacion[]) {
+    return this.http.post<Liquidacion[]>(this.url+'/distribucion/clonar', liquidacion);
+    }
+
 }

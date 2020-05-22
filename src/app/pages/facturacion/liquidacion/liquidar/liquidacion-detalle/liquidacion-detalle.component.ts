@@ -366,6 +366,31 @@ this.DateForm = new FormGroup({
 }
 
 
+clonarDistribucion() {
+
+  
+  this.loading = true;
+
+  try {
+      this.miServicio.clonarLiquidacion(this.selecteditems)
+      .subscribe(resp => {
+
+         console.log(resp);
+          this.loadlist();
+          this.loading = false;
+          console.log(resp);
+      },
+      error => { // error path
+          console.log(error.message);
+          console.log(error.status);
+          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+       });
+  } catch (error) {
+  this.throwAlert('error','Error al cargar los registros',error,error.status);
+  }
+}
+
+
 loadPresentacionTodos(){
 
   this.loading = true;

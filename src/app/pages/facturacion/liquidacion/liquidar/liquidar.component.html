@@ -7,15 +7,15 @@
 <div class="row mt-2" role="toolbar" aria-label="Toolbar with button groups">
   <div  class="input-group input-group-sm ml-2">
          
-          <div class="btn-group mr-1 m-2 " role="group"> 
+          <div class="btn-group mr-1 m-2 d-flex align-items-center" role="group"> 
             <label class="mr-2 mt-2 ml-2">Acción </label>
             <p-dropdown [options]="impresiones" [(ngModel)]="selectedImpresion" optionLabel="name" ></p-dropdown>
                       <div class="ml-2 mr-2 row" >                            
                   </div>                                          
                     <div class=" ml-2 row mr-2">                         
-                       <div class="ml-2"><button    class="btn  btn-success  float-right  pr-2" (click)="imprimir()" >Buscar</button>   </div>                                                  
+                       <div class="ml-2"><button    class="btn  btn-success  float-right  " (click)="imprimir()" >Buscar</button>   </div>                                                  
                       </div>     
-                      <div class=" input-group input-group-sm ">
+                      <div class=" input-group input-group-sm d-flex align-items-center">
                         <span class="mt-2 mr-2 ml-2"><label>Liquidación número: </label></span>
                         <input type="number" class="input-group-text form-control-sm mt-2" [(ngModel)]="liquidacion"> 
                         <span class="mt-2 ml-2 mr-2"><label>Periodo liquidado:</label></span>
