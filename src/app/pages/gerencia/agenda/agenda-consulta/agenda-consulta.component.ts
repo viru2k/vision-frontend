@@ -473,7 +473,7 @@ generarPdf(){
   /** valores de la pagina**/
   const pageSize = doc.internal.pageSize;
   const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
-  doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
+doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
   doc.setLineWidth(0.4);
   doc.line(10, 30, pageWidth - 10, 30);
   doc.setFontSize(12);

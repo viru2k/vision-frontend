@@ -161,7 +161,6 @@ import { LenteComponent } from './pages/mantenimiento/stock/lente/lente.componen
 import { InsumoComponent } from './pages/mantenimiento/stock/insumo/insumo.component';
 import { HistoriaClinicaComponent } from './pages/medico/historia-clinica/historia-clinica.component';
 import { AgendaAtencionMedicoComponent } from './pages/medico/agenda/agenda-atencion-medico/agenda-atencion-medico.component';
-import { ChatListaComponent } from './shared/components/chat/chat-lista/chat-lista.component';
 import { EmptyComponent } from './pages/info/empty/empty.component';
 import { NotFoundComponent } from './pages/info/not-found/not-found.component';
 import { ListadoCirugiaComponent } from './pages/asesoramiento/ficha-quirurgica/listado-cirugia/listado-cirugia.component';
@@ -376,7 +375,6 @@ registerLocaleData(localeEsAR, 'es-Ar');
     InsumoComponent,
     HistoriaClinicaComponent,
     AgendaAtencionMedicoComponent,
-    ChatListaComponent,
     EmptyComponent,
     NotFoundComponent,
     ListadoCirugiaComponent,

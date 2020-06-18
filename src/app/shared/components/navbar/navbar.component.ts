@@ -15,6 +15,7 @@ import { PopupNotificacionComponent } from '../../../pages/notificacion/popup-no
 import { DialogService } from 'primeng/components/common/api';
 import { DatePipe } from '@angular/common';
 import { NotificacionesService } from './../../../services/notificaciones.service';
+import { ChatService } from './../../../services/chat-service.service';
 
 
 @Component({
@@ -59,6 +60,8 @@ export class NavbarComponent implements OnInit {
   error = '';
   notificaciones: number= 0;
   chats;
+  lista_usuarios_chat: any[] = [];
+  mensaje = 0;
 
   constructor(
      private notificacionesService: NotificacionesService,
@@ -67,7 +70,8 @@ export class NavbarComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private miServico:UserService) { 
+    private miServico:UserService,
+    private chatService: ChatService) { 
 
   }
  navbarOpen = false;
@@ -257,6 +261,35 @@ asignarModulos(modulos: any) {
  
 }
 
+
+
+cargarListaChat() {
+  
+  this.loading = true;
+  this.loading_mensaje = 'Obteniendo contactos de chat';
+  try {
+      this.chatService.getSesionListByUsuario(JSON.parse(localStorage.getItem('userData')))
+      .subscribe(resp => {
+     this.lista_usuarios_chat = resp;
+      console.log(this.lista_usuarios_chat);
+      this.loading = false;
+    
+
+      },
+      error => { // error path
+          console.log(error.message);
+          console.log(error.status);
+          this.throwAlert('error', 'error', 'Error: ' + error.status + '  Error al cargar los registros', error.message);
+     //     this.resultSave = false;
+          this.loading = false;
+        });
+  } catch (error) {
+    this.throwAlert('error', 'error', 'Error: ' + error.status + '  Error al cargar los registros', error.message);
+  }
+
+
+}
+
 cerrarSesion() {
 
   swal({
@@ -369,6 +402,7 @@ try {
        this.puesto = userData['puesto'];
        localStorage.removeItem('userData');
        localStorage.setItem('userData', JSON.stringify(this.user));
+       this.cargarListaChat();
        this.asignarModulos(this.elementoModulo);
      // console.log(this.user);
         this.loading = false;

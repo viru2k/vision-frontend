@@ -399,7 +399,7 @@ buscarPaciente(){
     /** valores de la pagina**/
     const pageSize = doc.internal.pageSize;
     const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
-    doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
+  doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
     doc.setLineWidth(0.4);
 
     doc.line(10, 33, pageWidth - 10, 33);
@@ -601,7 +601,7 @@ doc.line(pageWidth/2, 23, pageWidth /2, 50);
   doc.setFontStyle("normal");
   doc.setFontSize(6);
   doc.text('COD. '+this.elementosPDF[0]['comprobante_codigo'], (pageWidth/2)-4.5, 21); 
-  doc.addImage(logo_clinica, 'PNG', 15, 12, 60.06, 12.87);
+  doc.addImage(logo_clinica, 'PNG', 15, 12, 60.06, 12.87, undefined,'FAST');
   doc.setFontSize(9);
   
   doc.text(this.elementosPDF[0]['nombreyapellido'], 15, 35); 

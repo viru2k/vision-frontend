@@ -36,7 +36,6 @@ import { OperacionCobroAfectarComponent } from './pages/facturacion/liquidacion/
 
 import { AgendaAtencionMedicoComponent } from './pages/medico/agenda/agenda-atencion-medico/agenda-atencion-medico.component';
 import { HistoriaClinicaComponent } from './pages/medico/historia-clinica/historia-clinica.component';
-import { ChatListaComponent } from './shared/components/chat/chat-lista/chat-lista.component';
 import { EmptyComponent } from './pages/info/empty/empty.component';
 import { NotFoundComponent } from './pages/info/not-found/not-found.component';
 import { ListadoCirugiaComponent } from './pages/asesoramiento/ficha-quirurgica/listado-cirugia/listado-cirugia.component';

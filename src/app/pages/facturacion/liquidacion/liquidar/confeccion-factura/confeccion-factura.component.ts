@@ -760,7 +760,7 @@ generarPdfListadoMedico() {
   
   const pageSize = doc.internal.pageSize;
   const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
-  doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
+doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
   doc.setLineWidth(0.4);
   doc.setFontSize(9);
   doc.text(this.elementosPreFactura[0]['medico_nombre'], 60, 10, null, null, 'left');
@@ -847,7 +847,7 @@ generarPdfListadoTodos() {
   
   const pageSize = doc.internal.pageSize;
   const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
-  doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
+doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
   doc.setLineWidth(0.4);
   doc.setFontSize(9);
   doc.text('Clínica de la Visión', 60, 10, null, null, 'left');
@@ -1054,7 +1054,7 @@ generarPdfListadoCirugiaTodos() {
   
   const pageSize = doc.internal.pageSize;
   const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
-  doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
+doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
   doc.setLineWidth(0.4);
   doc.setFontSize(9);
   doc.text('Clínica de la Visión', 60, 10, null, null, 'left');
@@ -1144,7 +1144,7 @@ generarPdfListadoMedicoIVA() {
   
   const pageSize = doc.internal.pageSize;
   const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
-  doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
+doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
   doc.setLineWidth(0.4);
   doc.setFontSize(9);
   doc.text(this.elementosPreFactura[0]['medico_nombre'], 60, 10, null, null, 'left');

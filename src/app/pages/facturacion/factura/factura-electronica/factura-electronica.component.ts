@@ -493,6 +493,7 @@ export class FacturaElectronicaComponent implements OnInit {
 
 
 guardarDatos(){
+ 
   console.log(this.elementoPtoVta);
   this._fecha = formatDate(this.fecha, 'yyyy-MM-dd', 'en');
   this._fechaDesde = formatDate(this.fechaDesde, 'yyyy-MM-dd', 'en');
@@ -548,10 +549,7 @@ guardarDatos(){
      });
     }
   }
-/*
-  
 
-*/
 
 }
 
@@ -919,7 +917,7 @@ generarPDF(){
 
   this._fecha = formatDate(this.fecha, 'dd/MM/yyyy', 'en');
   let inicio_actividades =  formatDate(this.elementoMedicos['fecha_matricula'], 'dd/MM/yyyy', 'en'); 
-  var doc = new jsPDF();  
+  var doc = new jsPDF();
   /** valores de la pagina**/
   const pageSize = doc.internal.pageSize;
   const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
@@ -968,7 +966,7 @@ doc.line(pageWidth/2, 23, pageWidth /2, 50);
   doc.setFontStyle("normal");
   doc.setFontSize(6);
   doc.text('COD. '+this.elementoComprobante['comprobante_codigo'], (pageWidth/2)-4.5, 21); 
-  doc.addImage(logo_clinica, 'PNG', 15, 12, 60.06, 12.87);
+  doc.addImage(logo_clinica, 'PNG', 15, 12, 60.06, 12.87, undefined,'FAST');
   doc.setFontSize(9);
   
   doc.text(this.elementoMedicos['nombreyapellido'], 15, 35); 
@@ -1064,6 +1062,9 @@ doc.autoTable(this.columns, this.elementosPDF,
  window.open(doc.output('bloburl'));  
   this.limpiarDatos();
   }
+
+
+
 
 
   limpiarDatos(){

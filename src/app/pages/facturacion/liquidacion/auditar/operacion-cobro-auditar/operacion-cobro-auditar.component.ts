@@ -607,7 +607,7 @@ let total_facturado_coseguro:number = 0;
 /****************************************************   OBRA SOCIAL ******************************************************************************** */
 
 
-  doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
+doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
   doc.setLineWidth(0.4);
   doc.setFontSize(9);
   doc.text('Clínica de la Visión', 60, 10, null, null, 'left');
@@ -710,7 +710,7 @@ let total_facturado_coseguro:number = 0;
   /****************************************************   COSEGURO ******************************************************************************** */
 
   doc.addPage();
-  doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
+doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
   doc.setLineWidth(0.4);
   doc.setFontSize(9);
   doc.text('Clínica de la Visión', 60, 10, null, null, 'left');
@@ -832,7 +832,7 @@ let total_facturado_coseguro:number = 0;
   }
   if(tiene_lente){
     
-  doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
+doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
   doc.setLineWidth(0.4);
   doc.setFontSize(9);
   doc.text('Clínica de la Visión', 60, 10, null, null, 'left');
@@ -983,11 +983,13 @@ generarPdfListado(filtro:string) {
   if(this.selecteditems){
   let _fechaDesde = formatDate(this.fechaDesde, 'dd/MM/yyyy HH:mm', 'en');
   let _fechaHasta = formatDate(this.fechaHasta, 'dd/MM/yyyy HH:mm', 'en');
-  var doc = new jsPDF('landscape');  
+  var doc = new jsPDF('landscape');   
   /** valores de la pagina**/
   const pageSize = doc.internal.pageSize;
   const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
-  doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11);
+  doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
+
+
   doc.setLineWidth(0.4);
 
   doc.line(10, 33, pageWidth - 10, 33);

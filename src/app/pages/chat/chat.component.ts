@@ -205,20 +205,20 @@ console.log('ddd');
   }
 
   loadChat(e: any) {
-    console.log(e);
+    //console.log(e);
     this.usuarioChat = e;
     this.selected_usuario = e;
     this.loading_chat = true;
     this.loadDetalle = 'Cargando mensajes...';
     const valor = this.lista_usuarios.findIndex(x => x.chat_sesion_id === e['chat_sesion_id']);
-    console.log(valor);
+    //console.log(valor);
     this.lista_usuarios[valor]['estado'] = 'LEIDO';
     try {
 
         this.chatService.getChatBySesion(e.id, e.chat_sesion_id, e.grupo_nombre, this.limite)
         .subscribe(resp => {
         this.lista_chat = resp;
-        console.log(resp);
+       // console.log(resp);
         this.loading_chat = false;
         this.loadDetalle = '';
         this.scrollContainer.scroll({
