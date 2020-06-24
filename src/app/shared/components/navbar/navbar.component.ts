@@ -267,8 +267,9 @@ cargarListaChat() {
   
   this.loading = true;
   this.loading_mensaje = 'Obteniendo contactos de chat';
+  let userData = JSON.parse(localStorage.getItem('userData'));
   try {
-      this.chatService.getSesionListByUsuario(JSON.parse(localStorage.getItem('userData')))
+      this.chatService.getSesionListByUsuario(userData['id'])
       .subscribe(resp => {
      this.lista_usuarios_chat = resp;
       console.log(this.lista_usuarios_chat);
@@ -293,16 +294,16 @@ cargarListaChat() {
 cerrarSesion() {
 
   swal({
-  title: 'Cerrando sesión',
-  text: '¿Desea finalizar la sesión actual?',
-  showCancelButton: true,
-  confirmButtonColor: '#AD1457',
-  cancelButtonColor: '#0277BD',
-  cancelButtonText: 'Permanecer',
-  confirmButtonText: 'Cerrar sesión',
-  imageUrl: '../../../../../assets/icons/logout1.png',
-  imageHeight: 128,
-  imageWidth: 128,
+    title: 'Cerrando sesión',
+    text: '¿Desea finalizar la sesión actual?',
+    showCancelButton: true,
+    confirmButtonColor: '#E53935',
+    cancelButtonColor: '#42A5F5',
+    cancelButtonText: 'Permanecer',
+    confirmButtonText: 'Cerrar sesión',
+    imageUrl: 'https://img.icons8.com/clouds/100/000000/imac-exit.png',
+    imageHeight: 128,
+    imageWidth: 128,
 }).then((result) => {
   if (result.value) {
    
@@ -402,7 +403,7 @@ try {
        this.puesto = userData['puesto'];
        localStorage.removeItem('userData');
        localStorage.setItem('userData', JSON.stringify(this.user));
-       this.cargarListaChat();
+       
        this.asignarModulos(this.elementoModulo);
      // console.log(this.user);
         this.loading = false;
@@ -684,7 +685,7 @@ menuList() {
 
 ];
 
-
+this.cargarListaChat();
 }
 
 throwAlert(estado: string, mensaje: string, motivo: string, errorNumero: string) {

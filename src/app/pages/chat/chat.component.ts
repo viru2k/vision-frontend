@@ -159,6 +159,7 @@ console.log('ddd');
 
   loadListaUsuario() {
     this.loading = true;
+    if (this.userData['id']) {
     try {
         this.chatService.getSesionListByUsuario(this.userData['id'])
         .subscribe(resp => {
@@ -179,7 +180,7 @@ console.log('ddd');
       this.throwAlert('error', 'error', 'Error: ' + error.status + '  Error al cargar los registros', error.message);
     }
 
-
+  }
   }
 
 
