@@ -193,7 +193,7 @@ doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
   let pageNumber = doc.internal.getNumberOfPages();
   doc.autoTable(this.columns, elemento,
     {
-        margin: {horizontal: 5, vertical: 38},
+        margin: {top: 38, right: 5,bottom:5, left: 5},
         bodyStyles: {valign: 'top'},
         showHead: 'firstPage',
         styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},

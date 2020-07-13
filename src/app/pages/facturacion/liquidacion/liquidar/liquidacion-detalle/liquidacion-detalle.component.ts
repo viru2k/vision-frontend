@@ -991,7 +991,7 @@ doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
   const totalPagesExp = '{total_pages_count_string}';
   doc.autoTable(this.columnsListadoTodos, this.elementosPreFactura,
     {
-        margin: {horizontal: 5, vertical: 38},
+        margin: {top: 38, right: 5,bottom:5, left: 5},
         bodyStyles: {valign: 'top'},
         showHead: 'always',
         styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
@@ -999,7 +999,7 @@ doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
         addPageContent: data => {
           let footerStr = "Pagina " + doc.internal.getNumberOfPages();
           if (typeof doc.putTotalPages === 'function') {
-            footerStr = footerStr + " of " + totalPagesExp;
+            footerStr = footerStr + " de " + totalPagesExp;
           }
           doc.setFontSize(10);
           doc.text(footerStr, data.settings.margin.left, doc.internal.pageSize.height - 10);
@@ -1091,17 +1091,20 @@ doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
   //doc.line(15, 35, pageWidth - 15, 35);
   const totalPagesExp = '{total_pages_count_string}';
   let pageNumber = doc.internal.getNumberOfPages();
+  
   doc.autoTable(this.columnsListadoTodos, this.elementosPreFactura,
     {
-        margin: {horizontal: 5, vertical: 38},
+        
+        margin: {top: 38, right: 5,bottom:5, left: 5},
         bodyStyles: {valign: 'top'},
-        showHead: 'always',
-        styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
+        showHead: 'always', 
+        rowPageBreak: 'avoid', pageBreak: 'avoid',
+        styles: {fontSize: 5},
         columnStyles: {text: {cellWidth: 'auto'}},
         addPageContent: data => {
           let footerStr = "Pagina " + doc.internal.getNumberOfPages();
           if (typeof doc.putTotalPages === 'function') {
-            footerStr = footerStr + " of " + totalPagesExp;
+            footerStr = footerStr + " de " + totalPagesExp;
           }
           doc.setFontSize(10);
           doc.text(footerStr, data.settings.margin.left, doc.internal.pageSize.height - 10);
@@ -1395,7 +1398,7 @@ doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
  
   /* doc.autoTable(this.columnsListadoCirugiaTodos, filteredArr,
     {
-        margin: {horizontal: 5, vertical: 38},
+        margin: {top: 38, right: 5,bottom:5, left: 5},
         bodyStyles: {valign: 'top'},
         showHead: 'firstPage',
         styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
@@ -1407,7 +1410,7 @@ doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
   
 
 doc.autoTable(this.columnsListadoCirugiaTodos, filteredArr, {
-  margin: {horizontal: 5, vertical: 38},
+  margin: {top: 38, right: 5,bottom:5, left: 5},
   bodyStyles: {valign: 'top'},
   showHead: 'firstPage',
   styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
@@ -1415,7 +1418,7 @@ doc.autoTable(this.columnsListadoCirugiaTodos, filteredArr, {
   addPageContent: data => {
     let footerStr = "Pagina " + doc.internal.getNumberOfPages();
     if (typeof doc.putTotalPages === 'function') {
-      footerStr = footerStr + " of " + totalPagesExp;
+      footerStr = footerStr + " de " + totalPagesExp;
     }
     doc.setFontSize(10);
     doc.text(footerStr, data.settings.margin.left, doc.internal.pageSize.height - 10);
@@ -1515,7 +1518,7 @@ doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
   
   doc.autoTable(this.columnsListadoTodos, this.elementosPreFactura,
     {
-        margin: {horizontal: 5, vertical: 38},
+        margin: {top: 38, right: 5,bottom:5, left: 5},
         bodyStyles: {valign: 'top'},
         showHead: 'firstPage',
         styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
@@ -1523,7 +1526,7 @@ doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
         addPageContent: data => {
           let footerStr = "Pagina " + doc.internal.getNumberOfPages();
           if (typeof doc.putTotalPages === 'function') {
-            footerStr = footerStr + " of " + totalPagesExp;
+            footerStr = footerStr + " de " + totalPagesExp;
           }
           doc.setFontSize(10);
           doc.text(footerStr, data.settings.margin.left, doc.internal.pageSize.height - 10);

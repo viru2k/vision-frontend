@@ -1,5 +1,7 @@
 
+
 <div >
+  
     <app-loading *ngIf="loading"> </app-loading> 
    
   </div>
@@ -28,8 +30,9 @@
                </p-calendar>               
                                         
                     </div>
-                    <button    class="btn    btn-excel " (click)="generarLibroIva()" > <i class="fa fa-file-excel-o  mr-1" aria-hidden="true"> </i>Generar libro IVA </button>   
-                    <button    class="btn    btg-danger " (click)="generarLibroIvaPdf()" > Generar libro IVA PDF </button>   
+                    <button    class="btn  btn-success  " (click)="buscar()" >Buscar facturas</button>   
+                    <button    class="btn    btn-excel " (click)="generarLibroIva()" > <i class="fa fa-file-excel-o  mr-1" aria-hidden="true"> </i>Buscar libro IVA </button>   
+                    <button    class="btn    btn-info " (click)="generarLibroIvaPdf()" > Buscar libro IVA PDF </button>   
                 </form>   
 
         </div>   
@@ -51,7 +54,7 @@
          
         </div>  
         <div class="row col-3 float-right">
-        <button    class="btn  btn-info  " (click)="buscar()" >Buscar </button>       
+           
       
       </div>
     </div>

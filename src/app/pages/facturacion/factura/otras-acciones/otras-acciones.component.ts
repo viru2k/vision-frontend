@@ -46,6 +46,7 @@ export class OtrasAccionesComponent implements OnInit {
   medico_nombre:string;
   elementosMedicos:any[] = null;
   elementoMedicos:any= null;
+  estado = '';
 
   // tslint:disable-next-line: max-line-length
   constructor(private facturacionService:FacturacionService, private messageService: MessageService ,public dialogService: DialogService,private cp: CurrencyPipe, private dp: DecimalPipe, private liquidacionService:LiquidacionService) {
@@ -91,7 +92,7 @@ export class OtrasAccionesComponent implements OnInit {
     {title: 'Imp. IVA', dataKey: 'importe_iva'},
     {title: 'Imp. sin IVA', dataKey: 'total_sin_iva'},
     {title: 'Imp. gravado', dataKey: 'importe_gravado'},
-    {title: 'Imp. ex. IVA', dataKey: 'importe_excento_iva'},
+    {title: 'Imp. ex. IVA', dataKey: 'importe_exento_iva'},
     {title: 'Total', dataKey: 'importe_total'}
 ];
      
@@ -211,7 +212,7 @@ buscarPaciente(){
               timer: 2000
             });
             this.loading = false;
-          });    
+          });
     } catch (error) {
       swal({
         toast: false,
@@ -226,10 +227,10 @@ buscarPaciente(){
 
 
   buscar(){
-    console.log()
+    this.elementos = [];
     this._fechaDesde = formatDate(this.fechaDesde, 'yyyy-MM-dd', 'en');
-    this._fechaHasta = formatDate(this.fechaHasta, 'yyyy-MM-dd', 'en');  
-    this.loading = true; 
+    this._fechaHasta = formatDate(this.fechaHasta, 'yyyy-MM-dd', 'en');
+    this.loading = true;
     if(this.tipo_busqueda === 'fecha'){
     try { 
         this.facturacionService.GetFacturaBetweenDates(this._fechaDesde, this._fechaHasta)
@@ -278,9 +279,12 @@ buscarPaciente(){
 
 
   generarLibroIva(){
+    this.estado = 'Buscando libro iva para '+ this.medico_nombre;
+    this.elementos = [];
     this._fechaDesde = formatDate(this.fechaDesde, 'yyyy-MM-dd', 'en');
     this._fechaHasta = formatDate(this.fechaHasta, 'yyyy-MM-dd', 'en');  
-    this.loading = true; 
+    this.loading = true;
+    console.log(this.medico_id);
     try { 
         this.facturacionService.getLibroIva(this._fechaDesde, this._fechaHasta,  this.medico_id)
         .subscribe(resp => {
@@ -290,25 +294,45 @@ buscarPaciente(){
           console.log(resp);
            resultado.forEach(element => {
             resp[i]['fecha'] =  formatDate( resp[i]['fecha'], 'dd/MM/yyyy', 'es-Ar');
-            console.log('comprobante '+ resp[i]['numero']);
-            console.log('comprobante guardado '+ total_factura);
+            //console.log('comprobante '+ resp[i]['numero']);
+            //console.log('comprobante guardado '+ total_factura);
+
+            if (resp[i].iva === '0.00') {
+           //   console.log(resultado[i].iva);
+              resp[i]['importe_gravado'] = this.cp.transform(0, '', '', '1.2-2');
+              resp[i]['importe_exento_iva'] = resp[i].total_sin_iva;
+              resp[i]['importe_iva'] = this.cp.transform(0, '', '', '1.2-2');
+          } else {
+            resp[i]['importe_iva'] = resp[i].iva ;
+            resp[i]['importe_exento_iva'] = this.cp.transform(0, '', '', '1.2-2');
+          }
             if (resp[i]['numero']  === total_factura) {
-              console.log('coincide ' + total_factura);
-              resp[i]['importe_total'] = 0;
+            //  console.log('coincide ' + total_factura);
+              resp[i]['importe_total'] = this.cp.transform(0, '', '', '1.2-2');
             } else {
               total_factura = resp[i]['numero'];
               console.log('nuevo total ' + total_factura);
               
             }
+
+            // LLENO LOS ESPACIOS PARA MOSTRAR EN EL LISTADO DE PANTALLA
+          //  resp[i]['nombreyapellido'] = resp[i]['factura_cliente'];
+          //  resp[i]['descripcion'] = resp[i]['comprobante_tipo'];
+          //  resp[i]['factura_numero'] =  this.padLeft(resp[i]['factura_numero'], '0', 8);
+          //  resp[i]['factura_documento_comprador_descripcion'] = resp[i]['descripcion'];
+          console.log(resp[i]);
             i++;
+            
           });
 
           const fecha_desde = formatDate(this.fechaDesde, 'dd/MM/yyyy', 'es-Ar');  
           const fecha_hasta = formatDate(this.fechaHasta, 'dd/MM/yyyy', 'es-Ar');  
+          this.estado = 'Generando documento XLS';
           this.liquidacionService.exportAsExcelFile(  resp, 'libro IVA '+ this.medico_nombre+' desde '+fecha_desde+' a '+fecha_hasta);
-        this.elementos = resp;
+          this.estado = '';
+      //  this.elementos = resp;
         this.loading = false;
-        console.log(this.elementos);
+       // console.log(this.elementos);
         },
         error => { // error path
             console.log(error.message);
@@ -322,8 +346,10 @@ buscarPaciente(){
               timer: 2000
             });
             this.loading = false;
+            this.estado = '';
           });    
     } catch (error) {
+      this.estado = '';
       swal({
         toast: false,
         type: 'error',
@@ -336,8 +362,18 @@ buscarPaciente(){
 
   }
 
-  generarLibroIvaPdf(){
+/* -------------------------------------------------------------------------- */
+/*                             TABLA MAS COMPLETA                             */
+/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
+/*           ALTO Y ANCHO MODIFICADO , ENCABEZADO SEGUNDA HOJA Y = 0          */
+/* -------------------------------------------------------------------------- */
+
+  generarLibroIvaPdf() {
+    this.estado = 'Buscando libro iva para '+ this.medico_nombre;
+    console.log(this.estado);
+    this.elementos = [];
     this._fechaDesde = formatDate(this.fechaDesde, 'yyyy-MM-dd', 'en');
     this._fechaHasta = formatDate(this.fechaHasta, 'yyyy-MM-dd', 'en');  
 
@@ -348,28 +384,49 @@ buscarPaciente(){
         let resultado = resp;
         let total_factura:string = '';
         resultado.forEach(element => {
+          if (resp[i].iva === '0.00') {
+            //   console.log(resultado[i].iva);
+               resp[i]['importe_gravado'] = this.cp.transform(0, '', '', '1.2-2');
+               resp[i]['importe_exento_iva'] = resp[i].total_sin_iva;
+               resp[i]['importe_iva'] = this.cp.transform(0, '', '', '1.2-2');
+           }else {
+             resp[i]['importe_iva'] = resp[i].iva ;
+             resp[i]['importe_exento_iva'] = this.cp.transform(0, '', '', '1.2-2');
+             
+           }
           resp[i]['fecha'] =  formatDate( resp[i]['fecha'], 'dd/MM/yyyy', 'es-Ar');
-          console.log('comprobante '+ resp[i]['numero']);
-          console.log('comprobante guardado '+ total_factura);
+      //    console.log('comprobante '+ resp[i]['numero']);
+        //  console.log('comprobante guardado '+ total_factura);
           if (resp[i]['numero']  === total_factura) {
-            console.log('coincide ' + total_factura);
-            resp[i]['importe_total'] = 0;
+       //     console.log('coincide ' + total_factura);
+            resp[i]['importe_total']  = this.cp.transform(0, '', '', '1.2-2');
           } else {
             total_factura = resp[i]['numero'];
-            console.log('nuevo total ' + total_factura);
-            
+       //     console.log('nuevo total ' + total_factura);
+
           }
+
+           // LLENO LOS ESPACIOS PARA MOSTRAR EN EL LISTADO DE PANTALLA
+           resp[i]['nombreyapellido'] = resp[i]['factura_cliente'];
+           resp[i]['descripcion'] = resp[i]['comprobante_tipo'];
+           resp[i]['factura_numero'] =  this.padLeft(resp[i]['numero'], '0', 8);
+           resp[i]['factura_documento_comprador_descripcion'] = resp[i]['descripcion'];
+
+
           i++;
         });
+         resp = resultado;
 
-
-        this.elementos = resp;
+       // this.elementos = resp;
         this.loading = false;
-      console.log(this.elementos);
+     //   this.estado = '';
+      console.log(resp);
+      this.ImprimirPdf(resp);
       },
       error => { // error path
           console.log(error.message);
           console.log(error.status);
+          this.estado = '';
           swal({
             toast: false,
             type: 'error',
@@ -381,6 +438,7 @@ buscarPaciente(){
           this.loading = false;
         });    
   } catch (error) {
+    this.estado = '';
     swal({
       toast: false,
       type: 'error',
@@ -390,51 +448,71 @@ buscarPaciente(){
       timer: 2000
     });
   }
-  console.log(this.elementos);
-    if(this.elementos) {
-      this._fechaDesde = formatDate(this.fechaDesde, 'dd/MM/yyyy', 'en');
-      this._fechaHasta = formatDate(this.fechaHasta, 'dd/MM/yyyy', 'en');  
-    
-    const doc = new jsPDF('landscape');
-    /** valores de la pagina**/
-    const pageSize = doc.internal.pageSize;
-    const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
-  doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
-    doc.setLineWidth(0.4);
+  }
 
-    doc.line(10, 33, pageWidth - 10, 33);
-    doc.setFontSize(8);
-    doc.text(10, 25, 'Médico / Clínica : ' + this.medico_nombre);
-    doc.setFontSize(10);
-    doc.text('SUBDIARIO DE IVA VENTAS', pageWidth/2, 15, null, null, 'center');    
-      doc.setFontSize(8);
+  ImprimirPdf(ele) {
+    const elementos = ele;
+  console.log(elementos);
+  if(elementos) {
+    this.estado = 'Generando PDF';
+    this._fechaDesde = formatDate(this.fechaDesde, 'dd/MM/yyyy', 'en');
+    this._fechaHasta = formatDate(this.fechaHasta, 'dd/MM/yyyy', 'en');  
+  
+  const doc = new jsPDF('landscape');
+  /** valores de la pagina**/
+  const pageSize = doc.internal.pageSize;
+  const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
+  doc.setLineWidth(0.4);
 
-   
-    doc.text(pageWidth-40, 10, 'Desde : ' + this._fechaDesde);
-    doc.text(pageWidth-40, 15, 'Hasta : ' + this._fechaHasta);
+  doc.setFontSize(8);
+  doc.text(10, 25, 'Médico / Clínica : ' + this.medico_nombre);
+  doc.setFontSize(10);
+  doc.text('SUBDIARIO DE IVA VENTAS', pageWidth/2, 15, null, null, 'center');    
     doc.setFontSize(8);
-    doc.autoTable(this.columnsIva, this.elementos,
-      {
-          margin: {horizontal: 5, vertical: 42},
-          bodyStyles: {valign: 'top'},
-          styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'left',overflow: 'linebreak'},       
-          columnStyles: {
-            fecha: {columnWidth: 18},
-            comprobante_tipo: {columnWidth: 20},
-            numero: {columnWidth: 20},
-            categoria_iva: {columnWidth: 25},
-            factura_clienta: {columnWidth: 35},
-            descripcion: {columnWidth: 15},
-            factura_documento: {columnWidth: 20},
-            alicuota: {columnWidth: 20},
-            importe_iva: {columnWidth: 20},
-            total_sin_iva: {columnWidth: 20},
-            importe_gravado: {columnWidth: 20},
-            importe_excento_iva: {columnWidth: 20},
-            importe_total: {columnWidth: 20}}
-      });
-   window.open(doc.output('bloburl'));
+
+ 
+  doc.text(pageWidth-40, 10, 'Desde : ' + this._fechaDesde);
+  doc.text(pageWidth-40, 15, 'Hasta : ' + this._fechaHasta);
+  doc.setFontSize(8);
+  let pageNumber = doc.internal.getNumberOfPages();
+  const totalPagesExp = '{total_pages_count_string}';
+  doc.autoTable(this.columnsIva, elementos,
+    {
+      startY: 30,
+      margin: { right: 5,bottom:12, left: 5},
+        bodyStyles: {valign: 'top'},          
+        styles: {fontSize: 5,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'center',overflow: 'linebreak'},
+        columnStyles: {
+          fecha: {columnWidth: 18},
+          comprobante_tipo: {columnWidth: 20},
+          numero: {columnWidth: 20},
+          categoria_iva: {columnWidth: 25},
+          factura_clienta: {columnWidth: 35},
+          descripcion: {columnWidth: 15},
+          factura_documento: {columnWidth: 20},
+          alicuota: {columnWidth: 20},
+          importe_iva: {columnWidth: 20},
+          total_sin_iva: {columnWidth: 20},
+          importe_gravado: {columnWidth: 20},
+          importe_excento_iva: {columnWidth: 20},
+          importe_total: {columnWidth: 20}},
+          addPageContent: data => {
+            let footerStr = "Página " + doc.internal.getNumberOfPages();
+            if (typeof doc.putTotalPages === 'function') {
+              footerStr = footerStr + " de " + totalPagesExp;
+            }
+            doc.setFontSize(10);
+            doc.text(footerStr, data.settings.margin.left, doc.internal.pageSize.height - 5);
+          }
+    });
+
+    if (typeof doc.putTotalPages === 'function') {
+      doc.putTotalPages(totalPagesExp);
     }
+ window.open(doc.output('bloburl'));
+  }
+  this.estado = '';
   }
 
   realizarNotaCredito(){
