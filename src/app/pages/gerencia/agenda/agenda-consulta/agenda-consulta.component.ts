@@ -49,7 +49,7 @@ export class AgendaConsultaComponent implements OnInit {
   fechaHoy:Date;
   _fechaHoy:string;
   fecha:Date;
-  selecteditems:AgendaTurno[] = [];
+  selecteditems:any[] = [];
   usuario_id:string;
   busqueda: any[];
   pacienteForm: FormGroup;
@@ -246,9 +246,18 @@ export class AgendaConsultaComponent implements OnInit {
    
 exportarExcel(){
 let result = this.elementosFiltrados as any;
-          this.liquidacionService.exportAsExcelFile(  result, 'listado_agenda');
-           
-        
+if (this.selecteditems.length >0) {
+          this.liquidacionService.exportAsExcelFile(  this.selecteditems, 'listado_agenda');
+}else{
+  swal({
+    title: 'TURNOS NO SELECCIONADOS' ,
+    text: 'Debe seleccionar al menos un turno',
+    type: 'warning',
+    showConfirmButton: false,
+    timer: 4000
+       
+  })
+}
 
 }
 
@@ -369,6 +378,43 @@ loadListByDates(){
 
   try {
       this.miServico.getHorarioTurnoTodosSinEstadoByDates(td, th)
+      .subscribe(resp => {
+      //  console.log(resp);
+      
+      if (resp[0]) {
+          this.agendaTurno = resp;
+          console.log(this.agendaTurno);
+          this.elementosFiltrados = resp;
+          this.sumarValores();
+            }else{
+              this.agendaTurno =null;
+            }
+  
+          this.loading = false;
+      },
+      error => { // error path
+          console.log(error.message);
+          console.log(error.status);
+          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message);
+       });    
+  } catch (error) {
+  this.throwAlert('error','Error al cargar los registros',error);
+  }  
+
+
+}
+
+
+loadListByDatesOC(){
+
+  this.es = calendarioIdioma;
+  this.loading = true;
+  let td = formatDate(this.fechaDesde, 'dd/MM/yyyy HH:mm', 'en');  
+  let th = formatDate(this.fechaHasta, 'dd/MM/yyyy HH:mm', 'en');
+
+
+  try {
+      this.miServico.getHorarioTurnoTodosSinEstadoByDatesGerencia(td, th)
       .subscribe(resp => {
       //  console.log(resp);
       

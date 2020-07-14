@@ -128,6 +128,11 @@ getItembyDni(dni:string){
     return this.http.get<AgendaTurno[]>(this.url_agenda+"horarios/turno/todos/noestado/bydates?fecha_desde="+fecha_desde+"&fecha_hasta="+fecha_hasta);
   }
 
+  getHorarioTurnoTodosSinEstadoByDatesGerencia(fecha_desde:string, fecha_hasta:string){
+    console.log('bydfates');
+    return this.http.get<AgendaTurno[]>(this.url_agenda+"horarios/turno/todos/noestado/bydates/gerencia?fecha_desde="+fecha_desde+"&fecha_hasta="+fecha_hasta);
+  }
+
   getHorarioTurnoDisponible(fecha_turno:string,agenda_estado_id:string,usuario_id:string){
     return this.http.get<AgendaTurno[]>(this.url_agenda+"horarios/turno/nuevo?fecha_turno="+fecha_turno+"&agenda_estado_id="+agenda_estado_id+"&usuario_id="+usuario_id);
   }
