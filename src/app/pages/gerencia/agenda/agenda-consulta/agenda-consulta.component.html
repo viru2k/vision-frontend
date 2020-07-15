@@ -83,40 +83,39 @@
                </div>
               </ng-template>
 
-             <ng-template pTemplate="header" let-columns >
+              <ng-template pTemplate="header" let-columns >
             
-                        <tr >
-                             
-                            <th  *ngFor="let col of columns" [pSortableColumn]="col.field"  [ngStyle]="{'width': col.width}">
-                                  {{col.header}}
-                                  <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activar para ordenar en forma descendente" ariaLabelAsc="Activar para ordenar en forma ascendente"></p-sortIcon>
-                            </th>
-                            <th style="width: 3em">
-                              <p-tableHeaderCheckbox  ></p-tableHeaderCheckbox>
-                            </th>
-                          </tr>
-                          <tr>
-                          <th *ngFor="let col of columns" [ngSwitch]="col.field" >
-                              <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'operacion_cobro_id'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">             
-                              <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'paciente_apellido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">             
-                              <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'paciente_nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                                               
-                              <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'paciente_dni'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                                               
-                              <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'paciente_obra_social_nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">             
-                              <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'nombreyapellido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">             
-                              <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'fecha_turno'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">       
-                              <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'hora_desde'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">       
-                              <input class="form-control form-control-sm col-md-12"  *ngSwitchCase="'llegada'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">             
-                              <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'atendido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                   
-                              <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'estado'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                             
-                              <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'dia_nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                             
-                              <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'usuario_alta'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                                                             
-                              <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'agenda_creacion'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                                                             
-                              <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'boton'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">             
-                              <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'boton1'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                 
-                          </th>
-                          
-                      </tr>
-                  </ng-template>
+                <tr >
+                     
+                    <th  *ngFor="let col of columns" [pSortableColumn]="col.field"  [ngStyle]="{'width': col.width}">
+                          {{col.header}}
+                          <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activar para ordenar en forma descendente" ariaLabelAsc="Activar para ordenar en forma ascendente"></p-sortIcon>
+                    </th>
+                    <th style="width: 3em">
+                      <p-tableHeaderCheckbox  ></p-tableHeaderCheckbox>
+                    </th>
+                  </tr>
+                  <tr>
+                  <th *ngFor="let col of columns" [ngSwitch]="col.field" >
+                      <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'operacion_cobro_id'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">             
+                      <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'paciente_apellido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">             
+                      <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'paciente_nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                                               
+                      <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'paciente_dni'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                                                                    
+                      <p-multiSelect [options]="_paciente_obra_social_nombre" appendTo="body" defaultLabel="Buscar"	 *ngIf='col.field =="paciente_obra_social_nombre"' (onChange)="dt.filter($event.value,col.field,'in')"></p-multiSelect>                  
+                      <p-multiSelect [options]="_nombreyapellido" appendTo="body" defaultLabel="Filtrar"	 *ngIf='col.field =="nombreyapellido"' (onChange)="dt.filter($event.value,col.field,'in')"></p-multiSelect>
+                      <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'fecha_turno'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">       
+                      <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'hora_desde'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">       
+                      <input class="form-control form-control-sm col-md-12"  *ngSwitchCase="'llegada'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">             
+                      <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'atendido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                   
+                      <p-multiSelect [options]="_estado" appendTo="body" defaultLabel="Filtrar"	 *ngIf='col.field =="estado"' (onChange)="dt.filter($event.value,col.field,'in')"></p-multiSelect>
+                      <p-multiSelect [options]="_dia_nombre" appendTo="body" defaultLabel="Filtrar"	 *ngIf='col.field =="dia_nombre"' (onChange)="dt.filter($event.value,col.field,'in')"></p-multiSelect>
+                      <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'usuario_alta'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                                                             
+                      <input class="form-control form-control-sm col-md-12" *ngSwitchCase="'agenda_creacion'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                                                             
+                                               
+                  </th>
+                  
+              </tr>
+          </ng-template>
               
               <ng-template pTemplate="body" let-agendaTurno> 
                    

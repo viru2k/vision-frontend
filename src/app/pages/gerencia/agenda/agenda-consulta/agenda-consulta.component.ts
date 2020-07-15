@@ -7,7 +7,7 @@ import { Agenda } from './../../../../models/agenda.model';
 import { DialogService, MessageService } from 'primeng/api';
 import { MedicoObraSocial } from 'src/app/models/medico-obrasocial.model';
 import { formatDate, DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import swal from 'sweetalert2';
 import {OverlayPanelModule, OverlayPanel} from 'primeng/overlaypanel';
@@ -23,6 +23,7 @@ import { Subscription } from 'rxjs';
 
 //import { ExcelService } from './../../../../services/excel.service';
 import { LiquidacionService } from '../../../../services/liquidacion.service';
+import { Table } from 'primeng/table';
 
 
 @Component({
@@ -80,6 +81,13 @@ export class AgendaConsultaComponent implements OnInit {
   espera:number = 0;
   ingresado:number = 0;
   atendido:number = 0;
+  // VARIABLES PARA FILTRAR
+  _nombreyapellido: any[] = [];
+  _paciente_obra_social_nombre: any[] = [];
+  _dia_nombre: any[] = [];
+  _estado: any[] = [];
+
+  @ViewChild('dt', {static: false}) table: Table;
 
   constructor(private liquidacionService:LiquidacionService , private miServico:AgendaService, private messageService: MessageService ,public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router ) {
    
@@ -158,6 +166,12 @@ export class AgendaConsultaComponent implements OnInit {
   ngOnDestroy() {
    
   }
+
+  onnombreyapellidoChange(event) {
+    debugger;
+    console.log(event);
+    this.table.filter(event.value, 'nombreyapellido', 'in');
+}
 
   
 
@@ -332,9 +346,10 @@ if(this._fechaHoy!=''){
   try {
       this.miServico.getHorarioTurnoTodosSinEstado(this.popItemAgenda)
       .subscribe(resp => {
-      //  console.log(resp);
       
+       
       if (resp[0]) {
+        this.realizarFiltroBusqueda(resp);
           this.agendaTurno = resp;
           console.log(this.agendaTurno);
             }else{
@@ -382,6 +397,7 @@ loadListByDates(){
       //  console.log(resp);
       
       if (resp[0]) {
+        this.realizarFiltroBusqueda(resp);
           this.agendaTurno = resp;
           console.log(this.agendaTurno);
           this.elementosFiltrados = resp;
@@ -389,7 +405,7 @@ loadListByDates(){
             }else{
               this.agendaTurno =null;
             }
-  
+            
           this.loading = false;
       },
       error => { // error path
@@ -419,6 +435,7 @@ loadListByDatesOC(){
       //  console.log(resp);
       
       if (resp[0]) {
+        this.realizarFiltroBusqueda(resp);
           this.agendaTurno = resp;
           console.log(this.agendaTurno);
           this.elementosFiltrados = resp;
@@ -426,6 +443,7 @@ loadListByDatesOC(){
             }else{
               this.agendaTurno =null;
             }
+           
   
           this.loading = false;
       },
@@ -454,12 +472,13 @@ if(this._fechaHoy!=''){
       this.miServico.getHorarioTurnoMedicoSinEstado(this.popItemAgenda)    
       .subscribe(resp => {
         if (resp[0]) {
+          this.realizarFiltroBusqueda(resp);
           this.agendaTurno = resp;
           console.log(this.agendaTurno);
             }else{
               this.agendaTurno =null;
             }
-
+         
       
           this.loading = false;
       },
@@ -617,6 +636,28 @@ console.log(this.elementosFiltrados);
  
 }
 
+realizarFiltroBusqueda(resp: any[]){
+        // FILTRO LOS ELEMENTOS QUE SE VAN USAR PARA FILTRAR LA LISTA
+        this._nombreyapellido = [];
+        this._paciente_obra_social_nombre = [];
+        this._dia_nombre = [];
+        this._estado = [];
+        resp.forEach(element => {
+          this._nombreyapellido.push(element['nombreyapellido']);
+          this._paciente_obra_social_nombre.push(element['paciente_obra_social_nombre']);
+         this._dia_nombre.push(element['dia_nombre']);
+         this._estado.push(element['estado']);
+        });
+        console.log(this._nombreyapellido);
+        // ELIMINO DUPLICADOS
+        this._nombreyapellido = this.filterArray(this._nombreyapellido);
+        console.log(this._nombreyapellido);
+        this._paciente_obra_social_nombre = this.filterArray(this._paciente_obra_social_nombre);
+        this._dia_nombre = this.filterArray(this._dia_nombre);
+        this._estado = this.filterArray(this._estado);
+  
+}
+
 
 colorString(estado:string){
   
@@ -626,6 +667,26 @@ colorString(estado:string){
     return {'es-tarjeta-debito'  :'null' };
   }
 
+}
+
+filterArray(arr: any) {
+  //const uniqueArray = new Set(arr);
+ // const backToArray =[...uniqueArray];
+ let result = [];
+ let i = 0;
+  const temp = Array.from(new Set(arr));  
+  temp.forEach(element => {
+    result.push(  {label: element, value: element});
+    i++;
+  });
+  return result;
+ }
+
+ onmyChange(event) {
+  //debugger;
+  console.log(event.itemValue.value);
+  //this.table.filter(event.itemValue.value, 'nombreyapellido', 'in');
+  this.table.filter(event.itemValue.value, this.agendaTurno['nombreyapellido'],  'in');
 }
 
 throwAlert(estado:string, mensaje:string, motivo:string){
