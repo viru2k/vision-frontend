@@ -134,9 +134,8 @@ export const ROUTES: Routes = [
     { path: 'recepcion/operacioncobro', component: OperacionCobroComponent, canActivate: [AuthGuard], data: {role: 'recepcion_consulta'}  },
 
 
-    /** stock **/
-    { path: 'stock/lente/alta', component: AltaLenteComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
-    { path: 'stock/lente/stock', component: StockLenteComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
+    /** stock **/    
+    { path: 'stock/lente/stock', component: AltaLenteComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
 
     /** estudios **/
     { path: 'estudio/cargar', component: EstudioCargaComponent, canActivate: [AuthGuard], data: {role: 'estudios_control'}  },

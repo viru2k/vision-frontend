@@ -666,8 +666,7 @@ menuList() {
               label: 'Lentes',
               visible: !this.mantenimiento_stock_lente,
               items: [
-                {label: 'Stock de lentes', 'routerLink': 'stock/lente/stock'},
-                {label: 'Alta de lente', 'routerLink': 'stock/lente/alta'},
+                {label: 'Stock de lentes', 'routerLink': 'stock/lente/stock'}
                 ]
             },
             {

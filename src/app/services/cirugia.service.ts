@@ -62,11 +62,24 @@ getFichaMedicoGrupo(cirugia_id:string){
   postLenteFichaMedicoGrupo(CirugiaFichaMedico:any){
     return this.http.post<CirugiaLente[]>(this.url_simple+"cirugia/grupomedico",CirugiaFichaMedico);
     } 
-getLentesSinUso(){
-    return this.http.get<CirugiaLente[]>(this.url_simple+"stock/lente/by/todos");
-    } 
+
     
 
+    getLentesTodosByDate(fecha_desde: string, fecha_hasta: string){
+      return this.http.get<CirugiaLente[]>(this.url_simple+"stock/lente/by/dates/todos?fecha_desde=" +fecha_desde + '&fecha_hasta=' + fecha_hasta);
+      } 
+
+  getLentesSinUso(es_baja: string){
+    return this.http.get<CirugiaLente[]>(this.url_simple+"stock/lente/by/todos?es_baja=" +es_baja);
+    } 
+
+    getLentesCirugiaByDates(fecha_desde: string, fecha_hasta: string){
+      return this.http.get<CirugiaLente[]>(this.url_simple+"stock/lente/by/dates?fecha_desde=" +fecha_desde + '&fecha_hasta=' + fecha_hasta);
+      } 
+    
+      getLentesCirugiaByDatesAndBaja(fecha_desde: string, fecha_hasta: string, es_baja: string){
+        return this.http.get<CirugiaLente[]>(this.url_simple+"stock/lente/by/dates/baja?fecha_desde=" +fecha_desde + '&fecha_hasta=' + fecha_hasta+ '&es_baja='+ es_baja);
+        } 
 
 derviarPaciente(lente:CirugiaFicha){
   return this.http.post<CirugiaFicha[]>(this.url+"/ficha/derivar",lente);

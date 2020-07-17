@@ -6,10 +6,11 @@ export class CirugiaLente {
     lote:string;
     fecha_vencimiento:string;
     ubicacion:string;
-    estado:string;
-    es_baja:string;
-    usuario_modifico:string;
-  
+    estado: string;
+    es_baja: string;
+    usuario_modifico: string;
+    remito: string;
+    factura: string;
     
 
     constructor(   id:string,
@@ -20,7 +21,9 @@ export class CirugiaLente {
         ubicacion:string,
         estado:string,
         es_baja:string,
-        usuario_modifico:string){
+        usuario_modifico:string,
+        remito: string,
+        factura: string){
         this.id = id;
         this.tipo_lente_id = tipo_lente_id;
         this.dioptria = dioptria;

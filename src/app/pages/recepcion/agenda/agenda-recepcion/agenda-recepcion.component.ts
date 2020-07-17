@@ -29,6 +29,7 @@ import { PopupOperacionCobroPresentacionComponent } from '../../../../shared/com
 import { Liquidacion } from '../../../../models/liquidacion.model';
 import { PopupOperacionCobroDetalleComponent } from '../../../../shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component';
 import { PopupPacienteEsperaComponent } from '../../../../shared/components/popups/popup-paciente-espera/popup-paciente-espera.component';
+import { Filter } from './../../../../shared/filter';
 
 
 @Component({
@@ -87,9 +88,14 @@ export class AgendaRecepcionComponent implements OnInit , OnDestroy{
   atendido:number = 0;
    timer:any;
    subscription: any;
-
+   _nombreyapellido: any[] = [];
+   _paciente_obra_social_nombre: any[] = [];
    
-  constructor(private documentService: DocumentService,private miServico:AgendaService, private messageService: MessageService ,public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router ) {
+   _estado: any[] = [];
+   
+  constructor(private documentService: DocumentService, private miServico: AgendaService,
+    private messageService: MessageService , public dialogService: DialogService,
+     private route: ActivatedRoute,     private router: Router, private filter: Filter ) {
  
  
     this.cols = [
@@ -512,6 +518,7 @@ if(this._fechaHoy!=''){
       this.miServico.getHorarioTurnoTodos(this.popItemAgenda)
       .subscribe(resp => {
         if (resp[0]) {
+          this.realizarFiltroBusqueda(resp);
           this.agendaTurno = resp;
           this.elementosFiltrados = resp;
           // AL TENER LA RESPUESTA, ACTUALIZO LA CANTIDAD DE TURNOS Y LOS CALCULO
@@ -555,6 +562,7 @@ try {
     this.miServico.getHorarioTurnoTodos(this.popItemAgenda)    
     .subscribe(resp => {
       if (resp[0]) {
+        this.realizarFiltroBusqueda(resp);
         this.agendaTurno = resp;
         console.log(this.agendaTurno);
           }else{
@@ -592,6 +600,7 @@ try {
     this.miServico.getHistoriaTurno(this.popItemPaciente.id)    
     .subscribe(resp => {
       if (resp[0]) {
+        this.realizarFiltroBusqueda(resp);
         this.agendaTurno = resp;
         console.log(this.agendaTurno);
         this.sumarPresente();
@@ -631,6 +640,7 @@ try{
 this.miServico.getTurnoCancelado()    
 .subscribe(resp => {
   if (resp[0]) {
+    this.realizarFiltroBusqueda(resp);
     this.agendaTurno = resp;
     console.log(this.agendaTurno);
       }else{
@@ -705,6 +715,7 @@ try {
     //  console.log(resp);
     
     if (resp[0]) {
+      this.realizarFiltroBusqueda(resp);
         this.agendaTurno = resp;
         console.log(this.agendaTurno);
           }else{
@@ -737,6 +748,7 @@ ActualizarTurnoLlamando(){
   try {
     this.miServico.ActualizarTurnoLlamando(this.popItemAgenda.paciente_id,this.popItemAgenda.usuario_id, this.userData['puesto'])
     .subscribe(resp => {   
+      this.realizarFiltroBusqueda(resp);
         console.log(resp);    
         this.loading = false;
         this.documentService.sendMessage('llamando-pantalla');
@@ -1010,6 +1022,26 @@ if((estado === 'SOBRETURNO')) {
 if((estado === 'TURNO')) {
   return {'text-white'  :'null' };
 }
+}
+
+
+realizarFiltroBusqueda(resp: any[]){
+  // FILTRO LOS ELEMENTOS QUE SE VAN USAR PARA FILTRAR LA LISTA
+  this._nombreyapellido = [];
+  this._paciente_obra_social_nombre = [];  
+  this._estado = [];
+  resp.forEach(element => {
+    this._nombreyapellido.push(element['nombreyapellido']);
+    this._paciente_obra_social_nombre.push(element['paciente_obra_social_nombre']);   
+   this._estado.push(element['estado']);
+  });
+  console.log(this._nombreyapellido);
+  // ELIMINO DUPLICADOS
+  this._nombreyapellido = this.filter.filterArray(this._nombreyapellido);
+  console.log(this._nombreyapellido);
+  this._paciente_obra_social_nombre = this.filter.filterArray(this._paciente_obra_social_nombre);  
+  this._estado = this.filter.filterArray(this._estado);
+
 }
 
 throwAlert(estado:string, mensaje:string, motivo:string){

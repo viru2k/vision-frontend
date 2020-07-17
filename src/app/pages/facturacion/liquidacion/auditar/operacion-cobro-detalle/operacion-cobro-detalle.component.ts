@@ -23,6 +23,7 @@ import {OverlayPanelModule, OverlayPanel} from 'primeng/overlaypanel';
 import { PopupObraSocialComponent } from 'src/app/shared/components/popups/popup-obra-social/popup-obra-social.component';
 import { PopupOperacionCobroRegistroBuscarComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-registro-buscar/popup-operacion-cobro-registro-buscar.component';
 import { PopupOperacionCobroRegistroBuscarTodosComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component';
+import { Filter } from './../../../../../shared/filter';
 
 
 @Component({
@@ -78,7 +79,16 @@ export class OperacionCobroDetalleComponent implements OnInit {
   result_distribucion:any[];
   formasPago:any[];
   nivel:any[];
-    constructor(private miServicio:PracticaService,private messageService: MessageService ,public dialogService: DialogService, private cp: CurrencyPipe,private dp: DecimalPipe ) {
+
+  
+  _complejidad: any[] = [];
+  _obra_social_nombre: any[] = [];
+  _codigo: any[] = [];
+  _medico_nombre: any[] = [];
+  _forma_pago: any[] = [];
+
+    constructor(private miServicio:PracticaService,private messageService: MessageService ,
+      public dialogService: DialogService, private cp: CurrencyPipe,private dp: DecimalPipe , private filter: Filter ) {
   
       this.formasPago = [
         {label: 'TRANSFERENCIA',value: 'TRANSFERENCIA'},
@@ -433,6 +443,7 @@ export class OperacionCobroDetalleComponent implements OnInit {
         this.miServicio.getOperacionCobroRegistrosBetweenDates(this._fechaDesde,this._fechaHasta,'PEN')    
         .subscribe(resp => {
           if (resp[0]) {
+            this.realizarFiltroBusqueda(resp);
             for(let i=0;i<resp.length;i++){
               
               let myStr:string = this.padLeft(resp[i]['operacion_cobro_numero_bono'], '0', 10);
@@ -1113,4 +1124,31 @@ colorEstado(estado:string){
 
 
       }
+
+      
+      
+realizarFiltroBusqueda(resp: any[]){
+  // FILTRO LOS ELEMENTOS QUE SE VAN USAR PARA FILTRAR LA LISTA
+  this._codigo = [];
+  this._complejidad = [];
+  this._medico_nombre = [];
+  this._obra_social_nombre = [];
+  this._forma_pago = [];
+  
+  resp.forEach(element => {
+    this._codigo.push(element['codigo']);
+    this._complejidad.push(element['complejidad']);
+   this._medico_nombre.push(element['medico_nombre']);
+   this._obra_social_nombre.push(element['obra_social_nombre']);
+   this._forma_pago.push(element['forma_pago']);
+  });
+  
+  // ELIMINO DUPLICADOS
+  this._codigo = this.filter.filterArray(this._codigo);  
+  this._complejidad = this.filter.filterArray(this._complejidad);  
+  this._medico_nombre = this.filter.filterArray(this._medico_nombre);
+  this._obra_social_nombre = this.filter.filterArray(this._obra_social_nombre);
+  this._forma_pago = this.filter.filterArray(this._forma_pago);
+
+}
   }

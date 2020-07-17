@@ -36,6 +36,7 @@ import { PopupOperacionCobroPresentacionEditarRegistroComponent } from '../popup
 import { PopupMedicoComponent } from './../popup-medico/popup-medico.component';
 import { PopupDetalleOperacionCobroDistribucionComponent } from '../popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Filter } from './../../../filter';
 
 @Component({
   selector: 'app-popup-operacion-cobro-distribucion',
@@ -82,7 +83,14 @@ export class PopupOperacionCobroDistribucionComponent implements OnInit {
   liquidacion:Liquidacion;
   completado:string = 'NO';
 
-    constructor(private miServicio:PracticaService,public config: DynamicDialogConfig, private messageService: MessageService ,public dialogService: DialogService,private cp: CurrencyPipe  ) {
+  _obra_social_nombre: any[] = [];
+  _descripcion: any[] = [];
+  _complejidad: any[] = [];
+  _codigo: any[] = [];
+  _medico_nombre: any[] = [];
+
+
+    constructor(private miServicio:PracticaService,public config: DynamicDialogConfig, private messageService: MessageService ,public dialogService: DialogService,private cp: CurrencyPipe, private filter: Filter  ) {
   
           this.cols = [
               
@@ -359,6 +367,7 @@ export class PopupOperacionCobroDistribucionComponent implements OnInit {
         this.miServicio.getOperacionCobroRegistrosBetweenDates(this._fechaDesde, this._fechaHasta, 'AFE')
         .subscribe(resp => {
           if (resp[0]) {
+            this.realizarFiltroBusqueda(resp);
             let i:number = 0;
             let resultado = resp;
             resultado.forEach(element => {
@@ -399,6 +408,7 @@ loadRegistroByIdLiquidacion(){
       this.miServicio.getOperacionCobroRegistrosByLiquidacionNumero(this.config.data.id)
       .subscribe(resp => {
         if (resp[0]) {
+          this.realizarFiltroBusqueda(resp);
           this.elementos = resp;
           console.log(this.elementos);
             }else{
@@ -695,4 +705,31 @@ doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
 
 
       }
+
+      realizarFiltroBusqueda(resp: any[]){
+        // FILTRO LOS ELEMENTOS QUE SE VAN USAR PARA FILTRAR LA LISTA
+        this._obra_social_nombre = [];
+        this._descripcion = [];
+        this._complejidad= [];
+        this._codigo = [];
+        this._medico_nombre = [];
+
+        
+        resp.forEach(element => {
+          this._obra_social_nombre.push(element['obra_social_nombre']);
+          this._descripcion.push(element['descripcion']);
+         this._complejidad.push(element['complejidad']);
+         this._codigo.push(element['codigo']);
+         this._medico_nombre.push(element['medico_nombre']);
+        });
+        
+        // ELIMINO DUPLICADOS
+        this._obra_social_nombre = this.filter.filterArray(this._obra_social_nombre);  
+        this._descripcion = this.filter.filterArray(this._descripcion);  
+        this._complejidad = this.filter.filterArray(this._complejidad);
+        this._codigo = this.filter.filterArray(this._codigo);
+        this._medico_nombre = this.filter.filterArray(this._medico_nombre);
+      
+      }
+      
   }

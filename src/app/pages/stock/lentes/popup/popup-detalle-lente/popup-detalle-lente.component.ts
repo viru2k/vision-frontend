@@ -35,6 +35,8 @@ export class PopupDetalleLenteComponent implements OnInit {
       'tipo': new FormControl(),      
       'dioptria': new FormControl('', Validators.required),
       'lote': new FormControl('', Validators.required),
+      'remito': new FormControl(''),
+      'factura': new FormControl(''),
       'fecha_vencimiento': new FormControl('', Validators.required),
       'proveedor': new FormControl('', Validators.required),
       'ubicacion': new FormControl('', Validators.required),
@@ -81,7 +83,7 @@ export class PopupDetalleLenteComponent implements OnInit {
       console.log(this.selectedForma);
       this.es_nuevo= true;
       console.log(this.es_nuevo);  
-      this.element= new CirugiaLente('','','','','','','','','');
+      this.element= new CirugiaLente('','','','','','','','','','','');
       this.DataForm.patchValue(this.element);
       this.DataForm.patchValue({fecha_vencimiento: new Date()});
       this.DataForm.patchValue({estado: this.selectedForma });

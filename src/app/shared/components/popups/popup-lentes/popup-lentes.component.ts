@@ -54,7 +54,7 @@ loadList(){
     this.es = calendarioIdioma;
     this.loading = true;
     try {
-        this.miServicio.getLentesSinUso()    
+        this.miServicio.getLentesSinUso('NO')    
         .subscribe(resp => {
         this.elementos = resp;
             console.log(this.elementos);    

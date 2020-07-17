@@ -74,6 +74,7 @@ export class LiquidarComponent implements OnInit {
   impresiones:any[];
   popItemMedico:MedicoObraSocial= null;
   apellido:string;
+  liquidacion_nro = 1;
 
   constructor(private miServicio:LiquidacionService,private practicaService:PracticaService, private messageService: MessageService ,public dialogService: DialogService,public numberToWordsPipe:NumberToWordsPipe,private cp: CurrencyPipe, private dp: DecimalPipe) {
 

@@ -778,10 +778,18 @@ hr.rulerStyleShadow {
 
 .texto-success {
     color:  #43A047!important;
+    font-weight: bold !important;
 }
 
+.texto-warning {
+    color:  #FFC300!important;
+    font-weight: bold !important;
+}
 
-
+.texto-danger {
+    color:  #EF5350!important;
+    font-weight: bold !important;
+}
 
 .es-deshabilitado {
     background-color: rgb(250, 173, 173) !important;

@@ -6,6 +6,7 @@ import { Liquidacion } from './../../../../models/liquidacion.model';
 import { PopupOperacionCobroDetalleComponent } from './../popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component';
 import { DistribucionMedico } from './../../../../models/distribucion-medico.model';
 import { logo_clinica } from './../../../../config/config';
+import { Filter } from './../../../filter';
 declare const require: any;
 const jsPDF = require('jspdf');
 require('jspdf-autotable');
@@ -30,7 +31,12 @@ export class PopupOperacionCobroDistribucionDetalleComponent implements OnInit {
   distribucionMedicos:any[] = [];
   distribucionMedico:DistribucionMedico;
 
-  constructor( public ref: DynamicDialogRef, public config: DynamicDialogConfig, private liquidacionService:LiquidacionService, private messageService: MessageService ,public dialogService: DialogService) { 
+  _obra_social_nombre: any[] = [];
+  _medico_opera: any[] = [];
+  _medico_ayuda: any[] = [];
+  _medico_ayuda2: any[] = [];  
+
+  constructor( public ref: DynamicDialogRef, public config: DynamicDialogConfig, private liquidacionService:LiquidacionService, private messageService: MessageService ,public dialogService: DialogService, private filter: Filter ) { 
 
     this.cols = [
       { field: 'operacion_cobro_id', header: 'O.C', width: '8%'} ,
@@ -75,6 +81,7 @@ export class PopupOperacionCobroDistribucionDetalleComponent implements OnInit {
     console.log(this.config.data);
     this.elementos = this.config.data;
     this.sumarValores(this.elementos);
+    this.realizarFiltroBusqueda(this.elementos);
   }
 
   
@@ -220,6 +227,30 @@ doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
     window.open(doc.output('bloburl'));
  
   }
+}
+
+realizarFiltroBusqueda(resp: any[]){
+  // FILTRO LOS ELEMENTOS QUE SE VAN USAR PARA FILTRAR LA LISTA
+  this._obra_social_nombre = [];
+  this._medico_opera = [];
+  this._medico_ayuda= [];
+  this._medico_ayuda2 = [];
+
+  
+  resp.forEach(element => {
+    this._obra_social_nombre.push(element['obra_social_nombre']);
+    this._medico_opera.push(element['medico_opera']);
+   this._medico_ayuda.push(element['medico_ayuda']);
+   this._medico_ayuda2.push(element['medico_ayuda2']);
+  });
+  
+  // ELIMINO DUPLICADOS
+  this._obra_social_nombre = this.filter.filterArray(this._obra_social_nombre);  
+  this._medico_opera = this.filter.filterArray(this._medico_opera);  
+  this._medico_ayuda = this.filter.filterArray(this._medico_ayuda);
+  this._medico_ayuda2 = this.filter.filterArray(this._medico_ayuda2);
+  
+
 }
 }
 

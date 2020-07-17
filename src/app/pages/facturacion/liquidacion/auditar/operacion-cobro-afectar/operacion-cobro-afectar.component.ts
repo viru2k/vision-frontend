@@ -30,6 +30,7 @@ import { PopupOperacionCobroRegistroBuscarComponent } from '../../../../../share
 import { PopupOperacionCobroRegistroBuscarTodosComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component';
 import { OperacionCobroDetalle } from '../../../../../models/operacion-cobro-detalle.model';
 import { PracticaDistribucionService } from './../../../../../services/PracticaDistribucionService';
+import { Filter } from './../../../../../shared/filter';
 
 @Component({
   selector: 'app-operacion-cobro-afectar',
@@ -79,8 +80,16 @@ export class OperacionCobroAfectarComponent implements OnInit {
   internacion_tipo:string = 'A';
   result_distribucion:any[];
 
+  _complejidad: any[] = [];
+  _obra_social_nombre: any[] = [];
+  _codigo: any[] = [];
+  _medico_nombre: any[] = [];
+  _forma_pago: any[] = [];
+
     constructor(private miServicio:PracticaService,private messageService: MessageService ,
-      private practicaDistribucionService:PracticaDistribucionService,public dialogService: DialogService,private cp: CurrencyPipe, private dp: DecimalPipe  ) {
+      private practicaDistribucionService: PracticaDistribucionService,
+      public dialogService: DialogService,private cp: CurrencyPipe, private dp: DecimalPipe, 
+      private filter: Filter  ) {
   
 
       this.formasPago = [
@@ -512,6 +521,7 @@ actualizarRegistrosDistribucion(){
         this.miServicio.getOperacionCobroRegistrosBetweenDates(this._fechaDesde, this._fechaHasta, 'AUD')
         .subscribe(resp => {
           if (resp[0]) {
+            this.realizarFiltroBusqueda(resp);
             let i:number = 0;
             let resultado = resp;
             resultado.forEach(element => {
@@ -1341,4 +1351,31 @@ return rest;
 
 
       }
+
+      
+realizarFiltroBusqueda(resp: any[]){
+  // FILTRO LOS ELEMENTOS QUE SE VAN USAR PARA FILTRAR LA LISTA
+  this._codigo = [];
+  this._complejidad = [];
+  this._medico_nombre = [];
+  this._obra_social_nombre = [];
+  this._forma_pago = [];
+  
+  resp.forEach(element => {
+    this._codigo.push(element['codigo']);
+    this._complejidad.push(element['complejidad']);
+   this._medico_nombre.push(element['medico_nombre']);
+   this._obra_social_nombre.push(element['obra_social_nombre']);
+   this._forma_pago.push(element['forma_pago']);
+  });
+  
+  // ELIMINO DUPLICADOS
+  this._codigo = this.filter.filterArray(this._codigo);  
+  this._complejidad = this.filter.filterArray(this._complejidad);  
+  this._medico_nombre = this.filter.filterArray(this._medico_nombre);
+  this._obra_social_nombre = this.filter.filterArray(this._obra_social_nombre);
+  this._forma_pago = this.filter.filterArray(this._forma_pago);
+
+}
+
   }

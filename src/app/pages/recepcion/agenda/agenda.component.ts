@@ -30,6 +30,7 @@ import { PopupPacienteConsultaComponent } from '../../../shared/components/popup
 import { PopupOperacionCobroPresentacionComponent } from '../../../shared/components/popups/popup-operacion-cobro-presentacion/popup-operacion-cobro-presentacion.component';
 import { Liquidacion } from '../../../models/liquidacion.model';
 import { PopupOperacionCobroDetalleComponent } from '../../../shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component';
+import { Filter } from '../../../shared/filter';
 
 @Component({
   selector: 'app-agenda',
@@ -76,7 +77,12 @@ export class AgendaComponent implements OnInit {
   document: Document;
   motivo:string;
 
-  constructor(private documentService: DocumentService,private miServico:AgendaService, private messageService: MessageService ,public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router ) {
+  _nombreyapellido: any[] = [];
+  _paciente_obra_social_nombre: any[] = [];
+  _estado: any[] = [];
+
+  constructor(private documentService: DocumentService,private miServico:AgendaService, private messageService: MessageService ,public dialogService: DialogService,
+      private route: ActivatedRoute,     private router: Router , private filter: Filter ) {
    
     this.cols = [
       {field: 'operacion_cobro_id', header: 'OC', width: '5%' }, 
@@ -398,6 +404,7 @@ async editarRegistro(cond:string){
         this.miServico.getHorarioTurnoTodos(this.popItemAgenda)
         .subscribe(resp => {
           if (resp[0]) {
+            this.realizarFiltroBusqueda(resp);
             let i:number = 0;
             let resultado = resp;
             resultado.forEach(element => {
@@ -440,6 +447,7 @@ if(this._fechaHoy!=''){
       this.miServico.getHorarioTurnoTodos(this.popItemAgenda)    
       .subscribe(resp => {
         if (resp[0]) {
+          this.realizarFiltroBusqueda(resp);
           let i:number = 0;
           let resultado = resp;
           resultado.forEach(element => {
@@ -476,6 +484,7 @@ loadHistoriaPaciente(){
       this.miServico.getHistoriaTurno(this.popItemPaciente.id)    
       .subscribe(resp => {
         if (resp[0]) {
+          this.realizarFiltroBusqueda(resp);
           let i:number = 0;
           let resultado = resp;
           resultado.forEach(element => {
@@ -513,6 +522,7 @@ try{
   this.miServico.getTurnoCancelado()    
   .subscribe(resp => {
     if (resp[0]) {
+      this.realizarFiltroBusqueda(resp);
       let i:number = 0;
       let resultado = resp;
       resultado.forEach(element => {
@@ -548,6 +558,7 @@ try{
 console.log(this.condicion);
   this.miServico.cancelarTurno( this.popItemAgenda.agenda_dia_horario_atencion_id)
   .subscribe(resp => {
+    
       this.loading = false;
       console.log(resp);
       console.log(this.condicion);
@@ -588,6 +599,7 @@ if(this._fechaHoy!=''){
       //  console.log(resp);
       
       if (resp[0]) {
+        this.realizarFiltroBusqueda(resp);
         let i:number = 0;
         let resultado = resp;
         resultado.forEach(element => {
@@ -765,6 +777,26 @@ doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
 
  
   
+}
+
+
+realizarFiltroBusqueda(resp: any[]){
+  // FILTRO LOS ELEMENTOS QUE SE VAN USAR PARA FILTRAR LA LISTA
+  this._nombreyapellido = [];
+  this._paciente_obra_social_nombre = [];  
+  this._estado = [];
+  resp.forEach(element => {
+    this._nombreyapellido.push(element['nombreyapellido']);
+    this._paciente_obra_social_nombre.push(element['paciente_obra_social_nombre']);   
+   this._estado.push(element['estado']);
+  });
+  console.log(this._nombreyapellido);
+  // ELIMINO DUPLICADOS
+  this._nombreyapellido = this.filter.filterArray(this._nombreyapellido);
+  console.log(this._nombreyapellido);
+  this._paciente_obra_social_nombre = this.filter.filterArray(this._paciente_obra_social_nombre);  
+  this._estado = this.filter.filterArray(this._estado);
+
 }
 
 

@@ -24,6 +24,7 @@ import { Subscription } from 'rxjs';
 //import { ExcelService } from './../../../../services/excel.service';
 import { LiquidacionService } from '../../../../services/liquidacion.service';
 import { Table } from 'primeng/table';
+import { Filter } from './../../../../shared/filter';
 
 
 @Component({
@@ -89,7 +90,8 @@ export class AgendaConsultaComponent implements OnInit {
 
   @ViewChild('dt', {static: false}) table: Table;
 
-  constructor(private liquidacionService:LiquidacionService , private miServico:AgendaService, private messageService: MessageService ,public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router ) {
+  constructor(private liquidacionService:LiquidacionService , private miServico:AgendaService, private messageService: MessageService ,
+    public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router, private filter: Filter ) {
    
     this.cols = [
         {field: 'operacion_cobro_id', header: 'OC', width: '5%' }, 
@@ -650,11 +652,11 @@ realizarFiltroBusqueda(resp: any[]){
         });
         console.log(this._nombreyapellido);
         // ELIMINO DUPLICADOS
-        this._nombreyapellido = this.filterArray(this._nombreyapellido);
+        this._nombreyapellido = this.filter.filterArray(this._nombreyapellido);
         console.log(this._nombreyapellido);
-        this._paciente_obra_social_nombre = this.filterArray(this._paciente_obra_social_nombre);
-        this._dia_nombre = this.filterArray(this._dia_nombre);
-        this._estado = this.filterArray(this._estado);
+        this._paciente_obra_social_nombre = this.filter.filterArray(this._paciente_obra_social_nombre);
+        this._dia_nombre = this.filter.filterArray(this._dia_nombre);
+        this._estado = this.filter.filterArray(this._estado);
   
 }
 
@@ -669,18 +671,6 @@ colorString(estado:string){
 
 }
 
-filterArray(arr: any) {
-  //const uniqueArray = new Set(arr);
- // const backToArray =[...uniqueArray];
- let result = [];
- let i = 0;
-  const temp = Array.from(new Set(arr));  
-  temp.forEach(element => {
-    result.push(  {label: element, value: element});
-    i++;
-  });
-  return result;
- }
 
  onmyChange(event) {
   //debugger;
