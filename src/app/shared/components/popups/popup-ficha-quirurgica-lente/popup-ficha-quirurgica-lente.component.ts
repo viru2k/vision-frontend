@@ -5,6 +5,7 @@ import { CirugiaFicha } from '../../../../models/cirugia-ficha.model';
 import { CirugiaLente } from './../../../../models/cirugia-lente.model';
 import swal from 'sweetalert2';
 import { PopupLentesComponent } from './../popup-lentes/popup-lentes.component';
+import { Filter } from './../../../filter';
 
 @Component({
   selector: 'app-popup-ficha-quirurgica-lente',
@@ -20,7 +21,7 @@ export class PopupFichaQuirurgicaLenteComponent implements OnInit {
   loading: boolean;
   selectedItem:CirugiaLente;
 
-  constructor(public config: DynamicDialogConfig, private miServicio:CirugiaService,private messageService: MessageService ,public dialogService: DialogService) {
+  constructor(public config: DynamicDialogConfig, private miServicio:CirugiaService,private messageService: MessageService ,public dialogService: DialogService , private filter: Filter ) {
 
     this.cols = [
               
@@ -169,4 +170,19 @@ throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string){
           })
     }
     }
+
+    vencimiento(vencimiento){
+
+
+      if((this.filter.monthDiff(vencimiento) < 6) ){
+        if((this.filter.monthDiff(vencimiento) < 3)){
+          return {'texto-warning'  :'null' };
+        } else{
+          return {'text-danger'  :'null' };
+        }
+      } else{
+        return {'texto-success'  :'null' };
+      }
+     
+    }  
 }

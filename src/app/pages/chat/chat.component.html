@@ -2,7 +2,7 @@
   
   <div class="people-list" id="people-list">
     <div class="mr-4">
-      <button class="btn btn-warning btn-block btn-md" *ngIf="this.userData['admin']=== '2'" (click)="gestionarGrupos()"><i class="fas fa-users fa-lg icon-color-blue " ></i> Gestionar grupos </button>
+      <button class="btn btn-warning btn-block btn-md" *ngIf="this.userData['admin']=== 1" (click)="gestionarGrupos()"><i class="fas fa-users fa-lg icon-color-blue " ></i> Gestionar grupos </button>
     <button class="btn btn-info btn-block btn-md" (click)="agregarUsuario()"><i class="fas fa-user-plus fa-lg icon-color-blue "></i> Agregar usuario </button>
   </div>
     <div class=" ">

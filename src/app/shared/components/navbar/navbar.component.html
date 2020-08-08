@@ -1,6 +1,6 @@
 <p-menubar  [model]="general" *ngIf="loggedIn" autoZIndex="false"  [autoDisplay]="false"   >
             
-        <div class="flexbox " >   
+        <div class="flexbox d-flex align-items-center " >   
                   <div class="row" >                      
                         <button routerLink="chat" *ngIf="true" class=" mr-3 mt-2 btn btn-link btn-success btn-lg texto-monserrat icon-color-user-setting"  >
                                 <h5 class="pb-2">   <i class="far fa-comment-dots fa-lg mr-2 icon-color-red-light"></i> </h5>
@@ -9,7 +9,7 @@
                                 <h5 class="pb-2">   <i class="fas fa-comment-dots fa-lg mr-2 icon-color-red-light"></i>2</h5>
                         </button>    
                 </div>  
-                <div class=" float-right pt-2 mr-4"> 
+                <div class=" float-right  mr-4"> 
                          <b><label class="texto-monserrat icon-color-user-setting">PUESTO : {{puesto}}</label></b>
                 </div>  
                 <div class=" float-right pt-2 mr-4"> 
@@ -31,10 +31,10 @@
                                                                  </li>
                                                                </a> 
             
-                                                               <li class="texto-monserrat"  (click)="perfil()">
+                                                             <!--   <li class="texto-monserrat"  (click)="perfil()">
                                                                                 <i class="fas fa-angle-right fa-lg mr-2  icon-color-loader"></i>
                                                                                 Acceso a webs de obra social
-                                                                </li>
+                                                                </li> -->
             
                                                                 <li class="texto-monserrat" (click)="micuenta()">
                                                                                 <i class="fas fa-cog fa-lg mr-2 icon-color-usuario"></i>

@@ -66,7 +66,7 @@
             </ng-template>
           
     <ng-template pTemplate="body" let-elementos  >
-      <tr style="height:20px" [ngClass]="colorEstado(elementos.tiene_observacion)">
+      <tr style="height:28px" [ngClass]="colorEstado(elementos.tiene_observacion)">
         <td style="width: 6%" >
           <a   (click)="verObservacion($event,op,elementos)"   >    <i class="pointer far fa-eye fa-2x icon-color-green" *ngIf="elementos.tiene_observacion === 'SI'"  ></i></a>
        </td>

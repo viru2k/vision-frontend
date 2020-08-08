@@ -38,12 +38,16 @@ export class ChatComponent implements OnInit, AfterViewInit {
   private scrollContainer: any;
   public url:string  = URL_ARCHIVO;
   searchText;
+  _admin;
 
   constructor(private documentService: DocumentService, private chatService: ChatService, private messageService: MessageService ,public dialogService: DialogService) {
     this.userData = JSON.parse(localStorage.getItem('userData'));
+    this._admin = this.userData['admin'];
+    console.log(this.userData['admin'])
    }
 
   ngOnInit() {
+   
     this.loadListaUsuario();
     this.habilitarTexto = true;
 

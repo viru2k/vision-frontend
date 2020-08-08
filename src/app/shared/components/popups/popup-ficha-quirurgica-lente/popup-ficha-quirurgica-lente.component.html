@@ -39,12 +39,12 @@
                 </ng-template>
          
       <ng-template pTemplate="body" let-elementos  >
-          <tr style="height:20px">
+          <tr style="height:28px">
                        
                   <td style="width: 20%">{{elementos.tipo}}</td>
                   <td style="width: 10%">{{elementos.dioptria}}</td>
                   <td style="width: 15%">{{elementos.lote}}</td>
-                  <td style="width: 10%">{{elementos.fecha_vencimiento | date: 'dd/MM/yyyy'}}</td>   
+                  <td style="width: 10%" [ngClass]="vencimiento(elementos.fecha_vencimiento)" >{{elementos.fecha_vencimiento | date: 'dd/MM/yyyy'}}</td>   
                   <td style="width: 20%">{{elementos.proveedor}}</td>                                                    
                   <td style="width: 20%">{{elementos.estado}}</td>      
                   

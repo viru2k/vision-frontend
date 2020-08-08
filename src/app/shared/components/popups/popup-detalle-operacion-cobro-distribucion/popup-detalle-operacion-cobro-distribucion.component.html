@@ -9,7 +9,7 @@
           </p-autoComplete>
       </div>
       <div class=" col-2">
-        <div class="input-group mb-2">
+        <div class="input-group input-group-sm mb-2">
             <input type="number" (change)="calcularPorcentaje()" class="form-control" [(ngModel)]="medicoOperaPorcentaje" placeholder="Porcentaje" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
               <span class="input-group-text" id="basic-addon2">%</span>
@@ -18,12 +18,12 @@
       </div>
 
       <div class=" col-2">
-          <div class="input-group mb-3">
-          <input type="number"  class="form-control" [(ngModel)]="medicoOperaDistribucion " placeholder="Distribución" aria-label="Recipient's username" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <span class="input-group-text" id="basic-addon2">$</span>
+        <div class="input-group input-group-sm mb-3">
+          <input type="number"  class="form-control" [(ngModel)]="medicoOperaDistribucion " placeholder="Distribución" aria-label="Recipient's username" aria-describedby="inputGroup-sizing-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">$</span>
           </div>
-        </div>
+      </div>
       </div>
       <div class=" col-2 mt-1"> <label class="mr-2">Médico ayuda : </label></div>
       <div class=" col-6">
@@ -32,20 +32,22 @@
             field="nombre" >     
           </p-autoComplete>
       </div>
+
+      
       <div class=" col-2">
-        <div class="input-group mb-2">
-            <input type="text" (change)="calcularPorcentaje()" class="form-control" [(ngModel)]="medicoAyudaPorcentaje" placeholder="Porcentaje" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-              <span class="input-group-text" id="basic-addon2">%</span>
+        <div class="input-group input-group-sm mb-2">
+            <input type="text" (change)="calcularPorcentaje()" class="form-control" [(ngModel)]="medicoAyudaPorcentaje" placeholder="Porcentaje" aria-label="Recipient's username" ria-describedby="inputGroup-sizing-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">%</span>
             </div>
           </div>
       </div>
 
       <div class=" col-2">
-          <div class="input-group mb-3">
+          <div class="input-group input-group-sm mb-3">
           <input type="text" class="form-control" [(ngModel)]="medicoAyudaDistribucion" placeholder="Distribución" aria-label="Recipient's username" aria-describedby="basic-addon2">
           <div class="input-group-append">
-            <span class="input-group-text" id="basic-addon2">$</span>
+            <span class="input-group-text"  id="inputGroup-sizing-sm">$</span>
           </div>
         </div>
       </div>
@@ -57,7 +59,7 @@
           </p-autoComplete>
       </div>
       <div class=" col-2">
-        <div class="input-group mb-2">
+        <div class="input-group input-group-sm mb-2">
             <input type="text" (change)="calcularPorcentaje()" class="form-control" [(ngModel)]="medicoAyuda2Porcentaje" placeholder="Porcentaje" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
               <span class="input-group-text" id="basic-addon2">%</span>
@@ -66,7 +68,7 @@
       </div>
 
       <div class=" col-2">
-          <div class="input-group mb-3">
+          <div class="input-group input-group-sm mb-3">
           <input type="text" class="form-control" [(ngModel)]="medicoAyuda2Distribucion" placeholder="Distribución" aria-label="Recipient's username" aria-describedby="basic-addon2">
           <div class="input-group-append">
             <span class="input-group-text" id="basic-addon2">$</span>
@@ -81,7 +83,7 @@
           </p-autoComplete>
       </div>
       <div class=" col-2">
-        <div class="input-group mb-2">
+        <div class="input-group input-group-sm mb-2">
             <input type="number" (change)="calcularPorcentaje()" class="form-control" [(ngModel)]="medicoClinicaPorcentaje" placeholder="Porcentaje" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
               <span class="input-group-text" id="basic-addon2">%</span>
@@ -90,7 +92,7 @@
       </div>
 
       <div class=" col-2">
-          <div class="input-group mb-3">
+          <div class="input-group input-group-sm mb-3">
           <input type="number" class="form-control" [(ngModel)]="medicoClinicaDistribucion" placeholder="Distribución" aria-label="Recipient's username" aria-describedby="basic-addon2">
           <div class="input-group-append">
             <span class="input-group-text" id="basic-addon2">$</span>

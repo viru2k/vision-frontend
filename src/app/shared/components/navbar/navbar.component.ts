@@ -398,7 +398,7 @@ try {
        console.log(this.elemento);
        this.elementoModulo = <any>this.elemento;
       this.user = new User(this.elemento[0]['id'] , this.elemento[0]['email'], this.elemento[0]['nombreyapellido'],
-       this.elemento[0]['name'],'1',this.elemento[0]['email'], currentUser['access_token'],this.elementoModulo, this.f.puesto.value);
+       this.elemento[0]['name'],this.elemento[0]['admin'],this.elemento[0]['email'], currentUser['access_token'],this.elementoModulo, this.f.puesto.value);
        this.username = userData['username'];
        this.puesto = userData['puesto'];
        localStorage.removeItem('userData');

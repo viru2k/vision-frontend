@@ -59,7 +59,7 @@
 <div class="row ml-2"><label class="mr-2">REDACTAR RECETA</label> </div>
 <div class="row">
   
-    <div> <p-multiSelect class="mt-2 ml-2" [options]="listarecetas" [(ngModel)]="selectedReceta"  defaultLabel="SELECCIONE ESTUDIOS" [panelStyle]="{minWidth:'12em'}" [filter]="true" filterBy="label,value.name" >      </p-multiSelect></div> 
+    <div>  <p-multiSelect [style]="{'height':'28px', 'width': '100%', 'font-size': '10px'}" class="mt-2 ml-2" [options]="listarecetas" [(ngModel)]="selectedReceta"  defaultLabel="SELECCIONE ESTUDIOS" [panelStyle]="{minWidth:'12em'}" [filter]="true" filterBy="label,value.name" >      </p-multiSelect></div> 
   <div class="ml-2"><p-dropdown [options]="listaindicacionesmedicas" optionLabel="name" [(ngModel)]="selectedIndicaciones" placeholder="INDICACIONES MEDICAS" optionLabel="name" [showClear]="true"></p-dropdown></div>
 </div> 
 <hr>

@@ -20,6 +20,7 @@ import { ObraSocialService } from 'src/app/services/obra-social.service';
 import { logo_clinica,calendarioIdioma } from './../../../../config/config';
 import { PacienteService } from '../../../../services/paciente.service';
 import { Paciente } from './../../../../models/paciente.model';
+import { Filter } from './../../../filter';
 
 
 @Component({
@@ -66,7 +67,14 @@ export class PopupOperacionCobroRegistroBuscarTodosComponent implements OnInit {
   internacion_tipo:string = 'A';
   busqueda: string = 'paciente.dni';
 
-    constructor(private miServicio:PracticaService,private miServico:PacienteService,private messageService: MessageService ,public dialogService: DialogService,private cp: CurrencyPipe,public ref: DynamicDialogRef, public config: DynamicDialogConfig  ) {
+  _complejidad: any[] = [];
+  _obra_social_nombre: any[] = [];
+  _codigo: any[] = [];
+  _medico_nombre: any[] = [];
+  _forma_pago: any[] = [];
+
+    constructor(private miServicio:PracticaService,private miServico:PacienteService,private messageService: MessageService ,public dialogService: DialogService, 
+      private cp: CurrencyPipe,public ref: DynamicDialogRef, public config: DynamicDialogConfig, private filter: Filter   ) {
   
           this.cols = [
             { field: 'liquidacion_numero', header: 'Liq.',  width: '5%' },
@@ -185,9 +193,12 @@ loadList(){
     
       this.miServicio.getOperacionCobroRegistrosByPaciente(this.selectedItemPaciente['id'])    
       .subscribe(resp => {
+        if (resp[0]) {
+          this.realizarFiltroBusqueda(resp);
         console.log(resp);    
       this.elementos = resp;
           console.log(this.elementos);    
+        }
           this.loading = false;
       },
       error => { // error path
@@ -432,4 +443,32 @@ throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string){
 
 
 }
+
+
+      
+realizarFiltroBusqueda(resp: any[]){
+  // FILTRO LOS ELEMENTOS QUE SE VAN USAR PARA FILTRAR LA LISTA
+  this._codigo = [];
+  this._complejidad = [];
+  this._medico_nombre = [];
+  this._obra_social_nombre = [];
+  this._forma_pago = [];
+  
+  resp.forEach(element => {
+    this._codigo.push(element['codigo']);
+    this._complejidad.push(element['complejidad']);
+   this._medico_nombre.push(element['medico_nombre']);
+   this._obra_social_nombre.push(element['obra_social_nombre']);
+   this._forma_pago.push(element['forma_pago']);
+  });
+  
+  // ELIMINO DUPLICADOS
+  this._codigo = this.filter.filterArray(this._codigo);  
+  this._complejidad = this.filter.filterArray(this._complejidad);  
+  this._medico_nombre = this.filter.filterArray(this._medico_nombre);
+  this._obra_social_nombre = this.filter.filterArray(this._obra_social_nombre);
+  this._forma_pago = this.filter.filterArray(this._forma_pago);
+
 }
+
+  }

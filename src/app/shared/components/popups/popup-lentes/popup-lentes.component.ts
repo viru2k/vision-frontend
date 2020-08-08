@@ -8,6 +8,7 @@ import { MedicoObraSocial } from 'src/app/models/medico-obrasocial.model';
 import { CirugiaLente } from 'src/app/models/cirugia-lente.model';
 import { CirugiaService } from '../../../../services/cirugia.service';
 import { CirugiaFicha } from '../../../../models/cirugia-ficha.model';
+import { Filter } from './../../../filter';
 
 @Component({
   selector: 'app-popup-lentes',
@@ -25,7 +26,7 @@ export class PopupLentesComponent implements OnInit {
   elemento:CirugiaLente = null;
   elementos:CirugiaLente[] = null;
   cirugia_lente:CirugiaFicha;
-  constructor(private miServicio:CirugiaService,private messageService: MessageService ,public dialogService: DialogService, public ref: DynamicDialogRef, public config: DynamicDialogConfig ) { 
+  constructor(private miServicio:CirugiaService,private messageService: MessageService ,public dialogService: DialogService, public ref: DynamicDialogRef, public config: DynamicDialogConfig , private filter: Filter  ) { 
 
     this.cols = [              
       { field: 'tipo', header: 'Lente',  width: '20%' },
@@ -191,4 +192,19 @@ throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string){
           })
     }
     }
+
+    vencimiento(vencimiento){
+
+
+      if((this.filter.monthDiff(vencimiento) < 6) ){
+        if((this.filter.monthDiff(vencimiento) < 3)){
+          return {'texto-warning'  :'null' };
+        } else{
+          return {'text-danger'  :'null' };
+        }
+      } else{
+        return {'texto-success'  :'null' };
+      }
+     
+    }  
 }

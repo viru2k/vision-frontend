@@ -5,9 +5,9 @@
 
 <div class="row m-1">
  
-      <div class="btn-toolbar justify-content-between m-2" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-toolbar justify-content-between m-2 d-flex align-items-center" role="toolbar" aria-label="Toolbar with button groups">
         
-              <div  class="input-group input-group-sm ">
+          
                       <form  [formGroup]="DateForm">
                   <p-calendar formControlName="fechaHoy"  (onSelect)="actualizarFecha($event)" tabindex="0"   [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
                      <ng-template pTemplate="date" let-date>
@@ -15,12 +15,10 @@
                       </ng-template> 
                     </p-calendar>
                       </form>
-              </div>
-  
-  
+   
             <div  class="btn-group ml-2" role="group" aria-label="First group">                 
                 <button    class="btn btn-lg btn-success btn-sm float-right "  (click)="loadList()" >Listado cirugia</button>    
-              <button    class="btn btn-lg btn-primary btn-sm float-right mr-2" (click)="generarPdfListadoMedico()" > Imprimir listado</button>                
+              <button    class="btn btn-lg btn-primary btn-sm float-right ml-2" (click)="generarPdfListadoMedico()" > Imprimir listado</button>                
                           
             </div>
           </div>
@@ -71,7 +69,7 @@
             </ng-template>
           
     <ng-template pTemplate="body" let-elementos  >
-        <tr style="height:20px">
+        <tr style="height:28px">
              <td style="width: 5%">   <a   class=" mr-1   my-hover" (click)="eliminar(elementos)"    ><i class="far fa-trash-alt fa-2x icon-color-red" ></i></a>        </td>   
                 <td style="font-size: 9px;width: 6%">{{elementos.cirugia_ficha_id}}</td>
                 <td style="font-size: 9px;width: 5%">{{elementos.orden}}</td>
