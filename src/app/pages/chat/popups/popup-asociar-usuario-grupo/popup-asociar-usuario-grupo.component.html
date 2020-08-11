@@ -9,18 +9,11 @@
 <H6>LISTAD DE GRUPOS</H6>
   <div class="col-12 row">
     <input  class="form-control col-8 form-control-sm" type="text"  placeholder="Crear un nuevo grupo" [(ngModel)]="grupo" >
-    <button (click)="crearGrupo()" class="btn btn-info col-4">Crear grupo</button>
+    <button (click)="crearGrupo()" class="btn btn-info btn-block">Crear grupo</button>
   </div>
-  <p-table #dt [columns]="cols_grupo"  [value]="elementos_grupos" selectionMode="single" [resizableColumns]="true" columnResizeMode="expand"
+  <p-table #dt1 [columns]="cols_grupo" tableStyleClass="prime-table"   [value]="elementos_grupos" selectionMode="single" [resizableColumns]="true" columnResizeMode="expand"
   [(selection)]="selectedItem_grupo" (onRowSelect)="onRowSelectGrupo()" [scrollable]="true" scrollHeight="200px" >
  
-      <ng-template pTemplate="caption">
-          <div class="row">
-          <div class="col-md-5" style="text-align:right">                                
-              <input  class="form-control col-md-12 form-control-sm" type="text"  placeholder="Buscar en toda la tabla" (input)="dt.filterGlobal($event.target.value, 'contains')" > 
-          </div>
-       </div>
-      </ng-template>
 
       <ng-template pTemplate="header" let-columns >
           <tr>
@@ -31,31 +24,48 @@
            
           </tr>
           <tr>
-              <th *ngFor="let col of columns" [ngSwitch]="col.field" >
-                  <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'grupo_nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" autofocus>                
-              </th>
-          </tr>
+   
       </ng-template>
 
        <ng-template pTemplate="body" let-elementos_grupos>
-                <tr [pSelectableRow]="elementos_grupos">      
+                <tr style="height:22px" [pSelectableRow]="elementos_grupos">      
   
-      <td>{{elementos_grupos.grupo_nombre}}</td>                   
+      <td>{{elementos_grupos.grupo_nombre}}</td>    
+        <td style="width: 6%" >                   
+            <a     (click)="accion($event,op,elementos_grupos)"    ><i class="fas fa-search fa-lg  my-hover"></i></a>
+        </td>                 
   </tr>
 </ng-template>
 </p-table>
-<H6>ASOCIAR USUARIOS</H6>
 
-  <p-table #dt [columns]="cols"  [value]="elementos" selectionMode="single" [resizableColumns]="true" columnResizeMode="expand"
-  [(selection)]="selectedItem" (onRowSelect)="onRowSelect($event)" [scrollable]="true" scrollHeight="200px" >
+<p-overlayPanel #op appendTo="body" [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >   
+    <div class="d-flex justify-content-end">
+        <div>
+          <p-listbox  [options]="detalleUsuarios"  [multiple]="false" [checkbox]="false" [filter]="true" optionLabel="nombreyapellido" [style]="{'width':'250px'}">
+            <p-header>
+              Usuarios del grupo
+            </p-header>
+            <ng-template let-elemento pTemplate="item" >    
+             <div class="d-flex align-items-center">
+                <button  (click)="borrar(elemento)" class="icon-hover ml-2 mr-2 btn btn-danger btn-sm "> <i class="fas fa-trash  fa-sm"></i></button>     
+                <label style="font-size: 10px;"> {{elemento.label}}</label>
+               
+             </div>
+                
+            </ng-template>
+            
+          </p-listbox>       
+        </div>
+       
+      </div>
+    
+</p-overlayPanel>  
+<H6 class="mt-2 mb-1">ASOCIAR USUARIOS</H6>
+
+<p-table  #dt class=""  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  [loading]="loading"    columnResizeMode="expand" [responsive]="true"
+scrollHeight="500px" [scrollable]="true"  [loading]="loading" loadingIcon="fas fa-spinner fa-2x icon-color-green" >
  
-      <ng-template pTemplate="caption">
-          <div class="row">
-          <div class="col-md-5" style="text-align:right">                                
-              <input  class="form-control col-md-12 form-control-sm" type="text"  placeholder="Buscar en toda la tabla" (input)="dt.filterGlobal($event.target.value, 'contains')"  >
-          </div>
-       </div>
-      </ng-template>
+    
 
       <ng-template pTemplate="header" let-columns >
           <tr>
@@ -67,17 +77,20 @@
           </tr>
           <tr>
               <th *ngFor="let col of columns" [ngSwitch]="col.field" >
-                  <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'apellido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" autofocus>                
+                  <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'nombreyapellido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" autofocus>                
               </th>
           </tr>
       </ng-template>
 
        <ng-template pTemplate="body" let-elementos>
-                <tr [pSelectableRow]="elementos">      
+                <tr style="height:22px" >      
   
-      <td>{{elementos.nombreyapellido}}</td>                   
+      <td style="width: 94%">{{elementos.nombreyapellido}}</td>      
+      <td style="width: 6%" >                   
+        <a     (click)="guardar(elementos)"    ><i class="fas fa-plus text-info fa-lg  my-hover"></i></a>
+    </td>               
   </tr>
 </ng-template>
 </p-table>
 
-  </div>
+  

@@ -49,6 +49,15 @@ export class ChatService {
     return this.http.get<any[]>(this.url+'chat/grupos');
   }
 
+  
+  getGrupoDetalleUsuarios(sesion_id: string){
+    return this.http.get<any[]>(this.url+'chat/grupo/detalle/usuarios?sesion_id=' + sesion_id);
+  }
+
+  destroyUsuarioGrupoSesion(sesion_id: string, usuario_id: string){
+    return this.http.get<any[]>(this.url+'chat/grupo/detalle/usuarios/borrar?sesion_id=' + sesion_id + '&usuario_id=' + usuario_id);
+  }
+ 
 
   getSesionListByGrupo(id:number){
     return this.http.get<any>(this.url+'chat/usuario/lista/sesion/grupo'+id);

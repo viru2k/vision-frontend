@@ -8,6 +8,7 @@ import { DynamicDialogConfig, DynamicDialogRef, MessageService } from 'primeng/a
 import { DialogService } from 'primeng/components/common/api';
 import { UserService } from './../../../../services/user.service';
 import { ChatService } from '../../../../services/chat-service.service';
+import { OverlayPanel } from 'primeng/overlaypanel';
 
 @Component({
   selector: 'app-popup-asociar-usuario-grupo',
@@ -19,7 +20,7 @@ export class PopupAsociarUsuarioGrupoComponent implements OnInit {
  
   cols: any[];
   cols_grupo: any[];
-  selectedItem: any;
+  selectedItems: any;
   selectedItem_grupo: any;
   es:any;
   // LOADING
@@ -29,13 +30,15 @@ export class PopupAsociarUsuarioGrupoComponent implements OnInit {
   elemento_grupo:any = null;
   elementos_grupos:any[] = null;
   grupo:string;
+  detalleUsuarios:any;
 
   constructor(private miServico:UserService, private chatService:ChatService , public ref: DynamicDialogRef, public config: DynamicDialogConfig,private messageService: MessageService ,public dialogService: DialogService ) {
     this.cols = [
         {field: 'nombreyapellido', header: 'Usuario',   width: '20%'  }
      ];
    this.cols_grupo = [
-    {field: 'grupo_nombre', header: 'Grupo',   width: '20%'  }
+    {field: 'grupo_nombre', header: 'Grupo',   width: '94%'  },
+    {field: '', header: '',   width: '6%'  }
    ];
     } 
 
@@ -59,10 +62,10 @@ loadList(){
         error => { // error path
             console.log(error.message);
             console.log(error.status);
-            this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message);
+            this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message);
          });    
     } catch (error) {
-    this.throwAlert("error","Error al cargar los registros",error);
+    this.throwAlert('error','Error al cargar los registros',error);
     }  
 }
 
@@ -81,35 +84,41 @@ loadGrupos(){
       error => { // error path
           console.log(error.message);
           console.log(error.status);
-          this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message);
+          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message);
        });    
   } catch (error) {
-  this.throwAlert("error","Error al cargar los registros",error);
+  this.throwAlert('error','Error al cargar los registros',error);
   }  
 }
 
 
-onRowSelect(event) {  
+guardar(element) {  
     let userData = JSON.parse(localStorage.getItem('userData'));
-    this.selectedItem = event.data;
-    console.log(this.selectedItem);
-    this.es = calendarioIdioma;
+   
+    console.log(element);
+
     this.loading = true;
-    try {
-        this.chatService.asociarUsuarioGrupo(userData['id'], this.selectedItem['id'], this.selectedItem_grupo['grupo_nombre'], this.selectedItem_grupo['id'])
+   try {
+        this.chatService.asociarUsuarioGrupo(userData['id'], element.id, this.selectedItem_grupo['grupo_nombre'], this.selectedItem_grupo['id'])
         .subscribe(resp => {
-        this.elementos = resp;
+  
             console.log(this.elementos);    
             this.loading = false;
-            this.ref.close(this.selectedItem);
+      
+            swal({
+              type: 'success',
+              title: 'Exito',
+              text: 'Usuario guardado'
+            });
         },
-        error => { // error path
-            console.log(error.message);
+        error => { 
+            console.log(error);
             console.log(error.status);
-            this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message);
-         });    
+            this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message);
+         });
     } catch (error) {
-    this.throwAlert("error","Error al cargar los registros",error);
+      console.log(error);
+    this.throwAlert('error','Error al cargar los registros',error);
     }  
  
 }
@@ -117,6 +126,12 @@ onRowSelect(event) {
 onRowSelectGrupo(){
   console.log(this.selectedItem_grupo);
 }
+
+onRowSelected(){
+  console.log(this.selectedItems);
+}
+
+
 
 crearGrupo()
 {
@@ -126,40 +141,102 @@ crearGrupo()
         this.chatService.crearSesionListadoGrupo(this.grupo)
         .subscribe(resp => {
         this.elementos = resp;
-            console.log(this.elementos);    
+            console.log(this.elementos);
             this.loading = false;
             this.loadGrupos();
         },
         error => { // error path
             console.log(error.message);
             console.log(error.status);
-            this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message);
+            this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message);
          });    
     } catch (error) {
-    this.throwAlert("error","Error al cargar los registros",error);
+    this.throwAlert('error','Error al cargar los registros',error);
     }  
   }
  
  
 }
 
+accion(event: any, overlaypanel: OverlayPanel, elementos: any) {
+    this.selectedItem_grupo = elementos;
+    this.verUsuariosDetalleByGrupo(elementos.id);
+    console.log(this.selectedItem_grupo);
+    overlaypanel.toggle(event);
+  }
+
+
+  
+verUsuariosDetalleByGrupo(sesion_id: string) {
+
+  this.loading = true;
+
+  try {
+      this.chatService.getGrupoDetalleUsuarios(sesion_id)
+      .subscribe(resp => {
+     this.detalleUsuarios = resp;
+      console.log(resp);
+      this.loading = false;
+    
+
+      },
+      error => { // error path
+          console.log(error.message);
+          console.log(error.status);
+          this.throwAlert('error', 'error', 'Error: ' + error.status + '  Error al cargar los registros');
+     //     this.resultSave = false;
+          this.loading = false;
+        });
+  } catch (error) {
+    this.throwAlert('error', 'error', 'Error: ' + error.status + '  Error al cargar los registros');
+  }
+
+}
+
+borrar(element) {
+
+  console.log(element);
+ try {
+    this.chatService.destroyUsuarioGrupoSesion(element.value.chat_sesion_id, element.value.usuario_id)
+    .subscribe(resp => {
+  // this.detalleUsuarios = resp;
+    console.log(resp);
+    this.loading = false;
+    swal({
+      type: 'info',
+      title: 'Borrado',
+      text: 'Usuario quitado del grupo'
+    });
+    this.verUsuariosDetalleByGrupo(element.value.chat_sesion_id);
+    },
+    error => {
+        console.log(error.message);
+        console.log(error.status);
+        this.throwAlert('error', 'error', 'Error: ' + error.status + '  Error al cargar los registros');   
+        this.loading = false;
+      });
+} catch (error) {
+  this.throwAlert('error', 'error', 'Error: ' + error.status + '  Error al cargar los registros');
+} 
+}
+
 /** ACCIONES */
 
-throwAlert(estado:string, mensaje:string, motivo:string){
-    if(estado== "success"){
+throwAlert(estado: string, mensaje: string, motivo: string){
+    if (estado === 'success') {
         swal({
             type: 'success',
             title: 'Exito',
             text: mensaje
           })
     }
-    if(estado== "error"){
-        swal({
+    if (estado== 'error') {
+   /*      swal({
             type: 'error',
             title: 'Oops...',
             text: mensaje,
             footer: motivo
-          })
+          }) */
     }
 }
 }

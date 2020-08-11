@@ -50,7 +50,7 @@
      <!--  <img *ngIf="selected_usuario" src="../../../assets/icons/user-image-default.png" width="32px" height="32px" alt="avatar" /> -->
     
       <div class="chat-about row ">
-        <i  class="fas fa-users fa-2x mr-2 text-secondary"  *ngIf="selected_usuario.grupo_nombre !== 'LISTADO'" width="32px" height="32px" alt="avatar"></i>
+        <i  class="fas fa-users fa-2x mr-2 text-secondary my-hover"  *ngIf="selected_usuario.grupo_nombre !== 'LISTADO'" width="32px" height="32px" alt="avatar" (click) = 'verUsuarios($event,op)'></i>
         <i  class="fas fa-user-circle fa-2x mr-2 text-secondary"  *ngIf="selected_usuario.grupo_nombre === 'LISTADO'" width="32px" height="32px" alt="avatar"></i>
         <div class="chat-with" *ngIf="selected_usuario"><label class="text-secondary">{{selected_usuario.nombreyapellido}}</label>
         </div>
@@ -66,7 +66,27 @@
           <label class="texto-josefina mt-2 text-info">{{loadDetalle}}</label> 
         </div>
       
-       
+        <p-overlayPanel #op appendTo="body" [showTransitionOptions]="'400ms'" [hideTransitionOptions]="'300ms'"  [dismissable]="true" >   
+          
+
+          <p-orderList [value]="detalleUsuarios" [listStyle]="{'height':'auto'}" metaKeySelection="false" filterBy="nombreyapellido" filterPlaceholder="Filtrar por nombre" dragdrop="false">
+            <ng-template let-usuarios pTemplate="item">
+                <div class="usuarios-item">                  
+                    <div class="product-list-detail">
+                      <span class="bold">{{usuarios.nombreyapellido}}</span>
+                      
+                   
+                    </div>
+                    <div class="product-list-detail">
+                      <span class="text-info">{{usuarios.estado}}</span>
+                    </div>
+                    <div class="product-list-detail">
+                      <span class="text-success text-small">{{usuarios.fecha_lectura  | date: 'EEEE dd/MM/yyyy HH:mm:ss'}}</span>
+                    </div>
+                </div>
+            </ng-template>
+        </p-orderList>
+        </p-overlayPanel>  
     </div> <!-- end chat-header -->
     <div class="chat-history" #scrollMe style="overflow: scroll; height: xyz;">
       <div  > 

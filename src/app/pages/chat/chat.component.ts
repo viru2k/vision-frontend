@@ -12,6 +12,7 @@ import { URL_ARCHIVO } from './../../config/config';
 
 import { PopupUsuarioComponent } from './../../shared/components/popups/popup-usuario/popup-usuario.component';
 import { PopupAsociarUsuarioGrupoComponent } from './popups/popup-asociar-usuario-grupo/popup-asociar-usuario-grupo.component';
+import { OverlayPanel } from 'primeng/overlaypanel';
 
 @Component({
   selector: 'app-chat',
@@ -39,6 +40,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
   public url:string  = URL_ARCHIVO;
   searchText;
   _admin;
+  detalleUsuarios: any[];
 
   constructor(private documentService: DocumentService, private chatService: ChatService, private messageService: MessageService ,public dialogService: DialogService) {
     this.userData = JSON.parse(localStorage.getItem('userData'));
@@ -144,14 +146,13 @@ agregarUsuario() {
 
 
 gestionarGrupos() {
-console.log('ddd');
   let data:any; 
   data = this.selected_usuario;
   const ref = this.dialogService.open(PopupAsociarUsuarioGrupoComponent, {
   data,
    header: 'Asociar usuario y grupos', 
-   width: '60%',
-   height: '90%'
+   width: '95%',
+   height: '80%'
   });
   ref.onClose.subscribe((PopupAsociarUsuarioGrupoComponent : any) => {
     if (PopupAsociarUsuarioGrupoComponent) {
@@ -159,6 +160,40 @@ console.log('ddd');
     this.loadListaUsuario();
     }
 });
+}
+
+
+verUsuarios(event: any, overlaypanel: OverlayPanel ) {
+
+    overlaypanel.toggle(event);
+  }
+
+verUsuariosDetalleByGrupo(sesion_id: string) {
+
+  this.loading = true;
+  if (this.userData['id']) {
+  try {
+      this.chatService.getGrupoDetalleUsuarios(sesion_id)
+      .subscribe(resp => {
+     this.detalleUsuarios = resp;
+      console.log(resp);
+      this.loading = false;
+    
+
+      },
+      error => { // error path
+          console.log(error.message);
+          console.log(error.status);
+          this.throwAlert('error', 'error', 'Error: ' + error.status + '  Error al cargar los registros', error.message);
+     //     this.resultSave = false;
+          this.loading = false;
+        });
+  } catch (error) {
+    this.throwAlert('error', 'error', 'Error: ' + error.status + '  Error al cargar los registros', error.message);
+  }
+
+}
+  
 }
 
   loadListaUsuario() {
@@ -232,6 +267,7 @@ console.log('ddd');
           behavior: 'smooth'
         });
         this.habilitarTexto = false;
+        this.verUsuariosDetalleByGrupo(e.chat_sesion_id);
         },
         error => { // error path
             console.log(error.message);
