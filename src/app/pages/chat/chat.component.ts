@@ -64,16 +64,18 @@ this.documentService
       this.scrollToBottom();
     }else{
       const valor = this.lista_usuarios.findIndex(x => x.chat_sesion_id === message['chat_sesion_id']);
-      console.log(valor);
+     // console.log(valor);
       this.lista_usuarios[valor]['estado'] = 'NUEVO';
       this.loadListaUsuario();
     }
   }else{
     this.loadListaUsuario();
     const valor = this.lista_usuarios.findIndex(x => x.chat_sesion_id === message['chat_sesion_id']);
-    console.log(valor);
+    //console.log(valor);
     this.lista_usuarios[valor]['estado'] = 'NUEVO';
   }
+
+  console.log(this.lista_usuarios.sort(this.compare));
 });
   }
 
@@ -204,6 +206,9 @@ verUsuariosDetalleByGrupo(sesion_id: string) {
         .subscribe(resp => {
        this.lista_usuarios = resp;
         console.log(this.lista_usuarios);
+       // console.log('arreglo ordenado');
+       // console.log(this.lista_usuarios.sort(this.compare));;
+        this.lista_usuarios.sort(this.compare);
         this.loading = false;
       
 
@@ -222,6 +227,23 @@ verUsuariosDetalleByGrupo(sesion_id: string) {
   }
   }
 
+/* -------------------------------------------------------------------------- */
+/*                          ORDER ARREGLO DE OBJETOS                          */
+/* -------------------------------------------------------------------------- */
+
+   compare(a, b) {
+    const bandA = a.estado.toUpperCase();
+    const bandB = b.estado.toUpperCase();
+  
+    let comparison = 0;
+    if (bandA < bandB) {
+      comparison = 1;
+    } else if (bandA > bandB) {
+      comparison = -1;
+    }
+    return comparison;
+  }
+  
 
   
 
@@ -268,6 +290,7 @@ verUsuariosDetalleByGrupo(sesion_id: string) {
         });
         this.habilitarTexto = false;
         this.verUsuariosDetalleByGrupo(e.chat_sesion_id);
+        this.lista_usuarios.sort(this.compare);
         },
         error => { // error path
             console.log(error.message);

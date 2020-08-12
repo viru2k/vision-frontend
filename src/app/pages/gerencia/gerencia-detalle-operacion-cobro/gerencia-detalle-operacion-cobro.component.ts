@@ -30,6 +30,8 @@ import { PopupOperacionCobroRegistroBuscarComponent } from '../../../shared/comp
 import { PopupOperacionCobroRegistroBuscarTodosComponent } from '../../../shared/components/popups/popup-operacion-cobro-registro-buscar-todos/popup-operacion-cobro-registro-buscar-todos.component';
 import { OperacionCobroDetalle } from '../../../models/operacion-cobro-detalle.model';
 import { LiquidacionService } from './../../../services/liquidacion.service';
+import { Filter } from './../../../shared/filter';
+
 
 
 @Component({
@@ -81,8 +83,16 @@ export class GerenciaDetalleOperacionCobroComponent implements OnInit {
   nivel:any[];
   busqueda:string = 'PEN';
   result_distribucion:any[];
+  
+  _complejidad: any[] = [];
+  _obra_social_nombre: any[] = [];
+  _codigo: any[] = [];
+  _medico_nombre: any[] = [];
+  _forma_pago: any[] = [];
 
-    constructor(private miServicio:PracticaService,private messageService: MessageService ,private liquidacionService:LiquidacionService,public dialogService: DialogService,private cp: CurrencyPipe, private dp: DecimalPipe  ) {
+    constructor(private miServicio:PracticaService,private messageService: MessageService ,private liquidacionService:LiquidacionService, 
+      public dialogService: DialogService,private cp: CurrencyPipe, private dp: DecimalPipe , 
+      private filter: Filter  ) {
   
 
       this.formasPago = [
@@ -468,6 +478,7 @@ auditarRegistros(){
         this.miServicio.getOperacionCobroRegistrosBetweenDates(this._fechaDesde, this._fechaHasta, this.busqueda)
         .subscribe(resp => {
           if (resp[0]) {
+            this.realizarFiltroBusqueda(resp);
             let i:number = 0;
             let resultado = resp;
             resultado.forEach(element => {
@@ -661,7 +672,31 @@ for(let i=0;i<this.selecteditems.length;i++){
 
 public exportarExcel(){
   const fecha_impresion = formatDate(new Date(), 'dd-MM-yyyy-mm', 'es-Ar');  
-  this.liquidacionService.exportAsExcelFile(  this.selecteditems, 'listado_presentacion'+fecha_impresion);
+  let seleccionados: any[] = [];
+  let exportar:any[] = [];
+  let i = 0;
+  this.selecteditems.forEach(element => {
+   // console.log(element['operacion_cobro_id']);
+    seleccionados['operacion_cobro_id'] = element['operacion_cobro_id'];
+    seleccionados['fecha_cobro'] = element['fecha_cobro'] ;
+    seleccionados['apellido'] = element['apellido'];
+    seleccionados['nombre'] = element.nombre;
+    seleccionados['dni'] = element['dni'];
+    seleccionados['obra_social_nombre'] = element['obra_social_nombre'] ;
+    seleccionados['descripcion'] = element['descripcion'];
+    seleccionados['medico_nombre'] = element['medico_nombre'];
+    seleccionados['forma_pago'] = element['forma_pago'];
+    seleccionados['cantidad'] = element['cantidad'];
+    seleccionados['valor_facturado'] = element['valor_facturado'];
+   // exportar.push(seleccionados);
+   exportar[i] = seleccionados;
+  //  console.log(element);
+   // console.log(seleccionados);
+    seleccionados = [];
+    i++;
+  });
+//  console.log(exportar);
+  this.liquidacionService.exportAsExcelFile(  exportar, 'listado_presentacion'+fecha_impresion);
 }
 
 deleteRegistro(id:string){
@@ -1296,4 +1331,32 @@ return rest;
 
 
       }
+  
+      
+      
+realizarFiltroBusqueda(resp: any[]){
+  // FILTRO LOS ELEMENTOS QUE SE VAN USAR PARA FILTRAR LA LISTA
+  this._codigo = [];
+  this._complejidad = [];
+  this._medico_nombre = [];
+  this._obra_social_nombre = [];
+  this._forma_pago = [];
+  
+  resp.forEach(element => {
+    this._codigo.push(element['codigo']);
+    this._complejidad.push(element['complejidad']);
+   this._medico_nombre.push(element['medico_nombre']);
+   this._obra_social_nombre.push(element['obra_social_nombre']);
+   this._forma_pago.push(element['forma_pago']);
+  });
+  
+  // ELIMINO DUPLICADOS
+  this._codigo = this.filter.filterArray(this._codigo);  
+  this._complejidad = this.filter.filterArray(this._complejidad);  
+  this._medico_nombre = this.filter.filterArray(this._medico_nombre);
+  this._obra_social_nombre = this.filter.filterArray(this._obra_social_nombre);
+  this._forma_pago = this.filter.filterArray(this._forma_pago);
+
+}
+
   }
