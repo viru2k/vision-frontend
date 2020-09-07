@@ -504,9 +504,9 @@ registerLocaleData(localeEsAR, 'es-Ar');
     Ng2SearchPipeModule,
     SweetAlert2Module.forRoot(),
     AutofocusModule,
-    SocketIoModule.forRoot(config),
+   
       RouterModule.forRoot( ROUTES, { useHash: true } ),
-      SocketIoModule.forRoot(config),
+      SocketIoModule.forRoot(config),	  
       NgxPopper,
       ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],

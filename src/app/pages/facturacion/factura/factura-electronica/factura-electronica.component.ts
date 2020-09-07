@@ -28,17 +28,16 @@ export class FacturaElectronicaComponent implements OnInit {
   cols: any[];
   loading: boolean;
   loadingspinner: boolean;
-  elementos:FacturaElectronicaRenglon[] = [];
-  elementosPDF:any[] = [];
-  
-  elementosAlicuota:any[] = null;
-  elementosMedicos:any[] = null;
-  elementosComprobante:any[] = null;
-  elementosConcepto:any[] = null;
-  elementosDocumento:any[] = null;
-  elementosPtoVta:any[] = null;  
-  elementosCondicionIva:any[]= null;
-  selecteditems:FacturaElectronicaRenglon = null;
+  elementos: FacturaElectronicaRenglon[] = [];
+  elementosPDF: any[] = [];
+  elementosAlicuota: any[] = null;
+  elementosMedicos: any[] = null;
+  elementosComprobante: any[] = null;
+  elementosConcepto: any[] = null;
+  elementosDocumento: any[] = null;
+  elementosPtoVta: any[] = null; 
+  elementosCondicionIva: any[]= null;
+  selecteditems: FacturaElectronicaRenglon = null;
   elementoAlicuota:number= null;
   elementoMedicos:any= null;
   elementoComprobante:number= null;
@@ -46,9 +45,9 @@ export class FacturaElectronicaComponent implements OnInit {
   elementoDocumento:number= null;
   elementoPtoVta:number= null;  
   elementoCondicionIva:number= null;  
-  selecteditemRegistro:FacturaElectronicaRenglon = null;
-  selecteditemRenglon:FacturaElectronicaRenglon= null;
-  facturaAlicuotaAsociada:FacturaAlicuotaAsociada[] = [];
+  selecteditemRegistro: FacturaElectronicaRenglon = null;
+  selecteditemRenglon: FacturaElectronicaRenglon= null;
+  facturaAlicuotaAsociada: FacturaAlicuotaAsociada[] = [];
 
   pto_vta:string = '0';
   factura_numero:string = '0';
@@ -74,9 +73,9 @@ export class FacturaElectronicaComponent implements OnInit {
   subtotal_iva:number = 0;
   total:number = 0;
   userData;
-  medico_id:string; 
+  medico_id:string;
   peticion:string;
-     movimiento:FacturaElectronicaRenglon;
+     movimiento: FacturaElectronicaRenglon;
   constructor(private facturacionService: FacturacionService, public dialogService: DialogService,private messageService: MessageService, private cp: CurrencyPipe ) { 
 
     this.cols = [
@@ -112,7 +111,7 @@ export class FacturaElectronicaComponent implements OnInit {
   }
 
 
-  accion(event:FacturaElectronicaRenglon,overlaypanel: OverlayPanel,elementos:FacturaElectronicaRenglon){
+  accion(event: FacturaElectronicaRenglon,overlaypanel: OverlayPanel,elementos: FacturaElectronicaRenglon){
     if(elementos){
       this.selecteditemRegistro = elementos;
     }
@@ -725,10 +724,10 @@ agregarRenglon(){
    height: '90%'
   });
 
-  ref.onClose.subscribe((PopupOperacionCobroRegistroEditarComponent:FacturaElectronicaRenglon) => {
+  ref.onClose.subscribe((PopupOperacionCobroRegistroEditarComponent: FacturaElectronicaRenglon) => {
       if (PopupOperacionCobroRegistroEditarComponent) {
         console.log(PopupOperacionCobroRegistroEditarComponent);    
-        let movimiento:FacturaElectronicaRenglon;
+        let movimiento: FacturaElectronicaRenglon;
         movimiento= PopupOperacionCobroRegistroEditarComponent;
         console.log();
 
@@ -786,10 +785,10 @@ agregarRenglonOS(){
    height: '90%'
   });
 
-  ref.onClose.subscribe((PopupLiquidacionDetalleComponent:FacturaElectronicaRenglon[]) => {
+  ref.onClose.subscribe((PopupLiquidacionDetalleComponent: FacturaElectronicaRenglon[]) => {
       if (PopupLiquidacionDetalleComponent) {
         console.log(PopupLiquidacionDetalleComponent);    
-        let movimiento:FacturaElectronicaRenglon[];
+        let movimiento: FacturaElectronicaRenglon[];
         movimiento= PopupLiquidacionDetalleComponent;
 
 

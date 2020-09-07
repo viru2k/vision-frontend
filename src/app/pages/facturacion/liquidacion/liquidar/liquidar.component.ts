@@ -51,7 +51,7 @@ export class LiquidarComponent implements OnInit {
   columnsListadoCirugiaTodos: any[];
   loading: boolean;
   resultSave:boolean;
-  es:any;
+  es: any;
   displayDialog: boolean;
   fechaLiquidacion:Date;
   _fechaLiquidacion:string;
@@ -71,7 +71,7 @@ export class LiquidarComponent implements OnInit {
   total_facturado:number = 0;
   cantidad:number = 0;
   selectedImpresion:string ;//= 'Transferencia';
-  impresiones:any[];
+  impresiones: any[];
   popItemMedico:MedicoObraSocial= null;
   apellido:string;
   liquidacion_nro = 1;
@@ -80,9 +80,10 @@ export class LiquidarComponent implements OnInit {
 
     this.impresiones = [
       {name: 'Distribución por médico', code: '1'},
-      {name: 'Distribución todos los medicos', code: '2'},
-      {name: 'Distribución por Obra social', code: '3'},        
-      {name: 'Distribuciónes seleccionadas', code: '4'},
+      {name: 'Distribución por médico detallada ', code: '2'},
+      {name: 'Detalle del expediente ', code: '3'},
+      //{name: 'Distribución por Obra social', code: '3'},        
+      //{name: 'Distribuciónes seleccionadas', code: '4'},
   ];
 
     this.cols = [
@@ -178,30 +179,30 @@ this.columnsListadoCirugiaTodos = [
   generarLiquidacion() {}
 
   
-  actualizarFechaDesde(event){
+  actualizarFechaDesde(event) {
     console.log(event);
     this.fechaLiquidacion = event;
     console.log(new Date(this.fechaLiquidacion));
   }
 
-  actualizarFechaLiquidacion(event){
+  actualizarFechaLiquidacion(event) {
     console.log(event);
     this.fechaLiquidacion = event;
     console.log(new Date(this.fechaLiquidacion));
   }
 
-  sumarValoresSeleccionados(vals:any){
+  sumarValoresSeleccionados(vals: any) {
     // SUMO LO FILTRADO
     console.log(vals);
     this.total_seleccionado = 0;
     let i:number;
-for(i=0;i<vals.length;i++){
+for(i=0;i<vals.length;i++) {
   this.total_seleccionado = this.total_seleccionado+ Number(vals[i]['total']);
 }
   }
 
-  accion(event:OperacionCobroDetalle,overlaypanel: OverlayPanel,elementos:Liquidacion){
-    if(elementos){
+  accion(event:OperacionCobroDetalle,overlaypanel: OverlayPanel,elementos:Liquidacion) {
+    if (elementos) {
       this.selecteditemRegistro = elementos;
     }
       
@@ -211,8 +212,8 @@ for(i=0;i<vals.length;i++){
   
 
 
-    buscarMedico(){
-      let data:any; 
+    buscarMedico() {
+      let data: any; 
       const ref = this.dialogService.open(PopupMedicoComponent, {
       data,
        header: 'Buscar Médico', 
@@ -233,24 +234,24 @@ for(i=0;i<vals.length;i++){
 
    
 
-  imprimir(){
+  imprimir() {
     
-    if( this.selectedImpresion['code'] === '1'){
+    if ( this.selectedImpresion['code'] === '1') {
       this.loadDistribucionMedico();
     }
-    if( this.selectedImpresion['code'] === '2'){
-      this.loadDistribucionTodos();
+    if ( this.selectedImpresion['code'] === '2') {
+      this.loadDistribucionMedicoDetalle();
     }
-    if( this.selectedImpresion['code'] === '3'){
+    if ( this.selectedImpresion['code'] === '3') {
       this.loadPresentacionMedicoACLISA();
     }
-    if( this.selectedImpresion['code'] === '4'){
+    if ( this.selectedImpresion['code'] === '4') {
       this.loadPresentacionCirugiaTodos();
     }
-  }s
+  }
 
-    buscarObraSocial(){
-      let data:any; 
+    buscarObraSocial() {
+      let data: any;
      
       const ref = this.dialogService.open(PopupObraSocialComponent, {
       data,
@@ -272,9 +273,9 @@ for(i=0;i<vals.length;i++){
   
     }
 
-    editarRegistro(){
+    editarRegistro() {
 
-      let data:any; 
+      let data: any; 
       data =  this.selecteditemRegistro;
       const ref = this.dialogService.open(PopupPresentacionEditarComponent, {
       data,
@@ -293,11 +294,11 @@ for(i=0;i<vals.length;i++){
 
     }
 
-    verDetalle(elementos:any){
-      if(elementos){
+    verDetalle(elementos: any) {
+      if (elementos) {
         this.selecteditemRegistro = elementos;
       }
-      let data:any; 
+      let data: any; 
       data =  this.selecteditemRegistro;
       const ref = this.dialogService.open(PopupOperacionCobroDistribucionComponent, {
       data,
@@ -317,12 +318,14 @@ for(i=0;i<vals.length;i++){
 
     
 
-    verDistribucion(elementos:Liquidacion){
-      if(elementos){
+    verDistribucion(elementos:Liquidacion, consulta: string) {
+      if (elementos) {
         this.selecteditemRegistro = elementos;
+        
       }
-      let data:any; 
+      let data: any; 
       data =  this.selecteditemRegistro;
+      data.consulta = consulta;
       const ref = this.dialogService.open(PopupOperacionCobroDistribucionDetalleComponent, {
       data,
        header: 'Ver detalle de distribucion', 
@@ -340,7 +343,7 @@ for(i=0;i<vals.length;i++){
 
     
 
-  loadlist(){
+  loadlist() {
 
     this.loading = true;
   
@@ -368,7 +371,7 @@ for(i=0;i<vals.length;i++){
 }
  
 
-loadDistribucionTodos(){
+loadDistribucionTodos() {
 
   this.loading = true;
 
@@ -389,7 +392,7 @@ loadDistribucionTodos(){
       //    this.generarPdfListadoTodos();
           this.loading = false;
         //  console.log(resp);
-        this.verDistribucion(resp);
+        this.verDistribucion(resp, 'todos');
       },
       error => { // error path
           console.log(error.message);
@@ -403,7 +406,7 @@ loadDistribucionTodos(){
 
 
 
-loadDistribucionMedico(){
+loadDistribucionMedico() {
 
   this.loading = true;
 
@@ -413,14 +416,43 @@ loadDistribucionMedico(){
         let i:number = 0;
         let resultado = resp;
         resultado.forEach(element => {
-          console.log(this.selecteditems);
+         // console.log(this.selecteditems);
           //resp[i]['obra_social_nombre'] = this.selecteditems[0]['obra_social_nombre'];
           i++;
         });
           this.elementosPreFactura = resp;
          console.log(resp);
           this.loading = false;
-        this.verDistribucion(resp);
+        this.verDistribucion(resp, 'medico');
+      },
+      error => { // error path
+          console.log(error.message);
+          console.log(error.status);
+          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+       });    
+  } catch (error) {
+  this.throwAlert('error','Error al cargar los registros',error,error.status);
+  }  
+}
+
+loadDistribucionMedicoDetalle() {
+
+  this.loading = true;
+
+  try {
+      this.miServicio.GetDistribucionByMedicoDetalle(this.selecteditems)    
+      .subscribe(resp => {
+        let i:number = 0;
+        let resultado = resp;
+        resultado.forEach(element => {
+         // console.log(this.selecteditems);
+          //resp[i]['obra_social_nombre'] = this.selecteditems[0]['obra_social_nombre'];
+          i++;
+        });
+          this.elementosPreFactura = resp;
+         console.log(resp);
+          this.loading = false;
+        this.verDistribucion(resp, 'detalle');
       },
       error => { // error path
           console.log(error.message);
@@ -434,7 +466,7 @@ loadDistribucionMedico(){
 
 
 
-loadPresentacionCirugiaTodos(){
+loadPresentacionCirugiaTodos() {
 
   this.loading = true;
   console.log(this.selecteditems);
@@ -446,7 +478,7 @@ loadPresentacionCirugiaTodos(){
         resultado.forEach(element => {
           
           resp[i]['fecha_cobro'] = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
-          if(( resp[i]['paciente_barra_afiliado'] !== '0')){
+          if (( resp[i]['paciente_barra_afiliado'] !== '0')) {
             resp[i]['numero_afiliado'] = resp[i]['numero_afiliado']+'/'+resp[i]['paciente_barra_afiliado'] ;
           }
           
@@ -471,7 +503,7 @@ loadPresentacionCirugiaTodos(){
 
 
 
-generarTxt(){
+generarTxt() {
 
   this.loading = true;
 
@@ -493,7 +525,7 @@ generarTxt(){
   }  
 }
 
-generarTxtCirugia(){
+generarTxtCirugia() {
   
   this.loading = true;
   console.log(this.selecteditems);
@@ -505,7 +537,7 @@ generarTxtCirugia(){
         resultado.forEach(element => {
           
           resp[i]['fecha_cobro'] = formatDate( element['fecha_cobro'], 'dd/MM/yyyy HH:mm', 'en');
-          if(( resp[i]['paciente_barra_afiliado'] !== '0')){
+          if (( resp[i]['paciente_barra_afiliado'] !== '0')) {
             resp[i]['numero_afiliado'] = resp[i]['numero_afiliado']+'/'+resp[i]['paciente_barra_afiliado'] ;
           }
           
@@ -529,28 +561,28 @@ generarTxtCirugia(){
 
           
           let j = 0;
-          for(i=0;i<this.elementosPreFactura.length;i++){
+          for(i=0;i<this.elementosPreFactura.length;i++) {
 
             let practica = this.elementosPreFactura[i]['convenio_os_pmo_id'];        
-            for(j=0;j<this.elementosPreFactura.length;j++){        
-              if(this.elementosPreFactura[j]['convenio_os_pmo_id'] === practica){            
-                if((this.elementosPreFactura[j]['obra_social_practica_nombre'] === 'HONORARIOS')&&(this.elementosPreFactura[j]['complejidad'] !== 2)){
-                  if(this.elementosPreFactura[j]['operacion_cobro_distribucion_total'] === null){
+            for(j=0;j<this.elementosPreFactura.length;j++) {        
+              if (this.elementosPreFactura[j]['convenio_os_pmo_id'] === practica) {            
+                if ((this.elementosPreFactura[j]['obra_social_practica_nombre'] === 'HONORARIOS')&&(this.elementosPreFactura[j]['complejidad'] !== 2)) {
+                  if (this.elementosPreFactura[j]['operacion_cobro_distribucion_total'] === null) {
                     this.elementosPreFactura[i]['operacion_cobro_distribucion_total'] = 0;
                   }else{
-                    if(this.selecteditems[0]['obra_social_nombre']=== 'DOS - OBRA SOCIAL PROVINCIA'){
+                    if (this.selecteditems[0]['obra_social_nombre']=== 'DOS - OBRA SOCIAL PROVINCIA') {
                       this.elementosPreFactura[i]['honorarios'] =  this.elementosPreFactura[j]['operacion_cobro_distribucion_total'];
                     }else{
                       this.elementosPreFactura[i]['honorarios'] =  this.cp.transform((((this.elementosPreFactura[j]['operacion_cobro_distribucion_total'])*20)/80), '', 'symbol-narrow', '1.2-2'); 
                     }
                   }
                 }
-                if((this.elementosPreFactura[j]['obra_social_practica_nombre'] === 'GASTOS')&&(this.elementosPreFactura[j]['complejidad'] !== 2)){
-                  if(this.elementosPreFactura[j]['operacion_cobro_distribucion_total'] === null){
+                if ((this.elementosPreFactura[j]['obra_social_practica_nombre'] === 'GASTOS')&&(this.elementosPreFactura[j]['complejidad'] !== 2)) {
+                  if (this.elementosPreFactura[j]['operacion_cobro_distribucion_total'] === null) {
                     this.elementosPreFactura[i]['operacion_cobro_distribucion_total'] = 0;
                   }else{
                     console.log(this.selecteditems[0]['obra_social_id']);
-                    if(this.selecteditems[0]['obra_social_nombre'] == 'DOS - OBRA SOCIAL PROVINCIA'){
+                    if (this.selecteditems[0]['obra_social_nombre'] == 'DOS - OBRA SOCIAL PROVINCIA') {
                      console.log('obra social');
                      this.elementosPreFactura[i]['gastos'] =  this.elementosPreFactura[j]['operacion_cobro_distribucion_total'];
                     }else{
@@ -559,7 +591,7 @@ generarTxtCirugia(){
                     }
                   }
                 }
-                if(this.elementosPreFactura[j]['complejidad'] === 2){         
+                if (this.elementosPreFactura[j]['complejidad'] === 2) {         
                     this.elementosPreFactura[i]['gastos'] =  this.elementosPreFactura[j]['valor_facturado'];
                     this.elementosPreFactura[i]['honorarios'] =  '0.00';
                   }
@@ -607,7 +639,7 @@ generarTxtCirugia(){
 }
 
 
-loadPresentacionMedico(){
+loadPresentacionMedico() {
 
   this.loading = true;
 
@@ -619,7 +651,7 @@ loadPresentacionMedico(){
         resultado.forEach(element => {
           
           resp[i]['fecha_cobro'] = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
-          if(( resp[i]['paciente_barra_afiliado'] !== '0')){
+          if (( resp[i]['paciente_barra_afiliado'] !== '0')) {
             resp[i]['numero_afiliado'] = resp[i]['numero_afiliado']+'/'+resp[i]['paciente_barra_afiliado'] ;
           }
           
@@ -645,13 +677,13 @@ loadPresentacionMedico(){
 
 
 
-sumarValores(vals:any){
+sumarValores(vals: any) {
   let i:number;
   
   console.log(vals);
   this.total_facturado = 0;
   this.cantidad = 0;
-  for(i=0;i<vals.length;i++){
+  for(i=0;i<vals.length;i++) {
       this.cantidad = this.cantidad+ Number(vals[i]['cant_orden']);
       this.total_facturado = this.total_facturado+ Number(vals[i]['total']);
   } 
@@ -659,17 +691,17 @@ sumarValores(vals:any){
 }
 
 
-filtered(event){
+filtered(event) {
     console.log(event.filteredValue);
     this.elementosFiltrados  = event.filteredValue;  
     this.sumarValores(this.elementosFiltrados);
 }
 
 
-actualizarRegistrosObraSocial(){
+actualizarRegistrosObraSocial() {
 
 
-if(this.selecteditems){
+if (this.selecteditems) {
 
   this.loading = true;
   console.log(this.selecteditems);
@@ -697,11 +729,11 @@ if(this.selecteditems){
 
 
 
-loadPresentacionMedicoACLISA(){
+loadPresentacionMedicoACLISA() {
   
 }
 
-desafectarPresentacion(){
+desafectarPresentacion() {
   console.log(this.selecteditemRegistro);
    try {
     this.practicaService.desafectarPresentacion(this.selecteditemRegistro['id'])    
@@ -724,7 +756,7 @@ this.throwAlert('error','Error al cargar los registros',error,error.status);
 
 }
 
-exportarExcel(){
+exportarExcel() {
 
   this.loading = true;
 
@@ -736,7 +768,7 @@ exportarExcel(){
         resultado.forEach(element => {
           
           resp[i]['fecha_cobro'] = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
-          if(( resp[i]['paciente_barra_afiliado'] !== '0')){
+          if (( resp[i]['paciente_barra_afiliado'] !== '0')) {
             resp[i]['numero_afiliado'] = resp[i]['numero_afiliado']+'/'+resp[i]['paciente_barra_afiliado'] ;
           }         
           i++;
@@ -763,7 +795,7 @@ exportarExcel(){
 
 
 
-removeDuplicateUsingSet(arr){
+removeDuplicateUsingSet(arr) {
   let unique_array = arr.filter(function(elem, index, self) {
     return index == self.indexOf(elem);
 });
@@ -781,27 +813,27 @@ return unique_array
 
 
 
-showToast(estado:string ,mensaje:string, encabezado:string){
+showToast(estado:string ,mensaje:string, encabezado:string) {
 
-  if(estado =='exito'){
+  if (estado =='exito') {
       this.messageService.add({severity:'success', summary: mensaje, detail:encabezado});
   }
-  if(estado =='info'){
+  if (estado =='info') {
       this.messageService.add({severity:'info', summary: 'El campo no es correcto', detail:'Los datos del campo son incorrectos'});
   }
-  if(estado =='warning'){
+  if (estado =='warning') {
       this.messageService.add({severity:'warning', summary: 'El campo no es correcto', detail:'Los datos del campo son incorrectos'});
   }
-  if(estado =='error'){
+  if (estado =='error') {
       this.messageService.add({severity:'error', summary: 'Error', detail:'No se pudo modificar el registro'});
   }
 
 }
 
-throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string){
+throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string) {
     let tipoerror:string;
 
-    if(estado== 'success'){
+    if (estado== 'success') {
         swal({
             type: 'success',
             title: 'Exito',
@@ -809,7 +841,7 @@ throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string){
           })
     }
 
-    if(errorNumero =='422'){
+    if (errorNumero =='422') {
       mensaje ='Los datos que esta tratando de guardar son iguales a los que ya poseia';
       swal({   
           type: 'warning',
@@ -819,32 +851,32 @@ throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string){
         })
   }
     
-    if((estado== 'error')&&(errorNumero!='422')){
-      if(errorNumero =='422'){
+    if ((estado== 'error')&&(errorNumero!='422')) {
+      if (errorNumero =='422') {
           mensaje ='Los datos que esta tratando de guardar son iguales a los que ya poseia';
       }
-      if(errorNumero =='400 '){
+      if (errorNumero =='400 ') {
           mensaje ='Bad Request ';
       }
-      if(errorNumero =='404'){
+      if (errorNumero =='404') {
           mensaje ='No encontrado ';
       }
-      if(errorNumero =='401'){
+      if (errorNumero =='401') {
           mensaje ='Sin autorización';
       }
-      if(errorNumero =='403'){
+      if (errorNumero =='403') {
           mensaje =' Prohibido : La consulta fue valida, pero el servidor rechazo la accion. El usuario puede no tener los permisos necesarios, o necesite una cuenta para operar ';
       }
-      if(errorNumero =='405'){
+      if (errorNumero =='405') {
           mensaje ='Método no permitido';
       }
-      if(errorNumero =='500'){
+      if (errorNumero =='500') {
           mensaje ='Error interno en el servidor';
       }
-      if(errorNumero =='503'){
+      if (errorNumero =='503') {
           mensaje ='Servidor no disponible';
       }
-      if(errorNumero =='502'){
+      if (errorNumero =='502') {
           mensaje ='Bad gateway';
       }
       

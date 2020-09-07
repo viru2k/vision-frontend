@@ -5,8 +5,8 @@ import swal from 'sweetalert2';
 import { MedicoObraSocial } from './../../../../models/medico-obrasocial.model';
 import { calendarioIdioma } from '../../../../config/config';
 import { LiquidacionDistribucion } from '../../../../models/liquidacion-distribucion-model';
-import { LiquidacionService } from './../../../../services/liquidacion.service';
 import { formatDate } from '@angular/common';
+import { LiquidacionService } from '../../../../services/liquidacion.service';
 
 
 @Component({
@@ -53,7 +53,7 @@ export class PopupDetalleOperacionCobroDistribucionComponent implements OnInit {
   filteredItemsAyuda2: any[];
   filteredItemsClinica: any[];
 
-  medicoOpera:string;
+  medicoOpera:string ;
   medicoAyuda:string;
   medicoAyuda2:string;
   medicoClinica:string;
@@ -62,14 +62,13 @@ export class PopupDetalleOperacionCobroDistribucionComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.config.data);
+    console.log(this.config.data.liquidacion_distribucion_id);
     this.liquidacionDistribucion = new LiquidacionDistribucion('','',0,0,'',0,0,'',0,0,'',0,0,0,0,'','','','',this.config.data);
     this.selecteditems = this.config.data;
-    console.log(this.config.data['0']['nombre']);
-    console.log(this.config.data['0']['liquidacion_distribucion_id']);
-    console.log(this.config.data['0']); 
-    if(this.config.data['0']['liquidacion_distribucion_id'] > 0){
-      console.log('tiene distribucion');
-    }
+    //console.log(this.config.data['0']['nombre']);
+    //console.log(this.config.data['0']['liquidacion_distribucion_id']);
+    //console.log(this.config.data['0']); 
+  
 
    this.sumarValores();
     this.calcularPorcentaje();
@@ -97,6 +96,10 @@ loadList(){
     });
           console.log(this.elementosOpera);    
           this.loading = false;
+          if (this.config.data.liquidacion_distribucion_id > 0) {
+            console.log('tiene distribucion');
+            this.GetDistribucionByNumero();
+          }
       },
       error => { // error path
           console.log(error.message);
@@ -108,6 +111,83 @@ loadList(){
   }  
 }
 
+
+
+  
+GetDistribucionByNumero(){
+  this.es = calendarioIdioma;
+  this.loading = true;
+  try {
+      this.liquidacionService.GetDistribucionByNumero(this.config.data.liquidacion_distribucion_id)
+      .subscribe(resp => {
+        console.log(resp[0]);
+        if (resp[0]) {          
+         // OPERA
+          this.medicoOpera = resp[0].medico_opera_id;
+          this.medicoOperaPorcentaje = resp[0].medico_opera_porcentaje; 
+          this.medicoOperaDistribucion = resp[0].medico_opera_valor;
+          // AYUDA
+          this.medicoAyuda = resp[0].medico_ayuda_id;
+          this.medicoAyudaPorcentaje = resp[0].medico_ayuda_porcentaje; 
+          this.medicoAyudaDistribucion = resp[0].medico_ayuda_valor;
+          //AYUDA 2
+          this.medicoAyuda2 = resp[0].medico_ayuda2_id;
+          this.medicoAyuda2Porcentaje = resp[0].medico_ayuda2_porcentaje; 
+          this.medicoAyudaDistribucion = resp[0].medico_ayuda2_valor;
+          // CLINICA
+
+          this.medicoClinica = resp[0].medico_clinica_id;
+          this.medicoClinicaPorcentaje = resp[0].medico_clinica_porcentaje; 
+          this.medicoClinicaDistribucion = resp[0].medico_clinica_valor;
+          this.TOTAL_CALCULADO =  resp[0].total;
+          this.TOTAL_DISTRIBUCION =  resp[0].valor_distribuido;
+          this.TOTAL_CALCULADO =  resp[0].total;
+        }
+        
+          this.loading = false;
+      },
+      error => { // error path
+          console.log(error.message);
+          console.log(error.status);
+          this.throwAlert('error' , 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+       });    
+  } catch (error) {
+    this.throwAlert('error' , 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+  }  
+}
+
+
+ActualizarliquidarPracticas() {
+  this.es = calendarioIdioma;
+  this.loading = true;
+  try {
+      this.liquidacionService.liquidarOperacionCobroActualizar(this.liquidacionDistribucion)    
+      .subscribe(resp => {
+
+        let i:number = 0;
+        let resultado = resp;
+      
+          console.log(resp);    
+          this.loading = false;
+          swal({
+            toast: false,
+            type: 'success',
+            title: 'Datos guardados',
+            showConfirmButton: false,
+            timer: 1000
+          });
+          this.ref.close();
+      },
+      error => { // error path
+          console.log(error.message);
+          console.log(error.status);
+          this.throwAlert('error' , 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+       });    
+  } catch (error) {
+    this.throwAlert('error' , 'Error: ' + error.status + '  Error al cargar los registros', error.message, error.status);
+  }  
+
+}
 
 liquidarPracticas(){
   this.es = calendarioIdioma;
@@ -174,7 +254,14 @@ guardarDistribucion(){
 /*
   console.log(this.liquidacionDistribucion);
   console.log(this.filteredItems);*/
- this.liquidarPracticas();
+  
+  if (this.config.data.liquidacion_distribucion_id > 0) {
+    this.liquidacionDistribucion.id =this.config.data.liquidacion_distribucion_id;
+    this.ActualizarliquidarPracticas();
+  } else{
+    this.liquidarPracticas();
+  }
+ 
 }
 
 calcularPorcentaje(){
@@ -190,11 +277,15 @@ sumarValores(){
   
   let i:number;
 
-  console.log(this.selecteditems !== undefined);
+  console.log(this.selecteditems);
   this.TOTAL_DISTRIBUCION = 0;
 
   for(i=0;i<this.selecteditems.length;i++){
+    if (this.config.data.liquidacion_distribucion_id > 0) {      
+    } else {
       this.TOTAL_DISTRIBUCION = this.TOTAL_DISTRIBUCION+ Number(this.selecteditems[i]['valor_facturado'])+Number(this.selecteditems[i]['categorizacion']);      
+    }
+      
   }
 
   console.log(this.TOTAL_DISTRIBUCION);

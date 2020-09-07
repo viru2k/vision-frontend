@@ -7,9 +7,11 @@ import { PopupOperacionCobroDetalleComponent } from './../popup-operacion-cobro-
 import { DistribucionMedico } from './../../../../models/distribucion-medico.model';
 import { logo_clinica } from './../../../../config/config';
 import { Filter } from './../../../filter';
+import { MedicoService } from '../../../../services/medico.service';
 declare const require: any;
 const jsPDF = require('jspdf');
 require('jspdf-autotable');
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-popup-operacion-cobro-distribucion-detalle',
@@ -20,6 +22,7 @@ require('jspdf-autotable');
 export class PopupOperacionCobroDistribucionDetalleComponent implements OnInit {
   cols: any[];
   columns: any[];
+  columns_detalle: any[];
   elementos:any[] = null;
   TOTAL_OPERA:number = 0;
   TOTAL_AYUDA:number = 0;
@@ -36,7 +39,23 @@ export class PopupOperacionCobroDistribucionDetalleComponent implements OnInit {
   _medico_ayuda: any[] = [];
   _medico_ayuda2: any[] = [];  
 
-  constructor( public ref: DynamicDialogRef, public config: DynamicDialogConfig, private liquidacionService:LiquidacionService, private messageService: MessageService ,public dialogService: DialogService, private filter: Filter ) { 
+  // MEDICO
+
+  
+loading: boolean;
+elementosMedicos: any[] = null;
+elementoMedicos: any = null;
+medico_id: string;
+checked = false;
+
+
+  constructor( public ref: DynamicDialogRef, public config: DynamicDialogConfig,
+               private liquidacionService: LiquidacionService,
+               private messageService: MessageService ,
+               public dialogService: DialogService,
+               private medicoService: MedicoService,
+               private cp: CurrencyPipe,
+               private filter: Filter ) {
 
     this.cols = [
       { field: 'operacion_cobro_id', header: 'O.C', width: '8%'} ,
@@ -65,14 +84,47 @@ export class PopupOperacionCobroDistribucionDetalleComponent implements OnInit {
 
    
    this.columns = [
+    {title: 'OC', dataKey: 'operacion_cobro_id'},
+    {title: 'Fecha', dataKey: 'fecha_cobro'},
     {title: 'Obra social', dataKey: 'obra_social_nombre'},
-    {title: 'Número', dataKey: 'numero'},
-    {title: 'Nivel', dataKey: 'nivel'},
-    {title: 'Desde', dataKey: 'fecha_desde'},
-    {title: 'Hasta', dataKey: 'fecha_hasta'},
-    {title: 'Cantidad', dataKey: 'cant_orden'},
-    {title: 'Total', dataKey: 'total'},
-    {title: 'Audito', dataKey: 'nombreyapellido'}
+    {title: 'Paciente', dataKey: 'paciente_apellido'},
+    {title: 'dni', dataKey: 'dni'},
+    
+    {title: 'Opera', dataKey: 'medico_opera'},
+    {title: '%', dataKey: 'medico_opera_porcentaje'},
+    {title: 'Valor', dataKey: 'medico_opera_valor'},
+    {title: 'Ayuda', dataKey: 'medico_ayuda'},
+    {title: '%', dataKey: 'medico_ayuda_porcentaje'},   
+    {title: 'Valor', dataKey: 'medico_ayuda_valor'},
+    {title: 'Ayuda 2', dataKey: 'medico_ayuda2'},
+    {title: '%', dataKey: 'medico_ayuda2_porcentaje'},
+    {title: 'Valor', dataKey: 'medico_ayuda2_valor'},
+    {title: 'Clínica', dataKey: 'medico_clinica'},
+    {title: '%', dataKey: 'medico_clinica_porcentaje'},   
+    {title: 'Valor', dataKey: 'medico_clinica_valor'},
+    {title: 'Distribuido', dataKey: 'valor_distribuido'}
+];
+
+
+this.columns_detalle = [
+  {title: 'OC', dataKey: 'operacion_cobro_id'},
+  {title: 'Fecha', dataKey: 'fecha_cobro'},
+  {title: 'Obra social', dataKey: 'obra_social_nombre'},
+  {title: 'Paciente', dataKey: 'paciente_apellido'},  
+  {title: 'Descripción', dataKey: 'descripcion'},
+  {title: 'Opera', dataKey: 'medico_opera'},
+  {title: '%', dataKey: 'medico_opera_porcentaje'},
+  {title: 'Valor', dataKey: 'medico_opera_valor'},
+  {title: 'Ayuda', dataKey: 'medico_ayuda'},
+  {title: '%', dataKey: 'medico_ayuda_porcentaje'},   
+  {title: 'Valor', dataKey: 'medico_ayuda_valor'},
+  {title: 'Ayuda 2', dataKey: 'medico_ayuda2'},
+  {title: '%', dataKey: 'medico_ayuda2_porcentaje'},
+  {title: 'Valor', dataKey: 'medico_ayuda2_valor'},
+  {title: 'Clínica', dataKey: 'medico_clinica'},
+  {title: '%', dataKey: 'medico_clinica_porcentaje'},   
+  {title: 'Valor', dataKey: 'medico_clinica_valor'},
+  {title: 'Distribuido', dataKey: 'valor_distribuido'}
 ];
 
   }
@@ -81,6 +133,7 @@ export class PopupOperacionCobroDistribucionDetalleComponent implements OnInit {
     console.log(this.config.data);
     this.elementos = this.config.data;
     this.sumarValores(this.elementos);
+    this.getMedicosFacturan();
     this.realizarFiltroBusqueda(this.elementos);
   }
 
@@ -113,6 +166,51 @@ sumarValores(vals:any){
 }
 
 
+
+obtenerMedico(){
+  console.log(this.elementoMedicos);
+  this.medico_id = this.elementoMedicos['id'];
+  this.loading = false;
+  
+}
+
+
+getMedicosFacturan(){
+  this.loading = true;  
+  try {
+    this.medicoService.getItems()
+    .subscribe(resp => {      
+      resp.forEach(element => {
+        element.apellido = element.apellido + ' '+ element.nombre;
+        });
+        this.elementosMedicos = resp;
+        this.loading = false;        
+        console.log( this.elementosMedicos);
+        this.elementoMedicos = this.elementosMedicos['0'];
+        console.log(this.elementoMedicos['id']);
+      this.medico_id = this.elementoMedicos['id'];
+      
+    },
+    error => { // error path
+      this.loading = false;
+     
+        console.log(error.message);
+        console.log(error.status);
+        swal({
+          toast: false,
+          type: 'error',
+          text: error.message,
+          title: 'error.status',
+          showConfirmButton: false,
+          timer: 2000
+        });
+     });    
+} catch (error) {
+
+}  
+}
+
+
 verDetalle(agendaTurno:any){
 
   console.log(agendaTurno);
@@ -135,7 +233,7 @@ verDetalle(agendaTurno:any){
 
 public exportarExcel(){
   const fecha_impresion = formatDate(new Date(), 'dd-MM-yyyy-mm', 'es-Ar');  
-  for(let i=0; i<this.selecteditems.length; i++){
+ /*  for(let i=0; i<this.selecteditems.length; i++){
     this.distribucionMedico = new DistribucionMedico(
       this.selecteditems[i]['obra_social_nombre'],
       this.selecteditems[i]['medico_opera'],
@@ -158,78 +256,325 @@ public exportarExcel(){
       this.selecteditems[i]['dni']);
       this.distribucionMedicos.push(this.distribucionMedico);
 
-  }
+  } */
+
+  this.elementos.forEach(element => {
+    if ((element.medico_opera === this.elementoMedicos.apellido ) ||  (element.medico_ayuda === this.elementoMedicos.apellido ) ||  (element.medico_ayuda2 === this.elementoMedicos.apellido ) || (element.medico_clinica === this.elementoMedicos.apellido )) { 
+      this.distribucionMedico = new DistribucionMedico(
+        element['obra_social_nombre'],
+        element['medico_opera'],
+        element['medico_opera_porcentaje'],
+        element['medico_opera_valor'],
+        element['medico_ayuda'],
+        element['medico_ayuda_porcentaje'],
+        element['medico_ayuda_valor'],
+        element['medico_ayuda2'],
+        element['medico_ayuda2_porcentaje'],
+        element['medico_ayuda2_valor'],
+        element['medico_clinica'],
+        element['medico_clinica_porcentaje'],
+        element['medico_clinica_valor'],
+        element['valor_distribuido'],
+        element['total'],
+        element['fecha_cobro'],
+        element['operacion_cobro_id'],
+        element['paciente_apellido'],
+        element['dni']);
+        this.distribucionMedicos.push(element);
+    }
+  });
   this.liquidacionService.exportAsExcelFile(  this.distribucionMedicos, 'listado_presentacion'+fecha_impresion);
+  this.distribucionMedicos = [];
 }
 
 
-generarPdfListado(elemento) {
+generarPdfListado() {
 
+  let selectedImpresion: any[] = [];
   let _fechaEmision = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'en');
   let rounded:string;
   let total_facturado:number = 0;
   let total_iva:number = 0;
-  let total_cantidad:number = 0;
-  let total_sin_iva:number = 0;
-  let total_cantidad_impresion:string = '';
-  let fecha_impresion = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');  
+  let _total_opera = 0;
+  let _total_ayuda = 0;
+  let _total_ayuda2 = 0;
+  let _total_clinica = 0;
+  let _total_a_pagar = 0;
+  let total_cantidad_impresion:string = '';  
   let i = 0;
-  let userData = JSON.parse(localStorage.getItem('userData'));
-  
-  console.log(elemento);
+  const userData = JSON.parse(localStorage.getItem('userData'));
+  console.log(this.config.data.consulta);
 
-  
-  if(this.selecteditems){
+/* -------------------------------------------------------------------------- */
+/*                  SI ES DETALLE ENTREGA OTRA CONFIGURACION                  */
+/* -------------------------------------------------------------------------- */
+
+if (this.config.data.consulta === 'detalle') {
+  if (this.checked) {
+    console.log(this.elementoMedicos);
+
+/* -------------------------------------------------------------------------- */
+/*                            CONFECCIONO LAS FILAS                           */
+/* -------------------------------------------------------------------------- */
+
+    console.log(selectedImpresion);
+    let _operacion_cobro_id = 0;
+    let esPrimero = true;
+
+    this.elementos.forEach(elem => {
+      try {
+        elem.fecha_cobro = formatDate( elem.fecha_cobro, 'dd/MM/yyyy', 'en');
+      } catch (error) {
+        
+      }
+      
+      // tslint:disable-next-line: max-line-length
+      if ((elem.medico_opera === this.elementoMedicos.apellido ) ||  (elem.medico_ayuda === this.elementoMedicos.apellido ) ||  (elem.medico_ayuda2 === this.elementoMedicos.apellido ) || (elem.medico_clinica === this.elementoMedicos.apellido )) {
+
+        if (esPrimero) {
+
+          esPrimero = false;
+          _operacion_cobro_id =  elem.operacion_cobro_id ;
+
+        } else {
+          console.log('arreglo '+ elem.operacion_cobro_id );
+          console.log('variable '+_operacion_cobro_id);
+          if (elem.operacion_cobro_id === _operacion_cobro_id) {
+            elem.medico_opera =  '';
+            elem.medico_opera_porcentaje =  '';
+            elem.medico_opera_valor =  '';
+            elem.medico_ayuda =  '';
+            elem.medico_ayuda_porcentaje =  '';
+            elem.medico_ayuda_valor =  '';
+            elem.medico_ayuda2 =  '';
+            elem.medico_ayuda2_porcentaje =  '';
+            elem.medico_ayuda2_valor =  '';
+            elem.medico_clinica =  '';
+            elem.medico_clinica_porcentaje =  '';
+            elem.medico_clinica_valor =  '';
+            elem.valor_distribuido =  '';
+            // si es primero lo cancelo
+        } else {
+            if (esPrimero) {
+              esPrimero = true;
+            }
+          _operacion_cobro_id =  elem.operacion_cobro_id ;
+
+        }
+
+        }
+
+        
+
+
+        selectedImpresion.push(elem);
+      }
+      if (elem.medico_opera === this.elementoMedicos.apellido ) {
+        _total_opera = _total_opera + Number(elem.medico_opera_valor);
+      }
+
+      if (elem.medico_ayuda === this.elementoMedicos.apellido ) {
+        _total_ayuda = _total_ayuda + Number(elem.medico_ayuda_valor);
+      }
+
+      if (elem.medico_ayuda2 === this.elementoMedicos.apellido ) {
+        _total_ayuda2 = _total_ayuda2 + Number(elem.medico_ayuda2_valor);
+      }
+
+      if (elem.medico_clinica === this.elementoMedicos.apellido ) {
+        _total_clinica = _total_clinica + Number(elem.medico_clinica_valor);
+      }
+
+      
+
+    });
+  } else {
+    selectedImpresion = this.selecteditems;
+  }
+
+  //  USO SELECTED IMPRESION PARA PODER DECIDIR QUE ACCION TOMAR
+  if(selectedImpresion){
   var doc = new jsPDF('l');
-  
   const pageSize = doc.internal.pageSize;
   const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
 doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
   doc.setLineWidth(0.4);
-  doc.setFontSize(9);
- 
-  doc.setFontSize(6);  
+  doc.setFontSize(10);
+  doc.text('DISTRIBUCION A ' +this.elementoMedicos.apellido, pageWidth/2, 10, null, null, 'center');
   doc.line(60, 13, pageWidth - 15, 13);
   doc.setFontSize(7);
+  selectedImpresion.forEach(element => {
+    if(element.medico_opera === null) {
+      selectedImpresion[i].medico_opera = '';
+    }
+    if (element.medico_ayuda === null) {
+      selectedImpresion[i].medico_ayuda = '';
+    }
+    if (element.medico_ayuda2 === null) {
+      selectedImpresion[i].medico_ayuda2 = '';
+    }
+    if (element.medico_clinica === null) {
+      selectedImpresion[i].medico_clinica = '';
+    }
+    i++;
+  });
+  doc.setFontSize(8);
+  doc.autoTable(this.columns_detalle, selectedImpresion,
+    {
+        margin: {top: 25, right: 5,bottom:5, left: 5},
+        bodyStyles: {valign: 'top'},
+        showHead: 'firstPage',
+        styles: {fontSize: 5,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
+        columnStyles: {text: {cellWidth: 'auto'}}
+    });
+
+    doc.setFontSize(8);
+    let pageNumber = doc.internal.getNumberOfPages();
+    const totalPagesExp = '{total_pages_count_string}';
+
+    if (typeof doc.putTotalPages === 'function') {
+      doc.putTotalPages(totalPagesExp);
+    }
+ 
+  doc.setFontSize(8);
+  let finalY = doc.autoTable.previous.finalY;
+  doc.line(15, finalY + 3, pageWidth - 15, finalY + 3 );
+  doc.text(15, finalY + 8,  'TOTAL OPERA : ' + this.cp.transform(_total_opera, '', 'symbol-narrow', '1.2-2'));
+  doc.text(65, finalY + 8, 'TOTAL AYUDA : ' +  this.cp.transform(_total_ayuda, '', 'symbol-narrow', '1.2-2'));
+  doc.text(115, finalY + 8, 'TOTAL AYUDA 2 : ' + this.cp.transform(_total_ayuda2, '', 'symbol-narrow', '1.2-2'));
+  doc.text(165, finalY + 8, 'TOTAL CLINICA : ' + this.cp.transform(_total_clinica, '', 'symbol-narrow', '1.2-2')); 
+  doc.text(pageWidth - 50, finalY + 8, 'TOTAL A PAGAR : ' + this.cp.transform( (_total_opera + _total_ayuda + _total_ayuda2 + _total_clinica), '', 'symbol-narrow', '1.2-2'));
+  
 
   
 
- 
-  doc.setFontSize(8);
-  //doc.line(15, 35, pageWidth - 15, 35);
-  let pageNumber = doc.internal.getNumberOfPages();
-  doc.autoTable(this.columns, elemento,
-    {
-        margin: {top: 38, right: 5,bottom:5, left: 5},
-        bodyStyles: {valign: 'top'},
-        showHead: 'firstPage',
-        styles: {fontSize: 6,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
-        columnStyles: {text: {cellWidth: 'auto'}}
-    });
-   
-    doc.setFontSize(8);
-    let finalY = doc.autoTable.previous.finalY;
-    doc.line(15, finalY+3, pageWidth - 15, finalY+3);
-   
- 
-    
-  const totalPagesExp = '{total_pages_count_string}';
-  console.log(doc.putTotalPages);
-  const footer = function(data) {
-    let str = 'Page ' + data.pageCount;
-    // Total page number plugin only available in jspdf v1.0+
-    if (typeof doc.putTotalPages === 'function') {
-      str = str + ' of ' + totalPagesExp;
-      console.log('test');
-    }
-    doc.text(str, data.settings.margin.left, doc.internal.pageSize.height - 30);
-  };
-    window.open(doc.output('bloburl'));
- 
+console.log(doc.putTotalPages);
+const footer = function(data) {
+  let str = 'Page ' + data.pageCount;
+  // Total page number plugin only available in jspdf v1.0+
+  if (typeof doc.putTotalPages === 'function') {
+    str = str + ' of ' + totalPagesExp;
+    console.log('test');
   }
+  doc.text(str, data.settings.margin.left, doc.internal.pageSize.height - 30);
+};
+  window.open(doc.output('bloburl'));
 }
 
-realizarFiltroBusqueda(resp: any[]){
+} else {
+
+  if (this.checked) {
+    console.log(this.elementoMedicos);
+    //console.log(this.elementos);
+    //selectedImpresion = this.elementos;
+    console.log(selectedImpresion);
+    this.elementos.forEach(element => {
+      try {
+        element.fecha_cobro = formatDate( element.fecha_cobro, 'dd/MM/yyyy', 'en');
+      } catch (error) {
+        
+      }
+      if ((element.medico_opera === this.elementoMedicos.apellido ) ||  (element.medico_ayuda === this.elementoMedicos.apellido ) ||  (element.medico_ayuda2 === this.elementoMedicos.apellido ) || (element.medico_clinica === this.elementoMedicos.apellido )) { 
+        selectedImpresion.push(element);
+      }
+      if (element.medico_opera === this.elementoMedicos.apellido ) {
+        _total_opera = _total_opera + Number(element.medico_opera_valor);
+      }
+
+      if (element.medico_ayuda === this.elementoMedicos.apellido ) {
+        _total_ayuda = _total_ayuda + Number(element.medico_ayuda_valor);
+      }
+
+      if (element.medico_ayuda2 === this.elementoMedicos.apellido ) {
+        _total_ayuda2 = _total_ayuda2 + Number(element.medico_ayuda2_valor);
+      }
+
+      if (element.medico_clinica === this.elementoMedicos.apellido ) {
+        _total_clinica = _total_clinica + Number(element.medico_clinica_valor);
+      }
+
+      
+
+    });
+  } else {
+    selectedImpresion = this.selecteditems;
+  }
+
+  //  USO SELECTED IMPRESION PARA PODER DECIDIR QUE ACCION TOMAR
+  if(selectedImpresion){
+  var doc = new jsPDF('l');
+  const pageSize = doc.internal.pageSize;
+  const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
+  doc.setLineWidth(0.4);
+  doc.setFontSize(10);
+  doc.text('DISTRIBUCION A ' +this.elementoMedicos.apellido, pageWidth/2, 10, null, null, 'center');
+  doc.line(60, 13, pageWidth - 15, 13);
+  doc.setFontSize(7);
+  selectedImpresion.forEach(element => {
+    if(element.medico_opera === null) {
+      selectedImpresion[i].medico_opera = '';
+    }
+    if (element.medico_ayuda === null) {
+      selectedImpresion[i].medico_ayuda = '';
+    }
+    if (element.medico_ayuda2 === null) {
+      selectedImpresion[i].medico_ayuda2 = '';
+    }
+    if (element.medico_clinica === null) {
+      selectedImpresion[i].medico_clinica = '';
+    }
+    i++;
+  });
+  doc.setFontSize(8);
+  doc.autoTable(this.columns, selectedImpresion,
+    {
+        margin: {top: 25, right: 5,bottom:5, left: 5},
+        bodyStyles: {valign: 'top'},
+        showHead: 'firstPage',
+        styles: {fontSize: 5,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
+        columnStyles: {text: {cellWidth: 'auto'}}
+    });
+
+    doc.setFontSize(8);
+    let pageNumber = doc.internal.getNumberOfPages();
+    const totalPagesExp = '{total_pages_count_string}';
+
+    if (typeof doc.putTotalPages === 'function') {
+      doc.putTotalPages(totalPagesExp);
+    }
+ 
+  doc.setFontSize(8);
+  let finalY = doc.autoTable.previous.finalY;
+  doc.line(15, finalY + 3, pageWidth - 15, finalY + 3 );
+  doc.text(15, finalY + 8,  'TOTAL OPERA : ' + this.cp.transform(_total_opera, '', 'symbol-narrow', '1.2-2'));
+  doc.text(65, finalY + 8, 'TOTAL AYUDA : ' +  this.cp.transform(_total_ayuda, '', 'symbol-narrow', '1.2-2'));
+  doc.text(115, finalY + 8, 'TOTAL AYUDA 2 : ' + this.cp.transform(_total_ayuda2, '', 'symbol-narrow', '1.2-2'));
+  doc.text(165, finalY + 8, 'TOTAL CLINICA : ' + this.cp.transform(_total_clinica, '', 'symbol-narrow', '1.2-2')); 
+  doc.text(pageWidth - 50, finalY + 8, 'TOTAL A PAGAR : ' + this.cp.transform( (_total_opera + _total_ayuda + _total_ayuda2 + _total_clinica), '', 'symbol-narrow', '1.2-2'));
+  
+
+  
+
+console.log(doc.putTotalPages);
+const footer = function(data) {
+  let str = 'Page ' + data.pageCount;
+  // Total page number plugin only available in jspdf v1.0+
+  if (typeof doc.putTotalPages === 'function') {
+    str = str + ' of ' + totalPagesExp;
+    console.log('test');
+  }
+  doc.text(str, data.settings.margin.left, doc.internal.pageSize.height - 30);
+};
+  window.open(doc.output('bloburl'));
+}
+
+}
+selectedImpresion = [];
+
+}
+
+realizarFiltroBusqueda(resp: any[]) {
   // FILTRO LOS ELEMENTOS QUE SE VAN USAR PARA FILTRAR LA LISTA
   this._obra_social_nombre = [];
   this._medico_opera = [];
@@ -250,7 +595,7 @@ realizarFiltroBusqueda(resp: any[]){
   this._medico_ayuda = this.filter.filterArray(this._medico_ayuda);
   this._medico_ayuda2 = this.filter.filterArray(this._medico_ayuda2);
   
-
+  
 }
 }
 

@@ -78,6 +78,11 @@ getLiquidacionDetalle(estado:string){
     liquidarOperacionCobro(selected:LiquidacionDistribucion){
     return this.http.post<any[]>(URL_SERVICIOS+"distribucion/operacion/cobro/medico",selected);
     } 
+
+    liquidarOperacionCobroActualizar(selected:LiquidacionDistribucion){
+      console.log(selected);
+      return this.http.put<any[]>(URL_SERVICIOS+"distribucion/operacion/cobro/medico/actualizar/"+selected.id,selected);
+      } 
  
     DistribuirOperacionCobro(liquidacion:Liquidacion[]){  
       return this.http.post<any>(URL_SERVICIOS+'operacioncobro/distribuir/orden',liquidacion);
@@ -87,8 +92,16 @@ getLiquidacionDetalle(estado:string){
       return this.http.post<any>(URL_SERVICIOS+'operacioncobro/distribucion/expediente',liquidacion);
       }
 
+      GetDistribucionByNumero(id: string){  
+      return this.http.get<any>(URL_SERVICIOS+'operacioncobro/distribucion/numero?id=' + id);
+      }
+   
       GetDistribucionByMedico(liquidacion:Liquidacion[]){  
         return this.http.post<any>(URL_SERVICIOS+'operacioncobro/distribucion/medico', liquidacion);
+        }
+      
+      GetDistribucionByMedicoDetalle(liquidacion:Liquidacion[]){  
+        return this.http.post<any>(URL_SERVICIOS+'operacioncobro/distribucion/medico/detalle', liquidacion);
         }
   
         clonarLiquidacion(liquidacion: Liquidacion[]) {

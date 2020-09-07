@@ -1,10 +1,15 @@
-
+<p-progressSpinner class="d-flex justify-content-center" *ngIf="loading" [style]="{width: '32px', height: '32px'}" strokeWidth="6" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
   <p-table  #dt class="pt-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"  columnResizeMode="expand" [responsive]="true" [(selection)]="selecteditems"
   scrollHeight="600px" [scrollable]="true"  (onFilter)="filtered($event)"  >
   <ng-template pTemplate="caption">
     <div class="row">
+        <label class=" mr-2 mt-1"> Listar por médico</label>
+        <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+        <label class=" ml-2 mt-1">Médico - Clínica:</label>
+        <p-dropdown class="mr-2 " [disabled] = "!checked"  [options]="elementosMedicos" [(ngModel)]="elementoMedicos"  optionLabel="apellido"  (onHide)="obtenerMedico()" placeholder="Medico / Clínica"></p-dropdown>  
+        
             <div class="col-md-12 row" style="text-align:left ">             
-             <div class="pr-2 pl-2">   <button    class="btn  btn-info btn-sm   "  (click)="generarPdfListado('todos')" >Imprimir resumen</button></div>
+             <div class="pr-2 pl-2">   <button    class="btn  btn-info btn-sm   "  (click)="generarPdfListado()" >Imprimir resumen</button></div>
              <div>  <button    class="ml-2  btn  btn-excel btn-sm float-right "  (click)="exportarExcel()" > <i class="fa fa-file-excel-o  mr-1" aria-hidden="true"> </i> Exportar a excel</button></div> 
                
              <hr width="1" size="50">
@@ -27,8 +32,11 @@
                           </th>
                       </tr> 
                       <tr>
-                      <th *ngFor="let col of columns" [ngSwitch]="col.field"  >
-                         <p-multiSelect [style]="{'height':'28px', 'width': '100%', 'font-size': '10px'}" [options]="_obra_social_nombre" appendTo="body" defaultLabel="Filtrar"	 *ngIf='col.field =="obra_social_nombre"' (onChange)="dt.filter($event.value,col.field,'in')"></p-multiSelect>                          
+                      <th *ngFor="let col of columns" [ngSwitch]="col.field"  > 
+                        <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'operacion_cobro_id'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <p-multiSelect [style]="{'height':'28px', 'width': '100%', 'font-size': '10px'}" [options]="_obra_social_nombre" appendTo="body" defaultLabel="Filtrar"	 *ngIf='col.field =="obra_social_nombre"' (onChange)="dt.filter($event.value,col.field,'in')"></p-multiSelect>                          
+                         <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'paciente_apellido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                         <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'dni'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
                            <p-multiSelect [style]="{'height':'28px', 'width': '100%', 'font-size': '10px'}" [options]="_medico_opera" appendTo="body" defaultLabel="Filtrar"	 *ngIf='col.field =="medico_opera"' (onChange)="dt.filter($event.value,col.field,'in')"></p-multiSelect>                                                    
                           <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'medico_opera_valor'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
                           <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'medico_opera_porcentaje'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
@@ -56,7 +64,7 @@
                   <td style="width: 20%">{{elementos.obra_social_nombre}}</td>                  
                   <td style="width: 15%">{{elementos.paciente_apellido}}</td>
                   <td style="width: 8%">{{elementos.dni}}</td>
-                  <td style="width: 10%">{{elementos.fecha_cobro | date :'dd/MM/yyyy'}}</td>
+                  <td style="width: 10%">{{elementos.fecha_cobro }}</td>
 
                   <td style="width: 15%">{{elementos.medico_opera}}</td>
                   <td style="width: 10%">{{elementos.medico_opera_valor}}</td>

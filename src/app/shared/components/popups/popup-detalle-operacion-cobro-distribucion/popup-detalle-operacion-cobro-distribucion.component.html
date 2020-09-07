@@ -75,7 +75,7 @@
           </div>
         </div>
       </div>
-      <div class=" col-2 mt-1">          <label class="mr-2">CLínica : </label></div>
+      <div class=" col-2 mt-1">          <label class="mr-2">Clínica : </label></div>
       <div class=" col-6">
           <p-autoComplete  [suggestions]="filteredItemsClinica" forceSelection="true" (completeMethod)="filterItemsClinica($event)" [size]="35"
             [minLength]="1" placeholder="Escriba para filtrar" [dropdown]="true"  [style]="{'width':'350px'}" (onSelect)="seleccionadoClinica($event)"
@@ -116,4 +116,4 @@
 <hr>
 <h5 class="text-info">TOTAL A DISTRIBUIR {{TOTAL_DISTRIBUCION|  number : '1.2-2' }}</h5>
 
-<div><button    class="btn  btn-success btn-sm "  (click)="guardarDistribucion()" >Guardar distribución</button></div>  
+<div><button    class="btn  btn-success btn-md btn-block"  (click)="guardarDistribucion()" >Guardar distribución</button></div>  

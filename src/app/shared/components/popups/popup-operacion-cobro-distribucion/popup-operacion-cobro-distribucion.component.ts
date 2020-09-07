@@ -482,7 +482,7 @@ verRegistro(){
   console.log(this.selecteditems);
   console.log(this.selecteditemRegistro);
   let data:any; 
-  data = this.selecteditems;
+  data = this.selecteditemRegistro;
   const ref = this.dialogService.open(PopupDetalleOperacionCobroDistribucionComponent, {
   data,
    header: 'Agregar distribución a práctica', 
