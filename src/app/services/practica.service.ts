@@ -88,6 +88,9 @@ getOperacionCobroRegistrosBetweenDatesAndMedico(fecha_desde:string,fecha_hasta:s
     return this.http.get<OperacionCobroDetalle[]>(this.URL_OPERACION_COBRO+'registros/by/liquidacion/numero?id='+id);
     } 
 
+    getOperacionCobroRegistrosByLiquidacionNumeroMultiple(selected: any){      
+      return this.http.post<any[]>(this.URL_OPERACION_COBRO+'registros/by/liquidacion/numero/multiple', selected);
+      } 
   getOperacionCobroByConsulta(consulta:string,valor:string){
     console.log(this.URL_OPERACION_COBRO+'consulta?consulta='+consulta+'&valor='+valor);
     return this.http.get<OperacionCobroDetalle[]>(this.URL_OPERACION_COBRO+'consulta/varios?consulta='+consulta+'&valor='+valor);

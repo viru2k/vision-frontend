@@ -30,6 +30,7 @@ import { PopupPresentacionEditarComponent } from '../../../../../shared/componen
 //import { ExcelService } from '../../../../../services/excel.service';
 import { PopupDetalleOperacionCobroDistribucionComponent } from '../../../../../shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component';
 import { PopupOperacionCobroDistribucionComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component';
+import { PopupOperacionCobroDistribucionMultipleComponentComponent } from './../../../../../shared/popups/popup-operacion-cobro-distribucion-multiple-component/popup-operacion-cobro-distribucion-multiple-component.component';
 
 
 @Component({
@@ -287,6 +288,26 @@ this.DateForm = new FormGroup({
           }
       });
     }
+
+
+    verDetalleTodos(){
+
+      let data:any; 
+      data =  this.selecteditems;
+      const ref = this.dialogService.open(PopupOperacionCobroDistribucionMultipleComponentComponent, {
+      data,
+       header: 'Ver detalle para distribuir', 
+       width: '98%',
+       height: '100%'
+      });
+  
+      ref.onClose.subscribe((PopupOperacionCobroDistribucionMultipleComponentComponent : any) => {
+          if (PopupOperacionCobroDistribucionMultipleComponentComponent) {
+            console.log(PopupOperacionCobroDistribucionMultipleComponentComponent);
+          }
+      });
+    }
+
 
 
   loadlist(){

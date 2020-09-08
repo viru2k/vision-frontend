@@ -32,6 +32,7 @@ import { PopupOperacionCobroDistribucionComponent } from '../../../../shared/com
 import { MedicoObraSocial } from 'src/app/models/medico-obrasocial.model';
 import { PopupMedicoComponent } from './../../../../shared/components/popups/popup-medico/popup-medico.component';
 import { PopupOperacionCobroDistribucionDetalleComponent } from '../../../../shared/components/popups/popup-operacion-cobro-distribucion-detalle/popup-operacion-cobro-distribucion-detalle.component';
+import { PopupOperacionCobroDistribucionMultipleComponentComponent } from './../../../../shared/popups/popup-operacion-cobro-distribucion-multiple-component/popup-operacion-cobro-distribucion-multiple-component.component';
 
 
 
@@ -314,6 +315,25 @@ for(i=0;i<vals.length;i++) {
       });
     }
 
+
+
+    verDetalleTodos(){
+
+      let data: any; 
+      data =  this.selecteditems;
+      const ref = this.dialogService.open(PopupOperacionCobroDistribucionMultipleComponentComponent, {
+      data,
+       header: 'Ver detalle para distribuir', 
+       width: '98%',
+       height: '100%'
+      });
+  
+      ref.onClose.subscribe((PopupOperacionCobroDistribucionMultipleComponentComponent : any) => {
+          if (PopupOperacionCobroDistribucionMultipleComponentComponent) {
+            console.log(PopupOperacionCobroDistribucionMultipleComponentComponent);
+          }
+      });
+    }
 
 
     

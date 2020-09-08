@@ -297,9 +297,12 @@ import { InsumoStockComponent } from './pages/insumo/insumo-stock/insumo-stock.c
 import { StockInsumoEditarComponent } from './pages/mantenimiento/stock/insumo/stock-insumo-editar/stock-insumo-editar.component';
 import { InsumoStockAgregarComponent } from './pages/insumo/insumo-stock/insumo-stock-agregar/insumo-stock-agregar.component';
 
+// tslint:disable-next-line: max-line-length
 import { PopupInsumoMovimientoDetalleComponent } from './pages/insumo/popups/popup-insumo-movimiento-detalle/popup-insumo-movimiento-detalle.component';
 import { PopupInsumoAsociarComponent } from './pages/insumo/popups/popup-insumo-asociar/popup-insumo-asociar.component';
 import { PopupInsumoConsultaComponent } from './pages/insumo/popups/popup-insumo-consulta/popup-insumo-consulta.component';
+// tslint:disable-next-line: max-line-length
+import { PopupOperacionCobroDistribucionMultipleComponentComponent } from './shared/popups/popup-operacion-cobro-distribucion-multiple-component/popup-operacion-cobro-distribucion-multiple-component.component';
 
 
 
@@ -464,7 +467,8 @@ registerLocaleData(localeEsAR, 'es-Ar');
     InsumoStockAgregarComponent,
     PopupInsumoMovimientoDetalleComponent,
     PopupInsumoAsociarComponent,
-    PopupInsumoConsultaComponent
+    PopupInsumoConsultaComponent,
+    PopupOperacionCobroDistribucionMultipleComponentComponent
 
   ],
   imports: [
@@ -504,9 +508,9 @@ registerLocaleData(localeEsAR, 'es-Ar');
     Ng2SearchPipeModule,
     SweetAlert2Module.forRoot(),
     AutofocusModule,
-   
+
       RouterModule.forRoot( ROUTES, { useHash: true } ),
-      SocketIoModule.forRoot(config),	  
+      SocketIoModule.forRoot(config),
       NgxPopper,
       ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
@@ -534,7 +538,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupChatComponent ,   PopupListadoUsuarioComponent, PopupNotificacionNuevaComponent,
     PopupFacturaRenglonComponent, BuscarConceptoFacturaComponent, PopupOperacionCobroDistribucionDetalleComponent,
     PopupLiquidacionDetalleComponent, PopupArticuloComponent, PopupOperacionCobroEditarDistribucionComponent,
-    PopupPacienteComponent, ListadoCirugiaComponent, PopupArticuloComponent,
+    PopupPacienteComponent, ListadoCirugiaComponent, PopupArticuloComponent, PopupOperacionCobroDistribucionMultipleComponentComponent,
 
 /* -------------------------------------------------------------------------- */
 /*                                    CHAT                                    */

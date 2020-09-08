@@ -337,8 +337,7 @@ if (this.config.data.consulta === 'detalle') {
           _operacion_cobro_id =  elem.operacion_cobro_id ;
 
         } else {
-          console.log('arreglo '+ elem.operacion_cobro_id );
-          console.log('variable '+_operacion_cobro_id);
+        
           if (elem.operacion_cobro_id === _operacion_cobro_id) {
             elem.medico_opera =  '';
             elem.medico_opera_porcentaje =  '';
