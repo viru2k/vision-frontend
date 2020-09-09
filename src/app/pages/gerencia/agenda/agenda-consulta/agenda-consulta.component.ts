@@ -277,6 +277,36 @@ if (this.selecteditems.length >0) {
 
 }
 
+
+public exportarExcelDetallado(){
+  const fecha_impresion = formatDate(new Date(), 'dd-MM-yyyy-mm', 'es-Ar');  
+  let seleccionados: any[] = [];
+  let exportar:any[] = [];
+  let i = 0;
+  this.selecteditems.forEach(element => {
+   // console.log(element['operacion_cobro_id']);
+    seleccionados['operacion_cobro_id'] = element['operacion_cobro_id'];
+    seleccionados['fecha_cobro'] = element['fecha_turno'] ;
+    seleccionados['apellido'] = element.paciente_apellido;
+    seleccionados['nombre'] = element.paciente_nombre;
+    seleccionados['dni'] = element.paciente_dni;
+    seleccionados['obra_social_nombre'] = element['paciente_obra_social_nombre'] ;
+    seleccionados['descripcion'] = '';
+    seleccionados['medico_nombre'] = element['nombreyapellido'];
+    seleccionados['forma_pago'] = '';
+    seleccionados['cantidad'] = 1;
+    seleccionados['valor_facturado'] = element['total_operacion_cobro'];
+   // exportar.push(seleccionados);
+   exportar[i] = seleccionados;
+  //  console.log(element);
+   // console.log(seleccionados);
+    seleccionados = [];
+    i++;
+  });
+//  console.log(exportar);
+  this.liquidacionService.exportAsExcelFile(  exportar, 'listado_presentacion_detallado'+fecha_impresion);
+}
+
     
   accion(evt:any,overlaypanel:OverlayPanel,event:AgendaTurno){
     if(event){
