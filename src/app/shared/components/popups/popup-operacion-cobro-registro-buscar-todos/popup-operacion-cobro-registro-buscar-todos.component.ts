@@ -21,6 +21,7 @@ import { logo_clinica,calendarioIdioma } from './../../../../config/config';
 import { PacienteService } from '../../../../services/paciente.service';
 import { Paciente } from './../../../../models/paciente.model';
 import { Filter } from './../../../filter';
+import { PopupOperacionCobroRegistroEditarComponent } from './../popup-operacion-cobro-registro-editar/popup-operacion-cobro-registro-editar.component';
 
 
 @Component({
@@ -77,6 +78,7 @@ export class PopupOperacionCobroRegistroBuscarTodosComponent implements OnInit {
       private cp: CurrencyPipe,public ref: DynamicDialogRef, public config: DynamicDialogConfig, private filter: Filter   ) {
   
           this.cols = [
+            { field: '', header: '',  width: '6%' },
             { field: 'liquidacion_numero', header: 'Liq.',  width: '5%' },
               { field: 'operacion_cobro_id', header: 'Cobro Nº',  width: '5%' },
               { field: 'apellido', header: 'Apellido',  width: '10%' },
@@ -234,6 +236,33 @@ operacionCobro(){
 }  
   
 }
+
+editarRegistro(element){
+  let data:any; 
+  data = element;
+  const ref = this.dialogService.open(PopupOperacionCobroRegistroEditarComponent, {
+  data,
+   header: 'Editar registro',
+   width: '98%',
+   height: '90%'
+  });
+
+
+  
+
+  ref.onClose.subscribe((PopupOperacionCobroRegistroEditarComponent:OperacionCobroDetalle) => {
+    this.loadList();
+      if (PopupOperacionCobroRegistroEditarComponent) {
+        console.log(PopupOperacionCobroRegistroEditarComponent);
+        this.popItemOperacionCobro = PopupOperacionCobroRegistroEditarComponent;
+       
+      //  this.formObraSocial.patchValue({id: this.popItemObraSocial.id});
+       // this.formObraSocial.patchValue({nombre: this.popItemObraSocial.nombre});
+       
+      }
+  });
+}
+
 
 
 filtered(event){

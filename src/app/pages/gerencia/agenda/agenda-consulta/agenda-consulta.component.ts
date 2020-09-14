@@ -25,6 +25,8 @@ import { Subscription } from 'rxjs';
 import { LiquidacionService } from '../../../../services/liquidacion.service';
 import { Table } from 'primeng/table';
 import { Filter } from './../../../../shared/filter';
+import { Liquidacion } from './../../../../models/liquidacion.model';
+import { PopupOperacionCobroDetalleComponent } from './../../../../shared/components/popups/popup-operacion-cobro-detalle/popup-operacion-cobro-detalle.component';
 
 
 @Component({
@@ -555,6 +557,27 @@ if(this._fechaHoy!=''){
 
 
 
+verDetalle(agendaTurno:any){
+
+  console.log(agendaTurno);
+  let liquidacion:Liquidacion;
+  liquidacion = new Liquidacion(agendaTurno['operacion_cobro_id'],'','','','','','',0,0,'','',[],'','','',0);
+  let data:any; 
+  data = liquidacion;
+  const ref = this.dialogService.open(PopupOperacionCobroDetalleComponent, {
+  data,
+   header: 'Ver detalle de presentación', 
+   width: '98%',
+   height: '100%'
+  });
+  
+  ref.onClose.subscribe((PopupOperacionCobroDetalleComponent:any) => {
+     
+  });
+  
+  }
+
+
 generarPdf(){
   
   let _fechaEmision = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'en');
@@ -667,6 +690,8 @@ console.log(this.elementosFiltrados);
   }
  
 }
+
+
 
 realizarFiltroBusqueda(resp: any[]){
         // FILTRO LOS ELEMENTOS QUE SE VAN USAR PARA FILTRAR LA LISTA

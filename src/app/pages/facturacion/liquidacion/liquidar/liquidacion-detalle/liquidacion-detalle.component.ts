@@ -47,6 +47,7 @@ export class LiquidacionDetalleComponent implements OnInit {
   columns: any[];
   columnsListadoMedico: any[];
   columnsListadoTodos: any[];
+  columnsListadoTodosCategoria: any[];
   columnsListadoCirugiaTodos: any[];
   loading: boolean;
   resultSave:boolean;
@@ -86,6 +87,7 @@ export class LiquidacionDetalleComponent implements OnInit {
       {name: 'Presentación medico ACLISA', code: '3'},        
       {name: 'Presentación DOS Cirugia', code: '4'},        
       {name: 'Presentación COSEGURO Cirugia', code: '10'},  
+      {name: 'Presentación COSEGURO Cirugia-Resumen', code: '11'},  
       {name: 'Presentación con IVA', code: '5'},
       {name: 'Exportar Excel', code: '6'},
      // {name: 'Txt práctica y estudios DOS', code: '7'},
@@ -144,6 +146,21 @@ this.columnsListadoTodos = [
   {title: 'Cant', dataKey: 'cantidad'},
   
   {title: 'Honorario', dataKey: 'valor_facturado'},
+  {title: 'Matricula', dataKey: 'matricula'},
+  {title: 'Médico', dataKey: 'medico_nombre'}
+  
+];
+
+this.columnsListadoTodosCategoria = [
+  {title: 'Paciente', dataKey: 'paciente_nombre'},  
+  {title: 'Num. afiliado', dataKey: 'numero_afiliado'},
+  {title: 'Código', dataKey: 'codigo'},
+  {title: 'Descripción', dataKey: 'descripcion'},
+  {title: 'Fecha', dataKey: 'fecha_cobro'},
+  {title: 'Cant', dataKey: 'cantidad'},
+  {title: 'Categoria', dataKey: 'categorizacion'},
+  {title: 'Honorario', dataKey: 'valor_facturado'},
+  {title: 'Total', dataKey: 'total_con_categoria'}, 
   {title: 'Matricula', dataKey: 'matricula'},
   {title: 'Médico', dataKey: 'medico_nombre'}
   
@@ -251,6 +268,10 @@ this.DateForm = new FormGroup({
     }
     if( this.selectedImpresion['code'] === '10'){
       this.loadPresentacionCirugiaCoseguroTodos();
+    }
+
+    if( this.selectedImpresion['code'] === '11'){
+      this.loadPresentacionCirugiaCoseguroTodosResumen();
     }
   }
 
@@ -391,7 +412,7 @@ clonarDistribucion() {
 }
 
 
-loadPresentacionTodos(){
+loadPresentacionCirugiaCoseguroTodosResumen(){
 
   this.loading = true;
 
@@ -400,8 +421,8 @@ loadPresentacionTodos(){
       .subscribe(resp => {
         let i:number = 0;
         let resultado = resp;
-        resultado.forEach(element => {
-          
+        resultado.forEach(element => { 
+          resp[i]['total_con_categoria'] = this.cp.transform(Number(element['valor_facturado']) + Number(element['categorizacion']), '', 'symbol-narrow', '1.2-2'); 
           resp[i]['fecha_cobro'] = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
       //    let t = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
           console.log(resp[i]['fecha_cobro']);
@@ -409,7 +430,7 @@ loadPresentacionTodos(){
         });
           this.elementosPreFactura = resp;
          console.log(this.elementosPreFactura);
-          this.generarPdfListadoTodos();
+          this.generarPdfListadoTodosConCategoria();
           this.loading = false;
           console.log(resp);
       },
@@ -487,6 +508,41 @@ loadPresentacionCirugiaCoseguroTodos(){
           this.elementosPreFactura = resp;
          console.log(this.elementosPreFactura);
           this.generarPdfListadoCirugiaTodos();
+          this.loading = false;
+          console.log(resp);
+      },
+      error => { // error path
+          console.log(error.message);
+          console.log(error.status);
+          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+       });    
+  } catch (error) {
+  this.throwAlert('error','Error al cargar los registros',error,error.status);
+  }  
+}
+
+
+
+
+loadPresentacionTodos(){
+
+  this.loading = true;
+
+  try {
+      this.miServicio.getListadoPreFactura(this.selecteditems)    
+      .subscribe(resp => {
+        let i:number = 0;
+        let resultado = resp;
+        resultado.forEach(element => {
+          
+          resp[i]['fecha_cobro'] = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+      //    let t = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
+          console.log(resp[i]['fecha_cobro']);
+          i++;
+        });
+          this.elementosPreFactura = resp;
+         console.log(this.elementosPreFactura);
+          this.generarPdfListadoTodos();
           this.loading = false;
           console.log(resp);
       },
@@ -1151,6 +1207,114 @@ removeDuplicateUsingSet(arr){
 });
 return unique_array
 }
+
+
+
+generarPdfListadoTodosConCategoria() {
+  let td = formatDate(this.fechaDesde, 'dd/MM/yyyy', 'en');  
+  let th = formatDate(this.fechaHasta, 'dd/MM/yyyy', 'en');
+  let _fechaEmision = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'en');
+  let rounded:string;
+  let total_facturado:number = 0;
+  let total_categoria:number = 0;
+  let total_cantidad:number = 0;
+  let total_cantidad_impresion:string = '';
+  let fecha_impresion = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'es-Ar');  
+  let i = 0;
+  let userData = JSON.parse(localStorage.getItem('userData'));
+
+  for(i=0;i<this.elementosPreFactura.length;i++){
+    
+    total_cantidad = total_cantidad+Number(this.elementosPreFactura[i]['cantidad']);
+    
+    total_facturado =total_facturado+Number(this.elementosPreFactura[i]['valor_facturado']);
+    total_categoria =total_categoria+Number(this.elementosPreFactura[i]['categorizacion']);
+     console.log( this.elementosPreFactura[i]['cantidad']);
+   }
+    total_cantidad_impresion = this.dp.transform(total_cantidad, '1.0-0');
+  if(this.selecteditems){
+  var doc = new jsPDF('l');
+  
+  const pageSize = doc.internal.pageSize;
+  const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
+  doc.setLineWidth(0.4);
+  doc.setFontSize(9);
+  doc.text('Clínica de la Visión', 60, 10, null, null, 'left');
+  doc.setFontSize(6);
+  doc.text('Periodo: '+td+' al '+th, pageSize.width -60, 10, null, null);
+  doc.line(60, 13, pageWidth - 15, 13);
+  doc.setFontSize(7);
+  let nivel_facturacion = this.elementosPreFactura[0]['nivel'].substring(1,2);
+  if(nivel_facturacion=== 'F'){doc.text('FACTURACION', pageWidth-60, 20, null, null, 'left');}
+  if(nivel_facturacion=== 'R'){doc.text('REFACTURACION', pageWidth-60, 20, null, null, 'left');}
+  if(nivel_facturacion=== 'C'){doc.text('COMPLEMENTARIA', pageWidth-60, 20, null, null, 'left');}
+  if(nivel_facturacion=== 'T'){doc.text('TRANSPLANTE', pageWidth-60, 20, null, null, 'left');}
+  doc.text('Emitido : '+_fechaEmision, pageWidth-60, 35, null, null, 'left');
+  doc.setFontSize(9);
+  doc.text('Presentación a Obras Sociales', 60, 20, null, null, 'left');
+  doc.setFontSize(7);
+  doc.text(this.elementosPreFactura[0]['entidad_nombre'], 60, 25, null, null, 'left');
+  doc.text('Obra social: '+this.elementosPreFactura[0]['obra_social_nombre'], 60, 30, null, null, 'left');
+
+ 
+  doc.setFontSize(8);
+  // doc.line(15, 35, pageWidth - 15, 35);
+  const totalPagesExp = '{total_pages_count_string}';
+  let pageNumber = doc.internal.getNumberOfPages();
+  
+  doc.autoTable(this.columnsListadoTodosCategoria, this.elementosPreFactura,
+    {
+        
+        margin: {top: 38, right: 5,bottom:5, left: 5},
+        bodyStyles: {valign: 'top'},
+        showHead: 'always', 
+        rowPageBreak: 'avoid', pageBreak: 'avoid',
+        styles: {fontSize: 5},
+        columnStyles: {text: {cellWidth: 'auto'}},
+        addPageContent: data => {
+          let footerStr = "Pagina " + doc.internal.getNumberOfPages();
+          if (typeof doc.putTotalPages === 'function') {
+            footerStr = footerStr + " de " + totalPagesExp;
+          }
+          doc.setFontSize(10);
+          doc.text(footerStr, data.settings.margin.left, doc.internal.pageSize.height - 10);
+        }
+         
+      
+      });
+      
+      if (typeof doc.putTotalPages === 'function') {
+        doc.putTotalPages(totalPagesExp);
+      }
+   
+    doc.setFontSize(8);
+    let finalY = doc.autoTable.previous.finalY;
+    doc.line(15, finalY+3, pageWidth - 15, finalY+3);
+    doc.text(15, finalY+8,'Cantidad : ' +  total_cantidad_impresion); 
+    doc.text(pageWidth-90, finalY+8,  'Honorario : ' + this.cp.transform(total_facturado, '', 'symbol-narrow', '1.2-2')); 
+    doc.text(pageWidth-130, finalY+8, 'Categoria : ' +  this.cp.transform(total_categoria, '', 'symbol-narrow', '1.2-2')); 
+    doc.text(pageWidth-35, finalY+8, 'Total : ' + this.cp.transform((total_facturado + total_categoria), '', 'symbol-narrow', '1.2-2')); 
+    // doc.text(15, finalY+10, 'en letras : $' + this.numberToWordsPipe.transform(13) ); 
+ 
+    
+ 
+  console.log(doc.putTotalPages);
+  const footer = function(data) {
+    let str = 'Page ' + data.pageCount;
+    // Total page number plugin only available in jspdf v1.0+
+    if (typeof doc.putTotalPages === 'function') {
+      str = str + ' of ' + totalPagesExp;
+      console.log('test');
+    }
+    doc.text(str, data.settings.margin.left, doc.internal.pageSize.height - 30);
+  };
+    window.open(doc.output('bloburl'));  
+ 
+  }
+}
+
+
 
 
 

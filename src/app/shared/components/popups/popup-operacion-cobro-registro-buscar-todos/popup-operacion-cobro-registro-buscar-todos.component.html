@@ -116,6 +116,9 @@
                 
           <ng-template pTemplate="body" let-elementos  >
               <tr style="height:28px" >
+                <td style="width: 6%" >                   
+                    <a      (click)="editarRegistro(elementos)"    ><i class="fas fa-pen fa-lg icon-color-purple my-hover"></i></a>
+                </td>
                     <td style="font-size: 11px;width: 5%">{{elementos.liquidacion_numero}}</td>
                       <td style="font-size: 11px;width: 5%">{{elementos.operacion_cobro_id}}</td>
                       <td style="font-size: 11px;width: 10%">{{elementos.apellido}}</td>

@@ -18,6 +18,7 @@ import { PopupObraSocialComponent } from 'src/app/shared/components/popups/popup
 import { ObraSocialService } from 'src/app/services/obra-social.service';
 
 import { logo_clinica,calendarioIdioma } from './../../../../config/config';
+import { PopupOperacionCobroRegistroEditarComponent } from './../popup-operacion-cobro-registro-editar/popup-operacion-cobro-registro-editar.component';
 
 
 @Component({
@@ -63,6 +64,7 @@ export class PopupOperacionCobroRegistroBuscarComponent implements OnInit {
     constructor(private miServicio:PracticaService,private messageService: MessageService ,public dialogService: DialogService,private cp: CurrencyPipe,public ref: DynamicDialogRef, public config: DynamicDialogConfig  ) {
   
           this.cols = [
+              { field: '', header: '',  width: '6%' },
               { field: 'liquidacion_numero', header: 'Liq.',  width: '5%' },
               { field: 'operacion_cobro_id', header: 'Cobro Nº',  width: '5%' }, 
               { field: 'apellido', header: 'Apellido',  width: '10%' },
@@ -180,24 +182,49 @@ anular(){
     }
   })
 
- 
 }
 
 
+editarRegistro(element){
+  let data:any; 
+  data = element;
+  const ref = this.dialogService.open(PopupOperacionCobroRegistroEditarComponent, {
+  data,
+   header: 'Editar registro',
+   width: '98%',
+   height: '90%'
+  });
+
+
+  
+
+  ref.onClose.subscribe((PopupOperacionCobroRegistroEditarComponent:OperacionCobroDetalle) => {
+    this.loadList();
+      if (PopupOperacionCobroRegistroEditarComponent) {
+        console.log(PopupOperacionCobroRegistroEditarComponent);
+        this.popItemOperacionCobro = PopupOperacionCobroRegistroEditarComponent;
+       
+      //  this.formObraSocial.patchValue({id: this.popItemObraSocial.id});
+       // this.formObraSocial.patchValue({nombre: this.popItemObraSocial.nombre});
+       
+      }
+  });
+}
+
 filtered(event){
   console.log(event.filteredValue);
-  this.elementosFiltrados  = event.filteredValue;  
+  this.elementosFiltrados  = event.filteredValue;
  
 }
 
 anularRegistro(){
   try {
     this.elementos[0]['es_anulado'] = 'SI';
-    this.miServicio.putOperacionCobroRegistroAnular(this.elementos[0],this.textoBusqueda)    
+    this.miServicio.putOperacionCobroRegistroAnular(this.elementos[0], this.textoBusqueda)
     .subscribe(resp => {
-      console.log(resp);    
+      console.log(resp);
     this.elementos = resp;
-        console.log(this.elementos);    
+        console.log(this.elementos);
         this.loading = false;
         this.throwAlert('success','Se anuló el registro con éxito','','');
     },

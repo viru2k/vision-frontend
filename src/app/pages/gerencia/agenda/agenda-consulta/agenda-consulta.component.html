@@ -120,8 +120,8 @@
               
               <ng-template pTemplate="body" let-agendaTurno> 
                    
-              <tr style="height:28px" [ngClass]="colorRow(agendaTurno.estado)" >
-                  <td [ngClass]="colorString(agendaTurno.operacion_cobro_id)" style="width: 5%">{{agendaTurno.operacion_cobro_id}}</td>   
+              <tr style="height:28px" [ngClass]="colorRow(agendaTurno.estado)" >              
+                      <td [ngClass]="colorString(agendaTurno.operacion_cobro_id)" style="width: 5%"><a class="my-hover" (click)="verDetalle(agendaTurno)">{{agendaTurno.operacion_cobro_id}}</a></td>   
                       <td style="width: 8%">{{agendaTurno.paciente_apellido}}</td>                          
                       <td style="width: 8%">{{agendaTurno.paciente_nombre}}</td>                             
                       <td style="width: 6%">{{agendaTurno.paciente_dni}}</td>    
