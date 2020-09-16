@@ -502,6 +502,7 @@ menuList() {
             {label: 'Agenda consulta', visible: !this.gerencia_control, 'routerLink': 'gerencia/agenda/consulta'},
             {label: 'Operacion cobro consulta', visible: !this.gerencia_control, 'routerLink': 'gerencia/operacioncobro/consulta'},
             {label: 'Detalle de operaciones de cobro', visible: !this.gerencia_control, 'routerLink': 'gerencia/operacioncobro/detalle'},
+            
   ]
 },
   {
@@ -621,7 +622,6 @@ menuList() {
     ]
   },
   {
-
     label: 'Mantenimiento',
 
     items: [{
@@ -643,6 +643,18 @@ menuList() {
                     {label: 'Distribucion de práctica', 'routerLink': 'distribucion'}
           ]
       },
+
+      {
+        label: 'Gestión de caja',
+        visible: ! this.gerencia_control,
+        items: [
+          {label: 'Cuenta', 'routerLink': 'movimientos/caja/cuenta'},
+          {label: 'Concepto de cuenta', 'routerLink': 'movimientos/caja/concepto/cuenta'},
+          {label: 'Tipo de comprobante', 'routerLink': 'movimientos/caja/concepto/comprobante'},
+          {label: 'Moneda', 'routerLink': 'movimientos/caja/tipo/moneda'},
+        ]
+    },
+
         {
           label: 'Paciente',
           visible: ! this.facturacion_control,

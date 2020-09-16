@@ -303,6 +303,14 @@ import { PopupInsumoAsociarComponent } from './pages/insumo/popups/popup-insumo-
 import { PopupInsumoConsultaComponent } from './pages/insumo/popups/popup-insumo-consulta/popup-insumo-consulta.component';
 // tslint:disable-next-line: max-line-length
 import { PopupOperacionCobroDistribucionMultipleComponentComponent } from './shared/popups/popup-operacion-cobro-distribucion-multiple-component/popup-operacion-cobro-distribucion-multiple-component.component';
+import { MovimientoConceptoCuentaComponent } from './pages/mantenimiento/movimiento-caja/movimiento-concepto-cuenta/movimiento-concepto-cuenta.component';
+import { MovimientoCuentaComponent } from './pages/mantenimiento/movimiento-caja/movimiento-cuenta/movimiento-cuenta.component';
+import { MovimientoTipoMonedaComponent } from './pages/mantenimiento/movimiento-caja/movimiento-tipo-moneda/movimiento-tipo-moneda.component';
+import { PopupMovimientoConceptoCuentaEditarComponent } from './pages/mantenimiento/movimiento-caja/popup-movimiento-concepto-cuenta-editar/popup-movimiento-concepto-cuenta-editar.component';
+import { PopupMovimientoTipoMonedaEditarComponent } from './pages/mantenimiento/movimiento-caja/popup-movimiento-tipo-moneda-editar/popup-movimiento-tipo-moneda-editar.component';
+import { PopupMovimientoCuentaEditarComponent } from './pages/mantenimiento/movimiento-caja/popup-movimiento-cuenta-editar/popup-movimiento-cuenta-editar.component';
+import { MovimientoTipoComprobanteComponent } from './pages/mantenimiento/movimiento-caja/movimiento-tipo-comprobante/movimiento-tipo-comprobante.component';
+import { PopupMovimientoTipoComprobanteEditarComponent } from './pages/mantenimiento/movimiento-caja/popup-movimiento-tipo-comprobante-editar/popup-movimiento-tipo-comprobante-editar.component';
 
 
 
@@ -468,7 +476,15 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupInsumoMovimientoDetalleComponent,
     PopupInsumoAsociarComponent,
     PopupInsumoConsultaComponent,
-    PopupOperacionCobroDistribucionMultipleComponentComponent
+    PopupOperacionCobroDistribucionMultipleComponentComponent,
+    MovimientoConceptoCuentaComponent,
+    MovimientoCuentaComponent,
+    MovimientoTipoMonedaComponent,
+    PopupMovimientoConceptoCuentaEditarComponent,
+    PopupMovimientoTipoMonedaEditarComponent,
+    PopupMovimientoCuentaEditarComponent,
+    MovimientoTipoComprobanteComponent,
+    PopupMovimientoTipoComprobanteEditarComponent
 
   ],
   imports: [
@@ -539,6 +555,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupFacturaRenglonComponent, BuscarConceptoFacturaComponent, PopupOperacionCobroDistribucionDetalleComponent,
     PopupLiquidacionDetalleComponent, PopupArticuloComponent, PopupOperacionCobroEditarDistribucionComponent,
     PopupPacienteComponent, ListadoCirugiaComponent, PopupArticuloComponent, PopupOperacionCobroDistribucionMultipleComponentComponent,
+ 
 
 /* -------------------------------------------------------------------------- */
 /*                                    CHAT                                    */
@@ -555,7 +572,16 @@ registerLocaleData(localeEsAR, 'es-Ar');
     StockInsumoEditarComponent, InsumoStockAgregarComponent,
     PopupInsumoMovimientoDetalleComponent,
     PopupInsumoAsociarComponent,
-    PopupInsumoConsultaComponent
+    PopupInsumoConsultaComponent,
+
+/* -------------------------------------------------------------------------- */
+/*                             MOVIMIENTOS DE CAJA                            */
+/* -------------------------------------------------------------------------- */
+
+PopupMovimientoConceptoCuentaEditarComponent,
+PopupMovimientoTipoMonedaEditarComponent,
+PopupMovimientoCuentaEditarComponent,
+PopupMovimientoTipoComprobanteEditarComponent
 
   ],
   // tslint:disable-next-line: max-line-length

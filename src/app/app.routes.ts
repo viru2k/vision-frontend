@@ -68,6 +68,10 @@ import { FacturacionArticuloComponent } from './pages/mantenimiento/facturacion-
 import { ChatComponent } from './pages/chat/chat.component';
 import { InsumoStockComponent } from './pages/insumo/insumo-stock/insumo-stock.component';
 import { InsumoComponent } from './pages/mantenimiento/stock/insumo/insumo.component';
+import { MovimientoTipoMonedaComponent } from './pages/mantenimiento/movimiento-caja/movimiento-tipo-moneda/movimiento-tipo-moneda.component';
+import { MovimientoCuentaComponent } from './pages/mantenimiento/movimiento-caja/movimiento-cuenta/movimiento-cuenta.component';
+import { MovimientoConceptoCuentaComponent } from './pages/mantenimiento/movimiento-caja/movimiento-concepto-cuenta/movimiento-concepto-cuenta.component';
+import { MovimientoTipoComprobanteComponent } from './pages/mantenimiento/movimiento-caja/movimiento-tipo-comprobante/movimiento-tipo-comprobante.component';
 
 export const ROUTES: Routes = [
     /** principal **/
@@ -166,6 +170,16 @@ export const ROUTES: Routes = [
       /** stock */
       { path: 'insumo/stock',
       component: InsumoStockComponent, canActivate: [AuthGuard], data: {role: 'quirofano_control'}  },
+
+
+      { path: 'movimientos/caja/concepto/cuenta',
+      component: MovimientoConceptoCuentaComponent, canActivate: [AuthGuard], data: {role: 'gerencia_control'}  },
+      { path: 'movimientos/caja/cuenta',
+      component: MovimientoCuentaComponent, canActivate: [AuthGuard], data: {role: 'gerencia_control'}  },
+      { path: 'movimientos/caja/tipo/moneda',
+      component: MovimientoTipoMonedaComponent, canActivate: [AuthGuard], data: {role: 'gerencia_control'}  },
+      { path: 'movimientos/caja/concepto/comprobante',
+      component: MovimientoTipoComprobanteComponent, canActivate: [AuthGuard], data: {role: 'gerencia_control'}  },
 
     /** otros **/
     { path: 'chat', component: ChatComponent },

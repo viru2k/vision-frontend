@@ -613,9 +613,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-popper.js
-MIT
-
 primeicons
 MIT
 MIT License
@@ -667,6 +664,9 @@ THE SOFTWARE.
 
 
 undefined
+
+popper.js
+MIT
 
 regenerator-runtime
 MIT
