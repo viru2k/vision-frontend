@@ -72,6 +72,7 @@ import { MovimientoTipoMonedaComponent } from './pages/mantenimiento/movimiento-
 import { MovimientoCuentaComponent } from './pages/mantenimiento/movimiento-caja/movimiento-cuenta/movimiento-cuenta.component';
 import { MovimientoConceptoCuentaComponent } from './pages/mantenimiento/movimiento-caja/movimiento-concepto-cuenta/movimiento-concepto-cuenta.component';
 import { MovimientoTipoComprobanteComponent } from './pages/mantenimiento/movimiento-caja/movimiento-tipo-comprobante/movimiento-tipo-comprobante.component';
+import { ListadoCajaComponent } from './pages/gerencia/movimiento-caja/listado-caja/listado-caja.component';
 
 export const ROUTES: Routes = [
     /** principal **/
@@ -162,6 +163,8 @@ export const ROUTES: Routes = [
       component: OperacionCobroConsultaGerenciaComponent, canActivate: [AuthGuard], data: {role: 'gerencia_control'}  },
      { path: 'gerencia/operacioncobro/detalle',
       component: GerenciaDetalleOperacionCobroComponent, canActivate: [AuthGuard], data: {role: 'gerencia_control'}  },
+      { path: 'gerencia/caja/movimiento',
+      component: ListadoCajaComponent, canActivate: [AuthGuard], data: {role: 'gerencia_control'}  },
      /** quirofano */
      { path: 'medico/cirugia/listado/cirugia', component: ListadoCirugiaEditarComponent,
       canActivate: [AuthGuard], data: {role: 'quirofano_control'}  },
@@ -180,6 +183,7 @@ export const ROUTES: Routes = [
       component: MovimientoTipoMonedaComponent, canActivate: [AuthGuard], data: {role: 'gerencia_control'}  },
       { path: 'movimientos/caja/concepto/comprobante',
       component: MovimientoTipoComprobanteComponent, canActivate: [AuthGuard], data: {role: 'gerencia_control'}  },
+ 
 
     /** otros **/
     { path: 'chat', component: ChatComponent },

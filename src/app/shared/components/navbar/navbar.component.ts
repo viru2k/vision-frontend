@@ -502,7 +502,7 @@ menuList() {
             {label: 'Agenda consulta', visible: !this.gerencia_control, 'routerLink': 'gerencia/agenda/consulta'},
             {label: 'Operacion cobro consulta', visible: !this.gerencia_control, 'routerLink': 'gerencia/operacioncobro/consulta'},
             {label: 'Detalle de operaciones de cobro', visible: !this.gerencia_control, 'routerLink': 'gerencia/operacioncobro/detalle'},
-            
+            {label: 'Movimiento de caja', visible: !this.gerencia_control, 'routerLink': 'gerencia/caja/movimiento'},
   ]
 },
   {

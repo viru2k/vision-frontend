@@ -88,4 +88,9 @@ getMovimientoCuentas() {
   return this.http.put<any>(this.url + 'movimiento/cuenta/' + id, data);
 }
 
+geRegistroMovimientoBydate(fechaDesde : string , fechaHasta: string) {
+  return this.http.get<any>(this.url + 'movimiento/registro/by/date?fecha_desde=' + fechaDesde + '&fecha_hasta= ' + fechaHasta);
+  }
+
+
 }

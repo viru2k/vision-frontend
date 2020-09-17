@@ -311,6 +311,10 @@ import { PopupMovimientoTipoMonedaEditarComponent } from './pages/mantenimiento/
 import { PopupMovimientoCuentaEditarComponent } from './pages/mantenimiento/movimiento-caja/popup-movimiento-cuenta-editar/popup-movimiento-cuenta-editar.component';
 import { MovimientoTipoComprobanteComponent } from './pages/mantenimiento/movimiento-caja/movimiento-tipo-comprobante/movimiento-tipo-comprobante.component';
 import { PopupMovimientoTipoComprobanteEditarComponent } from './pages/mantenimiento/movimiento-caja/popup-movimiento-tipo-comprobante-editar/popup-movimiento-tipo-comprobante-editar.component';
+import { ListadoCajaComponent } from './pages/gerencia/movimiento-caja/listado-caja/listado-caja.component';
+import { PopupMovimientoComponent } from './pages/gerencia/movimiento-caja/popup-movimiento/popup-movimiento.component';
+import { PopupMovimientoFindFacturaComponent } from './pages/gerencia/movimiento-caja/popup-movimiento-find-factura/popup-movimiento-find-factura.component';
+import { PopupMovimientoFindPacienteCobroComponent } from './pages/gerencia/movimiento-caja/popup-movimiento-find-paciente-cobro/popup-movimiento-find-paciente-cobro.component';
 
 
 
@@ -484,7 +488,11 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupMovimientoTipoMonedaEditarComponent,
     PopupMovimientoCuentaEditarComponent,
     MovimientoTipoComprobanteComponent,
-    PopupMovimientoTipoComprobanteEditarComponent
+    PopupMovimientoTipoComprobanteEditarComponent,
+    ListadoCajaComponent,
+    PopupMovimientoComponent,
+    PopupMovimientoFindFacturaComponent,
+    PopupMovimientoFindPacienteCobroComponent
 
   ],
   imports: [
@@ -581,7 +589,10 @@ registerLocaleData(localeEsAR, 'es-Ar');
 PopupMovimientoConceptoCuentaEditarComponent,
 PopupMovimientoTipoMonedaEditarComponent,
 PopupMovimientoCuentaEditarComponent,
-PopupMovimientoTipoComprobanteEditarComponent
+PopupMovimientoTipoComprobanteEditarComponent,
+PopupMovimientoComponent,
+PopupMovimientoFindFacturaComponent,
+PopupMovimientoFindPacienteCobroComponent
 
   ],
   // tslint:disable-next-line: max-line-length
