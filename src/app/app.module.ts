@@ -315,6 +315,9 @@ import { ListadoCajaComponent } from './pages/gerencia/movimiento-caja/listado-c
 import { PopupMovimientoComponent } from './pages/gerencia/movimiento-caja/popup-movimiento/popup-movimiento.component';
 import { PopupMovimientoFindFacturaComponent } from './pages/gerencia/movimiento-caja/popup-movimiento-find-factura/popup-movimiento-find-factura.component';
 import { PopupMovimientoFindPacienteCobroComponent } from './pages/gerencia/movimiento-caja/popup-movimiento-find-paciente-cobro/popup-movimiento-find-paciente-cobro.component';
+import { ProveedorComponent } from './pages/mantenimiento/proveedor/proveedor.component';
+import { PopupProveedorEditarComponent } from './pages/mantenimiento/popup/popup-proveedor-editar/popup-proveedor-editar.component';
+import { PopupProveedorFindComponent } from './shared/components/popups/popup-proveedor-find/popup-proveedor-find.component';
 
 
 
@@ -492,7 +495,10 @@ registerLocaleData(localeEsAR, 'es-Ar');
     ListadoCajaComponent,
     PopupMovimientoComponent,
     PopupMovimientoFindFacturaComponent,
-    PopupMovimientoFindPacienteCobroComponent
+    PopupMovimientoFindPacienteCobroComponent,
+    ProveedorComponent,
+    PopupProveedorEditarComponent,
+    PopupProveedorFindComponent
 
   ],
   imports: [
@@ -563,6 +569,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupFacturaRenglonComponent, BuscarConceptoFacturaComponent, PopupOperacionCobroDistribucionDetalleComponent,
     PopupLiquidacionDetalleComponent, PopupArticuloComponent, PopupOperacionCobroEditarDistribucionComponent,
     PopupPacienteComponent, ListadoCirugiaComponent, PopupArticuloComponent, PopupOperacionCobroDistribucionMultipleComponentComponent,
+    PopupProveedorFindComponent, PopupProveedorEditarComponent,
  
 
 /* -------------------------------------------------------------------------- */

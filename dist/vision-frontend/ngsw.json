@@ -9,12 +9,12 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.80ec5a544f3af87d78fe.js",
+        "/main.1584801a4bc0398bceea.js",
         "/polyfills-es5.46b197c40b3ef8d3d915.js",
         "/polyfills.b69d03110a67f3bc729a.js",
         "/runtime.d6c52737d4587c65265f.js",
         "/scripts.42a89c411350c07e5f02.js",
-        "/styles.e1c2eb589ebf37c8c016.css"
+        "/styles.d7546ee02106642677b3.css"
       ],
       "patterns": []
     },
@@ -2527,10 +2527,10 @@
     "/fontawesome-webfont.b06871f281fee6b241d6.ttf": "13b1eab65a983c7a73bc7997c479d66943f7c6cb",
     "/fontawesome-webfont.fee66e712a8a08eef580.woff": "28b782240b3e76db824e12c02754a9731a167527",
     "/hue.0614c27197fc3ce572e1.png": "f81ae627637a684614aa726e206c73ce099a01fd",
-    "/index.html": "032ebdd52a99b9a20e4a14273aa79e08e5de1a61",
+    "/index.html": "85c45a1d3d040b0aede2fe132be2a76bff3015f7",
     "/line.567f57385ea3dde2c9ae.gif": "a2af20bd160ca9cfc2c85527663ff7429267519a",
     "/loading.8732a6660b528fadfaeb.gif": "72998a116936156dc7cace0606dab499fe4f3ce8",
-    "/main.80ec5a544f3af87d78fe.js": "9fd8306f78aa176353103ef0a76fa81d8a1badf7",
+    "/main.1584801a4bc0398bceea.js": "b16ba5a7104d4f5cc34f5b3d52fb217f87b7d833",
     "/nucleo-outline.22a0bffe789c286a9d78.ttf": "4292e57a762b533eecee72c9b43d97e51571961d",
     "/nucleo-outline.24e2d6b43b1b0f84fdfa.woff": "ce7320d5772646cce6b34eb221be31603bd39abc",
     "/nucleo-outline.53a1bed7a3ec86d010fe.eot": "a1faab9e1cf198358d5dd9ed054ccdb089b0cdba",
@@ -2560,7 +2560,7 @@
     "/primeicons.b8eccb1059ea5faaf6d8.eot": "e74d8d740c6e7f4f6160c87f7a239cb3508269ae",
     "/runtime.d6c52737d4587c65265f.js": "d5db3397a9ac50a48747b8727b71e0a1751d57fe",
     "/scripts.42a89c411350c07e5f02.js": "d5e7042718d137c674c2c7d7785350f90ae44e44",
-    "/styles.e1c2eb589ebf37c8c016.css": "4b524f5d0e97c378fc65b5421e1a65ab00127d38"
+    "/styles.d7546ee02106642677b3.css": "9a9e5a25b4a7c66e0b6c4a225f9f2ec991e53ea1"
   },
   "navigationUrls": [
     {

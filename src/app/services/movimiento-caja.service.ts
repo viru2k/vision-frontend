@@ -69,8 +69,6 @@ getMovimientoConceptoMonedas() {
 }
 
 
-
-
 getMovimientoCuentas() {
   return this.http.get<any[]>(this.url + 'movimiento/cuentas');
   }
@@ -92,5 +90,32 @@ geRegistroMovimientoBydate(fechaDesde : string , fechaHasta: string) {
   return this.http.get<any>(this.url + 'movimiento/registro/by/date?fecha_desde=' + fechaDesde + '&fecha_hasta= ' + fechaHasta);
   }
 
+
+setMovimientoCaja(data: any) {
+  return this.http.post<any>(this.url + 'movimiento/caja', data);
+  }
+
+/* -------------------------------------------------------------------------- */
+/*                PROVEEDOR - AQUI POR UNA CUESTION DE AGILIDAD               */
+/* -------------------------------------------------------------------------- */
+
+
+
+getProveedores() {
+  return this.http.get<any[]>(this.url + 'proveedores');
+  }
+
+  getProveedor(id: number) {
+  return this.http.get<any>(this.url + 'proveedor?id=' + id);
+  }
+
+  setProveedor(data: any) {
+  return this.http.post<any>(this.url + 'proveedor', data);
+  }
+
+  putProveedor(data: any, id: string) {
+
+  return this.http.put<any>(this.url + 'proveedor/' + id, data);
+}
 
 }

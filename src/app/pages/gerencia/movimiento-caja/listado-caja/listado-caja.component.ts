@@ -16,6 +16,7 @@ import { MovimientoCajaService } from '../../../../services/movimiento-caja.serv
 import { Filter } from './../../../../shared/filter';
 import { ExcelService } from '../../../../services/excel.service';
 import { PopupMovimientoComponent } from '../popup-movimiento/popup-movimiento.component';
+import { LiquidacionService } from '../../../../services/liquidacion.service';
 declare const require: any;
 const jsPDF = require('jspdf');
 require('jspdf-autotable');
@@ -59,7 +60,7 @@ export class ListadoCajaComponent implements OnInit {
 
 
 
-  constructor(private movimientoCajaService:MovimientoCajaService ,  private messageService: MessageService ,
+  constructor(private movimientoCajaService:MovimientoCajaService ,  private messageService: MessageService , private liquidacionService: LiquidacionService,
     public dialogService: DialogService,  private route: ActivatedRoute, private excelService: ExcelService,    private router: Router, private filter: Filter ) {
    
     this.cols = [
@@ -138,17 +139,18 @@ public exportarExcelDetallado(){
   let i = 0;
   this.selecteditems.forEach(element => {
    // console.log(element['operacion_cobro_id']);
-    seleccionados['operacion_cobro_id'] = element['operacion_cobro_id'];
-    seleccionados['fecha_cobro'] = element['fecha_turno'] ;
-    seleccionados['apellido'] = element.paciente_apellido;
-    seleccionados['nombre'] = element.paciente_nombre;
-    seleccionados['dni'] = element.paciente_dni;
-    seleccionados['obra_social_nombre'] = element['paciente_obra_social_nombre'] ;
-    seleccionados['descripcion'] = '';
-    seleccionados['medico_nombre'] = element['nombreyapellido'];
-    seleccionados['forma_pago'] = '';
-    seleccionados['cantidad'] = 1;
-    seleccionados['valor_facturado'] = element['total_operacion_cobro'];
+    seleccionados['fecha_carga'] =   formatDate(element['fecha_carga'], 'dd/MM/yyyy', 'es-Ar');  ;
+    seleccionados['cuenta_nombre'] = element.cuenta_nombre ;
+    seleccionados['tipo_comprobante'] = element.tipo_comprobante;
+    seleccionados['concepto_cuenta'] = element.concepto_cuenta;
+    seleccionados['proveedor_nombre'] = element.proveedor_nombre;
+    seleccionados['comprobante_numero'] = element.comprobante_numero ;
+    seleccionados['descripcion'] = element.descripcion;
+    seleccionados['movimiento_tipo'] = element.movimiento_tipo;
+    seleccionados['tipo_moneda'] = element.tipo_moneda;
+    seleccionados['cantidad'] = element.importe;
+    seleccionados['cotizacion'] = element.cotizacion;
+    seleccionados['total'] = element.total;
    // exportar.push(seleccionados);
    exportar[i] = seleccionados;
   //  console.log(element);
@@ -156,7 +158,7 @@ public exportarExcelDetallado(){
     seleccionados = [];
     i++;
   });
-
+  this.liquidacionService.exportAsExcelFile(  exportar, 'listado_presentacion_detallado'+fecha_impresion);
 }
 
 

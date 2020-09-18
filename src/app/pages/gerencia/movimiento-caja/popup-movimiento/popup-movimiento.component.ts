@@ -5,12 +5,12 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { calendarioIdioma } from './../../../../config/config';
 import { DatePipe, formatDate } from '@angular/common';
 import { Paciente } from '../../../../models/paciente.model';
-
+import { PopupMovimientoFindFacturaComponent } from './../popup-movimiento-find-factura/popup-movimiento-find-factura.component';
 
 import swal from 'sweetalert2';
-
-import { PopupPacienteObrasocialComponent } from './../../../../shared/components/popups/popup-paciente-obrasocial/popup-paciente-obrasocial.component';
 import { PopupMovimientoFindPacienteCobroComponent } from './../popup-movimiento-find-paciente-cobro/popup-movimiento-find-paciente-cobro.component';
+import { PopupProveedorFindComponent } from './../../../../shared/components/popups/popup-proveedor-find/popup-proveedor-find.component';
+
 
 import { PracticaService } from '../../../../services/practica.service';
 import { MovimientoCajaService } from '../../../../services/movimiento-caja.service';
@@ -54,19 +54,18 @@ export class PopupMovimientoComponent implements OnInit {
    this.es = calendarioIdioma;
 
   this.updateDataForm = new FormGroup({
-    'id': new FormControl(), 
-    'fecha_creacion': new FormControl(new Date()), 
-    'comprobante_numero': new FormControl(''),
+    'id': new FormControl(),
+    'fecha_carga': new FormControl(new Date()),
+    'comprobante_numero': new FormControl(''),    
     'mov_concepto_cuenta_id': new FormControl(1),
     'mov_cuenta_id': new FormControl(1),
     'concepto_cuenta': new FormControl(''),
-    'descripcion': new FormControl(),    
-    'fecha_carga': new FormControl(),
-    'mov_tipo_comprobante_id': new FormControl(), 
-    'tipo_comprobante': new FormControl(), 
+    'descripcion': new FormControl(),
+    'mov_tipo_comprobante_id': new FormControl(),
+    'tipo_comprobante': new FormControl(),
     'cuenta_nombre': new FormControl(),     // debe concatenarsecon movimiento tipo 'movimiento_tipo': new FormControl(),
     'tiene_enlace_factura': new FormControl('NO'),
-    'mov_tipo_moneda_id': new FormControl(''), 
+    'mov_tipo_moneda_id': new FormControl(''),
     'tipo_moneda': new FormControl(''),
     'importe': new FormControl(0),
     'cotizacion': new FormControl(1),
@@ -74,6 +73,8 @@ export class PopupMovimientoComponent implements OnInit {
     'liq_liquidacion_distribucion_id': new FormControl(0),
     'factura_encabezado_id': new FormControl(0),
     'paciente_id': new FormControl(0),
+    'nombreyapellido_paciente': new FormControl(''),
+    'nombreyapellido_proveedor': new FormControl(''),
     'proveedor_id': new FormControl(0),
     
   });
@@ -100,31 +101,10 @@ export class PopupMovimientoComponent implements OnInit {
 
 
 
-  buscarPaciente() {
-    let data: any;
-    const ref = this.dialogService.open(PopupPacienteObrasocialComponent, {
-    data,
-     header: 'Buscar paciente', 
-     width: '98%',
-     height: '90%'
-    });
-
-    ref.onClose.subscribe((PopupPacienteObrasocialComponent:Paciente) => {
-        if (PopupPacienteObrasocialComponent) {         
-          this.popItemPaciente = PopupPacienteObrasocialComponent;
-          console.log(this.popItemPaciente);
-          this.updateDataForm.patchValue({paciente_id: PopupPacienteObrasocialComponent.id})
-          this.updateDataForm.patchValue({nombreyapellido: PopupPacienteObrasocialComponent.apellido+' '+PopupPacienteObrasocialComponent.nombre});
-          this.updateDataForm.patchValue({apellido: PopupPacienteObrasocialComponent.apellido});
-          this.updateDataForm.patchValue({nombre: PopupPacienteObrasocialComponent.nombre});
-          console.log(this.updateDataForm.value);
-        }
-    });
-  }
-
   calcularTotal() {
     this.updateDataForm.patchValue({total: (this.updateDataForm.value.importe * this.updateDataForm.value.cotizacion)}) ;
   }
+
 
 
 /* -------------------------------------------------------------------------- */
@@ -314,20 +294,63 @@ console.log(this.updateDataForm.value);
 
 }
 
-buscarDistribucionCobro() {
+buscarPaciente() {
   let data: any;
   const ref = this.dialogService.open(PopupMovimientoFindPacienteCobroComponent, {
   data,
-   header: 'Buscar paciente', 
+   header: 'Buscar paciente',
    width: '98%',
    height: '90%'
   });
 
-  ref.onClose.subscribe((PopupMovimientoFindPacienteCobroComponent:Paciente) => {
-      if (PopupMovimientoFindPacienteCobroComponent) {         
+  ref.onClose.subscribe((PopupMovimientoFindPacienteCobroComponent: any) => {
+      if (PopupMovimientoFindPacienteCobroComponent) {
       
-       
+       console.log(PopupMovimientoFindPacienteCobroComponent);
+      this.updateDataForm.patchValue({paciente_id: PopupMovimientoFindPacienteCobroComponent.paciente_id});
+      this.updateDataForm.patchValue({nombreyapellido_paciente: PopupMovimientoFindPacienteCobroComponent.apellido+' '+PopupMovimientoFindPacienteCobroComponent.nombre});
+      }
+  });
+
+}
+
+buscarProveedor() {
+  let data: any;
+  const ref = this.dialogService.open(PopupProveedorFindComponent, {
+  data,
+   header: 'Buscar proveedor',
+   width: '98%',
+   height: '90%'
+  });
+
+  ref.onClose.subscribe((PopupProveedorFindComponent: any) => {
+      if (PopupProveedorFindComponent) {
       
+       console.log(PopupProveedorFindComponent);
+      this.updateDataForm.patchValue({nombreyapellido_proveedor: PopupProveedorFindComponent.proveedor_nombre});
+      this.updateDataForm.patchValue({proveedor_id: PopupProveedorFindComponent.id});
+
+      }
+  });
+
+}
+
+buscarDistribucionCobro() {
+  let data: any;
+  const ref = this.dialogService.open(PopupMovimientoFindPacienteCobroComponent, {
+  data,
+   header: 'Buscar distribución de un paciente',
+   width: '98%',
+   height: '90%'
+  });
+
+  ref.onClose.subscribe((PopupMovimientoFindPacienteCobroComponent: any) => {
+      if (PopupMovimientoFindPacienteCobroComponent) {
+      
+       console.log(PopupMovimientoFindPacienteCobroComponent);
+      this.updateDataForm.patchValue({paciente_id: PopupMovimientoFindPacienteCobroComponent.paciente_id});
+      this.updateDataForm.patchValue({nombreyapellido_paciente: PopupMovimientoFindPacienteCobroComponent.apellido+' '+PopupMovimientoFindPacienteCobroComponent.nombre});
+      this.updateDataForm.patchValue({liq_liquidacion_distribucion_id: PopupMovimientoFindPacienteCobroComponent.liquidacion_distribucion_id});
 //        this.updateDataForm.patchValue({nombreyapellido: PopupPacienteObrasocialComponent.apellido+' '+PopupPacienteObrasocialComponent.nombre});
 
         //console.log(this.updateDataForm.value);
@@ -336,22 +359,45 @@ buscarDistribucionCobro() {
 
 }
 
+buscarFactura() {
+  let data: any;
+  const ref = this.dialogService.open(PopupMovimientoFindFacturaComponent, {
+  data,
+   header: 'Buscar distribución de un paciente',
+   width: '98%',
+   height: '90%'
+  });
+
+  ref.onClose.subscribe((PopupMovimientoFindFacturaComponent: any) => {
+      if (PopupMovimientoFindFacturaComponent) {
+      
+       console.log(PopupMovimientoFindFacturaComponent);
+      this.updateDataForm.patchValue({comprobante_numero: PopupMovimientoFindFacturaComponent.descripcion + ' ' + PopupMovimientoFindFacturaComponent.comprobante_codigo + '-' + PopupMovimientoFindFacturaComponent.factura_numero});
+      this.updateDataForm.patchValue({factura_encabezado_id: PopupMovimientoFindFacturaComponent.id});
+      this.updateDataForm.patchValue({tiene_enlace_factura: 'SI'});
+      
+
+        //console.log(this.updateDataForm.value);
+      }
+  });
+}
+
   actualizarDatos() {
     console.log(this.updateDataForm.value);
-   /*  try {
-      this.miServicio.putOperacionCobroRegistro(this.updateDataForm.value,this.updateDataForm.value.id)    
+     try {
+      this.movimientoCajaService.setMovimientoCaja(this.updateDataForm.value)
       .subscribe(resp => {
-        this.throwAlert('success','Se modificó el registro con éxito','','');
+        this.alertServiceService.throwAlert('success','Se modificó el registro con éxito', '', '');
         this.ref.close();
       },
       error => { // error path
           console.log(error.message);
           console.log(error.status);
-          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+          this.alertServiceService.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
        });    
   } catch (error) {
-  this.throwAlert('error','Error al cargar los registros',error,error.status);
-  }   */
+    this.alertServiceService.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+  }   
 }
     
   }

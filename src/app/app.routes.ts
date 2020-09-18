@@ -73,6 +73,7 @@ import { MovimientoCuentaComponent } from './pages/mantenimiento/movimiento-caja
 import { MovimientoConceptoCuentaComponent } from './pages/mantenimiento/movimiento-caja/movimiento-concepto-cuenta/movimiento-concepto-cuenta.component';
 import { MovimientoTipoComprobanteComponent } from './pages/mantenimiento/movimiento-caja/movimiento-tipo-comprobante/movimiento-tipo-comprobante.component';
 import { ListadoCajaComponent } from './pages/gerencia/movimiento-caja/listado-caja/listado-caja.component';
+import { ProveedorComponent } from './pages/mantenimiento/proveedor/proveedor.component';
 
 export const ROUTES: Routes = [
     /** principal **/
@@ -83,6 +84,7 @@ export const ROUTES: Routes = [
     { path: 'medico', component: MedicoComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     { path: 'usuario', component: UsuarioModuloComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     { path: 'paciente', component: PacienteComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
+    { path: 'proveedor', component: ProveedorComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     { path: 'convenios/convenio', component: ConvenioComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     { path: 'convenios/obrasocial', component: ObraSocialComponent },
     { path: 'convenios/pmo', component: PmoComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}   },

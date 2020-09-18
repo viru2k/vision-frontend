@@ -75,17 +75,16 @@ export class PopupMovimientoFindPacienteCobroComponent implements OnInit {
   
           this.cols = [
             { field: '', header: '',  width: '6%' },
-            { field: 'liquidacion_numero', header: 'Liq.',  width: '5%' },
-              { field: 'operacion_cobro_id', header: 'Cobro Nº',  width: '5%' },
-              { field: 'apellido', header: 'Apellido',  width: '10%' },
-              {field: 'nombre', header: 'Nombre' , width: '10%' },
+            { field: 'liquidacion_distribucion_id', header: 'Dist.',  width: '8%' },
+              { field: 'operacion_cobro_id', header: 'Cobro Nº',  width: '8%' },
+              { field: 'apellido', header: 'Apellido',  width: '12%' },
+              {field: 'nombre', header: 'Nombre' , width: '12%' },
               { field: 'dni', header: 'DNI',  width: '7%' },
               { field: 'obra_social_nombre', header: 'O.S',  width: '15%' },              
               { field: 'descripcion', header: 'Descrpición',  width: '20%' },
               { field: 'complejidad', header: 'nivel' , width: '5%'},              
               { field: 'codigo', header: 'Codigo' , width: '8%'},       
               { field: 'medico_nombre', header: 'Médico' , width: '10%'},
-              { field: 'usuario_cobro_nombre', header: 'Usuario' , width: '8%'},
               { field: 'fecha_cobro' , header: 'Fecha' , width: '8%'},
               { field: 'cantidad', header: 'Cant.' , width: '6%'},
               { field: 'valor_original', header: 'Orig.' , width: '6%'},
@@ -97,6 +96,7 @@ export class PopupMovimientoFindPacienteCobroComponent implements OnInit {
 
 
            this.colsPaciente = [
+            { field: '', header: '',  width: '6%' },
             {field: 'apellido', header: 'Apellido',   width: '20%'  },
             { field: 'nombre', header: 'Nombre' ,  width: '20%' },
             { field: 'dni', header: 'DNI' ,  width: '10%' },
@@ -210,39 +210,25 @@ loadList(){
 }
 
 
-operacionCobro(){
-  
-  try {
-    this.elementos[0]['es_anulado'] = 'SI';
-    this.miServicio.putOperacionCobroRegistroAnular(this.elementos[0],this.textoBusqueda)    
-    .subscribe(resp => {
-      console.log(resp);    
-    this.elementos = resp;
-        console.log(this.elementos);    
-        this.loading = false;
-        this.throwAlert('success','Se anuló el registro con éxito','','');
-    },
-    error => { // error path
-        console.log(error.message);
-        console.log(error.status);
-        
-     });    
-} catch (error) {
-    this.throwAlert('error','error','Error: '+error.status+'  Error al cargar los registros',error.message);
-}  
-  
-}
 
 confirmar(event) {
-  console.log(event);
+ // console.log(event);
   this.ref.close(event);
 }
+
+
+confirmarPaciente(event) {
+  // console.log(event);
+  let tmp: any = event;
+  tmp.paciente_id = event.id;
+   this.ref.close(tmp);
+ }
 
 
 
 filtered(event){
   console.log(event.filteredValue);
-  this.elementosFiltrados  = event.filteredValue;  
+  this.elementosFiltrados  = event.filteredValue;
  
 }
 

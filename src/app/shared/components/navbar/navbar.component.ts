@@ -659,6 +659,11 @@ menuList() {
           label: 'Paciente',
           visible: ! this.facturacion_control,
          'routerLink': 'paciente'},
+
+         {
+          label: 'Proveedor',
+          visible: ! this.facturacion_control,
+         'routerLink': 'proveedor'},
         {
           label: 'Medicos',
           visible: ! this.facturacion_control,

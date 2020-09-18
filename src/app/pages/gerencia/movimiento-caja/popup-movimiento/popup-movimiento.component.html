@@ -8,7 +8,7 @@
                         <div class='form-group'>
                           <label  >Fecha</label>   
                             <div class=' input-group input-group-sm mb-3'>
-                              <p-calendar [inputStyle]="{'height':'29.1px'}"  [showTime]="true"   class="mr-2 " formControlName="fecha_creacion"   tabindex="0"  [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
+                              <p-calendar [inputStyle]="{'height':'29.1px'}"  [showTime]="true"   class="mr-2 " formControlName="fecha_carga"   tabindex="0"  [locale]="es" dateFormat="dd/mm/yy"   [readonlyInput]="true">
                                 <ng-template pTemplate="date" let-date>
                                         <span    style="border-radius:50%;padding: .25em;width: 1.75em; height:1.75em; display:block;">{{date.day}}</span>
                                     </ng-template> 
@@ -69,12 +69,12 @@
                           <hr>
                         <div class='form-group'>
                                 <label  >Importe</label>
-                                <input class='form-control col-md-12 form-control-sm' type="number" formControlName='importe'  (keyup.enter)="calcularTotal()"  />
+                                <input class='form-control col-md-12 form-control-sm' type="number" formControlName='importe' (focusout)="calcularTotal()"   (keyup.enter)="calcularTotal()"  />
                                
                         </div>
                         <div class='form-group'>
                             <label  >Cotización</label>
-                            <input   class='form-control col-md-12 form-control-sm' type="number" formControlName='cotizacion'  (keyup.enter)="calcularTotal()"   />
+                            <input   class='form-control col-md-12 form-control-sm' type="number" formControlName='cotizacion' (focusout)="calcularTotal()"   (keyup.enter)="calcularTotal()"   />
                         </div>
                         <div class='form-group'>
                           <label  >Total</label>
@@ -86,7 +86,15 @@
   
                                         
   
-                    
+                      <div class='form-group '>
+                        <div >
+                            <label  >Descripción</label>
+                          </div> 
+                        <div class=' input-group input-group-sm mb-3'>
+                            <input  placeholder='Ingrese una descripción' class='form-control col-md-12 form-control-sm' formControlName='descripcion'   />                  
+        
+                        </div> 
+                    </div>
   
                    
                       <div class='form-group '>
@@ -94,10 +102,10 @@
                             <label  >Paciente</label>
                           </div> 
                         <div class=' input-group input-group-sm mb-3'>
-                            <input (keyup.enter)='buscarTipoMoneda()' placeholder='Buscar practica' class='form-control col-md-12 form-control-sm' formControlName='paciente_id'   />                  
+                            <input (keyup.enter)='buscarPaciente()' placeholder='Buscar paciente' class='form-control col-md-12 form-control-sm' formControlName='nombreyapellido_paciente'   />                  
                             <div class='input-group-append'>
                               <span class='input-group input-group-text form-control-sm'>
-                                <a  (click)='buscarTipoMoneda()'>
+                                <a  (click)='buscarPaciente()'>
                                     <img class='pointer float-left' src='assets/icons/grey/outline_search_black_18dp.png' width='24px' height='24px'  >
                                 </a>
                             </span>
@@ -110,10 +118,10 @@
                           <label  >Proveedor</label>
                         </div> 
                       <div class=' input-group input-group-sm mb-3'>
-                          <input (keyup.enter)='buscarTipoMoneda()' placeholder='Buscar practica' class='form-control col-md-12 form-control-sm' formControlName='proveedor_id'   />                  
+                          <input (keyup.enter)='buscarProveedor()' placeholder='Buscar proveedor' class='form-control col-md-12 form-control-sm' formControlName='nombreyapellido_proveedor'   />                  
                           <div class='input-group-append'>
                             <span class='input-group input-group-text form-control-sm'>
-                              <a  (click)='buscarTipoMoneda()'>
+                              <a  (click)='buscarProveedor()'>
                                   <img class='pointer float-left' src='assets/icons/grey/outline_search_black_18dp.png' width='24px' height='24px'  >
                               </a>
                           </span>
@@ -127,7 +135,7 @@
                         <label  >Factura</label>
                       </div> 
                     <div class=' input-group input-group-sm mb-3'>
-                        <input (keyup.enter)='buscarFactura()' placeholder='Buscar practica' class='form-control col-md-12 form-control-sm' formControlName='comprobante_numero'   />                  
+                        <input (keyup.enter)='buscarFactura()' placeholder='Buscar factura' class='form-control col-md-12 form-control-sm' formControlName='comprobante_numero'   />                  
                         <div class='input-group-append'>
                           <span class='input-group input-group-text form-control-sm'>
                             <a  (click)='buscarFactura()'>
