@@ -3,7 +3,7 @@ import { DynamicDialogConfig, MessageService, DynamicDialogRef, DialogService } 
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { calendarioIdioma } from './../../../../config/config';
-import { DatePipe, formatDate } from '@angular/common';
+import { DatePipe, formatDate, CurrencyPipe } from '@angular/common';
 import { Paciente } from '../../../../models/paciente.model';
 import { PopupMovimientoFindFacturaComponent } from './../popup-movimiento-find-factura/popup-movimiento-find-factura.component';
 
@@ -23,7 +23,7 @@ import { AlertServiceService } from '../../../../services/alert-service.service'
   providers: [MessageService, DialogService]
 })
 export class PopupMovimientoComponent implements OnInit {
-
+  esEditar = false;
   loading = false;
   es: any;
   formasPago: any[];
@@ -34,22 +34,13 @@ export class PopupMovimientoComponent implements OnInit {
   selectedForma: string;
 
   elementoConceptoCuenta: any[] = [];
-  filteredItemsConceptoCuenta: any[];
-
   elementoCuenta: any[] = [];
-  filteredItemsCuenta: any[];
-
   elementoTipoComprobante: any[] = [];
-  filteredItemsTipoComprobante: any[];
-
   elementoMoneda: any[] = [];
-  filteredItemsMoneda: any[];
 
-  
-
-  constructor(public config: DynamicDialogConfig, private movimientoCajaService: MovimientoCajaService , 
+  constructor(public config: DynamicDialogConfig, private movimientoCajaService: MovimientoCajaService ,
     private alertServiceService: AlertServiceService,
-    private messageService: MessageService , public ref: DynamicDialogRef, public dialogService: DialogService ) {
+    private messageService: MessageService , public ref: DynamicDialogRef, public dialogService: DialogService, private cp: CurrencyPipe ) {
 
    this.es = calendarioIdioma;
 
@@ -80,23 +71,30 @@ export class PopupMovimientoComponent implements OnInit {
   });
 
  
-
+  console.log(this.config.data);
+  if (this.config.data) {
+    this.esEditar = true;
+    this.updateDataForm.patchValue(this.config.data);
+    this.updateDataForm.patchValue({fecha_carga: new Date(this.config.data.fecha_carga)});
+    console.log(this.updateDataForm.value);
+   // this.updateDataForm.patchValue({descripcion: this.config.data.descripcion });
+   // this.updateDataForm.patchValue({importe: this.config.data.importe });
+   // this.updateDataForm.patchValue({cotizacion: this.config.data.cotizacion });
+   // this.updateDataForm.patchValue({total: this.config.data.total });
+   // this.updateDataForm.patchValue({total: this.config.data.total });
+  //this.filteredItemsCuenta.push(  this.filteredItemsCuenta.find(x => x.cuenta_nombre === this.config.data.cuenta_nombre + ' ' + this.config.data.movimiento_tipo));
+  }
   }
 
   ngOnInit() {
-  // this._fechaHoy = formatDate(this.updateDataForm.value.fecha_cobro, 'yyyy-MM-dd', 'en');
-    console.log(this.config.data); 
-   // this.selectedForma =  this.formasPago.find(x => x.name === this.config.data.forma_pago);
 
-    console.log(this.selectedForma);  
-   // this.updateDataForm.patchValue({forma_pago: this.selectedForma });
- //   this.updateDataForm.patchValue({fecha_cobro: this._fechaHoy});
-   // console.log(this.updateDataForm.value);
-    
+
+
    this.getMovimientoConceptoCuentas();
    this.getCuentas();
    this.getTipoComprobante();
    this.getMoneda();
+
   }
 
 
@@ -116,10 +114,13 @@ export class PopupMovimientoComponent implements OnInit {
         try {
           await this.movimientoCajaService.getMovimientoConceptoCuentas()
           .subscribe(resp => {
-
+            
           if (resp[0]) {
             this.elementoConceptoCuenta = resp;
             console.log(this.elementoConceptoCuenta);
+            if(this.esEditar){
+              this.updateDataForm.get('concepto_cuenta').setValue(this.elementoConceptoCuenta.find(elem => elem.concepto_cuenta === this.config.data.concepto_cuenta));
+            }
             }
               this.loading = false;
           },
@@ -133,25 +134,11 @@ export class PopupMovimientoComponent implements OnInit {
       }
     }
 
-      filterConceptoCuenta(event) {
-        let item:any;
-        this.filteredItemsConceptoCuenta = [];
-        for(let i = 0; i < this.elementoConceptoCuenta.length; i++) {
-              let nombre= this.elementoConceptoCuenta[i]['concepto_cuenta'];
-            
-            if(this.elementoConceptoCuenta[i]['concepto_cuenta'].toLowerCase().indexOf(event.query.toLowerCase()) == 0) {
-              item= this.elementoConceptoCuenta[i];
-            // console.log(this.filteredItemsConceptoCuenta);
-                this.filteredItemsConceptoCuenta.push(this.elementoConceptoCuenta[i]);
-            }
-        }
+    changeElementoConceptoCuenta(event) {
+      console.log(event.value);
+      this.updateDataForm.patchValue({mov_concepto_cuenta_id: event.value.id});
     }
 
-    seleccionadoConceptoCuenta(elem: any) {
-      this.updateDataForm.patchValue({mov_concepto_cuenta_id: elem.id});
-      console.log(this.updateDataForm.value);
-      
-    }
 
 /* -------------------------------------------------------------------------- */
 /*                                   CUENTA                                   */
@@ -170,6 +157,10 @@ export class PopupMovimientoComponent implements OnInit {
         });
         this.elementoCuenta = resp;
         console.log(this.elementoCuenta);
+        //si no es nuevo le agrego el valor
+        if(this.esEditar){
+          this.updateDataForm.get('cuenta_nombre').setValue(this.elementoCuenta.find(elem => elem.cuenta_nombre === (this.config.data.cuenta_nombre+ ' ' + this.config.data.movimiento_tipo)));
+        }
         }
           this.loading = false;
       },
@@ -183,26 +174,10 @@ export class PopupMovimientoComponent implements OnInit {
   }
   }
 
-  filterCuenta(event) {
-    let item:any;
-    this.filteredItemsCuenta = [];
-    for(let i = 0; i < this.elementoCuenta.length; i++) {
-          let nombre= this.elementoCuenta[i]['cuenta_nombre'];
-        
-        if(this.elementoCuenta[i]['cuenta_nombre'].toLowerCase().indexOf(event.query.toLowerCase()) == 0) {
-          item= this.elementoCuenta[i];
-        // console.log(this.filteredItemsConceptoCuenta);
-            this.filteredItemsCuenta.push(this.elementoCuenta[i]);
-        }
-    }
+  changeElementoCuenta(event) {
+    console.log(event.value);
+    this.updateDataForm.patchValue({ mov_cuenta_id: event.value.id});
   }
-
-  seleccionadoCuenta(elem: any) {
-  this.updateDataForm.patchValue({mov_cuenta_id: elem.id});
-  console.log(this.updateDataForm.value);
-
-  }
-
 
 /* -------------------------------------------------------------------------- */
 /*                              TIPO  COMPROBANTE                             */
@@ -216,6 +191,9 @@ async getTipoComprobante() {
     if (resp[0]) {
       this.elementoTipoComprobante = resp;
       console.log(this.elementoTipoComprobante);
+      if(this.esEditar){
+        this.updateDataForm.get('tipo_comprobante').setValue(this.elementoTipoComprobante.find(elem => elem.tipo_comprobante === this.config.data.tipo_comprobante));
+      }
       }
         this.loading = false;
     },
@@ -229,24 +207,9 @@ async getTipoComprobante() {
 }
 }
 
-filterTipoComprobante(event) {
-  let item:any;
-    this.filteredItemsTipoComprobante = [];
-    for(let i = 0; i < this.elementoTipoComprobante.length; i++) {
-          let nombre= this.elementoTipoComprobante[i]['tipo_comprobante'];
-        
-        if(this.elementoTipoComprobante[i]['tipo_comprobante'].toLowerCase().indexOf(event.query.toLowerCase()) == 0) {
-          item= this.elementoTipoComprobante[i];
-        // console.log(this.filteredItemsConceptoCuenta);
-            this.filteredItemsTipoComprobante.push(this.elementoTipoComprobante[i]);
-        }
-    }
-}
-
-seleccionadoTipoComprobante(elem: any) {
-this.updateDataForm.patchValue({mov_tipo_comprobante_id: elem.id});
-console.log(this.updateDataForm.value);
-
+changeElementoTipoComprobante(event) {
+  console.log(event.value);
+  this.updateDataForm.patchValue({mov_tipo_comprobante_id: event.value.id});
 }
 
 /* -------------------------------------------------------------------------- */
@@ -261,6 +224,9 @@ async getMoneda() {
     if (resp[0]) {
       this.elementoMoneda = resp;
       console.log(this.elementoMoneda);
+      if(this.esEditar){
+        this.updateDataForm.get('tipo_moneda').setValue(this.elementoMoneda.find(elem => elem.tipo_moneda === this.config.data.tipo_moneda));
+      }
       }
         this.loading = false;
     },
@@ -274,25 +240,12 @@ async getMoneda() {
 }
 }
 
-filterMoneda(event) {
-  let item:any;
-    this.filteredItemsMoneda = [];
-    for(let i = 0; i < this.elementoMoneda.length; i++) {
-          let nombre= this.elementoMoneda[i]['tipo_moneda'];
-        
-        if(this.elementoMoneda[i]['tipo_moneda'].toLowerCase().indexOf(event.query.toLowerCase()) == 0) {
-          item= this.elementoMoneda[i];
-        // console.log(this.filteredItemsConceptoCuenta);
-            this.filteredItemsMoneda.push(this.elementoMoneda[i]);
-        }
-    }
+
+changeElementoMoneda(event) {
+  console.log(event.value);
+  this.updateDataForm.patchValue({mov_tipo_moneda_id: event.value.id});
 }
 
-seleccionadoMoneda(elem: any) {
-this.updateDataForm.patchValue({mov_tipo_moneda_id: elem.id});
-console.log(this.updateDataForm.value);
-
-}
 
 buscarPaciente() {
   let data: any;
@@ -383,21 +336,40 @@ buscarFactura() {
 }
 
   actualizarDatos() {
+    
     console.log(this.updateDataForm.value);
-     try {
-      this.movimientoCajaService.setMovimientoCaja(this.updateDataForm.value)
-      .subscribe(resp => {
-        this.alertServiceService.throwAlert('success','Se modificó el registro con éxito', '', '');
-        this.ref.close();
-      },
-      error => { // error path
-          console.log(error.message);
-          console.log(error.status);
-          this.alertServiceService.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
-       });    
-  } catch (error) {
-    this.alertServiceService.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
-  }   
+    if (this.esEditar) {
+      try {
+        this.movimientoCajaService.putMovimientoCaja(this.updateDataForm.value, this.config.data.id)
+        .subscribe(resp => {
+          this.alertServiceService.throwAlert('success','Se modificó el registro con éxito', '', '');
+          this.ref.close();
+        },
+        error => { // error path
+            console.log(error.message);
+            console.log(error.status);
+            this.alertServiceService.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+         });    
+    } catch (error) {
+      this.alertServiceService.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+    } 
+    } else {
+      try {
+        this.movimientoCajaService.setMovimientoCaja(this.updateDataForm.value)
+        .subscribe(resp => {
+          this.alertServiceService.throwAlert('success','Se creó el registro con éxito', '', '');
+          this.ref.close();
+        },
+        error => { // error path
+            console.log(error.message);
+            console.log(error.status);
+            this.alertServiceService.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+         });    
+    } catch (error) {
+      this.alertServiceService.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
+    } 
+    }
+    
 }
     
   }

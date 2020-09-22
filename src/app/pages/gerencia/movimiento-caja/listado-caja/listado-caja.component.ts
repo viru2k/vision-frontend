@@ -162,14 +162,26 @@ public exportarExcelDetallado(){
 }
 
 
-  accion(evt: any, overlaypanel: OverlayPanel, event: AgendaTurno) {
-    if (event) {
-     // this.selectedagendaTurno = event;
-    //  this.observacion = event.observacion;
-    }
-    console.log(event);
 
-    overlaypanel.toggle(evt);
+
+  editarRegistro(event) {
+    
+  const data: any = event;
+
+  const ref = this.dialogService.open(PopupMovimientoComponent, {
+  data,
+   header: 'Editar ingreso',
+   width: '98%',
+   height: '95%'
+  });
+
+  ref.onClose.subscribe((PopupMovimientoComponent: any) => {
+
+    if (PopupMovimientoComponent) {
+      this.loadMovimientoRegistro();
+    }
+  });
+
   }
 
   filtered(event) {
@@ -183,8 +195,8 @@ loadMovimientoRegistro() {
   const userData = JSON.parse(localStorage.getItem('userData'));
   this.es = calendarioIdioma;
   this.loading = true;
-  this._fechaDesde = formatDate(this.fechaDesde, 'yyyy-MM-dd', 'en');
-  this._fechaHasta = formatDate(this.fechaHasta, 'yyyy-MM-dd', 'en');
+  this._fechaDesde = formatDate(this.fechaDesde, 'yyyy-MM-dd HH:mm', 'en');
+  this._fechaHasta = formatDate(this.fechaHasta, 'yyyy-MM-dd HH:mm', 'en');
  console.log(userData['id']);
 
   try {

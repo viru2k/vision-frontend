@@ -21,10 +21,7 @@
                         <div class='form-group'>
                             <label  >Cuenta</label>   
                               <div class=' input-group input-group-sm mb-3'>
-                                <p-autoComplete  [suggestions]="filteredItemsCuenta" forceSelection="true" (completeMethod)="filterCuenta($event)" [size]="35"
-                                [minLength]="1" placeholder="Escriba para filtrar" [dropdown]="true"  [style]="{'width':'350px'}" (onSelect)="seleccionadoCuenta($event)"
-                                 field="cuenta_nombre" >     
-                             </p-autoComplete>
+                                <p-dropdown [options]="elementoCuenta" formControlName="cuenta_nombre" (onChange)="changeElementoCuenta($event)" placeholder="Cuenta" optionLabel="cuenta_nombre" [showClear]="true" [filter]="true"></p-dropdown>
                               </div>                    
                            
                            
@@ -34,10 +31,7 @@
                                 <label  >Concepto cuenta</label>
                               </div> 
                             <div class=' input-group input-group-sm mb-3'>
-                              <p-autoComplete  [suggestions]="filteredItemsConceptoCuenta" forceSelection="true" (completeMethod)="filterConceptoCuenta($event)" [size]="35"
-                              [minLength]="1" placeholder="Escriba para filtrar" [dropdown]="true"  [style]="{'width':'350px'}" (onSelect)="seleccionadoConceptoCuenta($event)"
-                               field="concepto_cuenta" >     
-                              </p-autoComplete>
+                              <p-dropdown [options]="elementoConceptoCuenta" formControlName="concepto_cuenta" (onChange)="changeElementoConceptoCuenta($event)" placeholder="Concepto" optionLabel="concepto_cuenta" [showClear]="true" [filter]="true"></p-dropdown>
                             </div>                                             
                         </div>
   
@@ -46,10 +40,7 @@
                                 <label  >Tipo de comprobante</label>
                               </div> 
                             <div class=' input-group input-group-sm mb-3'>
-                              <p-autoComplete  [suggestions]="filteredItemsTipoComprobante" forceSelection="true" (completeMethod)="filterTipoComprobante($event)" [size]="35"
-                              [minLength]="1" placeholder="Escriba para filtrar" [dropdown]="true"   (onSelect)="seleccionadoTipoComprobante($event)"
-                               field="tipo_comprobante" >     
-                              </p-autoComplete>
+                              <p-dropdown [options]="elementoTipoComprobante" formControlName="tipo_comprobante" (onChange)="changeElementoTipoComprobante($event)" placeholder="Comprobante" optionLabel="tipo_comprobante" [showClear]="true" [filter]="true"></p-dropdown>
                             </div>                       
                         </div>
   
@@ -58,10 +49,7 @@
                                 <label  >Moneda</label>
                               </div> 
                               <div class=' input-group input-group-sm mb-3'>
-                                <p-autoComplete  [suggestions]="filteredItemsMoneda" forceSelection="true" (completeMethod)="filterMoneda($event)" [size]="35"
-                                [minLength]="1" placeholder="Escriba para filtrar" [dropdown]="true"   (onSelect)="seleccionadoMoneda($event)"
-                                 field="tipo_moneda" >     
-                                </p-autoComplete>
+                                <p-dropdown [options]="elementoMoneda" formControlName="tipo_moneda" (onChange)="changeElementoMoneda($event)" placeholder="Comprobante" optionLabel="tipo_moneda" [showClear]="true" [filter]="true"></p-dropdown>
                               </div>     
                         </div>
   

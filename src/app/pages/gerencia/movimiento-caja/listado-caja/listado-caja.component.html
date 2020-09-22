@@ -95,7 +95,7 @@
                      
                 <tr style="height:28px" [ngClass]="colorRow(elemento.estado)" >   
                     <td style="width: 6%">                       
-                        <a   (  ><i class="far fa-edit fa-lg icon-color-info  my-hover" ></i></a>                 
+                        <a   (click)="editarRegistro(elemento)" ><i class="far fa-edit fa-lg icon-color-info  my-hover" ></i></a>                 
                       </td>           
                      <!--    <td [ngClass]="colorString(elemento.operacion_cobro_id)" style="width: 5%"><a class="my-hover" (click)="verDetalle(elemento)">{{elemento.operacion_cobro_id}}</a></td>    -->
                         <td style="width: 10%">{{elemento.fecha_carga | date: 'dd/MM/yyyy'}}</td>                          

@@ -95,6 +95,11 @@ setMovimientoCaja(data: any) {
   return this.http.post<any>(this.url + 'movimiento/caja', data);
   }
 
+  putMovimientoCaja(data: any, id: string) {
+
+    return this.http.put<any>(this.url + 'movimiento/caja/' + id, data);
+  }
+
 /* -------------------------------------------------------------------------- */
 /*                PROVEEDOR - AQUI POR UNA CUESTION DE AGILIDAD               */
 /* -------------------------------------------------------------------------- */
