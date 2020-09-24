@@ -260,7 +260,7 @@ buscarPaciente() {
       if (PopupMovimientoFindPacienteCobroComponent) {
       
        console.log(PopupMovimientoFindPacienteCobroComponent);
-      this.updateDataForm.patchValue({paciente_id: PopupMovimientoFindPacienteCobroComponent.paciente_id});
+      this.updateDataForm.patchValue({paciente_id: PopupMovimientoFindPacienteCobroComponent.id});
       this.updateDataForm.patchValue({nombreyapellido_paciente: PopupMovimientoFindPacienteCobroComponent.apellido+' '+PopupMovimientoFindPacienteCobroComponent.nombre});
       }
   });
@@ -343,7 +343,7 @@ buscarFactura() {
         this.movimientoCajaService.putMovimientoCaja(this.updateDataForm.value, this.config.data.id)
         .subscribe(resp => {
           this.alertServiceService.throwAlert('success','Se modificó el registro con éxito', '', '');
-          this.ref.close();
+          this.ref.close(resp);
         },
         error => { // error path
             console.log(error.message);

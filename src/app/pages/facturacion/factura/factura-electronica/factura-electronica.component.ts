@@ -16,6 +16,7 @@ import { FacturaAlicuotaAsociada } from '../../../../models/factura_alicuota_aso
 import { PopupLiquidacionDetalleComponent } from '../../../../shared/components/popups/popup-liquidacion-detalle/popup-liquidacion-detalle.component';
 import { PopupPacienteObrasocialComponent } from './../../../../shared/components/popups/popup-paciente-obrasocial/popup-paciente-obrasocial.component';
 import { Paciente } from './../../../../models/paciente.model';
+import { PopupProveedorFindComponent } from '../../../../shared/components/popups/popup-proveedor-find/popup-proveedor-find.component';
 
 @Component({
   selector: 'app-factura-electronica',
@@ -892,6 +893,31 @@ buscarPaciente(){
        this.nrodocumento = String(PopupPacienteObrasocialComponent.dni);
        this.elementoDocumento =  this.elementosDocumento.find(x => x.id == 96);
        console.log(this.nrodocumento);
+      }
+  });
+
+}
+
+
+
+buscarCliente(){
+
+  let data:any; 
+  const ref = this.dialogService.open(PopupProveedorFindComponent, {
+  data,
+   header: 'Buscar proveedor', 
+   width: '98%',
+   height: '90%'
+  });
+
+  ref.onClose.subscribe((PopupProveedorFindComponent: any) => {
+      if (PopupProveedorFindComponent) {
+        console.log(PopupProveedorFindComponent);
+
+       this.cliente =  PopupProveedorFindComponent.proveedor_nombre;
+       this.nrodocumento = String(PopupProveedorFindComponent.proveedor_cuit);
+       this.elementoDocumento =  this.elementosDocumento.find(x => x.id === 80);
+      // console.log(this.nrodocumento);
       }
   });
 

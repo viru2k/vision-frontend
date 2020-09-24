@@ -204,7 +204,23 @@ loadMovimientoRegistro() {
       .subscribe(resp => {
 
       if (resp[0]) {
+        resp.forEach(element => {
+          
+          if (element.proveedor_nombre === null) {
+            element.proveedor_nombre = '';
+            element.nombreyapellido_paciente = element.paciente_nombre + element.proveedor_nombre;
+          }
+
+          if (element.paciente_nombre === null) {
+            element.paciente_nombre = '';
+            element.nombreyapellido_proveedor = element.paciente_nombre + element.proveedor_nombre;
+          }
+          element.proveedor_nombre  = element.paciente_nombre + element.proveedor_nombre;
+         
+         
+        });
         this.realizarFiltroBusqueda(resp);
+      
           this.elemento = resp;
           console.log(resp);
           this.sumarValores(resp);
