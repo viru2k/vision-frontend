@@ -76,6 +76,7 @@ export class FacturaElectronicaComponent implements OnInit {
   userData;
   medico_id:string;
   peticion:string;
+  es_afip: string;
      movimiento: FacturaElectronicaRenglon;
   constructor(private facturacionService: FacturacionService, public dialogService: DialogService,private messageService: MessageService, private cp: CurrencyPipe ) { 
 
@@ -320,7 +321,9 @@ export class FacturaElectronicaComponent implements OnInit {
           this.peticion = '';
           console.log( this.elementosComprobante);
           //this.elementoComprobante = this.elementosComprobante[3];
-          this.elementoComprobante =  this.elementosComprobante.find(x => x.id == this.elementoMedicos['factura_comprobante_id']);
+          this.elementoComprobante =  this.elementosComprobante.find(x => x.id === this.elementoMedicos['factura_comprobante_id']);
+          console.log(this.elementoComprobante);
+       
           if(this.elementoPtoVta){
             this.obtenerUltimaFactura();
           }
@@ -498,19 +501,20 @@ guardarDatos(){
   this._fecha = formatDate(this.fecha, 'yyyy-MM-dd', 'en');
   this._fechaDesde = formatDate(this.fechaDesde, 'yyyy-MM-dd', 'en');
   this._fechaHasta = formatDate(this.fechaHasta, 'yyyy-MM-dd', 'en');
-  console.log('elemento documento '+ this.elementoDocumento);
-  console.log('elemento comprobante '+ this.elementoComprobante);
-  console.log('elemento concepto '+ this.elementoConcepto);
-  console.log('elemento pto. venta '+ this.pto_vta);
+  console.log('elemento documento ' + this.elementoDocumento);
+  console.log('elemento comprobante ' + this.elementoComprobante);
+  console.log('elemento concepto ' + this.elementoConcepto);
+  console.log('elemento pto. venta ' + this.pto_vta);
   let facturaElectronica = new FacturaElectronica('0', this.pto_vta, this.elementoComprobante['id'], this.elementoConcepto['id'],
   this.elementoDocumento['id'],this.nrodocumento,
   this.cliente,this.factura_numero, this._fecha, this._fechaDesde, this._fechaHasta,
   // tslint:disable-next-line: max-line-length
-  (Math.round(this.subtotal * 100) / 100), this.subtotal_excento,(Math.round(this.subtotal_iva * 100) / 100),(Math.round(this.total * 100) / 100) ,this.facturaAlicuotaAsociada,this.elementos, '','', this.elementoMedicos['id'], this.observacion,this.elementoCondicionIva['categoria_iva']);
+  (Math.round(this.subtotal * 100) / 100), this.subtotal_excento,(Math.round(this.subtotal_iva * 100) / 100),(Math.round(this.total * 100) / 100) ,
+  this.facturaAlicuotaAsociada,this.elementos, '','', this.elementoMedicos['id'], this.observacion,this.elementoCondicionIva['categoria_iva'], this.es_afip);
    console.log(facturaElectronica);
   
   
-   if((Number(this.elementoDocumento['id']) === 86 )||(Number(this.elementoDocumento['id']) === 80)){
+   if((Number(this.elementoDocumento['id']) === 86 )||(Number(this.elementoDocumento['id']) === 80)) {
      console.log(Number(this.elementoDocumento['id']));
      console.log(this.nrodocumento.length);
      if(this.nrodocumento.length === 11){
@@ -531,7 +535,7 @@ guardarDatos(){
      }
    }
 
-   if((Number(this.elementoDocumento['id']) != 86 )&&(Number(this.elementoDocumento['id']) != 80)){
+   if ((Number(this.elementoDocumento['id']) !== 86 ) && (Number(this.elementoDocumento['id']) !== 80)) {
     console.log(Number(this.elementoDocumento['id']));
     console.log(this.nrodocumento.length);
     if((this.nrodocumento.length <=8)&&(this.nrodocumento.length >=5)){
@@ -559,14 +563,15 @@ CrearFactura(facturaElectronica){
   this.peticion = 'Creando factura';
   try {
     this.facturacionService.crearFactura(facturaElectronica)
-    .subscribe(resp => {             
+    .subscribe(resp => {
         this.loading = false;
         this.peticion = '';
 
 /* -------------------------------------------------------------------------- */
 /*                 SI ES RECIBO , NO ES OFICIAL Y NO TRAE CAE                 */
 /* -------------------------------------------------------------------------- */
-        if(facturaElectronica['factura_comprobante_id']=== 15){
+        //if(facturaElectronica['factura_comprobante_id']=== 15){
+        if (this.es_afip === 'NO') {
           this.CAE = '';
           this.CAE_vto = '';
           this.factura_nro =  this.padLeft(String(resp),'0',8);
@@ -581,7 +586,7 @@ CrearFactura(facturaElectronica){
               this.generarPDF();
             }
           });
-        }else{
+        } else {
 
           this.CAE = resp[0]['cae'];
           this.CAE_vto = resp[0]['cae_vto'];
@@ -623,6 +628,7 @@ CrearFactura(facturaElectronica){
 obtenerMedico(){
   console.log(this.elementoMedicos)
   this.medico_id = this.elementoMedicos['id'];
+
   this.loading = true;
   this.peticion = 'Obteniendo ultima factura y punto de venta';
    console.log(this.elementoComprobante);
@@ -684,6 +690,8 @@ obtenerUltimaFactura(){
   this.loading = true;
   this.peticion = 'Obteniendo ultima factura y punto de venta';
    console.log(this.elementoComprobante);
+   this.es_afip = this.elementoComprobante['es_afip'];
+   console.log(this.es_afip);
   try {
     
     this.facturacionService.GetLastVoucher(this.pto_vta,this.elementoComprobante['id'],this.medico_id)
@@ -877,7 +885,7 @@ for(i=0;i < this.facturaAlicuotaAsociada.length;i++){
 
 buscarPaciente(){
 
-  let data:any; 
+  let data:any;
   const ref = this.dialogService.open(PopupPacienteObrasocialComponent, {
   data,
    header: 'Buscar paciente', 
@@ -922,26 +930,26 @@ buscarCliente(){
   });
 
 }
- 
 
-generarPDF(){
+
+generarPDF() {
 
 
   // GENERO EL FORMATO DE LOS COBROS
 
   this.elementosPDF = this.elementos;
   let i = 0;
-  for(i= 0; i< this.elementosPDF.length; i++){
+  for (i = 0; i < this.elementosPDF.length; i++) {
       this.elementosPDF[i]['alicuota'] = this.cp.transform(this.elementosPDF[i]['alicuota'], '', 'symbol-narrow', '1.2-2');
       this.elementosPDF[i]['iva'] = this.cp.transform(this.elementosPDF[i]['iva'], '', 'symbol-narrow', '1.2-2');
       this.elementosPDF[i]['precio_unitario'] = this.cp.transform(this.elementosPDF[i]['precio_unitario'], '', 'symbol-narrow', '1.2-2');
       this.elementosPDF[i]['total_renglon'] = this.cp.transform(this.elementosPDF[i]['total_renglon'], '', 'symbol-narrow', '1.2-2');
       this.elementosPDF[i]['total_sin_iva'] = this.cp.transform(this.elementosPDF[i]['total_sin_iva'], '', 'symbol-narrow', '1.2-2');
-      
+
   }
 
   this._fecha = formatDate(this.fecha, 'dd/MM/yyyy', 'en');
-  let inicio_actividades =  formatDate(this.elementoMedicos['fecha_matricula'], 'dd/MM/yyyy', 'en'); 
+  const inicio_actividades =  formatDate(this.elementoMedicos['fecha_matricula'], 'dd/MM/yyyy', 'en');
   var doc = new jsPDF();
   /** valores de la pagina**/
   const pageSize = doc.internal.pageSize;
@@ -954,7 +962,7 @@ generarPDF(){
   doc.line(10, 10, 10, 50); // linea vertical izquierda
   doc.line(pageWidth - 10, 10, pageWidth - 10, 50); // linea vertical derecha
   doc.line(10, 50, pageWidth - 10, 50); //linea inferior horizontal
-  
+
   //borde factura letra  
   doc.line((pageWidth/2)-6,10 , (pageWidth/2)-6, 23);  // linea vertical izquierda
   doc.line((pageWidth/2)+6,10 , (pageWidth/2)+6, 23);  // linea vertical derecha
@@ -977,44 +985,44 @@ generarPDF(){
 
 
   doc.line(10, pageHeight - 25,  10 , pageHeight - 15); // linea vertical izquierda
-  doc.line(pageWidth - 10, pageHeight -25, pageWidth - 10, pageHeight -15); // linea vertical derecha
+  doc.line(pageWidth - 10, pageHeight - 25, pageWidth - 10, pageHeight - 15); // linea vertical derecha
   doc.line(10, pageHeight -25, pageWidth - 10, pageHeight -25); //linea superior horizontal
   doc.line(10, pageHeight -15, pageWidth - 10, pageHeight -15); //linea inferior horizontal
 
-  
+
 
 // linea divisoria
-doc.line(pageWidth/2, 23, pageWidth /2, 50);
+doc.line(pageWidth / 2, 23, pageWidth / 2, 50);
   doc.setFontSize(19);
-  doc.setFontStyle("bold");
-  doc.text(this.elementoComprobante['letra'], (pageWidth/2)-2.5, 17); 
-  doc.setFontStyle("normal");
+  doc.setFontStyle('bold');
+  doc.text(this.elementoComprobante['letra'], (pageWidth / 2) - 2.5, 17);
+  doc.setFontStyle('normal');
   doc.setFontSize(6);
-  doc.text('COD. '+this.elementoComprobante['comprobante_codigo'], (pageWidth/2)-4.5, 21); 
-  doc.addImage(logo_clinica, 'PNG', 15, 12, 60.06, 12.87, undefined,'FAST');
+  doc.text('COD. ' + this.elementoComprobante['comprobante_codigo'], (pageWidth / 2) - 4.5, 21);
+  doc.addImage(logo_clinica, 'PNG', 15, 12, 60.06, 12.87, undefined, 'FAST');
   doc.setFontSize(9);
-  
-  doc.text(this.elementoMedicos['nombreyapellido'], 15, 35); 
-  doc.setFontStyle("normal");
+
+  doc.text(this.elementoMedicos['nombreyapellido'], 15, 35);
+  doc.setFontStyle('normal');
   doc.setFontSize(9);
-  doc.text(this.elementoMedicos['domicilio'], 15, 40); 
-  doc.text(this.elementoMedicos['categoria_iva'],15 , 45); 
+  doc.text(this.elementoMedicos['domicilio'], 15, 40);
+  doc.text(this.elementoMedicos['categoria_iva'],15 , 45);
   // izquierda
   doc.setFontSize(9);
 
 /* -------------------------------------------------------------------------- */
 /*                               DATOS DEL EMISO                              */
 /* -------------------------------------------------------------------------- */
-doc.setFontStyle("bold");
+doc.setFontStyle('bold');
   doc.setFontSize(11);
-  doc.text(this.elementoComprobante['descripcion'], (pageWidth/2)+20, 20); 
-  doc.text('Comprobante: '+ this.pto_vta+' - '+ this.factura_nro, (pageWidth/2)+20, 25); 
-  doc.setFontStyle("normal");
+  doc.text(this.elementoComprobante['descripcion'], (pageWidth / 2) + 20, 20);
+  doc.text('Comprobante: ' + this.pto_vta + ' - ' + this.factura_nro, (pageWidth / 2) + 20, 25);
+  doc.setFontStyle('normal');
   doc.setFontSize(9);
-  doc.text('Fecha Emisión: '+ this._fecha, (pageWidth/2)+20, 30); 
-  doc.text('C.U.I.T.: '+ this.elementoMedicos['cuit'], (pageWidth/2)+20, 35); 
-  doc.text('Ingresos brutos: '+ this.elementoMedicos['ing_brutos'], (pageWidth/2)+20, 40); 
-  doc.text('Inicio de actividades: '+ inicio_actividades, (pageWidth/2)+20, 45); 
+  doc.text('Fecha Emisión: ' + this._fecha, (pageWidth / 2) + 20, 30);
+  doc.text('C.U.I.T.: ' + this.elementoMedicos['cuit'], (pageWidth / 2) + 20, 35);
+  doc.text('Ingresos brutos: ' + this.elementoMedicos['ing_brutos'], (pageWidth / 2) + 20, 40);
+  doc.text('Inicio de actividades: ' + inicio_actividades, (pageWidth / 2) + 20, 45);
   doc.setLineWidth(0.4);
 
 
@@ -1024,24 +1032,24 @@ doc.setFontStyle("bold");
 
   this._fechaDesde = formatDate(this.fechaDesde, 'yyyy-MM-dd', 'en');
   this._fechaHasta = formatDate(this.fechaHasta, 'yyyy-MM-dd', 'en');
-  doc.text('Período Facturado   Desde: '+formatDate(this.fechaDesde, 'dd/MM/yyyy', 'en'), 15, 60); 
-  doc.text('Hasta: '+formatDate(this.fechaHasta, 'dd/MM/yyyy', 'en'), pageWidth/2, 60); 
+  doc.text('Período Facturado   Desde: ' + formatDate(this.fechaDesde, 'dd/MM/yyyy', 'en'), 15, 60);
+  doc.text('Hasta: ' + formatDate(this.fechaHasta, 'dd/MM/yyyy', 'en'), pageWidth / 2, 60);
 
 /* -------------------------------------------------------------------------- */
 /*                              DATOS DEL CLIENTE                             */
 /* -------------------------------------------------------------------------- */
 
-  doc.text(this.elementoDocumento['descripcion']+' : '+ this.nrodocumento, 15, 73); 
-  doc.text('Cliente: '+ this.cliente, 60, 73); 
-  doc.text('Condición frente al IVA: '+ this.elementoCondicionIva['categoria_iva'], 15, 78); 
-  doc.text('Observación: '+ this.observacion, 15, 83); 
+  doc.text(this.elementoDocumento['descripcion'] + ' : ' + this.nrodocumento, 15, 73);
+  doc.text('Cliente: ' + this.cliente, 60, 73);
+  doc.text('Condición frente al IVA: ' + this.elementoCondicionIva['categoria_iva'], 15, 78);
+  doc.text('Observación: ' + this.observacion, 15, 83);
 
 /* -------------------------------------------------------------------------- */
 /*                             DATOS DE LA FACTURA                            */
 /* -------------------------------------------------------------------------- */
 
   doc.setFontSize(10);
-  doc.setFontStyle("bold");
+  doc.setFontStyle('bold');
   doc.text('Subtotal: '+ this.cp.transform(this.subtotal, '', 'symbol-narrow', '1.2-2'), 15, pageHeight -18); 
   if((this.elementoComprobante['id'] === 6)||(this.elementoComprobante['id'] === 11)){}else{
     doc.text('Imp. IVA: '+ this.cp.transform(this.subtotal_iva, '', 'symbol-narrow', '1.2-2'), 75, pageHeight -18); 
@@ -1049,22 +1057,22 @@ doc.setFontStyle("bold");
   
   doc.text('Total: '+ this.cp.transform(this.total, '', 'symbol-narrow', '1.2-2'), pageWidth-50, pageHeight -18); 
   // PIE DE LA FACTURA
-  doc.text('CAE: '+ this.CAE, 15, pageHeight -10); 
-  if(this.CAE === ''){}else{
-    doc.text('Fecha de vencimiento de CAE: '+ formatDate(this.CAE_vto, 'dd/MM/yyyy', 'en') , (pageWidth/2)+20, pageHeight -10); 
+  doc.text('CAE: ' + this.CAE, 15, pageHeight - 10);
+  if (this.CAE === '') {} else {
+    doc.text('Fecha de vencimiento de CAE: ' + formatDate(this.CAE_vto, 'dd/MM/yyyy', 'en') , (pageWidth / 2 ) + 20, pageHeight - 10);
   }
- 
-  doc.setFontStyle("normal");
+
+  doc.setFontStyle('normal');
   console.log(this.elementosPDF);
 
 /* -------------------------------------------------------------------------- */
 /*              SI ES FACTURA B O SIMILAR OMITO EL VALOR DEL IVA              */
 /* -------------------------------------------------------------------------- */
 
-  if((this.elementoComprobante['id'] === 6)||(this.elementoComprobante['id'] === 7)
-    ||(this.elementoComprobante['id'] === 8)||(this.elementoComprobante['id'] === 11)
-    ||(this.elementoComprobante['id'] === 12)||(this.elementoComprobante['id'] === 13)){
-    for(i=0;i<this.elementosPDF.length;i++){
+  if ((this.elementoComprobante['id'] === 6) || (this.elementoComprobante['id'] === 7)
+    || (this.elementoComprobante['id'] === 8) || (this.elementoComprobante['id'] === 11)
+    || (this.elementoComprobante['id'] === 12) || (this.elementoComprobante['id'] === 13)) {
+    for (i = 0; i < this.elementosPDF.length; i++) {
       this.elementosPDF[i]['alicuota'] = '';
       this.elementosPDF[i]['precio_unitario'] = this.elementosPDF[i]['total_renglon'];
       this.elementosPDF[i]['total_sin_iva'] = this.elementosPDF[i]['total_renglon'];
@@ -1074,17 +1082,16 @@ doc.setFontStyle("bold");
   }
 
 
-  
 doc.autoTable(this.columns, this.elementosPDF,
   {
     
-      margin: {vertical: 95, right:0,horizontal: -10},
+      margin: {vertical: 95, right: 0, horizontal: -10},
       bodyStyles: {valign: 'top'},
-      styles: {fontSize: 10,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},       
+      styles: {fontSize: 10, cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify', overflow: 'linebreak'},
       columnStyles: {descripcion: {columnWidth: 88}, cantidad: {columnWidth: 10}, precio_unitario: {columnWidth: 25},
       alicuota_descripcion: {columnWidth: 12},  iva: {columnWidth: 25}, total_renglon: {columnWidth: 25} }
   });
- window.open(doc.output('bloburl'));  
+ window.open(doc.output('bloburl'));
   this.limpiarDatos();
   }
 
@@ -1092,7 +1099,7 @@ doc.autoTable(this.columns, this.elementosPDF,
 
 
 
-  limpiarDatos(){
+  limpiarDatos() {
 
   this.elementosPDF = [];
   this.elementos = [];   
@@ -1118,5 +1125,5 @@ doc.autoTable(this.columns, this.elementosPDF,
   
   }
 
-  
+
 }
