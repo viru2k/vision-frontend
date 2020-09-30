@@ -13,6 +13,7 @@ import { URL_ARCHIVO } from './../../config/config';
 import { PopupUsuarioComponent } from './../../shared/components/popups/popup-usuario/popup-usuario.component';
 import { PopupAsociarUsuarioGrupoComponent } from './popups/popup-asociar-usuario-grupo/popup-asociar-usuario-grupo.component';
 import { OverlayPanel } from 'primeng/overlaypanel';
+import { MessengerService } from './../../services/messenger.service';
 
 @Component({
   selector: 'app-chat',
@@ -42,14 +43,15 @@ export class ChatComponent implements OnInit, AfterViewInit {
   _admin;
   detalleUsuarios: any[];
 
-  constructor(private documentService: DocumentService, private chatService: ChatService, private messageService: MessageService ,public dialogService: DialogService) {
+  constructor(private documentService: DocumentService, private chatService: ChatService, private messageService: MessageService , 
+    public dialogService: DialogService, private messengerService: MessengerService) {
     this.userData = JSON.parse(localStorage.getItem('userData'));
     this._admin = this.userData['admin'];
     console.log(this.userData['admin'])
    }
 
   ngOnInit() {
-   
+  
     this.loadListaUsuario();
     this.habilitarTexto = true;
 
@@ -78,6 +80,8 @@ this.documentService
   console.log(this.lista_usuarios.sort(this.compare));
 });
   }
+
+
 
   ngAfterViewInit() {
     this.scrollContainer = this.myScrollContainer.nativeElement;
@@ -326,6 +330,7 @@ verUsuariosDetalleByGrupo(sesion_id: string) {
           this.textoAenviar = '';
           this.scrollToBottom();
           this.loadChat(this.usuarioChat);
+          this.usuarioChat.usuario_envia_id = this.userData.id;
           this.documentService.sendMessage(this.usuarioChat);
           },
           error => { // error path

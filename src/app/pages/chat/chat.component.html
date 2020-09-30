@@ -20,15 +20,15 @@
           
         
        
-          <div class="about">
+          <div class="about" (click)="loadChat(lista)" >
          
-            <div class="name"> 
+            <div class="name"(click)="loadChat(lista)" > 
                 <i class="fas fa-users fa-2x mr-2"  *ngIf="lista.grupo_nombre !== 'LISTADO'" width="32px" height="32px" alt="avatar"></i>
                 <i class="fas fa-user-circle fa-2x mr-2"  *ngIf="lista.grupo_nombre === 'LISTADO'" width="32px" height="32px" alt="avatar"></i>
               {{lista.nombreyapellido}}
             </div>
             
-            <div class="status">
+            <div class="status" (click)="loadChat(lista)" >
               <i class="fa fa-circle online" *ngIf="lista.estado === 'NUEVO'"></i>
               <i class="fa fa-circle offline" *ngIf="lista.estado === 'LEIDO'"></i>
                <label>{{lista.estado | titlecase}}</label>

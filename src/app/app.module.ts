@@ -318,6 +318,7 @@ import { PopupMovimientoFindPacienteCobroComponent } from './pages/gerencia/movi
 import { ProveedorComponent } from './pages/mantenimiento/proveedor/proveedor.component';
 import { PopupProveedorEditarComponent } from './pages/mantenimiento/popup/popup-proveedor-editar/popup-proveedor-editar.component';
 import { PopupProveedorFindComponent } from './shared/components/popups/popup-proveedor-find/popup-proveedor-find.component';
+import { ChatNotificatorComponent } from './pages/chat/chat-notificator/chat-notificator.component';
 
 
 
@@ -498,7 +499,8 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupMovimientoFindPacienteCobroComponent,
     ProveedorComponent,
     PopupProveedorEditarComponent,
-    PopupProveedorFindComponent
+    PopupProveedorFindComponent,
+    ChatNotificatorComponent
 
   ],
   imports: [

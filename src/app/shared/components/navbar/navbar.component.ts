@@ -16,6 +16,8 @@ import { DialogService } from 'primeng/components/common/api';
 import { DatePipe } from '@angular/common';
 import { NotificacionesService } from './../../../services/notificaciones.service';
 import { ChatService } from './../../../services/chat-service.service';
+import { MessengerService } from './../../../services/messenger.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -63,6 +65,7 @@ export class NavbarComponent implements OnInit {
   lista_usuarios_chat: any[] = [];
   mensaje = 0;
 
+
   constructor(
      private notificacionesService: NotificacionesService,
     private messageService: MessageService , public dialogService: DialogService,
@@ -80,6 +83,8 @@ export class NavbarComponent implements OnInit {
     this.navbarOpen = !this.navbarOpen;
   }
   ngOnInit() {
+
+
 
    /*======== JQUERY DEL LOGUIN =========*/
    $(document).ready
