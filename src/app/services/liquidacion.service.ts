@@ -108,4 +108,19 @@ getLiquidacionDetalle(estado:string){
     return this.http.post<Liquidacion[]>(this.url+'/distribucion/clonar', liquidacion);
     }
 
+    LiquidarExpedientes(liquidacion:Liquidacion[], numero: string) {
+      return this.http.post<any>(URL_SERVICIOS+'operacioncobro/distribuir/orden/liquidar?numero=' + numero, liquidacion);
+    }
+
+    generarLiquidacionNumero(liquidacion) {
+      console.log(liquidacion);
+      return this.http.post<any>(URL_SERVICIOS+'operacioncobro/liquidacion/generdada/id', liquidacion);
+    }
+
+
+    getLiquidacionNumero(id: string){  
+      return this.http.get<any>(URL_SERVICIOS+'operacioncobro/liquidacion/generdada?id=' + id);
+      }
+   
+    
 }

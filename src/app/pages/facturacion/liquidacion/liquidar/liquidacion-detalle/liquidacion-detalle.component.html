@@ -5,8 +5,6 @@
 </div>
 <p-toast (life)="100" styleClass="custom-toast" [style]="{marginTop: '100px'}"></p-toast>
 
-
-    
   <div class="row m-2" role="toolbar" aria-label="Toolbar with button groups">
       <div  class="input-group input-group-sm d-flex align-items-center"> 
           <p-dropdown [options]="impresiones" [(ngModel)]="selectedImpresion" optionLabel="name" ></p-dropdown>
@@ -68,9 +66,17 @@
         <div class="ml-2"><button    class="btn  btn-danger btn-sm float-right  pr-2" (click)="actualizarRegistros()" >Actualizar valores (Registros seleccionados)</button>   </div>                                   
       </div>
   <div class="row ml-2 mr-2">
-  <p-table  #dt class="pt-2"  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos" [(selection)]="selecteditems" columnResizeMode="expand" [responsive]="true"
-  scrollHeight="600px" [scrollable]="true"  (onFilter)="filtered($event)"  >
  
+  <p-table  #dt class=""  tableStyleClass="prime-table" selectionMode="single" [columns]="cols" [value]="elementos"   [(selection)]="selecteditems" columnResizeMode="expand" [responsive]="true"
+    scrollHeight="500px" [scrollable]="true"  (onFilter)="filtered($event)" [loading]="loading" loadingIcon="fas fa-spinner fa-2x icon-color-green" >
+ 
+
+  <ng-template pTemplate="caption">
+      
+    <div class="d-flex justify-content-end">
+     <div>  <button    class="ml-2  btn  btn-excel btn-sm float-right "  (click)="exportarExcelRegistro()" > <i class="fa fa-file-excel-o  mr-1" aria-hidden="true"> </i> Exportar a excel</button></div>       
+    </div>
+</ng-template>
 
              <ng-template pTemplate="header" let-columns >
             
@@ -86,16 +92,16 @@
                       </tr> 
                       <tr>
                       <th *ngFor="let col of columns" [ngSwitch]="col.field"  >
-                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'id'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'obra_social_nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'entidad_nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-                          <input style=" font-size: 12px;"  class="form-control col-md-12 form-control-sm" *ngSwitchCase="'numero'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'nivel'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'fecha_desde'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                      
-                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm"  *ngSwitchCase="'fecha_hasta'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                                  
+                        <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'id'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                          <p-multiSelect [style]="{'height':'28px', 'width': '100%', 'font-size': '10px'}" [options]="_obra_social_nombre" appendTo="body" defaultLabel="Obra social"	 *ngIf='col.field =="obra_social_nombre"' (onChange)="dt.filter($event.value,col.field,'in')"></p-multiSelect>
+                          <p-multiSelect [style]="{'height':'28px', 'width': '100%', 'font-size': '10px'}" [options]="_entidad_nombre" appendTo="body" defaultLabel="Entidad"	 *ngIf='col.field =="entidad_nombre"' (onChange)="dt.filter($event.value,col.field,'in')"></p-multiSelect>
+                          <p-multiSelect [style]="{'height':'28px', 'width': '100%', 'font-size': '10px'}" [options]="_nivel" appendTo="body" defaultLabel="Nivel"	 *ngIf='col.field =="nivel"' (onChange)="dt.filter($event.value,col.field,'in')"></p-multiSelect>
+                          <p-multiSelect [style]="{'height':'28px', 'width': '100%', 'font-size': '10px'}" [options]="_numero" appendTo="body" defaultLabel="Periodo"	 *ngIf='col.field =="numero"' (onChange)="dt.filter($event.value,col.field,'in')"></p-multiSelect>
+                          <p-multiSelect [style]="{'height':'28px', 'width': '100%', 'font-size': '10px'}" [options]="_fecha_desde" appendTo="body" defaultLabel="Desde"	 *ngIf='col.field =="fecha_desde"' (onChange)="dt.filter($event.value,col.field,'in')"></p-multiSelect>
+                          <p-multiSelect [style]="{'height':'28px', 'width': '100%', 'font-size': '10px'}" [options]="_fecha_hasta" appendTo="body" defaultLabel="Hasta"	 *ngIf='col.field =="fecha_hasta"' (onChange)="dt.filter($event.value,col.field,'in')"></p-multiSelect>
                           <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm"  *ngSwitchCase="'cant_orden'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                                                  
                           <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'total'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" >                       
-                          <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'medico_nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                          <p-multiSelect [style]="{'height':'28px', 'width': '100%', 'font-size': '10px'}" [options]="_medico_nombre" appendTo="body" defaultLabel="Médico"	 *ngIf='col.field =="medico_nombre"' (onChange)="dt.filter($event.value,col.field,'in')"></p-multiSelect>                                                  
                           <input style=" font-size: 12px;" class="form-control col-md-12 form-control-sm" *ngSwitchCase="'nombreyapellido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
                       </th>
                       <th></th>
@@ -121,17 +127,17 @@
                   <td style="width: 15%">{{elementos.medico_nombre}}</td>                                
                   <td style="width: 15%">{{elementos.nombreyapellido}}</td>      
                   <td style="width: 3em">
-                          <p-tableCheckbox [value]="elementos"></p-tableCheckbox>
+                    <p-tableCheckbox [value]="elementos" (click)="sumarValoresSeleccionados(selecteditems)"></p-tableCheckbox>
                       </td>
           </tr>
       </ng-template>
-      <ng-template pTemplate="summary">
-          <div class="row float-right pr-2">
-              <h6 class="text-info pr-2">CANTIDAD : {{cantidad |  number : '1.0-0' }}  - </h6>      
-              <h6 class="text-info"> TOTAL : {{total_facturado |  number : '1.2-2' }} $</h6>
-          </div>
-              <ul> </ul>
-          </ng-template> 
+      <ng-template pTemplate="footer">
+        <tr style="height:28px"  >
+          <td style="width: 20%">ORDENES : {{cantidad }}</td>                            
+        <td style="width: 40%" class="text-success text-bold">SELECCIONADO : {{total_seleccionado |  number : '1.2-2'}}</td>                                                            
+        <td style="width: 40%" class="text-info text-bold">TOTAL : {{total_facturado |  number : '1.2-2'}}</td>                                                     
+          </tr>
+        </ng-template> 
   </p-table>
 </div>
 

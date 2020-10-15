@@ -32,6 +32,7 @@ import { PopupPresentacionEditarComponent } from '../../../../../shared/componen
 import { FacturacionService } from '../../../../../services/facturacion.service';
 import { PracticaDistribucionService } from './../../../../../services/practica-distribucion.service';
 import { PopupOperacionCobroEditarDistribucionComponent } from './../../../../../shared/components/popups/popup-operacion-cobro-editar-distribucion/popup-operacion-cobro-editar-distribucion.component';
+import { Filter } from './../../../../../shared/filter';
 
 
 @Component({
@@ -75,11 +76,25 @@ export class LiquidacionDetalleComponent implements OnInit {
   impresiones:any[];
   barcode:boolean;
   resp_factura:any[];
+  total_seleccionado:number=0;
+  value:string;
+
+// FILTROS
   
-   value:string;
-  constructor(private facturacionService:FacturacionService,private miServicio:LiquidacionService,private practicaService:PracticaService,
+_entidad_nombre: any[] = [];
+_nivel: any[] = [];
+_fecha_desde: any[] = [];
+_fecha_hasta: any[] = [];
+_medico_nombre: any[] = [];
+_numero: any[] = [];
+_obra_social_nombre: any[] = [];
+
+
+
+  constructor(private facturacionService:FacturacionService,private miServicio:LiquidacionService,private liquidacionService: LiquidacionService, private practicaService:PracticaService,
     private practicaDistribucionService:PracticaDistribucionService, private messageService: MessageService ,public dialogService: DialogService,
-    public numberToWordsPipe:NumberToWordsPipe,private cp: CurrencyPipe, private dp: DecimalPipe) {
+    public numberToWordsPipe:NumberToWordsPipe,private cp: CurrencyPipe, private dp: DecimalPipe , 
+    private filter: Filter) {
 
     this.impresiones = [
       {name: 'Presentación todos', code: '1'},
@@ -360,7 +375,7 @@ this.DateForm = new FormGroup({
     });
   }
 
-  loadlist(){
+  loadlist() {
 
     this.loading = true;
   
@@ -370,6 +385,8 @@ this.DateForm = new FormGroup({
           if (resp[0]) {
             this.elementos = resp;
             console.log(this.elementos);
+            this.sumarValores(resp);
+            this.realizarFiltroBusqueda(resp);
               }else{
                 this.elementos =null;
               }
@@ -803,18 +820,66 @@ loadPresentacionMedico(){
 
 
 
-sumarValores(vals:any){
+sumarValores(vals:any) {
   let i:number;
-  
+
   console.log(vals);
   this.total_facturado = 0;
   this.cantidad = 0;
-  for(i=0;i<vals.length;i++){
-      this.cantidad = this.cantidad+ Number(vals[i]['cant_orden']);
-      this.total_facturado = this.total_facturado+ Number(vals[i]['total']);
-  } 
-  
+  for (i = 0; i < vals.length;i++) {
+      this.cantidad = this.cantidad + Number(vals[i]['cant_orden']);
+      this.total_facturado = this.total_facturado + Number(vals[i]['total']);
+  }
+
 }
+
+public exportarExcelRegistro() {
+
+  const fecha_impresion = formatDate(new Date(), 'dd-MM-yyyy-mm', 'es-Ar');  
+  let seleccionados: any[] = [];
+  let exportar:any[] = [];
+  let i = 0;
+  this.selecteditems.forEach(element => {
+
+    seleccionados['expediente'] = element['id'];
+    seleccionados['obra_social_nombre'] = element['obra_social_nombre'] ;
+    seleccionados['nivel'] = element['nivel'];
+    seleccionados['medico_nombre'] = element['medico_nombre'];
+    seleccionados['entidad_nombre'] = element['entidad_nombre'];
+    seleccionados['fecha_desde'] = formatDate(element['fecha_desde'], 'dd/MM/yyy', 'es-Ar');
+    seleccionados['fecha_hasta'] = formatDate(element['fecha_hasta'], 'dd/MM/yyy', 'es-Ar');
+    seleccionados['cant_orden'] =  element['cant_orden'];
+    seleccionados['total'] = element['total'];
+    seleccionados['cantidad'] = element['cant_orden'];
+    seleccionados['nombreyapellido'] = element['nombreyapellido'];
+
+    exportar[i] = seleccionados;
+
+    seleccionados = [];
+    i++;
+  });
+
+  this.liquidacionService.exportAsExcelFile(  exportar, 'listado_presentacion' + fecha_impresion);
+
+
+}
+
+sumarValoresSeleccionados(vals:any) {
+  // SUMO LO FILTRADO
+  this.selecteditems = [];
+  console.log(vals);
+  let i:number;
+  let total_seleccionado = 0;
+  this.selecteditems = vals;
+  console.log(this.selecteditems);
+for (i=0;i<vals.length;i++) {
+
+      this.cantidad = this.cantidad + Number(vals[i]['cant_orden']);
+      this.total_seleccionado = this.total_seleccionado+ Number(vals[i]['total']);
+}
+
+}
+
 
 
 filtered(event){
@@ -1821,4 +1886,37 @@ throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string){
 
 
 }
+
+realizarFiltroBusqueda(resp: any[]){
+  // FILTRO LOS ELEMENTOS QUE SE VAN USAR PARA FILTRAR LA LISTA
+
+  this._entidad_nombre = [];
+  this._nivel = [];
+  this._fecha_desde = [];
+  this._fecha_hasta = [];
+  this._medico_nombre = [];
+  this._numero = [];
+  this._obra_social_nombre = [];
+  
+  resp.forEach(element => {
+    this._entidad_nombre.push(element['entidad_nombre']);
+    this._nivel.push(element['nivel']);
+   this._fecha_desde.push(element['fecha_desde']);
+   this._fecha_hasta.push(element['fecha_hasta']);
+   this._medico_nombre.push(element['medico_nombre']);
+   this._numero.push(element['numero']);
+   this._obra_social_nombre.push(element['obra_social_nombre']);
+  });
+  
+  // ELIMINO DUPLICADOS
+  this._entidad_nombre = this.filter.filterArray(this._entidad_nombre);  
+  this._nivel = this.filter.filterArray(this._nivel);  
+  this._fecha_desde = this.filter.filterArray(this._fecha_desde);
+  this._fecha_hasta = this.filter.filterArray(this._fecha_hasta);
+  this._medico_nombre = this.filter.filterArray(this._medico_nombre);
+  this._numero = this.filter.filterArray(this._numero);
+  this._obra_social_nombre = this.filter.filterArray(this._obra_social_nombre);
+
 }
+
+  }

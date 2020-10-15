@@ -31,6 +31,7 @@ import { PopupPresentacionEditarComponent } from '../../../../../shared/componen
 import { PopupDetalleOperacionCobroDistribucionComponent } from '../../../../../shared/components/popups/popup-detalle-operacion-cobro-distribucion/popup-detalle-operacion-cobro-distribucion.component';
 import { PopupOperacionCobroDistribucionComponent } from '../../../../../shared/components/popups/popup-operacion-cobro-distribucion/popup-operacion-cobro-distribucion.component';
 import { PopupOperacionCobroDistribucionMultipleComponentComponent } from './../../../../../shared/popups/popup-operacion-cobro-distribucion-multiple-component/popup-operacion-cobro-distribucion-multiple-component.component';
+import { Filter } from './../../../../../shared/filter';
 
 
 @Component({
@@ -70,7 +71,21 @@ export class ConfeccionFacturaComponent implements OnInit {
   selectedImpresion:string ;//= 'Transferencia';
   impresiones:any[];
 
-  constructor(private miServicio:LiquidacionService,private practicaService:PracticaService, private messageService: MessageService ,public dialogService: DialogService,public numberToWordsPipe:NumberToWordsPipe,private cp: CurrencyPipe, private dp: DecimalPipe) {
+  // FILTROS
+  
+_entidad_nombre: any[] = [];
+_nivel: any[] = [];
+_fecha_desde: any[] = [];
+_fecha_hasta: any[] = [];
+_medico_nombre: any[] = [];
+_numero: any[] = [];
+_obra_social_nombre: any[] = [];
+
+
+
+  constructor(private miServicio:LiquidacionService,private practicaService:PracticaService, 
+    private liquidacionService: LiquidacionService, private messageService: MessageService ,public dialogService: DialogService, 
+    public numberToWordsPipe:NumberToWordsPipe,private cp: CurrencyPipe, private dp: DecimalPipe ,  private filter: Filter) { 
 
    
 
@@ -193,37 +208,7 @@ this.DateForm = new FormGroup({
       overlaypanel.toggle(event);
     }
   
-  imprimir(){
-
-
-
-
-    this.selectedImpresion['code'];
-    if( this.selectedImpresion['code'] === '1'){
-      this.loadPresentacionTodos();
-    }
-    if( this.selectedImpresion['code'] === '2'){
-      this.loadPresentacionMedico();
-    }
-    if( this.selectedImpresion['code'] === '3'){
-      this.loadPresentacionMedicoACLISA();
-    }
-    if( this.selectedImpresion['code'] === '4'){
-      this.loadPresentacionCirugiaTodos();
-    }
-    if( this.selectedImpresion['code'] === '5'){
-      this.loadPresentacionIva();
-    }
-    if( this.selectedImpresion['code'] === '6'){
-      this.exportarExcel();
-    }
-    if( this.selectedImpresion['code'] === '7'){
-      this.generarTxt();
-    }
-    if( this.selectedImpresion['code'] === '8'){
-      this.generarTxtCirugia();
-    }
-  }
+  
 
     buscarObraSocial(){
       let data:any; 
@@ -320,8 +305,10 @@ this.DateForm = new FormGroup({
           if (resp[0]) {
             this.elementos = resp;
             console.log(this.elementos);
+            this.sumarValores(resp);
+            this.realizarFiltroBusqueda(resp);
               }else{
-                this.elementos =null;
+                this.elementos = null;
               }
             this.loading = false;
             console.log(resp);
@@ -337,312 +324,64 @@ this.DateForm = new FormGroup({
 }
 
 
-loadPresentacionTodos(){
-
-  this.loading = true;
-
-  try {
-      this.miServicio.getListadoPreFactura(this.selecteditems)    
-      .subscribe(resp => {
-        let i:number = 0;
-        let resultado = resp;
-        resultado.forEach(element => {
-          
-          resp[i]['fecha_cobro'] = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
-      //    let t = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
-          console.log(resp[i]['fecha_cobro']);
-          i++;
-        });
-          this.elementosPreFactura = resp;
-         console.log(this.elementosPreFactura);
-          this.generarPdfListadoTodos();
-          this.loading = false;
-          console.log(resp);
-      },
-      error => { // error path
-          console.log(error.message);
-          console.log(error.status);
-          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
-       });    
-  } catch (error) {
-  this.throwAlert('error','Error al cargar los registros',error,error.status);
-  }  
-}
-
-
-
-loadPresentacionCirugiaTodos(){
-
-  this.loading = true;
-  console.log(this.selecteditems);
-  try {
-      this.miServicio.getListadoPreFacturaCirugia(this.selecteditems)    
-      .subscribe(resp => {
-        let i:number = 0;
-        let resultado = resp;
-        resultado.forEach(element => {
-          
-          resp[i]['fecha_cobro'] = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
-          if(( resp[i]['paciente_barra_afiliado'] !== '0')){
-            resp[i]['numero_afiliado'] = resp[i]['numero_afiliado']+'/'+resp[i]['paciente_barra_afiliado'] ;
-          }
-          
-          console.log(resp[i]['fecha_cobro']);
-          i++;
-        });
-          this.elementosPreFactura = resp;
-         console.log(this.elementosPreFactura);
-          this.generarPdfListadoCirugiaTodos();
-          this.loading = false;
-          console.log(resp);
-      },
-      error => { // error path
-          console.log(error.message);
-          console.log(error.status);
-          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
-       });    
-  } catch (error) {
-  this.throwAlert('error','Error al cargar los registros',error,error.status);
-  }  
-}
-
-
-loadPresentacionIva(){
-
-
-  this.loading = true;
-
-  try {
-      this.miServicio.getListadoPreFactura(this.selecteditems)    
-      .subscribe(resp => {
-        let i:number = 0;
-        let resultado = resp;
-        resultado.forEach(element => {
-          
-          resp[i]['fecha_cobro'] = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
-      //    let t = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
-          console.log(resp[i]['fecha_cobro']);
-          i++;
-        });
-          this.elementosPreFactura = resp;
-         console.log(this.elementosPreFactura);
-          this.generarPdfListadoMedicoIVA();
-          this.loading = false;
-          console.log(resp);
-      },
-      error => { // error path
-          console.log(error.message);
-          console.log(error.status);
-          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
-       });    
-  } catch (error) {
-  this.throwAlert('error','Error al cargar los registros',error,error.status);
-  }  
-
-}
-
-generarTxt(){
-
-  this.loading = true;
-
-  try {
-      this.miServicio.generarTxt(this.selecteditems)    
-      .subscribe(resp => {
-        
-        this.throwAlert('success', 'Se generó el archivo con éxito','','');
-          this.loading = false;
-          console.log(resp);
-      },
-      error => { // error path
-          console.log(error.message);
-          console.log(error.status);
-          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
-       });    
-  } catch (error) {
-  this.throwAlert('error','Error al cargar los registros',error,error.status);
-  }  
-}
-
-generarTxtCirugia(){
-  
-  this.loading = true;
-  console.log(this.selecteditems);
-  try {
-      this.miServicio.getListadoPreFacturaCirugia(this.selecteditems)    
-      .subscribe(resp => {
-        let i:number = 0;
-        let resultado = resp;
-        resultado.forEach(element => {
-          
-          resp[i]['fecha_cobro'] = formatDate( element['fecha_cobro'], 'dd/MM/yyyy HH:mm', 'en');
-          if(( resp[i]['paciente_barra_afiliado'] !== '0')){
-            resp[i]['numero_afiliado'] = resp[i]['numero_afiliado']+'/'+resp[i]['paciente_barra_afiliado'] ;
-          }
-          
-          console.log(resp[i]['fecha_cobro']);
-          i++;
-        });
-          this.elementosPreFactura = resp;
-         console.log(this.elementosPreFactura);
-          /***********
-           * 
-           * 
-           * 
-           * 
-           * 
-           * 
-           *   ORDENO LA FACTURACION  
-           * 
-           * 
-           * 
-           * */
-
-          
-          let j = 0;
-          for(i=0;i<this.elementosPreFactura.length;i++){
-
-            let practica = this.elementosPreFactura[i]['convenio_os_pmo_id'];        
-            for(j=0;j<this.elementosPreFactura.length;j++){        
-              if(this.elementosPreFactura[j]['convenio_os_pmo_id'] === practica){            
-                if((this.elementosPreFactura[j]['obra_social_practica_nombre'] === 'HONORARIOS')&&(this.elementosPreFactura[j]['complejidad'] !== 2)){
-                  if(this.elementosPreFactura[j]['operacion_cobro_distribucion_total'] === null){
-                    this.elementosPreFactura[i]['operacion_cobro_distribucion_total'] = 0;
-                  }else{
-                    if(this.selecteditems[0]['obra_social_nombre']=== 'DOS - OBRA SOCIAL PROVINCIA'){
-                      this.elementosPreFactura[i]['honorarios'] =  this.elementosPreFactura[j]['operacion_cobro_distribucion_total'];
-                    }else{
-                      this.elementosPreFactura[i]['honorarios'] =  this.cp.transform((((this.elementosPreFactura[j]['operacion_cobro_distribucion_total'])*20)/80), '', 'symbol-narrow', '1.2-2'); 
-                    }
-                  }
-                }
-                if((this.elementosPreFactura[j]['obra_social_practica_nombre'] === 'GASTOS')&&(this.elementosPreFactura[j]['complejidad'] !== 2)){
-                  if(this.elementosPreFactura[j]['operacion_cobro_distribucion_total'] === null){
-                    this.elementosPreFactura[i]['operacion_cobro_distribucion_total'] = 0;
-                  }else{
-                    console.log(this.selecteditems[0]['obra_social_id']);
-                    if(this.selecteditems[0]['obra_social_nombre'] == 'DOS - OBRA SOCIAL PROVINCIA'){
-                     console.log('obra social');
-                     this.elementosPreFactura[i]['gastos'] =  this.elementosPreFactura[j]['operacion_cobro_distribucion_total'];
-                    }else{
-                      console.log('coseguro');
-                      this.elementosPreFactura[i]['gastos'] =  this.cp.transform((((this.elementosPreFactura[j]['operacion_cobro_distribucion_total'])*20)/80), '', 'symbol-narrow', '1.2-2'); 
-                    }
-                  }
-                }
-                if(this.elementosPreFactura[j]['complejidad'] === 2){         
-                    this.elementosPreFactura[i]['gastos'] =  this.elementosPreFactura[j]['valor_facturado'];
-                    this.elementosPreFactura[i]['honorarios'] =  '0.00';
-                  }
-              }
-            }
-            }
-
-           const filteredArr = this.elementosPreFactura.reduce((acc, current) => {
-            const x = acc.find(item => item['operacion_cobro_practica_id'] === current['operacion_cobro_practica_id']);
-            if (!x) {
-              return acc.concat([current]);
-            } else {
-              return acc;
-            }
-          }, []);
-
-          try {
-            this.miServicio.generarTxtCirugia(filteredArr)    
-            .subscribe(resp => {
-              
-              this.throwAlert('success', 'Se generó el archivo con éxito','','');
-                this.loading = false;
-                console.log(resp);
-            },
-            error => { // error path
-                console.log(error.message);
-                console.log(error.status);
-                this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
-             });    
-        } catch (error) {
-        this.throwAlert('error','Error al cargar los registros',error,error.status);
-        }  
-
-          this.loading = false;
-          console.log(resp);
-      },
-      error => { // error path
-          console.log(error.message);
-          console.log(error.status);
-          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
-       });    
-  } catch (error) {
-  this.throwAlert('error','Error al cargar los registros',error,error.status);
-  }  
-}
-
-
-loadPresentacionMedico(){
-
-  this.loading = true;
-
-  try {
-      this.miServicio.getListadoPreFactura(this.selecteditems)    
-      .subscribe(resp => {
-        let i:number = 0;
-        let resultado = resp;
-        resultado.forEach(element => {
-          
-          resp[i]['fecha_cobro'] = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
-          if(( resp[i]['paciente_barra_afiliado'] !== '0')){
-            resp[i]['numero_afiliado'] = resp[i]['numero_afiliado']+'/'+resp[i]['paciente_barra_afiliado'] ;
-          }
-          
-          console.log(resp[i]['fecha_cobro']);
-          i++;
-        });
-        this.sumarValores(resp);
-          this.elementosPreFactura = resp;
-         console.log(this.elementosPreFactura);
-          this.generarPdfListadoMedico();
-          this.loading = false;
-          
-      },
-      error => { // error path
-          console.log(error.message);
-          console.log(error.status);
-          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
-       });    
-  } catch (error) {
-  this.throwAlert('error','Error al cargar los registros',error,error.status);
-  }  
-}
-
-
-
-sumarValores(vals:any){
+sumarValores(vals:any) {
   let i:number;
-  
+
   console.log(vals);
   this.total_facturado = 0;
   this.cantidad = 0;
-  for(i=0;i<vals.length;i++){
-      this.cantidad = this.cantidad+ Number(vals[i]['cant_orden']);
-      this.total_facturado = this.total_facturado+ Number(vals[i]['total']);
-  } 
-  
+  for (i = 0; i < vals.length;i++) {
+      this.cantidad = this.cantidad + Number(vals[i]['cant_orden']);
+      this.total_facturado = this.total_facturado + Number(vals[i]['total']);
+  }
+
 }
 
-sumarValoresSeleccionados(vals:any){
+public exportarExcel() {
+
+  const fecha_impresion = formatDate(new Date(), 'dd-MM-yyyy-mm', 'es-Ar');  
+  let seleccionados: any[] = [];
+  let exportar:any[] = [];
+  let i = 0;
+  this.selecteditems.forEach(element => {
+
+    seleccionados['expediente'] = element['id'];
+    seleccionados['obra_social_nombre'] = element['obra_social_nombre'] ;
+    seleccionados['nivel'] = element['nivel'];
+    seleccionados['medico_nombre'] = element['medico_nombre'];
+    seleccionados['entidad_nombre'] = element['entidad_nombre'];
+    seleccionados['fecha_desde'] = formatDate(element['fecha_desde'], 'dd/MM/yyy', 'es-Ar');
+    seleccionados['fecha_hasta'] = formatDate(element['fecha_hasta'], 'dd/MM/yyy', 'es-Ar');
+    seleccionados['cant_orden'] =  element['cant_orden'];
+    seleccionados['total'] = element['total'];
+    seleccionados['cantidad'] = element['cant_orden'];
+    seleccionados['nombreyapellido'] = element['nombreyapellido'];
+
+    exportar[i] = seleccionados;
+
+    seleccionados = [];
+    i++;
+  });
+
+  this.liquidacionService.exportAsExcelFile(  exportar, 'listado_presentacion' + fecha_impresion);
+
+
+}
+
+sumarValoresSeleccionados(vals:any) {
   // SUMO LO FILTRADO
+  this.selecteditems = [];
   console.log(vals);
-  this.total_seleccionado = 0;
   let i:number;
-  let total_facturado = 0;
-  let total_original = 0;
-  let total_categoria = 0;
-  let cantidad_practica = 0;
-for(i=0;i<vals.length;i++){
+  let total_seleccionado = 0;
+  this.selecteditems = vals;
+  console.log(this.selecteditems);
+for (i=0;i<vals.length;i++) {
 
-total_facturado = total_facturado+ Number(vals[i]['valor_facturado']);
-total_categoria = total_categoria+ Number(vals[i]['categorizacion']);
+      this.cantidad = this.cantidad + Number(vals[i]['cant_orden']);
+      this.total_seleccionado = this.total_seleccionado+ Number(vals[i]['total']);
 }
-this.total_seleccionado = total_facturado+ total_categoria;
+
 }
 
 
@@ -684,7 +423,7 @@ if(this.selecteditems){
   this.throwAlert('error','Error al cargar los registros',error,error.status);
   }  
 }else{
-  this.throwAlert('warning','No se selecciono ninguna ficha','','');
+  this.throwAlert('warning','No se selecciono ningun expediente','','');
 }
 }
 
@@ -717,42 +456,6 @@ desafectarPresentacion(){
 this.throwAlert('error','Error al cargar los registros',error,error.status);
 }   
 
-}
-
-exportarExcel(){
-
-  this.loading = true;
-
-  try {
-      this.miServicio.getListadoPreFactura(this.selecteditems)    
-      .subscribe(resp => {
-        let i:number = 0;
-        let resultado = resp;
-        resultado.forEach(element => {
-          
-          resp[i]['fecha_cobro'] = formatDate( element['fecha_cobro'], 'dd/MM/yyyy', 'en');
-          if(( resp[i]['paciente_barra_afiliado'] !== '0')){
-            resp[i]['numero_afiliado'] = resp[i]['numero_afiliado']+'/'+resp[i]['paciente_barra_afiliado'] ;
-          }         
-          i++;
-        });
-        this.sumarValores(resp);
-          this.elementosPreFactura = resp;
-         console.log(this.elementosPreFactura);     
-          this.loading = false;
-          const fecha_impresion = formatDate(new Date(), 'dd-MM-yyyy-mm', 'es-Ar');  
-          this.miServicio.exportAsExcelFile(  this.elementosPreFactura, 'listado_presentacion'+fecha_impresion);
-      },
-      error => { // error path
-          console.log(error.message);
-          console.log(error.status);
-          this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message, error.status);
-       });    
-  } catch (error) {
-  this.throwAlert('error','Error al cargar los registros',error,error.status);
-  }  
-
-  
 }
 
 
@@ -1305,4 +1008,38 @@ throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string){
 
 
 }
+
+
+realizarFiltroBusqueda(resp: any[]){
+  // FILTRO LOS ELEMENTOS QUE SE VAN USAR PARA FILTRAR LA LISTA
+
+  this._entidad_nombre = [];
+  this._nivel = [];
+  this._fecha_desde = [];
+  this._fecha_hasta = [];
+  this._medico_nombre = [];
+  this._numero = [];
+  this._obra_social_nombre = [];
+  
+  resp.forEach(element => {
+    this._entidad_nombre.push(element['entidad_nombre']);
+    this._nivel.push(element['nivel']);
+   this._fecha_desde.push(element['fecha_desde']);
+   this._fecha_hasta.push(element['fecha_hasta']);
+   this._medico_nombre.push(element['medico_nombre']);
+   this._numero.push(element['numero']);
+   this._obra_social_nombre.push(element['obra_social_nombre']);
+  });
+  
+  // ELIMINO DUPLICADOS
+  this._entidad_nombre = this.filter.filterArray(this._entidad_nombre);  
+  this._nivel = this.filter.filterArray(this._nivel);  
+  this._fecha_desde = this.filter.filterArray(this._fecha_desde);
+  this._fecha_hasta = this.filter.filterArray(this._fecha_hasta);
+  this._medico_nombre = this.filter.filterArray(this._medico_nombre);
+  this._numero = this.filter.filterArray(this._numero);
+  this._obra_social_nombre = this.filter.filterArray(this._obra_social_nombre);
+
 }
+
+  }

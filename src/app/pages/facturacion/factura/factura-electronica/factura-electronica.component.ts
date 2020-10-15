@@ -17,6 +17,7 @@ import { PopupLiquidacionDetalleComponent } from '../../../../shared/components/
 import { PopupPacienteObrasocialComponent } from './../../../../shared/components/popups/popup-paciente-obrasocial/popup-paciente-obrasocial.component';
 import { Paciente } from './../../../../models/paciente.model';
 import { PopupProveedorFindComponent } from '../../../../shared/components/popups/popup-proveedor-find/popup-proveedor-find.component';
+import { BuscarComprobanteAfipComponent } from '../../factura-electronica/popups/buscar-comprobante-afip/buscar-comprobante-afip.component';
 
 @Component({
   selector: 'app-factura-electronica',
@@ -51,14 +52,19 @@ export class FacturaElectronicaComponent implements OnInit {
   facturaAlicuotaAsociada: FacturaAlicuotaAsociada[] = [];
 
   pto_vta:string = '0';
+  _pto_vta:string = '0';
+  _medico_nombre = '';
+  _comprobante_nombre = '';  
   factura_numero:string = '0';
   factura_numero_ceros:string = '0';
+  comprobante_id = 0;
   nrodocumento:string = '0';
   observacion:string = '';
   cliente:string = '';
   CAE:string;
   CAE_vto:string;
   factura_nro:string;
+  _factura_nro:string;
   es:any;
   fecha:Date;
   _fecha:string;
@@ -281,6 +287,7 @@ export class FacturaElectronicaComponent implements OnInit {
           this.elementoMedicos = this.elementosMedicos['0'];
           console.log(this.elementoMedicos['id']);
         this.medico_id = this.elementoMedicos['id'];
+        
           // UNA VEZ QUE TENGO EL DATO DEL MEDICO PROCEDO A BUSCAR TODOS LOS DEMAS CAMPOS
 
           this.Alicuota();
@@ -431,6 +438,7 @@ export class FacturaElectronicaComponent implements OnInit {
         // console.log( this.elementosPtoVta.find(x => x.id == this.elementoMedicos['factura_punto_vta_id']));
           this.elementoPtoVta =  this.elementosPtoVta.find(x => x.id == this.elementoMedicos['factura_punto_vta_id']);
           this.pto_vta =  this.elementoPtoVta['punto_vta'];
+        //  this._pto_vta =  this.elementoPtoVta['punto_vta'];
           this.loading = false;
           this.peticion = '';
           console.log(this.elementosPtoVta);
@@ -574,6 +582,7 @@ CrearFactura(facturaElectronica){
         if (this.es_afip === 'NO') {
           this.CAE = '';
           this.CAE_vto = '';
+          this._factura_nro = resp;
           this.factura_nro =  this.padLeft(String(resp),'0',8);
           swal({
             toast: false,
@@ -628,7 +637,7 @@ CrearFactura(facturaElectronica){
 obtenerMedico(){
   console.log(this.elementoMedicos)
   this.medico_id = this.elementoMedicos['id'];
-
+  this._medico_nombre = this.elementoMedicos['nombreyapellido'];
   this.loading = true;
   this.peticion = 'Obteniendo ultima factura y punto de venta';
    console.log(this.elementoComprobante);
@@ -676,6 +685,8 @@ this.elementoComprobante =  this.elementosComprobante.find(x => x.id == resp[0][
 }
 
 obtenerPuntoVta(){
+  console.log(this.elementoPtoVta);
+  this._pto_vta = this.elementoPtoVta['id'];
   this.pto_vta = this.padLeft(this.elementoPtoVta['punto_vta'], '0', 4); 
   console.log(this.pto_vta);
   //this.obtenerUltimaFactura();
@@ -690,6 +701,8 @@ obtenerUltimaFactura(){
   this.loading = true;
   this.peticion = 'Obteniendo ultima factura y punto de venta';
    console.log(this.elementoComprobante);
+   this._comprobante_nombre = this.comprobante_id = this.elementoComprobante['descripcion'];
+   this.comprobante_id = this.elementoComprobante['id'];
    this.es_afip = this.elementoComprobante['es_afip'];
    console.log(this.es_afip);
   try {
@@ -928,6 +941,40 @@ buscarCliente(){
       // console.log(this.nrodocumento);
       }
   });
+
+}
+
+buscarFacturaAfip(){
+  console.log(this.pto_vta); 
+  console.log(this._pto_vta); 
+  console.log(this._factura_nro);
+  console.log(this.factura_numero);
+  console.log(this.medico_id);
+
+
+  this.loading = false;
+  let data: any = [];
+  data._pto_vta = this._pto_vta;
+  data.factura_numero = this.factura_numero;
+  data.comprobante_id = this.comprobante_id;
+  data.medico_id = this.medico_id;
+  data._medico_nombre = this._medico_nombre;
+  data._comprobante_nombre = this._comprobante_nombre;
+  data.pto_vta = this.pto_vta;
+  const ref = this.dialogService.open(BuscarComprobanteAfipComponent, {
+  data,
+   header: 'Buscar facturas de afip',
+   width: '98%',
+   height: '90%'
+  });
+
+  ref.onClose.subscribe((BuscarComprobanteAfipComponent: any) => {
+      if (BuscarComprobanteAfipComponent) {
+        console.log(BuscarComprobanteAfipComponent);
+      }
+  });
+
+ 
 
 }
 

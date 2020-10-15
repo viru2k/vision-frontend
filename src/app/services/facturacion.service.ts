@@ -20,6 +20,9 @@ export class FacturacionService {
 
         /******DATOS SOBRE FACTURACION******/
 
+  GetVoucherInfo(punto_vta: string, comprobante_numero: string, comprobante_id: number,  medico_id: string){
+    return this.http.get<number>(this.url+'afip/factura/info?punto_vta='+punto_vta+'&comprobante_numero='+comprobante_numero+'&comprobante_id='+comprobante_id+'&medico_id='+medico_id);
+    }
 
   GetLastVoucher(punto_vta:string, comprobante_tipo:string, medico_id:string){
     return this.http.get<number>(this.url+'afip/data/getlastvoucher?punto_vta='+punto_vta+'&comprobante_tipo='+comprobante_tipo+'&medico_id='+medico_id);

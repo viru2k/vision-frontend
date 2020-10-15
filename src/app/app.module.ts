@@ -142,8 +142,8 @@ import { from } from 'rxjs';
 import { AgendaBloqueoComponent } from './pages/mantenimiento/agenda/agenda-bloqueo/agenda-bloqueo.component';
 // tslint:disable-next-line: max-line-length
 import { OperacionCobroAuditarComponent } from './pages/facturacion/liquidacion/auditar/operacion-cobro-auditar/operacion-cobro-auditar.component';
-// tslint:disable-next-line: max-line-length
-import { OperacionCobroEditarComponent } from './pages/facturacion/liquidacion/auditar/operacion-cobro-editar/operacion-cobro-editar.component';
+
+
 
 import { PopupTurnoEditarComponent } from './shared/components/popups/popup-turno-editar/popup-turno-editar.component';
 // tslint:disable-next-line: max-line-length
@@ -319,6 +319,7 @@ import { ProveedorComponent } from './pages/mantenimiento/proveedor/proveedor.co
 import { PopupProveedorEditarComponent } from './pages/mantenimiento/popup/popup-proveedor-editar/popup-proveedor-editar.component';
 import { PopupProveedorFindComponent } from './shared/components/popups/popup-proveedor-find/popup-proveedor-find.component';
 import { ChatNotificatorComponent } from './pages/chat/chat-notificator/chat-notificator.component';
+import { BuscarComprobanteAfipComponent } from './pages/facturacion/factura-electronica/popups/buscar-comprobante-afip/buscar-comprobante-afip.component';
 
 
 
@@ -381,7 +382,6 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupObraSocialComponent,
     AgendaBloqueoComponent,
     OperacionCobroAuditarComponent,
-    OperacionCobroEditarComponent,
     PopupTurnoEditarComponent,
     OperacionCobroDetalleComponent,
     PopupHistoriaClinicaResumenComponent,
@@ -500,7 +500,8 @@ registerLocaleData(localeEsAR, 'es-Ar');
     ProveedorComponent,
     PopupProveedorEditarComponent,
     PopupProveedorFindComponent,
-    ChatNotificatorComponent
+    ChatNotificatorComponent,
+    BuscarComprobanteAfipComponent
 
   ],
   imports: [
@@ -571,7 +572,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupFacturaRenglonComponent, BuscarConceptoFacturaComponent, PopupOperacionCobroDistribucionDetalleComponent,
     PopupLiquidacionDetalleComponent, PopupArticuloComponent, PopupOperacionCobroEditarDistribucionComponent,
     PopupPacienteComponent, ListadoCirugiaComponent, PopupArticuloComponent, PopupOperacionCobroDistribucionMultipleComponentComponent,
-    PopupProveedorFindComponent, PopupProveedorEditarComponent,
+    PopupProveedorFindComponent, PopupProveedorEditarComponent, BuscarComprobanteAfipComponent,
  
 
 /* -------------------------------------------------------------------------- */
