@@ -518,7 +518,7 @@ guardarDatos(){
   this.cliente,this.factura_numero, this._fecha, this._fechaDesde, this._fechaHasta,
   // tslint:disable-next-line: max-line-length
   (Math.round(this.subtotal * 100) / 100), this.subtotal_excento,(Math.round(this.subtotal_iva * 100) / 100),(Math.round(this.total * 100) / 100) ,
-  this.facturaAlicuotaAsociada,this.elementos, '','', this.elementoMedicos['id'], this.observacion,this.elementoCondicionIva['categoria_iva'], this.es_afip);
+  this.facturaAlicuotaAsociada,this.elementos, '','', this.elementoMedicos['id'], this.observacion,this.elementoCondicionIva['categoria_iva'], this.es_afip, this.userData.id);
    console.log(facturaElectronica);
   
   

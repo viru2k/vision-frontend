@@ -28,6 +28,7 @@ export class FacturaElectronica {
     factura_obra_social: string;
     elementoCondicionIva: string;
     es_afip: string;
+    usuario_id: string;
 
     constructor(
       id: string,
@@ -52,7 +53,8 @@ export class FacturaElectronica {
       medico_id: string,
       factura_obra_social: string,
       elementoCondicionIva: string,
-      es_afip: string
+      es_afip: string,
+      usuario_id: string
           ) {
         
             this.id = id;
@@ -78,5 +80,6 @@ export class FacturaElectronica {
             this.factura_obra_social = factura_obra_social;
             this.elementoCondicionIva = elementoCondicionIva;
             this.es_afip = es_afip;
+            this.usuario_id = usuario_id;
     }
 }

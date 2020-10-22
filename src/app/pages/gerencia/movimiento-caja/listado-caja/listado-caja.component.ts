@@ -79,6 +79,23 @@ export class ListadoCajaComponent implements OnInit {
         {field: 'total', header: 'Total', width: '10%' },
         
         ];
+
+        this.columns = [
+          {title: 'Fecha', dataKey: 'fecha_carga'},
+          {title: 'Cuenta', dataKey: 'cuenta_nombre'},
+          {title: 'Comprobante', dataKey: 'tipo_comprobante'},
+          {title: 'Concepto', dataKey: 'concepto_cuenta'},
+        
+          {title: 'A nombre', dataKey: 'nombreyapellido_paciente'},
+          {title: 'Numero', dataKey: 'comprobante_numero'},
+          {title: 'Descripción', dataKey: 'descripcion'},
+          {title: 'Tipo', dataKey: 'movimiento_tipo'},
+          {title: 'Importe', dataKey: 'importe'},
+          {title: 'Cotiz.', dataKey: 'cotizacion'},
+          {title: 'Total', dataKey: 'total'}
+          
+          
+      ];
    
       }
 
@@ -279,39 +296,35 @@ verDetalle(agendaTurno: any) {
 
 
 generarPdf() {
-  /* 
+
+  console.log(this.selecteditems);
   let _fechaEmision = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'en');
-  console.log(this.elementos);
-  if(!this.elementosFiltrados){
-    this.elementosFiltradosImpresion = this.agendaTurno;
-  }else{
-    this.elementosFiltradosImpresion = this.elementosFiltrados;
-  }
-  let fecha = formatDate(this.fechaHoy, 'dd/MM/yyyy', 'en');
+  let _fechaDesde_imp = formatDate(this.fechaDesde, 'dd/MM/yyyy', 'en');
+  let _fechaHasta_imp = formatDate(this.fechaHasta, 'dd/MM/yyyy', 'en');
   var doc = new jsPDF('landscape');
-  
- 
+
   const pageSize = doc.internal.pageSize;
   const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
 doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
   doc.setLineWidth(0.4);
   doc.line(10, 30, pageWidth - 10, 30);
   doc.setFontSize(12);
-  doc.text('Agenda de pacientes', pageWidth/2, 20, null, null, 'center');
-  doc.text('Emitido : '+_fechaEmision, pageWidth/2, 24, null, null, 'center');
+  doc.text('MOVIMIENTOS DE CAJA', pageWidth/2, 20, null, null, 'center');
   doc.setFontSize(8);
-  doc.text(pageWidth-60, 20, 'Agenda del dia :' + fecha);
+  doc.text('Desde : '+ _fechaDesde_imp + ' Hasta ' + _fechaHasta_imp, pageWidth/2, 28, null, null, 'center');
+  doc.setFontSize(8);
+  
 
 
-   doc.autoTable(this.columns, this.elementosFiltradosImpresion,
+   doc.autoTable(this.columns, this.selecteditems,
       {
-        margin: {horizontal: 5, vertical: 35},    
+        margin: {horizontal: 5, vertical: 35},
         bodyStyles: {valign: 'top'},
         styles: {fontSize: 7,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify'},
         columnStyles: {text: {cellWidth: 'auto'}}
       }
       );
-      window.open(doc.output('bloburl')); */
+      window.open(doc.output('bloburl')); 
 }
 
 
