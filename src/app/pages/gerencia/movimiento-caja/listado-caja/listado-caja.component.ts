@@ -85,7 +85,6 @@ export class ListadoCajaComponent implements OnInit {
           {title: 'Cuenta', dataKey: 'cuenta_nombre'},
           {title: 'Comprobante', dataKey: 'tipo_comprobante'},
           {title: 'Concepto', dataKey: 'concepto_cuenta'},
-        
           {title: 'A nombre', dataKey: 'nombreyapellido_paciente'},
           {title: 'Numero', dataKey: 'comprobante_numero'},
           {title: 'Descripción', dataKey: 'descripcion'},
@@ -297,6 +296,19 @@ verDetalle(agendaTurno: any) {
 
 generarPdf() {
 
+  let i = 0;
+  this.selecteditems.forEach(element => {
+    this.selecteditems[i].fecha_carga = formatDate(element.fecha_carga, 'dd/MM/yyyy', 'en');
+    
+    if (element.nombreyapellido_paciente === 'null') {
+      this.selecteditems[i].nombreyapellido_paciente =  '';
+    }
+    
+    
+    
+    i++;
+  });
+
   console.log(this.selecteditems);
   let _fechaEmision = formatDate(new Date(), 'dd/MM/yyyy HH:mm', 'en');
   let _fechaDesde_imp = formatDate(this.fechaDesde, 'dd/MM/yyyy', 'en');
@@ -320,9 +332,11 @@ doc.addImage(logo_clinica, 'PNG', 10, 10, 40, 11,undefined,'FAST');
       {
         margin: {horizontal: 5, vertical: 35},
         bodyStyles: {valign: 'top'},
-        styles: {fontSize: 7,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify'},
+        styles: {fontSize: 7,cellWidth: 'wrap', rowPageBreak: 'auto', halign: 'justify',overflow: 'linebreak'},
         columnStyles: {text: {cellWidth: 'auto'}}
       }
+
+   
       );
       window.open(doc.output('bloburl')); 
 }

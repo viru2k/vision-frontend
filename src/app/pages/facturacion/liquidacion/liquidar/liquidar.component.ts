@@ -442,6 +442,7 @@ if (this.selecteditems) {
             this.elementos = resp;
             console.log(this.elementos);
             this.sumarValores(this.elementos);
+            this.realizarFiltroBusqueda(resp);
               }else{
                 this.elementos =null;
               }

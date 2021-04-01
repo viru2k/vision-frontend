@@ -1,31 +1,36 @@
 
 
-export const URL_SERVICIOS = 'http://localhost/api-vision/public/api/';
-export const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
-export const URL_ARCHIVO = 'http://localhost/api-vision/public/';
-export const URL_ARCHIVO_SUBIDA = 'http://localhost/api-vision/public/api/';
+ export const URL_SERVICIOS = 'http://localhost/api-vision/public/api/';
+ export const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
+ export const URL_ARCHIVO = 'http://localhost/api-vision/public/';
+ export const URL_ARCHIVO_SUBIDA = 'http://localhost/api-vision/public/api/';
 
 
 //export const config: SocketIoConfig = { url: 'https://communication-serivce.herokuapp.com/', options: {} };
 
-// export const URL_SERVICIOS = 'http://messageserver/api-vision/public/api/'; 
+// export const URL_SERVICIOS = 'http://messageserver/api-vision/public/api/';
 // export const config: SocketIoConfig = { url: 'http://messageserver:4444', options: {} };
-// export const URL_ARCHIVO = 'http://messageserver/api-vision/public/'; 
+// export const URL_ARCHIVO = 'http://messageserver/api-vision/public/';
 // export const URL_ARCHIVO_SUBIDA = 'http://messageserver/api-vision/public/api/';
-
+//
 /***********SERVER DE PRUEBAS ********************** */
- 
-//export const URL_SERVICIOS = 'http://messageserver/api-vision-prueba/public/api/'; 
+
+//export const URL_SERVICIOS = 'http://messageserver/api-vision-prueba/public/api/';
 //export const config: SocketIoConfig = { url: 'http://messageserver:4444', options: {} };
 //export const URL_ARCHIVO = 'http://messageserver/api-vision/public/';
-//export const URL_ARCHIVO_SUBIDA = 'http://messageserver/api-vision/public/api/'; 
+//export const URL_ARCHIVO_SUBIDA = 'http://messageserver/api-vision/public/api/';
 
 
 // REMOTO WEB
 
-//export const URL_SERVICIOS = 'https://clinicaz.com.ar/api-vision/public/api/'; 
+//export const URL_SERVICIOS = 'https://clinicaz.com.ar/api-vision/public/api/';
 //export const config: SocketIoConfig = { url: 'https://clinicaz.com.ar:4444', options: {} };
 //export const URL_ARCHIVO = 'https://clinicaz.com.ar/api-vision/public/';
+
+//export const URL_SERVICIOS = 'https://delavision.com.ar/api-vision/public/api/';
+//export const config: SocketIoConfig = { url: 'https://delavision.com.ar:4444', options: {} };
+//export const URL_ARCHIVO = 'https://delavision.com.ar/api-vision/public/';
+//export const URL_ARCHIVO_SUBIDA = 'https://delavision.com.ar/api-vision/public/api/';
 
 export const VAPID_PUBLIC ='BNOJyTgwrEwK9lbetRcougxkRgLpPs1DX0YCfA5ZzXu4z9p_Et5EnvMja7MGfCqyFCY4FnFnJVICM4bMUcnrxWg'; // SIN USO
 
@@ -43,7 +48,7 @@ export const calendarioIdioma:any =  {
     monthNames: [ "enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre" ],
     monthNamesShort: [ "ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic" ],
     today: 'Hoy',
-    clear: 'Borrar' 
+    clear: 'Borrar'
 }
 //export const URL_SERVICIOS = '/mascota-api-v1';
 

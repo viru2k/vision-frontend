@@ -74,6 +74,7 @@ import { MovimientoConceptoCuentaComponent } from './pages/mantenimiento/movimie
 import { MovimientoTipoComprobanteComponent } from './pages/mantenimiento/movimiento-caja/movimiento-tipo-comprobante/movimiento-tipo-comprobante.component';
 import { ListadoCajaComponent } from './pages/gerencia/movimiento-caja/listado-caja/listado-caja.component';
 import { ProveedorComponent } from './pages/mantenimiento/proveedor/proveedor.component';
+import { UsuarioComponent } from './pages/mantenimiento/usuario/usuario.component';
 
 export const ROUTES: Routes = [
     /** principal **/
@@ -82,7 +83,7 @@ export const ROUTES: Routes = [
     { path: 'quirofano', component: QuirofanoComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     /** mantenimiento **/
     { path: 'medico', component: MedicoComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
-    { path: 'usuario', component: UsuarioModuloComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
+    { path: 'usuario', component: UsuarioComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     { path: 'paciente', component: PacienteComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     { path: 'proveedor', component: ProveedorComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     { path: 'convenios/convenio', component: ConvenioComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
@@ -141,7 +142,7 @@ export const ROUTES: Routes = [
     { path: 'recepcion/operacioncobro', component: OperacionCobroComponent, canActivate: [AuthGuard], data: {role: 'recepcion_consulta'}  },
 
 
-    /** stock **/    
+    /** stock **/
     { path: 'stock/lente/stock', component: AltaLenteComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
 
     /** estudios **/
@@ -185,7 +186,7 @@ export const ROUTES: Routes = [
       component: MovimientoTipoMonedaComponent, canActivate: [AuthGuard], data: {role: 'gerencia_control'}  },
       { path: 'movimientos/caja/concepto/comprobante',
       component: MovimientoTipoComprobanteComponent, canActivate: [AuthGuard], data: {role: 'gerencia_control'}  },
- 
+
 
     /** otros **/
     { path: 'chat', component: ChatComponent },

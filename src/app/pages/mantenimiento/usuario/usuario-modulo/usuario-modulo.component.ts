@@ -29,7 +29,7 @@ export class UsuarioModuloComponent implements OnInit {
   public selectedItemUsuario:User;
   public selectedItemModulo:UsuarioModulo;
   public selectedItemModuloUsuario:UsuarioModulo;
-  
+
 
   constructor(private miServico:UserService) {
 
@@ -41,7 +41,7 @@ export class UsuarioModuloComponent implements OnInit {
     console.log(this.user['email']);
     this.loadUsuario();
     this.loadModulo();
-    
+
   }
 
 
@@ -51,11 +51,11 @@ export class UsuarioModuloComponent implements OnInit {
     this.user_id = event.value.id;
     this.user_name = event.value.email;
     this.loadListUsuario();
-    
+
   }
 
   loadUsuario(){
-  
+
     this.loading = true;
     try {
         this.miServico.getItems()
@@ -68,15 +68,15 @@ export class UsuarioModuloComponent implements OnInit {
             console.log(error.message);
             console.log(error.status);
             this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message, error.status);
-         });    
+         });
     } catch (error) {
     this.throwAlert("error","Error al cargar los registros",error,error.status);
-    }  
+    }
   }
 
 
   loadModulo(){
-  
+
     this.loading = true;
     try {
         this.miServico.getItemsMenu()
@@ -89,12 +89,12 @@ export class UsuarioModuloComponent implements OnInit {
             console.log(error.message);
             console.log(error.status);
             this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message, error.status);
-         });    
+         });
     } catch (error) {
     this.throwAlert("error","Error al cargar los registros",error,error.status);
-    }  
+    }
   }
-  
+
   loadListUsuario(){
     console.log(this.user);
     this.loading = true;
@@ -109,20 +109,20 @@ export class UsuarioModuloComponent implements OnInit {
             console.log(error.message);
             console.log(error.status);
             this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message, error.status);
-         });    
+         });
     } catch (error) {
     this.throwAlert("error","Error al cargar los registros",error,error.status);
-    }  
+    }
   }
 
-  
+
   agregarModuloUsuario(){
     console.log(this.user);
     this.loading = true;
-    try {
+/*     try {
         this.miServico.postUserMenu(this.selectedItemModulo,this.user_id)
         .subscribe(resp => {
-                  
+
             this.loading = false;
             console.log(resp);
             this.loadListUsuario();
@@ -131,13 +131,13 @@ export class UsuarioModuloComponent implements OnInit {
             console.log(error.message);
             console.log(error.status);
             this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message, error.status);
-         });    
+         });
     } catch (error) {
     this.throwAlert("error","Error al cargar los registros",error,error.status);
-    }  
+    }   */
   }
 
-  
+
   borrarModuloUsuario(){
     console.log(this.selectedItemModuloUsuario);
     this.loading = true;
@@ -152,14 +152,14 @@ export class UsuarioModuloComponent implements OnInit {
             console.log(error.message);
             console.log(error.status);
             this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message, error.status);
-         });    
+         });
     } catch (error) {
     this.throwAlert("error","Error al cargar los registros",error,error.status);
-    }  
+    }
   }
 
-  
-  
+
+
   borrar(){
     console.log(this.selectedItemModuloUsuario);
   }
@@ -168,7 +168,7 @@ export class UsuarioModuloComponent implements OnInit {
     console.log(this.selectedItemModulo);
   }
 
-  
+
 throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string){
   let tipoerror:string;
 
@@ -217,8 +217,8 @@ throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string){
     if(errorNumero =="502"){
         mensaje ="Bad gateway";
     }
-    
-      swal({   
+
+      swal({
           type: 'error',
           title: 'Oops...',
           text: mensaje,
