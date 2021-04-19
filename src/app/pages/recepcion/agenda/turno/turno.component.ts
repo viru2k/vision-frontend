@@ -1,3 +1,4 @@
+import { ObraSocialService } from './../../../../services/obra-social.service';
 import { MedicoObraSocial } from './../../../../models/medico-obrasocial.model';
 import { PopupPacienteNuevoComponent } from './../../../paciente/popup-paciente/popup-paciente.component';
 import { PopupPacienteObrasocialComponent } from './../../../../shared/components/popups/popup-paciente-obrasocial/popup-paciente-obrasocial.component';
@@ -79,12 +80,14 @@ export class TurnoComponent implements OnInit {
  sobreturno:string = 'NO';
 
  selectedMotivo:string;
+ selectedObraSocial:string = '';
  selectedEstudio:string;
  selectedMedicoEfector:string;
  observacion:string;
  motivoatencion:any[];
  estudios:any[];
  motivos:any[];
+ obrasocial: any[];
  usuarios:User[];
  medico_nombre:string;
  medico_nombre_factura:string;
@@ -94,7 +97,9 @@ export class TurnoComponent implements OnInit {
  dni:string;
  fecha_nacimiento:Date;
 
-  constructor(private miServicoPaciente:PacienteService ,private miUserServico:UserService, private miServico:AgendaService, private datePipe: DatePipe,  private messageService: MessageService ,public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router ) {
+  constructor(private miServicoPaciente:PacienteService ,
+    private obraSocialServicio:ObraSocialService,
+    private miUserServico:UserService, private miServico:AgendaService, private datePipe: DatePipe,  private messageService: MessageService ,public dialogService: DialogService,  private route: ActivatedRoute,     private router: Router ) {
 
     this.popItemPaciente =  new Paciente('0','','','','','',new Date(),'','','','','','','','','0','0','','','0','','','','','','');
     if(this.router.getCurrentNavigation().extras.state != undefined){
@@ -178,12 +183,35 @@ export class TurnoComponent implements OnInit {
 });
 
 this.getUsuarioMedico();
-
+this.loadListObraSocial();
   let newDate = new Date();
   this.DateForm.patchValue({fechaHoy: this.fechaHoy});
     if(this.esInvocado){
      // console.log(this.elementoPacienteInicio);
   //  this.cargarAgendaInicio(this.elementoPacienteInicio);
+    }
+  }
+
+
+
+  loadListObraSocial(){
+
+    this.loading = true;
+
+    try {
+        this.obraSocialServicio.getItems()
+        .subscribe(resp => {
+        this.obrasocial = resp;
+            this.loading = false;
+            console.log(resp);
+        },
+        error => { // error path
+            console.log(error.message);
+            console.log(error.status);
+            this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message, error.status);
+         });
+    } catch (error) {
+    this.throwAlert("error","Error al cargar los registros",error,error.status);
     }
   }
 
@@ -226,6 +254,7 @@ this.getUsuarioMedico();
 
 
   guardarObservacion(){
+    console.log(this.selectedObraSocial);
     let selectedMedicoEfector_:string;
     let selectedEstudio_:String;
     let selectedMotivo_:String;
