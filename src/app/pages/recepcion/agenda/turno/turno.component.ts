@@ -1,3 +1,4 @@
+import { PopupObraSocialComponent } from './../../../../shared/components/popups/popup-obra-social/popup-obra-social.component';
 import { ObraSocialService } from './../../../../services/obra-social.service';
 import { MedicoObraSocial } from './../../../../models/medico-obrasocial.model';
 import { PopupPacienteNuevoComponent } from './../../../paciente/popup-paciente/popup-paciente.component';
@@ -174,6 +175,8 @@ export class TurnoComponent implements OnInit {
       'apellido': new FormControl(''),
       'dni': new FormControl('', Validators.required),
       'obra_social_nombre': new FormControl(''),
+      'obra_social_nombre_adicional': new FormControl(''),
+      'obra_social_nombre_adicional_id': new FormControl(''),
       'fecha_nacimiento': new FormControl('')
   });
   this.AgendaForm = new FormGroup({
@@ -193,6 +196,26 @@ this.loadListObraSocial();
   }
 
 
+
+  buscarObraSocial(){
+    let data:any;
+    const ref = this.dialogService.open(PopupObraSocialComponent, {
+    data,
+     header: 'Buscar obra social',
+     width: '98%',
+     height: '90%'
+    });
+
+    ref.onClose.subscribe((PopupObraSocialComponent:ObraSocial) => {
+        if (PopupObraSocialComponent) {
+          console.log(PopupObraSocialComponent);
+          this.formPaciente.patchValue({obra_social_nombre_adicional_id: PopupObraSocialComponent.id});
+          this.formPaciente.patchValue({obra_social_nombre_adicional: PopupObraSocialComponent.nombre});
+
+        }
+    });
+
+  }
 
   loadListObraSocial(){
 
@@ -661,6 +684,7 @@ buscarPaciente(){
         console.log(PopupPacienteObrasocialComponent);
        this.popItemPaciente = PopupPacienteObrasocialComponent;
         this.formPaciente.patchValue(PopupPacienteObrasocialComponent);
+        this.formPaciente.patchValue({obra_social_nombre_adicional: PopupPacienteObrasocialComponent.obra_social_nombre});
        this.apellido = PopupPacienteObrasocialComponent.apellido;
        this.nombre = PopupPacienteObrasocialComponent.nombre;
        this.obra_social_nombre = PopupPacienteObrasocialComponent.obra_social_nombre;
@@ -931,11 +955,11 @@ generarTurno(event:AgendaTurno){
       if(this.elemento.es_sobreturno === 'SI'){
         this.elemento.agenda_estado_id = '6';
       }
-
-
       if( (this.elemento.agenda_estado_id === '1')){
         this.elemento.es_sobreturno === 'NO';
       }
+
+      this.elemento['obra_social_nombre_adicional_id'] = this.formPaciente.value.obra_social_nombre_adicional_id;
     this.miServico.agendarTurno(this.elemento)
     .subscribe(resp => {
       this.loadingAccion = false;
