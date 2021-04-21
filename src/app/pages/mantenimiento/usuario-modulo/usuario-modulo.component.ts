@@ -8,7 +8,7 @@ import { UserService } from '../../../services/user.service';
   templateUrl: './usuario-modulo.component.html',
   styleUrls: ['./usuario-modulo.component.scss']
 })
-export class UsuarioModuloComponent implements OnInit {
+export class UsuarioModuloOldComponent implements OnInit {
 
   cols: any[];
   columns: any[];
@@ -31,7 +31,7 @@ export class UsuarioModuloComponent implements OnInit {
     this.loadlist();
   }
 
- 
+
 
 
   loadlist() {
@@ -82,7 +82,7 @@ loadlistModuloUsuario() {
 borrar(e: any) {
   console.log(e.value);
 
-  this.loading = true;  
+  this.loading = true;
   try {
       this.userService.delModulo(e.value.user_modulo_id)
       .subscribe(resp => {
@@ -97,7 +97,7 @@ borrar(e: any) {
     this.alertServiceService.throwAlert('error', 'Error: ' + error.status + '  Error al cargar los registros', '', '500');
   }
 
-  
+
 }
 
 guardarModulos() {

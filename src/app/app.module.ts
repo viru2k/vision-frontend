@@ -1,3 +1,6 @@
+import { UsuarioNewComponent } from './pages/mantenimiento/usuario/usuario.component';
+import { UsuarioModuloOldComponent } from './pages/mantenimiento/usuario-modulo/usuario-modulo.component';
+import { UsuarioPasswordComponent } from './pages/mantenimiento/usuario-password/usuario-password.component';
 
 /*
 In primeng/components/table/table.d.ts
@@ -75,7 +78,7 @@ import { PacienteComponent } from './pages/paciente/paciente.component';
 import {PopupMedicoComponent} from './shared/components/popups/popup-medico/popup-medico.component';
 /** compartido**/
 import { LoadingComponent } from './shared/components/loading/loading.component';
-import { UsuarioComponent } from './pages/mantenimiento/usuario/usuario.component';
+
 /** DIRECTIVAS **/
 
 
@@ -166,7 +169,7 @@ import { EmptyComponent } from './pages/info/empty/empty.component';
 import { NotFoundComponent } from './pages/info/not-found/not-found.component';
 import { ListadoCirugiaComponent } from './pages/asesoramiento/ficha-quirurgica/listado-cirugia/listado-cirugia.component';
 import { PopupLentesComponent } from './shared/components/popups/popup-lentes/popup-lentes.component';
-import { UsuarioModuloComponent } from './pages/mantenimiento/usuario-modulo/usuario-modulo.component';
+import { UsuarioModuloComponent } from './pages/mantenimiento/usuario/usuario-modulo/usuario-modulo.component';
 // tslint:disable-next-line: max-line-length
 import { LiquidacionDetalleComponent } from './pages/facturacion/liquidacion/liquidar/liquidacion-detalle/liquidacion-detalle.component';
 import { ConfeccionFacturaComponent } from './pages/facturacion/liquidacion/liquidar/confeccion-factura/confeccion-factura.component';
@@ -321,6 +324,7 @@ import { PopupProveedorFindComponent } from './shared/components/popups/popup-pr
 import { ChatNotificatorComponent } from './pages/chat/chat-notificator/chat-notificator.component';
 import { BuscarComprobanteAfipComponent } from './pages/facturacion/factura-electronica/popups/buscar-comprobante-afip/buscar-comprobante-afip.component';
 import { UsuarioEditarComponent } from './pages/mantenimiento/usuario-editar/usuario-editar.component';
+import { UsuarioComponent } from './pages/mantenimiento/usuario/usuario/usuario.component';
 
 
 
@@ -376,7 +380,6 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupTurnoUsuarioObraSocialComponent,
     PopupUsuarioComponent,
     DateFormatPipe,
-    UsuarioModuloComponent,
     PopupPacienteObrasocialComponent,
     PopupPracticaPorcentajeComponent,
     PopupObraSocialMedicoComponent,
@@ -462,7 +465,6 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupArticuloComponent,
     PopupPacienteAmpliadoComponent,
     ListadoCirugiaSinUsoComponent,
-    UsuarioComponent,
     PopupUsuarioEditarComponent,
     PopupUsuarioEditarPasswordComponent,
     CirugiaEditarComponent,
@@ -503,8 +505,11 @@ registerLocaleData(localeEsAR, 'es-Ar');
     ChatNotificatorComponent,
     BuscarComprobanteAfipComponent,
     UsuarioComponent,
+    UsuarioNewComponent,
     UsuarioEditarComponent,
-
+    UsuarioModuloComponent,
+    UsuarioModuloOldComponent,
+    UsuarioPasswordComponent,
   ],
   imports: [
 
@@ -580,6 +585,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupUsuarioComponent,
     UsuarioModuloComponent,
     UsuarioEditarComponent,
+    UsuarioPasswordComponent,
 
 
 /* -------------------------------------------------------------------------- */

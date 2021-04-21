@@ -1,3 +1,4 @@
+import { UsuarioNewComponent } from './pages/mantenimiento/usuario/usuario.component';
 import { AuthGuard } from './guards/auth.guard';
 // tslint:disable-next-line: max-line-length
 import { OperacionCobroAuditarComponent } from './pages/facturacion/liquidacion/auditar/operacion-cobro-auditar/operacion-cobro-auditar.component';
@@ -74,7 +75,7 @@ import { MovimientoConceptoCuentaComponent } from './pages/mantenimiento/movimie
 import { MovimientoTipoComprobanteComponent } from './pages/mantenimiento/movimiento-caja/movimiento-tipo-comprobante/movimiento-tipo-comprobante.component';
 import { ListadoCajaComponent } from './pages/gerencia/movimiento-caja/listado-caja/listado-caja.component';
 import { ProveedorComponent } from './pages/mantenimiento/proveedor/proveedor.component';
-import { UsuarioComponent } from './pages/mantenimiento/usuario/usuario.component';
+
 
 export const ROUTES: Routes = [
     /** principal **/
@@ -83,7 +84,7 @@ export const ROUTES: Routes = [
     { path: 'quirofano', component: QuirofanoComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     /** mantenimiento **/
     { path: 'medico', component: MedicoComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
-    { path: 'usuario', component: UsuarioComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
+    { path: 'usuario', component: UsuarioNewComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     { path: 'paciente', component: PacienteComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     { path: 'proveedor', component: ProveedorComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },
     { path: 'convenios/convenio', component: ConvenioComponent, canActivate: [AuthGuard], data: {role: 'facturacion_control'}  },

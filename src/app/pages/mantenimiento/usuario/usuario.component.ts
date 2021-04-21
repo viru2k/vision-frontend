@@ -1,18 +1,19 @@
+import { UsuarioModuloComponent } from './usuario-modulo/usuario-modulo.component';
 import { Component, OnInit } from '@angular/core';
 import { InsumoService } from '../../../services/insumo.service';
 import { AlertServiceService } from '../../../services/alert-service.service';
 import { MessageService, DialogService } from 'primeng/api';
 import { UserService } from './../../../services/user.service';
 import { UsuarioEditarComponent } from './../usuario-editar/usuario-editar.component';
-import { UsuarioModulo } from '../../../models/user-modulo.model';
-import { UsuarioModuloComponent } from './../usuario-modulo/usuario-modulo.component';
+
+
 
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
   styleUrls: ['./usuario.component.scss']
 })
-export class UsuarioComponent implements OnInit {
+export class UsuarioNewComponent implements OnInit {
 
 
   cols: any[];
@@ -110,8 +111,8 @@ editarPermiso(elemento: any) {
   const ref = this.dialogService.open(UsuarioModuloComponent, {
   data,
    header: 'Editar módulo usuario',
-   width: '50%',
-   height: '60%'
+   width: '60%',
+   height: '100%'
   });
 
   // tslint:disable-next-line: no-shadowed-variable
