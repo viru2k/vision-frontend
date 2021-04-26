@@ -2,7 +2,7 @@ export class AgendaTurno {
 
     id:string;
     hora_desde:Date;
-    hora_hasta:Date; 
+    hora_hasta:Date;
     hora_desde_hasta:Date;
     agenda_dia_horario_atencion_id:string;
     fecha_turno:string;
@@ -34,8 +34,8 @@ export class AgendaTurno {
     observacion:string;
     codigo_old:string;
     plan:string;
-    domicilio:string; 
-    es_observacion:string; 
+    domicilio:string;
+    es_observacion:string;
     operacion_cobro_id:string;
     agenda_creacion:string;
     es_sobreturno:string;
@@ -46,11 +46,12 @@ export class AgendaTurno {
     puesto_estado:string;
     llama_pantalla:string;
     usuario_medico_factura_id:string;
+    obra_social_nombre_adicional_id?: string;
 
-    constructor( 
+    constructor(
         id:string,
         hora_desde:Date,
-        hora_hasta:Date, 
+        hora_hasta:Date,
         hora_desde_hasta:Date,
         agenda_dia_horario_atencion_id:string,
         fecha_turno:string,
@@ -91,9 +92,10 @@ export class AgendaTurno {
         puesto_llamado:string,
         puesto_estado:string,
         llama_pantalla:string,
-        usuario_medico_factura_id:string
+        usuario_medico_factura_id:string,
+        obra_social_nombre_adicional_id?: string
         ) {
-       
+
         this.id = id;
         this.hora_desde= hora_desde;
         this.hora_hasta= hora_hasta;
@@ -138,5 +140,6 @@ export class AgendaTurno {
         this.puesto_llamado = puesto_llamado;
         this.llama_pantalla = llama_pantalla;
         this.usuario_medico_factura_id = usuario_medico_factura_id;
+        this.obra_social_nombre_adicional_id = obra_social_nombre_adicional_id;
    }
 }

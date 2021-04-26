@@ -325,6 +325,7 @@ import { ChatNotificatorComponent } from './pages/chat/chat-notificator/chat-not
 import { BuscarComprobanteAfipComponent } from './pages/facturacion/factura-electronica/popups/buscar-comprobante-afip/buscar-comprobante-afip.component';
 import { UsuarioEditarComponent } from './pages/mantenimiento/usuario-editar/usuario-editar.component';
 import { UsuarioComponent } from './pages/mantenimiento/usuario/usuario/usuario.component';
+import { PopupDocumentacionDetalleComponent } from './shared/components/popups/popup-documentacion-detalle/popup-documentacion-detalle.component';
 
 
 
@@ -510,6 +511,8 @@ registerLocaleData(localeEsAR, 'es-Ar');
     UsuarioModuloComponent,
     UsuarioModuloOldComponent,
     UsuarioPasswordComponent,
+    PopupDocumentacionDetalleComponent,
+
   ],
   imports: [
 
@@ -615,7 +618,8 @@ PopupMovimientoCuentaEditarComponent,
 PopupMovimientoTipoComprobanteEditarComponent,
 PopupMovimientoComponent,
 PopupMovimientoFindFacturaComponent,
-PopupMovimientoFindPacienteCobroComponent
+PopupMovimientoFindPacienteCobroComponent,
+PopupDocumentacionDetalleComponent
 
   ],
   // tslint:disable-next-line: max-line-length

@@ -128,7 +128,7 @@
 
         <div class="justify-content-between mb-2" >
             <div  class="d-flex justify-content-between">
-                <div class="d-flex justify-content-start">
+                <div class="d-flex justify-content-start" *ngIf="!!medico_nombre && !!this.usuario_id && !! this.formPaciente.value.obra_social_nombre_adicional_id">
                     <form  [formGroup]="DateForm">
                     <p-calendar formControlName="fechaHoy"   (onSelect)="actualizarFecha($event)" tabindex="0"  [locale]="es" dateFormat="dd/mm/yy "  [disabledDates]="invalidDates" [readonlyInput]="true">
                         <ng-template pTemplate="date" let-date>

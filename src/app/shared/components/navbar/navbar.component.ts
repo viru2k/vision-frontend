@@ -18,6 +18,7 @@ import { NotificacionesService } from './../../../services/notificaciones.servic
 import { ChatService } from './../../../services/chat-service.service';
 import { MessengerService } from './../../../services/messenger.service';
 import { Subscription } from 'rxjs';
+import { PopupDocumentacionDetalleComponent } from '../popups/popup-documentacion-detalle/popup-documentacion-detalle.component';
 
 
 @Component({
@@ -74,7 +75,7 @@ export class NavbarComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private miServico:UserService,
-    private chatService: ChatService) { 
+    private chatService: ChatService) {
 
   }
  navbarOpen = false;
@@ -90,8 +91,8 @@ export class NavbarComponent implements OnInit {
    $(document).ready
    (function ($) {
      'use strict';
- 
- 
+
+
      /*==================================================================
      [ Focus Contact2 ]*/
      $('.input100').each(function() {
@@ -102,51 +103,51 @@ export class NavbarComponent implements OnInit {
              else {
                  $(this).removeClass('has-val');
              }
-         })    
+         })
      })
-   
-   
+
+
      /*==================================================================
      [ Validate ]*/
      var input = $('.validate-input .input100');
- 
+
      $('.validate-form').on('submit',function() {
          var check = true;
- 
+
          for(var i=0; i<input.length; i++) {
              if(validate(input[i]) == false) {
                  showValidate(input[i]);
                  check=false;
              }
          }
- 
+
          return check;
      });
- 
- 
+
+
      $('.validate-form .input100').each(function() {
          $(this).focus(function() {
             hideValidate(this);
          });
      });
- 
+
      function validate (input) {
       return false;
      }
- 
+
      function showValidate(input) {
          var thisAlert = $(input).parent();
- 
+
          $(thisAlert).addClass('alert-validate');
      }
- 
+
      function hideValidate(input) {
          var thisAlert = $(input).parent();
- 
+
          $(thisAlert).removeClass('alert-validate');
      }
-     
- 
+
+
  });
 
  $('.notification-icon').click(function(e) {
@@ -154,7 +155,7 @@ export class NavbarComponent implements OnInit {
 	that.toggleClass("active "+ that.attr("data-active-icon") + " " + that.attr("data-icon"));
 });
 
- 
+
      /*======== FIN JQUERY DEL LOGUIN =========*/
 
     this.loginForm = this.formBuilder.group({
@@ -164,7 +165,7 @@ export class NavbarComponent implements OnInit {
   });
 
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-   
+
 if(currentUser['access_token'] != '') {
   let userData = JSON.parse(localStorage.getItem('userData'));
   console.log(userData);
@@ -186,12 +187,12 @@ if(currentUser['access_token'] != '') {
   console.log('sin credenciales');
   this.throwAlert('error','Usuario o contraseña incorrectos',  'Verifique el usuario y contraseña, su sesion puede haber expirado','500');
 }
-   
+
 }
 
 accion(evt:any,overlaypanel:OverlayPanel) {
   if(event) {
-    
+
   }
   console.log(event);
 
@@ -263,13 +264,13 @@ asignarModulos(modulos: any) {
 
   /** DESPUES DE ASIGNAR MODULOS VERIFICO LAS NOTIFICACIONES */
 
- 
+
 }
 
 
 
 cargarListaChat() {
-  
+
   this.loading = true;
   this.loading_mensaje = 'Obteniendo contactos de chat';
   let userData = JSON.parse(localStorage.getItem('userData'));
@@ -279,7 +280,7 @@ cargarListaChat() {
      this.lista_usuarios_chat = resp;
       console.log(this.lista_usuarios_chat);
       this.loading = false;
-    
+
 
       },
       error => { // error path
@@ -294,6 +295,25 @@ cargarListaChat() {
   }
 
 
+}
+
+micuenta() {
+
+
+}
+
+documentacion():void {
+
+  let data:any;
+  const ref = this.dialogService.open(PopupDocumentacionDetalleComponent, {
+  data,
+   header: 'Documentación sobre el sistema',
+   width: '98%',
+   height: '90%'
+  });
+  ref.onClose.subscribe((PopupDocumentacionDetalleComponent : any) => {
+
+});
 }
 
 cerrarSesion() {
@@ -311,7 +331,7 @@ cerrarSesion() {
     imageWidth: 128,
 }).then((result) => {
   if (result.value) {
-   
+
   console.log('sesion terminada');
   this.authenticationService.logout();
   this.loggedIn =false;
@@ -345,7 +365,7 @@ cerrarSesion() {
 get f() { return this.loginForm.controls; }
 
 onSubmit() {
-   
+
   this.submitted = true;
 
   // stop here if form is invalid
@@ -368,11 +388,11 @@ onSubmit() {
             this.loadUser();
           },
           error => {
-            
+
             console.log(error);
-            
+
             if(error === 'The user credentials were incorrect.') {
-              this.loading_error = true; 
+              this.loading_error = true;
               this.loading = false;
               this.loading_mensaje = '';
             }else{
@@ -380,7 +400,7 @@ onSubmit() {
               this.loading_mensaje = '';
             }
               this.error = error;
-              
+
           });
 }
 
@@ -408,7 +428,7 @@ try {
        this.puesto = userData['puesto'];
        localStorage.removeItem('userData');
        localStorage.setItem('userData', JSON.stringify(this.user));
-       
+
        this.asignarModulos(this.elementoModulo);
      // console.log(this.user);
         this.loading = false;
@@ -424,10 +444,10 @@ try {
         localStorage.setItem('error', JSON.stringify(error));
         this.loading_mensaje = '';
     //    this.throwAlert('error','Error: '+error.status+'  Error al cargar los registros',error.message);
-     });    
+     });
 } catch (error) {
 //  this.throwAlert('error','Error al cargar los registros',error);
-}  
+}
 }
 
 
@@ -437,7 +457,7 @@ menuList() {
 
     {
 
-      label: 'Recepción', 
+      label: 'Recepción',
       visible: !this.recepcion_consulta,
       items: [
         {label: 'Agenda recepción', visible: !this.recepcion_consulta, 'routerLink': 'recepcion/agenda'},
@@ -722,7 +742,7 @@ throwAlert(estado: string, mensaje: string, motivo: string, errorNumero: string)
 
   if(errorNumero =='422') {
     mensaje ='Los datos que esta tratando de guardar son iguales a los que ya poseia';
-    swal({   
+    swal({
         type: 'warning',
         title: 'Atención..',
         text: mensaje,
@@ -732,7 +752,7 @@ throwAlert(estado: string, mensaje: string, motivo: string, errorNumero: string)
 
 if(errorNumero =='99') {
   mensaje ='Debe seleccionar un paciente antes de cargar las prácticas';
-  swal({   
+  swal({
       type: 'warning',
       title: 'Atención..',
       text: mensaje,
@@ -742,7 +762,7 @@ if(errorNumero =='99') {
 
 if(errorNumero =='100') {
   mensaje ='El paciente posee una obra social que no esta habilitada';
-  swal({   
+  swal({
       type: 'warning',
       title: 'Atención..',
       text: mensaje,
@@ -750,15 +770,15 @@ if(errorNumero =='100') {
     })
 }
   if(estado == 'warning') {
-    
-    swal({   
+
+    swal({
         type: 'warning',
         title: 'Atención..',
         text: mensaje,
         footer: motivo
       })
   }
-  
+
   if((estado== 'error') && (errorNumero!='422')) {
     if(errorNumero === '422') {
         mensaje ='Los datos que esta tratando de guardar son iguales a los que ya poseia';
@@ -787,8 +807,8 @@ if(errorNumero =='100') {
     if(errorNumero === '502') {
         mensaje ='Bad gateway';
     }
-    
-      swal({   
+
+      swal({
           type: 'error',
           title: 'Oops...',
           text: mensaje,
@@ -801,27 +821,27 @@ if(errorNumero =='100') {
 
 
 verNotificacion() {
-  let data:any; 
-  //data = this.popItemAgenda;  
+  let data:any;
+  //data = this.popItemAgenda;
   const ref = this.dialogService.open(PopupNotificacionComponent, {
   data,
-   header: 'Notificaciones', 
+   header: 'Notificaciones',
    width: '98%',
    height: '80%'
   });
 
   ref.onClose.subscribe((PopupNotificacionComponent:any) => {
-      if (PopupNotificacionComponent) {        
+      if (PopupNotificacionComponent) {
       }
   });
 }
 
 verChat() {
-  let data:any; 
+  let data:any;
 
   const ref = this.dialogService.open(PopupChatComponent, {
   data,
-   header: 'Chat', 
+   header: 'Chat',
    width: '98%',
    height: '80%'
   });
@@ -865,8 +885,8 @@ getNotificacionesByUsuario() {
       error => { // error path
           console.log(error);
 
-         
-       });    
+
+       });
   } catch (error) {
  // this.throwAlert('error','Error al cargar los registros',error,error.status);
   }

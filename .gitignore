@@ -2,6 +2,8 @@
 
 # compiled output
 /dist
+/dist/vision-frontend
+/vision-frontend/dist/vision-frontend
 /tmp
 /out-tsc
 # Only exists if Bazel was run
