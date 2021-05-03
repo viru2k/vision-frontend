@@ -170,35 +170,36 @@ export class PopupOperacionCobroRegistroBuscarTodosComponent implements OnInit {
             this.elemento = elementos;
           }
 
-            console.log(this.elementos);
+         //   console.log(this.elementos);
             overlaypanel.toggle(event);
           }
 
         onRowSelect(event) {
             this.elemento = event.data;
-            console.log(this.elementos);
+           // console.log(this.elementos);
             this.loadList();
         }
 
           actualizarFechaDesde(event){
-              console.log(event);
+          //    console.log(event);
               this.fechaDesde = event;
-              console.log(new Date(this.fechaDesde));
+         //     console.log(new Date(this.fechaDesde));
             }
 
             actualizarFechaHasta(event){
-              console.log(event);
+           //   console.log(event);
               this.fechaHasta = event;
-              console.log(new Date(this.fechaHasta));
+           //   console.log(new Date(this.fechaHasta));
             }
 
 
 loadList(){
+  console.log(this.elemento);
   this.es = calendarioIdioma;
   this.loading = true;
   try {
 
-      this.miServicio.getOperacionCobroRegistrosByPaciente(this.selectedItemPaciente['id'])
+      this.miServicio.getOperacionCobroRegistrosByPaciente(this.elemento['id'])
       .subscribe(resp => {
         if (resp[0]) {
           this.realizarFiltroBusqueda(resp);
