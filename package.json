@@ -29,7 +29,7 @@
     "animate.css": "^3.7.0",
     "bootstrap": "^4.0.0",
     "canvas": "^2.6.0",
-    "chart.js": "^2.7.2",
+    "chart.js": "^2.9.4",
     "file-saver": "^2.0.2",
     "font-awesome": "~4.7.x",
     "fullcalendar": "^4.0.0-alpha",
