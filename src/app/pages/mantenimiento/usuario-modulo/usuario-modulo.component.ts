@@ -1,23 +1,14 @@
-import { AlertServiceService } from './../../../../services/alert-service.service';
 import { Component, OnInit } from '@angular/core';
-import { UsuarioModulo } from '../../../../models/user-modulo.model';
-import { User } from '../../../../models/user.model';
-import { UserService } from '../../../../services/user.service';
-import swal from 'sweetalert2';
-
-
-
-
-import { DialogService } from 'primeng/components/common/api';
-import { MessageService, DynamicDialogRef, DynamicDialogConfig } from 'primeng/api';
-
+import { MessageService, DialogService, DynamicDialogConfig } from 'primeng/api';
+import { AlertServiceService } from './../../../services/alert-service.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-usuario-modulo',
   templateUrl: './usuario-modulo.component.html',
-  styleUrls: ['./usuario-modulo.component.css']
+  styleUrls: ['./usuario-modulo.component.scss']
 })
-export class UsuarioModuloComponent implements OnInit {
+export class UsuarioModuloOldComponent implements OnInit {
 
   cols: any[];
   columns: any[];
@@ -31,9 +22,7 @@ export class UsuarioModuloComponent implements OnInit {
   mensaje: string;
 
   // tslint:disable-next-line: max-line-length
-  constructor(public config: DynamicDialogConfig, private userService: UserService,
-    private alertServiceService: AlertServiceService,
-    public dialogService: DialogService, private messageService: MessageService) { }
+  constructor(public config: DynamicDialogConfig, private userService: UserService, private alertServiceService: AlertServiceService,  public dialogService: DialogService, private messageService: MessageService) { }
 
   ngOnInit() {
 

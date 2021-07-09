@@ -25,7 +25,10 @@ export class PopupTurnoUsuarioObraSocialComponent implements OnInit {
   selectedItemObraSocial:ObraSocial;
   selectedItemMedico:MedicoObraSocial;
   radioselected: string = 'obrasocial';
-  constructor(private medicoObraSocialServicio:MedicoObraSocialService, public ref: DynamicDialogRef, private obraSocialServicio:ObraSocialService ,private medicoServicio:MedicoService ,private messageService: MessageService ,public dialogService: DialogService ) { 
+  constructor(private medicoObraSocialServicio:MedicoObraSocialService,
+    public ref: DynamicDialogRef,
+    private obraSocialServicio:ObraSocialService ,
+    private medicoServicio:MedicoService ,private messageService: MessageService ,public dialogService: DialogService ) {
 
    /*  this.colsMedico = [
       {field: 'nombre', header: 'Apellido' },
@@ -33,7 +36,7 @@ export class PopupTurnoUsuarioObraSocialComponent implements OnInit {
     ]; */
     this.cols = [
       {field: 'apellido', header: 'Apellido',   width: '20%'  },
-      { field: 'nombre', header: 'Nombre' ,  width: '20%' },      
+      { field: 'nombre', header: 'Nombre' ,  width: '20%' },
    ];
 
      this.colsObraSocial = [
@@ -42,18 +45,19 @@ export class PopupTurnoUsuarioObraSocialComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
     this.loadListObraSocial();
   }
 
-  
+
   loadListObraSocial(){
-  
+
   this.loading = true;
+
   try {
-      this.obraSocialServicio.getItems()    
+      this.obraSocialServicio.getItems()
       .subscribe(resp => {
-      this.obrasocial = resp;                 
+      this.obrasocial = resp;
           this.loading = false;
           console.log(resp);
       },
@@ -61,19 +65,20 @@ export class PopupTurnoUsuarioObraSocialComponent implements OnInit {
           console.log(error.message);
           console.log(error.status);
           this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message, error.status);
-       });    
+       });
   } catch (error) {
   this.throwAlert("error","Error al cargar los registros",error,error.status);
-  }  
+  }
 }
 
 loadListMedico(){
-  
+
   this.loading = true;
+
   try {
-      this.medicoServicio.getItems()    
+      this.medicoServicio.getItems()
       .subscribe(resp => {
-      this.medico = resp;                 
+      this.medico = resp;
           this.loading = false;
           console.log(resp);
       },
@@ -81,20 +86,20 @@ loadListMedico(){
           console.log(error.message);
           console.log(error.status);
           this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message, error.status);
-       });    
+       });
   } catch (error) {
   this.throwAlert("error","Error al cargar los registros",error,error.status);
-  }  
+  }
 }
 
-/* 
+/*
 FindByListMedico(){
-  
+
   this.loading = true;
   try {
-      this.medicoObraSocialServicio.getItemsByMedico()    
+      this.medicoObraSocialServicio.getItemsByMedico()
       .subscribe(resp => {
-      this.medicoObraSocial = resp;                 
+      this.medicoObraSocial = resp;
           this.loading = false;
           console.log(resp);
       },
@@ -102,20 +107,24 @@ FindByListMedico(){
           console.log(error.message);
           console.log(error.status);
           this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message, error.status);
-       });    
+       });
   } catch (error) {
   this.throwAlert("error","Error al cargar los registros",error,error.status);
-  }  
+  }
 }
  */
 
 FindByListObraSocial(){
-  
+
   this.loading = true;
+  this.medicoObraSocial = null;
   try {
-      this.medicoObraSocialServicio.getItemByObraSocial(this.selectedItemObraSocial.id)    
+      this.medicoObraSocialServicio.getItemByObraSocial(this.selectedItemObraSocial.id)
       .subscribe(resp => {
-      this.medicoObraSocial = resp;                 
+        if(resp.length){
+          this.medicoObraSocial = resp;
+        }
+
           this.loading = false;
           console.log(resp);
       },
@@ -123,10 +132,10 @@ FindByListObraSocial(){
           console.log(error.message);
           console.log(error.status);
           this.throwAlert("error","Error: "+error.status+"  Error al cargar los registros",error.message, error.status);
-       });    
+       });
   } catch (error) {
   this.throwAlert("error","Error al cargar los registros",error,error.status);
-  }  
+  }
 }
 
 
@@ -206,8 +215,8 @@ throwAlert(estado:string, mensaje:string, motivo:string, errorNumero:string){
     if(errorNumero =="502"){
         mensaje ="Bad gateway";
     }
-    
-      swal({   
+
+      swal({
           type: 'error',
           title: 'Oops...',
           text: mensaje,
