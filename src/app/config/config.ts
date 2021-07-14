@@ -1,3 +1,4 @@
+
 export const URL_SERVICIOS = "http://localhost/api-vision/public/api/";
 export const config: SocketIoConfig = {
   url: "http://localhost:4444",
@@ -15,6 +16,7 @@ export const URL_ARCHIVO_SUBIDA = "http://localhost/api-vision/public/api/";
 //};
 //export const URL_ARCHIVO = "http://messageserver/api-vision/public/";
 //export const URL_ARCHIVO_SUBIDA = "http://messageserver/api-vision/public/api/";
+
 //
 /***********SERVER DE PRUEBAS ********************** */
 
@@ -23,9 +25,11 @@ export const URL_ARCHIVO_SUBIDA = "http://localhost/api-vision/public/api/";
 //export const URL_ARCHIVO = 'http://messageserver/api-vision/public/';
 //export const URL_ARCHIVO_SUBIDA = 'http://messageserver/api-vision/public/api/';
 
+
 export const VAPID_PUBLIC =
   "BNOJyTgwrEwK9lbetRcougxkRgLpPs1DX0YCfA5ZzXu4z9p_Et5EnvMja7MGfCqyFCY4FnFnJVICM4bMUcnrxWg"; // SIN USO
 import { SocketIoModule, SocketIoConfig } from "ngx-socket-io";
+
 
 export const PARAMS = "json=";
 
@@ -79,6 +83,7 @@ export const TIPO_CONCEPTO_IVA: any = [
   { name: "GRAVADO", code: "2" },
   { name: "NO GRAVADO", code: "3" },
 ];
+
 
 //export const URL_SERVICIOS = '/mascota-api-v1';
 
