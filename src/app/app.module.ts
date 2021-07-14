@@ -1,5 +1,8 @@
+import { UsuarioNewComponent } from './pages/mantenimiento/usuario/usuario.component';
+import { UsuarioModuloOldComponent } from './pages/mantenimiento/usuario-modulo/usuario-modulo.component';
+import { UsuarioPasswordComponent } from './pages/mantenimiento/usuario-password/usuario-password.component';
 
-/* 
+/*
 In primeng/components/table/table.d.ts
 Replace
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
@@ -51,6 +54,7 @@ import {ScrollPanelModule} from 'primeng/scrollpanel';
 import {PanelModule} from 'primeng/panel';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {InputSwitchModule} from 'primeng/inputswitch';
+import {ToggleButtonModule} from 'primeng/togglebutton';
 import localeEsAR from '@angular/common/locales/es-AR';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { AutofocusModule } from 'angular-autofocus-fix';
@@ -274,7 +278,6 @@ import { PopupAccesoAutorizacionOsComponent } from './shared/components/popups/p
 import { PopupAccesoAutorizacionOsEditarComponent } from './shared/components/popups/popup-acceso-autorizacion-os-editar/popup-acceso-autorizacion-os-editar.component';
 import { PopupPacienteAmpliadoComponent } from './pages/mantenimiento/popup/popup-paciente/popup-paciente-ampliado.component';
 import { ListadoCirugiaSinUsoComponent } from './pages/quirofano/listado-cirugia/listado-cirugia-sin-uso.component';
-import { UsuarioComponent } from './pages/mantenimiento/usuario/usuario/usuario.component';
 import { PopupUsuarioEditarComponent } from './pages/mantenimiento/usuario/popup-usuario-editar/popup-usuario-editar.component';
 // tslint:disable-next-line: max-line-length
 import { PopupUsuarioEditarPasswordComponent } from './pages/mantenimiento/usuario/popup-usuario-editar-password/popup-usuario-editar-password.component';
@@ -320,7 +323,9 @@ import { PopupProveedorEditarComponent } from './pages/mantenimiento/popup/popup
 import { PopupProveedorFindComponent } from './shared/components/popups/popup-proveedor-find/popup-proveedor-find.component';
 import { ChatNotificatorComponent } from './pages/chat/chat-notificator/chat-notificator.component';
 import { BuscarComprobanteAfipComponent } from './pages/facturacion/factura-electronica/popups/buscar-comprobante-afip/buscar-comprobante-afip.component';
-
+import { UsuarioEditarComponent } from './pages/mantenimiento/usuario-editar/usuario-editar.component';
+import { UsuarioComponent } from './pages/mantenimiento/usuario/usuario/usuario.component';
+import { PopupDocumentacionDetalleComponent } from './shared/components/popups/popup-documentacion-detalle/popup-documentacion-detalle.component';
 
 
 
@@ -374,8 +379,8 @@ registerLocaleData(localeEsAR, 'es-Ar');
     AgendaMedicoComponent,
     PopupUsuarioComponent,
     PopupTurnoUsuarioObraSocialComponent,
+    PopupUsuarioComponent,
     DateFormatPipe,
-    UsuarioModuloComponent,
     PopupPacienteObrasocialComponent,
     PopupPracticaPorcentajeComponent,
     PopupObraSocialMedicoComponent,
@@ -398,7 +403,6 @@ registerLocaleData(localeEsAR, 'es-Ar');
     NotFoundComponent,
     ListadoCirugiaComponent,
     PopupLentesComponent,
-    UsuarioModuloComponent,
     LiquidacionDetalleComponent,
     ConfeccionFacturaComponent,
     PopupFichaQuirurgicaLenteComponent,
@@ -462,7 +466,6 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupArticuloComponent,
     PopupPacienteAmpliadoComponent,
     ListadoCirugiaSinUsoComponent,
-    UsuarioComponent,
     PopupUsuarioEditarComponent,
     PopupUsuarioEditarPasswordComponent,
     CirugiaEditarComponent,
@@ -501,7 +504,14 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupProveedorEditarComponent,
     PopupProveedorFindComponent,
     ChatNotificatorComponent,
-    BuscarComprobanteAfipComponent
+    BuscarComprobanteAfipComponent,
+    UsuarioComponent,
+    UsuarioNewComponent,
+    UsuarioEditarComponent,
+    UsuarioModuloComponent,
+    UsuarioModuloOldComponent,
+    UsuarioPasswordComponent,
+    PopupDocumentacionDetalleComponent,
 
   ],
   imports: [
@@ -537,6 +547,7 @@ registerLocaleData(localeEsAR, 'es-Ar');
     ProgressSpinnerModule,
     PanelModule,
     InputSwitchModule,
+    ToggleButtonModule,
     AutoCompleteModule,
     Ng2SearchPipeModule,
     SweetAlert2Module.forRoot(),
@@ -573,7 +584,12 @@ registerLocaleData(localeEsAR, 'es-Ar');
     PopupLiquidacionDetalleComponent, PopupArticuloComponent, PopupOperacionCobroEditarDistribucionComponent,
     PopupPacienteComponent, ListadoCirugiaComponent, PopupArticuloComponent, PopupOperacionCobroDistribucionMultipleComponentComponent,
     PopupProveedorFindComponent, PopupProveedorEditarComponent, BuscarComprobanteAfipComponent,
- 
+    /** usuario */
+    PopupUsuarioComponent,
+    UsuarioModuloComponent,
+    UsuarioEditarComponent,
+    UsuarioPasswordComponent,
+
 
 /* -------------------------------------------------------------------------- */
 /*                                    CHAT                                    */
@@ -602,11 +618,13 @@ PopupMovimientoCuentaEditarComponent,
 PopupMovimientoTipoComprobanteEditarComponent,
 PopupMovimientoComponent,
 PopupMovimientoFindFacturaComponent,
-PopupMovimientoFindPacienteCobroComponent
+PopupMovimientoFindPacienteCobroComponent,
+PopupDocumentacionDetalleComponent
 
   ],
   // tslint:disable-next-line: max-line-length
-  providers: [CurrencyPipe, DecimalPipe, NumberToWordsPipe, PacienteService, PushNotificationService, ExcelService, { provide: LOCALE_ID, useValue: 'es-Ar' },
+  providers: [CurrencyPipe, DecimalPipe, NumberToWordsPipe, PacienteService,
+    PushNotificationService, ExcelService, { provide: LOCALE_ID, useValue: 'es-Ar' },
   MultiSelectModule,
  {
   provide: HTTP_INTERCEPTORS,
