@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
 
   user: User;
   loggedIn = false;
-  general: MenuItem[];
+  general: MenuItem[] = [];
   mantenimiento_stock_insumo = true;
   mantenimiento_stock_lente = true;
   mantenimiento_otros = true;
