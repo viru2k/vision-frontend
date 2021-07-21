@@ -1,60 +1,104 @@
-
-<div >
-    <app-loading *ngIf="loading"> </app-loading> 
-   
+<div>
+  <app-loading *ngIf="loading"> </app-loading>
 </div>
 
- 
 <div class="row" *ngIf="!loading">
+  <p-table
+    #dt
+    class="pt-2"
+    tableStyleClass="prime-table"
+    selectionMode="single"
+    [columns]="cols"
+    [value]="elementos"
+    [loading]="loading"
+    [(selection)]="selectedItem"
+    columnResizeMode="expand"
+    [responsive]="true"
+    scrollHeight="500px"
+    [scrollable]="true"
+    loadingIcon="fas fa-spinner fa-2x icon-color-green"
+  >
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th
+          *ngFor="let col of columns"
+          [pSortableColumn]="col.field"
+          [ngStyle]="{ width: col.width }"
+        >
+          {{ col.header }}
+          <p-sortIcon
+            [field]="col.field"
+            ariaLabel="Activate to sort"
+            ariaLabelDesc="Activate to sort in descending order"
+            ariaLabelAsc="Activate to sort in ascending order"
+          ></p-sortIcon>
+        </th>
+      </tr>
 
-        <p-table #dt id="dataTable"  [columns]="cols" [autoLayout]="true" [value]="elementos" selectionMode="single" [resizableColumns]="true"
-         [(selection)]="selectedItem" (onRowSelect)="showDialogToUpdate($event)"  [scrollable]="true" scrollHeight="400px">
-        <ng-template pTemplate="caption">
-                <div class="row">
-                        <div class="col-md-7" style="text-align:left">
-                                <button type="button" class="btn btn-info btn-md" (click)="showDialogToAdd()" >Nuevo</button>                               
-                        </div> 
-                <div class="col-md-5" style="text-align:right">                                
-                    <input  class="form-control col-md-12 form-control-sm" type="text"  placeholder="Buscar en toda la tabla" (input)="dt.filterGlobal($event.target.value, 'contains')" >
-                </div>
-        </div>
-            </ng-template>
-        <ng-template pTemplate="header" let-columns >
+      <tr>
+        <th *ngFor="let col of columns" [ngSwitch]="col.field">
+          <input
+            style="font-size: 12px"
+            class="form-control col-md-12 form-control-sm"
+            *ngSwitchCase="'apellido'"
+            pInputText
+            type="text"
+            (input)="dt.filter($event.target.value, col.field, 'contains')"
+          />
+          <input
+            style="font-size: 12px"
+            class="form-control col-md-12 form-control-sm"
+            *ngSwitchCase="'nombre'"
+            pInputText
+            type="text"
+            (input)="dt.filter($event.target.value, col.field, 'contains')"
+          />
+          <input
+            style="font-size: 12px"
+            class="form-control col-md-12 form-control-sm"
+            *ngSwitchCase="'fecha_matricula'"
+            pInputText
+            type="text"
+            (input)="dt.filter($event.target.value, col.field, 'contains')"
+          />
+          <input
+            style="font-size: 12px"
+            class="form-control col-md-12 form-control-sm"
+            *ngSwitchCase="'domicilio'"
+            pInputText
+            type="text"
+            (input)="dt.filter($event.target.value, col.field, 'contains')"
+          />
+          <input
+            style="font-size: 12px"
+            class="form-control col-md-12 form-control-sm"
+            *ngSwitchCase="'telefono_cel'"
+            pInputText
+            type="text"
+            (input)="dt.filter($event.target.value, col.field, 'contains')"
+          />
+        </th>
+        <th></th>
+      </tr>
+    </ng-template>
 
-                <tr>
-                    <th  *ngFor="let col of columns" [pSortableColumn]="col.field"  >
-                        {{col.header}}
-                        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
-                    </th>
-                    
-                </tr>
-                <tr>
-                    <th *ngFor="let col of columns" [ngSwitch]="col.field" >
-                        <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'apellido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-                        <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'nombre'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">                       
-                        <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'fecha_matricula'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-                        <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'domicilio'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-                        <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'telefono_cel'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-                        <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'cuit'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-                        <input class="form-control col-md-12 form-control-sm" *ngSwitchCase="'ing_brutos'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-
-                    </th>
-                    
-                </tr>
-            </ng-template>
-     
-            <ng-template pTemplate="body" let-elementos>
-                        <tr [pSelectableRow]="elementos" >
-                            <td>{{elementos.apellido}}</td>
-                            <td>{{elementos.nombre}}</td>                            
-                            <td>{{elementos.fecha_matricula | date: 'dd/MM/yyyy'}}</td>
-                            <td>{{elementos.domicilio}}</td>
-                            <td>{{elementos.telefono_cel}}</td>                        
-                            <td>{{elementos.cuit}}</td>   
-                            <td>{{elementos.ing_brutos}}</td>   
-                        </tr>
-            </ng-template>
-                   
-        </p-table>
-   
+    <ng-template pTemplate="body" let-elementos>
+      <tr style="height: 24px">
+        <td style="width: 30%">{{ elementos.apellido }}</td>
+        <td style="width: 30%">{{ elementos.nombre }}</td>
+        <td style="width: 20%">
+          {{ elementos.fecha_matricula | date: "dd/MM/yyyy" }}
+        </td>
+        <td style="width: 20%">{{ elementos.domicilio }}</td>
+        <td style="width: 10%">{{ elementos.telefono_cel }}</td>
+        <td style="width: 10%">{{ elementos.cuit }}</td>
+        <td style="width: 10%">{{ elementos.ing_brutos }}</td>
+        <td style="width: 10%">
+          <a (click)="editarPermiso(elementos)" class="icon-hover">
+            <i class="far fa-list-alt icono-success fa-lg"></i
+          ></a>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>

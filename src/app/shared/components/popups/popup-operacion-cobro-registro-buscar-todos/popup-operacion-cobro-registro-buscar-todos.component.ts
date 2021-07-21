@@ -46,6 +46,7 @@ export class PopupOperacionCobroRegistroBuscarTodosComponent implements OnInit {
   updateDataForm: FormGroup;
   formObraSocial: FormGroup;
   elemento:OperacionCobroDetalle = null;
+  element :OperacionCobroDetalle = null;
   elementos:OperacionCobroDetalle[] = null;
   elementospaciente: Paciente[] = null;
   elementosFiltrados:OperacionCobroDetalle[] = null;
@@ -165,12 +166,14 @@ export class PopupOperacionCobroRegistroBuscarTodosComponent implements OnInit {
         }
 
 
-        accion(event:OperacionCobroDetalle,overlaypanel: OverlayPanel,elementos:OperacionCobroDetalle){
-          if(elementos){
-            this.elemento = elementos;
+
+        accion(event:OperacionCobroDetalle,overlaypanel: OverlayPanel,elemen:OperacionCobroDetalle){
+          if(elemen){
+            this.element = elemen;
           }
 
-         //   console.log(this.elementos);
+            console.log(elemen);
+
             overlaypanel.toggle(event);
           }
 
@@ -247,7 +250,9 @@ operacionCobro(){
 
 editarRegistro(){
   let data:any;
-  data = this.selecteditemRegistro;
+
+  data = this.element;
+
   const ref = this.dialogService.open(PopupOperacionCobroRegistroEditarComponent, {
   data,
    header: 'Editar registro',
@@ -270,7 +275,9 @@ editarRegistro(){
 
 editarOperacionCobro(){
   let data:any;
-  data = this.selecteditemRegistro;
+
+  data = this.element;
+
   const ref = this.dialogService.open(PopupOperacionCobroEditarComponent, {
   data,
    header: 'Editar registro',
