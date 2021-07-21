@@ -29,11 +29,11 @@
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/nova-light/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/fullcalendar/dist/fullcalendar.min.css",    
-              "src/styles.scss",              
+              "node_modules/fullcalendar/dist/fullcalendar.min.css",
+              "src/styles.scss",
               "src/assets/sass/now-ui-kit.scss",
               "src/assets/css/demo.css",
-               "src/assets/sass/mis-estilos/notificaciones.scss",
+              "src/assets/sass/mis-estilos/notificaciones.scss",
               "node_modules/font-awesome/scss/font-awesome.scss"
             ],
             "scripts": [
@@ -55,7 +55,6 @@
               ],
               "optimization": false,
               "outputHashing": "all",
-              
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
@@ -145,5 +144,8 @@
       }
     }
   },
-  "defaultProject": "vision-frontend"
+  "defaultProject": "vision-frontend",
+  "cli": {
+    "analytics": "d99126ed-4501-40d7-a479-aebc8b59b48b"
+  }
 }
